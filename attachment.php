@@ -3,8 +3,8 @@
  * The template for displaying attachments.
  *
  * @package WordPress
- * @subpackage county_ext
- * @since county_ext 1.0
+ * @subpackage agriflex
+ * @since agriflex 1.0
  */
 
 get_header(); ?>
@@ -14,9 +14,9 @@ get_header(); ?>
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-				<p class="page-title"><a href="<?php echo get_permalink( $post->post_parent ); ?>" title="<?php esc_attr( printf( __( 'Return to %s', 'county_ext' ), get_the_title( $post->post_parent ) ) ); ?>" rel="gallery"><?php
+				<p class="page-title"><a href="<?php echo get_permalink( $post->post_parent ); ?>" title="<?php esc_attr( printf( __( 'Return to %s', 'agriflex' ), get_the_title( $post->post_parent ) ) ); ?>" rel="gallery"><?php
 					/* translators: %s - title of parent post */
-					printf( __( '<span class="meta-nav">&larr;</span> %s', 'county_ext' ), get_the_title( $post->post_parent ) );
+					printf( __( '<span class="meta-nav">&larr;</span> %s', 'agriflex' ), get_the_title( $post->post_parent ) );
 				?></a></p>
 
 				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -24,18 +24,18 @@ get_header(); ?>
 
 					<div class="entry-meta">
 						<?php
-							printf(__('<span class="%1$s">By</span> %2$s', 'county_ext'),
+							printf(__('<span class="%1$s">By</span> %2$s', 'agriflex'),
 								'meta-prep meta-prep-author',
 								sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
 									get_author_posts_url( get_the_author_meta( 'ID' ) ),
-									sprintf( esc_attr__( 'View all posts by %s', 'county_ext' ), get_the_author() ),
+									sprintf( esc_attr__( 'View all posts by %s', 'agriflex' ), get_the_author() ),
 									get_the_author()
 								)
 							);
 						?>
 						<span class="meta-sep">|</span>
 						<?php
-							printf( __('<span class="%1$s">Published</span> %2$s', 'county_ext'),
+							printf( __('<span class="%1$s">Published</span> %2$s', 'agriflex'),
 								'meta-prep meta-prep-entry-date',
 								sprintf( '<span class="entry-date"><abbr class="published" title="%1$s">%2$s</abbr></span>',
 									esc_attr( get_the_time() ),
@@ -45,17 +45,17 @@ get_header(); ?>
 							if ( wp_attachment_is_image() ) {
 								echo ' <span class="meta-sep">|</span> ';
 								$metadata = wp_get_attachment_metadata();
-								printf( __( 'Full size is %s pixels', 'county_ext'),
+								printf( __( 'Full size is %s pixels', 'agriflex'),
 									sprintf( '<a href="%1$s" title="%2$s">%3$s &times; %4$s</a>',
 										wp_get_attachment_url(),
-										esc_attr( __('Link to full-size image', 'county_ext') ),
+										esc_attr( __('Link to full-size image', 'agriflex') ),
 										$metadata['width'],
 										$metadata['height']
 									)
 								);
 							}
 						?>
-						<?php edit_post_link( __( 'Edit', 'county_ext' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
+						<?php edit_post_link( __( 'Edit', 'agriflex' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
 					</div><!-- .entry-meta -->
 
 					<div class="entry-content">
@@ -81,7 +81,7 @@ get_header(); ?>
 	}
 ?>
 						<p class="attachment"><a href="<?php echo $next_attachment_url; ?>" title="<?php echo esc_attr( get_the_title() ); ?>" rel="attachment"><?php
-							$attachment_size = apply_filters( 'county_ext_attachment_size', 900 );
+							$attachment_size = apply_filters( 'agriflex_attachment_size', 900 );
 							echo wp_get_attachment_image( $post->ID, array( $attachment_size, 9999 ) ); // filterable image width with, essentially, no limit for image height.
 						?></a></p>
 
@@ -95,14 +95,14 @@ get_header(); ?>
 						</div><!-- .entry-attachment -->
 						<div class="entry-caption"><?php if ( !empty( $post->post_excerpt ) ) the_excerpt(); ?></div>
 
-<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'county_ext' ) ); ?>
-<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'county_ext' ), 'after' => '</div>' ) ); ?>
+<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'agriflex' ) ); ?>
+<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'agriflex' ), 'after' => '</div>' ) ); ?>
 
 					</div><!-- .entry-content -->
 
 					<div class="entry-utility">
-						<?php county_ext_posted_in(); ?>
-						<?php edit_post_link( __( 'Edit', 'county_ext' ), ' <span class="edit-link">', '</span>' ); ?>
+						<?php agriflex_posted_in(); ?>
+						<?php edit_post_link( __( 'Edit', 'agriflex' ), ' <span class="edit-link">', '</span>' ); ?>
 					</div><!-- .entry-utility -->
 				</div><!-- #post-## -->
 

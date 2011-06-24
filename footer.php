@@ -6,8 +6,8 @@
  * after.  Calls sidebar-footer.php for bottom widgets.
  *
  * @package WordPress
- * @subpackage county_ext
- * @since county_ext 1.0
+ * @subpackage agriflex
+ * @since agriflex 1.0
  */
  $options = get_option('AgrilifeCountyOptions');
  GLOBAL $options;

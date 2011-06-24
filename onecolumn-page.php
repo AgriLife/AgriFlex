@@ -8,8 +8,8 @@
  * from a dropdown menu on the edit page screen.
  *
  * @package WordPress
- * @subpackage county_ext
- * @since county_ext 1.0
+ * @subpackage agriflex
+ * @since agriflex 1.0
  */
 
 get_header(); ?>
@@ -23,8 +23,8 @@ get_header(); ?>
 					<h1 class="entry-title"><?php the_title(); ?></h1>
 					<div class="entry-content">
 						<?php the_content(); ?>
-						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'county_ext' ), 'after' => '</div>' ) ); ?>
-						<?php edit_post_link( __( 'Edit', 'county_ext' ), '<span class="edit-link">', '</span>' ); ?>
+						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'agriflex' ), 'after' => '</div>' ) ); ?>
+						<?php edit_post_link( __( 'Edit', 'agriflex' ), '<span class="edit-link">', '</span>' ); ?>
 					</div><!-- .entry-content -->
 				</div><!-- #post-## -->
 

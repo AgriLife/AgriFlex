@@ -5,8 +5,8 @@
  * Displays all of the <head> section and everything up till <div id="main">
  *
  * @package WordPress
- * @subpackage county_ext
- * @since county_ext 1.0
+ * @subpackage agriflex
+ * @since agriflex 1.0
  */
  $options = get_option('AgrilifeCountyOptions');
     GLOBAL $options, $googlemap;
@@ -19,7 +19,7 @@
 	/*
 	 * Print the <title> tag based on what is being viewed.
 	 * We filter the output of wp_title() a bit -- see
-	 * county_ext_filter_wp_title() in functions.php.
+	 * agriflex_filter_wp_title() in functions.php.
 	 */
 	wp_title( '|', true, 'right' );
 
@@ -131,7 +131,7 @@
 				<?php get_search_form(); ?>
 				</div><!-- end .search -->		
 			  <?php /*  Allow screen readers / text browsers to skip the navigation menu and get right to the good stuff */ ?>
-				<div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'county_ext' ); ?>"><?php _e( 'Skip to content', 'county_ext' ); ?></a></div>
+				<div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'agriflex' ); ?>"><?php _e( 'Skip to content', 'agriflex' ); ?></a></div>
 				<?php /* Our navigation menu.  If one isn't filled out, wp_nav_menu falls back to wp_page_menu.  The menu assiged to the primary position is the one used.  If none is assigned, the menu with the lowest ID is used.  */ ?>
 				<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>			
 			</div><!-- #access -->

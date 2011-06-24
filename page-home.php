@@ -46,8 +46,8 @@ get_header(); ?>
 
 					<div class="entry-content">
 						<?php the_content(); ?>
-						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'county_ext' ), 'after' => '</div>' ) ); ?>
-						<?php edit_post_link( __( 'Edit', 'county_ext' ), '<span class="edit-link">', '</span>' ); ?>
+						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'agriflex' ), 'after' => '</div>' ) ); ?>
+						<?php edit_post_link( __( 'Edit', 'agriflex' ), '<span class="edit-link">', '</span>' ); ?>
 					</div><!-- .entry-content -->
 				</div><!-- #post-## -->
 
@@ -59,7 +59,7 @@ get_header(); ?>
 		<div class="home-middle-1">
 			<?php if (!dynamic_sidebar('Home Page Bottom')) : ?>
 			<div class="widget">
-				<h2><?php _e("Home Page Bottom Widget", 'county_ext'); ?></h2>
+				<h2><?php _e("Home Page Bottom Widget", 'agriflex'); ?></h2>
 				<p><?php _e("This is a widgeted area which is called Home Middle #1. To get started, log into your WordPress dashboard, and then go to the Appearance > Widgets screen. There you can drag the widget into the Home Middle #1 widget area on the right hand side. To get the image to display, simply upload an image through the media uploader on the edit post screen and publish your page. The Featured Page widget will know to display the post image as long as you select that option in the widget interface.", 'genesis'); ?></p>
 			</div>		
 			<?php endif; ?>

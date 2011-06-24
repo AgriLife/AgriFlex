@@ -3,8 +3,8 @@
  * The template for displaying Tag Archive pages.
  *
  * @package WordPress
- * @subpackage county_ext
- * @since county_ext 1.0
+ * @subpackage agriflex
+ * @since agriflex 1.0
  */
 
 get_header(); ?>
@@ -13,7 +13,7 @@ get_header(); ?>
 			<div id="content" role="main">
 
 				<h1 class="page-title"><?php
-					printf( __( 'Tag Archives: %s', 'county_ext' ), '<span>' . single_tag_title( '', false ) . '</span>' );
+					printf( __( 'Tag Archives: %s', 'agriflex' ), '<span>' . single_tag_title( '', false ) . '</span>' );
 				?></h1>
 
 <?php

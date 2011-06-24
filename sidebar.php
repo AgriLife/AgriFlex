@@ -3,8 +3,8 @@
  * The Sidebar containing the primary and secondary widget areas.
  *
  * @package WordPress
- * @subpackage county_ext
- * @since county_ext 1.0
+ * @subpackage agriflex
+ * @since agriflex 1.0
  */
 ?>
 <div id="aside">
@@ -26,7 +26,7 @@
 			</li>
 
 			<li id="meta" class="widget-container">
-				<h3 class="widget-title"><?php _e( 'Meta', 'county_ext' ); ?></h3>
+				<h3 class="widget-title"><?php _e( 'Meta', 'agriflex' ); ?></h3>
 				<ul>
 					<?php wp_register(); ?>
 					<li><?php wp_loginout(); ?></li>
