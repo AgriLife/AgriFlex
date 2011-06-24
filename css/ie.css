@@ -1,0 +1,323 @@
+body {
+background: #EAE8D9 url(images/tan-background.png) top left;
+}
+	
+p, li {
+	line-height: 1.6em;
+	font-size: 14px; 
+}
+
+#wrapper, #extension-section-nav #drop-nav, #extension-section .flow   {
+	max-width: 975px;
+}
+
+#extension-section-nav #drop-nav ul li a {
+	font-size: 14px;
+}
+
+#extension-section-nav #drop-nav ul li.right-align {
+	float: right;
+	display: inline;
+	font: italic 1.4em 'Cambria', georgia, serif;
+	margin-right: 10px;
+}
+body #header {
+	padding: 30px 0 20px 0;
+}		
+#site-title {
+	text-align: left;
+	width: 700px;
+	margin-top: 0;
+	padding: 0;
+	height: 110px;
+	margin-bottom: 0;			
+}
+
+#site-title a {
+	background: url(images/tx-state-regions.png) no-repeat -5px 5px;
+	font: 32px 'arno pro', georgia, serif;
+	margin-left: 10px;
+	padding: 20px 0 60px 85px;	
+}
+
+#site-title a em {
+	margin-left: 97px;
+	margin-top: -15px;
+	font-size: 1.4em;
+	font-style: normal;
+	font-weight: 400;
+	padding-left: 30px;		
+}
+	
+div.search {
+	width: 20em;		
+	margin-bottom: 0;		
+}
+
+div.search form {
+	position: absolute;
+	top: 17px;
+	right: 30px;		
+	margin: 0;	
+	width: 20em;
+	display: block;
+}
+
+div.search input.s {
+	background: #fff url('images/search.png') no-repeat 2px center;			
+}
+
+div.search input.s:hover {
+	background-color: #f7f7f7;			
+}
+
+div.search input.s:focus {
+	background-color: #fafafa;			
+}
+
+#access #menu-main-navigation {
+	width: 100%;
+	margin: 0;
+}
+
+body.home #content {
+	max-width: 100%;
+}
+
+#home-top {
+	display: block;
+	position: relative;
+	width: 574px;	
+	float: none;
+	margin: 0 auto 25px;
+	overflow: hidden;
+}
+
+#home-top #big-feature {
+	margin-left: 10px;
+	width: 100%;
+	height: 368px;	
+	overflow: hidden;
+	position: relative;
+	display: block;
+}
+
+#home-top #big-feature img {
+	max-height: 368px;
+	max-width: 100%;
+}
+
+#home-top #big-feature a {
+	border: none;
+}
+
+#home-top #big-feature .feature-detail {
+	display: block;	
+}
+
+#home-top #big-feature .feature-detail h2 a {
+	color: #fff;
+	font-size: 26px;
+	position: absolute;
+	background: #343434;
+	background: rgba(33,33,33,.65);	
+	top: 282px;
+	padding: 15px 60px 50px 20px;
+	display: block;	
+	line-height: 1.1em;
+}
+	
+#home-top #slideshow-nav {
+	position: relative;
+	z-index: 8;
+	margin-top: 1em;
+	float: right;
+}
+
+
+#home-middle-bg, #home-middle, .home-middle-1, #wrap, #container  {
+	width: 575px;
+}
+
+#home-middle h3.widget-title {
+	margin-bottom: 10px;
+	font-size: 2.7em;
+}
+
+#home-middle h3.widget-title a {
+	color: #444;
+	text-decoration: none;
+	border: none;
+}
+
+#home-middle h3.widget-title a:hover {
+	color: #333;
+	text-decoration: none;
+	border-bottom: 1px solid #333;
+}
+	
+.home-middle-2 {
+	width: 575px;	
+}
+
+.home-middle-3 {
+	width: 575px;
+}
+
+#wrap, #container {
+	float: left;
+}
+
+#aside {
+	width: 380px;
+	float: right;
+}
+
+#aside #event-bg,
+#aside #books-bg	 {
+	margin-right: 10px;
+}
+	
+#aside #books-bg ul.books {
+	padding-left: 0;
+	margin-left: 0;
+	padding-top: 25px;
+	position: relative;
+	display: block;		
+}
+
+#aside #books-bg ul.books li {
+	position: relative;
+	display: block;		
+	width: 50%;
+	float: left;
+}
+
+#aside #books-bg ul.books li dt.book-title {
+	float: right;
+	width: 55%;
+	padding-top: 25px;
+	line-height: 1em;
+}
+		
+#aside #books-bg ul.books li dd.price {
+	position: absolute;
+	background: url(images/price-circle.png) no-repeat 40% 50%;
+	z-index: 6;
+	top: -15px;
+	left: 40px;
+	padding: 13px 10px 16px 10px;
+	color: #8C2B17;
+	font: 1.1em georgia;
+}
+
+#aside #books-bg ul.books li dd.price em {
+	font-size: .75em;
+	font-style: normal;
+}
+
+#aside #books-bg ul.books li dd.price span {
+	font-size: .5em;
+	vertical-align:	super;	
+}
+				
+#aside #books-bg ul.books li p.btn {
+	position: absolute;
+	z-index: 5;
+	bottom: -1.4em;
+	right: 55px;
+}
+	
+#aside #books-bg ul.books li p.btn a {
+	padding: 4px 12px;
+	font-size: 10px;
+	color: #806E38;
+	border: 1px solid #bba563;
+	background: #c7bc7f;		
+}
+
+#aside #books-bg ul.books li p.btn a:hover {
+	cursor: pointer;
+	border: 1px solid #bba563;	
+	background: #c7bc7f;
+}
+
+div.event dd.sign-up a:active {
+	top: 27px;
+}
+
+div.event dl dd.title-loc h4 {
+	font-size: 22px;
+}
+
+#aside #aside-widget-area-1,
+#aside #aside-widget-area-2 {
+	margin-right: 10px;
+}
+
+#about,
+#popular-links,
+#texas-a-m,
+#contact,
+#agrilife-bookstore {
+	float: left;
+	width: 20%;
+}
+
+.about,
+.popular-links,
+.texas-a-m,
+.contact,
+.agrilife-bookstore {
+	padding: 0 10px;
+}
+
+#footer {
+	background: #f1efe5 url(images/footer-texture.png) repeat-x left top;
+}
+
+#footer .wrap h4 {
+	margin-bottom: 25px;
+}
+
+#footer .wrap .agrilife-bookstore h4 {
+	margin-bottom: 30px;
+}
+
+#footer .wrap a {
+	border: none;
+}
+
+#footer .wrap a img:hover {
+	opacity: .75;
+}
+
+#footer .wrap ul {
+	margin-left: 0;
+	margin-top: 15px;
+}
+
+#footer .wrap p {
+	font-size: 12px;
+	line-height: 20px;
+	margin-top: 19px;
+}
+
+#footer .wrap ul li {
+	margin-right: 1px;
+	font-size: 12px;	
+}
+
+#footer .wrap ul li a {
+	display: block;
+	padding: 4px 0;
+	border-bottom: 1px dashed #a3b8b7;	
+}
+
+#footer .wrap ul li a:hover {
+	border-bottom: 1px solid #004b69;
+}
+
+#footer .wrap .contact ul li {
+	margin-bottom: 12px;
+}

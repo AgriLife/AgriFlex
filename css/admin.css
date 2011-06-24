@@ -1,0 +1,5 @@
+
+div#wpcontent .gigpress label for['show_tour_id'],
+div#wpcontent .gigpress select #show_ages {
+	display: none;
+}
