@@ -31,7 +31,7 @@ body {
 	background: #fff;
 	font: 62.5% "minion-pro-1","minion-pro-2", 'Cambria', 'Georgia', 'Times New Roman', serif;
 	line-height: 1.2em;
-	color: #52514d;
+	color: #433c3a;
 	text-rendering: optimizeLegibility;		
 }
 
@@ -261,39 +261,37 @@ textarea {
 
 a:link,
 a:visited {
-	color:#0082b6;
+	color:#726b60;
 	text-decoration: none;
-	border-bottom: 1px dotted #0082b6;
+	border-bottom: 1px dotted #726b60;
 }
 
 a:active,
 a:hover {
-	color: #004b69;
+	color: #332c2c;
 	text-decoration: none;
-	border-bottom: 1px solid #004b69;	
+	border-bottom: 1px solid #332c2c;	
 }
 
 span.gigpress-sidebar-status a, .btn a, button.btn, a.gigpress-tickets-link {
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
 	border-radius: 3px;	
 	-webkit-box-shadow: 1px 1px 1px #d8d3ae;
 	-moz-box-shodow: 1px 1px 1px #d8d3ae;
 	box-shodow: 1px 1px 1px #d8d3ae;	
-	border: 1px solid #0c85bf;
+	border: 1px solid #726b60;
 	padding: 0.5em 0.6em;
 	font-size: 1.3em;
 	color: #fff;
 	background: #0094d0;
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#00a6ea), to(#0082b7));
-	background: -moz-linear-gradient(top, #00a6ea, #0082b7);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#958f85), to(#726b60));
+	background: -moz-linear-gradient(top, #958f85, #726b60);
 }
 
 span.gigpress-sidebar-status a, .btn a:hover, button.btn:hover, a.gigpress-tickets-link:hover {
 	cursor: pointer;	
 	background: #0082b7;	
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0082b7), to(#00a6ea));
-	background: -moz-linear-gradient(top, #0082b7, #00a6ea);		
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#726b60), to(#958f85));
+	background: -moz-linear-gradient(top, #726b60, #958f85);		
 }
 
 span.gigpress-sidebar-status a, .btn a:active, button.btn:active, a.gigpress-tickets-link:active {
@@ -302,8 +300,8 @@ span.gigpress-sidebar-status a, .btn a:active, button.btn:active, a.gigpress-tic
 	-moz-box-shodow: 1px 1px 0 #e9e6d1;
 	box-shodow: 1px 1px 0 #e9e6d1;	
 	background: #0082b7;	
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0082b7), to(#0082b7));
-	background: -moz-linear-gradient(top, #0082b7, #0082b7);	
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#726b60), to(#645e54));
+	background: -moz-linear-gradient(top, #726b60, #645e54);	
 }
 
 #extension-section .btn a, button.btn {
@@ -340,12 +338,11 @@ span.gigpress-sidebar-status a, .btn a:active, button.btn:active, a.gigpress-tic
 	top: 0;
 	left: 0;
 	width: 100%;
-	background: #004b69;
+	background: #726b60;
 	color: #fff;
-	border-bottom: 1px dashed #005e88;
-	-webkit-box-shadow: 0 2px 5px rgba(6,6,6,.3);
-	-moz-box-shadow: -6px 2px 5px rgba(6,6,6,.3);
-	box-shadow: 0 2px 5px rgba(6,6,6,.3);	
+	-webkit-box-shadow: 0 1px 3px rgba(6,6,6,.3);
+	-moz-box-shadow: -4px 1px 3px rgba(6,6,6,.3);
+	box-shadow: 0 1px 3px rgba(6,6,6,.3);	
 }
 
 body.admin-bar #extension-section-nav {	
@@ -658,7 +655,7 @@ body.admin-bar #extension-section-nav {
 
 #site-title a {
 	border: none;
-	color: #004b69;
+	color: #443d3a;
 	margin-left: 10px;
 	padding: 20px 0;
 }
@@ -699,8 +696,10 @@ div.menu {
 	display: block;	
 	padding: 15px 0;
 	margin: 5px 10px 30px 10px;	
-	border-top: 1px dashed #b2c4c4;
-	border-bottom: 1px dashed #b2c4c4;	
+	border-bottom: double #e2deca;	
+	-webkit-box-shadow: 0 1px 0 #fff;
+	-moz-box-shadow: 0 1px 0 #fff;
+	box-shadow: 0 1px 0 #fff;		
 }
 
 #access .menu-header ul,
@@ -894,6 +893,13 @@ body.home #content {
 
 #home-top #slidePager a.activeSlide {
 	background-position: center top;
+}
+
+.entry-title, body.home h3.widget-title a.rsswidget, #home-middle .home-middle-features h3 a {
+	color: #ad995a;
+	font-family: ff-dagny-web-pro-1, ff-dagny-web-pro-2, 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+	font-weight: 600;
+	text-shadow: white 0px 1px 0px;
 }
 
 /***** Home Middle ********************/
@@ -1944,7 +1950,7 @@ img#wpstats {
 	}	
 	
 	#footer {
-		background: #f1efe5 url(images/footer-texture.png) repeat-x left top;
+		background: #F1EFE5 url(images/footer-texture.png) repeat-x left top;
 	}
 	
 	#footer .wrap h4 {
@@ -1978,12 +1984,7 @@ img#wpstats {
 
 	#footer .wrap ul li a {
 		display: block;
-		padding: 4px 0;
-		border-bottom: 1px dashed #a3b8b7;	
-	}
-
-	#footer .wrap ul li a:hover {
-		border-bottom: 1px solid #004b69;
+		padding: 4px 0;	
 	}
 
 	#footer .wrap .contact ul li {
@@ -1995,7 +1996,7 @@ img#wpstats {
 @media screen and (min-width: 960px) {
 	
 	body {
-	background: #EAE8D9 url(images/tan-background.png) top left;
+	background: #f8f5f1 url(images/tan-background.png) top left;
 	}
 		
 	p, li {
@@ -2031,14 +2032,12 @@ img#wpstats {
 		width: 390px;			
 	}	
 	#site-title a {
-		background: url('images/tx-state-regions.png') no-repeat -5px -2px;
 		font: 32px 'arno pro', georgia, serif;
 		margin-left: 10px;
-		padding: 5px 0 60px 100px;	
+		padding: 5px 0 60px 0;	
 	}
 
 	#site-title a em {
-		margin-left: 102px;
 		font-size: 1.5em;
 		margin-top: -5px;
 		font-style: normal;		
@@ -2051,7 +2050,7 @@ img#wpstats {
 	
 	div.search form {
 		position: absolute;
-		top: 15px;
+		top: 25px;
 		right: 30px;		
 		margin: 0;	
 		width: 20em;
@@ -2264,7 +2263,7 @@ img#wpstats {
 @media all and (max-width: 960px) {
 	
 	body {  
-		background: #EAE8D9 url(images/tan-background.png) top left;		
+		background: #EAE8D9 url(images/tan-tan-background.png) top left;		
 	    font-size: 80%; 
 		line-height: 1.75em;
 		margin: 0 5%;
