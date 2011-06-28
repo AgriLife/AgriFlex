@@ -927,11 +927,11 @@ body.home #content {
 	
 #home-middle p {
 	margin: 0;
-	padding: 0 10px 10px 0;
+	padding: 0;
 	}
-
+	
 body.home .page p:first-child {
-	font-size: 18px;
+	font-size: 20px;
 	line-height: 26px;
 	}
 			
@@ -2028,7 +2028,7 @@ img#wpstats {
 		width: 390px;			
 	}	
 	#site-title a {
-		font: 32px 'arno pro', georgia, serif;
+		font: 32px arno-pro-1,arno-pro-2, georgia, serif;
 		margin-left: 10px;
 		padding: 5px 0 60px 0;	
 	}
@@ -2265,7 +2265,7 @@ img#wpstats {
 		margin: 0 5%;
 	}
 	body #header {
-		height: 130px;
+		margin-bottom: 20px;
 	}
 	body div.search {
 		margin-bottom: 20px;
@@ -2286,7 +2286,7 @@ img#wpstats {
 @media all and (max-width: 640px) {
 		
 	#site-title a {
-		font: 18px 'arno pro', georgia, serif;
+		font: 18px arno-pro-1,arno-pro-2, georgia, serif;
 		margin-left: 7px;
 		padding: 0;
 	}
