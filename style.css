@@ -930,9 +930,6 @@ body.home #content {
 	padding: 0 10px 10px 0;
 	}
 
-body.home .page p {
-	padding: 0 10px;
-	}
 body.home .page p:first-child {
 	font-size: 18px;
 	line-height: 26px;
@@ -1098,7 +1095,7 @@ body.home .hentry {
 }
 
 #aside h4 {
-	font-size: 1.4em;
+	font-size: 1.1em;
 	margin-bottom: .6em;
 }
 
@@ -2025,8 +2022,7 @@ img#wpstats {
 		text-align: left;
 		margin-top: 0;
 		padding: 0;
-		margin-bottom: 0;
-		height: 115px;			
+		margin-bottom: 0;			
 	}
 	#site-title a span{
 		width: 390px;			
