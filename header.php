@@ -8,8 +8,22 @@
  * @subpackage agriflex
  * @since agriflex 1.0
  */
- $options = get_option('AgrilifeCountyOptions');
-    GLOBAL $options, $googlemap;
+ $options = get_option('AgrilifeOptions');
+ 
+  GLOBAL $options,$googlemap;
+
+  $isresearch 	= (is_array($options) ? $options['isResearch'] 	: true);
+  $isextension	= (is_array($options) ? $options['isExtension'] : true);
+  $iscollege 	= (is_array($options) ? $options['isCollege'] 	: true);
+  $istvmdl	 	= (is_array($options) ? $options['isTvmdl'] 	: true);
+  $titleimg		= (is_array($options) ? $options['titleImg'] 	: '');
+  
+  $extensiononly = ($isextension && !$isresearch && !$iscollege && !$istvmdl ? true : false);
+  $researchonly = ($isresearch && !$isextension && !$iscollege && !$istvmdl ? true : false);
+  $collegeonly = ($iscollege && !$isextension && !$isresearch && !$istvmdl ? true : false);
+  $tvmdlonly = ($istvmdl && !$isextension && !$isresearch && !$iscollege ? true : false);
+  
+  
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
