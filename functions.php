@@ -114,7 +114,7 @@ function agriflex_setup() {
 			
 		// register jquery CDN				
 		wp_deregister_script('jquery');
-		wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"), false);		
+		wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"), false);		
 	   	wp_enqueue_script('jquery');
 					
 		// register script location with wp_register_script	
@@ -207,6 +207,7 @@ function agriflex_filter_wp_title( $title, $separator ) {
 }
 add_filter( 'wp_title', 'agriflex_filter_wp_title', 10, 2 );
 
+
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
  *
@@ -231,7 +232,7 @@ add_filter( 'wp_page_menu_args', 'agriflex_page_menu_args' );
  * @return int
  */
 function agriflex_excerpt_length( $length ) {
-	return 40;
+	return 88;
 }
 add_filter( 'excerpt_length', 'agriflex_excerpt_length' );
 
@@ -242,7 +243,7 @@ add_filter( 'excerpt_length', 'agriflex_excerpt_length' );
  * @return string "Continue Reading" link
  */
 function agriflex_continue_reading_link() {
-	return ' <a href="'. get_permalink() . '">' . __( 'Continue <span class="meta-nav">&rarr;</span>', 'agriflex' ) . '</a>';
+	return ' <span class="read-more"><a href="'. get_permalink() . '">' . __( 'Read Article &rarr;', 'agriflex' ) . '</a></span>';
 }
 
 /**
@@ -255,7 +256,7 @@ function agriflex_continue_reading_link() {
  * @return string An ellipsis
  */
 function agriflex_auto_excerpt_more( $more ) {
-	return ' &hellip;' . agriflex_continue_reading_link();
+	return '...' . agriflex_continue_reading_link();
 }
 add_filter( 'excerpt_more', 'agriflex_auto_excerpt_more' );
 
