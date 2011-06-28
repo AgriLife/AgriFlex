@@ -12,10 +12,10 @@
  
   GLOBAL $options,$googlemap;
 
-  $isresearch 	= (is_array($options) ? $options['isResearch'] 	: true);
-  $isextension	= (is_array($options) ? $options['isExtension'] : true);
-  $iscollege 	= (is_array($options) ? $options['isCollege'] 	: true);
-  $istvmdl	 	= (is_array($options) ? $options['isTvmdl'] 	: true);
+  $isresearch 	= (is_array($options) ? $options['isResearch'] 	: false);
+  $isextension	= (is_array($options) ? $options['isExtension'] : false);
+  $iscollege 	= (is_array($options) ? $options['isCollege'] 	: false);
+  $istvmdl	 	= (is_array($options) ? $options['isTvmdl'] 	: false);
   $titleimg		= (is_array($options) ? $options['titleImg'] 	: '');
   
   $extensiononly = ($isextension && !$isresearch && !$iscollege && !$istvmdl ? true : false);
@@ -27,6 +27,10 @@
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
+<!-- <?php
+echo $isresearch.', '.$isextension.', '.$iscollege.' ,'.$istvmdl;
+?>
+-->
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width; initial-scale=1.0;">	
 <title><?php

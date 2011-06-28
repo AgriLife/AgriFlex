@@ -4,12 +4,12 @@
 // make the options user-selectable
 
 /* put stuff on pages and init-frontend */
-if (!class_exists("AgriLifeCounties")) {
+if (!class_exists("AgrilifeCustomizer")) {
   
-	class AgriLifeCounties {
+	class AgrilifeCustomizer {
 		var $adminOptionsName = "AgrilifeOptions";
 		
-		function AgriLifeCounties() { //constructor
+		function AgrilifeCustomizer() { //constructor
 		
 		} // End Constructor
 		
@@ -19,10 +19,10 @@ if (!class_exists("AgriLifeCounties")) {
 		//Returns an array of admin options
 		function getAdminOptions() {
 			$agrilifeAdminOptions = array(
-				'isResearch' => true,
-				'isExtension' => true, 
-				'isCollege' => true,
-				'isTvmdl' => true,
+				'isResearch' => false,
+				'isExtension' => false, 
+				'isCollege' => false,
+				'isTvmdl' => false,
 				'titleImg' => '',
 				
 				'address-street1' => '',
@@ -91,7 +91,7 @@ if (!class_exists("AgriLifeCounties")) {
 		
 		//Prints out the admin page
 		function printAdminPage() {
-		  $AgrilifeOptions = $this->getAdminOptions();
+		  $agrilifeOptions = $this->getAdminOptions();
 		 
 		  	// On Submit
 			if (isset($_POST['update_agrilifeSettings'])) {
@@ -126,48 +126,48 @@ if (!class_exists("AgriLifeCounties")) {
 		
 				//Address Defaults
 				if (isset($_POST['address-street1'])) 
-				  $AgrilifeOptions['address-street1'] = stripslashes(apply_filters('content_save_pre', $_POST['address-street1']));
+				  $agrilifeOptions['address-street1'] = stripslashes(apply_filters('content_save_pre', $_POST['address-street1']));
 		
 				if (isset($_POST['address-street2'])) 
-				  $AgrilifeOptions['address-street2'] = stripslashes(apply_filters('content_save_pre', $_POST['address-street2']));
+				  $agrilifeOptions['address-street2'] = stripslashes(apply_filters('content_save_pre', $_POST['address-street2']));
 		
 				if (isset($_POST['address-city'])) 
-				  $AgrilifeOptions['address-city'] = stripslashes(apply_filters('content_save_pre', $_POST['address-city']));
+				  $agrilifeOptions['address-city'] = stripslashes(apply_filters('content_save_pre', $_POST['address-city']));
 		
 				if (isset($_POST['address-zip'])) 
-				  $AgrilifeOptions['address-zip'] = stripslashes(apply_filters('content_save_pre', $_POST['address-zip']));
+				  $agrilifeOptions['address-zip'] = stripslashes(apply_filters('content_save_pre', $_POST['address-zip']));
 		
 				/* Mailing Address
 				if (isset($_POST['address-mail-street1'])) 
-				  $AgrilifeOptions['address-mail-street1'] = stripslashes(apply_filters('content_save_pre', $_POST['address-mail-street1']));
+				  $agrilifeOptions['address-mail-street1'] = stripslashes(apply_filters('content_save_pre', $_POST['address-mail-street1']));
 		
 				if (isset($_POST['address-mail-street2'])) 
-				  $AgrilifeOptions['address-mail-street2'] = stripslashes(apply_filters('content_save_pre', $_POST['address-mail-street2']));
+				  $agrilifeOptions['address-mail-street2'] = stripslashes(apply_filters('content_save_pre', $_POST['address-mail-street2']));
 		
 				if (isset($_POST['address-mail-city'])) 
-				  $AgrilifeOptions['address-mail-city'] = stripslashes(apply_filters('content_save_pre', $_POST['address-mail-city']));
+				  $agrilifeOptions['address-mail-city'] = stripslashes(apply_filters('content_save_pre', $_POST['address-mail-city']));
 		
 				if (isset($_POST['address-mail-zip'])) 
-				  $AgrilifeOptions['address-mail-zip'] = stripslashes(apply_filters('content_save_pre', $_POST['address-mail-zip']));
+				  $agrilifeOptions['address-mail-zip'] = stripslashes(apply_filters('content_save_pre', $_POST['address-mail-zip']));
 				*/
 				// END - Mailing Address
 		
 				if (isset($_POST['phone'])) 
-				  $AgrilifeOptions['phone'] = stripslashes(apply_filters('content_save_pre', $_POST['phone']));
+				  $agrilifeOptions['phone'] = stripslashes(apply_filters('content_save_pre', $_POST['phone']));
 		
 				if (isset($_POST['fax'])) 
-				  $AgrilifeOptions['fax'] = stripslashes(apply_filters('content_save_pre', $_POST['fax']));
+				  $agrilifeOptions['fax'] = stripslashes(apply_filters('content_save_pre', $_POST['fax']));
 		
 		
 				if (isset($_POST['feedBurner'])) 
-				  $AgrilifeOptions['feedBurner'] = stripslashes(apply_filters('content_save_pre', $_POST['feedBurner'])); 
+				  $agrilifeOptions['feedBurner'] = stripslashes(apply_filters('content_save_pre', $_POST['feedBurner'])); 
 				if (isset($_POST['googleAnalytics'])) 
-				  $AgrilifeOptions['googleAnalytics'] = stripslashes(apply_filters('content_save_pre', $_POST['googleAnalytics'])); 
+				  $agrilifeOptions['googleAnalytics'] = stripslashes(apply_filters('content_save_pre', $_POST['googleAnalytics'])); 
 		
-				update_option($this->adminOptionsName, $AgrilifeOptions);
+				update_option($this->adminOptionsName, $agrilifeOptions);
 		
 				?>
-				<div class="updated"><p><strong><?php _e("Settings Updated.", "AgriLifeCounties");?></strong></p></div>
+				<div class="updated"><p><strong><?php _e("Settings Updated.", "AgrilifeCustomizer");?></strong></p></div>
 			<?php
 			} //End On Submit Actions
 		
@@ -213,7 +213,7 @@ if (!class_exists("AgriLifeCounties")) {
 		<tr valign="top"> 
 		<th scope="row">Phone</th> 
 		<td>
-		    <input type="text" name="phone" id="phone" class="regular-text" maxlength="200" value="<?php echo $AgrilifeOptions['phone']; ?>" />
+		    <input type="text" name="phone" id="phone" class="regular-text" maxlength="200" value="<?php echo $agrilifeOptions['phone']; ?>" />
 		    <br />
 			<?php _e('Ex: 979-999-7777') ?>
 		</td>
@@ -221,7 +221,7 @@ if (!class_exists("AgriLifeCounties")) {
 		<tr valign="top"> 
 		<th scope="row">Fax</th> 
 		<td>
-		    <input type="text" name="fax" id="fax" class="regular-text" maxlength="200" value="<?php echo $AgrilifeOptions['fax']; ?>" />
+		    <input type="text" name="fax" id="fax" class="regular-text" maxlength="200" value="<?php echo $agrilifeOptions['fax']; ?>" />
 		    <br />
 			<?php _e('Ex: 979-999-7777') ?>
 		</td>
@@ -236,25 +236,25 @@ if (!class_exists("AgriLifeCounties")) {
 		<tr valign="top"> 
 		<th scope="row">Street 1</th> 
 		<td>
-		    <input type="text" name="address-street1" id="address-street1" class="regular-text" maxlength="200" value="<?php echo $AgrilifeOptions['address-street1']; ?>" />
+		    <input type="text" name="address-street1" id="address-street1" class="regular-text" maxlength="200" value="<?php echo $agrilifeOptions['address-street1']; ?>" />
 		</td>
 		</tr>
 		<tr valign="top"> 
 		<th scope="row">Street 2</th> 
 		<td>
-		    <input type="text" name="address-street2" id="address-street2" class="regular-text" maxlength="200" value="<?php echo $AgrilifeOptions['address-street2']; ?>" />
+		    <input type="text" name="address-street2" id="address-street2" class="regular-text" maxlength="200" value="<?php echo $agrilifeOptions['address-street2']; ?>" />
 		</td>
 		</tr>
 		<tr valign="top"> 
 		<th scope="row">City</th> 
 		<td>
-		    <input type="text" name="address-city" id="address-city" class="regular-text" maxlength="200" value="<?php echo $AgrilifeOptions['address-city']; ?>" />
+		    <input type="text" name="address-city" id="address-city" class="regular-text" maxlength="200" value="<?php echo $agrilifeOptions['address-city']; ?>" />
 		</td>
 		</tr>
 		<tr valign="top"> 
 		<th scope="row">Zip</th> 
 		<td>
-		    <input type="text" name="address-zip" id="address-zip" class="regular-text" maxlength="10" value="<?php echo $AgrilifeOptions['address-zip']; ?>" />
+		    <input type="text" name="address-zip" id="address-zip" class="regular-text" maxlength="10" value="<?php echo $agrilifeOptions['address-zip']; ?>" />
 		</td>
 		</tr>
 		</table>
@@ -265,25 +265,25 @@ if (!class_exists("AgriLifeCounties")) {
 		<tr valign="top"> 
 		<th scope="row">Street 1</th> 
 		<td>
-		    <input type="text" name="address-mail-street1" id="address-mail-street1" class="regular-text" maxlength="200" value="<?php echo $AgrilifeOptions['address-mail-street1']; ?>" />
+		    <input type="text" name="address-mail-street1" id="address-mail-street1" class="regular-text" maxlength="200" value="<?php echo $agrilifeOptions['address-mail-street1']; ?>" />
 		</td>
 		</tr>
 		<tr valign="top"> 
 		<th scope="row">Street 2</th> 
 		<td>
-		    <input type="text" name="address-mail-street2" id="address-mail-street2" class="regular-text" maxlength="200" value="<?php echo $AgrilifeOptions['address-mail-street2']; ?>" />
+		    <input type="text" name="address-mail-street2" id="address-mail-street2" class="regular-text" maxlength="200" value="<?php echo $agrilifeOptions['address-mail-street2']; ?>" />
 		</td>
 		</tr>
 		<tr valign="top"> 
 		<th scope="row">City</th> 
 		<td>
-		    <input type="text" name="address-mail-city" id="address-mail-city" class="regular-text" maxlength="200" value="<?php echo $AgrilifeOptions['address-mail-city']; ?>" />
+		    <input type="text" name="address-mail-city" id="address-mail-city" class="regular-text" maxlength="200" value="<?php echo $agrilifeOptions['address-mail-city']; ?>" />
 		</td>
 		</tr>
 		<tr valign="top"> 
 		<th scope="row">Zip</th> 
 		<td>
-		    <input type="text" name="address-mail-zip" id="address-mail-zip" class="regular-text" maxlength="10" value="<?php echo $AgrilifeOptions['address-mail-zip']; ?>" />
+		    <input type="text" name="address-mail-zip" id="address-mail-zip" class="regular-text" maxlength="10" value="<?php echo $agrilifeOptions['address-mail-zip']; ?>" />
 		</td>
 		</tr>
 		</table>
@@ -293,7 +293,7 @@ if (!class_exists("AgriLifeCounties")) {
 		<tr valign="top"> 
 		<th scope="row"><?php _e('Tracking Code') ?></th> 
 		<td>
-		    <input type="text" name="googleAnalytics" id="googleAnalytics" class="regular-text" maxlength="200" value="<?php echo $AgrilifeOptions['googleAnalytics']; ?>" />
+		    <input type="text" name="googleAnalytics" id="googleAnalytics" class="regular-text" maxlength="200" value="<?php echo $agrilifeOptions['googleAnalytics']; ?>" />
 			<br />
 			<?php _e('Ex: UA-XXXXX-2') ?>
 		</td>
@@ -313,7 +313,7 @@ if (!class_exists("AgriLifeCounties")) {
 		<tr valign="top"> 
 		<th scope="row"><?php _e('FeedBurner Feed Address') ?></th> 
 		<td>
-		    <input type="text" name="feedBurner" id="feedBurner" class="regular-text" maxlength="200" value="<?php echo $AgrilifeOptions['feedBurner']; ?>" />
+		    <input type="text" name="feedBurner" id="feedBurner" class="regular-text" maxlength="200" value="<?php echo $agrilifeOptions['feedBurner']; ?>" />
 			<br />
 			<?php _e('Ex: http://feeds.feedburner.com/AgriLife') ?>
 		</td>
@@ -322,7 +322,7 @@ if (!class_exists("AgriLifeCounties")) {
 		
 		
 		<div class="submit">
-		<input type="submit" name="update_agrilifeSettings" value="<?php _e('Update Settings', 'AgriLifeCounties') ?>" /></div>
+		<input type="submit" name="update_agrilifeSettings" value="<?php _e('Update Settings', 'AgrilifeCustomizer') ?>" /></div>
 		</form>
 		</div>
 		
@@ -335,13 +335,13 @@ if (!class_exists("AgriLifeCounties")) {
 		}
 	
 	
-	} //End Class AgriLifeCounties
+	} //End Class AgrilifeCustomizer
 } // End If
 
 
 
-if (class_exists("AgriLifeCounties")) {
-  $agrilife_customizer = new AgriLifeCounties();
+if (class_exists("AgrilifeCustomizer")) {
+  $agrilife_customizer = new AgrilifeCustomizer();
   $options	= get_option('AgrilifeOptions');
 
   //if db not already populated, the add defaults
