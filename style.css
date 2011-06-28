@@ -2259,7 +2259,7 @@ img#wpstats {
 @media all and (max-width: 960px) {
 	
 	body {  
-		background: #EAE8D9 url(images/tan-tan-background.png) top left;		
+		background: #EAE8D9 url(images/tan-background.png) top left;		
 	    font-size: 80%; 
 		line-height: 1.75em;
 		margin: 0 5%;

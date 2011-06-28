@@ -32,7 +32,7 @@
 		<div id="popular-links">
 			<div class="popular-links">			
 				<h4>Departments</h4>
-				<a href="http://aglifesciences.tamu.edu/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/agrilife_ext_logo.png" alt="Texas A and M Ag Life Sciences" /></a>	
+				<a href="http://aglifesciences.tamu.edu/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/Agriculture_HQ.jpg" alt="Texas A and M Ag Life Sciences" /></a>	
 				<ul>
 					<li><a href="#">Dept 1</a></li> 									
 				</ul>		
