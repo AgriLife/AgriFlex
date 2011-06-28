@@ -9,7 +9,7 @@
  * @subpackage agriflex
  * @since agriflex 1.0
  */
- $options = get_option('AgrilifeCountyOptions');
+ $options = get_option('AgrilifeOptions');
  GLOBAL $options;
 ?>
 </div><!-- #wrapper -->
@@ -61,16 +61,15 @@
 		<div id="contact">
 			<div class="contact">			
 			<h4>Contact</h4>
-				<!--<a href="/contact/#map"><img src="<?php bloginfo( 'template_directory' ); ?>/images/map.png" alt="map of AgriLife Offices" /></a>-->
 				<?php $mapaddress=$options['address-street1'].' '.$options['address-street2'].' '.$options['address-city'].', TX '.$options['address-zip'];?>
-				<img src="http://maps.google.com/maps/api/staticmap?size=175x101&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office%7C<?php echo urlencode($mapaddress); ?>&amp;sensor=false" height="101" width="175" alt="Map to county office" />
+				<img src="http://maps.google.com/maps/api/staticmap?size=175x101&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office%7C<?php echo urlencode($mapaddress); ?>&amp;sensor=false" height="101" width="175" alt="Map to office" />
 				<ul>
 					<!--<li><a href="/contact/#map">View Larger Map</a></li>-->
 					<li>Open 8 am - 5 pm; M-F </li>
 				<?php
 				if (is_array($options)) {
 					if(isset($options['address-street1'])) {
-						echo '<li>'./*$options['county-name-human'].*/' County Extension Office <br />'.$options['address-street1'];
+						echo '<li>'.$options['address-street1'];
 						if($options['address-street2']<>'')
 							echo '<br />'.$options['address-street2'];
 						echo '<br />'.$options['address-city'].', TX '.$options['address-zip'].'</li>';
