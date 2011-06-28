@@ -114,7 +114,7 @@ function agriflex_setup() {
 			
 		// register jquery CDN				
 		wp_deregister_script('jquery');
-		wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"), false);		
+		wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"), false);		
 	   	wp_enqueue_script('jquery');
 					
 		// register script location with wp_register_script	
