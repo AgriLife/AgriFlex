@@ -136,15 +136,16 @@
 						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a>
 				</h1>
 				<div id="site-description"><?php bloginfo( 'description' ); ?></div>
-			</div><!-- #branding -->
-	</div><!-- #header -->		
-			<div id="access" role="navigation">	
 				<div class="search">
 				<?php get_search_form(); ?>
-				</div><!-- end .search -->		
+				</div><!-- end .search -->	
+			</div><!-- #branding -->
+	</div><!-- #header -->		
+			<div id="access" role="navigation">		
 			  <?php /*  Allow screen readers / text browsers to skip the navigation menu and get right to the good stuff */ ?>
 				<div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'agriflex' ); ?>"><?php _e( 'Skip to content', 'agriflex' ); ?></a></div>
 				<?php /* Our navigation menu.  If one isn't filled out, wp_nav_menu falls back to wp_page_menu.  The menu assiged to the primary position is the one used.  If none is assigned, the menu with the lowest ID is used.  */ ?>
-				<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>			
+				<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>				<div class="clear"></div>
 			</div><!-- #access -->
-		
+	<div id="content-wrap">		
+		<div class="wrap">			

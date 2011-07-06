@@ -16,6 +16,8 @@
 	$istvmdl	 	= (is_array($options) ? $options['isTvmdl'] 	: true);  
 	$collegeonly = ($iscollege && !$isextension && !$isresearch && !$istvmdl ? true : false);
 ?>
+</div><!--.wrap-->
+</div><!--#content-wrap-->
 </div><!-- #wrapper -->
 	<div id="footer" role="contentinfo">
 		<div class="wrap">
@@ -25,7 +27,7 @@
 		<div id="about">
 			<div class="about">			
 				<h4>About</h4>
-				<a href="http://www.youtube.com/watch?v=NrfZh8t443M"><img src="<?php bloginfo( 'template_directory' ); ?>/images/about_video.jpg" alt="link to College about video" /></a>
+				<a href="http://www.youtube.com/watch?v=NrfZh8t443M"><img src="<?php bloginfo( 'template_directory' ); ?>/images/college-video.jpg" alt="link to College about video" /></a>
 				<p>lorem ipsum</p>	
 			</div><!-- .about -->
 		</div><!-- #about -->		
