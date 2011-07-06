@@ -144,7 +144,32 @@ function agriflex_setup() {
 	    echo "<link rel='stylesheet' type='text/css' href='$url' />\n";
 	}
 	add_action('admin_head', 'admin_register_head');
+	
+	// Custom Body Classes Based On Agency Selected
+	function my_class_names($classes) {
+		$classes[] = '';
 		
+		if (class_exists("AgrilifeCustomizer")) {
+			$options = get_option('AgrilifeOptions');
+
+			// Set Header Tabs
+			if($options['isResearch']) $classes[] .= 'research';
+			if($options['isExtension']) $classes[] .= 'extension';
+			if($options['isCollege']) $classes[] .= 'college';
+			if($options['isTvmdl']) $classes[] .= 'tvmdl';
+			
+			// Single Agency Classes
+			if($options['isExtension'] && !$options['isResearch'] && !$options['isCollege'] && !$options['isTvmdl']) $classes[] .= 'extensiononly';
+			if($options['isResearch'] && !$options['isExtension'] && !$options['isCollege'] && !$options['isTvmdl']) $classes[] .= 'researchonly';
+			if($options['isCollege'] && !$options['isExtension'] && !$options['isResearch'] && !$options['isTvmdl']) $classes[] .= 'collegeonly';
+			if($options['isTvmdl'] && !$options['isExtension'] && !$options['isResearch'] && !$options['isCollege']) $classes[] .= 'tvmdlonly';
+		}	
+		return $classes;
+	}
+
+	add_filter('body_class','my_class_names');
+	
+	
 }	
 endif;
 
