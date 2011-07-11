@@ -739,6 +739,10 @@ div.menu li {
 	background-position: 50% -16px;
 }
 
+body.mobile #access .menu-header li ul.sub-menu {
+	display: none;
+}
+
 div.search{
 	width: 100%;
 	display: block;
@@ -1965,7 +1969,7 @@ img#wpstats {
 	}
 
     /*=== Drop Down Site Navigation  =========*/
-	
+
 	#access .sf-menu li {
 		font-size: 14px;	
 		line-height: 1.7em;	
@@ -3345,3 +3349,60 @@ abbr {
     text-decoration: none;
     font-size: 100%;
 }
+
+/* ========================================================
+	College Only Styles
+===========================================================*/
+
+
+body.college .entry-title,
+body.college.home h3.widget-title a.rsswidget,
+body.college #home-middle .home-middle-features h3 a {
+	font-family: "ff-dagny-web-pro-1","ff-dagny-web-pro-2", 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;		
+	font-weight: 600;
+	color: #b19e56;
+	text-shadow: 0 1px 0 #fff;	
+}
+
+body.college a:link,
+body.college a:visited {
+	color:#8d0002;
+	text-decoration: none;
+	border-color: #8d0002;
+}
+
+body.college :active,
+body.college a:hover {
+	color: #5b0125;
+	text-decoration: none;
+	border-color: #5b0125;	
+}
+
+body.college span.gigpress-sidebar-status a, body.college .btn a, body.college button.btn, body.college a.gigpress-tickets-link {	
+	border: 1px solid #860125;
+	color: #fff;
+	background: #860125;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ba012c), to(#860125));
+	background: -moz-linear-gradient(top, #ba012c, #860125);
+}
+
+body.college span.gigpress-sidebar-status a, body.college .btn a:hover, body.college button.btn:hover, body.college a.gigpress-tickets-link:hover {	
+	background: #ba012c;	
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#860125), to(#ba012c));
+	background: -moz-linear-gradient(top, #860125, #ba012c);		
+}
+
+body.college span.gigpress-sidebar-status a, body.college .btn a:active, body.college button.btn:active, body.college a.gigpress-tickets-link:active {
+	background: #0082b7;	
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ba012c), to(#860125));
+	background: -moz-linear-gradient(top, #ba012c, #860125);	
+}
+
+body.college #extension-section .btn a, button.btn {	
+	border: 1px solid #d00031;			
+}
+
+
+
+
+

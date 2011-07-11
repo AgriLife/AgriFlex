@@ -1146,7 +1146,7 @@ catch(e){
 
 jQuery(document).ready(function($) {
 
-	if ($(window).width() < 960) {
+	if ($(window).width() < 1024) {
 		$("body").addClass("mobile");		
 	}
 	else {
@@ -1283,14 +1283,14 @@ jQuery(document).ready(function($) {
 	/*
      * Set up the superfish arguments
      */
-    $( '.sf-menu' ).superfish( {
+    $( 'body.desktop .sf-menu' ).superfish( {
         delay:       200,   // 0.05 second delay on mouseout
         animation:   { opacity: 'show', height: 'show' },   // fade-in and slide-down animation
         speed:       250 // Dropdown our menu fast
     } );
 
 	//background menu fading
-	$('.sf-menu li').hover(function() {
+	$('body.desktop .sf-menu li').hover(function() {
 		$(this).find('ul.sub-menu .menu-item a').stop(true, true)
 		.css({
 			right: "-15px",

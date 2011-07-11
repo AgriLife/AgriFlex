@@ -28,7 +28,7 @@
 			<div class="about">			
 				<h4>About</h4>
 				<a href="http://www.youtube.com/watch?v=NrfZh8t443M"><img src="<?php bloginfo( 'template_directory' ); ?>/images/college-video.jpg" alt="link to College about video" /></a>
-				<p>lorem ipsum</p>	
+				<p>The College of Agriculture and Life Sciences is the largest of its kind in the U.S. with 400 faculty members, including winners of prestigious awards like the Nobel, Wolf and World Food Prizes. It provides students with hands-on involvement in developing solutions to today’s issues like bioenergy, environmental sustainability, international food security, and youth development.</p>	
 			</div><!-- .about -->
 		</div><!-- #about -->		
 		<div id="popular-links">
@@ -128,8 +128,6 @@
 				<?php $mapaddress=$options['address-street1'].' '.$options['address-street2'].' '.$options['address-city'].', TX '.$options['address-zip'];?>
 				<img src="http://maps.google.com/maps/api/staticmap?size=175x101&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office%7C<?php echo urlencode($mapaddress); ?>&amp;sensor=false" height="101" width="175" alt="Map to office" />
 				<ul>
-					<!--<li><a href="/contact/#map">View Larger Map</a></li>-->
-					<li>Open 8 am - 5 pm; M-F </li>
 				<?php
 				if (is_array($options)) {
 					if(isset($options['address-street1'])) {
