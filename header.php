@@ -40,7 +40,7 @@
 	?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-<link rel="shortcut icon" href="<?php bloginfo( 'stylesheet_directory' ); ?>/images/favicon.ico" type="image/ico" />
+<link rel="shortcut icon" href="http://agrilifecdn.tamu.edu/wp-content/themes/agrilife-2.0/favicon.ico" type="image/ico" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <?php if ($googlemap) echo $googlemap; ?>
 <?php
