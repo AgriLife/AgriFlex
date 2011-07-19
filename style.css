@@ -4036,7 +4036,17 @@ body.college .home-middle-1 {
 	body.college #access li.current-menu-item a {
 		background-color: #5d0025;
 	}
-	
+
+
+	body.college #access li a[title='home'] {
+		background-repeat: no-repeat;
+		background-color: #fff;
+	}
+
+	body.college #access li.current-menu-item a[title='home'] {
+		background-color: #fff;
+	}
+		
 	body.college #access a:hover {
 		background: #5b0125;	
 	}
