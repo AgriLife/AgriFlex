@@ -20,7 +20,7 @@ get_header(); ?>
 		<div class="feature-item-<?php echo $count;?>">			
 			<a href="<?php the_permalink();?>"><?php the_post_thumbnail('featured');?></a>
 			<div class="feature-detail">
-				<h2><a href="<?php the_permalink();?>"><?php if($feature_title !== '') { echo $feature_title; }else{ echo get_the_title(); } ?></a></h2>
+				<h2><a href="<?php the_permalink();?>"><?php echo get_the_title(); ?></a></h2>
 			</div><!-- end .feature-detail -->
 		</div><!-- end .feature-item -->	
 							

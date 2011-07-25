@@ -626,19 +626,19 @@ body.admin-bar #extension-section-nav {
 	padding: 2px 7px;
 	color: #0082B6;
 	margin: 0 3px 3px 0;
-	background: #4095bb;
+	background: #efede2;
 	background: rgba(255,255,255,.25);
 	border: none;
 	-webkit-transition: background .1s ease-in;	
 }
 
 #extension-section .flow .contents #top-level-nav .top-level-nav:hover .tags ul li a {
-	background: #4da1c7;
+	background: #efede2;
 	background: rgba(255,255,255,.4);	
 }
 
 #extension-section .flow .contents #top-level-nav .top-level-nav:hover .tags ul li a:hover {
-	background: #6cbbdf;
+	background: #f8f7f2;
 	background: rgba(255,255,255,.75);		
 	border: none;	
 	text-decoration: underline;
@@ -928,7 +928,7 @@ body.home #content {
 	clear: left;
 	}
 	
-#home-middle p,
+.home-middle-features p,
 body.home .page p {
 	margin-left: 10px;
 	}
@@ -1096,6 +1096,14 @@ body.home .hentry {
 
 /* Aside
 -------------------------------------------------------------- */
+
+#aside img.left {
+	float: left;
+}
+
+#aside img.right {
+	float: right;
+}
 
 #aside h3.widget-title, #aside h3 {
 	padding: 5px 5px 5px 0;
@@ -3275,7 +3283,7 @@ div.gigpress-calendar-links {
     top: -1.2em;
     width: 15em;
     padding-left: 7px;
-    background: transparent url(/images/calendar-links-bg.png) no-repeat left center;
+    background: transparent url('/images/calendar-links-bg.png') no-repeat left center;
 }
 
 .gigpress-calendar-links-inner {
@@ -3371,7 +3379,7 @@ body.college a:visited {
 	border-color: #8d0002;
 }
 
-body.college :active,
+body.college a:active,
 body.college a:hover {
 	color: #5b0125;
 	text-decoration: none;
