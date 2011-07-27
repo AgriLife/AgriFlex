@@ -19,7 +19,7 @@
 </div><!--.wrap-->
 </div><!--#content-wrap-->
 </div><!-- #wrapper -->
-	<div id="footer" role="contentinfo">
+	<footer id="footer" role="contentinfo">
 		<div class="wrap">
 
 <?php if($collegeonly) :?>
@@ -157,7 +157,7 @@
 		</div><!-- #agrilife-bookstore -->
 						
 		</div><!-- .wrap -->		
-	</div><!-- #footer -->
+	</footer><!-- #footer -->
 
 <?php
 	/* Always have wp_footer() just before the closing </body>

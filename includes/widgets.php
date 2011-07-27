@@ -94,7 +94,7 @@ class WatchReadListenWidget extends WP_Widget {
 					<a href="https://agrilifebookstore.org/publications_details.cfm?whichpublication=2423">
 					<dl>
 						<dt class="book-title">Brush &amp; Weeds</dt>	
-						<dd class="book-cover"><img alt="brush and weeds book cover" class="book" src="http://brazos.agrilife.org/wp-content/themes/county/images/brush-weeds-cover.png" /></dd>
+						<dd class="book-cover"><img class="book" src="http://brazos.agrilife.org/wp-content/themes/county/images/brush-weeds-cover.png" /></dd>
 						<dd class="price"><em>$</em>25<span>00</span></dd>	
 					</dl>
 					</a>
@@ -104,7 +104,7 @@ class WatchReadListenWidget extends WP_Widget {
 					<a href="https://agrilifebookstore.org/publications_details.cfm?whichpublication=1979">
 					<dl>
 						<dt class="book-title">Rainwater Harvest</dt>	
-						<dd class="book-cover"><img alt="rainwater harvest book cover" class="book" src="http://brazos.agrilife.org/wp-content/themes/county/images/rainwater-harvest-cover.png" /></dd>
+						<dd class="book-cover"><img class="book" src="http://brazos.agrilife.org/wp-content/themes/county/images/rainwater-harvest-cover.png" /></dd>
 						<dd class="price"><em>$</em>4<span>50</span></dd>						
 					</dl>
 					</a>

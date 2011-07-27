@@ -28,7 +28,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 }
 
 body {
-	background: #fff;
+	background: #F8F5F1;
 	font: 62.5% "minion-pro-1","minion-pro-2", 'Cambria', 'Georgia', 'Times New Roman', serif;
 	line-height: 1.2em;
 	color: #433c3a;
@@ -307,19 +307,19 @@ span.gigpress-sidebar-status a, .btn a:active, button.btn:active, a.gigpress-tic
 	background: -moz-linear-gradient(top, #726b60, #645e54);	
 }
 
-#extension-section .btn a, button.btn {
+#drop-section .btn a, button.btn {
 	-webkit-box-shadow: none;
 	-moz-box-shodow: none;
 	box-shodow: none;	
 	border: 1px solid #00648d;			
 }
 
-#extension-section .btn a:hover, button.btn:hover {		
+#drop-section .btn a:hover, button.btn:hover {		
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0082b7), to(#0082b7));
 	border: 1px solid #66a9d3;		
 }
 
-#extension-section .btn a:active, button.btn:active {
+#drop-section .btn a:active, button.btn:active {
 	border: 1px solid #73beed;
 	-webkit-box-shadow: none;
 	-moz-box-shodow: none;
@@ -335,7 +335,7 @@ span.gigpress-sidebar-status a, .btn a:active, button.btn:active, a.gigpress-tic
 /* =Extension Top Section
 -------------------------------------------------------------- */
 
-#extension-section-nav {
+#drop-section-nav {
 	position: absolute;
 	z-index: 3;		
 	top: 0;
@@ -348,38 +348,38 @@ span.gigpress-sidebar-status a, .btn a:active, button.btn:active, a.gigpress-tic
 	box-shadow: 0 1px 3px rgba(6,6,6,.3);	
 }
 
-body.admin-bar #extension-section-nav {	
+body.admin-bar #drop-section-nav {	
 	top: 28px;
 }
 
-#extension-section-nav #drop-nav {
+#drop-section-nav #drop-nav {
 	position: relative;
 	margin: 0 auto 0;
 }
 
-#extension-section-nav #drop-nav ul {
+#drop-section-nav #drop-nav ul {
 	padding: 4px 0;
 	margin: 0;	
 }
 
-#extension-section-nav #drop-nav ul li {
+#drop-section-nav #drop-nav ul li {
 	float: left;
 	padding: 0 0 2px 0;
 	line-height: .6em;	
 }
 
-#extension-section-nav #drop-nav ul li.ask,
-#extension-section-nav #drop-nav ul li.explore,
-#extension-section-nav #drop-nav ul li.tx-ext-item {
+#drop-section-nav #drop-nav ul li.ask,
+#drop-section-nav #drop-nav ul li.explore,
+#drop-section-nav #drop-nav ul li.tx-ext-item {
 	padding: 0;
 }
 
-#extension-section-nav #drop-nav ul li.tx-ext-item a {
+#drop-section-nav #drop-nav ul li.tx-ext-item a {
 	font-size: 18px;
 	padding: 10px;
 }
 
-#extension-section-nav #drop-nav ul li a {
+#drop-section-nav #drop-nav ul li a {
 	position: relative;
 	z-index: 2;	
 	font: 12px "minion-pro-1","minion-pro-2", "cambria", Georgia, serif;
@@ -388,7 +388,7 @@ body.admin-bar #extension-section-nav {
 	border: none;
 }
 
-#extension-section-nav #drop-nav ul li a[href*='ask'] {
+#drop-section-nav #drop-nav ul li a[href*='ask'] {
 	position: relative;
 	z-index: 2;
 	padding: 2em 15px .4em 15px;
@@ -399,11 +399,11 @@ body.admin-bar #extension-section-nav {
 	text-shadow: 0 1px 0 #006c99;					
 }
 
-#extension-section-nav #drop-nav ul li a[href*='ask']:hover {
+#drop-section-nav #drop-nav ul li a[href*='ask']:hover {
 	background-color: #00709d;		
 }
 
-#extension-section-nav #drop-nav ul li a[href*='explore'] {
+#drop-section-nav #drop-nav ul li a[href*='explore'] {
 	position: relative;
 	z-index: 2;
 	padding-bottom: .6em;
@@ -416,18 +416,18 @@ body.admin-bar #extension-section-nav {
 	border: 3px solid #f2a90f;				
 }
 
-#extension-section-nav #drop-nav ul li a[href*='explore']:hover {
+#drop-section-nav #drop-nav ul li a[href*='explore']:hover {
 	background-color: #f2a90f;		
 }
 
-#extension-section-nav #drop-nav ul li a[href*='explore']:active {
+#drop-section-nav #drop-nav ul li a[href*='explore']:active {
 	background-color: #efa70f;
 	border: 3px solid #efa70e;	
 	-webkit-box-shadow: 0 0 2px #444;
 	-moz-box-shadow: 0 0 2px #444;			
 }
 
-#extension-section-nav #drop-nav ul li a[href*='extension'] {
+#drop-section-nav #drop-nav ul li a[href*='extension'] {
 	position: relative;
 	z-index: 2;
 	display: block;
@@ -438,11 +438,11 @@ body.admin-bar #extension-section-nav {
 	margin-top: 2px;
 }
 
-#extension-section-nav #drop-nav ul li.right-align {
+#drop-section-nav #drop-nav ul li.right-align {
 	display: none;
 }
 
-#extension-section  {
+#drop-section  {
 	background: #004b69 url(images/blue-texture.png) -10% 80%; 
 	background: #EAE8D9;
 	border-bottom: 2px solid #fff;	
@@ -450,31 +450,31 @@ body.admin-bar #extension-section-nav {
 	padding-top: 30px;
 }
 
-#extension-section .flow {
+#drop-section .flow {
 	position: relative;	 
 	overflow: hidden;
 	margin: 0 auto;	
 }
 
-#extension-section .hidden {
+#drop-section .hidden {
 	display: none;	
 }
 
-#extension-section .flow .contents {
+#drop-section .flow .contents {
 	bottom: 0px;
 	position: absolute;
 	padding: 0 10px;		
 }
 
-#extension-section .flow .contents a {
+#drop-section .flow .contents a {
 	color: #eee;		
 }
 
-#extension-section .flow .contents a:hover {
+#drop-section .flow .contents a:hover {
 	color: #fff;		
 }
 
-#extension-section .flow .contents .gform_wrapper {
+#drop-section .flow .contents .gform_wrapper {
 	position: relative;
 	padding: 23px 5px 5px 5px;
 	float: left;
@@ -482,29 +482,29 @@ body.admin-bar #extension-section-nav {
 	background: #0084b9;		
 }
 
-#extension-section .flow .contents form label {
+#drop-section .flow .contents form label {
 	display: block;	
 	padding-left: 5px;	
 	font-size: 14px;
 }
 
-#extension-section .flow .contents form input {
+#drop-section .flow .contents form input {
 	margin-bottom: 8px;	
 }
 
-#extension-section .flow .contents form button[type=reset] {	
+#drop-section .flow .contents form button[type=reset] {	
 	border: 1px solid #1073a0;
 	color: #ccc;
 	background: #1073a0;
 	padding: 2px 5px;	
 }
 
-#extension-section .flow .contents form button[type=submit] {	
+#drop-section .flow .contents form button[type=submit] {	
 	padding: 2px 12px;	
 }
 
-#extension-section .flow .contents form input,
-#extension-section .flow .contents form textarea {
+#drop-section .flow .contents form input,
+#drop-section .flow .contents form textarea {
 	background: #003950;
 	font-size: 12px;
 	color: #fff;
@@ -518,7 +518,7 @@ body.admin-bar #extension-section-nav {
 	box-shadow: none;	
 }
 
-#extension-section .flow .contents form textarea {
+#drop-section .flow .contents form textarea {
 	background: #003950;
 	color: #fff;
 	border: 1px solid #034b6b;	
@@ -527,40 +527,40 @@ body.admin-bar #extension-section-nav {
 	-webkit-transition: background-color .15s linear;
 }
 
-#extension-section .flow .contents form input:hover,
-#extension-section .flow .contents form textarea:hover {
+#drop-section .flow .contents form input:hover,
+#drop-section .flow .contents form textarea:hover {
 	background: #002736;			
 }
 
-#extension-section .flow .contents form input:focus,
-#extension-section .flow .contents form textarea:focus {
+#drop-section .flow .contents form input:focus,
+#drop-section .flow .contents form textarea:focus {
 	background: #00151d;
 	-webkit-box-shadow: 0 0 10px #12a6ed;
 	-moz-box-shadow: 0 0 10px #12a6ed;
 	box-shadow: 0 0 10px #12a6ed;			
 }
 
-#extension-section .flow .contents #top-level-nav {
+#drop-section .flow .contents #top-level-nav {
 	float: right;
 	width: 760px;
 	padding: 0 0 0 20px;
 	border-top: 16px solid #f2a90f;	
 }
 
-#extension-section .flow .contents #top-level-nav #ext-intro {
+#drop-section .flow .contents #top-level-nav #ext-intro {
 	background: #f7d898;
 	margin: 0 0 20px 0;
 	padding: 15px 0;	
 }
 
-#extension-section .flow .contents #top-level-nav #ext-intro p {
+#drop-section .flow .contents #top-level-nav #ext-intro p {
 	line-height: 16px;
 	margin: 0;
 	padding: 0 0 0 10px;
 	color: #815a08;	
 }
 
-#extension-section .flow .contents #top-level-nav #ext-intro p a {
+#drop-section .flow .contents #top-level-nav #ext-intro p a {
 	background: rgba(3,3,3,.1);
 	padding: 3px 5px;
 	color: #815a08;	
@@ -569,11 +569,11 @@ body.admin-bar #extension-section-nav {
 	border: none;		
 }
 
-#extension-section .flow .contents #top-level-nav #ext-intro p a:hover {
+#drop-section .flow .contents #top-level-nav #ext-intro p a:hover {
 	background: rgba(3,3,3,.2);
 }
 
-#extension-section .flow .contents #top-level-nav .top-level-nav {
+#drop-section .flow .contents #top-level-nav .top-level-nav {
 	float: left;
 	width: 169px;
 	margin-left: 20px;
@@ -583,14 +583,14 @@ body.admin-bar #extension-section-nav {
 	-webkit-transition: -webkit-box-shadow .2s ease-in;
 }
 
-#extension-section .flow .contents #top-level-nav .top-level-nav:hover {
+#drop-section .flow .contents #top-level-nav .top-level-nav:hover {
 	-webkit-box-shadow: 0 0 5px rgba(177, 168, 117,.9);
 	-moz-box-shadow: 0 0 5px rgba(177, 168, 117,.9);
 	box-shadow: 0 0 5px rgba(177, 168, 117,.9);	
 	border: 1px solid #d9d1ae;		
 }
 
-#extension-section .flow .contents #top-level-nav .top-level-nav h2 {
+#drop-section .flow .contents #top-level-nav .top-level-nav h2 {
 	font: 12px "ff-dagny-web-pro-1","ff-dagny-web-pro-2", 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
 	text-transform: uppercase;
 	padding: 7px 0 7px 38px;
@@ -600,26 +600,26 @@ body.admin-bar #extension-section-nav {
 	-webkit-transition: border .3s ease-in;	
 }
 
-#extension-section .flow .contents #top-level-nav .top-level-nav:hover h2 {
+#drop-section .flow .contents #top-level-nav .top-level-nav:hover h2 {
 	background-position: left top;
 	border-bottom: 1px solid #d7960d;	
 }
 
-#extension-section .flow .contents #top-level-nav .business-nav {
+#drop-section .flow .contents #top-level-nav .business-nav {
 	margin-left: 0; 
 }
 
-#extension-section .flow .contents #top-level-nav .top-level-nav .tags ul {
+#drop-section .flow .contents #top-level-nav .top-level-nav .tags ul {
 	margin: 5px 0;
 }
 
-#extension-section .flow .contents #top-level-nav .top-level-nav .tags ul li {
+#drop-section .flow .contents #top-level-nav .top-level-nav .tags ul li {
 	display: inline;
 	font-size: 11px;
 	margin: 0;
 }
 
-#extension-section .flow .contents #top-level-nav .top-level-nav .tags ul li a {
+#drop-section .flow .contents #top-level-nav .top-level-nav .tags ul li a {
 	display: inline;
 	float: left;
 	font-size: 12px;
@@ -632,12 +632,12 @@ body.admin-bar #extension-section-nav {
 	-webkit-transition: background .1s ease-in;	
 }
 
-#extension-section .flow .contents #top-level-nav .top-level-nav:hover .tags ul li a {
+#drop-section .flow .contents #top-level-nav .top-level-nav:hover .tags ul li a {
 	background: #efede2;
 	background: rgba(255,255,255,.4);	
 }
 
-#extension-section .flow .contents #top-level-nav .top-level-nav:hover .tags ul li a:hover {
+#drop-section .flow .contents #top-level-nav .top-level-nav:hover .tags ul li a:hover {
 	background: #f8f7f2;
 	background: rgba(255,255,255,.75);		
 	border: none;	
@@ -2203,12 +2203,12 @@ img#wpstats {
 		font-size: 16px; 
 	}
 
-	#wrapper, #extension-section-nav #drop-nav, #extension-section .flow   {
+	#wrapper, #drop-section-nav #drop-nav, #drop-section .flow   {
 
 	}
 	
 	#branding, #access .menu-header, .wrap, #drop-nav {
-		max-width: 975px;
+		max-width: 97.5em;
 		margin: 0 auto;
 		position: relative;
 	}
@@ -2218,11 +2218,11 @@ img#wpstats {
 		padding-top: 50px;
 	}
 		
-	#extension-section-nav #drop-nav ul li a {
+	#drop-section-nav #drop-nav ul li a {
 		font-size: 14px;
 	}
 
-	#extension-section-nav #drop-nav ul li.right-align {
+	#drop-section-nav #drop-nav ul li.right-align {
 		float: right;
 		display: inline;
 		font: italic 1.4em "minion-pro-1","minion-pro-2", 'Cambria', georgia, serif;
@@ -2492,7 +2492,7 @@ img#wpstats {
 		float: none;
 		clear: both;
 	}	
-	#extension-section-nav #drop-nav ul {
+	#drop-section-nav #drop-nav ul {
 		margin: 0 5%;
 	}
 }
@@ -2512,9 +2512,6 @@ img#wpstats {
 		margin-left: 0;
 	}		
 
-	body { 
-		background: #fff; 
-	}	
 	#header  {
 		margin: 0;
 		padding: 1em 0 0 0;
@@ -2563,7 +2560,7 @@ img#wpstats {
 	#access li.current-menu-item a[title="home"] {
 		background-color: white;
 		}		
-	#extension-section-nav #drop-nav ul li.tx-ext-item a {
+	#drop-section-nav #drop-nav ul li.tx-ext-item a {
 		font-size: .9em;
 	}
 	
@@ -3155,42 +3152,6 @@ th.gigpress-heading h1, th.gigpress-heading h2, th.gigpress-heading h3, th.gigpr
     border-bottom: 1px solid #EEE;
 }
 
-/* To set an alternating row style */
-tr.gigpress-alt {
-}
-
-/* Individual classes for the label header cells that start the table */
-th.gigpress-date {
-}
-
-th.gigpress-artist {
-}
-
-th.gigpress-city {
-}
-
-th.gigpress-venue {
-}
-
-th.gigpress-country {
-}
-
-/* Likewise, individual classes for the content cells */
-td.gigpress-date {
-}
-
-td.gigpress-artist {
-}
-
-td.gigpress-city {
-}
-
-td.gigpress-venue {
-}
-
-td.gigpress-country {
-}
-
 /* Style for rows within a tour */
 tr.gigpress-tour td {
     background-color: #F6F6F6;
@@ -3363,30 +3324,30 @@ abbr {
 ===========================================================*/
 
 
-body.college .entry-title,
-body.college.home h3.widget-title a.rsswidget,
-body.college #home-middle .home-middle-features h3 a {
+body.collegeonly .entry-title,
+body.collegeonly.home h3.widget-title a.rsswidget,
+body.collegeonly #home-middle .home-middle-features h3 a {
 	font-family: "ff-dagny-web-pro-1","ff-dagny-web-pro-2", 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;		
 	font-weight: 600;
 	color: #b19e56;
 	text-shadow: 0 1px 0 #fff;	
 }
 
-body.college a:link,
-body.college a:visited {
+body.collegeonly a:link,
+body.collegeonly a:visited {
 	color:#8d0002;
 	text-decoration: none;
 	border-color: #8d0002;
 }
 
-body.college a:active,
-body.college a:hover {
+body.collegeonly a:active,
+body.collegeonly a:hover {
 	color: #5b0125;
 	text-decoration: none;
 	border-color: #5b0125;	
 }
 
-body.college span.gigpress-sidebar-status a, body.college .btn a, body.college button.btn, body.college a.gigpress-tickets-link {	
+body.collegeonly span.gigpress-sidebar-status a, body.collegeonly .btn a, body.collegeonly button.btn, body.collegeonly a.gigpress-tickets-link {	
 	border: 1px solid #860125;
 	color: #fff;
 	background: #860125;
@@ -3394,54 +3355,54 @@ body.college span.gigpress-sidebar-status a, body.college .btn a, body.college b
 	background: -moz-linear-gradient(top, #ba012c, #860125);
 }
 
-body.college span.gigpress-sidebar-status a, body.college .btn a:hover, body.college button.btn:hover, body.college a.gigpress-tickets-link:hover {	
+body.collegeonly span.gigpress-sidebar-status a, body.collegeonly .btn a:hover, body.collegeonly button.btn:hover, body.collegeonly a.gigpress-tickets-link:hover {	
 	background: #ba012c;	
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#860125), to(#ba012c));
 	background: -moz-linear-gradient(top, #860125, #ba012c);		
 }
 
-body.college span.gigpress-sidebar-status a, body.college .btn a:active, body.college button.btn:active, body.college a.gigpress-tickets-link:active {
+body.collegeonly span.gigpress-sidebar-status a, body.collegeonly .btn a:active, body.collegeonly button.btn:active, body.collegeonly a.gigpress-tickets-link:active {
 	background: #0082b7;	
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ba012c), to(#860125));
 	background: -moz-linear-gradient(top, #ba012c, #860125);	
 }
 
-body.college #extension-section .btn a, button.btn {	
+body.collegeonly #drop-section .btn a, button.btn {	
 	border: 1px solid #d00031;			
 }
 
-body.college #extension-section-nav {
+body.collegeonly #drop-section-nav {
 	background: #5b0125;
 	border-bottom: 1px solid #5b0125;	
 }
 
-body.college body.admin-bar #extension-section-nav {	
+body.collegeonly body.admin-bar #drop-section-nav {	
 	top: 28px;
 }
 
-body.college #extension-section-nav #drop-nav {
+body.collegeonly #drop-section-nav #drop-nav {
 	position: relative;
 	margin: 0 auto 0;
 }
 
-body.college #extension-section-nav #drop-nav ul {
+body.collegeonly #drop-section-nav #drop-nav ul {
 	padding: 4px 0;
 	margin: 0;	
 }
 
-body.college #extension-section-nav #drop-nav ul li {
+body.collegeonly #drop-section-nav #drop-nav ul li {
 	float: left;
 	padding: 0 0 2px 0;
 	line-height: .6em;	
 }
 
-body.college #extension-section-nav #drop-nav ul li.ask,
-body.college #extension-section-nav #drop-nav ul li.explore,
-body.college #extension-section-nav #drop-nav ul li.tx-uni-item {
+body.collegeonly #drop-section-nav #drop-nav ul li.ask,
+body.collegeonly #drop-section-nav #drop-nav ul li.explore,
+body.collegeonly #drop-section-nav #drop-nav ul li.tx-uni-item {
 	padding: 5px;
 }
 
-body.college #extension-section-nav #drop-nav ul li.tx-uni-item a {
+body.collegeonly #drop-section-nav #drop-nav ul li.tx-uni-item a {
 	padding: 1px 20px;
 	margin-left: 10px;
 	text-indent: -999em;
@@ -3451,7 +3412,7 @@ body.college #extension-section-nav #drop-nav ul li.tx-uni-item a {
 	background: url('images/college-logo.png') no-repeat left center;
 }
 
-body.college #extension-section-nav #drop-nav ul li a {
+body.collegeonly #drop-section-nav #drop-nav ul li a {
 	position: relative;
 	z-index: 2;	
 	font: 14px "minion-pro-1","minion-pro-2", "cambria", Georgia, serif;
@@ -3459,7 +3420,7 @@ body.college #extension-section-nav #drop-nav ul li a {
 	border: none;
 }
 
-body.college #extension-section-nav #drop-nav ul li a[href*='explore'] {
+body.collegeonly #drop-section-nav #drop-nav ul li a[href*='explore'] {
 	position: relative;
 	z-index: 2;
 	padding: 2em 10px 2em 17px;
@@ -3468,12 +3429,12 @@ body.college #extension-section-nav #drop-nav ul li a[href*='explore'] {
 	background: url('images/explore-button.png') no-repeat left top;					
 }
 
-body.college #extension-section-nav #drop-nav ul li a[href*='explore']:hover {
+body.collegeonly #drop-section-nav #drop-nav ul li a[href*='explore']:hover {
 	background-position: left 41px;	
 	color: #e2dcc0;
 }
 
-body.college #extension-section-nav #drop-nav ul li a[href*='ask'] {
+body.collegeonly #drop-section-nav #drop-nav ul li a[href*='ask'] {
 	position: relative;
 	z-index: 2;
 	padding: 0 10px 0 1.6em;
@@ -3482,16 +3443,16 @@ body.college #extension-section-nav #drop-nav ul li a[href*='ask'] {
 	background: url('images/question-mark.png') no-repeat left 2px;					
 }
 
-body.college #extension-section-nav #drop-nav ul li a[href*='ask']:hover {		
+body.collegeonly #drop-section-nav #drop-nav ul li a[href*='ask']:hover {		
 	color: #e2dcc0;	
 	background-position: left -28px;					
 }
 
-body.college #extension-section-nav #drop-nav ul li.right-align {
+body.collegeonly #drop-section-nav #drop-nav ul li.right-align {
 	display: none;
 }
 
-body.college #extension-section  {
+body.collegeonly #drop-section  {
 	background: #EAE8D9;
 	border-bottom: 2px solid #fff;	
 	color: #fff;
@@ -3499,17 +3460,17 @@ body.college #extension-section  {
 	padding-top: 40px;
 }
 
-body.college #extension-section .flow {
+body.collegeonly #drop-section .flow {
 	position: relative;	 
 	overflow: hidden;
 	margin: 0 auto;	
 }
 
-body.college #extension-section .hidden {
+body.collegeonly #drop-section .hidden {
 	display: none;	
 }
 
-body.college #extension-section .flow .contents {
+body.collegeonly #drop-section .flow .contents {
 	bottom: 0px;
 	position: absolute;
 	overflow: hidden;
@@ -3517,15 +3478,15 @@ body.college #extension-section .flow .contents {
 	margin-top: 0;		
 }
 
-body.college #extension-section .flow .contents a {
+body.collegeonly #drop-section .flow .contents a {
 	color: #eee;		
 }
 
-body.college #extension-section .flow .contents a:hover {
+body.collegeonly #drop-section .flow .contents a:hover {
 	color: #fff;		
 }
 
-body.college #extension-section .flow .contents .gform_wrapper {
+body.collegeonly #drop-section .flow .contents .gform_wrapper {
 	position: relative;
 	padding: 5px 5px 10px 5px;
 	float: right;
@@ -3533,29 +3494,29 @@ body.college #extension-section .flow .contents .gform_wrapper {
 	background: #dad2b0;		
 }
 
-body.college #extension-section .flow .contents form label {
+body.collegeonly #drop-section .flow .contents form label {
 	display: block;	
 	padding-left: 5px;	
 	font-size: 14px;
 }
 
-body.college #extension-section .flow .contents form input {
+body.collegeonly #drop-section .flow .contents form input {
 	margin-bottom: 8px;	
 }
 
-body.college #extension-section .flow .contents form button[type=reset] {	
+body.collegeonly #drop-section .flow .contents form button[type=reset] {	
 	border: 1px solid #d2c89f;
 	color: #fff;
 	background: #cabe8e;
 	padding: 2px 5px;	
 }
 
-body.college #extension-section .flow .contents form button[type=submit] {	
+body.collegeonly #drop-section .flow .contents form button[type=submit] {	
 	padding: 2px 12px;	
 }
 
-body.college #extension-section .flow .contents form input,
-body.college #extension-section .flow .contents form textarea {
+body.collegeonly #drop-section .flow .contents form input,
+body.collegeonly #drop-section .flow .contents form textarea {
 	background: #f3f2e9;
 	font-size: 12px;
 	color: #c3c39a;
@@ -3569,7 +3530,7 @@ body.college #extension-section .flow .contents form textarea {
 	box-shadow: none;	
 }
 
-body.college #extension-section .flow .contents form textarea {
+body.collegeonly #drop-section .flow .contents form textarea {
 	background: #f3f2e9;
 	color: #c3c39a;
 	border: 1px solid #d2c89f;	
@@ -3578,25 +3539,25 @@ body.college #extension-section .flow .contents form textarea {
 	-webkit-transition: background-color .15s linear;
 }
 
-body.college #extension-section .flow .contents form input:hover,
-body.college #extension-section .flow .contents form textarea:hover {
+body.collegeonly #drop-section .flow .contents form input:hover,
+body.collegeonly #drop-section .flow .contents form textarea:hover {
 	background: #fcfcfa;			
 }
 
-body.college #extension-section .flow .contents form input:focus,
-body.college #extension-section .flow .contents form textarea:focus {
+body.collegeonly #drop-section .flow .contents form input:focus,
+body.collegeonly #drop-section .flow .contents form textarea:focus {
 	background: #fff;
 	-webkit-box-shadow: 0 0 10px #f0e0a1;
 	-moz-box-shadow: 0 0 10px #f0e0a1;
 	box-shadow: 0 0 10px #f0e0a1;			
 }
 
-body.college #extension-section .flow .contents #top-level-nav {
+body.collegeonly #drop-section .flow .contents #top-level-nav {
 	padding: 0;
 	clear: both;
 }
 
-body.college #extension-section .flow .contents #ext-intro {	
+body.collegeonly #drop-section .flow .contents #ext-intro {	
 	margin: 0 0 20px 0;
 	padding: 0;
 	border-bottom: 1px solid #fff;			
@@ -3604,7 +3565,7 @@ body.college #extension-section .flow .contents #ext-intro {
 	overflow: hidden;		
 }
 
-body.college #extension-section .flow .contents #ext-intro p {	
+body.collegeonly #drop-section .flow .contents #ext-intro p {	
 	font-size: 2.4em;
 	line-height: 34px;
 	margin: 0;
@@ -3614,7 +3575,7 @@ body.college #extension-section .flow .contents #ext-intro p {
 	width: 75%;
 }
 
-body.college #extension-section .flow .contents #ext-intro p a {
+body.collegeonly #drop-section .flow .contents #ext-intro p a {
 	background: #d5c380;
 	padding: 1px 5px;
 	color: #815a08;
@@ -3623,18 +3584,18 @@ body.college #extension-section .flow .contents #ext-intro p a {
 	font-size: .7em;		
 }
 
-body.college #extension-section .flow .contents #ext-intro p a:hover {
+body.collegeonly #drop-section .flow .contents #ext-intro p a:hover {
 	background: #b19e56;
 }
 
-body.college #extension-section .flow .contents #ext-intro p.ask-text {	
+body.collegeonly #drop-section .flow .contents #ext-intro p.ask-text {	
 	font-size: 1.4em;
 	line-height: 16px;
 	margin: 0;
 	color: #5a0024;	
 }
 
-body.college #extension-section .flow .contents #top-level-nav .top-level-nav {
+body.collegeonly #drop-section .flow .contents #top-level-nav .top-level-nav {
 	float: left;
 	width: 169px;
 	margin-left: 20px;
@@ -3644,31 +3605,31 @@ body.college #extension-section .flow .contents #top-level-nav .top-level-nav {
 	-webkit-transition: -webkit-box-shadow .2s ease-in;
 }
 
-body.college #access li a[title='home'] {
+body.collegeonly #access li a[title='home'] {
 	background-image: url('images/home-college.png');
 }
 
 /***** Header ********************/
 
-body.college #site-title a {
+body.collegeonly #site-title a {
 	color: #5d0025;
 }
 
 /***** Home Middle ********************/
 
 
-body.home.college #container,
-body.home.college #content {
+body.home.collegeonly #container,
+body.home.collegeonly #content {
 	margin: 0;
 	float: none;
 	}
 
-body.college #home-middle-bg {
+body.collegeonly #home-middle-bg {
 	float: left;
 	overflow: hidden;	
 	}
 
-body.college #home-middle {
+body.collegeonly #home-middle {
 	margin: 0 auto;
 	padding: 0;
 	overflow: hidden;
@@ -3676,27 +3637,27 @@ body.college #home-middle {
 	clear: left;
 	}
 	
-body.college #home-middle p {
+body.collegeonly #home-middle p {
 	
 	}
 
-body.college body.home #content p {
+body.collegeonly body.home #content p {
 	margin-left: 10px;
 	}
 
-body.college body.home .page p:first-child {
+body.collegeonly body.home .page p:first-child {
 	text-shadow: 0 1px 0 #fff;		
 }
 
-body.college #home-middle .home-middle-features .featured-wrap p {
+body.collegeonly #home-middle .home-middle-features .featured-wrap p {
 	position: relative;
 }
 
-body.college #home-middle .home-middle-features a {
+body.collegeonly #home-middle .home-middle-features a {
 	border: none;
 }
 
-body.college #home-middle .home-middle-features a .date {
+body.collegeonly #home-middle .home-middle-features a .date {
 	font-family: "ff-dagny-web-pro-1","ff-dagny-web-pro-2", 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;	
 	font-size: .8em;
 	background: #5d0025;
@@ -3714,7 +3675,7 @@ body.college #home-middle .home-middle-features a .date {
 	margin: 1px;
 }
 
-body.college #home-middle .home-middle-features img {
+body.collegeonly #home-middle .home-middle-features img {
 	width: 175px;
 	float: left;
 	margin: 5px 1.2em 1.2em 0;
@@ -3723,27 +3684,27 @@ body.college #home-middle .home-middle-features img {
 	z-index: 998;	
 }
 
-body.college #home-middle .home-middle-features img:hover {
+body.collegeonly #home-middle .home-middle-features img:hover {
 	opacity: 1;
 }
 
-body.college #home-middle .home-middle-features h3 {
+body.collegeonly #home-middle .home-middle-features h3 {
 	margin: 10px;
 	padding-top: 30px;
 	border-top: double #E2DECA;	
 }
 	
-body.college #home-middle .home-middle-features h3 a {
+body.collegeonly #home-middle .home-middle-features h3 a {
 	border-bottom: 1px dotted #b19e56;
 	
 }
 	
-body.college #home-middle .home-middle-features h3 a:hover {
+body.collegeonly #home-middle .home-middle-features h3 a:hover {
 	color: #a2904b;
 	border-bottom: 1px solid #a2904b;
 }
 
-body.home.college  span.read-more {
+body.home.collegeonly  span.read-more {
 	display: block;
 	clear: left;
 	overflow: hidden;
@@ -3751,9 +3712,9 @@ body.home.college  span.read-more {
 	margin-bottom: -5px;
 	}
 	
-body.home.college span.read-more a,
-body.college .flickr-gallery-next a,
-body.college .flickr-gallery-prev a {
+body.home.collegeonly span.read-more a,
+body.collegeonly .flickr-gallery-next a,
+body.collegeonly .flickr-gallery-prev a {
 	font-family: "ff-dagny-web-pro-1","ff-dagny-web-pro-2", 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;		
 	padding: .2em 1em;
 	background: #e8e7d5;
@@ -3766,93 +3727,93 @@ body.college .flickr-gallery-prev a {
 	margin: 20px 0 30px 2px;
 	}
 
-body.home.college  span.read-more a:hover,
-body.college .flickr-gallery-next a:hover,
-body.college .flickr-gallery-prev a:hover  {
+body.home.collegeonly  span.read-more a:hover,
+body.collegeonly .flickr-gallery-next a:hover,
+body.collegeonly .flickr-gallery-prev a:hover  {
 	background: #e2dbbf;
 	-webkit-box-shadow: 0 1px 1px #dfdec5;	
 	-moz-box-shadow: 0 1px 1px #dfdec5;	
 	box-shadow: 0 1px 1px #dfdec5;	
 	}
 			
-body.college #home-middle h2, body.home.college  .page h2.entry-title {
+body.collegeonly #home-middle h2, body.home.collegeonly  .page h2.entry-title {
 	margin: 0 0 5px 0;
 	padding: 0 0 0 10px;
 	text-decoration: none;
 	}
 	
-body.college #home-middle h2 a, body.college #home-middle h2 a:visited {
+body.collegeonly #home-middle h2 a, body.collegeonly #home-middle h2 a:visited {
 	text-decoration: none;
 	}
 	
-body.college #home-middle h3,
-body.college #home-middle h4 {	
+body.collegeonly #home-middle h3,
+body.collegeonly #home-middle h4 {	
 	margin: 20px 0 15px 0;
 	padding: 10px 0;
 	}
 	
-body.college #home-middle ul {
+body.collegeonly #home-middle ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 	}
 	
-body.college #home-middle ul li {
+body.collegeonly #home-middle ul li {
 	list-style-type: none;
 	}
 	
-body.college .widget_rss ul li {
+body.collegeonly .widget_rss ul li {
 	margin: 0 0 7px 0;
 	padding: 0 0 7px 0;	
 	}
 	
-body.college #home-middle ul ul {
+body.collegeonly #home-middle ul ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0 0 10px 0;
 	}
 
-body.college #home-middle ul li ul li {
+body.collegeonly #home-middle ul li ul li {
 	margin: 0;
 	padding: 5px 0 0 0;
 	}
 	
-body.college #home-middle .widget {
+body.collegeonly #home-middle .widget {
 	margin: 0;
 	}
 	
-body.college #home-middle .widget-container {
+body.collegeonly #home-middle .widget-container {
 	padding-top: 2em;
 	margin-top: 2em;
 	}
 		
-body.college #home-middle .textwidget {
+body.collegeonly #home-middle .textwidget {
 	margin: 0;
 	padding: 0;
 	}
 	
-body.college #home-middle .featuredpost .post, body.college #home-middle .featuredpage .page {
+body.collegeonly #home-middle .featuredpost .post, body.collegeonly #home-middle .featuredpage .page {
 	clear: both;
 	}
 	
-body.college #home-middle .featuredpost, body.college #home-middle .featuredpage {
+body.collegeonly #home-middle .featuredpost, body.collegeonly #home-middle .featuredpage {
 	clear: both;
 	}
 	
-body.college #home-middle .featuredpost img {
+body.collegeonly #home-middle .featuredpost img {
 	background: #FFFFFF;
 	margin: 0;
 	padding: 4px;
 	}
 	
-body.college #home-middle .user-profile .avatar {
+body.collegeonly #home-middle .user-profile .avatar {
 	background: #FFFFFF;
 	margin: 0 0 -5px 0;
 	padding: 1px;
 	border: 4px solid #EEEEEE;
 	}
 
-body.college .home-middle-1 {
+body.collegeonly .home-middle-1 {
 	float: left;
 	margin: 0;
 	padding: 0 0 20px 10px;
@@ -3860,68 +3821,68 @@ body.college .home-middle-1 {
 
 @media screen and (min-width: 960px) {	
 	
-	body.college #site-title a {	
+	body.collegeonly #site-title a {	
 		font: 2em arno-pro-1,arno-pro-2, 'Cambria', georgia, serif;
 		padding: 20px 0 20px 0;	
 		color: #5d0025;
 	}
 
-	body.college div.search form {
+	body.collegeonly div.search form {
 		top: 25px;
 	}
 	
-	body.home.college  h2.entry-title {
+	body.home.collegeonly  h2.entry-title {
 		font-size: 3em;
 	}
 	
-	body.college #content {
+	body.collegeonly #content {
 		padding-bottom: 2em;
 		overflow: hidden;	
 	}
 						
-	body.home.college  #content {
+	body.home.collegeonly  #content {
 		max-width: 564px;
 		float: left;
 	}
 	
-	body.home.college  #content {
+	body.home.collegeonly  #content {
 		display: block;
 		position: relative;
 		max-width: 574px;
 	}
 		
-	body.college #home-middle-bg, body.college #home-middle, body.college .home-middle-1, body.college #wrap  {
+	body.collegeonly #home-middle-bg, body.collegeonly #home-middle, body.collegeonly .home-middle-1, body.collegeonly #wrap  {
 		width: 575px;
 	}
 		
-	body.college #home-middle li,
-	body.college #home-middle p	  {
+	body.collegeonly #home-middle li,
+	body.collegeonly #home-middle p	  {
 		padding-right: 1em;
 		
 	}
 	
-	body.page-template-onecolumn-page-php.college  #wrap {
+	body.page-template-onecolumn-page-php.collegeonly  #wrap {
 		width: 100%;
 	}
 	
-	body.college #home-middle h3.widget-title {
+	body.collegeonly #home-middle h3.widget-title {
 		margin-bottom: 10px;
 		font-size: 2.7em;
 	}
 	
-	body.college #home-middle h3.widget-title a {
+	body.collegeonly #home-middle h3.widget-title a {
 		text-decoration: none;
 	}
 	
-	body.college #home-middle h3.widget-title a:hover {
+	body.collegeonly #home-middle h3.widget-title a:hover {
 		text-decoration: none;
 	}
 	
-	body.home.college  .edit-link {
+	body.home.collegeonly  .edit-link {
 		display: none;
 	}
 
-	body.college #aside ul.books li p.btn a {
+	body.collegeonly #aside ul.books li p.btn a {
 		padding: 4px 12px;
 		font-size: 10px;
 		color: #806E38;
@@ -3931,7 +3892,7 @@ body.college .home-middle-1 {
 		background: -moz-linear-gradient(top, #ded8b4, #c7bc7f);		
 	}
 
-	body.college #aside ul.books li p.btn a:hover {
+	body.collegeonly #aside ul.books li p.btn a:hover {
 		cursor: pointer;
 		border: 1px solid #bba563;	
 		-webkit-box-shadow: none;
@@ -3942,23 +3903,23 @@ body.college .home-middle-1 {
 		background: -moz-linear-gradient(top, #cfc591, #c7bc7f);
 	}
 
-	body.college #aside ul.books li p.btn a:active {
+	body.collegeonly #aside ul.books li p.btn a:active {
 		cursor: pointer;	
 		background: #c7bc7f;
 		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#c7bc7f), to(#cfc591));
 		background: -moz-linear-gradient(top, #c7bc7f, #cfc591);		
 	}
 
-	body.college div.event dd.sign-up a:active {
+	body.collegeonly div.event dd.sign-up a:active {
 		top: 27px;
 	}
 	
-	body.college div.event dl dd.title-loc h4 {
+	body.collegeonly div.event dl dd.title-loc h4 {
 		font-size: 22px;
 	}
 
-	body.college #aside #aside-widget-area-1,
-	body.college #aside #aside-widget-area-2 {
+	body.collegeonly #aside #aside-widget-area-1,
+	body.collegeonly #aside #aside-widget-area-2 {
 		margin-right: 10px;
 	}
 
@@ -3967,22 +3928,22 @@ body.college .home-middle-1 {
 
 @media all and (max-width: 960px) {
 	
-	body.college body {  		
+	body.collegeonly body {  		
 	    font-size: 80%; 
 		line-height: 1.75em;
 	}
 
-	body.college  div.search {
+	body.collegeonly  div.search {
 		margin-bottom: 20px;
 	}
-	body.college img,video,object {
+	body.collegeonly img,video,object {
 	    max-width: 100%;
 	}
-	body.college #aside {
+	body.collegeonly #aside {
 		float: none;
 		clear: both;
 	}	
-	body.college #extension-section-nav #drop-nav ul {
+	body.collegeonly #drop-section-nav #drop-nav ul {
 		margin: 0 5%;
 	}
 }
@@ -3990,49 +3951,49 @@ body.college .home-middle-1 {
 /* mobile width */
 @media all and (max-width: 640px) {
 		
-	body.college #site-title a {
+	body.collegeonly #site-title a {
 		font: 1.1em arno-pro-1,arno-pro-2, georgia, serif;
 		margin-left: 7px;
 	}
-	body.college  { 		
+	body.collegeonly  { 		
 		font-size: 76%; 			
 	}			
-	body.college #content {
+	body.collegeonly #content {
 		width: 100%;	
 		border-right: none;
 		margin-left: 0;
 	}			
-	body.college #header  {
+	body.collegeonly #header  {
 		margin: 0;
 		padding: 1em 0 0 0;
 	}	
-	body.college #site-title  {
+	body.collegeonly #site-title  {
 		margin: 0;
 	}
-	body.college #site-title a  {
+	body.collegeonly #site-title a  {
 		margin: 0;
 		padding: 0;
 	}
-	body.college #access .menu-header, body.college div.menu	{
+	body.collegeonly #access .menu-header, body.collegeonly div.menu	{
 		padding: 0 0 2em 0;
 		margin:  0 0 2em 0;
 	}
 	
-	body.college #access #menu-main-navigation {
+	body.collegeonly #access #menu-main-navigation {
 		width: 100%;
 	}
 			
-	body.college #access .menu-header li,
-	body.college div.menu li {
+	body.collegeonly #access .menu-header li,
+	body.collegeonly div.menu li {
 		float: none;
 		margin: 0;
 	}
 	
-	body.college #access  {
+	body.collegeonly #access  {
 		float: none;
 	}
 	
-	body.college #access a {
+	body.collegeonly #access a {
 		font-size: 1.6em;
 		background: #98191a;
 		color: #fff;
@@ -4041,44 +4002,44 @@ body.college .home-middle-1 {
 		text-shadow: none;
 	}
 	
-	body.college #access li.current-menu-item a {
+	body.collegeonly #access li.current-menu-item a {
 		background-color: #5d0025;
 	}
 
 
-	body.college #access li a[title='home'] {
+	body.collegeonly #access li a[title='home'] {
 		background-repeat: no-repeat;
 		background-color: #fff;
 	}
 
-	body.college #access li.current-menu-item a[title='home'] {
+	body.collegeonly #access li.current-menu-item a[title='home'] {
 		background-color: #fff;
 	}
 		
-	body.college #access a:hover {
+	body.collegeonly #access a:hover {
 		background: #5b0125;	
 	}
 	
-	body.college #home-top {
+	body.collegeonly #home-top {
 		display: none;
 	}				
 }
 /* mobile width */
 @media all and (max-width: 420px) {
 
-	body.college  { 
+	body.collegeonly  { 
 		font-size: 75%; 
 		-webkit-text-size-adjust: 98%;			
 	}	
-	body.college #access a {
+	body.collegeonly #access a {
 		font-size: 1.5em;
 	}
 	
-	body.college div.event dl dd.title-loc h4 {
+	body.collegeonly div.event dl dd.title-loc h4 {
 		font-size: 18px;
 		padding-right: 15px;
 	}
-	body.college div.event dd.sign-up a {
+	body.collegeonly div.event dd.sign-up a {
 		font-size: .75em;
 	}
 }

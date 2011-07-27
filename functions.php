@@ -23,22 +23,6 @@ if ( ! function_exists( 'agriflex_setup' ) ):
 
 function agriflex_setup() {
 
-	// Set path to function files
-	$includes_path = TEMPLATEPATH . '/includes/';
-	$structure_path = TEMPLATEPATH . '/structure/';	
-
-	// Admin Pages
-	require_once ($includes_path . 'admin.php');
-	// Remove Admin Menus and Dashboards
-	require_once ($includes_path . 'admin-remove.php');
-	// Custom Shortcodes
-	require_once ($includes_path . 'shortcodes.php');
-	// Auto-configure plugins
-	require_once ($includes_path . 'plugin-config.php');
-	// Add Custom Widgets
-	require_once ($includes_path . 'widgets.php');
-	
-
 	// Remove things that get stuck up in the doc head that we don't need
 	remove_action( 'wp_head', 'wp_generator' );
 	remove_action( 'wp_head', 'index_rel_link' );
@@ -571,7 +555,20 @@ function getFlickrPhotos($id, $limit=9) {
 } 
 
 
+	// Set path to function files
+	$includes_path = TEMPLATEPATH . '/includes/';
+	$structure_path = TEMPLATEPATH . '/structure/';	
 
+	// Admin Pages
+	require_once ($includes_path . 'admin.php');
+	// Remove Admin Menus and Dashboards
+    //	require_once ($includes_path . 'admin-remove.php');
+	// Custom Shortcodes
+	require_once ($includes_path . 'shortcodes.php');
+	// Auto-configure plugins
+	require_once ($includes_path . 'plugin-config.php');
+	// Add Custom Widgets
+	require_once ($includes_path . 'widgets.php');
 
 
 

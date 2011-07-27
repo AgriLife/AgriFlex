@@ -3,6 +3,7 @@ document.createElement("nav");
 document.createElement("section");
 document.createElement("aside");
 document.createElement("footer");
+document.createElement("hgroup");
 
 /*
  * Superfish v1.4.8 - jQuery menu widget
@@ -1214,11 +1215,11 @@ jQuery(document).ready(function($) {
         };
     };
     
-   jQuery('#extension-section').after(jQuery('#contact-form'));
+   jQuery('#drop-section').after(jQuery('#contact-form'));
     
     var contactForm = new Revealer(
-        jQuery('#extension-section .flow'),               // the relatively positioned container
-        jQuery('#extension-section .flow .contents'),     // the absolutely positioned child
+        jQuery('#drop-section .flow'),               // the relatively positioned container
+        jQuery('#drop-section .flow .contents'),     // the absolutely positioned child
         300  // the speed of the animation
     );
     
@@ -1227,15 +1228,15 @@ jQuery(document).ready(function($) {
         contactForm.toggleReveal();
         return false;
     });
-    jQuery('#extension-section button[type="reset"]').live('click',function(){
+    jQuery('#drop-section button[type="reset"]').live('click',function(){
         contactForm.toggleReveal();
         return false;
     });
 
-    jQuery('#extension-section form').live('submit',function(){
+    jQuery('#drop-section form').live('submit',function(){
         var values = $(this).serialize();
         jQuery.post('',values,function(markup) {
-            jQuery('#extension-section .contents').html(markup);
+            jQuery('#drop-section .contents').html(markup);
         },'html');
         return false;
     });
