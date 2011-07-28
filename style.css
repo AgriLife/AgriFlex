@@ -312,6 +312,18 @@ body.extensiononly a:hover {
 	border-color: #002838;	
 }
 
+body.researchonly a:link,
+body.researchonly a:visited {
+	color:#669e3e;
+	border-color: #669e3e;
+}
+
+body.researchonly a:active,
+body.researchonly a:hover {
+	color: #375521;
+	border-color: #375521;	
+}
+
 span.gigpress-sidebar-status a, .btn a, button.btn, a.gigpress-tickets-link {
 	border-radius: 3px;	
 	-webkit-box-shadow: 1px 1px 1px #d8d3ae;
@@ -411,18 +423,14 @@ body.admin-bar #drop-section-nav {
 	padding: 0;
 }
 
-#drop-section-nav #drop-nav ul li.tx-ext-item a,
-#drop-section-nav #drop-nav ul li.college-item a {
-	font-size: 18px;
-	padding: 10px;
-}
-
 #drop-section-nav #drop-nav ul li a {
 	position: relative;
 	z-index: 2;	
 	font: 12px "minion-pro-1","minion-pro-2", "cambria", Georgia, serif;
 	color: #fff;
 	border: none;
+	padding: 5px 5px 0;
+	margin-right: 15px;
 }
 
 #drop-section-nav #drop-nav ul li a[href*='ask'] {
@@ -460,7 +468,7 @@ body.admin-bar #drop-section-nav {
 	background-repeat: no-repeat;
 	background-position: left top;	
 	width: 150px;
-	height: 22px;
+	height: 40px;
 	margin-top: 2px;
 }
 
@@ -470,13 +478,16 @@ body.admin-bar #drop-section-nav {
 
 #drop-section-nav #drop-nav ul li a[href*='aglifesciences'] {
 	background-image: url('images/college-logo.png');
-	margin-top: 5px;
-	height: 20px;
+	margin-top: 6px;
+	height: 36px;
 }
 
 #drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
 	background-image: url('images/tvmdl-logo.png');
-	height: 42px;
+}
+
+#drop-section-nav #drop-nav ul li a[href*='research'] {
+	background-image: url('images/research-logo.png');
 }
 
 #drop-section-nav #drop-nav ul li.right-align {
@@ -746,6 +757,26 @@ body.extensiononly span.gigpress-sidebar-status a, body.extensiononly .btn a:act
 	background: -moz-linear-gradient(top, #004c6b, #003a52);	
 }
 
+body.researchonly span.gigpress-sidebar-status a, body.researchonly .btn a, body.researchonly button.btn, body.researchonly a.gigpress-tickets-link {	
+	border: 1px solid #5a8c37;
+	color: #fff;
+	background: #5a8c37;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#72b145), to(#5a8c37));
+	background: -moz-linear-gradient(top, #72b145, #5a8c37);
+}
+
+body.researchonly span.gigpress-sidebar-status a, body.researchonly .btn a:hover, body.researchonly button.btn:hover, body.researchonly a.gigpress-tickets-link:hover {	
+	background: #72b145;	
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#5a8c37), to(#72b145));
+	background: -moz-linear-gradient(top, #5a8c37, #72b145);		
+}
+
+body.researchonly span.gigpress-sidebar-status a, body.researchonly .btn a:active, body.researchonly button.btn:active, body.researchonly a.gigpress-tickets-link:active {
+	background: #4e7a30;	
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#5a8c37), to(#4e7a30));
+	background: -moz-linear-gradient(top, #5a8c37, #4e7a30);	
+}
+
 body.collegeonly #drop-section .btn a, button.btn {	
 	border: 1px solid #d00031;			
 }
@@ -763,6 +794,11 @@ body.tvmdlonly #drop-section-nav {
 body.extensiononly #drop-section-nav {
 	background: #004c6b;
 	border-bottom: 1px solid #004c6b;	
+}
+
+body.researchonly #drop-section-nav {
+	background: #5a8c37;
+	border-bottom: 1px solid #5a8c37;	
 }
 
 body.collegeonly #drop-section-nav #drop-nav ul li.tx-uni-item a {
@@ -1204,7 +1240,7 @@ body.home #home-middle .home-middle-features a {
 body.home #home-middle .home-middle-features a .date {
 	font-family: "ff-dagny-web-pro-1","ff-dagny-web-pro-2", 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;	
 	font-size: .8em;
-	background: #004c6b;
+	background: #726b60;
 	color: #fff;
 	border-top-right-radius: 6px;
 	border-bottom-left-radius: 6px;		
@@ -1223,8 +1259,16 @@ body.home.collegeonly #home-middle .home-middle-features a .date {
 	background: #5d0025;
 }
 
+body.home.extensiononly #home-middle .home-middle-features a .date {
+	background: #004c6b;
+}
+
 body.home.tvmdlonly #home-middle .home-middle-features a .date {
 	background: #477f80;
+}
+
+body.home.researchonly #home-middle .home-middle-features a .date {
+	background: #5a8c37;
 }
 
 body.home #home-middle .home-middle-features img {
@@ -2679,7 +2723,7 @@ img#wpstats {
 			
 	#aside ul.books li dd.price {
 		position: absolute;
-		background: url(images/price-circle.png) no-repeat 40% 50%;
+		background: url('images/price-circle.png') no-repeat 40% 50%;
 		z-index: 6;
 		top: -15px;
 		left: 40px;
