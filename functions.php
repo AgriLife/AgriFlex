@@ -20,27 +20,18 @@ if ( ! isset( $content_width ) )
 add_action( 'after_setup_theme', 'agriflex_setup' );
 
 if ( ! function_exists( 'agriflex_setup' ) ):
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which runs
- * before the init hook. The init hook is too late for some features, such as indicating
- * support post thumbnails.
- *
- * To override agriflex_setup() in a child theme, add your own agriflex_setup to your child theme's
- * functions.php file.
- *
- * @uses add_theme_support() To add support for post thumbnails and automatic feed links.
- * @uses register_nav_menus() To add support for navigation menus.
- * @uses add_custom_background() To add support for a custom background.
- * @uses add_editor_style() To style the visual editor.
- * @uses load_theme_textdomain() For translation/localization support.
- * @uses set_post_thumbnail_size() To set a custom post thumbnail size.
- *
- * @since agriflex 1.0
- */
+
 function agriflex_setup() {
 
+	// Remove things that get stuck up in the doc head that we don't need
+	remove_action( 'wp_head', 'wp_generator' );
+	remove_action( 'wp_head', 'index_rel_link' );
+	remove_action( 'wp_head', 'rsd_link' );
+	remove_action( 'wp_head', 'feed_links_extra', 3 );
+	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 ); // prev link
+	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 ); // start link
+	remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 );
+	
 	add_action( 'wp_print_styles', 'add_ie_style_sheet', 200 );
 	function add_ie_style_sheet() {
 	    wp_enqueue_style( 'ie7', get_bloginfo('stylesheet_directory') . '/css/ie.css', array(), '1.0' );
@@ -59,9 +50,6 @@ function agriflex_setup() {
 	        $tag = '<!--[if lte IE 7]>' . "\n" . $tag . '<![endif]-->' . "\n";
 	    return $tag;
 	}
-
-	// This theme styles the visual editor with editor-style.css to match the theme style.
-	add_editor_style();
 
 	// This theme uses post thumbnails
 	add_theme_support( 'post-thumbnails' );
@@ -246,6 +234,16 @@ function agriflex_page_menu_args( $args ) {
 	return $args;
 }
 add_filter( 'wp_page_menu_args', 'agriflex_page_menu_args' );
+
+
+function agriflex_nav_menu_args( $args = 'sf-menu' )
+{
+	$args['menu_class'] = 'sf-menu menu';
+	return $args;
+} // function
+
+add_filter( 'wp_nav_menu_args', 'agriflex_nav_menu_args' );
+
 
 /**
  * Sets the post excerpt length to 40 characters.
@@ -471,18 +469,14 @@ if ( ! function_exists( 'agriflex_posted_on' ) ) :
  * @since agriflex 1.0
  */
 function agriflex_posted_on() {
-	printf( __( '<span class="%1$s">Posted on</span> %2$s <span class="meta-sep">by</span> %3$s', 'agriflex' ),
-		'meta-prep meta-prep-author',
-		sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><span class="entry-date">%3$s</span></a>',
-			get_permalink(),
-			esc_attr( get_the_time() ),
-			get_the_date()
-		),
-		sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
-			get_author_posts_url( get_the_author_meta( 'ID' ) ),
-			sprintf( esc_attr__( 'View all posts by %s', 'agriflex' ), get_the_author() ),
-			get_the_author()
-		)
+	printf( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'twentyeleven' ),
+		esc_url( get_permalink() ),
+		esc_attr( get_the_time() ),
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() ),
+		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+		sprintf( esc_attr__( 'View all posts by %s', 'agriflex' ), get_the_author() ),
+		esc_html( get_the_author() )
 	);
 }
 endif;
@@ -548,24 +542,33 @@ if (class_exists("AgriLifeCounties")) {
 endif; 
 }	
 
+//Function: Get flickr media and display based on user id
+function getFlickrPhotos($id, $limit=9) {
+    require_once("includes/phpFlickr.php");
+    $f = new phpFlickr("c15fd416e1273128b7c85bb58fa01dc7");
+    $photos = $f->people_getPublicPhotos($id, NULL, NULL, 12);
+    $return.='<ul class="flickrPhotos">';
+    foreach ($photos['photos']['photo'] as $photo) {
+        $return.='<li><a href="' . $f->buildPhotoURL($photo, 'medium') . '" title="' . $photo['title'] . '"><img src="' . $f->buildPhotoURL($photo, 'square') . '" alt="' . $photo['title'] . '" title="' . $photo['title'] . '" /></a></li>';
+    }
+    echo $return.='</ul>';
+} 
 
 
+	// Set path to function files
+	$includes_path = TEMPLATEPATH . '/includes/';
+	$structure_path = TEMPLATEPATH . '/structure/';	
 
-// Set path to function files
-$includes_path = TEMPLATEPATH . '/includes/';
-
-
-// Admin Pages
-require_once ($includes_path . 'admin.php');
-// Remove Admin Menus and Dashboards
-require_once ($includes_path . 'admin-remove.php');
-// Custom Shortcodes
-require_once ($includes_path . 'shortcodes.php');
-// Auto-configure plugins
-require_once ($includes_path . 'plugin-config.php');
-// Add Custom Widgets
-require_once ($includes_path . 'widgets.php');
-
+	// Admin Pages
+	require_once ($includes_path . 'admin.php');
+	// Remove Admin Menus and Dashboards
+    //	require_once ($includes_path . 'admin-remove.php');
+	// Custom Shortcodes
+	require_once ($includes_path . 'shortcodes.php');
+	// Auto-configure plugins
+	require_once ($includes_path . 'plugin-config.php');
+	// Add Custom Widgets
+	require_once ($includes_path . 'widgets.php');
 
 
 

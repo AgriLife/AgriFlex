@@ -20,20 +20,6 @@
 		 */
 		if ( ! dynamic_sidebar( 'right-column-bottom-widget-area' ) ) : ?>
 
-				<li id="archives" class="widget-container">
-					<h3 class="widget-title"><?php _e( 'Archives', 'agriflex' ); ?></h3>
-					<ul>
-						<?php wp_get_archives( 'type=monthly' ); ?>
-					</ul>
-				</li>
-
-				<li id="archives" class="widget-container">
-					<h3 class="widget-title"><?php _e( 'Recent Posts', 'agriflex' ); ?></h3>
-					<ul>
-						<?php wp_get_archives( 'type=postbypost' ); ?>
-					</ul>
-				</li>
-
 			<?php endif; // end aside widget area ?>
 				</ul>
 			</div><!-- #secondary .widget-area -->

@@ -25,7 +25,18 @@
   
   
 ?><!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" <?php language_attributes(); ?>>
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" <?php language_attributes(); ?>>
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" <?php language_attributes(); ?>>
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
 <html <?php language_attributes(); ?>>
+<!--<![endif]-->
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width; initial-scale=1.0;">	
@@ -40,7 +51,7 @@
 	?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-<link rel="shortcut icon" href="<?php bloginfo( 'stylesheet_directory' ); ?>/images/favicon.ico" type="image/ico" />
+<link rel="shortcut icon" href="http://agrilifecdn.tamu.edu/wp-content/themes/agrilife-2.0/favicon.ico" type="image/ico" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <?php if ($googlemap) echo $googlemap; ?>
 <?php
@@ -61,17 +72,30 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="extension-section-nav">
+<div id="drop-section-nav">
 	<div id="drop-nav">
-		<ul>
-		<!--	<li class='ask'><a class="ext-link" href="/ask/">Ask</a></li>
-			<li class='explore right-align'><a class="ext-link" href="/explore/">Explore</a></li>-->			
-			<li class="tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife	 Extension Service</a></li>
+		<ul>			
+			<?php if($collegeonly) :?>
+			<li class="college-item"><a href="http://aglifesciences.tamu.edu/">Texas A&amp;M College of Agriculture and Life Sciences</a></li>
+			<?php elseif($extensiononly) :?>
+			<li class="tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife Extension Service</a></li>
+			<?php elseif($researchonly) :?>
+			<li class="research-item"><a href="http://agliferesearch.tamu.edu/">Texas A&amp;M Research</a></li>
+			<?php elseif($tvmdlonly) :?>
+			<li class="tvmdl-item"><a href="http://tvmdl.tamu.edu/">Texas Veterinary Medical Diagnostics Laboratory</a></li>									
+			<?php else : ?>
+			<li class="college-item"><a href="http://aglifesciences.tamu.edu/">Texas A&amp;M College of Agriculture and Life Sciences</a></li>
+			<li class="tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife	Extension Service</a></li>
+			<li class="research-item"><a href="http://agrilifeextension.tamu.edu/">Texas A&amp;M Research</a></li>			
+			<li class="tvmdl-item"><a href="http://tvmdl.tamu.edu/">Texas Veterinary Medical Diagnostics Laboratory</a></li>				
+			<?php endif; ?>		
+			<!--<li class='ask'><a class="ext-link" href="/ask/">Ask</a></li>
+			<li class='explore right-align'><a class="ext-link" href="/explore/">Explore</a></li>-->
 		</ul>				
 	</div><!-- #drop-nav -->	
-</div><!-- #extension-section-nav -->
+</div><!-- #drop-section-nav -->
 	
-<div id="extension-section">
+<div id="drop-section">
 	<div class="flow">
 		<div class="contents">
 			<div class="wrap">
@@ -127,24 +151,27 @@
 			</div><!-- .wrap -->
 		</div><!-- .contents -->	
 	</div><!-- .flow -->		
-</div><!-- #extension-section -->
+</div><!-- #drop-section -->
 	
 <div id="wrapper" class="hfeed">
 	<div id="header">
-			<div id="branding" role="banner">
+			<header id="branding" role="banner">
+				<hgroup>
 				<h1 id="site-title">
 						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a>
 				</h1>
-				<div id="site-description"><?php bloginfo( 'description' ); ?></div>
-			</div><!-- #branding -->
-	</div><!-- #header -->		
-			<div id="access" role="navigation">	
+				<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
+				</hgroup>
 				<div class="search">
 				<?php get_search_form(); ?>
-				</div><!-- end .search -->		
+				</div><!-- end .search -->					
+			</header><!-- #branding -->	
+		</div><!-- end #header -->		
+			<nav id="access" role="navigation">		
 			  <?php /*  Allow screen readers / text browsers to skip the navigation menu and get right to the good stuff */ ?>
 				<div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'agriflex' ); ?>"><?php _e( 'Skip to content', 'agriflex' ); ?></a></div>
 				<?php /* Our navigation menu.  If one isn't filled out, wp_nav_menu falls back to wp_page_menu.  The menu assiged to the primary position is the one used.  If none is assigned, the menu with the lowest ID is used.  */ ?>
-				<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>			
+				<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>				<div class="clear"></div>
 			</div><!-- #access -->
-		
+	<div id="content-wrap">		
+		<div class="wrap">	
