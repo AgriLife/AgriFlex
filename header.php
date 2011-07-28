@@ -75,9 +75,22 @@
 <div id="drop-section-nav">
 	<div id="drop-nav">
 		<ul>			
-			<li class="tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife	 Extension Service</a></li>
+			<?php if($collegeonly) :?>
+			<li class="college-item"><a href="http://aglifesciences.tamu.edu/">Texas A&amp;M College of Agriculture and Life Sciences</a></li>
+			<?php elseif($extensiononly) :?>
+			<li class="tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife Extension Service</a></li>
+			<?php elseif($researchonly) :?>
+			<li class="research-item"><a href="http://agliferesearch.tamu.edu/">Texas A&amp;M Research</a></li>
+			<?php elseif($tvmdlonly) :?>
+			<li class="tvmdl-item"><a href="http://tvmdl.tamu.edu/">Texas Veterinary Medical Diagnostics Laboratory</a></li>									
+			<?php else : ?>
+			<li class="college-item"><a href="http://aglifesciences.tamu.edu/">Texas A&amp;M College of Agriculture and Life Sciences</a></li>
+			<li class="tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife	Extension Service</a></li>
+			<li class="research-item"><a href="http://agrilifeextension.tamu.edu/">Texas A&amp;M Research</a></li>			
+			<li class="tvmdl-item"><a href="http://tvmdl.tamu.edu/">Texas Veterinary Medical Diagnostics Laboratory</a></li>				
+			<?php endif; ?>		
 			<!--<li class='ask'><a class="ext-link" href="/ask/">Ask</a></li>
-			<li class='explore right-align'><a class="ext-link" href="/explore/">Explore</a></li><-->
+			<li class='explore right-align'><a class="ext-link" href="/explore/">Explore</a></li>-->
 		</ul>				
 	</div><!-- #drop-nav -->	
 </div><!-- #drop-section-nav -->
@@ -161,4 +174,4 @@
 				<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>				<div class="clear"></div>
 			</div><!-- #access -->
 	<div id="content-wrap">		
-		<div class="wrap">			
+		<div class="wrap">	
