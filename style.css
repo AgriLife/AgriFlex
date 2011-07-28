@@ -1864,6 +1864,7 @@ body.page .gigpress-table {
 #content .wp-caption img {
 	max-width: 100%;
 	margin: 5px 5px 0;
+	height: auto;
 }
 #content .wp-caption p.wp-caption-text {
 	margin: 5px;
@@ -1900,6 +1901,10 @@ body.page .gigpress-table {
 
 img,video,object {
     max-width: 100%;
+}
+
+img {
+    height: auto;
 }
 
 /* =Navigation
@@ -2924,7 +2929,7 @@ img#wpstats {
 		height: 100px;
 	}	
 	#access a {
-		font-size: 1.1em;
+		font-size: 1.4em;
 
 	}	
 	div.event dl dd.title-loc h4 {
@@ -2934,6 +2939,7 @@ img#wpstats {
 	div.event dd.sign-up a {
 		font-size: .75em;
 	}
+
 }
 /**********************************************************
 
@@ -3828,26 +3834,3 @@ abbr {
 		display: none;
 	}				
 }
-/* mobile width */
-@media all and (max-width: 420px) {
-
-	body.collegeonly  { 
-		font-size: 75%; 
-		-webkit-text-size-adjust: 98%;			
-	}	
-	body.collegeonly #access a {
-		font-size: 1.5em;
-	}
-	
-	body.collegeonly div.event dl dd.title-loc h4 {
-		font-size: 18px;
-		padding-right: 15px;
-	}
-	body.collegeonly div.event dd.sign-up a {
-		font-size: .75em;
-	}
-}
-
-
-
-
