@@ -27,7 +27,11 @@
 		<div id="about">
 			<div class="about">			
 				<h4>About</h4>
+<<<<<<< HEAD
+				<a href="http://www.youtube.com/watch?v=NrfZh8t443M"><img src="<?php bloginfo( 'template_directory' ); ?>/images/about_video.jpg" alt="link to College about video" /></a>
+=======
 				<a href="http://www.youtube.com/watch?v=NrfZh8t443M"><img src="<?php bloginfo( 'template_directory' ); ?>/images/college-video.jpg" alt="link to College about video" /></a>
+>>>>>>> upstream/master
 				<p>The College of Agriculture and Life Sciences is the largest of its kind in the U.S. with 400 faculty members, including winners of prestigious awards like the Nobel, Wolf and World Food Prizes. It provides students with hands-on involvement in developing solutions to today’s issues like bioenergy, environmental sustainability, international food security, and youth development.</p>	
 			</div><!-- .about -->
 		</div><!-- #about -->		
@@ -125,31 +129,16 @@
 		<div id="contact">
 			<div class="contact">			
 			<h4>Contact</h4>
-				<?php 
-				
-				$mapaddress=$options['address-street1'].' '.$options['address-street2'].' '.$options['address-city'].', TX '.$options['address-zip'];
-				$map_image = ($options['map-img']=='' ? 'http://maps.google.com/maps/api/staticmap?size=175x101&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office%7C'.urlencode($mapaddress).'&amp;sensor=false' : $options['map-img']);
-				
-				
-				?>
-				<img src="<?php echo $map_image; ?>" height="101" width="175" alt="Map to office" />
+				<?php $mapaddress=$options['address-street1'].' '.$options['address-street2'].' '.$options['address-city'].', TX '.$options['address-zip'];?>
+				<img src="http://maps.google.com/maps/api/staticmap?size=175x101&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office%7C<?php echo urlencode($mapaddress); ?>&amp;sensor=false" height="101" width="175" alt="Map to office" />
 				<ul>
 				<?php
 				if (is_array($options)) {
-					if($options['hours']<>'') {
-						echo '<li>'.$options['hours'].'</li>';
-					}
 					if(isset($options['address-street1'])) {
 						echo '<li>'.$options['address-street1'];
 						if($options['address-street2']<>'')
 							echo '<br />'.$options['address-street2'];
 						echo '<br />'.$options['address-city'].', TX '.$options['address-zip'].'</li>';
-					}
-					if($options['address-mail-street1']<>'') {
-						echo '<li>'.$options['address-mail-street1'];
-						if($options['address-mail-street2']<>'')
-							echo '<br />'.$options['address-mail-street2'];
-						echo '<br />'.$options['address-mail-city'].', TX '.$options['address-mail-zip'].'</li>';
 					}
 					if($options['phone']<>'')
 						echo '<li>Phone: '.$options['phone'].'</li>';

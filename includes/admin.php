@@ -25,10 +25,14 @@ if (!class_exists("AgrilifeCustomizer")) {
 				'isTvmdl' => false,
 				'titleImg' => '',
 				
+				'hours' => '',
+				
 				'address-street1' => '',
 				'address-street2' => '',
 				'address-city' => '',
 				'address-zip' => '',
+				'map-link' => '',
+				'map-img' => '',
 				
 				'address-mail-street1' => '',
 				'address-mail-street2' => '',
@@ -67,11 +71,16 @@ if (!class_exists("AgrilifeCustomizer")) {
 			// Deprecated!
 			$options['footerHtml'] = '';
 			
+			//hours
+			$options['hours'] = '';
+			
 			//Address Defaults
 			$options['address-street1'] = '600 John Kimbrough Boulevard';
 			$options['address-street2'] = '';
 			$options['address-city'] = 'College Station';
 			$options['address-zip'] = '77843';
+			$options['map-img'] = '';
+			$options['map-link'] = '';
 			
 			$options['address-mail-street1'] = '';
 			$options['address-mail-street2'] = '';
@@ -121,8 +130,12 @@ if (!class_exists("AgrilifeCustomizer")) {
 			  	 // Footer (deprecated)
 			  	 if (isset($_POST['footerHtml'])) 
 				  $agrilifeOptions['footerHtml'] = stripslashes(apply_filters('content_save_pre', $_POST['footerHtml']));
-		
-				
+				  
+				 
+				 // Hours
+				 if (isset($_POST['hours'])) 
+				  $agrilifeOptions['hours'] = stripslashes(apply_filters('content_save_pre', $_POST['hours']));
+				  
 		
 				//Address Defaults
 				if (isset($_POST['address-street1'])) 
@@ -136,8 +149,15 @@ if (!class_exists("AgrilifeCustomizer")) {
 		
 				if (isset($_POST['address-zip'])) 
 				  $agrilifeOptions['address-zip'] = stripslashes(apply_filters('content_save_pre', $_POST['address-zip']));
+				
+				if (isset($_POST['map-img'])) 
+				  $agrilifeOptions['map-img'] = stripslashes(apply_filters('content_save_pre', $_POST['map-img']));
+				if (isset($_POST['map-link'])) 
+				  $agrilifeOptions['map-link'] = stripslashes(apply_filters('content_save_pre', $_POST['map-link']));
+				  
+				  
 		
-				/* Mailing Address
+				// Mailing Address
 				if (isset($_POST['address-mail-street1'])) 
 				  $agrilifeOptions['address-mail-street1'] = stripslashes(apply_filters('content_save_pre', $_POST['address-mail-street1']));
 		
@@ -149,8 +169,7 @@ if (!class_exists("AgrilifeCustomizer")) {
 		
 				if (isset($_POST['address-mail-zip'])) 
 				  $agrilifeOptions['address-mail-zip'] = stripslashes(apply_filters('content_save_pre', $_POST['address-mail-zip']));
-				*/
-				// END - Mailing Address
+				  
 		
 				if (isset($_POST['phone'])) 
 				  $agrilifeOptions['phone'] = stripslashes(apply_filters('content_save_pre', $_POST['phone']));
@@ -226,12 +245,20 @@ if (!class_exists("AgrilifeCustomizer")) {
 			<?php _e('Ex: 979-999-7777') ?>
 		</td>
 		</tr>
+		<tr valign="top"> 
+		<th scope="row">Hours</th> 
+		<td>
+		    <input type="text" name="hours" id="hours" class="regular-text" maxlength="200" value="<?php echo $agrilifeOptions['hours']; ?>" />
+		    <br />
+			<?php _e('Ex: Monday-Friday: 8:00am - 5:00pm') ?>
+		</td>
+		</tr>
 		</table>
 		
 		
 		<h3>Address</h3>
 		<h4>Physical Address</h4>
-		<h5>Not a PO Box.  This needs to be a 'Physical Adress'.</h5>
+		<h5>Not a PO Box.  This needs to be a 'Physical Address'.</h5>
 		<table class="form-table">
 		<tr valign="top"> 
 		<th scope="row">Street 1</th> 
@@ -258,8 +285,28 @@ if (!class_exists("AgrilifeCustomizer")) {
 		</td>
 		</tr>
 		</table>
-		<?php 
-		/* May have to add this later 
+		
+		<a href="javascript:void(0);" onclick="jQuery(this).next('div').toggle();">Map Not Working?</a>
+		<div style="display:none; padding:10px 20px 20px; ">
+		
+			<table class="form-table">
+			<tr valign="top"> 
+			<th scope="row">Override Image Link</th> 
+			<td>
+			    <input type="text" name="map-img" id="map-img" class="regular-text" maxlength="300" value="<?php echo $agrilifeOptions['map-img']; ?>" /> <br />This is a link to a Google maps image.
+			</td>
+			</tr>
+			<tr valign="top"> 
+			<th scope="row">Override Map Link</th> 
+			<td>
+			    <input type="text" name="map-link" id="map-link" class="regular-text" maxlength="300" value="<?php echo $agrilifeOptions['map-link']; ?>" /><br />This is a permalink to a Google maps address.
+			</td>
+			</tr>
+			</table>
+		    
+		</div>
+
+		
 		<h4>Mailing Address (optional)</h4>
 		<table class="form-table">
 		<tr valign="top"> 
@@ -287,7 +334,7 @@ if (!class_exists("AgrilifeCustomizer")) {
 		</td>
 		</tr>
 		</table>
-		*/ ?>
+		
 		<h3 style="padding-top: 20px;"><?php _e('Google Analytics Settings') ?></h3> 
 		<table class="form-table">
 		<tr valign="top"> 
