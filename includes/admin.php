@@ -16,6 +16,23 @@ if (!class_exists("AgrilifeCustomizer")) {
 		function init() {
 			$this->getAdminOptions();
 		}
+		
+		
+		// Add scripts for admin image selector
+		function my_admin_scripts() {
+			wp_enqueue_script('media-upload');
+			wp_enqueue_script('thickbox');
+			wp_register_script('my-upload', get_bloginfo('template_directory').'/js/admin.js', array('jquery','media-upload','thickbox'));
+			wp_enqueue_script('my-upload');
+		}
+		
+		function my_admin_styles() {
+			wp_enqueue_style('thickbox');
+		}
+		// END
+		
+
+		
 		//Returns an array of admin options
 		function getAdminOptions() {
 			$agrilifeAdminOptions = array(
@@ -23,6 +40,8 @@ if (!class_exists("AgrilifeCustomizer")) {
 				'isExtension' => false, 
 				'isCollege' => false,
 				'isTvmdl' => false,
+				
+				'header_type' => 0,
 				'titleImg' => '',
 				
 				'hours' => '',
@@ -65,6 +84,7 @@ if (!class_exists("AgrilifeCustomizer")) {
 			$options['isTvmdl'] = false;
 			
 			//Set Site Title Image
+			$options['header_type'] = 0;
 			$options['titleImg'] = '';
 			
 			//Set Footer HTML
@@ -123,7 +143,9 @@ if (!class_exists("AgrilifeCustomizer")) {
 		
 				
 				
-				// Header Image (optional)
+				// Header
+				if (isset($_POST['header_type'])) 
+				  $agrilifeOptions['header_type'] = apply_filters('content_save_pre', $_POST['header_type']);
 				if (isset($_POST['titleImg'])) 
 				  $agrilifeOptions['titleImg'] = stripslashes(apply_filters('content_save_pre', $_POST['titleImg']));
 			  
@@ -221,10 +243,29 @@ if (!class_exists("AgrilifeCustomizer")) {
 		</tr>
 		</table>
 		
-		<h3>Header Image</h3>
-		<p>A custom 900px by 60px image you have designed.  Make sure it's exported for Web at 72 dpi.  You will need to add the image to the Media Library and then paste the path to the image below. The Media Library can be found under the 'Media' link in the left column.</p>
-		<p>The link you paste in should look something like: <em><?php bloginfo('url'); ?>/wp-content/uploads/2009/11/borlaug_title.gif</em></p>
-		<textarea name="titleImg" style="width:575px" rows="3"><?php _e($this->showHtml($agrilifeOptions['titleImg']), 'AgrilifeCustomizer') ?></textarea>
+		<h3>Header</h3>
+		
+		
+		<input type="radio" name="header_type" value="0" <?php if($agrilifeOptions['header_type']==0) echo 'checked="checked"';?> onclick="jQuery('#image_upload').toggle();" /> Site Title (text only)<br />
+		<input type="radio" name="header_type" value="1" <?php if($agrilifeOptions['header_type']==1) echo 'checked="checked"';?> onclick="jQuery('#image_upload').toggle();" /> Site Title and Small Logo<br />
+		
+		 
+		<p style="display: none;">A custom 900px by 60px image you have designed.  Make sure it's exported for Web at 72 dpi.</p>
+				
+<table class="form-table" id="image_upload" style="display:none;">
+<tr valign="top">
+<th scope="row">Upload Image</th>
+<td><label for="upload_image">
+<input id="upload_image" type="text" size="100" name="titleImg" value="<?php _e($this->showHtml($agrilifeOptions['titleImg']), 'AgrilifeCustomizer') ?>" />
+<input id="upload_image_button" type="button" value="Upload Image" />
+<br />Enter an URL or upload an image for the banner.
+</label></td>
+</tr>
+</table>
+
+<input type="radio" name="header_type" value="2" disabled="disabled" <?php if($agrilifeOptions['header_type']==2) echo 'checked="checked"';?> /> Custom Image Header (coming soon)<br />
+
+
 		
 		
 		<h3>Unit Information</h3>
@@ -407,6 +448,12 @@ if (!function_exists("AgrilifeCustomize_ap")) {
 		if (function_exists('add_options_page')) {
 			add_options_page('AgriLife Site Configuration', 'AgriLife Options', 9, 'agrilife-config-admin', array(&$agrilife_customizer, 'printAdminPage'));
 		}
+		// Add Image Thickbox To Config Screen
+		if (isset($_GET['page']) && $_GET['page'] == 'agrilife-config-admin') {
+			add_action('admin_print_scripts', array(&$agrilife_customizer,'my_admin_scripts'));
+			add_action('admin_print_styles', array(&$agrilife_customizer,'my_admin_styles'));
+		}
+		
 	}	
 }
 
