@@ -1,536 +1,536 @@
-	
-	body#ie6,
-	body#ie7,
-	body#ie8 {
-	background: #f8f5f1 url('../images/tan-background.png') top left;
-	}
-		
-	p, li {
-		line-height: 1.4em;
-		font-size: 16px; 
-	}
 
-	#wrapper, #drop-section-nav #drop-nav, #drop-section .flow   {
+body#ie6,
+body#ie7,
+body#ie8 {
+background: #f8f5f1 url('../images/tan-background.png') top left;
+}
+	
+p, li {
+	line-height: 1.4em;
+	font-size: 16px; 
+}
 
-	}
-	
-	#branding, #access .menu-header, .wrap, #drop-nav {
-		max-width: 97.5em;
-		margin: 0 auto;
-		position: relative;
-	}
-	
-	.wrap {
-		margin: 0 auto 0;
-		padding-top: 50px;
-	}
-		
-	#drop-section-nav #drop-nav ul li a {
-		font-size: 14px;
-	}
+#wrapper, #drop-section-nav #drop-nav, #drop-section .flow   {
 
-	#drop-section-nav #drop-nav ul li.right-align {
-		float: right;
-		display: inline;
-		font: italic 1.4em "minion-pro-1","minion-pro-2", 'Cambria', georgia, serif;
-		margin-right: 10px;
-	}
-	body #header {
-		padding: 50px 0 30px;
-	}				
-	#site-title {
-		text-align: left;
-		margin-top: 0;
-		padding: 0;
-		margin-bottom: 0;			
-	}
-	#site-title a span{
-		width: 390px;			
-	}	
-		
-	body #site-title a {	
-		font: 2em arno-pro-1,arno-pro-2, 'Cambria', georgia, serif;
-		padding: 20px 0 20px 0;	
-	}
-		
-	body.collegeonly #site-title a {
-		color: #5d0025;
-	}
+}
 
-	#site-title a em {
-		font-size: 1.5em;
-		margin-top: -5px;
-		font-style: normal;		
-	}
-		
-	div.search {
-		width: 20em;		
-		margin-bottom: 0;		
-	}
-	
-	div.search form {
-		position: absolute;
-		top: 25px;
-		right: 30px;		
-		margin: 0;	
-		width: 20em;
-		display: block;
-	}
-	
-	div.search input.s {
-		background: #fff url('../images/search.png') no-repeat 2px center;			
-	}
-	
-	div.search input.s:hover {
-		background-color: #f7f7f7;			
-	}
-	
-	div.search input.s:focus {
-		background-color: #fafafa;			
-	}
+#branding, #access .menu-header, .wrap, #drop-nav {
+	max-width: 97.5em;
+	margin: 0 auto;
+	position: relative;
+}
 
-	#access #menu-main-navigation {
-		width: 100%;
-		margin: 0;
-		overflow: hidden;
-	}
+.wrap {
+	margin: 0 auto 0;
+	padding-top: 50px;
+}
 	
-	#breadcrumbs {
-		width: 550px;	
-	}	
-	
-	#content {
-		padding-bottom: 2em;
-		overflow: hidden;
-	}
-						
-	body.home #content {
-		display: block;
-		position: relative;
-		max-width: 564px;
-		float: left;
-	}
-	
-	#home-middle-bg, #home-middle, .home-middle-1, #wrap  {
-		width: 575px;
-	}
-		
-	#home-middle li,
-	#home-middle p	  {
-		padding-right: 1em;
-		
-	}
-	
-	body.page-template-onecolumn-page-php #wrap {
-		width: 100%;
-	}
-	
-	#home-middle h3.widget-title {
-		margin-bottom: 10px;
-		font-size: 2.7em;
-	}
-	
-	body.home h2.entry-title {
-		font-size: 3em;
-	}
-		
-	#home-middle h3.widget-title a {
-		color: #444;
-		text-decoration: none;
-		border: none;
-	}
-	
-	#home-middle h3.widget-title a:hover {
-		color: #333;
-		text-decoration: none;
-		border-bottom: 1px solid #333;
-	}
-	
- 	#content {
-		padding-bottom: 2em;
-		overflow: hidden;	
-	}
-		
-	#wrap {
-		float: left;
-	}
-	
-	#aside {
-		width: 39%;
-		float: right;
-	}
+#drop-section-nav #drop-nav ul li a {
+	font-size: 14px;
+}
 
-	#aside #event-bg {
-		margin-right: 10px;
-	}
+#drop-section-nav #drop-nav ul li.right-align {
+	float: right;
+	display: inline;
+	font: italic 1.4em "minion-pro-1","minion-pro-2", 'Cambria', georgia, serif;
+	margin-right: 10px;
+}
+body #header {
+	padding: 50px 0 30px;
+}				
+#site-title {
+	text-align: left;
+	margin-top: 0;
+	padding: 0;
+	margin-bottom: 0;			
+}
+#site-title a span{
+	width: 390px;			
+}	
 	
-	#aside ul#menu-custom-menu  {
-		margin-left: 1.5em;
-	}
-		
-	#aside #menu-custom-menu li  {
-		list-style: circle;
-	}
-			
-	#aside #menu-custom-menu li a {
-		border: none;
-	}
-			
-	#aside ul.books {
-		padding-left: 0;
-		margin-left: 0;
-		padding-top: 25px;
-		position: relative;
-		display: block;		
-	}
+body #site-title a {	
+	font: 2em arno-pro-1,arno-pro-2, 'Cambria', georgia, serif;
+	padding: 20px 0 20px 0;	
+}
 	
-	#aside ul.books li {
-		position: relative;
-		display: block;		
-		width: 50%;
-		float: left;
-	}
-	
-	#aside ul.books li dt.book-title {
-		float: right;
-		width: 55%;
-		padding-top: 25px;
-		line-height: 1em;
-	}
-			
-	#aside ul.books li dd.price {
-		position: absolute;
-		background: url('../images/price-circle.png') no-repeat 40% 50%;
-		z-index: 6;
-		top: -15px;
-		left: 40px;
-		padding: 13px 10px 16px 10px;
-		color: #8C2B17;
-		font: .95em georgia;
-	}
+body.collegeonly #site-title a {
+	color: #5d0025;
+}
 
-	#aside ul.books li dd.price em {
-		font-size: .75em;
-		font-style: normal;
-	}
+#site-title a em {
+	font-size: 1.5em;
+	margin-top: -5px;
+	font-style: normal;		
+}
+	
+div.search {
+	width: 20em;		
+	margin-bottom: 0;		
+}
 
-	#aside ul.books li dd.price span {
-		font-size: .5em;
-		vertical-align:	super;	
-	}
+div.search form {
+	position: absolute;
+	top: 25px;
+	right: 30px;		
+	margin: 0;	
+	width: 20em;
+	display: block;
+}
+
+div.search input.s {
+	background: #fff url('../images/search.png') no-repeat 2px center;			
+}
+
+div.search input.s:hover {
+	background-color: #f7f7f7;			
+}
+
+div.search input.s:focus {
+	background-color: #fafafa;			
+}
+
+#access #menu-main-navigation {
+	width: 100%;
+	margin: 0;
+	overflow: hidden;
+}
+
+#breadcrumbs {
+	width: 550px;	
+}	
+
+#content {
+	padding-bottom: 2em;
+	overflow: hidden;
+}
 					
-	#aside ul.books li p.btn {
-		position: absolute;
-		z-index: 5;
-		bottom: -0.7em;
-		right: 55px;
-	}
+body.home #content {
+	display: block;
+	position: relative;
+	max-width: 564px;
+	float: left;
+}
+
+#home-middle-bg, #home-middle, .home-middle-1, #wrap  {
+	width: 575px;
+}
+	
+#home-middle li,
+#home-middle p	  {
+	padding-right: 1em;
+	
+}
+
+body.page-template-onecolumn-page-php #wrap {
+	width: 100%;
+}
+
+#home-middle h3.widget-title {
+	margin-bottom: 10px;
+	font-size: 2.7em;
+}
+
+body.home h2.entry-title {
+	font-size: 3em;
+}
+	
+#home-middle h3.widget-title a {
+	color: #444;
+	text-decoration: none;
+	border: none;
+}
+
+#home-middle h3.widget-title a:hover {
+	color: #333;
+	text-decoration: none;
+	border-bottom: 1px solid #333;
+}
+
+	#content {
+	padding-bottom: 2em;
+	overflow: hidden;	
+}
+	
+#wrap {
+	float: left;
+}
+
+#aside {
+	width: 39%;
+	float: right;
+}
+
+#aside #event-bg {
+	margin-right: 10px;
+}
+
+#aside ul#menu-custom-menu  {
+	margin-left: 1.5em;
+}
+	
+#aside #menu-custom-menu li  {
+	list-style: circle;
+}
 		
-	#aside ul.books li p.btn a {
-		padding: 4px 12px;
-		font-size: 10px;
-		color: #806E38;
-		border: 1px solid #bba563;
-		background: #c7bc7f;		
-	}
-
-	#aside ul.books li p.btn a:hover {
-		cursor: pointer;
-		border: 1px solid #bba563;	
-		-webkit-box-shadow: none;
-		-moz-box-shadow: none;
-		box-shodow: none;	
-		background: #c7bc7f;
-	}
-
-	#aside ul.books li p.btn a:active {
-		cursor: pointer;	
-		background: #c7bc7f;		
-	}
-
-	div.event dd.sign-up a:active {
-		top: 27px;
-	}
-	
-	div.event dl dd.title-loc h4 {
-		font-size: 22px;
-	}
-
-	#aside #aside-widget-area-1,
-	#aside #aside-widget-area-2 {
-		margin-right: 10px;
-	}
-
-	
-	#footer .wrap h4 {
-		font-size: 1.4em;
-		text-transform: uppercase;
-		letter-spacing: .1em;
-		font-weight: 600;
-	}
-
-	#footer .wrap p {
-		font-size: 1.4em;
-	}
-
-	#footer .wrap ul li {
-		font-size: 1.4em;	
-	}
-	
-
-	table {
-		font-size: 1.4em;
-	}
-	
-	#about,
-	#popular-links,
-	#texas-a-m,
-	#contact,
-	#agrilife-bookstore {
-		float: left;
-		width: 20%;
-	}
-	
-	.about,
-	.popular-links,
-	.texas-a-m,
-	.contact,
-	.agrilife-bookstore {
-		padding: 0 10px;
-	}
-	
-	#breadcrumbs {
-		width: 100%;
-		margin-right: 25px;
-		border-top: 2px solid #eae6d2;
-		border-top: 2px solid rgba(217, 208, 173,.40);
-		border-bottom: 2px solid #eae6d2;
-		border-bottom: 2px solid rgba(217, 208, 173,.40);	
-		background: #f7f7ee;	
-		padding: .8em 10px;		
-	}
-	
-	#access ul.menu li {
-		margin: 0 2px 0 0;
-		border-top-right-radius: 6px;	
-	}
-	
-	#access ul.menu li.current-menu-item {
-		background: #f8f5f1 url('../images/tan-background.png') top left;
-		position: relative;
-		z-index: 5;
-	}
-
-    /*=== Drop Down Site Navigation  =========*/
-
-	#access .sf-menu li {
-		font-size: 14px;	
-		line-height: 1.7em;	
-	}
-
-	#access .sf-menu li a {
-		line-height: 1em;
-		padding: 13px 17px 11px 19px;	
-	}
-	
-	.sf-menu li.current-menu-item {
-		border: 2px solid #e7e2cb;
-		border-bottom: none;
-		position: relative;
-		z-index: 2;
-	}
+#aside #menu-custom-menu li a {
+	border: none;
+}
 		
-	#access .sf-menu li.current-menu-item a {
-		margin-top: -2px;
-	}
-			
-	.sf-menu ul {
-		position:	absolute;
-		top: -999em;
-		width: 11em; /* left offset of submenus need to match (see below) */
-		background: #fff;
-		border-left: 2px solid #ad995a;		
-		border-top: 1px solid #ebe7d3;	
-		-webkit-box-shadow: -5px 0 8px rgba(186, 181, 152,.5);	
-		-moz-box-shadow: -5px 0 3px rgba(186, 181, 152,.5);		
-		box-shadow: -5px 0 3px rgba(186, 181, 152,.5);						
-		padding: 5px 0;	
-	}
-	.sf-menu li:hover {
-		visibility:		inherit; /* fixes IE7 'sticky bug' */
-		-webkit-transition: .3s background ease;
-		-moz-transition: .3s background ease;		
-		transition: .3s background ease;	
-	}
+#aside ul.books {
+	padding-left: 0;
+	margin-left: 0;
+	padding-top: 25px;
+	position: relative;
+	display: block;		
+}
 
-	#access .sf-menu li a[title="home"] {
-		-webkit-transition: none;
-		-moz-transition: none;		
-		transition: none;
-	}
+#aside ul.books li {
+	position: relative;
+	display: block;		
+	width: 50%;
+	float: left;
+}
+
+#aside ul.books li dt.book-title {
+	float: right;
+	width: 55%;
+	padding-top: 25px;
+	line-height: 1em;
+}
 		
-	.sf-menu li a {
-		border-top-right-radius: none;			
-	}	
-			
-	.sf-menu li:hover a {
-		position: relative;
-		z-index: 7;		
-	}	
+#aside ul.books li dd.price {
+	position: absolute;
+	background: url('../images/price-circle.png') no-repeat 40% 50%;
+	z-index: 6;
+	top: -15px;
+	left: 40px;
+	padding: 13px 10px 16px 10px;
+	color: #8C2B17;
+	font: .95em georgia;
+}
 
-	.sf-menu ul li:hover {
-		visibility:		inherit; /* fixes IE7 'sticky bug' */
-		background: transparent;
-		border-top-right-radius: none;	
-	}	
-	#access .sf-menu ul li {
-		width:	100%;
-		position: relative;
-		z-index: 4;	
-		border: none;
-		font-size: 12px;
-		border-top: 1px solid #efeeda;						
-	}	
+#aside ul.books li dd.price em {
+	font-size: .75em;
+	font-style: normal;
+}
+
+#aside ul.books li dd.price span {
+	font-size: .5em;
+	vertical-align:	super;	
+}
+				
+#aside ul.books li p.btn {
+	position: absolute;
+	z-index: 5;
+	bottom: -0.7em;
+	right: 55px;
+}
 	
-	.sf-menu a {
-		display:		block;
-		position:		relative;
-		background: transparent;
-	}
-	.sf-menu li:hover,
-	.sf-menu li.sfHover {
-		z-index:		7;
-		position: relative;					
-	}
-	.sf-menu li:hover ul,
-	.sf-menu li.sfHover ul {
-		left: 0;
-		margin-left: 0;
-		top: 2.4em; /* match top ul list item height */
-		z-index: 6;
-		position: absolute;
-		margin-top: -40px;
-		padding-top: 45px;					
-	}	
-	
-	ul.sf-menu li:hover li ul,
-	ul.sf-menu li.sfHover li ul {
-		top:			-999em;		
-	}
-	ul.sf-menu li li:hover ul,
-	ul.sf-menu li li.sfHover ul {
-		left:			12.8em; /* match ul width */
-		top:			0;
-		margin-left: 0;
-		margin-top: 0;
-		padding-top: 0;				
-	}
-	ul.sf-menu li li:hover li ul,
-	ul.sf-menu li li.sfHover li ul {
-		top:			-999em;
-	}
-	ul.sf-menu li li li:hover ul,
-	ul.sf-menu li li li.sfHover ul {
-		left:			11em; /* match ul width */
-		top:			0;
-		margin-left: 0px;	
-	}
+#aside ul.books li p.btn a {
+	padding: 4px 12px;
+	font-size: 10px;
+	color: #806E38;
+	border: 1px solid #bba563;
+	background: #c7bc7f;		
+}
+
+#aside ul.books li p.btn a:hover {
+	cursor: pointer;
+	border: 1px solid #bba563;	
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shodow: none;	
+	background: #c7bc7f;
+}
+
+#aside ul.books li p.btn a:active {
+	cursor: pointer;	
+	background: #c7bc7f;		
+}
+
+div.event dd.sign-up a:active {
+	top: 27px;
+}
+
+div.event dl dd.title-loc h4 {
+	font-size: 22px;
+}
+
+#aside #aside-widget-area-1,
+#aside #aside-widget-area-2 {
+	margin-right: 10px;
+}
 
 
-	/*** arrows **/
-	#access .sf-menu li a.sf-with-ul {
-		min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
-		background: url('../images/down-arrow.png') no-repeat 10px 19px; 	
-		-webkit-transition: .2s background ease; 
-		-moz-transition: .2s background ease; 					
-	}
+#footer .wrap h4 {
+	font-size: 1.4em;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	font-weight: 600;
+}
+
+#footer .wrap p {
+	font-size: 1.4em;
+}
+
+#footer .wrap ul li {
+	font-size: 1.4em;	
+}
+
+
+table {
+	font-size: 1.4em;
+}
+
+#about,
+#popular-links,
+#texas-a-m,
+#contact,
+#agrilife-bookstore {
+	float: left;
+	width: 20%;
+}
+
+.about,
+.popular-links,
+.texas-a-m,
+.contact,
+.agrilife-bookstore {
+	padding: 0 10px;
+}
+
+#breadcrumbs {
+	width: 100%;
+	margin-right: 25px;
+	border-top: 2px solid #eae6d2;
+	border-top: 2px solid rgba(217, 208, 173,.40);
+	border-bottom: 2px solid #eae6d2;
+	border-bottom: 2px solid rgba(217, 208, 173,.40);	
+	background: #f7f7ee;	
+	padding: .8em 10px;		
+}
+
+#access ul.menu li {
+	margin: 0 2px 0 0;
+	border-top-right-radius: 6px;	
+}
+
+#access ul.menu li.current-menu-item {
+	background: #f8f5f1 url('../images/tan-background.png') top left;
+	position: relative;
+	z-index: 5;
+}
+
+   /*=== Drop Down Site Navigation  =========*/
+
+#access .sf-menu li {
+	font-size: 14px;	
+	line-height: 1.7em;	
+}
+
+#access .sf-menu li a {
+	line-height: 1em;
+	padding: 13px 17px 11px 19px;	
+}
+
+.sf-menu li.current-menu-item {
+	border: 2px solid #e7e2cb;
+	border-bottom: none;
+	position: relative;
+	z-index: 2;
+}
 	
-	#access .sf-menu li:hover a.sf-with-ul {
-		background-position: 2px 19px;
-		-webkit-transition: .1s background ease; 
-		-moz-transition: .1s background ease; 		
-	}
+#access .sf-menu li.current-menu-item a {
+	margin-top: -2px;
+}
 		
-	#access .sf-menu li:hover li a.sf-with-ul {
-		min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
-		background-position: 0 16px;
-	}
+.sf-menu ul {
+	position:	absolute;
+	top: -999em;
+	width: 11em; /* left offset of submenus need to match (see below) */
+	background: #fff;
+	border-left: 2px solid #ad995a;		
+	border-top: 1px solid #ebe7d3;	
+	-webkit-box-shadow: -5px 0 8px rgba(186, 181, 152,.5);	
+	-moz-box-shadow: -5px 0 3px rgba(186, 181, 152,.5);		
+	box-shadow: -5px 0 3px rgba(186, 181, 152,.5);						
+	padding: 5px 0;	
+}
+.sf-menu li:hover {
+	visibility:		inherit; /* fixes IE7 'sticky bug' */
+	-webkit-transition: .3s background ease;
+	-moz-transition: .3s background ease;		
+	transition: .3s background ease;	
+}
 
-			
-	#access	.sf-sub-indicator {
-		position:		absolute;
-		display:		block;
-		right:			0;
-		top:			.55em; /* IE6 only */
-		width:			8px;
-		height:			11px;
-		text-indent: 	-999em;
-		overflow:		hidden;
+#access .sf-menu li a[title="home"] {
+	-webkit-transition: none;
+	-moz-transition: none;		
+	transition: none;
+}
+	
+.sf-menu li a {
+	border-top-right-radius: none;			
+}	
 		
-	}
-	a > .sf-sub-indicator {  /* give all except IE6 the correct values */
-		top:			.8em;
-		background-position: 0 -100px; /* use translucent arrow for modern browsers*/
-	}
-	/* apply hovers to modern browsers */
-	a:focus > .sf-sub-indicator,
-	a:hover > .sf-sub-indicator,
-	a:active > .sf-sub-indicator,
-	li:hover > a > .sf-sub-indicator,
-	li.sfHover > a > .sf-sub-indicator {
-		background-position: -10px -100px; /* arrow hovers for modern browsers*/
-	}
+.sf-menu li:hover a {
+	position: relative;
+	z-index: 7;		
+}	
 
-	/* point right for anchors in subs */
-	.sf-menu ul .sf-sub-indicator { background-position:  -10px 0; }
-	.sf-menu ul a > .sf-sub-indicator { background-position:  0 0; }
-	/* apply hovers to modern browsers */
-	.sf-menu ul a:focus > .sf-sub-indicator,
-	.sf-menu ul a:hover > .sf-sub-indicator,
-	.sf-menu ul a:active > .sf-sub-indicator,
-	.sf-menu ul li:hover > a > .sf-sub-indicator,
-	.sf-menu ul li.sfHover > a > .sf-sub-indicator {
-		background-position: -10px 0; /* arrow hovers for modern browsers*/
-	}
+.sf-menu ul li:hover {
+	visibility:		inherit; /* fixes IE7 'sticky bug' */
+	background: transparent;
+	border-top-right-radius: none;	
+}	
+#access .sf-menu ul li {
+	width:	100%;
+	position: relative;
+	z-index: 4;	
+	border: none;
+	font-size: 12px;
+	border-top: 1px solid #efeeda;						
+}	
+
+.sf-menu a {
+	display:		block;
+	position:		relative;
+	background: transparent;
+}
+.sf-menu li:hover,
+.sf-menu li.sfHover {
+	z-index:		7;
+	position: relative;					
+}
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul {
+	left: 0;
+	margin-left: 0;
+	top: 2.4em; /* match top ul list item height */
+	z-index: 6;
+	position: absolute;
+	margin-top: -40px;
+	padding-top: 45px;					
+}	
+
+ul.sf-menu li:hover li ul,
+ul.sf-menu li.sfHover li ul {
+	top:			-999em;		
+}
+ul.sf-menu li li:hover ul,
+ul.sf-menu li li.sfHover ul {
+	left:			12.8em; /* match ul width */
+	top:			0;
+	margin-left: 0;
+	margin-top: 0;
+	padding-top: 0;				
+}
+ul.sf-menu li li:hover li ul,
+ul.sf-menu li li.sfHover li ul {
+	top:			-999em;
+}
+ul.sf-menu li li li:hover ul,
+ul.sf-menu li li li.sfHover ul {
+	left:			11em; /* match ul width */
+	top:			0;
+	margin-left: 0px;	
+}
+
+
+/*** arrows **/
+#access .sf-menu li a.sf-with-ul {
+	min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
+	background: url('../images/down-arrow.png') no-repeat 10px 19px; 	
+	-webkit-transition: .2s background ease; 
+	-moz-transition: .2s background ease; 					
+}
+
+#access .sf-menu li:hover a.sf-with-ul {
+	background-position: 2px 19px;
+	-webkit-transition: .1s background ease; 
+	-moz-transition: .1s background ease; 		
+}
 	
-	#footer {
-		background: #F1EFE5 url('../images/footer-texture.png') repeat-x left top;
-	}
+#access .sf-menu li:hover li a.sf-with-ul {
+	min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
+	background-position: 0 16px;
+}
+
+		
+#access	.sf-sub-indicator {
+	position:		absolute;
+	display:		block;
+	right:			0;
+	top:			.55em; /* IE6 only */
+	width:			8px;
+	height:			11px;
+	text-indent: 	-999em;
+	overflow:		hidden;
 	
-	#footer .wrap h4 {
-		margin-bottom: 2.5em;
-		font-size: 1em;
-	}
+}
+a > .sf-sub-indicator {  /* give all except IE6 the correct values */
+	top:			.8em;
+	background-position: 0 -100px; /* use translucent arrow for modern browsers*/
+}
+/* apply hovers to modern browsers */
+a:focus > .sf-sub-indicator,
+a:hover > .sf-sub-indicator,
+a:active > .sf-sub-indicator,
+li:hover > a > .sf-sub-indicator,
+li.sfHover > a > .sf-sub-indicator {
+	background-position: -10px -100px; /* arrow hovers for modern browsers*/
+}
 
-	#footer .wrap a {
-		border: none;
-	}
+/* point right for anchors in subs */
+.sf-menu ul .sf-sub-indicator { background-position:  -10px 0; }
+.sf-menu ul a > .sf-sub-indicator { background-position:  0 0; }
+/* apply hovers to modern browsers */
+.sf-menu ul a:focus > .sf-sub-indicator,
+.sf-menu ul a:hover > .sf-sub-indicator,
+.sf-menu ul a:active > .sf-sub-indicator,
+.sf-menu ul li:hover > a > .sf-sub-indicator,
+.sf-menu ul li.sfHover > a > .sf-sub-indicator {
+	background-position: -10px 0; /* arrow hovers for modern browsers*/
+}
 
-	#footer .wrap a img:hover {
-		opacity: .75;
-	}
+#footer {
+	background: #F1EFE5 url('../images/footer-texture.png') repeat-x left top;
+}
 
-	#footer .wrap ul {
-		margin-left: 0;
-		margin-top: 15px;
-	}
+#footer .wrap h4 {
+	margin-bottom: 2.5em;
+	font-size: 1em;
+}
 
-	#footer .wrap p {
-		font-size: 1.1em;
-		line-height: 20px;
-		margin-top: 19px;
-	}
+#footer .wrap a {
+	border: none;
+}
 
-	#footer .wrap ul li {
-		margin-right: 1px;
-		font-size: 1.1em;	
-	}
+#footer .wrap a img:hover {
+	opacity: .75;
+}
 
-	#footer .wrap ul li a {
-		display: block;
-		padding: 4px 0;	
-	}
+#footer .wrap ul {
+	margin-left: 0;
+	margin-top: 15px;
+}
 
-	#footer .wrap .contact ul li {
-		margin-bottom: 12px;
-	}	
+#footer .wrap p {
+	font-size: 1.1em;
+	line-height: 20px;
+	margin-top: 19px;
+}
+
+#footer .wrap ul li {
+	margin-right: 1px;
+	font-size: 1.1em;	
+}
+
+#footer .wrap ul li a {
+	display: block;
+	padding: 4px 0;	
+}
+
+#footer .wrap .contact ul li {
+	margin-bottom: 12px;
+}	

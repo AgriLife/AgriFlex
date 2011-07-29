@@ -162,10 +162,12 @@
 			<header id="branding" role="banner">
 				<hgroup>
 				<h1 id="site-title">
-					<?php if($options['header_type']==1 && $options['titleImg']<>'') :?>
-						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><img src="<?php echo $options['titleImg']; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" /></a>
-					<?php endif; ?>
-						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a>
+						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+						<?php if($options['header_type']==1 && $options['titleImg']<>'') :?>
+							<img src="<?php echo $options['titleImg']; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
+						<?php endif; ?>
+							
+						<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a>		
 				</h1>
 				<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
 				</hgroup>
