@@ -31,25 +31,6 @@ function agriflex_setup() {
 	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 ); // prev link
 	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 ); // start link
 	remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 );
-	
-	add_action( 'wp_print_styles', 'add_ie_style_sheet', 200 );
-	function add_ie_style_sheet() {
-	    wp_enqueue_style( 'ie7', get_bloginfo('stylesheet_directory') . '/css/ie.css', array(), '1.0' );
-	}
- 
-	add_filter( 'style_loader_tag', 'make_ie_style_sheet_conditional', 10, 2 );
-	/**
-	 * Add conditional comments around IE style sheet.
-	 *
-	 * @param string $tag Existing style sheet tag
-	 * @param string $handle Name of the enqueued style sheet
-	 * @return string Amended markup
-	 */
-	function make_ie_style_sheet_conditional( $tag, $handle ) {
-	    if ( 'ie7' == $handle )
-	        $tag = '<!--[if lte IE 7]>' . "\n" . $tag . '<![endif]-->' . "\n";
-	    return $tag;
-	}
 
 	// This theme uses post thumbnails
 	add_theme_support( 'post-thumbnails' );
