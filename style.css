@@ -413,7 +413,7 @@ body.admin-bar #drop-section-nav {
 #drop-section-nav #drop-nav ul li {
 	float: left;
 	padding: 0 0 2px 0;
-	line-height: .6em;	
+	line-height: .6em;
 }
 
 #drop-section-nav #drop-nav ul li.ask,
@@ -430,7 +430,16 @@ body.admin-bar #drop-section-nav {
 	color: #fff;
 	border: none;
 	padding: 5px 5px 0;
-	margin-right: 15px;
+	margin-right: 50px;
+	opacity: 0.65;
+}
+
+#drop-section-nav #drop-nav ul li a:hover,
+body.tvmdlonly #drop-section-nav #drop-nav ul li a,
+body.researchonly #drop-section-nav #drop-nav ul li a,
+body.extensiononly #drop-section-nav #drop-nav ul li a,
+body.collegeonly #drop-section-nav #drop-nav ul li a {
+	opacity: 1;
 }
 
 #drop-section-nav #drop-nav ul li a[href*='ask'] {
@@ -484,10 +493,16 @@ body.admin-bar #drop-section-nav {
 
 #drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
 	background-image: url('images/tvmdl-logo.png');
+	width: 80px;
 }
 
 #drop-section-nav #drop-nav ul li a[href*='research'] {
 	background-image: url('images/research-logo.png');
+}
+
+#drop-section-nav #drop-nav ul li a[href*='txforestservice'] {
+	background-image: url('images/tfs-logo.png');
+	width: 109px;	
 }
 
 #drop-section-nav #drop-nav ul li.right-align {
@@ -851,7 +866,7 @@ body.collegeonly #access li a[title='home'] {
 }
 #site-title {
 	text-align: center; 
-	margin-top: 15px;	
+	margin-top: 25px;	
 }
 
 #site-title a {
@@ -859,6 +874,10 @@ body.collegeonly #access li a[title='home'] {
 	color: #443d3a;
 	margin-left: 10px;
 	padding: 20px 0;
+}
+
+#site-title a img {
+	margin: 0 0 -20px 0;
 }
 
 body.collegeonly #site-title a {
@@ -2578,16 +2597,15 @@ img#wpstats {
 		
 	body #site-title a {	
 		font: 2em arno-pro-1,arno-pro-2, 'Cambria', georgia, serif;
-		padding: 20px 0 20px 0;	
+		padding: 20px 0;	
 	}
-		
+			
 	body.collegeonly #site-title a {
 		color: #5d0025;
 	}
 
 	#site-title a em {
 		font-size: 1.5em;
-		margin-top: -5px;
 		font-style: normal;		
 	}
 		
