@@ -95,6 +95,19 @@ div.search input.s:focus {
 	overflow: hidden;
 }
 
+#access li a[title='home'] {
+	background-position: 50% 14px;
+	width: 20px;
+}
+
+#access li a[title='home']:hover {
+	background-position: 50% -16px;
+}	
+
+#access li a {
+	background: transparent;
+}
+
 #breadcrumbs {
 	width: 550px;	
 }	

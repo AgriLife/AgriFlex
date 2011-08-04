@@ -938,6 +938,7 @@ div.menu li {
 #access a {
 	font-size: 1.4em;
 	border: none;
+	background: #726b60;	
 	text-shadow: 0 1px 0 #fff;
 	line-height: .6em;
 	overflow: hidden;	
@@ -947,12 +948,12 @@ div.menu li {
 #access li a[title='home'] {
 	display: block;
 	text-indent: -999em;
-	background: url(images/home.png) no-repeat 50% 14px;
+	background: url('images/home.png') no-repeat 50% 0;
 	width: 20px;
 }
 
 #access li a[title='home']:hover {
-	background-position: 50% -16px;
+	background-position: 50% -30px;
 }
 
 body.mobile #access .menu-header li ul.sub-menu {
@@ -2330,6 +2331,18 @@ img#wpstats {
 		z-index: 5;
 	}
 
+	#access li a[title='home'] {
+		background-position: 50% 14px;
+		width: 20px;
+	}
+
+	#access li a[title='home']:hover {
+		background-position: 50% -16px;
+	}	
+
+	#access li a {
+		background: transparent;
+	}	
     /*=== Drop Down Site Navigation  =========*/
 
 	#access .sf-menu li {
@@ -2865,33 +2878,30 @@ img#wpstats {
 
 /* mobile width */
 @media all and (max-width: 640px) {
-		
+				
 	#site-title a {
-		font: 18px arno-pro-1,arno-pro-2, georgia, serif;
+		font: 1.1em arno-pro-1,arno-pro-2, georgia, serif;
 		margin-left: 7px;
-		padding: 0;
 	}
-		
-	#content {
+	body  { 		
+		font-size: 76%; 			
+	}			
+	body #content {
 		width: 100%;	
 		border-right: none;
 		margin-left: 0;
-	}		
-
+	}			
 	#header  {
 		margin: 0;
 		padding: 1em 0 0 0;
 	}	
-	#site-title  {
-		margin: 0;
-	}
-	#site-title a  {
-		margin: 0;
+
+	body #site-title a  {
 		padding: 0;
 	}
-	#access .menu-header, div.menu	{
-		padding: 1em 0;
-		margin:  0;
+	body #access .menu-header, body div.menu	{
+		padding: 0 0 2em 0;
+		margin:  0 0 2em 0;
 	}
 	
 	#access #menu-main-navigation {
@@ -2909,31 +2919,44 @@ img#wpstats {
 	}
 	
 	#access a {
-		font-size: .9em;
-		background: #0082b6;
+		font-size: 1.6em;
 		color: #fff;
 		display: block;
 		margin: 0 0 .1em 0;	
-		padding: .5em 1em;	
+		text-shadow: none;
 	}
 
-	#access a:hover {
-		background: #054b6b;	
-	}	 
-	#access li.current-menu-item a {
-		background-color: #004B69;
+	
+	body.collegeonly #access a {
+		background: #98191a;
 	}
-	#access li.current-menu-item a[title="home"] {
-		background-color: white;
-		}		
-	#drop-section-nav #drop-nav ul li.tx-ext-item a,
-	#drop-section-nav #drop-nav ul li.college-item a	 {
-		font-size: .9em;
+		
+	body #access li.current-menu-item a {
+		background-color: #565149;
+	}
+		
+	body.collegeonly #access li.current-menu-item a {
+		background-color: #5d0025;
+	}
+
+	body.mobile #access li a[title='home'] {
+		background-repeat: no-repeat;
+		background-color: #fff;
+		padding-bottom: 0;
+	}
+
+	#access li.current-menu-item a[title='home'] {
+		background-color: #fff;
+	}
+		
+	body.collegeonly #access a:hover {
+		background: #5b0125;	
 	}
 	
 	#home-top {
 		display: none;
 	}				
+			
 }
 /* mobile width */
 @media all and (max-width: 420px) {
@@ -2942,10 +2965,7 @@ img#wpstats {
 		font-size: 75%; 
 		-webkit-text-size-adjust: 98%;			
 	}	
-	
-	body #header {
-		height: 100px;
-	}	
+		
 	#access a {
 		font-size: 1.4em;
 
@@ -3687,168 +3707,3 @@ abbr {
     font-size: 100%;
 }
 
-/* ========================================================
-	College Only Styles
-===========================================================*/
-
-@media screen and (min-width: 960px) {	
-		
-	body.collegeonly #home-middle h3.widget-title {
-		margin-bottom: 10px;
-		font-size: 2.7em;
-	}
-	
-	body.collegeonly #home-middle h3.widget-title a {
-		text-decoration: none;
-	}
-	
-	body.collegeonly #home-middle h3.widget-title a:hover {
-		text-decoration: none;
-	}
-	
-	body.home.collegeonly  .edit-link {
-		display: none;
-	}
-
-	body.collegeonly #aside ul.books li p.btn a {
-		padding: 4px 12px;
-		font-size: 10px;
-		color: #806E38;
-		border: 1px solid #bba563;
-		background: #c7bc7f;
-		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ded8b4), to(#c7bc7f));
-		background: -moz-linear-gradient(top, #ded8b4, #c7bc7f);		
-	}
-
-	body.collegeonly #aside ul.books li p.btn a:hover {
-		cursor: pointer;
-		border: 1px solid #bba563;	
-		-webkit-box-shadow: none;
-		-moz-box-shadow: none;
-		box-shodow: none;	
-		background: #c7bc7f;
-		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cfc591), to(#c7bc7f));
-		background: -moz-linear-gradient(top, #cfc591, #c7bc7f);
-	}
-
-	body.collegeonly #aside ul.books li p.btn a:active {
-		cursor: pointer;	
-		background: #c7bc7f;
-		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#c7bc7f), to(#cfc591));
-		background: -moz-linear-gradient(top, #c7bc7f, #cfc591);		
-	}
-
-	body.collegeonly div.event dd.sign-up a:active {
-		top: 27px;
-	}
-	
-	body.collegeonly div.event dl dd.title-loc h4 {
-		font-size: 22px;
-	}
-
-	body.collegeonly #aside #aside-widget-area-1,
-	body.collegeonly #aside #aside-widget-area-2 {
-		margin-right: 10px;
-	}
-
-
-}
-
-@media all and (max-width: 960px) {
-	
-	body.collegeonly body {  		
-	    font-size: 80%; 
-		line-height: 1.75em;
-	}
-
-	body.collegeonly  div.search {
-		margin-bottom: 20px;
-	}
-	body.collegeonly img,video,object {
-	    max-width: 100%;
-	}
-	body.collegeonly #aside {
-		float: none;
-		clear: both;
-	}	
-	body.collegeonly #drop-section-nav #drop-nav ul {
-		margin: 0 5%;
-	}
-}
-
-/* mobile width */
-@media all and (max-width: 640px) {
-		
-	body.collegeonly #site-title a {
-		font: 1.1em arno-pro-1,arno-pro-2, georgia, serif;
-		margin-left: 7px;
-	}
-	body.collegeonly  { 		
-		font-size: 76%; 			
-	}			
-	body.collegeonly #content {
-		width: 100%;	
-		border-right: none;
-		margin-left: 0;
-	}			
-	body.collegeonly #header  {
-		margin: 0;
-		padding: 1em 0 0 0;
-	}	
-	body.collegeonly #site-title  {
-		margin: 0;
-	}
-	body.collegeonly #site-title a  {
-		margin: 0;
-		padding: 0;
-	}
-	body.collegeonly #access .menu-header, body.collegeonly div.menu	{
-		padding: 0 0 2em 0;
-		margin:  0 0 2em 0;
-	}
-	
-	body.collegeonly #access #menu-main-navigation {
-		width: 100%;
-	}
-			
-	body.collegeonly #access .menu-header li,
-	body.collegeonly div.menu li {
-		float: none;
-		margin: 0;
-	}
-	
-	body.collegeonly #access  {
-		float: none;
-	}
-	
-	body.collegeonly #access a {
-		font-size: 1.6em;
-		background: #98191a;
-		color: #fff;
-		display: block;
-		margin: 0 0 .1em 0;	
-		text-shadow: none;
-	}
-	
-	body.collegeonly #access li.current-menu-item a {
-		background-color: #5d0025;
-	}
-
-
-	body.collegeonly #access li a[title='home'] {
-		background-repeat: no-repeat;
-		background-color: #fff;
-	}
-
-	body.collegeonly #access li.current-menu-item a[title='home'] {
-		background-color: #fff;
-	}
-		
-	body.collegeonly #access a:hover {
-		background: #5b0125;	
-	}
-	
-	body.collegeonly #home-top {
-		display: none;
-	}				
-}
