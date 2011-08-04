@@ -14,7 +14,11 @@
 	$isextension	= (is_array($options) ? $options['isExtension'] : true);
 	$iscollege 		= (is_array($options) ? $options['isCollege'] 	: true);
 	$istvmdl	 	= (is_array($options) ? $options['isTvmdl'] 	: true);  
-	$collegeonly = ($iscollege && !$isextension && !$isresearch && !$istvmdl ? true : false);
+  $extensiononly = ($isextension && !$isresearch && !$iscollege && !$istvmdl ? true : false);
+  $researchonly = ($isresearch && !$isextension && !$iscollege && !$istvmdl ? true : false);
+  $collegeonly = ($iscollege && !$isextension && !$isresearch && !$istvmdl ? true : false);
+  $tvmdlonly = ($istvmdl && !$isextension && !$isresearch && !$iscollege ? true : false);
+	
 ?>
 </div><!--.wrap-->
 </div><!--#content-wrap-->
@@ -73,9 +77,60 @@
 					<li class="last"><a href="http://agrilife.tamu.edu/orpi/">Open Records/Public Information</a></li> 									
 				</ul>			
 			</div><!-- .texas-a-m -->			
+		</div><!-- #texas-a-m -->
+	
+<?php elseif($researchonly) :?>
+		
+		<div id="about">
+			<div class="about">			
+				<h4>About</h4>
+				<a href="http://www.youtube.com/watch?v=UnLkKMJasXk"><img src="<?php bloginfo( 'template_directory' ); ?>/images/research-video-pic.jpg" alt="link to Texas A&amp;M Research about video" /></a>
+				<p><a href="http://agriliferesearch.tamu.edu/">Texas AgriLife Research</a> is the state’s premier research agency in agriculture, natural resources, and the life sciences. Our research spans numerous scientific disciplines and is international in scope.</p>
+				<ul>
+					<li><a href="http://agriliferesearch.tamu.edu/research-units/">Research Units</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/about/">About</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/resources/">Resources</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/careers/">Careers</a></li>																						 									
+				</ul>	
+			</div><!-- .about -->
+		</div><!-- #about -->		
+		<div id="popular-links">
+			<div class="popular-links">			
+				<h4>Agencies</h4>
+				<a href="http://aglifesciences.tamu.edu/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/agrilife-footer-logo" alt="Texas A and M AgriLife Logo" /></a>	
+				<ul>
+					<li><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife Extension Service</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/">Texas AgriLife Research</a></li>
+					<li><a href="http://tamu.edu/">Texas A&amp;M University</a></li>
+					<li><a href="http://aglifesciences.tamu.edu/">College of Agriculture and Life Sciences</a></li>
+					<li><a href="http://vetmed.tamu.edu/">College of Veterinary Medicine (cooperative with AgriLife Extension &amp; Research)</a></li>
+					<li><a href="http://tvmdl.tamu.edu/">Texas Veterinary Medical Diagnostic Laboratory</a></li>
+					<li><a href="http://texasforestservice.tamu.edu/">Texas Forest Service</a></li>																			 									
+				</ul>		
+			</div><!-- .popular-links -->			
+		</div><!-- #popular-links -->
+		
+		<div id="texas-a-m">
+			<div class="texas-a-m">			
+			<h4>Required Links</h4>
+				<a href="http://www.tamus.edu"><img src="<?php bloginfo( 'template_directory' ); ?>/images/texas-a-m-system.png" alt="Texas A&amp;M System image" /></a>
+				<ul>
+					<li><a href="http://agrilife.tamu.edu/compact/">Compact with Texans</a></li>
+					<li><a href="http://agrilife.tamu.edu/privacy/">Privacy and Security</a></li>
+					<li><a href="http://itaccessibility.tamu.edu/">Accessibility Policy</a></li>
+					<li><a href="http://www.dir.state.tx.us/standards/link_policy.htm">State Link Policy</a></li>					
+					<li><a href="http://www.tsl.state.tx.us/trail">Statewide Search</a></li>					
+					<li><a href="http://aghr.tamu.edu/education-civil-rights.htm">Equal Opportunity for Educational Programs Statement</a></li>
+					<li><a href="http://www.tamus.edu/veterans/">Veterans Benefits</a></li>		
+					<li><a href="http://fcs.tamu.edu/families/military_families/">Military Families</a></li>
+					<li><a href="https://secure.ethicspoint.com/domain/en/report_custom.asp?clientid=19681">Risk, Fraud &amp; Misconduct Hotline</a></li>
+					<li><a href="http://www.texashomelandsecurity.com/">Texas Homeland Security</a></li>
+					<li class="last"><a href="http://agrilife.tamu.edu/orpi/">Open Records/Public Information</a></li>
+				</ul>		
+			</div><!-- .texas-a-m -->		
 		</div><!-- #texas-a-m -->				
 		
-<?php else : ?>
+<?php else : ?>	
 		
 		<div id="about">
 			<div class="about">			
@@ -86,16 +141,16 @@
 		</div><!-- #about -->		
 		<div id="popular-links">
 			<div class="popular-links">			
-				<h4>Popular Links</h4>
-				<a href="http://agrilifeextension.tamu.edu/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/agrilife_ext_logo.png" alt="Texas AgriLife Extension" /></a>	
+				<h4>Agencies</h4>
+				<a href="http://aglifesciences.tamu.edu/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/agrilife-footer-logo" alt="Texas A and M AgriLife Logo" /></a>	
 				<ul>
-					<li><a href="http://county-tx.tamu.edu/">County Extension Offices</a></li>
-					<li><a href="http://agrilife.tamu.edu/locations-window/#centers">Research and Extension Centers</a></li>
-					<li><a href="http://agdirectory.tamu.edu/">Contact Directory</a></li>
-					<li><a href="http://agrilife.org/today/contact-us/">Media Contacts</a></li>					
-					<li><a href="http://texas4-h.tamu.edu/">Texas 4-H and Youth Dev.</a></li>					
-					<li><a href="http://agrilifeextension.tamu.edu/about/strategyimpact/index.php">Strategic Plans, Impacts and Roadmaps</a></li>
-					<li class="last"><a href="http://agrilifeextension.tamu.edu/careers/index.php">Employment Opportunities</a></li>										
+					<li><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife Extension Service</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/">Texas AgriLife Research</a></li>
+					<li><a href="http://tamu.edu/">Texas A&amp;M University</a></li>
+					<li><a href="http://aglifesciences.tamu.edu/">College of Agriculture and Life Sciences</a></li>
+					<li><a href="http://vetmed.tamu.edu/">College of Veterinary Medicine (cooperative with AgriLife Extension &amp; Research)</a></li>
+					<li><a href="http://tvmdl.tamu.edu/">Texas Veterinary Medical Diagnostic Laboratory</a></li>
+					<li><a href="http://texasforestservice.tamu.edu/">Texas Forest Service</a></li>																			 									
 				</ul>		
 			</div><!-- .popular-links -->			
 		</div><!-- #popular-links -->

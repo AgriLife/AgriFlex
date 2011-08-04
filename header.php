@@ -22,6 +22,7 @@
   $researchonly = ($isresearch && !$isextension && !$iscollege && !$istvmdl ? true : false);
   $collegeonly = ($iscollege && !$isextension && !$isresearch && !$istvmdl ? true : false);
   $tvmdlonly = ($istvmdl && !$isextension && !$isresearch && !$iscollege ? true : false);
+  $res_ext = (!$istvmdl && $isextension && $isresearch && !$iscollege ? true : false);
   
   
 ?><!DOCTYPE html>
@@ -87,11 +88,15 @@
 			<li class="research-item"><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M Research</a></li>
 			<?php elseif($tvmdlonly) :?>
 			<li class="tvmdl-item"><a href="http://tvmdl.tamu.edu/">Texas Veterinary Medical Diagnostics Laboratory</a></li>	
+			
+			<?php elseif($res_ext) :?>
+			<li class="tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife	Extension Service</a></li>
+			<li class="research-item"><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M Research</a></li>
+					
 			<?php elseif($isextension && $isresearch && $iscollege && !$istvmdl) :?>
 			<li class="tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife	Extension Service</a></li>
 			<li class="research-item"><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M Research</a></li>
-			<li class="college-item"><a href="http://aglifesciences.tamu.edu/">Texas A&amp;M College of Agriculture and Life Sciences</a></li>			
-											
+			<li class="college-item"><a href="http://aglifesciences.tamu.edu/">Texas A&amp;M College of Agriculture and Life Sciences</a></li>												
 			<?php else : ?>
 			<li class="tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife	Extension Service</a></li>
 			<li class="research-item"><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M Research</a></li>
