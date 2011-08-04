@@ -861,12 +861,12 @@ body.collegeonly #access li a[title='home'] {
 
 #header {
 	padding: 10px 0;
-	overflow: hidden;
-	background: #fff;	
+	overflow: hidden;	
 }
 #site-title {
 	text-align: center; 
-	margin-top: 25px;	
+	margin-top: 25px;
+	margin-bottom: 1em;	
 }
 
 #site-title a {
@@ -877,7 +877,7 @@ body.collegeonly #access li a[title='home'] {
 }
 
 #site-title a img {
-	margin: 0 0 -20px 0;
+	display: none;
 }
 
 body.collegeonly #site-title a {
@@ -910,8 +910,7 @@ body.collegeonly #site-title a {
 
 #access {
 	position: relative;
-	display: block;
-	background: #fff;	
+	display: block;	
 }
 
 #access .menu-header,
@@ -1919,7 +1918,7 @@ body.page .gigpress-table {
 	display: none;
 }
 
-img,video,object {
+img,video,object, iframe {
     max-width: 100%;
 }
 
@@ -2573,6 +2572,10 @@ img#wpstats {
 	#wrapper, #drop-section-nav #drop-nav, #drop-section .flow   {
 
 	}
+
+	#header, #access {
+		background: #fff;
+	}
 	
 	#branding, #access .menu-header, .wrap, #drop-nav {
 		max-width: 97.5em;
@@ -2617,6 +2620,11 @@ img#wpstats {
 		color: #5d0025;
 	}
 
+	#site-title a img {
+		margin: 0 0 -20px 0;
+		display: inline;
+	}
+	
 	#site-title a em {
 		font-size: 1.5em;
 		font-style: normal;		
@@ -2884,7 +2892,8 @@ img#wpstats {
 		margin-left: 7px;
 	}
 	body  { 		
-		font-size: 76%; 			
+		font-size: 76%; 
+		-webkit-text-size-adjust: 98%;					
 	}			
 	body #content {
 		width: 100%;	
@@ -2898,7 +2907,8 @@ img#wpstats {
 
 	body #site-title a  {
 		padding: 0;
-	}
+	}	
+	
 	body #access .menu-header, body div.menu	{
 		padding: 0 0 2em 0;
 		margin:  0 0 2em 0;
@@ -2939,24 +2949,37 @@ img#wpstats {
 		background-color: #5d0025;
 	}
 
-	body.mobile #access li a[title='home'] {
+	body #access li a[title='home'] {
 		background-repeat: no-repeat;
-		background-color: #fff;
+		background-color: transparent;
 		padding-bottom: 0;
 	}
 
-	#access li.current-menu-item a[title='home'] {
-		background-color: #fff;
+	body #access li.current-menu-item a[title='home'] {
+		background-color: transparent;
 	}
 		
 	body.collegeonly #access a:hover {
 		background: #5b0125;	
 	}
-	
+
+	body #access li a[title='home']:hover {
+		background-color: #fff;
+		background-repeat: no-repeat;
+	}
+		
 	#home-top {
 		display: none;
-	}				
+	}	
+	
+	#footer .wrap {
+		padding-left: 5%;
+		padding-right: 5%;		 
+	}	
 			
+	#footer .wrap ul {
+		margin-left: 0;		 
+	}			
 }
 /* mobile width */
 @media all and (max-width: 420px) {
@@ -2968,7 +2991,6 @@ img#wpstats {
 		
 	#access a {
 		font-size: 1.4em;
-
 	}	
 	div.event dl dd.title-loc h4 {
 		font-size: 18px;
