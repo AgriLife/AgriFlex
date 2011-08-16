@@ -58,14 +58,7 @@ function agriflex_setup() {
 		function typekit_js() { 
 			if( !is_admin() ) : ?>
 	<script type="text/javascript" src="http://use.typekit.com/thu0wyf.js"></script>
-	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>	
-	<style type="text/css">
-	  .wf-loading h1#site-title,
-	  .wf-loading .entry-title {
-	    /* Hide the blog title and post titles while web fonts are loading */
-	    visibility: hidden;
-	  }
-	</style>				
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>					
 	<?php
 	endif; 
 	}	
@@ -85,12 +78,18 @@ function agriflex_setup() {
 		wp_deregister_script('jquery');
 		wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"), false);		
 	   	wp_enqueue_script('jquery');
-					
+	
+		// register script location with wp_register_script	
+	   	wp_register_script('modernizr',
+	       	get_bloginfo('template_directory') . '/js/modernizr-2.0.6.min.js');	
+	       // enqueue the custom jquery js
+	   	wp_enqueue_script('modernizr');
+						
 		// register script location with wp_register_script	
 	   	wp_register_script('my_scripts',
 	       	get_bloginfo('template_directory') . '/js/my_scripts.js');	
 	       // enqueue the custom jquery js
-	   	wp_enqueue_script('my_scripts');	       
+	   	wp_enqueue_script('my_scripts');		       
 		}	         
 	}    
 	add_action('init', 'load_js');	
@@ -247,7 +246,7 @@ add_filter( 'excerpt_length', 'agriflex_excerpt_length' );
  * @return string "Continue Reading" link
  */
 function agriflex_continue_reading_link() {
-	return ' <span class="read-more"><a href="'. get_permalink() . '">' . __( 'Read Article &rarr;', 'agriflex' ) . '</a></span>';
+	return ' <span class="read-more"><a href="'. get_permalink() . '">' . __( 'Read More &rarr;', 'agriflex' ) . '</a></span>';
 }
 
 /**

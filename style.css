@@ -26,6 +26,20 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	vertical-align: baseline;
 	background: transparent;
 }
+/*
+ * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
+ * 2. Force vertical scrollbar in non-IE
+ * 3. Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
+ */
+
+html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body { margin: 0; font-size: 13px; line-height: 1.231; }
+
+body, button, input, select, textarea { font-family: sans-serif; color: #222; }
+::-moz-selection { background: #c9ab71; color: #fff; text-shadow: none; }
+::selection { background: #c9ab71; color: #fff; text-shadow: none; }
+
 
 body {
 	background: #F8F5F1;
@@ -155,6 +169,10 @@ ol {
 	list-style: decimal;
 	margin: 1.2em 0 1.2em 4.5em;
 }
+ol li {
+	margin: 0 0 .6em 0;
+}
+
 ol ol {
 	list-style:upper-alpha;
 }
@@ -248,16 +266,6 @@ audio {
 .entry-utility, .navigation {
 	font-size: 1.4em;
 	line-height: 1.5em;
-}
-
-input[type="text"],
-textarea {
-	padding: 5px;
-	background: #f9f9f9;
-	border: 1px solid #ccc;
-	box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
-	-moz-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
-	-webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
 }
 
 a:link,
@@ -452,21 +460,11 @@ body.collegeonly #drop-section-nav #drop-nav ul li a {
 	background-color: #00709d;		
 }
 
-#drop-section-nav #drop-nav ul li a[href*='explore'] {
+#drop-section-nav #drop-nav ul li .explore {
 	position: relative;
 	z-index: 2;
-	font-size: 1.3em;				
-}
-
-#drop-section-nav #drop-nav ul li a[href*='explore']:hover {
-	background-color: #f2a90f;		
-}
-
-#drop-section-nav #drop-nav ul li a[href*='explore']:active {
-	background-color: #efa70f;
-	border: 3px solid #efa70e;	
-	-webkit-box-shadow: 0 0 2px #444;
-	-moz-box-shadow: 0 0 2px #444;			
+	font-size: 1.3em;
+	color: 	#fff;			
 }
 
 #drop-section-nav #drop-nav ul li a {
@@ -934,17 +932,19 @@ div.menu li {
 	position: relative;
 }
 
-#access a {
+#access ul.menu a {
 	font-size: 1.4em;
 	border: none;
-	background: #726b60;	
-	text-shadow: 0 1px 0 #fff;
+	background: #726b60;
+	color: #fff;	
 	line-height: .6em;
-	overflow: hidden;	
-	padding: 12px 15px;			
+	overflow: hidden;
+	margin: 0 0 .1em 0;		
+	padding: 12px 15px;	
+	display: block;		
 }
 
-#access li a[title='home'] {
+#access ul.menu li a[title='home'] {
 	display: block;
 	text-indent: -999em;
 	background: url('images/home.png') no-repeat 50% 0;
@@ -959,6 +959,9 @@ body.mobile #access .menu-header li ul.sub-menu {
 	display: none;
 }
 
+body.touch #access .menu-header li ul.sub-menu {
+	display: none;
+}
 div.search{
 	width: 100%;
 	display: block;
@@ -973,16 +976,19 @@ div.search form {
 	background: transparent;
 }
 
-div.search input.s {
-	width: 100%;
+.s {
+	width: 90%;
 	padding: 8px 5px 8px 30px;
 	background: #fff url(images/search.png) no-repeat left center;
-	border-radius: 10px;
-	margin-left: -20px;	 
+	border-radius: 10px; 
 	color: #999;
+	border: 1px solid #ccc;
+	box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
+	-moz-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
+	-webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,0.1);
 }
 
-.search input[type=submit] {
+.searchsubmit {
 	display: none;	
 }
 
@@ -2330,16 +2336,16 @@ img#wpstats {
 		z-index: 5;
 	}
 
-	#access li a[title='home'] {
+	#access ul.menu li a[title='home'] {
 		background-position: 50% 14px;
 		width: 20px;
 	}
 
-	#access li a[title='home']:hover {
+	#access ul.menu li a[title='home']:hover {
 		background-position: 50% -16px;
 	}	
 
-	#access li a {
+	#access ul.menu a {
 		background: transparent;
 	}	
     /*=== Drop Down Site Navigation  =========*/
@@ -2457,6 +2463,49 @@ img#wpstats {
 		margin-left: 0px;	
 	}
 
+	body.collegeonly #access ul.menu a {
+		color:#8d0002;
+		border-color: #8d0002;
+	}
+
+	body.collegeonly #access ul.menu a:hover,
+	body.collegeonly #access ul.menu a:active {
+		color: #5b0125;
+		border-color: #5b0125;	
+	}
+
+	body.tvmdlonly #access ul.menu a {
+		color:#477f80;
+		border-color: #477f80;
+	}
+
+	body.tvmdlonly #access ul.menu a:hover,
+	body.tvmdlonly #access ul.menu a:active {
+		color: #2c4e4f;
+		border-color: #2c4e4f;	
+	}
+
+	body.extensiononly #access ul.menu a {
+		color:#00709e;
+		border-color: #00709e;
+	}
+
+	body.extensiononly #access ul.menu a:active,
+	body.extensiononly #access ul.menu a:hover {
+		color: #002838;
+		border-color: #002838;	
+	}
+
+	body.researchonly #access ul.menu a {
+		color:#669e3e;
+		border-color: #669e3e;
+	}
+
+	body.researchonly #access ul.menu a:active,
+	body.researchonly #access ul.menu a:hover {
+		color: #375521;
+		border-color: #375521;	
+	}
 
 	/*** arrows **/
 	#access .sf-menu li a.sf-with-ul {
@@ -2612,10 +2661,22 @@ img#wpstats {
 	}	
 		
 	body #site-title a {	
-		font: 2em arno-pro-1,arno-pro-2, 'Cambria', georgia, serif;
+		font: 1.8em arno-pro-1,arno-pro-2, 'Cambria', georgia, serif;
 		padding: 20px 0;	
 	}
-			
+	
+	body.tvmdlonly #site-title {	
+		margin-top: 20px;
+		width: 50%;	
+		margin-left: 10px;
+	}	
+		
+	body.tvmdlonly #site-title a {	
+		font: 1.4em arno-pro-1,arno-pro-2, 'Cambria', georgia, serif;
+		padding-left: 0;
+		margin-left: 0;
+	}
+						
 	body.collegeonly #site-title a {
 		color: #5d0025;
 	}
@@ -2642,10 +2703,6 @@ img#wpstats {
 		margin: 0;	
 		width: 20em;
 		display: block;
-	}
-	
-	div.search input.s {
-		background: #fff url('images/search.png') no-repeat 2px center;			
 	}
 	
 	div.search input.s:hover {
@@ -2928,16 +2985,15 @@ img#wpstats {
 		float: none;
 	}
 	
-	#access a {
+	body.no-touch #access ul.menu a {
 		font-size: 1.6em;
-		color: #fff;
+		text-shadow: 0 1px 0 #fff;
 		display: block;
-		margin: 0 0 .1em 0;	
 		text-shadow: none;
 	}
 
 	
-	body.collegeonly #access a {
+	body.collegeonly #access ul.menu a {
 		background: #98191a;
 	}
 		
@@ -2989,7 +3045,7 @@ img#wpstats {
 		-webkit-text-size-adjust: 98%;			
 	}	
 		
-	#access a {
+	#access ul.menu a {
 		font-size: 1.4em;
 	}	
 	div.event dl dd.title-loc h4 {

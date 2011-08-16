@@ -26,20 +26,23 @@
   
   
 ?><!DOCTYPE html>
-<!--[if IE 6]>
-<html id="ie6" <?php language_attributes(); ?>>
+<!--[if lt IE 7]>
+<html id="ie6" class="no-js ie6 oldie" <?php language_attributes(); ?>>
 <![endif]-->
 <!--[if IE 7]>
-<html id="ie7" <?php language_attributes(); ?>>
+<html id="ie7" class="no-js ie7 oldie" <?php language_attributes(); ?>>
 <![endif]-->
 <!--[if IE 8]>
-<html id="ie8" <?php language_attributes(); ?>>
+<html id="ie8" class="no-js ie8 oldie" <?php language_attributes(); ?>>
 <![endif]-->
 <!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
 <html <?php language_attributes(); ?>>
 <!--<![endif]-->
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 ***Does not validate***-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width; initial-scale=1.0;">	
 <title><?php
 	/*
@@ -51,10 +54,9 @@
 
 	?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>?5" />
+<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>?123" />
 <!--[if lt IE 9]>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/ie.css?1" />
-<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
 <link rel="shortcut icon" href="http://agrilifecdn.tamu.edu/wp-content/themes/agrilife-2.0/favicon.ico" type="image/ico" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
@@ -81,28 +83,29 @@
 	<div id="drop-nav">
 		<ul>			
 			<?php if($collegeonly) :?>
-			<li class="college-item"><a href="http://aglifesciences.tamu.edu/">Texas A&amp;M College of Agriculture and Life Sciences</a></li>
+			<li class="top-agency college-item"><a href="http://aglifesciences.tamu.edu/">Texas A&amp;M College of Agriculture and Life Sciences</a></li>
 			<?php elseif($extensiononly) :?>
-			<li class="tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife Extension Service</a></li>
+			<li class="top-agency tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife Extension Service</a></li>
 			<?php elseif($researchonly) :?>
-			<li class="research-item"><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M Research</a></li>
+			<li class="top-agency research-item"><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M Research</a></li>
 			<?php elseif($tvmdlonly) :?>
-			<li class="tvmdl-item"><a href="http://tvmdl.tamu.edu/">Texas Veterinary Medical Diagnostics Laboratory</a></li>	
+			<li class="top-agency tvmdl-item"><a href="http://tvmdl.tamu.edu/">Texas Veterinary Medical Diagnostics Laboratory</a></li>
+			<li class='right-align'><a class="explore" href="/explore/">Tests</a></li>	
 			
 			<?php elseif($res_ext) :?>
-			<li class="tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife	Extension Service</a></li>
-			<li class="research-item"><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M Research</a></li>
+			<li class="top-agency tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife	Extension Service</a></li>
+			<li class="top-agency research-item"><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M Research</a></li>
 					
 			<?php elseif($isextension && $isresearch && $iscollege && !$istvmdl) :?>
-			<li class="tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife	Extension Service</a></li>
-			<li class="research-item"><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M Research</a></li>
-			<li class="college-item"><a href="http://aglifesciences.tamu.edu/">Texas A&amp;M College of Agriculture and Life Sciences</a></li>												
+			<li class="top-agency tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife	Extension Service</a></li>
+			<li class="top-agency research-item"><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M Research</a></li>
+			<li class="top-agency college-item"><a href="http://aglifesciences.tamu.edu/">Texas A&amp;M College of Agriculture and Life Sciences</a></li>												
 			<?php else : ?>
-			<li class="tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife	Extension Service</a></li>
-			<li class="research-item"><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M Research</a></li>
-			<li class="college-item"><a href="http://aglifesciences.tamu.edu/">Texas A&amp;M College of Agriculture and Life Sciences</a></li>
-			<li class="tvmdl-item"><a href="http://tvmdl.tamu.edu/">Texas Veterinary Medical Diagnostics Laboratory</a></li>						
-			<li class="tfs-item"><a href="http:///txforestservice.tamu.edu/">Texas Forest Service</a></li>														
+			<li class="top-agency tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife	Extension Service</a></li>
+			<li class="top-agency research-item"><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M Research</a></li>
+			<li class="top-agency college-item"><a href="http://aglifesciences.tamu.edu/">Texas A&amp;M College of Agriculture and Life Sciences</a></li>
+			<li class="top-agency tvmdl-item"><a href="http://tvmdl.tamu.edu/">Texas Veterinary Medical Diagnostics Laboratory</a></li>						
+			<li class="top-agency tfs-item"><a href="http:///txforestservice.tamu.edu/">Texas Forest Service</a></li>														
 			<?php endif; ?>		
 			<!--<li class='ask'><a class="ext-link" href="/ask/">Ask</a></li>
 			<li class='explore right-align'><a class="ext-link" href="/explore/">Explore</a></li>-->
