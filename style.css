@@ -14,17 +14,70 @@
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
+del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
+	font-size: 100%;
+	font: inherit;
 	vertical-align: baseline;
-	background: transparent;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+tr {
+	padding: 1em 0 1em .5em;
+	border-bottom: 1px solid #D2CA9C;
+	display: block;
+}
+
+th, td {
+	width: 14em;
+	text-align: left;
+	padding: 0 10px 0 3px;
+	line-height: 1.3em;
+}
+
+tr:nth-child(odd) {
+	background: #f7f7ee;
+	background: rgba(247,247,238, 0.75);
+}
+
+tr:nth-child(even) {
+	background: #eae6d1;
+}
+
+tr:first-child {
+	background: none;
 }
 /*
  * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
@@ -82,61 +135,6 @@ h6 {
 ol, 
 ul {
 	list-style: none;
-}
-
-blockquote {
-	quotes: none;
-}
-
-blockquote:before, blockquote:after {
-	content: '';
-	content: none;
-}
-del {
-	text-decoration: line-through;
-}
-
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-	font-size: 1.2em;
-	margin-bottom: 1.2em;
-}
-
-tr {
-	padding: 1em 0 1em .5em;
-	border-bottom: 1px solid #D2CA9C;
-	display: block;
-}
-
-th, td {
-	width: 14em;
-	text-align: left;
-	padding: 0 10px 0 3px;
-	line-height: 1.3em;
-}
-
-tr:nth-child(odd) {
-	background: #f7f7ee;
-	background: rgba(247,247,238, 0.75);
-}
-
-tr:nth-child(even) {
-	background: #eae6d1;
-}
-
-tr:first-child {
-	background: none;
-}
-
-a, input {
-	outline: none;
-}
-
-a img { border: none; }
-
-header, nav, section, aside, article, footer, figure {
-	display: block;
 }
 
 .wrap {
@@ -709,7 +707,7 @@ body.collegeonly #drop-section-nav #drop-nav ul li a {
 }
 
 
-body.collegeonly span.gigpress-sidebar-status a, body.collegeonly .btn a, body.collegeonly button.btn, body.collegeonly a.gigpress-tickets-link {	
+.collegeonly .gigpress-tickets-link, .collegeonly .btn {	
 	border: 1px solid #860125;
 	color: #fff;
 	background: #860125;
@@ -717,13 +715,13 @@ body.collegeonly span.gigpress-sidebar-status a, body.collegeonly .btn a, body.c
 	background: -moz-linear-gradient(top, #ba012c, #860125);
 }
 
-body.collegeonly span.gigpress-sidebar-status a, body.collegeonly .btn a:hover, body.collegeonly button.btn:hover, body.collegeonly a.gigpress-tickets-link:hover {	
+.collegeonly .gigpress-tickets-link, body.collegeonly .btn a:hover, body.collegeonly button.btn:hover, body.collegeonly a.gigpress-tickets-link:hover {	
 	background: #ba012c;	
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#860125), to(#ba012c));
 	background: -moz-linear-gradient(top, #860125, #ba012c);		
 }
 
-body.collegeonly span.gigpress-sidebar-status a, body.collegeonly .btn a:active, body.collegeonly button.btn:active, body.collegeonly a.gigpress-tickets-link:active {
+.collegeonly .gigpress-tickets-link, body.collegeonly .btn a:active, body.collegeonly button.btn:active, body.collegeonly a.gigpress-tickets-link:active {
 	background: #0082b7;	
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ba012c), to(#860125));
 	background: -moz-linear-gradient(top, #ba012c, #860125);	
@@ -3785,3 +3783,6 @@ abbr {
     font-size: 100%;
 }
 
+.ie8 body {
+	background: #f8f5f1 url(images/tan-background.png) top left;
+}
