@@ -15,7 +15,7 @@ class WatchReadListenWidget extends WP_Widget {
 	// Set YouTube Default
 	$youtube_video_default = 'http://www.youtube.com/watch?v=q_UsLHl_YDQ';
 	// Set Podcast Default
-	$podcast_link_default  = 'http://tmnpodcast.libsyn.com/rss';
+	$podcast_link_default  = 'http://agrilife.org/drought/feed/';
 	// prints the widget
 		if ( isset($instance['error']) && $instance['error'] )
 			return;
