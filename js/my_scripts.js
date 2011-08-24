@@ -295,6 +295,21 @@ paddingTop:"hide",paddingBottom:"hide"},a);else a.toShow.animate({height:"show",
 
 jQuery(document).ready(function($) {
 
+	if ($(window).width() < 640) {
+		$('#access').hide();
+		$('.searchform').hide();
+		$('.navigation-link').click(function() {
+  			$('#access').toggle('fast', function() {
+    			// Animation complete.
+			});
+  		});
+		$('.search-link').click(function() {
+  			$('.searchform').toggle('fast', function() {
+    			// Animation complete.
+			});
+  		});
+	}	
+
 	if ($(window).width() < 1024) {
 		$("body").addClass("mobile");		
 	}

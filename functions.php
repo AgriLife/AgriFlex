@@ -58,7 +58,14 @@ function agriflex_setup() {
 		function typekit_js() { 
 			if( !is_admin() ) : ?>
 	<script type="text/javascript" src="http://use.typekit.com/thu0wyf.js"></script>
-	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>					
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<style type="text/css">
+	  .wf-loading #site-title,
+	  .wf-loading .entry-title {
+	    /* Hide the blog title and post titles while web fonts are loading */
+	    visibility: hidden;
+	  }
+	</style>					
 	<?php
 	endif; 
 	}	
@@ -87,7 +94,7 @@ function agriflex_setup() {
 						
 		// register script location with wp_register_script	
 	   	wp_register_script('my_scripts',
-	       	get_bloginfo('template_directory') . '/js/my_scripts.js');	
+	       	get_bloginfo('template_directory') . '/js/my_scripts.js?123');	
 	       // enqueue the custom jquery js
 	   	wp_enqueue_script('my_scripts');		       
 		}	         
@@ -422,13 +429,6 @@ function agriflex_widgets_init() {
 /** Register sidebars by running agriflex_widgets_init() on the widgets_init hook. */
 add_action( 'widgets_init', 'agriflex_widgets_init' );
 
-
-
-
-
-
-
-
 /**
  * Removes the default styles that are packaged with the Recent Comments widget.
  *
@@ -487,12 +487,6 @@ function agriflex_posted_in() {
 }
 endif;
 
-
-
-
-
-
-
 // add asynchronous google analytics code
 add_action('wp_head','analytics_code',0);
 	function analytics_code() { 
@@ -522,18 +516,117 @@ if (class_exists("AgriLifeCounties")) {
 endif; 
 }	
 
-//Function: Get flickr media and display based on user id
-function getFlickrPhotos($id, $limit=9) {
-    require_once("includes/phpFlickr.php");
-    $f = new phpFlickr("c15fd416e1273128b7c85bb58fa01dc7");
-    $photos = $f->people_getPublicPhotos($id, NULL, NULL, 12);
-    $return.='<ul class="flickrPhotos">';
-    foreach ($photos['photos']['photo'] as $photo) {
-        $return.='<li><a href="' . $f->buildPhotoURL($photo, 'medium') . '" title="' . $photo['title'] . '"><img src="' . $f->buildPhotoURL($photo, 'square') . '" alt="' . $photo['title'] . '" title="' . $photo['title'] . '" /></a></li>';
-    }
-    echo $return.='</ul>';
-} 
+/* Staff Custom Post Type */
+add_action( 'init', 'create_staff_post_type' );
+function create_staff_post_type() {
+	register_post_type( 'staff',
+		array(
+			'labels' => array(
+				'name' => __( 'Staff' ),
+				'singular_name' => __( 'Employee' ),
+				'add_new_item' => __( 'Add New Staff Employee' ),
+				'add_new' => __( 'Add New' ),
+				'edit' => __( 'Edit' ),
+				'edit_item' => __( 'Edit Staff Employee' ),
+				'new_item' => __( 'New Staff Employee' ),
+				'view' => __( 'View Staff Employee' ),
+				'view_item' => __( 'View Staff Employee' ),
+				'search_items' => __( 'Search Staff Employees' ),
+				'not_found' => __( 'No Staff Employees found' ),
+				'not_found_in_trash' => __( 'No Staff Employees found in Trash' ),
 
+			),
+		'_builtin' => false, // It's a custom post type, not built in!
+		'_edit_link' => 'post.php?post=%d',
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'public' => true,
+		'has_archive' => true,
+		'rewrite' => array('slug' => 'staff'),
+		'supports' => array( 'title', 'editor','thumbnail' ),
+		)
+	);
+}
+
+/* Define the custom box */
+
+// WP 3.0+
+// add_action( 'add_meta_boxes', 'myplugin_add_custom_box' );
+
+// backwards compatible
+add_action( 'admin_init', 'staff_add_custom_box', 1 );
+
+/* Do something with the data entered */
+add_action( 'save_post', 'staff_save_postdata' );
+
+/* Adds a box to the main column on the Post and Page edit screens */
+function staff_add_custom_box() {
+    add_meta_box( 
+        'staff_sectionid',
+        __( 'Employee Details', 'staff_textdomain' ),
+        'staff_inner_custom_box',
+        'staff' 
+    );
+}
+
+/* Prints the box content */
+function staff_inner_custom_box( $post ) {
+
+  // Use nonce for verification
+  wp_nonce_field( plugin_basename( __FILE__ ), 'staff_noncename' );
+
+  // The actual fields for data entry
+
+  echo '<label for="staff_new_field">';
+       _e("Position", 'staff_textdomain' );
+  echo '</label> ';
+  echo '<input type="text" id="position" name="position" value="Staff Cheerleader" size="25" />';
+
+  echo '<label for="email">';
+       _e("email", 'staff_textdomain' );
+  echo '</label> ';
+  echo '<input type="text" id="email" name="email" value="example@tamu.edu" size="25" />';
+
+  echo '<label for="phone">';
+       _e("phone", 'staff_textdomain' );
+  echo '</label> ';
+  echo '<input type="text" id="phone" name="phone" value="777-777-777" size="25" />';
+}
+
+/* When the post is saved, saves our custom data */
+function staff_save_postdata( $post_id ) {
+  // verify if this is an auto save routine. 
+  // If it is our form has not been submitted, so we dont want to do anything
+  if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
+      return;
+
+  // verify this came from the our screen and with proper authorization,
+  // because save_post can be triggered at other times
+
+  if ( !wp_verify_nonce( $_POST['staff_noncename'], plugin_basename( __FILE__ ) ) )
+      return;
+
+  
+  // Check permissions
+  if ( 'staff' == $_POST['post_type'] ) 
+  {
+    if ( !current_user_can( 'edit_page', $post_id ) )
+        return;
+  }
+  else
+  {
+    if ( !current_user_can( 'edit_post', $post_id ) )
+        return;
+  }
+
+  // OK, we're authenticated: we need to find and save the data
+
+  $mydata = $_POST['staff_new_field'];
+
+  // Do something with $mydata 
+  // probably using add_post_meta(), update_post_meta(), or 
+
+}
 
 	// Set path to function files
 	$includes_path = TEMPLATEPATH . '/includes/';
