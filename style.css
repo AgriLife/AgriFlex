@@ -95,7 +95,7 @@ body, button, input, select, textarea { font-family: sans-serif; color: #222; }
 
 
 body {
-	background: #F8F5F1;
+	background: #f8f5f1;
 	font: 62.5% "minion-pro-1","minion-pro-2", 'Cambria', 'Georgia', 'Times New Roman', serif;
 	line-height: 1.2em;
 	color: #433c3a;
@@ -266,8 +266,7 @@ audio {
 	line-height: 1.5em;
 }
 
-a:link,
-a:visited {
+a {
 	color:#726b60;
 	text-decoration: none;
 	border-bottom: 1px dotted #726b60;
@@ -282,8 +281,7 @@ a:hover {
 	border-bottom: 1px solid #332c2c;	
 }
 
-body.collegeonly a:link,
-body.collegeonly a:visited {
+body.collegeonly a {
 	color:#8d0002;
 	border-color: #8d0002;
 }
@@ -294,8 +292,7 @@ body.collegeonly a:hover {
 	border-color: #5b0125;	
 }
 
-body.tvmdlonly a:link,
-body.tvmdlonly a:visited {
+body.tvmdlonly a{
 	color:#477f80;
 	border-color: #477f80;
 }
@@ -306,8 +303,7 @@ body.tvmdlonly a:hover {
 	border-color: #2c4e4f;	
 }
 
-body.extensiononly a:link,
-body.extensiononly a:visited {
+body.extensiononly a {
 	color:#00709e;
 	border-color: #00709e;
 }
@@ -318,8 +314,7 @@ body.extensiononly a:hover {
 	border-color: #002838;	
 }
 
-body.researchonly a:link,
-body.researchonly a:visited {
+body.researchonly a {
 	color:#669e3e;
 	border-color: #669e3e;
 }
@@ -707,7 +702,7 @@ body.collegeonly #drop-section-nav #drop-nav ul li a {
 }
 
 
-.collegeonly .gigpress-tickets-link, .collegeonly .btn {	
+.collegeonly .gigpress-tickets-link {	
 	border: 1px solid #860125;
 	color: #fff;
 	background: #860125;
@@ -899,7 +894,18 @@ body.collegeonly #site-title a {
 
 /* =Menu
 -------------------------------------------------------------- */
+#navigation-link-ul {
+	margin: 0;
+}
 
+.navigation-link, .search-link {
+	text-align: center;
+	cursor: pointer;
+	font-size: 14px;	
+}
+.navigation-link:hover, .search-link:hover {
+	cursor: pointer;
+}
 .clear {
 	clear: both;
 }
@@ -932,9 +938,7 @@ div.menu li {
 
 #access ul.menu a {
 	font-size: 1.4em;
-	border: none;
-	background: #726b60;
-	color: #fff;	
+	border: none;	
 	line-height: .6em;
 	overflow: hidden;
 	margin: 0 0 .1em 0;		
@@ -945,12 +949,12 @@ div.menu li {
 #access ul.menu li a[title='home'] {
 	display: block;
 	text-indent: -999em;
-	background: url('images/home.png') no-repeat 50% 0;
+	background: url('images/home.png') no-repeat 50% 5px;
 	width: 20px;
 }
 
 #access li a[title='home']:hover {
-	background-position: 50% -30px;
+	background-position: 50% -25px;
 }
 
 body.mobile #access .menu-header li ul.sub-menu {
@@ -2348,6 +2352,10 @@ img#wpstats {
 	}	
     /*=== Drop Down Site Navigation  =========*/
 
+	.navigation-link, .search-link {
+		display: none;
+	}
+
 	#access .sf-menu li {
 		font-size: 14px;	
 		line-height: 1.7em;	
@@ -2625,7 +2633,7 @@ img#wpstats {
 	}
 	
 	#branding, #access .menu-header, .wrap, #drop-nav {
-		max-width: 97.5em;
+		max-width: 975px;
 		margin: 0 auto;
 		position: relative;
 	}
@@ -2914,14 +2922,14 @@ img#wpstats {
 	    font-size: 80%; 
 		line-height: 1.75em;
 	}
-	.wrap {
+	.wrap, #branding, #access {
 		padding-left: 5%;
 		padding-right: 5%;		
 	}
 	#content {
 		padding-top:3em;
 	}
-	body #header {
+	#header {
 		padding-bottom: 20px;
 	}
 	body div.search {
@@ -2943,7 +2951,7 @@ img#wpstats {
 @media all and (max-width: 640px) {
 				
 	#site-title a {
-		font: 1.1em arno-pro-1,arno-pro-2, georgia, serif;
+		font: 28px arno-pro-1,arno-pro-2, georgia, serif;
 		margin-left: 7px;
 	}
 	body  { 		
@@ -2989,39 +2997,7 @@ img#wpstats {
 		display: block;
 		text-shadow: none;
 	}
-
 	
-	body.collegeonly #access ul.menu a {
-		background: #98191a;
-	}
-		
-	body #access li.current-menu-item a {
-		background-color: #565149;
-	}
-		
-	body.collegeonly #access li.current-menu-item a {
-		background-color: #5d0025;
-	}
-
-	body #access li a[title='home'] {
-		background-repeat: no-repeat;
-		background-color: transparent;
-		padding-bottom: 0;
-	}
-
-	body #access li.current-menu-item a[title='home'] {
-		background-color: transparent;
-	}
-		
-	body.collegeonly #access a:hover {
-		background: #5b0125;	
-	}
-
-	body #access li a[title='home']:hover {
-		background-color: #fff;
-		background-repeat: no-repeat;
-	}
-		
 	#home-top {
 		display: none;
 	}	
@@ -3783,6 +3759,8 @@ abbr {
     font-size: 100%;
 }
 
-.ie8 body {
-	background: #f8f5f1 url(images/tan-background.png) top left;
+/* old browsers */
+
+.oldie .menu-item {
+	font-family: 'lucida Sans Unicode', verdana, clean;
 }

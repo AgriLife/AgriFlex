@@ -80,7 +80,7 @@
 
 	?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>?1234" />
+<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>?11" />
 <!--[if lt IE 9]>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/ie.css?1" />
 <![endif]-->
@@ -212,15 +212,18 @@
 				<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
 				</hgroup>
 				<div class="search">
+				<ul id="navigation-link-ul">
+					<li class="navigation-link">Navigation</li>
+				</ul>
 				<?php get_search_form(); ?>
 				</div><!-- end .search -->					
 			</header><!-- #branding -->	
-		</div><!-- end #header -->		
+		</div><!-- end #header -->
 			<nav id="access" role="navigation">		
 			  <?php /*  Allow screen readers / text browsers to skip the navigation menu and get right to the good stuff */ ?>
 				<div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'agriflex' ); ?>"><?php _e( 'Skip to content', 'agriflex' ); ?></a></div>
 				<?php /* Our navigation menu.  If one isn't filled out, wp_nav_menu falls back to wp_page_menu.  The menu assiged to the primary position is the one used.  If none is assigned, the menu with the lowest ID is used.  */ ?>
 				<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>				<div class="clear"></div>
-			</div><!-- #access -->
+			</nav><!-- .access -->
 	<div id="content-wrap">		
 		<div class="wrap">	
