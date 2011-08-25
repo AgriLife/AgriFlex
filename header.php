@@ -24,7 +24,33 @@
   $tvmdlonly = ($istvmdl && !$isextension && !$isresearch && !$iscollege ? true : false);
   $res_ext = (!$istvmdl && $isextension && $isresearch && !$iscollege ? true : false);
   
-  
+  if($extensiononly) :
+  	$isextensionh4 = $isextensioncounty = $isextensioncountytce = $isextensionmg = $isextensionmn = false;
+  	switch ($options['extension_type']) {
+  		case 0:
+  			break;
+  		case 1:
+  			// 4-h
+  			$isextension4h = true;
+  			break;
+  		case 2:
+  			// County
+  			$isextensioncounty = true;
+  			break;
+  		case 3:
+  			// County TCE
+  			$isextensioncountytce = true;
+  			break;
+  		case 4:
+  			// Master Gardener
+  			$isextensionmg = true;
+  			break;
+  		case 5:
+  			// Master Naturalist
+  			$isextensionmn = true;
+  			break;
+  	}
+  endif;  
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>
 <html id="ie6" class="no-js ie6 oldie" <?php language_attributes(); ?>>
@@ -79,7 +105,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="drop-section-nav">
+<div id="drop-section-nav"> 
 	<div id="drop-nav">
 		<ul>			
 			<?php if($collegeonly) :?>

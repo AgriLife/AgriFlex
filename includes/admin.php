@@ -41,6 +41,8 @@ if (!class_exists("AgrilifeCustomizer")) {
 				'isCollege' => false,
 				'isTvmdl' => false,
 				
+				'extension_type' => 0,
+				
 				'header_type' => 0,
 				'titleImg' => '',
 				
@@ -53,10 +55,10 @@ if (!class_exists("AgrilifeCustomizer")) {
 				'map-link' => '',
 				'map-img' => '',
 				
-				'address-mail-street1' => '',
+				'address-mail-street1' => '600 John Kimbrough Boulevard',
 				'address-mail-street2' => '',
-				'address-mail-city' => '',
-				'address-mail-zip' => '',
+				'address-mail-city' => 'College Station',
+				'address-mail-zip' => '77843',
 				
 				'phone' => '',
 				'fax' =>'',
@@ -82,6 +84,9 @@ if (!class_exists("AgrilifeCustomizer")) {
 			$options['isExtension'] = false;
 			$options['isCollege'] = false;
 			$options['isTvmdl'] = false;
+			
+			// Extension Sub-options
+			$options['extension_type'] = 0;
 			
 			//Set Site Title Image
 			$options['header_type'] = 0;
@@ -139,6 +144,13 @@ if (!class_exists("AgrilifeCustomizer")) {
 				if (isset($_POST['isTvmdl'])) {
 				  $agrilifeOptions['isTvmdl'] = $_POST['isTvmdl'];
 				}	
+				
+				// Extension Sub-types
+				if (isset($_POST['extension_type']) && ($_POST['isExtension']) ) {
+				  $agrilifeOptions['extension_type'] = $_POST['extension_type'];
+				} else {
+				  $agrilifeOptions['extension_type'] = 0;
+				}
 			  
 		
 				
@@ -216,32 +228,43 @@ if (!class_exists("AgrilifeCustomizer")) {
 		  
 		  
 		<div class="wrap">
-		<form method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
+		<form method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>" name="agriform" id="agriform">
 		<h2>AgriLife Site Configuration</h2>
 		<table width="100%" border="0" cellspacing="0" cellpadding="8">
-		<tr>
+		<tr valign="top">
 		<td>
-		<h3>Research?</h3>
+		<h3>Research</h3>
 		<p>Selecting "No" will disable the Research tab in the header.</p>
 		<p><label for="isResearch_yes"><input type="radio" id="isResearch_yes" name="isResearch" value="1" <?php if ($agrilifeOptions['isResearch'] ) { _e('checked="checked"', "AgrilifeCustomizer"); }?> /> Yes</label>&nbsp;&nbsp;&nbsp;&nbsp;<label for="isResearch_no"><input type="radio" id="isResearch_no" name="isResearch" value="0" <?php if (!$agrilifeOptions['isResearch'] ) { _e('checked="checked"', "AgrilifeCustomizer"); }?>/> No</label></p>
 		</td>
-		<td>
-		<h3>Extension?</h3>
+		<td valign="top">
+		<h3>Extension</h3>
 		<p>Selecting "No" will disable the Extension tab in the header.</p>
 		<p><label for="isExtension_yes"><input type="radio" id="isExtension_yes" name="isExtension" value="1" <?php if ($agrilifeOptions['isExtension'] ) { _e('checked="checked"', "AgrilifeCustomizer"); }?> /> Yes</label>&nbsp;&nbsp;&nbsp;&nbsp;<label for="isExtension_no"><input type="radio" id="isExtension_no" name="isExtension" value="0" <?php if (!$agrilifeOptions['isExtension'] ) { _e('checked="checked"', "AgrilifeCustomizer"); }?>/> No</label></p>
+		
+			<div id="extension_type">
+			<input type="radio" name="extension_type" value="0" <?php if($agrilifeOptions['extension_type']==0) echo 'checked="checked"';?> /> Typical<br />
+			<input type="radio" name="extension_type" value="1" <?php if($agrilifeOptions['extension_type']==1) echo 'checked="checked"';?> /> 4-H<br />
+			<input type="radio" name="extension_type" value="2" <?php if($agrilifeOptions['extension_type']==2) echo 'checked="checked"';?> /> County Office<br />
+			<input type="radio" name="extension_type" value="3" <?php if($agrilifeOptions['extension_type']==3) echo 'checked="checked"';?> /> County TCE Office<br />
+			<input type="radio" name="extension_type" value="4" <?php if($agrilifeOptions['extension_type']==4) echo 'checked="checked"';?> /> Master Gardener Chapter<br />
+			<input type="radio" name="extension_type" value="5" <?php if($agrilifeOptions['extension_type']==5) echo 'checked="checked"';?> /> Master Naturalist Chapter<br />
+			</div>
 		</td>
 		<td>
-		<h3>College?</h3>
+		<h3 valign="top">College</h3>
 		<p>Selecting "No" will disable the College tab in the header.</p>
 		<p><label for="isCollege_yes"><input type="radio" id="isCollege_yes" name="isCollege" value="1" <?php if ($agrilifeOptions['isCollege'] ) { _e('checked="checked"', "AgrilifeCustomizer"); }?> /> Yes</label>&nbsp;&nbsp;&nbsp;&nbsp;<label for="isCollege_no"><input type="radio" id="isCollege_no" name="isCollege" value="0" <?php if (!$agrilifeOptions['isCollege'] ) { _e('checked="checked"', "AgrilifeCustomizer"); }?>/> No</label></p>
 		</td>
 		<td>
-		<h3>TVMDL?</h3>
+		<h3 valign="top">TVMDL</h3>
 		<p>Selecting "No" will disable the TVMDL tab in the header.</p>
 		<p><label for="isTvmdl_yes"><input type="radio" id="isTvmdl_yes" name="isTvmdl" value="1" <?php if ($agrilifeOptions['isTvmdl'] ) { _e('checked="checked"', "AgrilifeCustomizer"); }?> /> Yes</label>&nbsp;&nbsp;&nbsp;&nbsp;<label for="isTvmdl_no"><input type="radio" id="isTvmdl_no" name="isTvmdl" value="0" <?php if (!$agrilifeOptions['isTvmdl'] ) { _e('checked="checked"', "AgrilifeCustomizer"); }?>/> No</label></p>
 		</td>
 		</tr>
 		</table>
+		
+		
 		
 		<h3>Header</h3>
 		
