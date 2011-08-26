@@ -1,9 +1,4 @@
 <?php 
-	/*
-	 * Import the SOAP library
-	 * SourceForge SOAP Toolkit for PHP http://sourceforge.net/projects/nusoap/
-	 */ 
-	require_once("nusoap/nusoap.php");
 	
 	//Get a handle to the webservice 
 	$wsdl = new nusoap_client('https://agrilifepeople.tamu.edu/applicationAPI/organizationalModule.cfc?wsdl',true); 

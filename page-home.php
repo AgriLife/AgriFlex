@@ -49,8 +49,8 @@ get_header(); ?>
 		<div class="home-middle-1">
 			<?php if (!dynamic_sidebar('Home Page Bottom')) : ?>
 			<div class="widget">
-				<h2><?php _e("Home Page Bottom Widget", 'county_ext'); ?></h2>
-				<p><?php _e("This is a widgeted area which is called Home Middle #1. To get started, log into your WordPress dashboard, and then go to the Appearance > Widgets screen. There you can drag the widget into the Home Middle #1 widget area on the right hand side. To get the image to display, simply upload an image through the media uploader on the edit post screen and publish your page. The Featured Page widget will know to display the post image as long as you select that option in the widget interface.", 'genesis'); ?></p>
+				<h2><?php _e("", 'county_ext'); ?></h2>
+				<p><?php _e("", 'agriflex'); ?></p>
 			</div>		
 			<?php endif; ?>
 		</div><!-- end .home-middle-1 -->
