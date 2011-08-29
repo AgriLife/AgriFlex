@@ -710,7 +710,8 @@ body.collegeonly #drop-section-nav #drop-nav ul li a {
 	background: -moz-linear-gradient(top, #ba012c, #860125);
 }
 
-.collegeonly .gigpress-tickets-link, body.collegeonly .btn a:hover, body.collegeonly button.btn:hover, body.collegeonly a.gigpress-tickets-link:hover {	
+.collegeonly .gigpress-tickets-link, body.collegeonly .btn a:hover, body.collegeonly button.btn:hover, body.collegeonly a.gigpress-tickets-link:hover {
+	color: #fff;		
 	background: #ba012c;	
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#860125), to(#ba012c));
 	background: -moz-linear-gradient(top, #860125, #ba012c);		
@@ -1449,6 +1450,10 @@ body.home .hentry {
 #content dl.attachments-large {
 	border: none;
 	border-bottom: 1px dashed #d2ca9c;	
+}
+
+.staff-person-details {
+	margin-left: 170px;
 }
 
 /* Aside
@@ -2925,7 +2930,7 @@ img#wpstats {
 	    font-size: 80%; 
 		line-height: 1.75em;
 	}
-	.wrap, #branding, #access {
+	.wrap, #footer .wrap, #branding, #access {
 		padding-left: 5%;
 		padding-right: 5%;		
 	}
