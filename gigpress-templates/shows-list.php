@@ -29,7 +29,7 @@
 		
 	<?php if((!$artist && $group_artists == 'no') && $total_artists > 1) : ?>
 		<td class="gigpress-artist">
-			<?php echo $showdata['artist']; ?>
+			<strong><?php echo $showdata['artist']; ?></strong>
 		</td>
 	<?php endif; ?>
 	
