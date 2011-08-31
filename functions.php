@@ -134,10 +134,33 @@ function agriflex_setup() {
 			if($options['isTvmdl']) $classes[] .= 'tvmdl';
 			
 			// Single Agency Classes
-			if($options['isExtension'] && !$options['isResearch'] && !$options['isCollege'] && !$options['isTvmdl']) $classes[] .= 'extensiononly';
 			if($options['isResearch'] && !$options['isExtension'] && !$options['isCollege'] && !$options['isTvmdl']) $classes[] .= 'researchonly';
 			if($options['isCollege'] && !$options['isExtension'] && !$options['isResearch'] && !$options['isTvmdl']) $classes[] .= 'collegeonly';
 			if($options['isTvmdl'] && !$options['isExtension'] && !$options['isResearch'] && !$options['isCollege']) $classes[] .= 'tvmdlonly';
+			if($options['isExtension'] && !$options['isResearch'] && !$options['isCollege'] && !$options['isTvmdl']) :
+				$classes[] .= 'extensiononly';			
+				// Extension Only Sub-categories
+			  	switch ($options['extension_type']) {
+			  		case 0:
+			  			break;
+			  		case 1:
+			  			$classes[] .= 'extension4h';
+			  			break;
+			  		case 2:
+			  			$classes[] .= 'extensioncounty';
+			  			break;
+			  		case 3:
+			  			$classes[] .= 'extensioncountytce';
+			  			break;
+			  		case 4:
+			  			$classes[] .= 'extensionmg';
+			  			break;
+			  		case 5:
+			  			$classes[] .= 'extensionmn';
+			  			break;
+			  	}
+			  endif;  
+
 		}	
 		return $classes;
 	}
