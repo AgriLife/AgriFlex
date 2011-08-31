@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-		<div id="container">
+		<div id="wrap">
 			<div id="content" role="main">
 
 <?php

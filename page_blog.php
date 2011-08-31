@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Blog
+ * Template Name: News Main Page
  * @package WordPress
  */
 

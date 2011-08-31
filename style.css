@@ -270,8 +270,8 @@ a {
 	color:#726b60;
 	text-decoration: none;
 	border-bottom: 1px dotted #726b60;
-	-webkit-transition: .3s color ease, .3s border ease, .3s background ease;
-	-moz-transition: .3s color ease, .3s border ease, .3s background ease;	 
+	-webkit-transition: .3s color ease, .3s border ease;
+	-moz-transition: .3s color ease, .3s border ease;	 
 }
 
 a:active,
@@ -2521,15 +2521,11 @@ img#wpstats {
 	/*** arrows **/
 	#access .sf-menu li a.sf-with-ul {
 		min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
-		background: url(images/down-arrow.png) no-repeat 10px 19px; 	
-		-webkit-transition: .2s background ease; 
-		-moz-transition: .2s background ease; 					
+		background: url(images/down-arrow.png) no-repeat 10px 19px; 					
 	}
 	
 	#access .sf-menu li:hover a.sf-with-ul {
-		background-position: 2px 19px;
-		-webkit-transition: .1s background ease; 
-		-moz-transition: .1s background ease; 		
+		background-position: 2px 19px;		
 	}
 		
 	#access .sf-menu li:hover li a.sf-with-ul {
