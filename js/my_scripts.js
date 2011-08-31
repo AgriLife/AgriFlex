@@ -323,19 +323,7 @@ jQuery(document).ready(function($) {
 	$('object').removeAttr('height');
 	$('object').attr('height', '220px' );	
 	$('object').removeAttr('width');
-	$('object').attr('width', '100%' );			
-
-	    if ($('#big-feature').length > 0) {
-	        $('#big-feature').cycle({ 
-				fx:     'scrollHorz', 
-				speed:  300,						 
-				timeout: 7000, 
-				pause:  1,			
-	            next:   '.slideNext', 
-	            prev:   '.slidePrev',
-				pager: 	'#slidePager',
-	        });
-	    }	
+	$('object').attr('width', '100%' );		
 	
 	//tabbed sidebar stuff
 	$(function() {

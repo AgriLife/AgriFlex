@@ -94,7 +94,7 @@ function agriflex_setup() {
 						
 		// register script location with wp_register_script	
 	   	wp_register_script('my_scripts',
-	       	get_bloginfo('template_directory') . '/js/my_scripts.js?123');	
+	       	get_bloginfo('template_directory') . '/js/my_scripts.js?1234');	
 	       // enqueue the custom jquery js
 	   	wp_enqueue_script('my_scripts');		       
 		}	         
@@ -628,9 +628,120 @@ function staff_save_postdata( $post_id ) {
 
 }
 
+/* Job Posting Custom Post Type */
+add_action( 'init', 'create_job_posting_post_type' );
+function create_job_posting_post_type() {
+	register_post_type( 'job_posting',
+		array(
+			'labels' => array(
+				'name' => __( 'Job Posting' ),
+				'singular_name' => __( 'Job' ),
+				'add_new_item' => __( 'Add New Job Posting' ),
+				'add_new' => __( 'Add New' ),
+				'edit' => __( 'Edit' ),
+				'edit_item' => __( 'Edit Job Posting' ),
+				'new_item' => __( 'New Job Posting' ),
+				'view' => __( 'View Job Posting' ),
+				'view_item' => __( 'View Job Posting' ),
+				'search_items' => __( 'Search Job Postings' ),
+				'not_found' => __( 'No Job Posting found' ),
+				'not_found_in_trash' => __( 'No Job Postings found in Trash' ),
+
+			),
+		'_builtin' => false, // It's a custom post type, not built in!
+		'_edit_link' => 'post.php?post=%d',
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'public' => true,
+		'has_archive' => true,
+		'rewrite' => array('slug' => 'jobs'),
+		'supports' => array( 'title', 'editor' ),
+		)
+	);
+}
+
+/* Define the custom box */
+
+// WP 3.0+
+// add_action( 'add_meta_boxes', 'myplugin_add_custom_box' );
+
+// backwards compatible
+add_action( 'admin_init', 'staff_add_custom_box', 1 );
+
+/* Do something with the data entered */
+add_action( 'save_post', 'staff_save_postdata' );
+
+/* Adds a box to the main column on the Post and Page edit screens */
+function job_posting_add_custom_box() {
+    add_meta_box( 
+        'job_posting_sectionid',
+        __( 'Job Details', 'job_posting_textdomain' ),
+        'job_posting_inner_custom_box',
+        'job_posting' 
+    );
+}
+
+/* Prints the box content */
+function job_posting_inner_custom_box( $post ) {
+
+  // Use nonce for verification
+  wp_nonce_field( plugin_basename( __FILE__ ), 'staff_noncename' );
+
+  // The actual fields for data entry
+
+  echo '<label for="staff_new_field">';
+       _e("Position", 'job_posting_textdomain' );
+  echo '</label> ';
+  echo '<input type="text" id="position" name="position" value="Staff Cheerleader" size="25" />';
+
+  echo '<label for="email">';
+       _e("email", 'job_posting_textdomain' );
+  echo '</label> ';
+  echo '<input type="text" id="email" name="email" value="example@tamu.edu" size="25" />';
+
+  echo '<label for="phone">';
+       _e("phone", 'job_posting_textdomain' );
+  echo '</label> ';
+  echo '<input type="text" id="phone" name="phone" value="777-777-777" size="25" />';
+}
+
+/* When the post is saved, saves our custom data */
+function job_posting_save_postdata( $post_id ) {
+  // verify if this is an auto save routine. 
+  // If it is our form has not been submitted, so we dont want to do anything
+  if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
+      return;
+
+  // verify this came from the our screen and with proper authorization,
+  // because save_post can be triggered at other times
+
+  if ( !wp_verify_nonce( $_POST['staff_noncename'], plugin_basename( __FILE__ ) ) )
+      return;
+
+  
+  // Check permissions
+  if ( 'staff' == $_POST['post_type'] ) 
+  {
+    if ( !current_user_can( 'edit_page', $post_id ) )
+        return;
+  }
+  else
+  {
+    if ( !current_user_can( 'edit_post', $post_id ) )
+        return;
+  }
+
+  // OK, we're authenticated: we need to find and save the data
+
+  $mydata = $_POST['staff_new_field'];
+
+  // Do something with $mydata 
+  // probably using add_post_meta(), update_post_meta(), or 
+
+}
+
 	// Set path to function files
 	$includes_path = TEMPLATEPATH . '/includes/';
-	$structure_path = TEMPLATEPATH . '/structure/';	
 
 	// Admin Pages
 	require_once ($includes_path . 'admin.php');

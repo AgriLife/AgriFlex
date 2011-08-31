@@ -710,7 +710,8 @@ body.collegeonly #drop-section-nav #drop-nav ul li a {
 	background: -moz-linear-gradient(top, #ba012c, #860125);
 }
 
-.collegeonly .gigpress-tickets-link, body.collegeonly .btn a:hover, body.collegeonly button.btn:hover, body.collegeonly a.gigpress-tickets-link:hover {	
+.collegeonly .gigpress-tickets-link, body.collegeonly .btn a:hover, body.collegeonly button.btn:hover, body.collegeonly a.gigpress-tickets-link:hover {
+	color: #fff;		
 	background: #ba012c;	
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#860125), to(#ba012c));
 	background: -moz-linear-gradient(top, #860125, #ba012c);		
@@ -929,7 +930,7 @@ ul.menu {
 
 #access .menu-header li,
 div.menu li {
-	font-family: "ff-dagny-web-pro-1","ff-dagny-web-pro-2", 'Lucida Grande','Lucida Sans Unicode', sans-serif;
+	font-family: 'Verdana',clean, sans-serif;
 	float: left;
 	list-style: none;
 	border-bottom: none;
@@ -937,7 +938,7 @@ div.menu li {
 }
 
 #access ul.menu a {
-	font-size: 1.4em;
+	font-size: 1.15em;
 	border: none;	
 	line-height: .6em;
 	overflow: hidden;
@@ -1449,6 +1450,10 @@ body.home .hentry {
 #content dl.attachments-large {
 	border: none;
 	border-bottom: 1px dashed #d2ca9c;	
+}
+
+.staff-person-details {
+	margin-left: 170px;
 }
 
 /* Aside
@@ -2660,7 +2665,9 @@ img#wpstats {
 		text-align: left;
 		margin-top: 0;
 		padding: 0;
-		margin-bottom: 0;			
+		margin-bottom: 0;
+		margin-left: 10px;
+		width: 65%;			
 	}
 	#site-title a span{
 		width: 390px;			
@@ -2668,7 +2675,8 @@ img#wpstats {
 		
 	body #site-title a {	
 		font: 1.8em arno-pro-1,arno-pro-2, 'Cambria', georgia, serif;
-		padding: 20px 0;	
+		padding: 20px 0;
+		margin-left: 0;	
 	}
 	
 	body.tvmdlonly #site-title {	
@@ -2922,7 +2930,7 @@ img#wpstats {
 	    font-size: 80%; 
 		line-height: 1.75em;
 	}
-	.wrap, #branding, #access {
+	.wrap, #footer .wrap, #branding, #access {
 		padding-left: 5%;
 		padding-right: 5%;		
 	}
