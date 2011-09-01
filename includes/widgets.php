@@ -84,6 +84,7 @@ class WatchReadListenWidget extends WP_Widget {
 			<param name="movie" value="<?php echo $youtube_video;?>">
 			<param name="allowFullScreen" value="true">
 			<param name="allowscriptaccess" value="always">
+			<param name="wmode" value="opaque" />
 </object>	
 		<?php // END Watch Tab ?>		
 		</div>
