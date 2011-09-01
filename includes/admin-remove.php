@@ -29,24 +29,7 @@ function remove_capability($role,$cap) {
 }
 //remove_capability('subscriber','read_private_pages'); //Example
 
-
-add_capability('editor','edit_theme_options');  // Allow an editor to edit widgets
-
-
-// Brute-force Remove Tools Menu
-function remove_menus () {
-global $menu;
-	if( current_user_can('moderate_comments') && !current_user_can('manage_sites') ) { $restricted = array(__('Tools'),  __('Media'),  __('Comments')); } // check if moderator or less and hide 
-
-	//$restricted = array(__('Dashboard'), __('Posts'), __('Media'), __('Links'), __('Pages'), __('Appearance'), __('Tools'), __('Users'), __('Settings'), __('Comments'), __('Plugins'));
-	end ($menu);
-	while (prev($menu)){
-		$value = explode(' ',$menu[key($menu)][0]);
-		if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){unset($menu[key($menu)]);}
-	}
-}
-add_action('admin_menu', 'remove_menus');  
-
+add_capability('editor','edit_theme_options');  // Allow an editor to edit widgets 
 
 //Remove unwanted wdigets from dashboard
 function remove_dashboard_widgets(){
