@@ -584,7 +584,7 @@ endif;
 }	
 
 /* Staff Custom Post Type */
-if ($iscollegeonly) {
+if ($collegeonly) {
 add_action( 'init', 'create_staff_post_type' );
 function create_staff_post_type() {
 	register_post_type( 'staff',
@@ -699,7 +699,7 @@ function staff_save_postdata( $post_id ) {
 }
 
 /* Job Posting Custom Post Type */
-if ($iscollegeonly) {
+if ($collegeonly) {
 add_action( 'init', 'create_job_posting_post_type' );
 function create_job_posting_post_type() {
 	register_post_type( 'job_posting',

@@ -1445,15 +1445,21 @@ body.home .hentry {
 #content dl {
 	font-size: 1.6em;
 	line-height: 1.5em;
-	margin: 1.6em 0;
+	margin: 0 0 .5em 0;
 }
+
+#content dd, 
+#content dt {
+	margin: 0 0 .5em 0;
+}
+
 #content dl.attachments-large {
 	border: none;
 	border-bottom: 1px dashed #d2ca9c;	
 }
 
 .staff-person-details {
-	margin-left: 170px;
+	margin-left: 180px;
 }
 
 /* Aside
