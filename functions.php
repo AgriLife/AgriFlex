@@ -7,6 +7,50 @@
  * @since agriflex 1.0
  */
 
+ $options = get_option('AgrilifeOptions');
+ 
+  GLOBAL $options,$googlemap;
+
+  $isresearch 	= (is_array($options) ? $options['isResearch'] 	: true);
+  $isextension	= (is_array($options) ? $options['isExtension'] : true);
+  $iscollege 	= (is_array($options) ? $options['isCollege'] 	: true);
+  $istvmdl	 	= (is_array($options) ? $options['isTvmdl'] 	: true);
+  $titleimg		= (is_array($options) ? $options['titleImg'] 	: '');
+  
+  $extensiononly = ($isextension && !$isresearch && !$iscollege && !$istvmdl ? true : false);
+  $researchonly = ($isresearch && !$isextension && !$iscollege && !$istvmdl ? true : false);
+  $collegeonly = ($iscollege && !$isextension && !$isresearch && !$istvmdl ? true : false);
+  $tvmdlonly = ($istvmdl && !$isextension && !$isresearch && !$iscollege ? true : false);
+  $res_ext = (!$istvmdl && $isextension && $isresearch && !$iscollege ? true : false);
+  
+  if($extensiononly) :
+  	$isextensionh4 = $isextensioncounty = $isextensioncountytce = $isextensionmg = $isextensionmn = false;
+  	switch ($options['extension_type']) {
+  		case 0:
+  			break;
+  		case 1:
+  			// 4-h
+  			$isextension4h = true;
+  			break;
+  		case 2:
+  			// County
+  			$isextensioncounty = true;
+  			break;
+  		case 3:
+  			// County TCE
+  			$isextensioncountytce = true;
+  			break;
+  		case 4:
+  			// Master Gardener
+  			$isextensionmg = true;
+  			break;
+  		case 5:
+  			// Master Naturalist
+  			$isextensionmn = true;
+  			break;
+  	}
+  endif; 
+
 /**
  * Set the content width based on the theme's design and stylesheet.
  *
@@ -540,6 +584,7 @@ endif;
 }	
 
 /* Staff Custom Post Type */
+if ($iscollegeonly) {
 add_action( 'init', 'create_staff_post_type' );
 function create_staff_post_type() {
 	register_post_type( 'staff',
@@ -570,6 +615,8 @@ function create_staff_post_type() {
 		)
 	);
 }
+}
+
 
 /* Define the custom box */
 
@@ -652,6 +699,7 @@ function staff_save_postdata( $post_id ) {
 }
 
 /* Job Posting Custom Post Type */
+if ($iscollegeonly) {
 add_action( 'init', 'create_job_posting_post_type' );
 function create_job_posting_post_type() {
 	register_post_type( 'job_posting',
@@ -681,6 +729,7 @@ function create_job_posting_post_type() {
 		'supports' => array( 'title', 'editor' ),
 		)
 	);
+}
 }
 
 /* Define the custom box */
