@@ -7,16 +7,12 @@
  * @since agriflex 1.0
  */
 
- $options = get_option('AgrilifeOptions');
- 
-  GLOBAL $options,$googlemap;
-
+  // Make some nice human-readable options for what template and features to use
+  $options = get_option('AgrilifeOptions');
   $isresearch 	= (is_array($options) ? $options['isResearch'] 	: true);
   $isextension	= (is_array($options) ? $options['isExtension'] : true);
   $iscollege 	= (is_array($options) ? $options['isCollege'] 	: true);
   $istvmdl	 	= (is_array($options) ? $options['isTvmdl'] 	: true);
-  $titleimg		= (is_array($options) ? $options['titleImg'] 	: '');
-  
   $extensiononly = ($isextension && !$isresearch && !$iscollege && !$istvmdl ? true : false);
   $researchonly = ($isresearch && !$isextension && !$iscollege && !$istvmdl ? true : false);
   $collegeonly = ($iscollege && !$isextension && !$isresearch && !$istvmdl ? true : false);
@@ -50,7 +46,6 @@
   			break;
   	}
   endif; 
-
 /**
  * Set the content width based on the theme's design and stylesheet.
  *
