@@ -195,11 +195,12 @@ ol ul ul li {
 }
 
 #content dl, #content dd {
-	margin:0 0 1.8em 0;
+	margin: 0 0 .5em 0;
 }
 
 dt {
 	font-weight: bold;
+	
 }
 
 strong {
@@ -852,7 +853,7 @@ body.collegeonly #access li a[title='home'] {
 -------------------------------------------------------------- */
 
 #header {
-	padding: 10px 0;
+	padding: 50px 0 10px 0;
 	overflow: hidden;	
 }
 #site-title {
@@ -1444,7 +1445,7 @@ body.home .hentry {
 
 #content dl {
 	font-size: 1.6em;
-	line-height: 1.5em;
+	line-height: 1.4em;
 	margin: 0 0 .5em 0;
 }
 
@@ -1453,13 +1454,14 @@ body.home .hentry {
 	margin: 0 0 .5em 0;
 }
 
+#content dt {
+	font-size: 1.2em;
+	margin-top: .2em;
+}
+
 #content dl.attachments-large {
 	border: none;
 	border-bottom: 1px dashed #d2ca9c;	
-}
-
-.staff-person-details {
-	margin-left: 180px;
 }
 
 /* Aside
@@ -2661,7 +2663,7 @@ img#wpstats {
 		margin-right: 10px;
 	}
 	body #header {
-		padding: 50px 0 30px;
+		padding: 100px 0 30px;
 	}				
 	#site-title {
 		text-align: left;
@@ -2790,7 +2792,20 @@ img#wpstats {
 		padding-bottom: 2em;
 		overflow: hidden;	
 	}
+	
+	.staff-person-details {
+		margin-left: 200px;
+	}
+	
+	#content .staff-person-details dt {
+		margin-top: 20px;
+	}
 		
+	#content .staff-person-details dd {
+		margin: 0;
+		padding: 2px 0;
+	}
+			
 	#wrap {
 		float: left;
 	}
@@ -2975,7 +2990,6 @@ img#wpstats {
 	}			
 	#header  {
 		margin: 0;
-		padding: 1em 0 0 0;
 	}	
 
 	body #site-title a  {

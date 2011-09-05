@@ -621,10 +621,10 @@ function create_staff_post_type() {
 /* Define the custom box */
 
 // WP 3.0+
-// add_action( 'add_meta_boxes', 'myplugin_add_custom_box' );
+add_action( 'add_meta_boxes', 'staff_add_custom_box' );
 
 // backwards compatible
-add_action( 'admin_init', 'staff_add_custom_box', 1 );
+// add_action( 'admin_init', 'staff_add_custom_box', 1 );
 
 /* Do something with the data entered */
 add_action( 'save_post', 'staff_save_postdata' );
@@ -735,13 +735,13 @@ function create_job_posting_post_type() {
 /* Define the custom box */
 
 // WP 3.0+
-// add_action( 'add_meta_boxes', 'myplugin_add_custom_box' );
+add_action( 'add_meta_boxes', 'job_posting_add_custom_box' );
 
 // backwards compatible
-add_action( 'admin_init', 'staff_add_custom_box', 1 );
+// add_action( 'admin_init', 'staff_add_custom_box', 1 );
 
 /* Do something with the data entered */
-add_action( 'save_post', 'staff_save_postdata' );
+add_action( 'save_post', 'job_posting_save_postdata' );
 
 /* Adds a box to the main column on the Post and Page edit screens */
 function job_posting_add_custom_box() {
