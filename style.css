@@ -2805,6 +2805,10 @@ img#wpstats {
 		margin: 0;
 		padding: 2px 0;
 	}
+
+	img.attachment-staff_single {
+		float: left;
+	}
 			
 	#wrap {
 		float: left;

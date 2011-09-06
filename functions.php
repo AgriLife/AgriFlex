@@ -75,6 +75,8 @@ function agriflex_setup() {
 	add_theme_support( 'post-thumbnails' );
 	// Add new image sizes
 	add_image_size('featured',960,9999);
+	add_image_size('staff_single',175,9999);
+	add_image_size('staff_archive',70,70,true);		
 	// Add default posts and comments RSS feed links to head
 	add_theme_support( 'automatic-feed-links' );
 
@@ -578,6 +580,40 @@ if (class_exists("AgriLifeCounties")) {
 endif; 
 }	
 
+
+// Body class for admin
+function base_admin_body_class( $classes )
+{
+	// Current action
+	if ( is_admin() && isset($_GET['action']) ) {
+		$classes .= 'action-'.$_GET['action'];
+	}
+	// Current post ID
+	if ( is_admin() && isset($_GET['post']) ) {
+		$classes .= ' ';
+		$classes .= 'post-'.$_GET['post'];
+	}
+	// New post type & listing page
+	if ( isset($_GET['post_type']) ) $post_type = $_GET['post_type'];
+	if ( isset($post_type) ) {
+		$classes .= ' ';
+		$classes .= 'post-type-'.$post_type;
+	}
+	// Editting a post type
+	$post_query = $_GET['post'];
+	if ( isset($post_query) ) {
+		$current_post_edit = get_post($post_query);
+		$current_post_type = $current_post_edit->post_type;
+		if ( !empty($current_post_type) ) {
+			$classes .= ' ';
+			$classes .= 'post-type-'.$current_post_type;
+		}
+	}
+	// Return the $classes array
+	return $classes;
+}
+add_filter('admin_body_class', 'base_admin_body_class');
+
 /* Staff Custom Post Type */
 if ($collegeonly) {
 add_action( 'init', 'create_staff_post_type' );
@@ -612,86 +648,158 @@ function create_staff_post_type() {
 }
 }
 
+/* Remove edit post in admin for staff only */
+if ( 'staff' == get_post_type() ) {
+	function remove_publish_box()
+	{
+		remove_meta_box( 'submitdiv', 'custom_post_slug', 'side' );
+	}
+	add_action( 'admin_menu', 'remove_publish_box' );
+}
 
 /* Define the custom box */
+add_action('admin_init','staff_meta_init');
+ 
+function staff_meta_init() {
 
-// WP 3.0+
-add_action( 'add_meta_boxes', 'staff_add_custom_box' );
+	// review the function reference for parameter details
+	// http://codex.wordpress.org/Function_Reference/add_meta_box
+ 
+	// add a meta box for each of the wordpress page types: posts and pages
+	foreach (array('staff') as $type) 
+	{
+		add_meta_box('staff_details_meta', 'Enter Employee Details', 'staff_details_meta_setup', $type, 'normal', 'high');
+	}
+ 
+	// add a callback function to save any data a user enters in
+	add_action('save_post','staff_meta_save');
+}
+ 
+function staff_details_meta_setup() {
+	global $post;
+ 
+	// using an underscore, prevents the meta variable
+	// from showing up in the custom fields section
+	$meta = get_post_meta($post->ID,'_my_meta',TRUE);
+ 
+	// The Details fields for data entry
+	
+	echo '<h4>Details</h4>';
+	echo '<label for="staff_new_field">';
+	     _e("Position", 'staff_textdomain' );
+	echo '</label> ';
+	echo '<input type="text" id="position" name="_my_meta[position]" value="Staff Cheerleader" size="25" />';
 
-// backwards compatible
-// add_action( 'admin_init', 'staff_add_custom_box', 1 );
+	echo '<label for="email">';
+	     _e("email", 'staff_textdomain' );
+	echo '</label> ';
+	echo '<input type="text" id="email" name="_my_meta[email]" value="example@tamu.edu" size="25" />';
 
-/* Do something with the data entered */
-add_action( 'save_post', 'staff_save_postdata' );
+	echo '<label for="phone">';
+	     _e("phone", 'staff_textdomain' );
+	echo '</label> ';
+	echo '<input type="text" id="phone" name="_my_meta[phone]" value="777-777-777" size="25" />';
+ 
+	// The Education fields for data entry
+	echo '<h4>Education</h4>';
+	echo '<label for="staff_new_field">';
+	     _e("Education #1", 'staff_textdomain' );
+	echo '</label> ';
+	echo '<input type="text" id="education_1" name="_my_meta[education_1]" value="University Name #1" size="25" />';
 
-/* Adds a box to the main column on the Post and Page edit screens */
-function staff_add_custom_box() {
-    add_meta_box( 
-        'staff_sectionid',
-        __( 'Employee Details', 'staff_textdomain' ),
-        'staff_inner_custom_box',
-        'staff' 
-    );
+	echo '<label for="education_2">';
+	     _e("Education #2", 'staff_textdomain' );
+	echo '</label> ';
+	echo '<input type="text" id="education_2" name="_my_meta[education_2]" value="University Name #2" size="25" />';
+
+	echo '<label for="education_3">';
+	     _e("Education #3", 'staff_textdomain' );
+	echo '</label> ';
+	echo '<input type="text" id="education_3" name="_my_meta[education_3]" value="University Name #3" size="25" />';
+ 
+	echo '<label for="education_4">';
+	     _e("Education #4", 'staff_textdomain' );
+	echo '</label> ';
+	echo '<input type="text" id="education_4" name="_my_meta[education_4]" value="University Name #4" size="25" />';
+	
+	// create a custom nonce for submit verification later
+	echo '<input type="hidden" name="my_meta_noncename" value="' . wp_create_nonce(__FILE__) . '" />';
 }
 
-/* Prints the box content */
-function staff_inner_custom_box( $post ) {
-
-  // Use nonce for verification
-  wp_nonce_field( plugin_basename( __FILE__ ), 'staff_noncename' );
-
-  // The actual fields for data entry
-
-  echo '<label for="staff_new_field">';
-       _e("Position", 'staff_textdomain' );
-  echo '</label> ';
-  echo '<input type="text" id="position" name="position" value="Staff Cheerleader" size="25" />';
-
-  echo '<label for="email">';
-       _e("email", 'staff_textdomain' );
-  echo '</label> ';
-  echo '<input type="text" id="email" name="email" value="example@tamu.edu" size="25" />';
-
-  echo '<label for="phone">';
-       _e("phone", 'staff_textdomain' );
-  echo '</label> ';
-  echo '<input type="text" id="phone" name="phone" value="777-777-777" size="25" />';
+function staff_meta_save($post_id) 
+{
+	// authentication checks
+ 
+	// make sure data came from our meta box
+	if (!wp_verify_nonce($_POST['my_meta_noncename'],__FILE__)) return $post_id;
+ 
+	// check user permissions
+	if ($_POST['post_type'] == 'page') 
+	{
+		if (!current_user_can('edit_page', $post_id)) return $post_id;
+	}
+	else 
+	{
+		if (!current_user_can('edit_post', $post_id)) return $post_id;
+	}
+ 
+	// authentication passed, save data
+ 
+	// var types
+	// single: _my_meta[var]
+	// array: _my_meta[var][]
+	// grouped array: _my_meta[var_group][0][var_1], _my_meta[var_group][0][var_2]
+ 
+	$current_data = get_post_meta($post_id, '_my_meta', TRUE);	
+ 
+	$new_data = $_POST['_my_meta'];
+ 
+	my_meta_clean($new_data);
+ 
+	if ($current_data) 
+	{
+		if (is_null($new_data)) delete_post_meta($post_id,'_my_meta');
+		else update_post_meta($post_id,'_my_meta',$new_data);
+	}
+	elseif (!is_null($new_data))
+	{
+		add_post_meta($post_id,'_my_meta',$new_data,TRUE);
+	}
+ 
+	return $post_id;
 }
-
-/* When the post is saved, saves our custom data */
-function staff_save_postdata( $post_id ) {
-  // verify if this is an auto save routine. 
-  // If it is our form has not been submitted, so we dont want to do anything
-  if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
-      return;
-
-  // verify this came from the our screen and with proper authorization,
-  // because save_post can be triggered at other times
-
-  if ( !wp_verify_nonce( $_POST['staff_noncename'], plugin_basename( __FILE__ ) ) )
-      return;
-
-  
-  // Check permissions
-  if ( 'staff' == $_POST['post_type'] ) 
-  {
-    if ( !current_user_can( 'edit_page', $post_id ) )
-        return;
-  }
-  else
-  {
-    if ( !current_user_can( 'edit_post', $post_id ) )
-        return;
-  }
-
-  // OK, we're authenticated: we need to find and save the data
-
-  $mydata = $_POST['staff_new_field'];
-
-  // Do something with $mydata 
-  // probably using add_post_meta(), update_post_meta(), or 
-
+ 
+function my_meta_clean(&$arr)
+{
+	if (is_array($arr))
+	{
+		foreach ($arr as $i => $v)
+		{
+			if (is_array($arr[$i])) 
+			{
+				my_meta_clean($arr[$i]);
+ 
+				if (!count($arr[$i])) 
+				{
+					unset($arr[$i]);
+				}
+			}
+			else 
+			{
+				if (trim($arr[$i]) == '') 
+				{
+					unset($arr[$i]);
+				}
+			}
+		}
+ 
+		if (!count($arr)) 
+		{
+			$arr = NULL;
+		}
+	}
 }
+ 
 
 /* Job Posting Custom Post Type */
 if ($collegeonly) {
@@ -727,85 +835,6 @@ function create_job_posting_post_type() {
 }
 }
 
-/* Define the custom box */
-
-// WP 3.0+
-add_action( 'add_meta_boxes', 'job_posting_add_custom_box' );
-
-// backwards compatible
-// add_action( 'admin_init', 'staff_add_custom_box', 1 );
-
-/* Do something with the data entered */
-add_action( 'save_post', 'job_posting_save_postdata' );
-
-/* Adds a box to the main column on the Post and Page edit screens */
-function job_posting_add_custom_box() {
-    add_meta_box( 
-        'job_posting_sectionid',
-        __( 'Job Details', 'job_posting_textdomain' ),
-        'job_posting_inner_custom_box',
-        'job_posting' 
-    );
-}
-
-/* Prints the box content */
-function job_posting_inner_custom_box( $post ) {
-
-  // Use nonce for verification
-  wp_nonce_field( plugin_basename( __FILE__ ), 'staff_noncename' );
-
-  // The actual fields for data entry
-
-  echo '<label for="staff_new_field">';
-       _e("Position", 'job_posting_textdomain' );
-  echo '</label> ';
-  echo '<input type="text" id="position" name="position" value="Staff Cheerleader" size="25" />';
-
-  echo '<label for="email">';
-       _e("email", 'job_posting_textdomain' );
-  echo '</label> ';
-  echo '<input type="text" id="email" name="email" value="example@tamu.edu" size="25" />';
-
-  echo '<label for="phone">';
-       _e("phone", 'job_posting_textdomain' );
-  echo '</label> ';
-  echo '<input type="text" id="phone" name="phone" value="777-777-777" size="25" />';
-}
-
-/* When the post is saved, saves our custom data */
-function job_posting_save_postdata( $post_id ) {
-  // verify if this is an auto save routine. 
-  // If it is our form has not been submitted, so we dont want to do anything
-  if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
-      return;
-
-  // verify this came from the our screen and with proper authorization,
-  // because save_post can be triggered at other times
-
-  if ( !wp_verify_nonce( $_POST['staff_noncename'], plugin_basename( __FILE__ ) ) )
-      return;
-
-  
-  // Check permissions
-  if ( 'staff' == $_POST['post_type'] ) 
-  {
-    if ( !current_user_can( 'edit_page', $post_id ) )
-        return;
-  }
-  else
-  {
-    if ( !current_user_can( 'edit_post', $post_id ) )
-        return;
-  }
-
-  // OK, we're authenticated: we need to find and save the data
-
-  $mydata = $_POST['staff_new_field'];
-
-  // Do something with $mydata 
-  // probably using add_post_meta(), update_post_meta(), or 
-
-}
 
 	// Set path to function files
 	$includes_path = TEMPLATEPATH . '/includes/';

@@ -14,19 +14,33 @@ get_header(); ?>
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 			
-				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-					<header class="entry-header">
-						<h1 class="entry-title"><?php the_title(); ?></h1>
-
-						<?php if ( 'post' == get_post_type() ) : ?>
-						<div class="entry-meta">
-							<?php agriflex_posted_on(); ?>
-						</div><!-- .entry-meta -->
-						<?php endif; ?>
-					</header><!-- .entry-header -->
-					
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>		
 					<section class="entry-content">
-						
+						<?php if ( has_post_thumbnail() ) {
+  							the_post_thumbnail('staff_single'); 
+						} else  { 
+							echo '<img src="'.get_bloginfo("template_url").'/images/AgriLife-default-post-image.png" alt="AgriLife Logo" title="AgriLife" />'; 
+						}
+						?>
+						<?php $my_meta = get_post_meta($post->ID,'_my_meta',TRUE); ?>
+						<div class="staff-person-details">
+							<dl>	
+							<dt><?php the_title(); ?></dt>
+								<dd class="role"><?php echo $my_meta['position'];?></dd>
+								<dd><?php echo $my_meta['room'];?></dd> 						
+								<dd class="email"><a href="mailto:<?php echo $my_meta['email'];?>"><?php echo $my_meta['email'];?></a></dd>
+								<dd><?php echo $my_meta['phone'];?></dd>  	
+													
+							<dt>Education</dt>
+								<dd><?php echo $my_meta['education_1']; ?></dd>
+								<dd><?php echo $my_meta['education_2'];?></dd>						
+								<dd><?php echo $my_meta['education_3'];?></dd> 						
+								<dd><?php echo $my_meta['education_4']; ?></dd>								
+								
+								
+							</dl>	
+								
+						</div>
 						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'agriflex' ), 'after' => '</div>' ) ); ?>
 					</section><!-- .entry-content -->
 
