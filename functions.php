@@ -7,6 +7,10 @@
  * @since agriflex 1.0
  */
 
+	define('MY_WORDPRESS_FOLDER',$_SERVER['DOCUMENT_ROOT']);
+	define('MY_THEME_FOLDER',str_replace("\\",'/',dirname(__FILE__)));
+	define('MY_THEME_PATH','/' . substr(MY_THEME_FOLDER,stripos(MY_THEME_FOLDER,'wp-content')));
+	
   // Make some nice human-readable options for what template and features to use
   $options = get_option('AgrilifeOptions');
   $isresearch 	= (is_array($options) ? $options['isResearch'] 	: true);
@@ -74,7 +78,7 @@ function agriflex_setup() {
 	// This theme uses post thumbnails
 	add_theme_support( 'post-thumbnails' );
 	// Add new image sizes
-	add_image_size('featured',960,9999);
+	add_image_size('featured',965,475,true);
 	add_image_size('staff_single',175,9999);
 	add_image_size('staff_archive',70,70,true);		
 	// Add default posts and comments RSS feed links to head
@@ -127,17 +131,13 @@ function agriflex_setup() {
 		wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"), false);		
 	   	wp_enqueue_script('jquery');
 	
-		// register script location with wp_register_script	
-	   	wp_register_script('modernizr',
-	       	get_bloginfo('template_directory') . '/js/modernizr-2.0.6.min.js');	
 	       // enqueue the custom jquery js
-	   	wp_enqueue_script('modernizr');
-						
-		// register script location with wp_register_script	
-	   	wp_register_script('my_scripts',
-	       	get_bloginfo('template_directory') . '/js/my_scripts.js?1234');	
+	   	wp_enqueue_script('modernizr',
+	       	get_bloginfo('template_directory') . '/js/modernizr-2.0.6.min.js' , array('jquery'), '2.0.6', false);
+							
 	       // enqueue the custom jquery js
-	   	wp_enqueue_script('my_scripts');		       
+	   	wp_enqueue_script('my_scripts',
+	       	get_bloginfo('template_directory') . '/js/my_scripts.js', array('jquery'), '2.2', true);		       
 		}	         
 	}    
 	add_action('init', 'load_js');	
@@ -640,7 +640,6 @@ function create_staff_post_type() {
 		'capability_type' => 'post',
 		'hierarchical' => false,
 		'public' => true,
-		'has_archive' => true,
 		'rewrite' => array('slug' => 'staff'),
 		'supports' => array( 'title', 'editor','thumbnail' ),
 		)
@@ -648,14 +647,39 @@ function create_staff_post_type() {
 }
 }
 
-/* Remove edit post in admin for staff only */
-if ( 'staff' == get_post_type() ) {
-	function remove_publish_box()
-	{
-		remove_meta_box( 'submitdiv', 'custom_post_slug', 'side' );
-	}
-	add_action( 'admin_menu', 'remove_publish_box' );
+/* Job Posting Custom Post Type */
+if ($collegeonly) {
+add_action( 'init', 'create_job_posting_post_type' );
+function create_job_posting_post_type() {
+	register_post_type( 'job_posting',
+		array(
+			'labels' => array(
+				'name' => __( 'Job Posting' ),
+				'singular_name' => __( 'Job' ),
+				'add_new_item' => __( 'Add New Job Posting' ),
+				'add_new' => __( 'Add New' ),
+				'edit' => __( 'Edit' ),
+				'edit_item' => __( 'Edit Job Posting' ),
+				'new_item' => __( 'New Job Posting' ),
+				'view' => __( 'View Job Posting' ),
+				'view_item' => __( 'View Job Posting' ),
+				'search_items' => __( 'Search Job Postings' ),
+				'not_found' => __( 'No Job Posting found' ),
+				'not_found_in_trash' => __( 'No Job Postings found in Trash' ),
+
+			),
+		'_builtin' => false, // It's a custom post type, not built in!
+		'_edit_link' => 'post.php?post=%d',
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'public' => true,
+		'rewrite' => array('slug' => 'jobs'),
+		'supports' => array( 'title', 'editor' ),
+		)
+	);
 }
+}
+
 
 /* Define the custom box */
 add_action('admin_init','staff_meta_init');
@@ -672,7 +696,7 @@ function staff_meta_init() {
 	}
  
 	// add a callback function to save any data a user enters in
-	add_action('save_post','staff_meta_save');
+	add_action('save_post','box_meta_save');
 }
  
 function staff_details_meta_setup() {
@@ -680,53 +704,149 @@ function staff_details_meta_setup() {
  
 	// using an underscore, prevents the meta variable
 	// from showing up in the custom fields section
-	$meta = get_post_meta($post->ID,'_my_meta',TRUE);
- 
+	$meta = get_post_meta($post->ID,'_my_meta',TRUE)? get_post_meta($post->ID, '_my_meta', true) : 'empty meta';
 	// The Details fields for data entry
 	
-	echo '<h4>Details</h4>';
-	echo '<label for="staff_new_field">';
-	     _e("Position", 'staff_textdomain' );
-	echo '</label> ';
-	echo '<input type="text" id="position" name="_my_meta[position]" value="Staff Cheerleader" size="25" />';
-
-	echo '<label for="email">';
-	     _e("email", 'staff_textdomain' );
-	echo '</label> ';
-	echo '<input type="text" id="email" name="_my_meta[email]" value="example@tamu.edu" size="25" />';
-
-	echo '<label for="phone">';
-	     _e("phone", 'staff_textdomain' );
-	echo '</label> ';
-	echo '<input type="text" id="phone" name="_my_meta[phone]" value="777-777-777" size="25" />';
- 
-	// The Education fields for data entry
-	echo '<h4>Education</h4>';
-	echo '<label for="staff_new_field">';
-	     _e("Education #1", 'staff_textdomain' );
-	echo '</label> ';
-	echo '<input type="text" id="education_1" name="_my_meta[education_1]" value="University Name #1" size="25" />';
-
-	echo '<label for="education_2">';
-	     _e("Education #2", 'staff_textdomain' );
-	echo '</label> ';
-	echo '<input type="text" id="education_2" name="_my_meta[education_2]" value="University Name #2" size="25" />';
-
-	echo '<label for="education_3">';
-	     _e("Education #3", 'staff_textdomain' );
-	echo '</label> ';
-	echo '<input type="text" id="education_3" name="_my_meta[education_3]" value="University Name #3" size="25" />';
- 
-	echo '<label for="education_4">';
-	     _e("Education #4", 'staff_textdomain' );
-	echo '</label> ';
-	echo '<input type="text" id="education_4" name="_my_meta[education_4]" value="University Name #4" size="25" />';
+// instead of writing HTML here, lets do an include
+	include(MY_THEME_FOLDER . '/includes/meta_boxes/staff_meta_html.php');
 	
 	// create a custom nonce for submit verification later
 	echo '<input type="hidden" name="my_meta_noncename" value="' . wp_create_nonce(__FILE__) . '" />';
 }
+ 
 
-function staff_meta_save($post_id) 
+/* Define the custom box for job posting custom post type */
+add_action('admin_init','job_posting_meta_init');
+ 
+function job_posting_meta_init() {
+
+	// review the function reference for parameter details
+	// http://codex.wordpress.org/Function_Reference/add_meta_box
+ 
+	// add a meta box for each of the wordpress page types: posts and pages
+	foreach (array('job_posting') as $type) 
+	{
+		add_meta_box('job_posting_details_meta', 'Enter Job Details', 'job_posting_details_meta_setup', $type, 'normal', 'high');
+	}
+ 
+	// add a callback function to save any data a user enters in
+	add_action('save_post','box_meta_save');
+}
+ 
+function job_posting_details_meta_setup() {
+	global $post;
+ 
+	// using an underscore, prevents the meta variable
+	// from showing up in the custom fields section
+	$meta = get_post_meta($post->ID,'_my_meta',TRUE);
+ 
+	// The Details fields for data entry
+
+	// instead of writing HTML here, lets do an include
+	include(MY_THEME_FOLDER . '/includes/meta_boxes/jobs_meta_html.php');
+
+	// create a custom nonce for submit verification later
+	echo '<input type="hidden" name="my_meta_noncename" value="' . wp_create_nonce(__FILE__) . '" />';
+
+}
+
+function box_meta_save($post_id) 
+{
+	// verify if this is an auto save routine.
+  	// If it is our form has not been submitted, so we dont want to do anything
+  	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+      return;
+
+	// authentication checks
+ 
+	// make sure data came from our meta box
+	if (!wp_verify_nonce($_POST['my_meta_noncename'],__FILE__)) return $post_id;
+ 
+	// check user permissions
+
+	  if ( array('job_posting','staff') == $_POST['post_type'] )
+	  {
+	    if ( !current_user_can( 'edit_page', $post_id ) )
+	    return;
+	  }
+	  else
+	  {
+	    if ( !current_user_can( 'edit_post', $post_id ) )
+	        return;
+	  }
+	// authentication passed, save data
+ 
+	// var types
+	// single: _my_meta[var]
+	// array: _my_meta[var][]
+	// grouped array: _my_meta[var_group][0][var_1], _my_meta[var_group][0][var_2]
+ 
+	$current_data = get_post_meta($post_id, '_my_meta', TRUE);	
+ 
+	$new_data = $_POST['_my_meta'];
+ 
+
+ 
+	if ($current_data) 
+	{
+		if (is_null($new_data)) delete_post_meta($post_id,'_my_meta');
+		else update_post_meta($post_id,'_my_meta',$new_data);
+	}
+	elseif (!is_null($new_data))
+	{
+		add_post_meta($post_id,'_my_meta',$new_data,TRUE);
+	}
+ 
+	return $post_id;
+}
+
+
+function my_meta_init()
+{
+	// review the function reference for parameter details
+	// http://codex.wordpress.org/Function_Reference/wp_enqueue_script
+	// http://codex.wordpress.org/Function_Reference/wp_enqueue_style
+ 
+	//wp_enqueue_script('my_meta_js', MY_THEME_PATH . '/custom/meta.js', array('jquery'));
+	wp_enqueue_style('my_meta_css', MY_THEME_PATH . '/custom/meta.css');
+ 
+	// review the function reference for parameter details
+	// http://codex.wordpress.org/Function_Reference/add_meta_box
+ 
+	// add a meta box for each of the wordpress page types: posts and pages
+	foreach (array('post','page') as $type) 
+	{
+		add_meta_box('my_all_meta', 'My Custom Meta Box', 'my_meta_setup', $type, 'normal', 'high');
+	}
+ 
+	// add a callback function to save any data a user enters in
+	add_action('save_post','my_meta_save');
+}
+ 
+function my_meta_setup()
+{
+	global $post;
+ 
+	// using an underscore, prevents the meta variable
+	// from showing up in the custom fields section
+	$meta = get_post_meta($post->ID,'_my_meta',TRUE);
+ 
+		echo '<h4>Details</h4>';
+	echo '<label for="staff_new_field">';
+	     _e("Position", 'staff_textdomain' );
+	echo '</label> ';
+
+	
+	echo '<label for="room">';
+	     _e("Building & Room Number", 'staff_textdomain' );
+	echo '</label> ';
+	echo '<input type="text" id="room" name="_my_meta[room]" placeholder="Big Building Room 777" size="25" />';
+ 
+	// create a custom nonce for submit verification later
+	echo '<input type="hidden" name="my_meta_noncename" value="' . wp_create_nonce(__FILE__) . '" />';
+}
+ 
+function my_meta_save($post_id) 
 {
 	// authentication checks
  
@@ -799,46 +919,9 @@ function my_meta_clean(&$arr)
 		}
 	}
 }
- 
-
-/* Job Posting Custom Post Type */
-if ($collegeonly) {
-add_action( 'init', 'create_job_posting_post_type' );
-function create_job_posting_post_type() {
-	register_post_type( 'job_posting',
-		array(
-			'labels' => array(
-				'name' => __( 'Job Posting' ),
-				'singular_name' => __( 'Job' ),
-				'add_new_item' => __( 'Add New Job Posting' ),
-				'add_new' => __( 'Add New' ),
-				'edit' => __( 'Edit' ),
-				'edit_item' => __( 'Edit Job Posting' ),
-				'new_item' => __( 'New Job Posting' ),
-				'view' => __( 'View Job Posting' ),
-				'view_item' => __( 'View Job Posting' ),
-				'search_items' => __( 'Search Job Postings' ),
-				'not_found' => __( 'No Job Posting found' ),
-				'not_found_in_trash' => __( 'No Job Postings found in Trash' ),
-
-			),
-		'_builtin' => false, // It's a custom post type, not built in!
-		'_edit_link' => 'post.php?post=%d',
-		'capability_type' => 'post',
-		'hierarchical' => false,
-		'public' => true,
-		'has_archive' => true,
-		'rewrite' => array('slug' => 'jobs'),
-		'supports' => array( 'title', 'editor' ),
-		)
-	);
-}
-}
-
 
 	// Set path to function files
 	$includes_path = TEMPLATEPATH . '/includes/';
-
 	// Admin Pages
 	require_once ($includes_path . 'admin.php');
 	// Remove Admin Menus and Dashboards

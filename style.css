@@ -920,7 +920,7 @@ body.collegeonly #site-title a {
 #access .menu-header,
 ul.menu {
 	display: block;	
-	padding: 10px 0 0 0;
+	padding: 10px 0 0 5px;
 	margin: 0 10px;		
 }
 
@@ -1426,6 +1426,7 @@ body.home #breadcrumbs {
 body.home .hentry {
 	margin-bottom: 0;
 	padding-bottom: 0;
+	clear: both;
 }
 
 .entry-meta {
@@ -1462,6 +1463,68 @@ body.home .hentry {
 #content dl.attachments-large {
 	border: none;
 	border-bottom: 1px dashed #d2ca9c;	
+}
+
+
+/* Job Postings page
+-------------------------------------------------------------- */
+.job-search-form {
+	margin-bottom: 20px;
+	padding: 10px;
+	background: #e8e7d5;
+}
+.job-search-form label h4 {
+	margin-bottom: 5px;
+}
+
+.job-listing-ul,
+.job-listing-item {
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.job-listing-item {
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+	overflow: hidden;
+	display: block;
+}
+
+a.job-listing-link:link {
+	overflow: hidden;
+	display: block;	
+	text-decoration: none;
+	padding: 10px;
+	border-bottom: 1px solid #9f9490;		
+}
+
+a.job-listing-link:hover {
+	background: #f1efce;
+	border-bottom: 1px solid #9f9490;		
+}
+
+.job-title {
+	font-size: 22px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+ 
+.job-agency {
+	font-size: 14px;
+	color: #433C3A;
+	float: left;
+	width: 70%;
+}
+
+.job-location {
+	font-size: 16px;
+	color: #9f9490;
+	float: right;
+	width: 30%;
+	margin: 0;
+	text-align: right;
 }
 
 /* Aside
@@ -2328,7 +2391,6 @@ img#wpstats {
 	.agrilife-bookstore {
 		padding: 0 10px;
 	}
-	
 	#breadcrumbs {
 		width: 100%;
 		margin-right: 25px;
@@ -2743,7 +2805,6 @@ img#wpstats {
 	
 	#content {
 		padding-bottom: 2em;
-		overflow: hidden;
 	}
 						
 	body.home #content {
@@ -2752,7 +2813,8 @@ img#wpstats {
 		max-width: 564px;
 		float: left;
 	}
-	
+	.flex-container { margin-left: 10px;}
+	.flex-container.fullwidth { margin-right: 10px;}		
 	#home-middle-bg, #home-middle, .home-middle-1, #wrap  {
 		width: 575px;
 	}
@@ -2787,12 +2849,7 @@ img#wpstats {
 		text-decoration: none;
 		border-bottom: 1px solid #333;
 	}
-	
- 	#content {
-		padding-bottom: 2em;
-		overflow: hidden;	
-	}
-	
+
 	.staff-person-details {
 		margin-left: 200px;
 	}
@@ -2951,6 +3008,7 @@ img#wpstats {
 	    font-size: 80%; 
 		line-height: 1.75em;
 	}
+
 	.wrap, #footer .wrap, #branding, #access {
 		padding-left: 5%;
 		padding-right: 5%;		
@@ -3046,7 +3104,20 @@ img#wpstats {
 		font-size: 75%; 
 		-webkit-text-size-adjust: 98%;			
 	}	
-		
+	body h2.entry-title,
+	body h1.entry-title {
+		font-size: 20px;
+	}
+	body #header {
+		padding-bottom: 0;
+	}
+	body #site-title {
+		margin-top: 15px;
+		margin-bottom: 10px;
+	}
+	body #content {
+		padding-top: 1em;
+	}
 	#access ul.menu a {
 		font-size: 1.4em;
 	}	
@@ -3792,3 +3863,63 @@ abbr {
 .oldie .menu-item {
 	font-family: 'lucida Sans Unicode', verdana, clean;
 }
+
+
+/*
+ * jQuery FlexSlider v1.6
+ * http://flex.madebymufffin.com
+ *
+ * Copyright 2011, Tyler Smith
+ * Free to use under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+/* FlexSlider Necessary Styles
+*********************************/ 
+.flex-container.fullwidth { padding-top: 20px;}
+.flexslider {width: 100%; }
+.flexslider .slides > li {display: none;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {max-width: 100%; display: block;}
+
+/* Browser Resets */
+.flexslider a {outline: none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {margin: 0; padding: 0; list-style: none;}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load
+ */
+.no-js .slides > li:first-child {display: block;}
+
+
+/* FlexSlider Default Theme
+*********************************/
+.flexslider {background: transparent; position: relative; margin-bottom: 50px; }
+.flexslider .slides > li {position: relative;}
+/* Suggested container for "Slide" animation setups. Can replace this with your own, if you wish */
+.flex-container {zoom: 1; position: relative;} 
+li.flex-slider-item { list-style-type: none; }
+/* Caption style */
+p.flex-caption {width: 96%; padding: 3% 2%; margin: 0; position: absolute; left: 0; bottom: 0; background: #000; background: rgba(0,0,0,.3); color: #fff; text-shadow: 0 -1px 0 rgba(0,0,0,.3); font-size: 14px; line-height: 18px;}
+p.flex-caption a { font-size: 18px;color: #ddd; border: none;}
+p.flex-caption a:hover {color: #fff; border: none;}
+/* Direction Nav */
+#content ul.flex-direction-nav { list-style: none; }
+.flex-direction-nav li a { border: none; width: 32px; height: 32px; margin: -13px 0 0; display: block; background: url(images/arrows.png) no-repeat 0 0; position: absolute; top: 50%; cursor: pointer; text-indent: -9999px;} /* set negative margin-top equal to half the height on the directional-nav for perfect vertical centering */
+.flex-direction-nav li a.next {background-position: -32px 0; right: -16px;}
+.flex-direction-nav li a.prev {background-position: 0 0; left: -16px;}
+.flex-direction-nav li a.next:hover {background-position: -32px -45px;}
+.flex-direction-nav li a.prev:hover {background-position: 0 -45px;}
+.flex-direction-nav li a.next:active {background-position: -32px -44px;}
+.flex-direction-nav li a.prev:active {background-position: 0 -44px;}
+
+/* Control Nav */
+#content ol.flex-control-nav { list-style: none; }
+.flex-control-nav {width: 100%; position: absolute; bottom: -30px; text-align: center;}
+.flex-control-nav li {margin: 0 0 0 5px; display: inline-block; zoom: 1; *display: inline;}
+.flex-control-nav li:first-child {margin: 0;}
+.flex-control-nav li a { border: none; width: 13px; height: 13px; display: block; background: url(images/bg_control_nav.png) no-repeat 0 0; cursor: pointer; text-indent: -9999px;}
+.flex-control-nav li a:hover {background-position: 0 -13px;}
+.flex-control-nav li a.active {background-position: 0 -26px; cursor: default;}
