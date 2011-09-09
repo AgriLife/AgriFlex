@@ -1472,9 +1472,15 @@ body.home .hentry {
 	margin-bottom: 20px;
 	padding: 10px;
 	background: #e8e7d5;
+	border-top: 1px solid #d5d1bf;
+	border-bottom: 1px solid #d5d1bf;
 }
 .job-search-form label h4 {
 	margin-bottom: 5px;
+}
+
+.job-listing-ul{
+	border-top: double #d5d1bf;	
 }
 
 .job-listing-ul,
@@ -1490,14 +1496,24 @@ body.home .hentry {
 	padding-left: 0;
 	overflow: hidden;
 	display: block;
+	background: #EAE6D2;
+	background: rgba(217, 208, 173, .30);
+	border-bottom: 1px solid #fafaf6;
 }
 
-a.job-listing-link:link {
+.job-listing-item:nth-child(even) {
+	background: #EAE6D2;
+	background: rgba(217, 208, 173, .10);
+}
+
+
+body.collegeonly a.job-listing-link,
+body.collegeonly a.job-listing-link {
 	overflow: hidden;
 	display: block;	
 	text-decoration: none;
 	padding: 10px;
-	border-bottom: 1px solid #9f9490;		
+	border-bottom: 1px solid #d5d1c3;		
 }
 
 a.job-listing-link:hover {
@@ -1515,7 +1531,7 @@ a.job-listing-link:hover {
 	font-size: 14px;
 	color: #433C3A;
 	float: left;
-	width: 70%;
+	width: 65%;
 }
 
 .job-location {
@@ -1524,7 +1540,8 @@ a.job-listing-link:hover {
 	float: right;
 	width: 30%;
 	margin: 0;
-	text-align: right;
+	padding-left: 20px;
+	background: transparent url('images/map-marker.png') no-repeat left top;
 }
 
 /* Aside
