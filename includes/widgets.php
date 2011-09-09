@@ -80,7 +80,7 @@ class WatchReadListenWidget extends WP_Widget {
 	</ul>
 		<div id="tabs-1">
 		<?php // Watch Tab ?>
-		<object type="application/x-shockwave-flash" width="348" height="221" data="<?php echo $youtube_video;?>">
+		<object type="application/x-shockwave-flash" width="349" height="221" data="<?php echo $youtube_video;?>">
 			<param name="movie" value="<?php echo $youtube_video;?>">
 			<param name="allowFullScreen" value="true">
 			<param name="allowscriptaccess" value="always">

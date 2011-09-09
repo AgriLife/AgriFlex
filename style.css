@@ -2459,9 +2459,9 @@ img#wpstats {
 		background: #fff;
 		border-left: 2px solid #ad995a;		
 		border-top: 1px solid #ebe7d3;	
-		-webkit-box-shadow: -5px 0 8px rgba(186, 181, 152,.5);	
-		-moz-box-shadow: -5px 0 3px rgba(186, 181, 152,.5);		
-		box-shadow: -5px 0 3px rgba(186, 181, 152,.5);						
+		-webkit-box-shadow: -3px 0 6px rgba(3, 3, 3,.2);	
+		-moz-box-shadow: -3px 0 6px rgba(3, 3, 3,.2);		
+		box-shadow: -3px 0 6px rgba(3, 3, 3,.2);						
 		padding: 5px 0;	
 	}
 	.sf-menu li:hover {
@@ -2796,7 +2796,6 @@ img#wpstats {
 	#access #menu-main-navigation {
 		width: 100%;
 		margin: 0;
-		overflow: hidden;
 	}
 	
 	#breadcrumbs {
@@ -2814,7 +2813,10 @@ img#wpstats {
 		float: left;
 	}
 	.flex-container { margin-left: 10px;}
-	.flex-container.fullwidth { margin-right: 10px;}		
+	.flex-container.fullwidth { margin-right: 10px;}
+	.ie8 .flexslider .slides img  { height: 272px;}
+	.ie8 .flex-container.fullwidth .flexslider .slides img  { height: 475px;}
+				
 	#home-middle-bg, #home-middle, .home-middle-1, #wrap  {
 		width: 575px;
 	}
@@ -3879,7 +3881,7 @@ abbr {
 .flex-container.fullwidth { padding-top: 20px;}
 .flexslider {width: 100%; }
 .flexslider .slides > li {display: none;} /* Hide the slides before the JS is loaded. Avoids image jumping */
-.flexslider .slides img {max-width: 100%; display: block;}
+.flexslider .slides img {max-width: 100%; display: block; height: auto;}
 
 /* Browser Resets */
 .flexslider a {outline: none;}
@@ -3907,7 +3909,7 @@ p.flex-caption a { font-size: 18px;color: #ddd; border: none;}
 p.flex-caption a:hover {color: #fff; border: none;}
 /* Direction Nav */
 #content ul.flex-direction-nav { list-style: none; }
-.flex-direction-nav li a { border: none; width: 32px; height: 32px; margin: -13px 0 0; display: block; background: url(images/arrows.png) no-repeat 0 0; position: absolute; top: 50%; cursor: pointer; text-indent: -9999px;} /* set negative margin-top equal to half the height on the directional-nav for perfect vertical centering */
+.flex-direction-nav li a { border: none; width: 32px; height: 32px; margin: -13px 0 0; display: block; background: url(images/arrows.png) no-repeat 0 0; position: absolute; top: 51%; cursor: pointer; text-indent: -9999px;} /* set negative margin-top equal to half the height on the directional-nav for perfect vertical centering */
 .flex-direction-nav li a.next {background-position: -32px 0; right: -16px;}
 .flex-direction-nav li a.prev {background-position: 0 0; left: -16px;}
 .flex-direction-nav li a.next:hover {background-position: -32px -45px;}
