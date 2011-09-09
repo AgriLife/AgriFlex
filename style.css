@@ -432,8 +432,11 @@ body.admin-bar #drop-section-nav {
 	color: #fff;
 	border: none;
 	padding: 5px 5px 0;
-	margin-right: 50px;
-	opacity: 0.65;
+	margin-right: 35px;
+	opacity: 0.4;
+	-webkit-transition: opacity .3s ease;
+	-moz-transition: opacity .3s ease;
+	
 }
 
 #drop-section-nav #drop-nav ul li a:hover,
@@ -462,6 +465,37 @@ body.collegeonly #drop-section-nav #drop-nav ul li a {
 }
 
 #drop-section-nav #drop-nav ul li a {
+	display: none;
+}
+
+#drop-section-nav #drop-nav ul li a[href*='extension'] {
+	color: #999;
+}
+
+#drop-section-nav #drop-nav ul li a[href*='aglifesciences'] {
+
+}
+
+#drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
+
+}
+
+#drop-section-nav #drop-nav ul li a[href*='research'] {
+
+}
+
+#drop-section-nav #drop-nav ul li a[href*='txforestservice'] {
+	
+}
+
+#drop-section-nav #drop-nav ul li.right-align {
+	display: none;
+}
+
+.collegeonly #drop-section-nav #drop-nav ul li a,
+.extensiononly #drop-section-nav #drop-nav ul li a,
+.researchonly #drop-section-nav #drop-nav ul li a,
+.tvmdlonly #drop-section-nav #drop-nav ul li a {
 	position: relative;
 	z-index: 2;
 	display: block;
@@ -471,35 +505,26 @@ body.collegeonly #drop-section-nav #drop-nav ul li a {
 	width: 150px;
 	height: 40px;
 	margin-top: 2px;
-}
-
-#drop-section-nav #drop-nav ul li a[href*='extension'] {
+}	
+.extensiononly #drop-section-nav #drop-nav ul li a[href*='extension'] {
 	background-image: url('images/ext-system-logo.png');
 }
 
-#drop-section-nav #drop-nav ul li a[href*='aglifesciences'] {
+.collegeonly #drop-section-nav #drop-nav ul li a[href*='aglifesciences'] {
 	background-image: url('images/college-logo.png');
 	margin-top: 6px;
 	height: 36px;
 }
 
-#drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
+.tvmdlonly #drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
 	background-image: url('images/tvmdl-logo.png');
 	width: 80px;
 }
 
-#drop-section-nav #drop-nav ul li a[href*='research'] {
+.researchonly #drop-section-nav #drop-nav ul li a[href*='research'] {
 	background-image: url('images/research-logo.png');
 }
 
-#drop-section-nav #drop-nav ul li a[href*='txforestservice'] {
-	background-image: url('images/tfs-logo.png');
-	width: 109px;	
-}
-
-#drop-section-nav #drop-nav ul li.right-align {
-	display: none;
-}
 
 #drop-section  {
 	background: #EAE8D9;
@@ -1507,7 +1532,9 @@ body.home .hentry {
 }
 
 
-body.collegeonly a.job-listing-link,
+a.job-listing-link,
+body.extensiononly a.job-listing-link,
+body.researchonly a.job-listing-link,
 body.collegeonly a.job-listing-link {
 	overflow: hidden;
 	display: block;	
@@ -2716,6 +2743,41 @@ img#wpstats {
 
 	}
 
+	#drop-section-nav #drop-nav ul li a {
+		position: relative;
+		z-index: 2;
+		display: block;
+		text-indent: -999em;
+		background-repeat: no-repeat;
+		background-position: left top;	
+		width: 150px;
+		height: 40px;
+		margin-top: 2px;
+	}	
+	#drop-section-nav #drop-nav ul li a[href*='extension'] {
+		background-image: url('images/ext-system-logo.png');
+	}
+
+	#drop-section-nav #drop-nav ul li a[href*='aglifesciences'] {
+		background-image: url('images/college-logo.png');
+		margin-top: 6px;
+		height: 36px;
+	}
+
+	#drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
+		background-image: url('images/tvmdl-logo.png');
+		width: 80px;
+	}
+
+	#drop-section-nav #drop-nav ul li a[href*='research'] {
+		background-image: url('images/research-logo.png');
+	}
+
+	#drop-section-nav #drop-nav ul li a[href*='txforestservice'] {
+		background-image: url('images/tfs-logo.png');
+		width: 109px;	
+	}
+
 	#header, #access {
 		background: #fff;
 	}
@@ -3032,6 +3094,7 @@ img#wpstats {
 		padding-left: 5%;
 		padding-right: 5%;		
 	}
+
 	#content {
 		padding-top:3em;
 	}
@@ -3123,6 +3186,7 @@ img#wpstats {
 		font-size: 75%; 
 		-webkit-text-size-adjust: 98%;			
 	}	
+	body h3.entry-title,
 	body h2.entry-title,
 	body h1.entry-title {
 		font-size: 20px;
