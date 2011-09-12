@@ -11,7 +11,7 @@ USAGE INSTRUCTIONS:
 
 1. Create a new page in WordPress
 2. Add a title to the page
-3. Add an URL to the content of the page (e.g. http://www.google.com OR google.com OR www.google.com)
+3. Add an URL to the content of the page (e.g. http://www.google.com)
 4. Publish!
 
 OR
@@ -19,9 +19,7 @@ OR
 use custom field "redirect"
 
 */
-?>
 
-<?php 
 global $post;
 if (have_posts()) : the_post(); 
 
@@ -35,7 +33,16 @@ if (have_posts()) : the_post();
 		
 	endif;
 		
-	if($URL) wp_redirect(clean_url($URL), 301);
-	get_header();?>
+	//if($URL) wp_redirect(clean_url($URL), 301);
+	//get_header();
+	?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Refresh" content="0; url=<?php echo $URL; ?>"> 
+</head>
 
+<body>
+</body>
+</html>
 <?php endif; ?>
