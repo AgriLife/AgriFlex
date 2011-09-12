@@ -161,7 +161,7 @@
 			</div><!-- .texas-a-m -->		
 		</div><!-- #texas-a-m -->				
 
-<?php elseif($isextension && $isextension4h) :?>
+<?php elseif($isextension4h) :?>
 
 		<div id="about">
 			<div class="about">			
@@ -216,7 +216,7 @@
 			</div><!-- .texas-a-m -->			
 		</div><!-- #texas-a-m -->	
 		
-<?php elseif($isextension && !$isextension4h) :?>
+<?php elseif($isextensiononly && !$isextension4h) :?>
 
 		<div id="about">
 			<div class="about">			
@@ -262,8 +262,49 @@
 			</div><!-- .texas-a-m -->			
 		</div><!-- #texas-a-m -->			
 	
+
+<?php elseif($tvmdlonly) :?>
+
+	<div id="about">
+			<div class="about">			
+				<h4>About</h4>
+				<a href="http://www.youtube.com/watch?v=q_UsLHl_YDQ"><img src="<?php bloginfo( 'template_directory' ); ?>/images/about_video.jpg" alt="link to Extension about video" /></a>
+				<p>Copy</p>	
+			</div><!-- .about -->
+		</div><!-- #about -->	
+			
+		<div id="popular-links">
+			<div class="popular-links">			
+				<h4>Popular Links</h4>
+				<a href="http://agrilifeextension.tamu.edu/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/agrilife_tvmdl_logo.png" alt="TVMDL" /></a>	
+				<ul>
+					<li><a href="http://tvmdl.tamu.edu/">TVMDL Link</a></li>
+					<li class="last"><a href="http://tvmdl.tamu.edu/">TVMDL Link</a></li>										
+				</ul>		
+			</div><!-- .popular-links -->			
+		</div><!-- #popular-links -->
 		
-<?php else : ?>	
+		<div id="texas-a-m">
+			<div class="texas-a-m">			
+			<h4>Required Links</h4>
+				<a href="http://www.tamus.edu"><img src="<?php bloginfo( 'template_directory' ); ?>/images/texas-a-m-system.png" alt="Texas A&amp;M System image" /></a>
+				<ul>
+					<li><a href="http://agrilife.tamu.edu/compact/">Compact with Texans</a></li>
+					<li><a href="http://agrilife.tamu.edu/privacy/">Privacy and Security</a></li>
+					<li><a href="http://itaccessibility.tamu.edu/">Accessibility Policy</a></li>
+					<li><a href="http://www.dir.state.tx.us/standards/link_policy.htm">State Link Policy</a></li>					
+					<li><a href="http://www.tsl.state.tx.us/trail">Statewide Search</a></li>					
+					<li><a href="http://aghr.tamu.edu/education-civil-rights.htm">Equal Opportunity for Educational Programs Statement</a></li>
+					<li><a href="http://www.tamus.edu/veterans/">Veterans Benefits</a></li>		
+					<li><a href="http://fcs.tamu.edu/families/military_families/">Military Families</a></li>
+					<li><a href="https://secure.ethicspoint.com/domain/en/report_custom.asp?clientid=19681">Risk, Fraud &amp; Misconduct Hotline</a></li>
+					<li><a href="http://www.texashomelandsecurity.com/">Texas Homeland Security</a></li>
+					<li class="last"><a href="http://agrilife.tamu.edu/orpi/">Open Records/Public Information</a></li>
+				</ul>		
+			</div><!-- .texas-a-m -->			
+		</div><!-- #texas-a-m -->			
+		
+<?php else : // Multi-agency ?>	
 		
 		<div id="about">
 			<div class="about">			
@@ -274,7 +315,7 @@
 		</div><!-- #about -->		
 		<div id="popular-links">
 			<div class="popular-links">			
-				<h4>Agencies</h4>
+				<h4>AgriLife Agencies</h4>
 				<a href="http://aglifesciences.tamu.edu/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/agrilife-footer-logo" alt="Texas A and M AgriLife Logo" /></a>	
 				<ul>
 					<li><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife Extension Service</a></li>
