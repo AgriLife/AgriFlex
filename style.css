@@ -3094,7 +3094,9 @@ img#wpstats {
 		padding-left: 5%;
 		padding-right: 5%;		
 	}
-
+	#access ul.menu a {
+		font-size: 12px;
+	}
 	#content {
 		padding-top:3em;
 	}
@@ -3200,9 +3202,6 @@ img#wpstats {
 	}
 	body #content {
 		padding-top: 1em;
-	}
-	#access ul.menu a {
-		font-size: 1.4em;
 	}	
 	div.event dl dd.title-loc h4 {
 		font-size: 18px;
