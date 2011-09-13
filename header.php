@@ -155,6 +155,11 @@
 	<div id="header">
 			<header id="branding" role="banner">
 				<hgroup>
+				<?php if($isextensioncounty) :?>
+				<h1 id="site-title">
+						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><span>Texas AgriLife Extension Service</span> <em>in <?php echo $options['county-name-human']; ?> County</em></a>
+				</h1>	
+				<?php else : ?>	
 				<h1 id="site-title">
 						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 						<?php if($options['header_type']==1 && $options['titleImg']<>'') :?>
@@ -163,6 +168,7 @@
 							
 						<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a>		
 				</h1>
+				<?php endif; ?>
 				<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
 				</hgroup>
 				<div class="search">

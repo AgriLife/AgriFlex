@@ -216,7 +216,7 @@
 			</div><!-- .texas-a-m -->			
 		</div><!-- #texas-a-m -->	
 		
-<?php elseif($isextensiononly && !$isextension4h) :?>
+<?php elseif($isextension && !$isextension4h) :?>
 
 		<div id="about">
 			<div class="about">			
@@ -316,7 +316,7 @@
 		<div id="popular-links">
 			<div class="popular-links">			
 				<h4>AgriLife Agencies</h4>
-				<a href="http://aglifesciences.tamu.edu/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/agrilife-footer-logo" alt="Texas A and M AgriLife Logo" /></a>	
+				<a href="http://aglifesciences.tamu.edu/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/agrilife-footer-logo.png" alt="Texas A and M AgriLife Logo" /></a>	
 				<ul>
 					<li><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife Extension Service</a></li>
 					<li><a href="http://agriliferesearch.tamu.edu/">Texas AgriLife Research</a></li>

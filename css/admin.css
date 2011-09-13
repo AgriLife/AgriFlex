@@ -8,3 +8,31 @@ body.post-type-staff .postarea,
 body.post-type-job_posting .postarea {
 	display: none;
 }
+
+body.post-type-job_posting .inside p {
+	overflow: hidden;
+}
+
+body.post-type-job_posting .admin-form-label,
+body.post-type-job_posting .inside h4 {
+	width: 13%;
+	text-align: right;
+	margin-right: 2%;
+}
+
+body.post-type-job_posting .inside h4 {
+	font-size: 18px;
+}
+
+body.post-type-job_posting .admin-form-label {
+	float: left;
+}
+
+body.post-type-job_posting .admin-form-input {
+	max-width: 200px;
+	float: left;
+}
+
+body.post-type-job_posting textarea.admin-form-input {
+	max-width: 600px;
+}

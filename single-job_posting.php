@@ -29,11 +29,17 @@ get_header(); ?>
 						<div class="job-posting-details">
 							<dl>	
 							<dt>Details</dt>
+								<dd><?php echo $my_meta['agency'];?></dd> 
+								<dd><?php echo $my_meta['location'];?></dd> 						
+								<dd class="email"><?php echo $my_meta['salary'];?></dd>
+								<dd><?php echo $my_meta['description'];?></dd> 
+								<dd><?php echo $my_meta['qualifications'];?></dd> 								
 								<dd class="role"><?php echo $my_meta['job_number'];?></dd>
-								<dd><?php echo $my_meta['room'];?></dd> 						
-								<dd class="email"><a href="mailto:<?php echo $my_meta['agency'];?>"><?php echo $my_meta['email'];?></a></dd>
-								<dd><?php echo $my_meta['location'];?></dd>  	
-														
+								 	
+							<dt>Contact</dt>
+								<dd class="fn"><?php echo $my_meta['contact-name'];?></dd>
+								<dd class="tel"><?php echo $my_meta['contact-phone'];?></dd> 						
+								<dd class="email"><a href="mailto:<?php echo $my_meta['contact-email'];?>"><?php echo $my_meta['contact-email'];?></a></dd> 							
 								
 						</div>
 						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'agriflex' ), 'after' => '</div>' ) ); ?>
@@ -73,7 +79,6 @@ get_header(); ?>
 				<?php comments_template( '', true ); ?>
 
 <?php endwhile; // end of the loop. ?>
-<?php echo do_shortcode('[gigpress_related_shows]'); ?>
 			</div><!-- #content -->
 		</div><!-- #wrap -->
 
