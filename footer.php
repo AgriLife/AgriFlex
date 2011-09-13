@@ -366,10 +366,7 @@
 				<ul>
 				<?php
 				if (is_array($options)) {
-					if($options['hours']<>'') {
-						echo '<li>'.$options['hours'].'</li>';
-					}
-					if($options['address-mail-street1']<>'') {
+					if($options['address-street1']<>'') {
 						echo '<li>'.$options['address-street1'];
 						if($options['address-street2']<>'')
 							echo '<br />'.$options['address-street2'];
@@ -380,6 +377,9 @@
 						if($options['address-mail-street2']<>'')
 							echo '<br />'.$options['address-mail-street2'];
 						echo '<br />'.$options['address-mail-city'].', TX '.$options['address-mail-zip'].'</li>';
+					}
+					if($options['hours']<>'') {
+						echo '<li>'.$options['hours'].'</li>';
 					}
 					if($options['phone']<>'')
 						echo '<li>Phone: '.$options['phone'].'</li>';
