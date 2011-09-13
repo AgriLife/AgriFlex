@@ -127,17 +127,28 @@
 		</div><!-- #about -->		
 		<div id="popular-links">
 			<div class="popular-links">			
-				<h4>Agencies</h4>
-				<a href="http://aglifesciences.tamu.edu/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/agrilife-footer-logo" alt="Texas A and M AgriLife Logo" /></a>	
+				<h4>Research Topics</h4>
+				<a href="http://agriliferesearch.tamu.edu/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/agrilife-research-footer-logo.png" alt="Texas A and M AgriLife Research Logo" /></a>	
 				<ul>
-					<li><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife Extension Service</a></li>
-					<li><a href="http://agriliferesearch.tamu.edu/">Texas AgriLife Research</a></li>
-					<li><a href="http://tamu.edu/">Texas A&amp;M University</a></li>
-					<li><a href="http://aglifesciences.tamu.edu/">College of Agriculture and Life Sciences</a></li>
-					<li><a href="http://vetmed.tamu.edu/">College of Veterinary Medicine (cooperative with AgriLife Extension &amp; Research)</a></li>
-					<li><a href="http://tvmdl.tamu.edu/">Texas Veterinary Medical Diagnostic Laboratory</a></li>
-					<li><a href="http://texasforestservice.tamu.edu/">Texas Forest Service</a></li>																			 									
-				</ul>		
+					<li><a href="http://agriliferesearch.tamu.edu/topics/airquality/">Air Quality</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/topics/animals/">Animals and Livestock</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/topics/bioenergy/">Bioenergy</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/topics/crops/">Crops</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/topics/ecology/">Ecology</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/topics/economy/">Economy</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/topics/fish/">Fish and Aquaculture</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/topics/food/">Food and Nutrition</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/topics/genetics/">Genetics</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/topics/health/">Health and Safety</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/topics/insects/">Insects and Pest Management</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/topics/international/">International</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/topics/naturalresources/">Natural Resources</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/topics/plants/">Plants and Grasses</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/topics/publicpolicy/">Public Policy</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/topics/poultry/">Poultry</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/topics/soils/">Soils</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/topics/water/">Water Use and Management</a></li>
+				</ul>	
 			</div><!-- .popular-links -->			
 		</div><!-- #popular-links -->
 		
@@ -212,18 +223,27 @@
 	<div id="about">
 			<div class="about">			
 				<h4>About</h4>
-				<a href="http://www.youtube.com/watch?v=q_UsLHl_YDQ"><img src="<?php bloginfo( 'template_directory' ); ?>/images/about_video.jpg" alt="link to Extension about video" /></a>
-				<p>Copy</p>	
+				<a href="http://www.youtube.com/watch?v=7Cdai78sCPw"><img src="<?php bloginfo( 'template_directory' ); ?>/images/about_video_tvmdl.jpg" alt="link to TVMDL about video" /></a>
+				<p>The Texas Veterinary Medical Diagnostic Laboratory protects animal and human health through diagnostics. TVMDL has provided excellence in veterinary diagnostic services since 1967. TVMDL services veterinarians and citizens throughout Texas, the United States, and beyond.</p>	
 			</div><!-- .about -->
 		</div><!-- #about -->	
 			
 		<div id="popular-links">
 			<div class="popular-links">			
-				<h4>Popular Links</h4>
+				<h4>Testing Sections</h4>
 				<a href="http://agrilifeextension.tamu.edu/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/agrilife_tvmdl_logo.png" alt="TVMDL" /></a>	
 				<ul>
-					<li><a href="http://tvmdl.tamu.edu/">TVMDL Link</a></li>
-					<li class="last"><a href="http://tvmdl.tamu.edu/">TVMDL Link</a></li>										
+					<li><a href="http://tvmdl.tamu.edu/testing.php?dept=B">Bacteriology</a></li>
+					<li><a href="http://tvmdl.tamu.edu/testing.php?dept=C">Clinical Pathology</a></li>
+					<li><a href="http://tvmdl.tamu.edu/testing.php?dept=R">Endocrinology</a></li>
+					<li><a href="http://tvmdl.tamu.edu/testing.php?dept=H">Histopathology</a></li>
+					<li><a href="http://tvmdl.tamu.edu/testing.php?dept=M">Molecular Diagnostics</a></li>
+					<li><a href="http://tvmdl.tamu.edu/testing.php?dept=N">Necropsy</a></li>
+					<li><a href="http://tvmdl.tamu.edu/testing.php?dept=P">Parasitology</a></li>
+					<li><a href="http://tvmdl.tamu.edu/testing.php?dept=E">Poultry</a></li>
+					<li><a href="http://tvmdl.tamu.edu/testing.php?dept=S">Serology</a></li>
+					<li><a href="http://tvmdl.tamu.edu/testing.php?dept=T">Toxicology</a></li>
+					<li class="last"><a href="http://tvmdl.tamu.edu/testing.php?dept=V">Virology</a></li>
 				</ul>		
 			</div><!-- .popular-links -->			
 		</div><!-- #popular-links -->
