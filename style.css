@@ -2849,6 +2849,34 @@ img#wpstats {
 		font-size: 1.5em;
 		font-style: normal;		
 	}
+
+/* --- County Sites --- */
+
+	body.extensioncounty #site-title {
+		text-align: left;
+		margin-top: 0;
+		padding: 0;
+		margin-bottom: 0;
+		height: 115px;			
+	}
+	body.extensioncounty #site-title a span{
+		width: 390px;			
+	}	
+	body.extensioncounty #site-title a {
+		background: url('images/tx-state-regions.png') no-repeat -5px -2px;
+		font: 32px 'arno pro', georgia, serif;
+		margin-left: 10px;
+		padding: 5px 0 60px 100px;	
+	}
+
+	body.extensioncounty #site-title a em {
+		margin-left: 102px;
+		font-size: 1.5em;
+		margin-top: -5px;
+		font-style: normal;		
+	}
+	
+/* --- End County --- */	
 		
 	div.search {
 		width: 20em;		
@@ -3976,7 +4004,7 @@ abbr {
 .no-js .slides > li:first-child {display: block;}
 
 
-/* FlexSlider Default Theme
+/* FlexSlider
 *********************************/
 .flexslider {background: transparent; position: relative; margin-bottom: 50px; }
 .flexslider .slides > li {position: relative;}
@@ -3984,7 +4012,7 @@ abbr {
 .flex-container {zoom: 1; position: relative;} 
 li.flex-slider-item { list-style-type: none; }
 /* Caption style */
-p.flex-caption {width: 96%; padding: 3% 2%; margin: 0; position: absolute; left: 0; bottom: 0; background: #000; background: rgba(0,0,0,.3); color: #fff; text-shadow: 0 -1px 0 rgba(0,0,0,.3); font-size: 14px; line-height: 18px;}
+p.flex-caption {width: 96%; padding: 3% 2%; margin: 0; position: absolute; left: 0; bottom: 0; background: #000; background: rgba(0,0,0,.4); color: #fff; text-shadow: 0 -1px 0 rgba(0,0,0,.5); font-size: 14px; line-height: 18px;}
 p.flex-caption a { font-size: 18px;color: #ddd; border: none;}
 p.flex-caption a:hover {color: #fff; border: none;}
 /* Direction Nav */
