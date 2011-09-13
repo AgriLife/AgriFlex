@@ -5,6 +5,7 @@ div#wpcontent .gigpress select #show_ages {
 }
 
 body.post-type-staff .postarea,
+body.post-type-tests .postarea,
 body.post-type-job_posting .postarea {
 	display: none;
 }

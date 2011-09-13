@@ -614,6 +614,91 @@ function base_admin_body_class( $classes )
 }
 add_filter('admin_body_class', 'base_admin_body_class');
 
+/* Staff Custom Post Type & Taxonomies*/
+if ($tvmdlonly) {
+add_action( 'init', 'create_tests_post_type' );
+function create_tests_post_type() {
+	register_post_type( 'tests',
+		array(
+			'labels' => array(
+				'name' => __( 'Tests' ),
+				'singular_name' => __( 'Test' ),
+				'add_new_item' => __( 'Add New Test' ),
+				'add_new' => __( 'Add New' ),
+				'edit' => __( 'Edit' ),
+				'edit_item' => __( 'Edit Test' ),
+				'new_item' => __( 'New Test' ),
+				'view' => __( 'View Test' ),
+				'view_item' => __( 'View Test' ),
+				'search_items' => __( 'Search Tests' ),
+				'not_found' => __( 'No Tests found' ),
+				'not_found_in_trash' => __( 'No Tests found in Trash' ),
+
+			),
+		'_builtin' => false, // It's a custom post type, not built in!
+		'_edit_link' => 'post.php?post=%d',
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'public' => true,
+		'rewrite' => array('slug' => 'tests'),
+		'supports' => array( 'title', 'editor' ),
+		)
+	);
+}
+
+// hook into the init action and call create_tests_taxonomies() when it fires
+add_action( 'init', 'create_tests_taxonomies', 0 );
+
+// create three taxonomies, species and lab sections for the post type "tests"
+function create_tests_taxonomies() {
+
+	// Add new taxonomy, make it hierarchical (like categories)
+	$labels = array(
+		'name' => _x( 'Species', 'taxonomy general name' ),
+		'singular_name' => _x( 'Species', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Search Species' ),
+		'all_items' => __( 'All Species' ),
+		'parent_item' => __( 'Parent Species' ),
+		'parent_item_colon' => __( 'Parent Species:' ),
+		'edit_item' => __( 'Edit Species' ),
+		'update_item' => __( 'Update Species' ),
+		'add_new_item' => __( 'Add New Species' ),
+		'new_item_name' => __( 'New Species Name' ),
+	); 	
+
+	register_taxonomy( 'species', array( 'tests' ), array(
+		'hierarchical' => true,
+		'labels' => $labels, /* NOTICE: Here is where the $labels variable is used */
+		'show_ui' => true,
+		'query_var' => true,
+		'rewrite' => array( 'slug' => 'species' ),
+	));
+
+	// Add new taxonomy, make it hierarchical (like categories)
+	$labels = array(
+		'name' => _x( 'Lab Sections', 'taxonomy general name' ),
+		'singular_name' => _x( 'Lab Sections', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Search Lab Sections' ),
+		'all_items' => __( 'All Lab Sections' ),
+		'parent_item' => __( 'Parent Lab Section' ),
+		'parent_item_colon' => __( 'Parent Lab Section:' ),
+		'edit_item' => __( 'Edit Lab Section' ),
+		'update_item' => __( 'Update Lab Section' ),
+		'add_new_item' => __( 'Add New Lab Section' ),
+		'new_item_name' => __( 'New Lab Section Name' ),
+	); 	
+
+	register_taxonomy( 'lab_sections', array( 'tests' ), array(
+		'hierarchical' => true,
+		'labels' => $labels, /* NOTICE: Here is where the $labels variable is used */
+		'show_ui' => true,
+		'query_var' => true,
+		'rewrite' => array( 'slug' => 'lab-sections' ),
+	));
+
+}
+}
+
 /* Staff Custom Post Type */
 if ($collegeonly) {
 add_action( 'init', 'create_staff_post_type' );
@@ -744,6 +829,41 @@ function job_posting_details_meta_setup() {
 
 	// instead of writing HTML here, lets do an include
 	include(MY_THEME_FOLDER . '/includes/meta_boxes/jobs_meta_html.php');
+
+	// create a custom nonce for submit verification later
+	echo '<input type="hidden" name="my_meta_noncename" value="' . wp_create_nonce(__FILE__) . '" />';
+
+}
+
+/* Define the custom box for "tests" custom post type */
+add_action('admin_init','tests_meta_init');
+ 
+function tests_meta_init() {
+
+	// review the function reference for parameter details
+	// http://codex.wordpress.org/Function_Reference/add_meta_box
+ 
+	// add a meta box for each of the wordpress page types: posts and pages
+	foreach (array('tests') as $type) 
+	{
+		add_meta_box('tests_details_meta', 'Enter Test url', 'tests_details_meta_setup', $type, 'normal', 'high');
+	}
+ 
+	// add a callback function to save any data a user enters in
+	add_action('save_post','box_meta_save');
+}
+ 
+function tests_details_meta_setup() {
+	global $post;
+ 
+	// using an underscore, prevents the meta variable
+	// from showing up in the custom fields section
+	$meta = get_post_meta($post->ID,'_my_meta',TRUE);
+ 
+	// The Details fields for data entry
+
+	// instead of writing HTML here, lets do an include
+	include(MY_THEME_FOLDER . '/includes/meta_boxes/tests_meta_html.php');
 
 	// create a custom nonce for submit verification later
 	echo '<input type="hidden" name="my_meta_noncename" value="' . wp_create_nonce(__FILE__) . '" />';
@@ -932,11 +1052,3 @@ function my_meta_clean(&$arr)
 	require_once ($includes_path . 'plugin-config.php');
 	// Add Custom Widgets
 	require_once ($includes_path . 'widgets.php');
-
-
-
-
-
-
-
-

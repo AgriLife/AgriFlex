@@ -2852,24 +2852,28 @@ img#wpstats {
 
 /* --- County Sites --- */
 
-	body.extensioncounty #site-title {
+	body.extensioncounty #site-title,
+	body.extensioncountytce #site-title	 {
 		text-align: left;
 		margin-top: 0;
 		padding: 0;
 		margin-bottom: 0;
-		height: 115px;			
+		height: 85px;			
 	}
-	body.extensioncounty #site-title a span{
+	body.extensioncounty #site-title a span,
+	body.extensioncountytce #site-title a span	{
 		width: 390px;			
 	}	
-	body.extensioncounty #site-title a {
+	body.extensioncounty #site-title a,
+	body.extensioncountytce #site-title a	 {
 		background: url('images/tx-state-regions.png') no-repeat -5px -2px;
 		font: 32px 'arno pro', georgia, serif;
 		margin-left: 10px;
 		padding: 5px 0 60px 100px;	
 	}
 
-	body.extensioncounty #site-title a em {
+	body.extensioncounty #site-title a em,
+	body.extensioncountytce #site-title a em	 {
 		margin-left: 102px;
 		font-size: 1.5em;
 		margin-top: -5px;
