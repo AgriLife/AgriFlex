@@ -808,7 +808,7 @@ function job_posting_meta_init() {
 	// review the function reference for parameter details
 	// http://codex.wordpress.org/Function_Reference/add_meta_box
  
-	// add a meta box for each of the wordpress page types: posts and pages
+	// add a meta box for each of the wordpress page types: job_posting
 	foreach (array('job_posting') as $type) 
 	{
 		add_meta_box('job_posting_details_meta', 'Enter Job Details', 'job_posting_details_meta_setup', $type, 'normal', 'high');
@@ -834,6 +834,7 @@ function job_posting_details_meta_setup() {
 	echo '<input type="hidden" name="my_meta_noncename" value="' . wp_create_nonce(__FILE__) . '" />';
 
 }
+
 
 /* Define the custom box for "tests" custom post type */
 add_action('admin_init','tests_meta_init');
@@ -867,6 +868,7 @@ function tests_details_meta_setup() {
 
 	// create a custom nonce for submit verification later
 	echo '<input type="hidden" name="my_meta_noncename" value="' . wp_create_nonce(__FILE__) . '" />';
+	echo '<textarea type="hidden" name="my_meta_noncename" value="' . wp_create_nonce(__FILE__) . '" ></textarea>';	
 
 }
 
@@ -921,28 +923,6 @@ function box_meta_save($post_id)
 }
 
 
-function my_meta_init()
-{
-	// review the function reference for parameter details
-	// http://codex.wordpress.org/Function_Reference/wp_enqueue_script
-	// http://codex.wordpress.org/Function_Reference/wp_enqueue_style
- 
-	//wp_enqueue_script('my_meta_js', MY_THEME_PATH . '/custom/meta.js', array('jquery'));
-	wp_enqueue_style('my_meta_css', MY_THEME_PATH . '/custom/meta.css');
- 
-	// review the function reference for parameter details
-	// http://codex.wordpress.org/Function_Reference/add_meta_box
- 
-	// add a meta box for each of the wordpress page types: posts and pages
-	foreach (array('post','page') as $type) 
-	{
-		add_meta_box('my_all_meta', 'My Custom Meta Box', 'my_meta_setup', $type, 'normal', 'high');
-	}
- 
-	// add a callback function to save any data a user enters in
-	add_action('save_post','my_meta_save');
-}
- 
 function my_meta_setup()
 {
 	global $post;
