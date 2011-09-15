@@ -26,18 +26,107 @@ get_header(); ?>
 						<div class="staff-person-details">
 							<dl>	
 							<dt><?php the_title(); ?></dt>
+							
+							<?php if ($my_meta['position']) { ?> 
 								<dd class="role"><?php echo $my_meta['position'];?></dd>
-								<dd><?php echo $my_meta['room'];?></dd> 						
+							<?php } ?>
+							
+							<?php if ($my_meta['room']) { ?> 
+								<dd><?php echo $my_meta['room'];?></dd> 
+							<?php } ?>	
+							
+							<?php if ($my_meta['email']) { ?>							
 								<dd class="email"><a href="mailto:<?php echo $my_meta['email'];?>"><?php echo $my_meta['email'];?></a></dd>
-								<dd><?php echo $my_meta['phone'];?></dd>  	
-													
-							<dt>Education</dt>
-								<dd><?php echo $my_meta['education_1']; ?></dd>
-								<dd><?php echo $my_meta['education_2'];?></dd>						
-								<dd><?php echo $my_meta['education_3'];?></dd> 						
-								<dd><?php echo $my_meta['education_4']; ?></dd>								
+							<?php } ?>
+							
+							<?php if ($my_meta['email']) { ?>
+								<dd><?php echo $my_meta['phone'];?></dd> 
+							<?php } ?> 	
+							
+							<?php if ($my_meta['undergraduate_1']) { ?>						
+							<dt>Undergraduate Education</dt>
+							<?php } ?> 
+							
+							<?php if ($my_meta['undergraduate_1']) { ?>
+								<dd><?php echo $my_meta['undergraduate_1']; ?></dd>
+							<?php } ?> 
 								
+							<?php if ($my_meta['undergraduate_2']) { ?>	
+								<dd><?php echo $my_meta['undergraduate_2'];?></dd>
+							<?php } ?> 
+							
+							<?php if ($my_meta['graduate_1']) { ?>						
+							<dt>Graduate Education</dt>
+							<?php } ?> 							
 								
+							<?php if ($my_meta['graduate_1']) { ?>							
+								<dd><?php echo $my_meta['graduate_1'];?></dd>
+							<?php } ?> 
+								
+							<?php if ($my_meta['graduate_2']) { ?>	 						
+								<dd><?php echo $my_meta['graduate_2']; ?></dd>								
+							<?php } ?> 	
+							
+							<?php if ($my_meta['graduate_3']) { ?>							
+								<dd><?php echo $my_meta['graduate_3'];?></dd>
+							<?php } ?> 
+							
+							<?php if ($my_meta['specialty']) { ?>						
+							<dt>Specialty</dt>
+							<?php } ?> 							
+								
+							<?php if ($my_meta['specialty']) { ?>							
+								<dd><?php echo $my_meta['specialty'];?></dd>
+							<?php } ?> 
+							
+							<?php if ($my_meta['research']) { ?>							
+								<dt>Research Direction</dt>
+							<?php } ?> 
+							
+							<?php if ($my_meta['research']) { ?>							
+								<dd><?php echo $my_meta['research'];?></dd>
+							<?php } ?>
+							 
+							<?php if ($my_meta['award_1']) { ?>						
+							<dt>Awards</dt>
+							<?php } ?> 							
+								
+							<?php if ($my_meta['award_1']) { ?>							
+								<dd><?php echo $my_meta['award_1'];?></dd>
+							<?php } ?> 
+								
+							<?php if ($my_meta['award_2']) { ?>	 						
+								<dd><?php echo $my_meta['award_2']; ?></dd>								
+							<?php } ?> 	
+							
+							<?php if ($my_meta['award_3']) { ?>							
+								<dd><?php echo $my_meta['award_3'];?></dd>
+							<?php } ?> 
+							 
+							<?php if ($my_meta['course_1']) { ?>						
+							<dt>Courses Taught</dt>
+							<?php } ?> 							
+								
+							<?php if ($my_meta['course_1']) { ?>							
+								<dd><?php echo $my_meta['course_1'];?></dd>
+							<?php } ?> 
+								
+							<?php if ($my_meta['course_2']) { ?>	 						
+								<dd><?php echo $my_meta['course_2']; ?></dd>								
+							<?php } ?> 	
+							
+							<?php if ($my_meta['course_3']) { ?>							
+								<dd><?php echo $my_meta['course_3'];?></dd>
+							<?php } ?> 	
+
+							<?php if ($my_meta['course_4']) { ?>	 						
+								<dd><?php echo $my_meta['course_4']; ?></dd>								
+							<?php } ?> 	
+							
+							<?php if ($my_meta['course_5']) { ?>							
+								<dd><?php echo $my_meta['course_5'];?></dd>
+							<?php } ?>							
+																				
 							</dl>	
 								
 						</div>

@@ -202,7 +202,7 @@ ol ul ul li {
 }
 
 #content dl, #content dd {
-	margin: 0 0 .5em 0;
+	margin-bottom: .5em;
 }
 
 dt {
@@ -1474,7 +1474,7 @@ body.home .hentry {
 
 #content dd, 
 #content dt {
-	margin: 0 0 .5em 0;
+	margin-bottom: .5em;
 }
 
 #content dt {
@@ -1488,31 +1488,37 @@ body.home .hentry {
 }
 
 
-/* Job Postings page
+/* Job Postings and Staff pages
 -------------------------------------------------------------- */
-.job-search-form {
+.job-search-form,
+.staff-search-form {
 	margin-bottom: 20px;
 	padding: 10px;
 	background: #e8e7d5;
 	border-top: 1px solid #d5d1bf;
 	border-bottom: 1px solid #d5d1bf;
 }
-.job-search-form label h4 {
+.job-search-form label h4,
+.staff-search-form label h4 {
 	margin-bottom: 5px;
 }
 
-.job-listing-ul{
+.job-listing-ul,
+.staff-listing-ul {
 	border-top: double #d5d1bf;	
 }
 
 .job-listing-ul,
-.job-listing-item {
+.job-listing-item,
+.staff-listing-ul,
+.staff-listing-item {
 	list-style-type: none;
 	margin-left: 0;
 	padding-left: 0;
 }
 
-.job-listing-item {
+.job-listing-item,
+.staff-listing-item {
 	list-style-type: none;
 	margin-left: 0;
 	padding-left: 0;
@@ -1523,7 +1529,8 @@ body.home .hentry {
 	border-bottom: 1px solid #fafaf6;
 }
 
-.job-listing-item:nth-child(even) {
+.job-listing-item:nth-child(even),
+.staff-listing-item:nth-child(even) {
 	background: #EAE6D2;
 	background: rgba(217, 208, 173, .10);
 }
@@ -1532,7 +1539,11 @@ body.home .hentry {
 a.job-listing-link,
 body.extensiononly a.job-listing-link,
 body.researchonly a.job-listing-link,
-body.collegeonly a.job-listing-link {
+body.collegeonly a.job-listing-link,
+a.staff-listing-link,
+body.extensiononly a.staff-listing-link,
+body.researchonly a.staff-listing-link,
+body.collegeonly a.staff-listing-link {
 	overflow: hidden;
 	display: block;	
 	text-decoration: none;
@@ -1540,12 +1551,14 @@ body.collegeonly a.job-listing-link {
 	border-bottom: 1px solid #d5d1c3;		
 }
 
-a.job-listing-link:hover {
+a.job-listing-link:hover,
+a.staff-listing-link:hover {
 	background: #f1efce;
 	border-bottom: 1px solid #9f9490;		
 }
 
-.job-title {
+.job-title,
+.staff-title {
 	font-size: 22px;
 	font-weight: bold;
 	margin-bottom: 10px;
@@ -1556,6 +1569,34 @@ a.job-listing-link:hover {
 	color: #433C3A;
 	float: left;
 	width: 65%;
+}
+
+.staff-phone,
+.staff-email,
+.staff-position {
+	font-size: 14px;
+	color: #433C3A;	
+}
+
+.staff-position {
+	font-weight: bold;	
+}
+
+.staff-head {
+	width: 65%;
+	float: left;
+}
+
+.staff-contact-details {
+	font-size: 14px;
+	color: #433C3A;
+	float: right;
+	width: 30%;
+	padding-left: 20px;	
+}
+
+.staff-contact-details p{
+	margin: 7px 0;
 }
 
 .job-location {
@@ -2679,6 +2720,23 @@ img#wpstats {
 	.sf-menu ul li:hover > a > .sf-sub-indicator,
 	.sf-menu ul li.sfHover > a > .sf-sub-indicator {
 		background-position: -10px 0; /* arrow hovers for modern browsers*/
+	}
+
+
+	/*----- Job Postings single page ------ */
+
+	.job-posting-dl {
+		padding: 20px 0 50px;
+	}
+
+	.job-posting-dt {
+		padding: .5em 0 1em 0;
+	}
+
+	.job-posting-dd {
+		border-bottom: 1px solid #d0ca9b;
+		margin: -3em 0 0 0;
+		padding: 0 0 .75em 195px;	
 	}
 	
 	#footer {
