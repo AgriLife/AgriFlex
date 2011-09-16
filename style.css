@@ -1510,11 +1510,11 @@ body.home .hentry {
 
 .test-search-form .s {
 	float: right;
-	width: 55%;
+	width: 50%;
 }
 
 .tax-options {
-	width: 35%;
+	width: 40%;
 	float: left;
 	padding-top: 8px;
 }

@@ -14,7 +14,7 @@ get_header(); ?>
 				<?php tvmdl_test_search() ?>
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-			<?php $my_meta = get_post_meta($post->ID,'_my_meta',TRUE); ?>
+			<?php global $post; $my_meta = get_post_meta($post->ID,'_my_meta',TRUE); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>	
 						<h1 class="entry-title"><a href="<?php ($my_meta['link']) ?>"><?php the_title(); ?></a></h1>
 

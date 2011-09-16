@@ -1034,49 +1034,42 @@ function tvmdl_test_search_form() { ?>
 	<form role="search" class="searchform" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
 <?php
 echo '<div class="tax-options">';
-function get_species_terms_dropdown($species, $args){
-	$myterms = get_terms($species, $args);
-	$optionname = "species";
+function get_terms_dropdown($species, $lab_sections, $args){
+	$myspecies = get_terms($species, $args);
+	$mylab_sections = get_terms($lab_sections, $args);	
+	$optionname = "optionname";
 	$emptyvalue = "";
 	$output ="<select name='".$optionname."'><option selected='".$selected."' value='".$emptyvalue."'>Species</option>'";
 
-	foreach($myterms as $term){
+	foreach($myspecies as $term){
 		$term_taxonomy=$term->species; 
 		$term_slug=$term->slug;
 		$term_name =$term->name;
 		$link = $term_slug;
 		$output .="<option name='".$link."' value='".$link."'>".$term_name."</option>";
 	}
-	$output .="</select>";
-return $output;
-}
+	$output .="</select>";	
+	
+	$output .="<select name='".$optionname."'><option selected='".$selected."' value='".$emptyvalue."'>Lab Sections</option>'";
 
-$species = array('species'); 
-$args = array('order'=>'ASC','hide_empty'=>true);
-echo get_species_terms_dropdown($species, $args);
-?>
-
-<?php
-function get_lab_sections_terms_dropdown($lab_sections, $args){
-	$myterms = get_terms($lab_sections, $args);
-	$optionname = "lab_sections";
-	$emptyvalue = "";
-	$output ="<select name='".$optionname."'><option selected='".$selected."' value='".$emptyvalue."'>Lab Sections</option>'";
-
-	foreach($myterms as $term){
+	foreach($mylab_sections as $term){
 		$term_taxonomy=$term->lab_sections; 
 		$term_slug=$term->slug;
 		$term_name =$term->name;
 		$link = $term_slug;
 		$output .="<option name='".$link."' value='".$link."'>".$term_name."</option>";
 	}
-	$output .="</select>";
+	$output .="</select>";	
+	
 return $output;
+
+
 }
 
-$lab_sections = array('lab_sections'); 
+$species = array( 'species' ); 
+$lab_sections = array( 'lab_sections'); 
 $args = array('order'=>'ASC','hide_empty'=>true);
-echo get_lab_sections_terms_dropdown($lab_sections, $args);
+echo get_terms_dropdown($species, $lab_sections, $args);
 echo '</div>';
 ?>
 		<input type="text" class="s" name="s" id="s" placeholder="Avian Influenza" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;"/><br />
