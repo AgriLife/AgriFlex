@@ -21,11 +21,33 @@ get_header(); ?>
 				 */
 				 get_template_part( 'loop', 'search' );
 				?>
+				<?php
+					global $query_string;
+					$termslug = $_GET['species'];
+				?>
 <?php else : ?>
 				<div id="post-0" class="post no-results not-found">
 					<h2 class="entry-title"><?php _e( 'Nothing Found', 'agriflex' ); ?></h2>
 					<div class="entry-content">
-						<p><?php _e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'agriflex' ); ?></p>
+						<?php 
+
+							if (empty($termslug)) {
+								query_posts($query_string);
+								if(have_posts()) : while(have_posts()) : the_post();
+								endwhile; else:
+								_e('Sorry, no listings matched your criteria or you forgot select a category.');
+								endif;
+							} 
+
+							if (!empty($termslug)) {
+							         query_posts(array('species' => $termslug) );
+								if(have_posts()) : while(have_posts()) : the_post();
+								endwhile; else:
+								_e('Sorry, no listings matched your criteria or you forgot select a category.');
+								endif;
+							}
+						?>
+						
 						<?php get_search_form(); ?>
 					</div><!-- .entry-content -->
 				</div><!-- #post-0 -->

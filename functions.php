@@ -867,8 +867,7 @@ function tests_details_meta_setup() {
 	include(MY_THEME_FOLDER . '/includes/meta_boxes/tests_meta_html.php');
 
 	// create a custom nonce for submit verification later
-	echo '<input type="hidden" name="my_meta_noncename" value="' . wp_create_nonce(__FILE__) . '" />';
-	echo '<textarea type="hidden" name="my_meta_noncename" value="' . wp_create_nonce(__FILE__) . '" ></textarea>';	
+	echo '<input type="hidden" name="my_meta_noncename" value="' . wp_create_nonce(__FILE__) . '" />';	
 
 }
 
@@ -1019,6 +1018,75 @@ function my_meta_clean(&$arr)
 		}
 	}
 }
+
+// TVMDL specific content for test search form
+function tvmdl_test_search() {
+    do_action('tvmdl_test_search');
+}
+
+add_action('tvmdl_test_search','tvmdl_test_search_form',5);
+
+function tvmdl_test_search_form() { ?>
+	<div class="test-search-form">
+	<label>
+	<h4>Search for Tests</h4>
+	</label>
+	<form role="search" class="searchform" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
+<?php
+echo '<div class="tax-options">';
+function get_species_terms_dropdown($species, $args){
+	$myterms = get_terms($species, $args);
+	$optionname = "species";
+	$emptyvalue = "";
+	$output ="<select name='".$optionname."'><option selected='".$selected."' value='".$emptyvalue."'>Species</option>'";
+
+	foreach($myterms as $term){
+		$term_taxonomy=$term->species; 
+		$term_slug=$term->slug;
+		$term_name =$term->name;
+		$link = $term_slug;
+		$output .="<option name='".$link."' value='".$link."'>".$term_name."</option>";
+	}
+	$output .="</select>";
+return $output;
+}
+
+$species = array('species'); 
+$args = array('order'=>'ASC','hide_empty'=>true);
+echo get_species_terms_dropdown($species, $args);
+?>
+
+<?php
+function get_lab_sections_terms_dropdown($lab_sections, $args){
+	$myterms = get_terms($lab_sections, $args);
+	$optionname = "lab_sections";
+	$emptyvalue = "";
+	$output ="<select name='".$optionname."'><option selected='".$selected."' value='".$emptyvalue."'>Lab Sections</option>'";
+
+	foreach($myterms as $term){
+		$term_taxonomy=$term->lab_sections; 
+		$term_slug=$term->slug;
+		$term_name =$term->name;
+		$link = $term_slug;
+		$output .="<option name='".$link."' value='".$link."'>".$term_name."</option>";
+	}
+	$output .="</select>";
+return $output;
+}
+
+$lab_sections = array('lab_sections'); 
+$args = array('order'=>'ASC','hide_empty'=>true);
+echo get_lab_sections_terms_dropdown($lab_sections, $args);
+echo '</div>';
+?>
+		<input type="text" class="s" name="s" id="s" placeholder="Avian Influenza" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;"/><br />
+		<input type="hidden" name="post_type" value="tests" />
+	</form>
+	</div>
+<?php  
+}
+
+
 
 	// Set path to function files
 	$includes_path = TEMPLATEPATH . '/includes/';

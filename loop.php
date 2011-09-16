@@ -48,7 +48,6 @@
 	<?php if ( in_category( _x('gallery', 'gallery category slug', 'agriflex') ) ) : ?>
 		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'agriflex' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-
 			<div class="entry-meta">
 				<?php agriflex_posted_on(); ?>
 			</div><!-- .entry-meta -->
@@ -91,7 +90,8 @@
 		<?php if ( is_archive() || is_search() ) : // Display excerpts for archives and search. ?>
 			<div class="entry-summary">
 				<?php the_excerpt(); ?>
-			</div><!-- .entry-summary -->
+			</div><!-- .entry-summary -->			
+			
 		<?php else : ?>
 			<div class="entry-content">
 				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'agriflex' ) ); ?>

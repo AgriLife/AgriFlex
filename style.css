@@ -1,6 +1,6 @@
 /*
     Theme Name: AgriFlex2011
-    Description: Custom theme created for AgriLife websites.
+    Description: Custom theme created for Texas A&M AgriLife network.
     Author: Jason Weaver
     Version: 1.0
 */
@@ -1488,18 +1488,44 @@ body.home .hentry {
 }
 
 
-/* Job Postings and Staff pages
+/* Job Postings, Tests and Staff pages (Custom Post Types)
 -------------------------------------------------------------- */
 .job-search-form,
-.staff-search-form {
+.staff-search-form,
+.test-search-form {
 	margin-bottom: 20px;
 	padding: 10px;
 	background: #e8e7d5;
 	border-top: 1px solid #d5d1bf;
 	border-bottom: 1px solid #d5d1bf;
 }
+
+.test-search-form {
+	overflow: hidden;
+}
+
+.home .test-search-form {
+	margin-left: 10px;
+}
+
+.test-search-form .s {
+	float: right;
+	width: 55%;
+}
+
+.tax-options {
+	width: 35%;
+	float: left;
+	padding-top: 8px;
+}
+
+.test-listing-item {
+	
+}
+
 .job-search-form label h4,
-.staff-search-form label h4 {
+.staff-search-form label h4,
+.test-search-form label h4 {
 	margin-bottom: 5px;
 }
 
@@ -1511,14 +1537,17 @@ body.home .hentry {
 .job-listing-ul,
 .job-listing-item,
 .staff-listing-ul,
-.staff-listing-item {
+.staff-listing-item,
+.test-listing-ul,
+.test-listing-item {
 	list-style-type: none;
 	margin-left: 0;
 	padding-left: 0;
 }
 
 .job-listing-item,
-.staff-listing-item {
+.staff-listing-item,
+.test-listing-item {
 	list-style-type: none;
 	margin-left: 0;
 	padding-left: 0;
@@ -1530,7 +1559,8 @@ body.home .hentry {
 }
 
 .job-listing-item:nth-child(even),
-.staff-listing-item:nth-child(even) {
+.staff-listing-item:nth-child(even),
+.test-listing-item:nth-child(even)  {
 	background: #EAE6D2;
 	background: rgba(217, 208, 173, .10);
 }
@@ -1543,7 +1573,8 @@ body.collegeonly a.job-listing-link,
 a.staff-listing-link,
 body.extensiononly a.staff-listing-link,
 body.researchonly a.staff-listing-link,
-body.collegeonly a.staff-listing-link {
+body.collegeonly a.staff-listing-link,
+body.tvmdlonly a.test-listing-link {
 	overflow: hidden;
 	display: block;	
 	text-decoration: none;
@@ -1552,18 +1583,23 @@ body.collegeonly a.staff-listing-link {
 }
 
 a.job-listing-link:hover,
-a.staff-listing-link:hover {
+a.staff-listing-link:hover,
+a.test-listing-link:hover {
 	background: #f1efce;
 	border-bottom: 1px solid #9f9490;		
 }
 
 .job-title,
-.staff-title {
+.staff-title,
+.test-title {
 	font-size: 22px;
 	font-weight: bold;
 	margin-bottom: 10px;
 }
- 
+.test-title {
+	margin-bottom: 0;
+}
+
 .job-agency {
 	font-size: 14px;
 	color: #433C3A;
