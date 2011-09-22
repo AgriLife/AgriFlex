@@ -144,12 +144,13 @@
 			<li class="top-agency tvmdl-item"><a href="http://tvmdl.tamu.edu/">Texas Veterinary Medical Diagnostics Laboratory</a></li>						
 			<li class="top-agency tfs-item"><a href="http:///txforestservice.tamu.edu/">Texas Forest Service</a></li>														
 			<?php endif; ?>		
-			<!--<li class='ask'><a class="ext-link" href="/ask/">Ask</a></li>
-			<li class='explore right-align'><a class="ext-link" href="/explore/">Explore</a></li>-->
+			<!--<li class='ask'><a class="ext-link" href="/ask/">Ask</a></li>-->
+			<li class='explore right-align'><a class="ext-link" href="/explore/">Explore</a></li>
 		</ul>				
 	</div><!-- #drop-nav -->	
 </div><!-- #drop-section-nav -->
 
+<?php if($collegeonly) college_top_level_section() ?>
 	
 <div id="wrapper" class="hfeed">
 	<div id="header">

@@ -11,7 +11,9 @@ get_header(); ?>
 
 		<div id="wrap">
 			<div id="content" role="main">
-<?php tvmdl_test_search() ?>
+				<?php if($tvmdlonly) :?>
+				<?php tvmdl_test_search() ?>
+				<?php endif; ?>
 <?php if ( have_posts() ) : ?>
 				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'agriflex' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 					

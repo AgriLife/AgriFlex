@@ -383,10 +383,10 @@ span.gigpress-sidebar-status a, .btn a:active, button.btn:active, a.gigpress-tic
 -------------------------------------------------------------- */
 
 #drop-section-nav {
-	position: absolute;
+	position: relative;
+	overflow: hidden;
 	z-index: 3;		
-	top: 0;
-	left: 0;
+	margin: 0 auto;
 	width: 100%;
 	background: #726b60;
 	color: #fff;
@@ -871,11 +871,14 @@ body.collegeonly #access li a[title='home'] {
 	background-image: url('images/home-college.png');
 }
 
+#college-top-level-section, .ask, .explore  {
+	display: none;
+}
+
 /* =Header
 -------------------------------------------------------------- */
 
 #header {
-	padding: 50px 0 10px 0;
 	overflow: hidden;	
 }
 #site-title {
@@ -2869,11 +2872,143 @@ img#wpstats {
 		width: 109px;	
 	}
 
+	#college-top-level-section  {
+		display: block;
+		background: #5b0125 url('images/drop-background.png');	
+		color: #fff;
+		margin: 0 auto;
+	}
+
+	#college-top-level-section .flow {
+		position: relative;	 
+		overflow: hidden;
+		margin: 0 auto;	
+		max-width: 975px;
+	}
+
+	#college-top-level-section .hidden {
+		display: none;	
+	}
+
+	#college-top-level-section .flow .contents {
+		bottom: 0px;
+		position: absolute;
+		overflow: hidden;
+		padding: 0 10px;
+		margin-top: 0;		
+	}
+
+	#college-top-level-section .flow .contents a {
+		color: #eee;		
+	}
+
+	#college-top-level-section .flow .contents a:hover {
+		color: #fff;		
+	}
+
+	#college-top-level-section .flow .contents .gform_wrapper {
+		position: relative;
+		padding: 5px 5px 10px 5px;
+		float: right;
+		width: 164px;
+		background: #dad2b0;		
+	}
+
+	#college-top-level-section .flow .contents form label {
+		display: block;	
+		padding-left: 5px;	
+		font-size: 14px;
+	}
+
+	#college-top-level-section .flow .contents form input {
+		margin-bottom: 8px;	
+	}
+
+	#college-top-level-section .flow .contents form button[type=reset] {	
+		border: 1px solid #d2c89f;
+		color: #fff;
+		background: #cabe8e;
+		padding: 2px 5px;	
+	}
+
+	#college-top-level-section .flow .contents form button[type=submit] {	
+		padding: 2px 12px;	
+	}
+
+	#college-top-level-section .flow .contents form input,
+	#college-top-level-section .flow .contents form textarea {
+		background: #f3f2e9;
+		font-size: 12px;
+		color: #c3c39a;
+		border: 1px solid #d2c89f;	
+		padding: 2px 3px;
+		width: 154px;	
+		-moz-transition: background-color .15s linear;	
+		-webkit-transition: background-color .15s linear;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;	
+	}
+
+	#college-top-level-section .flow .contents form textarea {
+		background: #f3f2e9;
+		color: #c3c39a;
+		border: 1px solid #d2c89f;	
+		padding: 2px 3px;
+		-moz-transition: background-color .15s linear;	
+		-webkit-transition: background-color .15s linear;
+	}
+
+	#college-top-level-section .flow .contents form input:hover,
+	#college-top-level-section .flow .contents form textarea:hover {
+		background: #fcfcfa;			
+	}
+
+	#college-top-level-section .flow .contents form input:focus,
+	#college-top-level-section .flow .contents form textarea:focus {
+		background: #fff;
+		-webkit-box-shadow: 0 0 10px #f0e0a1;
+		-moz-box-shadow: 0 0 10px #f0e0a1;
+		box-shadow: 0 0 10px #f0e0a1;			
+	}
+
+	#college-top-level-section .flow .contents #top-level-nav {
+		padding: 0;
+		clear: both;
+	}
+
+	#college-top-level-section .flow .contents #ext-intro {	
+		margin: 0 0 20px 0;
+		padding: 0;
+		border-bottom: 1px solid #fff;			
+		background: #ece5c2;
+		overflow: hidden;		
+	}
+
+	#college-top-level-section .flow .contents #ext-intro p {	
+		font-size: 2.4em;
+		line-height: 34px;
+		margin: 0;
+		padding: 20px 10px;
+		color: #5a0024;	
+		float: left;
+		width: 75%;
+	}
+
+ 	.top-level-li {
+		float: left;
+		width: 175px;
+	}
+	
+	.ask, .explore {
+		display: block;
+	}
+
 	#header, #access {
 		background: #fff;
 	}
 	
-	#branding, #access .menu-header, .wrap, #drop-nav {
+	#branding, #access .menu-header, .wrap, #drop-nav, .drop-section-wrap {
 		max-width: 975px;
 		margin: 0 auto;
 		position: relative;
@@ -2895,7 +3030,7 @@ img#wpstats {
 		margin-right: 10px;
 	}
 	body #header {
-		padding: 100px 0 30px;
+		padding: 60px 0 30px;
 	}				
 	#site-title {
 		text-align: left;

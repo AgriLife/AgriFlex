@@ -387,25 +387,7 @@ jQuery(document).ready(function($) {
 	$(function() {
 		$( "#tabs" ).tabs();
 	});
-
-	//background menu fading
-		$('.top-level-nav')
-		.mouseenter(function(){
-			$(this).find('h2').stop()
-			.css( {backgroundPosition: "0 -31px"} )
-			.animate(
-				{backgroundPosition:"(0 0)"}, 
-				{duration:300})
-			})
-		.mouseleave(function(){
-			$(this).find('h2').stop()
-			.css( {backgroundPosition: "0 0"} )
-			.animate(
-				{backgroundPosition:"(0 -31px)"}, 
-				{duration:200})
-			})
-			
-			
+						
 	// Top level drop down
 		var Revealer = function(relativeParent,absoluteChild,speed) {
         var revealHeight = absoluteChild.height();
@@ -424,25 +406,25 @@ jQuery(document).ready(function($) {
         };
     };
     
-   jQuery('#drop-section').after(jQuery('#contact-form'));
+   jQuery('.drop-section').after(jQuery('#contact-form'));
     
-    var contactForm = new Revealer(
-        jQuery('#drop-section .flow'),               // the relatively positioned container
-        jQuery('#drop-section .flow .contents'),     // the absolutely positioned child
+    var dropSection = new Revealer(
+        jQuery('.drop-section .flow'),               // the relatively positioned container
+        jQuery('.drop-section .flow .contents'),     // the absolutely positioned child
         300  // the speed of the animation
     );
     
     jQuery('.ext-link').live('click',function(){
         jQuery('html, body').animate({scrollTop:0}, 'fast');
-        contactForm.toggleReveal();
+        dropSection.toggleReveal();
         return false;
     });
-    jQuery('#drop-section button[type="reset"]').live('click',function(){
-        contactForm.toggleReveal();
+    jQuery('.drop-section button[type="reset"]').live('click',function(){
+        dropSection.toggleReveal();
         return false;
     });
 
-    jQuery('#drop-section form').live('submit',function(){
+    jQuery('.drop-section form').live('submit',function(){
         var values = $(this).serialize();
         jQuery.post('',values,function(markup) {
             jQuery('#drop-section .contents').html(markup);

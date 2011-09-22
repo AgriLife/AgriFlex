@@ -43,7 +43,9 @@ get_header(); ?>
 			</h1>
 
 <?php if ( 'tests' == get_post_type() ) : ?>
+	<?php if($tvmdlonly) :?>
 	<?php tvmdl_test_search() ?>
+	<?php endif; ?>
 	
 	<h1><?php _e( 'Results from Tests Search', 'agriflex' ); ?></h1>	
 	<ul class="job-listing-ul">

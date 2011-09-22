@@ -789,7 +789,7 @@ function staff_details_meta_setup() {
  
 	// using an underscore, prevents the meta variable
 	// from showing up in the custom fields section
-	$meta = get_post_meta($post->ID,'_my_meta',TRUE)? get_post_meta($post->ID, '_my_meta', true) : 'empty meta';
+	$meta = get_post_meta($post->ID,'_my_meta',TRUE);
 	// The Details fields for data entry
 	
 // instead of writing HTML here, lets do an include
@@ -885,7 +885,7 @@ function box_meta_save($post_id)
  
 	// check user permissions
 
-	  if ( array('job_posting','staff') == $_POST['post_type'] )
+	  if ( array('job_posting','staff','tests') == $_POST['post_type'] )
 	  {
 	    if ( !current_user_can( 'edit_page', $post_id ) )
 	    return;
@@ -920,30 +920,6 @@ function box_meta_save($post_id)
  
 	return $post_id;
 }
-
-
-function my_meta_setup()
-{
-	global $post;
- 
-	// using an underscore, prevents the meta variable
-	// from showing up in the custom fields section
-	$meta = get_post_meta($post->ID,'_my_meta',TRUE);
- 
-		echo '<h4>Details</h4>';
-	echo '<label for="staff_new_field">';
-	     _e("Position", 'staff_textdomain' );
-	echo '</label> ';
-
-	
-	echo '<label for="room">';
-	     _e("Building & Room Number", 'staff_textdomain' );
-	echo '</label> ';
-	echo '<input type="text" id="room" name="_my_meta[room]" placeholder="Big Building Room 777" size="25" />';
- 
-	// create a custom nonce for submit verification later
-	echo '<input type="hidden" name="my_meta_noncename" value="' . wp_create_nonce(__FILE__) . '" />';
-}
  
 function my_meta_save($post_id) 
 {
@@ -953,7 +929,7 @@ function my_meta_save($post_id)
 	if (!wp_verify_nonce($_POST['my_meta_noncename'],__FILE__)) return $post_id;
  
 	// check user permissions
-	if ($_POST['post_type'] == 'page') 
+	if ($_POST['post_type'] == array('staff', 'job_posting', 'tests')) 
 	{
 		if (!current_user_can('edit_page', $post_id)) return $post_id;
 	}
@@ -1079,7 +1055,18 @@ echo '</div>';
 <?php  
 }
 
+// TVMDL specific content for test search form
+function college_top_level_section() {
+    do_action('college_top_level_section');
+}
 
+add_action('college_top_level_section','college_drop_down',5);
+
+function college_drop_down() {
+
+// instead of writing HTML here, lets do an include
+	include(MY_THEME_FOLDER . '/college-drop-section.php');
+} 
 
 	// Set path to function files
 	$includes_path = TEMPLATEPATH . '/includes/';

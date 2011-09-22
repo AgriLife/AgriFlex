@@ -1,7 +1,8 @@
 
 	<h4>Contact Details</h4>
+	
 	<p><label  class="admin-form-label" for="position">Position</label>
-	<input type="text" class="admin-form-input" id="position" name="_my_meta[position]" value="<?php if(!empty($meta['position'])) echo $meta['position']; ?>" value="<?php if(!empty($meta['position'])) echo $meta['position']; ?>" placeholder="Distinguished Professor" size="25" /></p>
+	<input type="text" class="admin-form-input" id="position" name="_my_meta[position]" value="<?php if(!empty($meta['position'])) echo $meta['position']; ?>" placeholder="Distinguished Professor" size="25" /></p>
 	
 	<p><label  class="admin-form-label" for="room">Building/Room</label>
 	<input type="text" class="admin-form-input" id="room" name="_my_meta[room]" value="<?php if(!empty($meta['room'])) echo $meta['room']; ?>" placeholder="Building 555 Room 555" size="25" /></p>	
