@@ -8,49 +8,12 @@
  * @subpackage agriflex
  * @since agriflex 1.0
  */
- $options = get_option('AgrilifeOptions');
  
   GLOBAL $options,$googlemap;
-
-  $isresearch 	= (is_array($options) ? $options['isResearch'] 	: true);
-  $isextension	= (is_array($options) ? $options['isExtension'] : true);
-  $iscollege 	= (is_array($options) ? $options['isCollege'] 	: true);
-  $istvmdl	 	= (is_array($options) ? $options['isTvmdl'] 	: true);
-  $titleimg		= (is_array($options) ? $options['titleImg'] 	: '');
+  GLOBAL $isresearch, $isextension, $iscollege, $istvmdl;
+  GLOBAL $isextensiononly, $isresearchonly, $iscollegeonly, $istvmdlonly;
+  GLOBAL $isextensionh4, $isextensioncounty, $isextensioncountytce, $isextensionmg, $isextensionmn;
   
-  $extensiononly = ($isextension && !$isresearch && !$iscollege && !$istvmdl ? true : false);
-  $researchonly = ($isresearch && !$isextension && !$iscollege && !$istvmdl ? true : false);
-  $collegeonly = ($iscollege && !$isextension && !$isresearch && !$istvmdl ? true : false);
-  $tvmdlonly = ($istvmdl && !$isextension && !$isresearch && !$iscollege ? true : false);
-  $res_ext = (!$istvmdl && $isextension && $isresearch && !$iscollege ? true : false);
-  
-  if($extensiononly) :
-  	$isextensionh4 = $isextensioncounty = $isextensioncountytce = $isextensionmg = $isextensionmn = false;
-  	switch ($options['extension_type']) {
-  		case 0:
-  			break;
-  		case 1:
-  			// 4-h
-  			$isextension4h = true;
-  			break;
-  		case 2:
-  			// County
-  			$isextensioncounty = true;
-  			break;
-  		case 3:
-  			// County TCE
-  			$isextensioncountytce = true;
-  			break;
-  		case 4:
-  			// Master Gardener
-  			$isextensionmg = true;
-  			break;
-  		case 5:
-  			// Master Naturalist
-  			$isextensionmn = true;
-  			break;
-  	}
-  endif;  
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>
 <html id="ie6" class="no-js ie6 oldie" <?php language_attributes(); ?>>
@@ -119,17 +82,17 @@
 <div id="drop-section-nav"> 
 	<div id="drop-nav">
 		<ul>			
-			<?php if($collegeonly) :?>
+			<?php if($iscollegeonly) :?>
 			<li class="top-agency college-item"><a href="http://aglifesciences.tamu.edu/">Texas A&amp;M College of Agriculture and Life Sciences</a></li>
-			<?php elseif($extensiononly) :?>
+			<?php elseif($isextensiononly) :?>
 			<li class="top-agency tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife Extension Service</a></li>
-			<?php elseif($researchonly) :?>
+			<?php elseif($isresearchonly) :?>
 			<li class="top-agency research-item"><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M Research</a></li>
-			<?php elseif($tvmdlonly) :?>
+			<?php elseif($istvmdlonly) :?>
 			<li class="top-agency tvmdl-item"><a href="http://tvmdl.tamu.edu/">Texas Veterinary Medical Diagnostics Laboratory</a></li>
 			<li class='right-align'><a class="explore" href="/explore/">Tests</a></li>	
 			
-			<?php elseif($res_ext) :?>
+			<?php elseif($isextension && $isresearch && !$iscollege && !$istvmdl)  :?>
 			<li class="top-agency tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife	Extension Service</a></li>
 			<li class="top-agency research-item"><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M Research</a></li>
 					
