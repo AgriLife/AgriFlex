@@ -74,23 +74,65 @@ jQuery('#isTvmdl_no').click(function() {
 // Close Extension sub-options if an additional agency is selected
 jQuery('#isResearch_yes').click(function() {
   jQuery('#extension_type').hide('fast');
+  jQuery('#county-info').hide('fast');
   return true;
 });
 jQuery('#isTvmdl_yes').click(function() {
   jQuery('#extension_type').hide('fast');
+  jQuery('#county-info').hide('fast');
   return true;
 });
 jQuery('#isCollege_yes').click(function() {
   jQuery('#extension_type').hide('fast');
+  jQuery('#county-info').hide('fast');
   return true;
 });
 
 // Close Extension sub-options if extension unchecked
 jQuery('#isExtension_no').click(function() {
   jQuery('#extension_type').hide('fast');
+  jQuery('#county-info').hide('fast');
   return true;
 });
 /**************** End Extension Sub-options ***************/
+
+/******* Extension County Site Option Boxes *******/
+if (jQuery('#ext_type_2').is(':checked') || 
+ 	jQuery('#ext_type_3').is(':checked')) {	       
+  jQuery('#county-info').show('fast');
+} else {
+  jQuery('#county-info').hide('fast');
+}
+
+// Show County Options on Click
+jQuery('#ext_type_2').click(function() {
+  jQuery('#county-info').show('fast');
+  return true;
+});
+jQuery('#ext_type_3').click(function() {
+  jQuery('#county-info').show('fast');
+  return true;
+});
+
+// Hide County Options on Click
+jQuery('#ext_type_0').click(function() {
+  jQuery('#county-info').hide('fast');
+  return true;
+});
+jQuery('#ext_type_1').click(function() {
+  jQuery('#county-info').hide('fast');
+  return true;
+});
+jQuery('#ext_type_4').click(function() {
+  jQuery('#county-info').hide('fast');
+  return true;
+});
+jQuery('#ext_type_5').click(function() {
+  jQuery('#county-info').hide('fast');
+  return true;
+});
+
+
 
 
 });

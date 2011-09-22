@@ -17,16 +17,16 @@
   $isextension	= (is_array($options) ? $options['isExtension'] : true);
   $iscollege 	= (is_array($options) ? $options['isCollege'] 	: true);
   $istvmdl	 	= (is_array($options) ? $options['isTvmdl'] 	: true);
-  $extensiononly = ($isextension && !$isresearch && !$iscollege && !$istvmdl ? true : false);
-  $researchonly = ($isresearch && !$isextension && !$iscollege && !$istvmdl ? true : false);
-  $collegeonly = ($iscollege && !$isextension && !$isresearch && !$istvmdl ? true : false);
-  $tvmdlonly = ($istvmdl && !$isextension && !$isresearch && !$iscollege ? true : false);
-  $res_ext = (!$istvmdl && $isextension && $isresearch && !$iscollege ? true : false);
+  $isextensiononly = ($isextension && !$isresearch && !$iscollege && !$istvmdl ? true : false);
+  $isresearchonly = ($isresearch && !$isextension && !$iscollege && !$istvmdl ? true : false);
+  $iscollegeonly = ($iscollege && !$isextension && !$isresearch && !$istvmdl ? true : false);
+  $istvmdlonly = ($istvmdl && !$isextension && !$isresearch && !$iscollege ? true : false);
   
-  if($extensiononly) :
-  	$isextensionh4 = $isextensioncounty = $isextensioncountytce = $isextensionmg = $isextensionmn = false;
+  if($isextensiononly) :
+  	$isextension4h = $isextensioncounty = $isextensioncountytce = $isextensionmg = $isextensionmn = false;
   	switch ($options['extension_type']) {
   		case 0:
+  			// Typical
   			break;
   		case 1:
   			// 4-h
@@ -166,7 +166,7 @@ function agriflex_setup() {
 		$classes[] = '';
 		
 		if (class_exists("AgrilifeCustomizer")) {
-			$options = get_option('AgrilifeOptions');
+			GLOBAL $options;
 
 			// Set Header Tabs
 			if($options['isResearch']) $classes[] .= 'research';
@@ -615,7 +615,7 @@ function base_admin_body_class( $classes )
 add_filter('admin_body_class', 'base_admin_body_class');
 
 /* Staff Custom Post Type & Taxonomies*/
-if ($tvmdlonly) {
+if ($istvmdlonly) {
 add_action( 'init', 'create_tests_post_type' );
 function create_tests_post_type() {
 	register_post_type( 'tests',
@@ -700,7 +700,7 @@ function create_tests_taxonomies() {
 }
 
 /* Staff Custom Post Type */
-if ($collegeonly) {
+if ($iscollegeonly) {
 add_action( 'init', 'create_staff_post_type' );
 function create_staff_post_type() {
 	register_post_type( 'staff',
@@ -733,7 +733,7 @@ function create_staff_post_type() {
 }
 
 /* Job Posting Custom Post Type */
-if ($collegeonly) {
+if ($iscollegeonly) {
 add_action( 'init', 'create_job_posting_post_type' );
 function create_job_posting_post_type() {
 	register_post_type( 'job_posting',
