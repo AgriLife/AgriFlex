@@ -1093,3 +1093,5 @@ echo '</div>';
 	require_once ($includes_path . 'plugin-config.php');
 	// Add Custom Widgets
 	require_once ($includes_path . 'widgets.php');
+	// Custom Featured Page/Post metaboxes
+	require_once ($includes_path . 'custom-meta.php');
