@@ -27,7 +27,7 @@ get_header(); ?>
 					<li class="job-listing-item">
 						<a class="job-listing-link" href="<?php the_permalink(); ?>">
 						<div class="role">
-							<h2 class="job-title"><title="<?php the_title(); ?>"><?php the_title(); ?></h2>
+							<h2 class="job-title" title="<?php the_title(); ?>"><?php the_title(); ?></h2>
 							<h3 class="job-agency"><?php echo $my_meta['agency']; ?></h3>
 							<p class="job-location location"><?php echo $my_meta['location']; ?></p>
 							<p class="job-type type"><?php echo $my_meta['type']; ?></p>

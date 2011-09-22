@@ -808,7 +808,7 @@ function job_posting_meta_init() {
 	// review the function reference for parameter details
 	// http://codex.wordpress.org/Function_Reference/add_meta_box
  
-	// add a meta box for each of the wordpress page types: posts and pages
+	// add a meta box for each of the wordpress page types: job_posting
 	foreach (array('job_posting') as $type) 
 	{
 		add_meta_box('job_posting_details_meta', 'Enter Job Details', 'job_posting_details_meta_setup', $type, 'normal', 'high');
@@ -834,6 +834,7 @@ function job_posting_details_meta_setup() {
 	echo '<input type="hidden" name="my_meta_noncename" value="' . wp_create_nonce(__FILE__) . '" />';
 
 }
+
 
 /* Define the custom box for "tests" custom post type */
 add_action('admin_init','tests_meta_init');
@@ -866,7 +867,7 @@ function tests_details_meta_setup() {
 	include(MY_THEME_FOLDER . '/includes/meta_boxes/tests_meta_html.php');
 
 	// create a custom nonce for submit verification later
-	echo '<input type="hidden" name="my_meta_noncename" value="' . wp_create_nonce(__FILE__) . '" />';
+	echo '<input type="hidden" name="my_meta_noncename" value="' . wp_create_nonce(__FILE__) . '" />';	
 
 }
 
@@ -921,28 +922,6 @@ function box_meta_save($post_id)
 }
 
 
-function my_meta_init()
-{
-	// review the function reference for parameter details
-	// http://codex.wordpress.org/Function_Reference/wp_enqueue_script
-	// http://codex.wordpress.org/Function_Reference/wp_enqueue_style
- 
-	//wp_enqueue_script('my_meta_js', MY_THEME_PATH . '/custom/meta.js', array('jquery'));
-	wp_enqueue_style('my_meta_css', MY_THEME_PATH . '/custom/meta.css');
- 
-	// review the function reference for parameter details
-	// http://codex.wordpress.org/Function_Reference/add_meta_box
- 
-	// add a meta box for each of the wordpress page types: posts and pages
-	foreach (array('post','page') as $type) 
-	{
-		add_meta_box('my_all_meta', 'My Custom Meta Box', 'my_meta_setup', $type, 'normal', 'high');
-	}
- 
-	// add a callback function to save any data a user enters in
-	add_action('save_post','my_meta_save');
-}
- 
 function my_meta_setup()
 {
 	global $post;
@@ -1039,6 +1018,68 @@ function my_meta_clean(&$arr)
 		}
 	}
 }
+
+// TVMDL specific content for test search form
+function tvmdl_test_search() {
+    do_action('tvmdl_test_search');
+}
+
+add_action('tvmdl_test_search','tvmdl_test_search_form',5);
+
+function tvmdl_test_search_form() { ?>
+	<div class="test-search-form">
+	<label>
+	<h4>Search for Tests</h4>
+	</label>
+	<form role="search" class="searchform" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
+<?php
+echo '<div class="tax-options">';
+function get_terms_dropdown($species, $lab_sections, $args){
+	$myspecies = get_terms($species, $args);
+	$mylab_sections = get_terms($lab_sections, $args);	
+	$optionname = "optionname";
+	$emptyvalue = "";
+	$output ="<select name='".$optionname."'><option selected='".$selected."' value='".$emptyvalue."'>Species</option>'";
+
+	foreach($myspecies as $term){
+		$term_taxonomy=$term->species; 
+		$term_slug=$term->slug;
+		$term_name =$term->name;
+		$link = $term_slug;
+		$output .="<option name='".$link."' value='".$link."'>".$term_name."</option>";
+	}
+	$output .="</select>";	
+	
+	$output .="<select name='".$optionname."'><option selected='".$selected."' value='".$emptyvalue."'>Lab Sections</option>'";
+
+	foreach($mylab_sections as $term){
+		$term_taxonomy=$term->lab_sections; 
+		$term_slug=$term->slug;
+		$term_name =$term->name;
+		$link = $term_slug;
+		$output .="<option name='".$link."' value='".$link."'>".$term_name."</option>";
+	}
+	$output .="</select>";	
+	
+return $output;
+
+
+}
+
+$species = array( 'species' ); 
+$lab_sections = array( 'lab_sections'); 
+$args = array('order'=>'ASC','hide_empty'=>true);
+echo get_terms_dropdown($species, $lab_sections, $args);
+echo '</div>';
+?>
+		<input type="text" class="s" name="s" id="s" placeholder="Avian Influenza" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;"/><br />
+		<input type="hidden" name="post_type" value="tests" />
+	</form>
+	</div>
+<?php  
+}
+
+
 
 	// Set path to function files
 	$includes_path = TEMPLATEPATH . '/includes/';

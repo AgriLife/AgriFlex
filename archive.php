@@ -33,12 +33,35 @@ get_header(); ?>
 <?php elseif ( is_month() ) : ?>
 				<?php printf( __( 'Monthly Archives: <span>%s</span>', 'agriflex' ), get_the_date('F Y') ); ?>
 <?php elseif ( is_year() ) : ?>
-				<?php printf( __( 'Yearly Archives: <span>%s</span>', 'agriflex' ), get_the_date('Y') ); ?>
+				<?php printf( __( 'Yearly Archives: <span>%s</span>', 'agriflex' ), get_the_date('Y') ); ?>				
+<?php elseif ( 'tests' == get_post_type() ) : ?>
+			
 <?php else : ?>
 				<?php _e( 'Blog Archives', 'agriflex' ); ?>
+								
 <?php endif; ?>
 			</h1>
 
+<?php if ( 'tests' == get_post_type() ) : ?>
+	<?php tvmdl_test_search() ?>
+	
+	<h1><?php _e( 'Results from Tests Search', 'agriflex' ); ?></h1>	
+	<ul class="job-listing-ul">
+	<?php $my_query = new WP_Query('post_type=tests&post_status=publish&posts_per_page=10');
+			while ($my_query->have_posts()) : $my_query->the_post();
+			global $post;
+	$my_meta = get_post_meta($post->ID,'_my_meta',TRUE);
+		?>
+	<li class="test-listing-item">
+		<a class="test-listing-link" href="<?php echo $my_meta['link']; ?>">
+			<h2 class="test-title" title="<?php the_title(); ?>"><?php the_title(); ?></h2>
+		</a>
+	</li>
+
+	<?php endwhile;?>
+	</ul>
+
+<?php else : ?>
 <?php
 	/* Since we called the_post() above, we need to
 	 * rewind the loop back to the beginning that way
@@ -52,7 +75,7 @@ get_header(); ?>
 	 */
 	 get_template_part( 'loop', 'archive' );
 ?>
-
+<?php endif; ?>
 			</div><!-- #content -->
 		</div><!-- #wrap -->
 

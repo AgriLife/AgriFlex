@@ -13,13 +13,13 @@
 	<input type="text" class="admin-form-input" id="salary" name="_my_meta[salary]" value="<?php if(!empty($meta['salary'])) echo $meta['salary']; ?>" placeholder="$50,000" size="25" /></p>
 
 	<p><label class="admin-form-label" for="apply-date">Last Date to Apply</label>
-	<input type="text" class="admin-form-input" id="salary" name="_my_meta[apply-date]" value="<?php if(!empty($meta['apply-date'])) echo $meta['apply-date']; ?>" placeholder="October 3, 2012" size="25" /></p>	
+	<input type="text" class="admin-form-input" id="apply-date" name="_my_meta[apply-date]" value="<?php if(!empty($meta['apply-date'])) echo $meta['apply-date']; ?>" placeholder="October 3, 2012" size="25" /></p>	
 	
 	<p><label class="admin-form-label" for="description">Job Description</label>
-	<textarea class="admin-form-input" id="description" name="_my_meta[description]" value="<?php if(!empty($meta['description'])) echo $meta['description']; ?>"  cols="65" rows="8"></textarea></p>
+	<textarea class="admin-form-input" id="description" name="_my_meta[description]" cols="65" rows="8"><?php if(!empty($meta['description'])) echo $meta['description']; ?></textarea></p>
 
 	<p><label class="admin-form-label" for="qualifications">Qualifications</label>
-	<textarea class="admin-form-input" id="qualifications" name="_my_meta[qualifications]" value="<?php if(!empty($meta['qualifications'])) echo $meta['qualifications']; ?>"  cols="65" rows="8"></textarea></p>
+	<textarea class="admin-form-input" id="qualifications" name="_my_meta[qualifications]" cols="65" rows="8"><?php if(!empty($meta['qualifications'])) echo $meta['qualifications']; ?></textarea></p>
 	
 	<h4>Contact</h4>
 	<p><label class="admin-form-label" for="contact-name">Contact Name</label>

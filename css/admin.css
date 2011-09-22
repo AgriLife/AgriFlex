@@ -10,30 +10,37 @@ body.post-type-job_posting .postarea {
 	display: none;
 }
 
-body.post-type-job_posting .inside p {
+body.post-type-job_posting .inside p,
+body.post-type-staff .inside p {
 	overflow: hidden;
 }
 
 body.post-type-job_posting .admin-form-label,
-body.post-type-job_posting .inside h4 {
+body.post-type-job_posting .inside h4,
+body.post-type-staff .admin-form-label,
+body.post-type-staff .inside h4 {
 	width: 13%;
 	text-align: right;
 	margin-right: 2%;
 }
 
-body.post-type-job_posting .inside h4 {
-	font-size: 18px;
+body.post-type-job_posting .inside h4,
+body.post-type-staff .inside h4 {
+	font-size: 16px;
 }
 
-body.post-type-job_posting .admin-form-label {
+body.post-type-job_posting .admin-form-label,
+body.post-type-staff .admin-form-label {
 	float: left;
 }
 
-body.post-type-job_posting .admin-form-input {
-	max-width: 200px;
+body.post-type-job_posting .admin-form-input,
+body.post-type-staff .admin-form-input {
+	max-width: 600px;
 	float: left;
 }
 
-body.post-type-job_posting textarea.admin-form-input {
+body.post-type-job_posting textarea.admin-form-input,
+body.post-type-staff textarea.admin-form-input {
 	max-width: 600px;
 }
