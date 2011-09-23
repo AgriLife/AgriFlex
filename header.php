@@ -43,7 +43,7 @@
 
 	?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>?35" />
+<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>?49" />
 <!--[if lt IE 9]>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/ie.css?1" />
 <![endif]-->
@@ -64,7 +64,7 @@
 	 */
 	wp_head();
 ?>
-	<!-- Hook up the FlexSlider -->
+	<!-- Hook up the FlexSlider and FitVids-->
 	<script type="text/javascript">
 		$(window).load(function() {
 			$('.flexslider').flexslider({
@@ -122,13 +122,11 @@
 					
 				<?php if($isextensioncounty) :?>
 				<h1 id="site-title">
-						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><span>Texas AgriLife Extension Service</span> <em>in <?php echo $options['county-name-human']; ?> County</em></a>
-				</h1>
+						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><span>Texas AgriLife Extension Service</span> <em>in <?php echo $options['county-name-human']; ?> County</em></a></h1>
 				
 				<?php elseif($isextensioncountytce) :?>
 				<h1 id="site-title">
-						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><span>Extension Education</span> <em>in <?php echo $options['county-name-human']; ?> County</em></a>
-				</h1>
+						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><span>Extension Education</span> <em>in <?php echo $options['county-name-human']; ?> County</em></a></h1>
 									
 				<?php else : ?>	
 				<h1 id="site-title">
@@ -142,14 +140,10 @@
 				<?php endif; ?>
 				<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
 				</hgroup>
-				<div class="search">
-				<ul id="navigation-link-ul">
-					<li class="navigation-link">Navigation</li>
-				</ul>
-				<?php get_search_form(); ?>
-				</div><!-- end .search -->					
+				<?php get_search_form(); ?>					
 			</header><!-- #branding -->	
 		</div><!-- end #header -->
+			<div class='menu-button'>Menu</div>
 			<nav id="access" role="navigation">		
 			  <?php /*  Allow screen readers / text browsers to skip the navigation menu and get right to the good stuff */ ?>
 				<div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'agriflex' ); ?>"><?php _e( 'Skip to content', 'agriflex' ); ?></a></div>

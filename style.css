@@ -30,6 +30,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -116,15 +117,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	font-size: 2.8em;
+	font-size: 2.7em;
 }
 
 h2 {
-	font-size: 2.4em;
+	font-size: 2.5em;
 }
 
 h3 {
-	font-size: 2.2em;
+	font-size: 2.3em;
 }
 
 h4 {
@@ -890,7 +891,6 @@ body.collegeonly #access li a[title='home'] {
 #site-title a {
 	border: none;
 	color: #443d3a;
-	margin-left: 10px;
 	padding: 20px 0;
 }
 
@@ -921,18 +921,20 @@ body.collegeonly #site-title a {
 
 /* =Menu
 -------------------------------------------------------------- */
-#navigation-link-ul {
-	margin: 0;
+.menu-button {
+	position: absolute;
+	z-index: 999;
+	top: -.75em;
+	right: 0;
+	padding: 1.5em 1.25em 1em;
+	border-radius: .75em;
+	color: white;
+	background: #444;
+	background: rgba(1,1,1,.3);
+	margin-right: 5%;
+	cursor: pointer;
 }
 
-.navigation-link, .search-link {
-	text-align: center;
-	cursor: pointer;
-	font-size: 14px;	
-}
-.navigation-link:hover, .search-link:hover {
-	cursor: pointer;
-}
 .clear {
 	clear: both;
 }
@@ -942,10 +944,20 @@ body.collegeonly #site-title a {
 	display: block;	
 }
 
+.js .searchform,
+.js #access {
+	display: none;	
+} 
+
+.searchform .s {
+	display: block;
+	width: 70%;
+	margin: 0 auto;
+}
+
 #access .menu-header,
 ul.menu {
-	display: block;	
-	padding: 10px 0 0 5px;
+	display: block;
 	margin: 0 10px;		
 }
 
@@ -991,24 +1003,17 @@ body.mobile #access .menu-header li ul.sub-menu {
 body.touch #access .menu-header li ul.sub-menu {
 	display: none;
 }
-div.search{
-	width: 100%;
-	display: block;
-	overflow: hidden;
-	margin-bottom: 10px;
-}
 
-div.search form {
+.searchform {
 	margin: 0 auto;	
-	width: 80%;
 	display: block;
 	background: transparent;
 }
 
 .s {
-	width: 90%;
+	width: 100%;
 	padding: 8px 5px 8px 30px;
-	background: #fff url(images/search.png) no-repeat left center;
+	background: #fff url('images/search.png') no-repeat left 45%;
 	border-radius: 10px; 
 	color: #999;
 	border: 1px solid #ccc;
@@ -1191,7 +1196,7 @@ body.home .page p {
 	}
 		
 body.home .page p:first-child {
-	font-size: 20px;
+	font-size: 18px;
 	line-height: 26px;
 	}
 			
@@ -2523,11 +2528,17 @@ img#wpstats {
 		padding: .8em 10px;		
 	}
 	
+	.js .searchform,
+	.js #access {
+		display: block;	
+	}	
 	#access ul.menu li {
 		margin: 0 2px 0 0;
 		border-top-right-radius: 6px;	
 	}
-	
+	#access ul.menu li li{
+		border-radius: 0;	
+	}	
 	#access ul.menu li.current-menu-item {
 		background: #f8f5f1 url(images/tan-background.png) top left;
 		position: relative;
@@ -2546,11 +2557,12 @@ img#wpstats {
 	#access ul.menu a {
 		background: transparent;
 	}	
-    /*=== Drop Down Site Navigation  =========*/
-
-	.navigation-link, .search-link {
+	
+	.menu-button {
 		display: none;
 	}
+
+    /*=== Drop Down Site Navigation  =========*/
 
 	#access .sf-menu li {
 		font-size: 14px;	
@@ -3030,7 +3042,7 @@ img#wpstats {
 		margin-right: 10px;
 	}
 	body #header {
-		padding: 60px 0 30px;
+		padding: 55px 0 40px;		
 	}				
 	#site-title {
 		text-align: left;
@@ -3038,7 +3050,7 @@ img#wpstats {
 		padding: 0;
 		margin-bottom: 0;
 		margin-left: 10px;
-		width: 65%;			
+		width: 100%;			
 	}
 	#site-title a span{
 		width: 390px;			
@@ -3048,18 +3060,6 @@ img#wpstats {
 		font: 1.8em arno-pro-1,arno-pro-2, 'Cambria', georgia, serif;
 		padding: 20px 0;
 		margin-left: 0;	
-	}
-	
-	body.tvmdlonly #site-title {	
-		margin-top: 20px;
-		width: 50%;	
-		margin-left: 10px;
-	}	
-		
-	body.tvmdlonly #site-title a {	
-		font: 1.4em arno-pro-1,arno-pro-2, 'Cambria', georgia, serif;
-		padding-left: 0;
-		margin-left: 0;
 	}
 						
 	body.collegeonly #site-title a {
@@ -3107,26 +3107,32 @@ img#wpstats {
 	}
 	
 /* --- End County --- */	
-		
-	div.search {
-		width: 20em;		
-		margin-bottom: 0;		
-	}
 	
-	div.search form {
+	.searchform {
 		position: absolute;
-		top: 25px;
-		right: 30px;		
+		top: -50px;
+		right: 10px;		
 		margin: 0;	
 		width: 20em;
 		display: block;
+	}	
+	.searchform input.s {
+		width: 45px;
+		float: right;
+		-webkit-transition: .5s width ease;
+		-moz-transition: .5s width ease;		
+		background: #fff url('images/search.png') no-repeat left 45%;
+		-webkit-border-top-right-radius: 0;
+		-moz-border-radius-topright: 0;
+		border-top-right-radius:0;
 	}
 	
-	div.search input.s:hover {
+	.searchform input.s:hover {
 		background-color: #f7f7f7;			
 	}
 	
-	div.search input.s:focus {
+	.searchform input.s:focus {
+		width: 220px;
 		background-color: #fafafa;			
 	}
 
@@ -3352,16 +3358,14 @@ img#wpstats {
 		padding-left: 5%;
 		padding-right: 5%;		
 	}
-	#access ul.menu a {
-		font-size: 12px;
-	}
+
 	#content {
 		padding-top:3em;
 	}
 	#header {
 		padding-bottom: 20px;
 	}
-	body div.search {
+	body .searchform {
 		margin-bottom: 20px;
 	}
 	img,video,object {
@@ -3381,7 +3385,6 @@ img#wpstats {
 				
 	#site-title a {
 		font: 28px arno-pro-1,arno-pro-2, georgia, serif;
-		margin-left: 7px;
 	}
 	body  { 		
 		font-size: 76%; 
@@ -3413,6 +3416,7 @@ img#wpstats {
 	div.menu li {
 		float: none;
 		margin: 0;
+		border-bottom: 1px solid #E7E2CB;
 	}
 	
 	#access  {
@@ -3442,10 +3446,7 @@ img#wpstats {
 /* mobile width */
 @media all and (max-width: 420px) {
 
-	body { 
-		font-size: 75%; 
-		-webkit-text-size-adjust: 98%;			
-	}	
+	
 	body h3.entry-title,
 	body h2.entry-title,
 	body h1.entry-title {
@@ -3457,6 +3458,10 @@ img#wpstats {
 	body #site-title {
 		margin-top: 15px;
 		margin-bottom: 10px;
+		line-height: 18px;	
+	}
+	body #site-title a {
+		font-size: 22px;
 	}
 	body #content {
 		padding-top: 1em;
