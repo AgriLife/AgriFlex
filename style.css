@@ -508,6 +508,12 @@ body.collegeonly #drop-section-nav #drop-nav ul li a {
 	background-image: url('images/ext-system-logo.png');
 }
 
+.extensioncountytce #drop-section-nav #drop-nav ul li a[href*='pvcep'] {
+	background-image: url('images/cep.png');
+	width: 204px;
+	margin-top: 0px;
+}
+
 .collegeonly #drop-section-nav #drop-nav ul li a[href*='aglifesciences'] {
 	background-image: url('images/college-logo.png');
 	margin-top: 6px;

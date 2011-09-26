@@ -84,8 +84,11 @@
 		<ul>			
 			<?php if($iscollegeonly) :?>
 			<li class="top-agency college-item"><a href="http://aglifesciences.tamu.edu/">Texas A&amp;M College of Agriculture and Life Sciences</a></li>
-			<?php elseif($isextensiononly) :?>
+			<?php elseif($isextensioncountytce) :?>
 			<li class="top-agency tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife Extension Service</a></li>
+			<li class="top-agency tce"><a href="http://pvcep.pvamu.edu/">Cooperative Extension Program</a></li>				
+			<?php elseif($isextensiononly) :?>
+			<li class="top-agency tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife Extension Service</a></li>		
 			<?php elseif($isresearchonly) :?>
 			<li class="top-agency research-item"><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M Research</a></li>
 			<?php elseif($istvmdlonly) :?>
