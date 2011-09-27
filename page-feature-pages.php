@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Feature Pages
+ * Template Name: Home: Feature Pages
  * @package WordPress
  */
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Slideshow Home Page
+ * Template Name: Home: Slideshow
  * @package WordPress
  */
 
