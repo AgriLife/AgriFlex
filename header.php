@@ -136,9 +136,14 @@
 						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 						<?php if($options['header_type']==1 && $options['titleImg']<>'') :?>
 							<img src="<?php echo $options['titleImg']; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
+							<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a>	
+						<?php elseif($options['header_type']==2) : ?>
+							<img src="<?php echo $options['titleImg']; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" /></a>
+						<?php else: ?>
+							<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a>
 						<?php endif; ?>
 							
-						<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a>		
+							
 				</h1>
 				<?php endif; ?>
 				<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>

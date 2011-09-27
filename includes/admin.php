@@ -555,7 +555,7 @@ if (!class_exists("AgrilifeCustomizer")) {
 		<h3>Header</h3>
 		<input type="radio" name="header_type" value="0" <?php if($agrilifeOptions['header_type']==0) echo 'checked="checked"';?> /> Site Title (text only)<br />
 		<input type="radio" name="header_type" value="1" <?php if($agrilifeOptions['header_type']==1) echo 'checked="checked"';?> /> Site Title and Small Logo<br />
-		
+		<input type="radio" name="header_type" value="2" <?php if($agrilifeOptions['header_type']==2) echo 'checked="checked"';?> /> Custom Image Header<br />
 		 
 		<p style="display: none;">A custom 900px by 60px image you have designed.  Make sure it's exported for Web at 72 dpi.</p>
 				
@@ -570,7 +570,7 @@ if (!class_exists("AgrilifeCustomizer")) {
 </tr>
 </table>
 
-<input type="radio" name="header_type" value="2" disabled="disabled" <?php if($agrilifeOptions['header_type']==2) echo 'checked="checked"';?> /> Custom Image Header (coming soon)<br />
+
 
 
 		
