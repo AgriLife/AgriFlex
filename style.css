@@ -950,7 +950,7 @@ body.collegeonly #site-title a {
 	display: block;	
 }
 
-.js .searchform,
+.js #branding .searchform,
 .js #access {
 	display: none;	
 } 
@@ -1512,6 +1512,7 @@ body.home .hentry {
 	background: #e8e7d5;
 	border-top: 1px solid #d5d1bf;
 	border-bottom: 1px solid #d5d1bf;
+	position: relative;
 }
 
 .test-search-form {
@@ -1533,8 +1534,10 @@ body.home .hentry {
 	padding-top: 8px;
 }
 
-.test-listing-item {
-	
+.job-search-form .searchform,
+.staff-search-form .searchform,
+.test-search-form .searchform {
+	top: 8px;
 }
 
 .job-search-form label h4,
@@ -1579,15 +1582,11 @@ body.home .hentry {
 	background: rgba(217, 208, 173, .10);
 }
 
-
+.staff-container,
 a.job-listing-link,
 body.extensiononly a.job-listing-link,
 body.researchonly a.job-listing-link,
 body.collegeonly a.job-listing-link,
-a.staff-listing-link,
-body.extensiononly a.staff-listing-link,
-body.researchonly a.staff-listing-link,
-body.collegeonly a.staff-listing-link,
 body.tvmdlonly a.test-listing-link {
 	overflow: hidden;
 	display: block;	
@@ -1596,6 +1595,12 @@ body.tvmdlonly a.test-listing-link {
 	border-bottom: 1px solid #d5d1c3;		
 }
 
+.staff-container img {
+	float: left;
+	margin-right: 10px;
+}
+
+.staff-listing-item:hover,
 a.job-listing-link:hover,
 a.staff-listing-link:hover,
 a.test-listing-link:hover {
@@ -1633,7 +1638,7 @@ a.test-listing-link:hover {
 }
 
 .staff-head {
-	width: 65%;
+	width: 45%;
 	float: left;
 }
 
@@ -2534,7 +2539,7 @@ img#wpstats {
 		padding: .8em 10px;		
 	}
 	
-	.js .searchform,
+	.js #branding .searchform,
 	.js #access {
 		display: block;	
 	}	
@@ -3115,14 +3120,24 @@ img#wpstats {
 /* --- End County --- */	
 	
 	.searchform {
+		overflow: hidden;
+		padding: 2px;
+	}
+	
+	#branding .searchform {
 		position: absolute;
 		top: -50px;
 		right: 10px;		
 		margin: 0;	
-		width: 20em;
+		width: 35em;
 		display: block;
-	}	
+	}
+	
 	.searchform input.s {
+		float: left;
+	}
+				
+	#branding .searchform input.s {
 		width: 45px;
 		float: right;
 		-webkit-transition: .5s width ease;
@@ -3137,7 +3152,7 @@ img#wpstats {
 		background-color: #f7f7f7;			
 	}
 	
-	.searchform input.s:focus {
+	#branding .searchform input.s:focus {
 		width: 220px;
 		background-color: #fafafa;			
 	}
