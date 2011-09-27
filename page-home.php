@@ -28,7 +28,7 @@ get_header(); ?>
 <?php endwhile; ?>	
 		<div id="home-middle">
 		<div class="home-middle-features">
-			<?php $my_query = new WP_Query('showposts=3');
+			<?php $my_query = new WP_Query('meta_key=feature-homepage&meta_value=1&showposts=3&post_type=any');
 			$count = 0;
 	  		while ($my_query->have_posts()) : $my_query->the_post();
 	  		$do_not_duplicate[] = $post->ID; $count++;
