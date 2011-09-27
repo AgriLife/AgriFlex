@@ -3092,9 +3092,8 @@ img#wpstats {
 	body.extensioncounty #site-title,
 	body.extensioncountytce #site-title	 {
 		text-align: left;
-		margin-top: 0;
+		margin: 0;
 		padding: 0;
-		margin-bottom: 0;
 		height: 85px;			
 	}
 	body.extensioncounty #site-title a span,
@@ -3116,7 +3115,12 @@ img#wpstats {
 		margin-top: -5px;
 		font-style: normal;		
 	}
-	
+    
+	body.extension #access #menu-main-navigation,
+	body.extension #access #menu-main-navigation	{
+		margin-left: 10px;
+	}
+
 /* --- End County --- */	
 	
 	.searchform {
