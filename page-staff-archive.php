@@ -25,15 +25,21 @@ get_header(); ?>
 					$my_meta = get_post_meta($post->ID,'_my_meta',TRUE);
 			  	?>
 					<li class="staff-listing-item">
-						<a class="staff-listing-link" href="<?php the_permalink(); ?>">
-						<div class="role">
+						<div class="role staff-container">
+						<a href="<?php the_permalink(); ?>">
+						<?php if ( has_post_thumbnail() ) {
+  							the_post_thumbnail('staff_archive'); 
+						} else  { 
+							echo '<img src="'.get_bloginfo("template_url").'/images/AgriLife-default-staff-image.png" alt="AgriLife Logo" title="AgriLife" />'; 
+						}
+						?></a>
 							<hgroup class="staff-head">
-							<h2 class="staff-title" title="<?php the_title(); ?>"><?php the_title(); ?></h2>
+							<h2 class="staff-title" title="<?php the_title(); ?>"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 							<h3 class="staff-position"><?php echo $my_meta['position']; ?></h3>
 							</hgroup>							
 							<div class="staff-contact-details">
 								<p class="staff-phone tel"><?php echo $my_meta['phone']; ?></p>
-								<p class="staff-email email"><?php echo $my_meta['email']; ?></p>
+								<p class="staff-email email"><a href="mailto:<?php echo $my_meta['email']; ?>"><?php echo $my_meta['email']; ?></a></p>
 							</div>
 						</div>
 						</a>

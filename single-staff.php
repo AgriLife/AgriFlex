@@ -19,7 +19,7 @@ get_header(); ?>
 						<?php if ( has_post_thumbnail() ) {
   							the_post_thumbnail('staff_single'); 
 						} else  { 
-							echo '<img src="'.get_bloginfo("template_url").'/images/AgriLife-default-post-image.png" alt="AgriLife Logo" title="AgriLife" />'; 
+							echo '<img src="'.get_bloginfo("template_url").'/images/AgriLife-default-staff-image-single.png" class="alignleft" alt="AgriLife staff image default" title="AgriLife" />'; 
 						}
 						?>
 						<?php $my_meta = get_post_meta($post->ID,'_my_meta',TRUE); ?>
