@@ -396,10 +396,6 @@ span.gigpress-sidebar-status a, .btn a:active, button.btn:active, a.gigpress-tic
 	box-shadow: 0 1px 3px rgba(6,6,6,.3);	
 }
 
-body.admin-bar #drop-section-nav {	
-	top: 28px;
-}
-
 #drop-section-nav #drop-nav {
 	position: relative;
 	margin: 0 auto 0;
@@ -2607,7 +2603,8 @@ img#wpstats {
 		-moz-box-shadow: -3px 0 6px rgba(3, 3, 3,.2);		
 		box-shadow: -3px 0 6px rgba(3, 3, 3,.2);						
 		padding: 5px 0;	
-	}
+	}	
+	
 	.sf-menu li:hover {
 		visibility:		inherit; /* fixes IE7 'sticky bug' */
 		-webkit-transition: .3s background ease;
