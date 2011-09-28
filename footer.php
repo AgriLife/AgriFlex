@@ -12,6 +12,7 @@
   GLOBAL $isresearch, $isextension, $iscollege, $istvmdl;
   GLOBAL $isextensiononly, $isresearchonly, $iscollegeonly, $istvmdlonly;
   GLOBAL $isextension4h, $isextensioncounty, $isextensioncountytce, $isextensionmg, $isextensionmn;
+  GLOBAL $options;
 ?>
 </div><!--.wrap-->
 </div><!--#content-wrap-->
