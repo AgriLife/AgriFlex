@@ -43,7 +43,7 @@
 
 	?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>?50" />
+<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>?55" />
 <!--[if lt IE 9]>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/ie.css?1" />
 <![endif]-->
@@ -111,7 +111,10 @@
 			<li class="top-agency tfs-item"><a href="http:///txforestservice.tamu.edu/">Texas Forest Service</a></li>														
 			<?php endif; ?>		
 			<!--<li class='ask'><a class="ext-link" href="/ask/">Ask</a></li>-->
+			<?php if($isextension && $isresearch && $iscollege && $istvmdl) :?>
+			<?php else : ?>	
 			<li class='explore right-align'><a class="ext-link" href="/explore/">Explore</a></li>
+			<?php endif; ?>
 		</ul>				
 	</div><!-- #drop-nav -->	
 </div><!-- #drop-section-nav -->
