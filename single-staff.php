@@ -39,9 +39,13 @@ get_header(); ?>
 								<dd class="email"><a href="mailto:<?php echo $my_meta['email'];?>"><?php echo $my_meta['email'];?></a></dd>
 							<?php } ?>
 							
-							<?php if ($my_meta['email']) { ?>
+							<?php if ($my_meta['phone']) { ?>
 								<dd><?php echo $my_meta['phone'];?></dd> 
-							<?php } ?> 	
+							<?php } ?> 
+								
+							<?php if ($my_meta['website']) { ?>
+								<dd class="website"><a href="<?php echo $my_meta['website'];?>"><?php echo $my_meta['website'];?></a></dd> 
+							<?php } ?>							
 							
 							<?php if ($my_meta['undergraduate_1']) { ?>						
 							<dt>Undergraduate Education</dt>
@@ -167,7 +171,6 @@ get_header(); ?>
 				<?php comments_template( '', true ); ?>
 
 <?php endwhile; // end of the loop. ?>
-<?php echo do_shortcode('[gigpress_related_shows]'); ?>
 			</div><!-- #content -->
 		</div><!-- #wrap -->
 

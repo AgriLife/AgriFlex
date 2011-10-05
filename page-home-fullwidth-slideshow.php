@@ -28,6 +28,7 @@ get_header(); ?>
 		</div>
 
 		<?php endif;?>
+		<div id="wrap">		
 			<div id="content" role="main">			
 
 
@@ -65,6 +66,6 @@ get_header(); ?>
 </div><!-- end #home-middle-bg -->
 			
 			</div><!-- #content -->
-
+		</div><!-- #wrap -->
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

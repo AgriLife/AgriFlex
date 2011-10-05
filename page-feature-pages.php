@@ -5,6 +5,7 @@
  */
 
 get_header(); ?>
+		<div id="wrap">
 			<div id="content" role="main">		
 				<?php if($tvmdlonly) :?>
 				<?php tvmdl_test_search() ?>
@@ -55,6 +56,6 @@ get_header(); ?>
 		</div><!-- end .home-middle-1 -->
 		</div><!-- end #home-middle -->				
 			</div><!-- #content -->
-
+		</div><!-- #wrap -->
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

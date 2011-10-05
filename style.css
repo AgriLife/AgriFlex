@@ -125,11 +125,11 @@ h2 {
 }
 
 h3 {
-	font-size: 2.3em;
+	font-size: 2.4em;
 }
 
 h4 {
-	font-size: 1.9em;
+	font-size: 2.3em;
 }
 
 h5 {
@@ -1157,17 +1157,20 @@ body.home #content {
 	background-position: center top;
 }
 
-.entry-title, body.home h3.widget-title a.rsswidget, #home-middle .home-middle-features h3 a {
-	color: #ad995a;
+.entry-title, body.home h3.widget-title a.rsswidget, body.home #content h3, body.home #content h4, #home-middle .home-middle-features h3 a {
+	color: #a0915d;
 	font-family: ff-dagny-web-pro-1, ff-dagny-web-pro-2, 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
 	font-weight: 600;
 	text-shadow: white 0px 1px 0px;
 }
 
+#home-middle .home-middle-features h3 a {
+	color: #ad995a;
+}
+
 body.collegeonly .entry-title,
-body.collegeonly.home h3.widget-title a.rsswidget,
-body.collegeonly #home-middle .home-middle-features h3 a {
-	color: #b19e56;
+body.collegeonly.home h3.widget-title a.rsswidget {
+	color: #a0915d;
 }
 
 /***** Home Middle ********************/
@@ -1187,24 +1190,17 @@ body.home #content {
 #home-middle {
 	margin: 0 auto;
 	padding: 0;
-	overflow: hidden;
 	float: left;
 	clear: left;
 	}
-	
-.home-middle-features p,
-body.home .page p {
-	margin-left: 10px;
-	}
 		
-body.home .page p:first-child {
-	font-size: 18px;
-	line-height: 26px;
+body.home #content p:first-child {
+	font-size: 20px;
+	line-height: 28px;
 	}
 			
 #home-middle h2, body.home .page .entry-title {
 	margin: 0 0 5px 0;
-	padding: 0 0 0 10px;
 	text-decoration: none;
 	}
 	
@@ -1346,9 +1342,9 @@ body.home #home-middle .home-middle-features img:hover {
 }
 
 body.home #home-middle .home-middle-features h3 {
-	margin: 10px;
-	padding-top: 30px;
+	padding-top: 20px;
 	border-top: double #E2DECA;	
+	line-height: 36px;
 }
 	
 body.home  #home-middle .home-middle-features h3 a {
@@ -1409,7 +1405,7 @@ body.home #home-middle .user-profile .avatar {
 body.home .home-middle-1 {
 	float: left;
 	margin: 0;
-	padding: 0 0 20px 10px;
+	padding: 0 0 20px 0;
 	}
 	
 
@@ -1871,18 +1867,6 @@ div.event dl.first,
 
 div.event.last dl {
 	border-bottom: none;
-}
-
-h3.widget-title a {
-	color: #444;
-	text-decoration: none;
-	border-bottom: none;
-}
-
-
-h3.widget-title a:hover {
-	color: #333;
-	border-bottom: 1px solid #333;
 }
 
 .widget_twitter {
@@ -2852,7 +2836,12 @@ img#wpstats {
 		line-height: 1.4em;
 		font-size: 16px; 
 	}
-
+	
+	#content p {
+		line-height: 1.5em;
+		font-size: 17px; 
+	}
+	
 	#wrapper   {
 		margin: 0 auto;	
 		width: 100%;
@@ -3205,18 +3194,6 @@ img#wpstats {
 	
 	body.home h2.entry-title {
 		font-size: 3em;
-	}
-		
-	#home-middle h3.widget-title a {
-		color: #444;
-		text-decoration: none;
-		border: none;
-	}
-	
-	#home-middle h3.widget-title a:hover {
-		color: #333;
-		text-decoration: none;
-		border-bottom: 1px solid #333;
 	}
 
 	.staff-person-details {
@@ -3913,7 +3890,6 @@ img.ui-datepicker-trigger {position:relative; top:3px; left:4px}
 .gform_wrapper .left_label .ginput_complex .ginput_right label, .gform_wrapper .left_label .ginput_complex .ginput_left label, .gform_wrapper .right_label .ginput_complex .ginput_right label, .gform_wrapper .right_label .ginput_complex .ginput_left label {word-spacing: -.4em}
 .gform_wrapper ul.gfield_checkbox li, .gform_wrapper ul.gfield_radio li {padding:0!important}
 .gform_wrapper .top_label .ginput_complex + .gfield_description {padding-bottom:0!important}
-.gform_wrapper .top_label .gfield_description, {padding: 10px 0 0 0}
 .gform_wrapper .top_label .gfield_description.validation_message, .gfield_description.validation_message {padding:10px 0 10px 0}
 
 /* Twentyten theme specific styles updated 08.23.2010 -----------------------------------------------------*/

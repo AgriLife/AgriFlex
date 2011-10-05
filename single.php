@@ -24,7 +24,6 @@ get_header(); ?>
 				<?php comments_template( '', true ); ?>
 
 <?php endwhile; // end of the loop. ?>
-<?php echo do_shortcode('[gigpress_related_shows]'); ?>
 			</div><!-- #content -->
 		</div><!-- #wrap -->
 

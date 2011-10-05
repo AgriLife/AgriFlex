@@ -19,10 +19,19 @@ get_header(); ?>
 						</form>
 					</div>
 					<ul class="staff-listing-ul">
-				<?php $my_query = new WP_Query('post_type=staff&post_status=publish&posts_per_page=200&paged=' . $paged);
+				<?php global $post;
+					$my_meta = get_post_meta($post->ID,'_my_meta',TRUE); 
+					/* 
+					*  This doesn't work as expected. Trying to sort the metabox key 'lastname'. 
+					*  @link http://www.designhammer.com/blog/sorting-events-date-using-wordpress-custom-post-types
+					*/    
+					$args = array(
+						'post_type' => 'staff',
+						'posts_per_page' => 300,
+					);
+					$my_query = new WP_Query($args);
+
 			  		while ($my_query->have_posts()) : $my_query->the_post();
-			  		global $post;
-					$my_meta = get_post_meta($post->ID,'_my_meta',TRUE);
 			  	?>
 					<li class="staff-listing-item">
 						<div class="role staff-container">

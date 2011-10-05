@@ -5,6 +5,7 @@
  */
 
 get_header(); ?>
+		<div id="wrap">
 			<div id="content" role="main">		
 		<?php $my_query = new WP_Query('meta_key=feature-homepage&meta_value=1&showposts=5&post_type=any');
 		$count = 0;	?>
@@ -64,6 +65,6 @@ get_header(); ?>
 </div><!-- end #home-middle-bg -->
 			
 			</div><!-- #content -->
-
+		</div><!-- #wrap -->
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
