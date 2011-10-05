@@ -2,7 +2,7 @@
 			<div class="about">			
 				<h4>About</h4>
 				<a href="http://www.youtube.com/watch?v=NrfZh8t443M"><img src="<?php bloginfo( 'template_directory' ); ?>/images/college-video.jpg" alt="link to College about video" /></a>
-				<p>The College of Agriculture and Life Sciences is the largest of its kind in the U.S. with 400 faculty members, including winners of prestigious awards like the Nobel, Wolf and World Food Prizes. It provides students with hands-on involvement in developing solutions to today’s issues like bioenergy, environmental sustainability, international food security, and youth development.</p>	
+				<p>The College of Agriculture and Life Sciences is the largest of its kind in the U.S. with 400 faculty members, including winners of prestigious awards like the Nobel, Wolf and World Food Prizes. It provides students with hands-on involvement in developing solutions to today's issues like bioenergy, environmental sustainability, international food security, and youth development.</p>	
 			</div><!-- .about -->
 		</div><!-- #about -->		
 		<div id="popular-links">

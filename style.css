@@ -2525,7 +2525,8 @@ img#wpstats {
 	}	
 	#access ul.menu li {
 		margin: 0 2px 0 0;
-		border-top-right-radius: 6px;	
+		border-top-right-radius: 6px;
+		background-color: #f5f5ee;	
 	}
 	#access ul.menu li li{
 		border-radius: 0;	
@@ -2535,7 +2536,12 @@ img#wpstats {
 		position: relative;
 		z-index: 5;
 	}
-
+	#access ul.menu li.current-menu-item:hover {
+		background: #e2dbc0;
+	}
+	#access ul.menu li.current-menu-item:first-child:hover {
+		background: #f8f5f1 url(images/tan-background.png) top left;
+	}	
 	#access ul.menu li a[title='home'] {
 		background-position: 50% 14px;
 		width: 20px;
@@ -2559,10 +2565,14 @@ img#wpstats {
 		font-size: 14px;	
 		line-height: 1.7em;	
 	}
-
+	
+	#access .sf-menu li:hover {
+		background-color: #e1dbbf;			
+	}
+	
 	#access .sf-menu li a {
-		line-height: 1em;
-		padding: 13px 17px 11px 19px;	
+		line-height: 1.2em;
+		padding: 13px 17px 11px 19px;			
 	}
 	
 	.sf-menu li.current-menu-item {
@@ -2571,22 +2581,15 @@ img#wpstats {
 		position: relative;
 		z-index: 2;
 	}
-		
-	#access .sf-menu li.current-menu-item a {
-		margin-top: -2px;
-	}
 			
 	.sf-menu ul {
 		position:	absolute;
+		background-color: #e1dbbf;
 		top: -999em;
-		width: 11em; /* left offset of submenus need to match (see below) */
-		background: #fff;
-		border-left: 2px solid #ad995a;		
-		border-top: 1px solid #ebe7d3;	
-		-webkit-box-shadow: -3px 0 6px rgba(3, 3, 3,.2);	
-		-moz-box-shadow: -3px 0 6px rgba(3, 3, 3,.2);		
-		box-shadow: -3px 0 6px rgba(3, 3, 3,.2);						
-		padding: 5px 0;	
+		width: 13em; /* left offset of submenus need to match (see below) */	
+		-webkit-box-shadow: 0 2px 4px rgba(3, 3, 3,.2);	
+		-moz-box-shadow: 0 2px 4px rgba(3, 3, 3,.2);		
+		box-shadow: 0 2px 4px rgba(3, 3, 3,.2);						
 	}	
 	
 	.sf-menu li:hover {
@@ -2608,7 +2611,7 @@ img#wpstats {
 			
 	.sf-menu li:hover a {
 		position: relative;
-		z-index: 7;		
+		z-index: 7;					
 	}	
 
 	.sf-menu ul li:hover {
@@ -2622,7 +2625,8 @@ img#wpstats {
 		z-index: 4;	
 		border: none;
 		font-size: 12px;
-		border-top: 1px solid #efeeda;						
+		border-bottom: 1px solid #d9d1ae;	
+		background: transparent;					
 	}	
 	
 	.sf-menu a {
@@ -2638,21 +2642,19 @@ img#wpstats {
 	.sf-menu li:hover ul,
 	.sf-menu li.sfHover ul {
 		left: 0;
-		margin-left: 0;
-		top: 2.4em; /* match top ul list item height */
+		margin-left: 1px;
+		top: 3.2em; /* match top ul list item height */
 		z-index: 6;
-		position: absolute;
-		margin-top: -40px;
-		padding-top: 45px;					
-	}	
-	
+		position: absolute;	
+	}
+		
 	ul.sf-menu li:hover li ul,
 	ul.sf-menu li.sfHover li ul {
 		top:			-999em;		
 	}
 	ul.sf-menu li li:hover ul,
 	ul.sf-menu li li.sfHover ul {
-		left:			12.8em; /* match ul width */
+		left:			15.2em; /* match ul width */
 		top:			0;
 		margin-left: 0;
 		margin-top: 0;
@@ -2664,7 +2666,7 @@ img#wpstats {
 	}
 	ul.sf-menu li li li:hover ul,
 	ul.sf-menu li li li.sfHover ul {
-		left:			11em; /* match ul width */
+		left:			13em; /* match ul width */
 		top:			0;
 		margin-left: 0px;	
 	}
@@ -2716,16 +2718,13 @@ img#wpstats {
 	/*** arrows **/
 	#access .sf-menu li a.sf-with-ul {
 		min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
-		background: url(images/down-arrow.png) no-repeat 10px 19px; 					
-	}
-	
-	#access .sf-menu li:hover a.sf-with-ul {
-		background-position: 2px 19px;		
+		background: url(images/down-arrow.png) no-repeat right 55%; 
+		padding-right: 28px;					
 	}
 		
-	#access .sf-menu li:hover li a.sf-with-ul {
+	#access .sf-menu li li a.sf-with-ul {
 		min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
-		background-position: 0 16px;
+		background: url(images/right-arrow.png) no-repeat left 58%;
 	}
 
 			
@@ -3049,14 +3048,16 @@ img#wpstats {
 		padding: 0;
 		margin-bottom: 0;
 		margin-left: 10px;
-		width: 100%;			
+		width: 100%;
+		font-weight: 500;
+		font-size: 46px;
+  		font-family: arno-pro-1,arno-pro-2;			
 	}
 	#site-title a span{
 		width: 390px;			
 	}	
 		
 	body #site-title a {	
-		font: 1.8em arno-pro-1,arno-pro-2, 'Cambria', georgia, serif;
 		padding: 20px 0;
 		margin-left: 0;	
 	}
@@ -3081,8 +3082,8 @@ img#wpstats {
 	body.extensioncountytce #site-title	 {
 		text-align: left;
 		margin: 0;
-		padding: 0;
-		height: 85px;			
+		padding: 0;		
+		height: 110px;	
 	}
 	body.extensioncounty #site-title a span,
 	body.extensioncountytce #site-title a span	{
@@ -3090,8 +3091,8 @@ img#wpstats {
 	}	
 	body.extensioncounty #site-title a,
 	body.extensioncountytce #site-title a	 {
-		background: url('images/tx-state-regions.png') no-repeat -5px -2px;
-		font: 32px 'arno pro', georgia, serif;
+		background: url('images/tx-state-regions.png') no-repeat left 7px;
+		font-size: 32px;
 		margin-left: 10px;
 		padding: 5px 0 60px 100px;	
 	}
@@ -3100,8 +3101,10 @@ img#wpstats {
 	body.extensioncountytce #site-title a em	 {
 		margin-left: 102px;
 		font-size: 1.5em;
-		margin-top: -5px;
-		font-style: normal;		
+		font-style: normal;	
+		font-weight: 600;
+ 		margin-top: -15px;
+		
 	}
     
 	body.extension #access #menu-main-navigation,
@@ -3146,7 +3149,12 @@ img#wpstats {
 	
 	#branding .searchform input.s:focus {
 		width: 220px;
-		background-color: #fafafa;			
+		background-color: #fafafa;	
+		outline: none;
+		border-color: #2783e6;	
+		-webkit-box-shadow: 0 0 5px #2783e6;
+		-moz-box-shadow: 0 0 5px #2783e6;
+		box-shadow: 0 0 5px #2783e6;					
 	}
 
 	#access #menu-main-navigation {
