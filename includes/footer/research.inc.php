@@ -2,7 +2,7 @@
 			<div class="about">			
 				<h4>About</h4>
 				<a href="http://www.youtube.com/watch?v=UnLkKMJasXk"><img src="<?php bloginfo( 'template_directory' ); ?>/images/research-video-pic.jpg" alt="link to Texas A&amp;M Research about video" /></a>
-				<p><a href="http://agriliferesearch.tamu.edu/">Texas AgriLife Research</a> is the state’s premier research agency in agriculture, natural resources, and the life sciences. Our research spans numerous scientific disciplines and is international in scope.</p>
+				<p><a href="http://agriliferesearch.tamu.edu/">Texas AgriLife Research</a> is the state&apos;s premier research agency in agriculture, natural resources, and the life sciences. Our research spans numerous scientific disciplines and is international in scope.</p>
 				<ul>
 					<li><a href="http://agriliferesearch.tamu.edu/research-units/">Research Units</a></li>
 					<li><a href="http://agriliferesearch.tamu.edu/about/">About</a></li>

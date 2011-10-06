@@ -1083,3 +1083,6 @@ function college_drop_down() {
 	require_once ($includes_path . 'widgets.php');
 	// Custom Featured Page/Post metaboxes
 	require_once ($includes_path . 'custom-meta.php');
+	
+	// Add Logout Button to password-protected posts
+	require_once ($includes_path . 'logout-password-protected-posts/logout.php');
