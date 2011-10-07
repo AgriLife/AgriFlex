@@ -3041,6 +3041,10 @@ img#wpstats {
 	}
 	body #header {
 		padding: 55px 0 40px;		
+	}	
+	body.extensioncounty #header,
+	body.extensioncountytce #header {
+		padding: 30px 0 20px;		
 	}				
 	#site-title {
 		text-align: left;
