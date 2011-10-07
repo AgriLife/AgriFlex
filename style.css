@@ -3477,8 +3477,10 @@ img#wpstats {
 }
 /* mobile width */
 @media all and (max-width: 420px) {
-
 	
+	body .entry-content h2,
+	body .entry-content h3,
+	body .entry-content h4,	
 	body h3.entry-title,
 	body h2.entry-title,
 	body h1.entry-title {
