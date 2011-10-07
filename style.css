@@ -3200,7 +3200,6 @@ img#wpstats {
 		max-width: 564px;
 		float: left;
 	}
-	.flex-container { margin-left: 10px;}
 	.flex-container.fullwidth { margin-right: 10px;}
 	.ie8 .flexslider .slides img  { height: 272px;}
 	.ie8 .flex-container.fullwidth .flexslider .slides img  { height: 475px;}
