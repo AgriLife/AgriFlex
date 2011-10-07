@@ -3148,7 +3148,10 @@ img#wpstats {
 		width: 35em;
 		display: block;
 	}
-	
+	body.extensioncounty #branding .searchform,
+	body.extensioncountytce #branding .searchform {
+		top: -25px;		
+	}	
 	.searchform input.s {
 		float: left;
 	}
