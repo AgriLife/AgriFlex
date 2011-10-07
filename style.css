@@ -1437,10 +1437,6 @@ body.home .home-middle-1 {
 	width: 100%;
 }
 
-#wrap, #container {
-	padding-left: 10px;
-}
-
 #breadcrumbs {
 	font-size: 1.6em;
 	margin-bottom: 1.6em;
@@ -2796,6 +2792,10 @@ img#wpstats {
 		border-bottom: 1px solid #d0ca9b;
 		margin: -3em 0 0 0;
 		padding: 0 0 .75em 195px;	
+	}
+
+	#wrap, #container {
+		padding-left: 10px;
 	}
 	
 	#footer {
