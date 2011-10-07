@@ -8,7 +8,7 @@
  */
 ?>
 <div id="aside">
-
+	<?php do_action('posts_logout_link','Logout','logout_btn'); ?>
 	<div id="aside-widget-area-1">
 		<div id="primary" class="widget-area" role="complementary">
 			<ul class="xoxo">
