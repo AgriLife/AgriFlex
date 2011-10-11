@@ -1,15 +1,17 @@
 <?php
 /**
- * Template Name: Home: Slideshow Fullwidth 
+ * Template Name: Home: Three Column News
  * @package WordPress
  */
 
 get_header(); ?>
-
+	<?php get_sidebar( 'left' ); ?>
+		<div id="wrap">
+			<div id="content" role="main">		
 		<?php $my_query = new WP_Query('meta_key=feature-homepage&meta_value=1&showposts=5&post_type=any');
 		$count = 0;	?>
   		<?php if ( $my_query->have_posts() ) : ?>
-		<div class="flex-container fullwidth">
+		<div class="flex-container">
 		<div class="flexslider">
 		<ul class="slides">
 		<?php while ($my_query->have_posts()) : $my_query->the_post();
@@ -27,9 +29,7 @@ get_header(); ?>
 		</div>
 		</div>
 
-		<?php endif;?>
-		<div id="wrap">		
-			<div id="content" role="main">			
+		<?php endif;?>	
 
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>

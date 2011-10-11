@@ -301,7 +301,7 @@ jQuery(document).ready(function($) {
 		$('.searchform').slideToggle('fast', function() {});			
 	});
 
-	// Toggle click for sub-munes on touch screens
+	// Toggle click for sub-menus on touch screens
 	$('.touch .sf-with-ul').click(function() {
 		$(this).find('.sub-menu').slideToggle('fast', function() {});
 	});	
@@ -428,9 +428,6 @@ jQuery(document).ready(function($) {
         return false;
     });
 	
-	// remove all height attributes from images for flexibility	
-	// $('img').removeAttr('height');
-	
 	// wrap event dates with <strong>
 	$(".dtstart").lettering('words');
 	
@@ -471,14 +468,14 @@ jQuery(document).ready(function($) {
 	/*
      * Set up the superfish arguments
      */
-    $( 'body.desktop .sf-menu' ).superfish( {
+    $( 'body.desktop .menu-header .sf-menu' ).superfish( {
         delay:       200,   // 0.05 second delay on mouseout
         animation:   { opacity: 'show', height: 'show' },   // fade-in and slide-down animation
         speed:       250 // Dropdown our menu fast
     } );
 
 	//background menu fading
-	$('body.desktop .sf-menu li').hover(function() {
+	$('body.desktop .menu-header .sf-menu li').hover(function() {
 		$(this).find('ul.sub-menu .menu-item a').stop(true, true)
 		.css({
 			right: "-15px",

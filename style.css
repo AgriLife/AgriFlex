@@ -917,6 +917,10 @@ body.collegeonly #access li a[title='home'] {
 	display: none;
 }
 
+#branding #site-title a span.full-img-text {
+	
+}
+
 body.collegeonly #site-title a {
 	color: #5d0025;
 }
@@ -1263,14 +1267,15 @@ body.home #content p:first-child {
 	
 #home-middle .widget-container {
 	padding-top: 2em;
-	margin-top: 2em;	
-	border-top: 1px dashed #d2ca9c;		
+	margin-top: 2em;
+	border-top: 1px dashed #d2ca9c;	
+	width: 100%;			
 	}
 		
 #home-middle .textwidget {
 	margin: 0;
 	padding: 0;
-	}
+	}	
 	
 #home-middle .featuredpost .post, #home-middle .featuredpage .page {
 	clear: both;
@@ -2536,6 +2541,11 @@ img#wpstats {
 	.js #access {
 		display: block;	
 	}	
+	
+	#branding #site-title span.full-img-text {
+		
+	}
+	
 	#access ul.menu li {
 		margin: 0 2px 0 0;
 		border-top-right-radius: 6px;
@@ -2588,14 +2598,14 @@ img#wpstats {
 		padding: 13px 17px 11px 19px;			
 	}
 	
-	.sf-menu li.current-menu-item {
+	#access .sf-menu li.current-menu-item {
 		border: 2px solid #e7e2cb;
 		border-bottom: none;
 		position: relative;
 		z-index: 2;
 	}
 			
-	.sf-menu ul {
+	#access .sf-menu ul {
 		position:	absolute;
 		background-color: #e1dbbf;
 		top: -999em;
@@ -2605,7 +2615,7 @@ img#wpstats {
 		box-shadow: 0 2px 4px rgba(3, 3, 3,.2);						
 	}	
 	
-	.sf-menu li:hover {
+	#access .sf-menu li:hover {
 		visibility:		inherit; /* fixes IE7 'sticky bug' */
 		-webkit-transition: .3s background ease;
 		-moz-transition: .3s background ease;		
@@ -2618,16 +2628,16 @@ img#wpstats {
 		transition: none;
 	}
 		
-	.sf-menu li a {
+	#access .sf-menu li a {
 		border-top-right-radius: none;			
 	}	
 			
-	.sf-menu li:hover a {
+	#access .sf-menu li:hover a {
 		position: relative;
 		z-index: 7;					
 	}	
 
-	.sf-menu ul li:hover {
+	#access .sf-menu ul li:hover {
 		visibility:		inherit; /* fixes IE7 'sticky bug' */
 		background: transparent;
 		border-top-right-radius: none;	
@@ -2642,18 +2652,18 @@ img#wpstats {
 		background: transparent;					
 	}	
 	
-	.sf-menu a {
+	#access .sf-menu a {
 		display:		block;
 		position:		relative;
 		background: transparent;
 	}
-	.sf-menu li:hover,
-	.sf-menu li.sfHover {
+	#access .sf-menu li:hover,
+	#access .sf-menu li.sfHover {
 		z-index:		7;
 		position: relative;					
 	}
-	.sf-menu li:hover ul,
-	.sf-menu li.sfHover ul {
+	#access .sf-menu li:hover ul,
+	#access .sf-menu li.sfHover ul {
 		left: 0;
 		margin-left: 1px;
 		top: 3.2em; /* match top ul list item height */
@@ -2661,24 +2671,24 @@ img#wpstats {
 		position: absolute;	
 	}
 		
-	ul.sf-menu li:hover li ul,
-	ul.sf-menu li.sfHover li ul {
+	#access ul.sf-menu li:hover li ul,
+	#access ul.sf-menu li.sfHover li ul {
 		top:			-999em;		
 	}
-	ul.sf-menu li li:hover ul,
-	ul.sf-menu li li.sfHover ul {
+	#access ul.sf-menu li li:hover ul,
+	#access ul.sf-menu li li.sfHover ul {
 		left:			15.2em; /* match ul width */
 		top:			0;
 		margin-left: 0;
 		margin-top: 0;
 		padding-top: 0;				
 	}
-	ul.sf-menu li li:hover li ul,
-	ul.sf-menu li li.sfHover li ul {
+	#access ul.sf-menu li li:hover li ul,
+	#access ul.sf-menu li li.sfHover li ul {
 		top:			-999em;
 	}
-	ul.sf-menu li li li:hover ul,
-	ul.sf-menu li li li.sfHover ul {
+	#access ul.sf-menu li li li:hover ul,
+	#access ul.sf-menu li li li.sfHover ul {
 		left:			13em; /* match ul width */
 		top:			0;
 		margin-left: 0px;	
@@ -2752,28 +2762,28 @@ img#wpstats {
 		overflow:		hidden;
 		
 	}
-	a > .sf-sub-indicator {  /* give all except IE6 the correct values */
+	#access a > .sf-sub-indicator {  /* give all except IE6 the correct values */
 		top:			.8em;
 		background-position: 0 -100px; /* use translucent arrow for modern browsers*/
 	}
 	/* apply hovers to modern browsers */
-	a:focus > .sf-sub-indicator,
-	a:hover > .sf-sub-indicator,
-	a:active > .sf-sub-indicator,
-	li:hover > a > .sf-sub-indicator,
-	li.sfHover > a > .sf-sub-indicator {
+	#access a:focus > .sf-sub-indicator,
+	#access a:hover > .sf-sub-indicator,
+	#access a:active > .sf-sub-indicator,
+	#access li:hover > a > .sf-sub-indicator,
+	#access li.sfHover > a > .sf-sub-indicator {
 		background-position: -10px -100px; /* arrow hovers for modern browsers*/
 	}
 
 	/* point right for anchors in subs */
-	.sf-menu ul .sf-sub-indicator { background-position:  -10px 0; }
-	.sf-menu ul a > .sf-sub-indicator { background-position:  0 0; }
+	#access .sf-menu ul .sf-sub-indicator { background-position:  -10px 0; }
+	#access .sf-menu ul a > .sf-sub-indicator { background-position:  0 0; }
 	/* apply hovers to modern browsers */
-	.sf-menu ul a:focus > .sf-sub-indicator,
-	.sf-menu ul a:hover > .sf-sub-indicator,
-	.sf-menu ul a:active > .sf-sub-indicator,
-	.sf-menu ul li:hover > a > .sf-sub-indicator,
-	.sf-menu ul li.sfHover > a > .sf-sub-indicator {
+	#access .sf-menu ul a:focus > .sf-sub-indicator,
+	#access .sf-menu ul a:hover > .sf-sub-indicator,
+	#access .sf-menu ul a:active > .sf-sub-indicator,
+	#access .sf-menu ul li:hover > a > .sf-sub-indicator,
+	#access .sf-menu ul li.sfHover > a > .sf-sub-indicator {
 		background-position: -10px 0; /* arrow hovers for modern browsers*/
 	}
 
@@ -2899,6 +2909,10 @@ img#wpstats {
 		width: 109px;	
 	}
 
+	#drop-section-nav #drop-nav ul li.explore a {
+		width: 100px;	
+	}
+	
 	#college-top-level-section  {
 		display: block;
 		background: #5b0125 url('images/drop-background.png');	
@@ -3095,6 +3109,10 @@ img#wpstats {
 	#site-title a em {
 		font-size: 1.5em;
 		font-style: normal;		
+	}
+
+	#branding #site-title span.full-img-text {
+		display: none;
 	}
 
 /* --- County Sites --- */
@@ -3376,6 +3394,17 @@ img#wpstats {
 		font-size: 1.4em;	
 	}
 
+/* 3 Col homepage */
+	.page-template-page-3col-news-home-php #aside {
+		width: 29%;
+	}
+	.page-template-page-3col-news-home-php #left-sidebar {
+		width: 20%;
+		float: left;
+	}
+	.page-template-page-3col-news-home-php #wrap {
+		width: 36%;
+	}	
 }
 
 @media all and (max-width: 960px) {
@@ -3486,6 +3515,7 @@ img#wpstats {
 	body h1.entry-title {
 		font-size: 20px;
 	}
+	
 	body #header {
 		padding-bottom: 0;
 	}
