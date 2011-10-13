@@ -25,7 +25,7 @@ get_header(); ?>
 						<?php $my_meta = get_post_meta($post->ID,'_my_meta',TRUE); ?>
 						<div class="staff-person-details">
 							<dl>	
-							<dt><?php the_title(); ?></dt>
+							<dt><?php echo $my_meta['firstname'].' '.$my_meta['lastname']; ?></dt>
 							
 							<?php if ($my_meta['position']) { ?> 
 								<dd class="role"><?php echo $my_meta['position'];?></dd>
@@ -162,13 +162,6 @@ get_header(); ?>
 						</section><!-- .entry-utility -->
 					</footer><!-- .entry-meta -->
 				</article><!-- #post-<?php the_ID(); ?> -->
-				
-				<nav id="nav-below" class="navigation">
-					<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'agriflex' ) . '</span> %title' ); ?></div>
-					<div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'agriflex' ) . '</span>' ); ?></div>
-				</nav><!-- #nav-below -->
-
-				<?php comments_template( '', true ); ?>
 
 <?php endwhile; // end of the loop. ?>
 			</div><!-- #content -->
