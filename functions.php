@@ -615,7 +615,7 @@ function base_admin_body_class( $classes )
 }
 add_filter('admin_body_class', 'base_admin_body_class');
 
-/* Staff Custom Post Type & Taxonomies*/
+/* Test Custom Post Type & Taxonomies*/
 if ($istvmdlonly) {
 add_action( 'init', 'create_tests_post_type' );
 function create_tests_post_type() {
@@ -702,36 +702,38 @@ function create_tests_taxonomies() {
 
 /* Staff Custom Post Type */
 if ($iscollegeonly) {
-add_action( 'init', 'create_staff_post_type' );
-function create_staff_post_type() {
-	register_post_type( 'staff',
-		array(
-			'labels' => array(
-				'name' => __( 'Staff' ),
-				'singular_name' => __( 'Employee' ),
-				'add_new_item' => __( 'Add New Staff Employee' ),
-				'add_new' => __( 'Add New' ),
-				'edit' => __( 'Edit' ),
-				'edit_item' => __( 'Edit Staff Employee' ),
-				'new_item' => __( 'New Staff Employee' ),
-				'view' => __( 'View Staff Employee' ),
-				'view_item' => __( 'View Staff Employee' ),
-				'search_items' => __( 'Search Staff Employees' ),
-				'not_found' => __( 'No Staff Employees found' ),
-				'not_found_in_trash' => __( 'No Staff Employees found in Trash' ),
+	add_action( 'init', 'create_staff_post_type' );
+	function create_staff_post_type() {
+		register_post_type( 'staff',
+			array(
+				'labels' => array(
+					'name' => __( 'Staff' ),
+					'singular_name' => __( 'Employee' ),
+					'add_new_item' => __( 'Add New Staff Employee' ),
+					'add_new' => __( 'Add New' ),
+					'edit' => __( 'Edit' ),
+					'edit_item' => __( 'Edit Staff Employee' ),
+					'new_item' => __( 'New Staff Employee' ),
+					'view' => __( 'View Staff Employee' ),
+					'view_item' => __( 'View Staff Employee' ),
+					'search_items' => __( 'Search Staff Employees' ),
+					'not_found' => __( 'No Staff Employees found' ),
+					'not_found_in_trash' => __( 'No Staff Employees found in Trash' ),
+	
+				),
+			'capability_type' => 'post',
+			'public' => true,
+			'rewrite' => array('slug' => 'staff'),
+			'supports' => array( 'editor','thumbnail' ),
+			)
+		);
+	}
+	
+	
+}
 
-			),
-		'_builtin' => false, // It's a custom post type, not built in!
-		'_edit_link' => 'post.php?post=%d',
-		'capability_type' => 'post',
-		'hierarchical' => false,
-		'public' => true,
-		'rewrite' => array('slug' => 'staff'),
-		'supports' => array( 'title', 'editor','thumbnail' ),
-		)
-	);
-}
-}
+
+
 
 /* Job Posting Custom Post Type */
 if ($iscollegeonly) {
@@ -783,6 +785,20 @@ function staff_meta_init() {
  
 	// add a callback function to save any data a user enters in
 	add_action('save_post','box_meta_save');
+	
+	// Populate Title Field with _my_meta[lastname], _my_meta[firstname] for alphabetical sorting by title
+	add_filter('title_save_pre', 'save_staff_title');
+}
+
+
+function save_staff_title($people_title) {
+	$_post_meta = $_POST['_my_meta'];
+	if ($_POST['post_type'] == 'staff') :
+		$fname = $_post_meta['firstname'];
+		$lname = $_post_meta['lastname'];
+		$people_title = $lname.', '.$fname;
+	endif;
+	return $people_title;
 }
  
 function staff_details_meta_setup() {
@@ -995,6 +1011,7 @@ function my_meta_clean(&$arr)
 		}
 	}
 }
+
 
 // TVMDL specific content for test search form
 function tvmdl_test_search() {

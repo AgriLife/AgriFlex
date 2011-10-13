@@ -1,6 +1,9 @@
 
 	<h4>Contact Details</h4>
 	
+	<p><label  class="admin-form-label" for="lastname">First Name</label>
+	<input type="text" class="admin-form-input" id="firstname" name="_my_meta[firstname]" value="<?php if(!empty($meta['firstname'])) echo $meta['firstname']; ?>" placeholder="e.g. John" size="25" /></p>
+	
 	<p><label  class="admin-form-label" for="lastname">Last Name</label>
 	<input type="text" class="admin-form-input" id="lastname" name="_my_meta[lastname]" value="<?php if(!empty($meta['lastname'])) echo $meta['lastname']; ?>" placeholder="e.g. Doe" size="25" /></p>	
 	
@@ -18,15 +21,6 @@
 	
 	<p><label class="admin-form-label" for="email">eMail</label>
 	<input type="text" class="admin-form-input" id="email" name="_my_meta[email]" value="<?php if(!empty($meta['email'])) echo $meta['email']; ?>" placeholder="e.g. janedoe@tamu.edu" size="25" /></p>	
-	
-	<p><label class="admin-form-label"  for="website">Website</label>
-	<input type="text" class="admin-form-input" id="website" name="_my_meta[website]" value="<?php if(!empty($meta['website'])) echo $meta['website']; ?>" placeholder="e.g. http://awesomeness.tamu.edu" size="25" /></p>	
-
-	<p><label class="admin-form-label"  for="phone">Phone</label>
-	<input type="text" class="admin-form-input" id="phone" name="_my_meta[phone]" value="<?php if(!empty($meta['phone'])) echo $meta['phone']; ?>" placeholder="e.g. 777-777-7777" size="25" /></p>
-	
-	<p><label class="admin-form-label" for="email">eMail</label>
-	<input type="text" class="admin-form-input" id="email" name="_my_meta[email]" value="<?php if(!empty($meta['email'])) echo $meta['email']; ?>" placeholder="e.g. janedoe@tamu.edu" size="25" /></p>
 	
 	<h4>Education</h4>
 	<p><label  class="admin-form-label" for="undergraduate_1">Undergraduate #1</label>
