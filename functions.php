@@ -1086,6 +1086,19 @@ function college_drop_down() {
 	include(MY_THEME_FOLDER . '/college-drop-section.php');
 } 
 
+
+/** @param	email	email to obfuscate (String)
+* @return	String	obfuscated email
+*/
+function obfuscate($email){
+	$link = '';
+	foreach(str_split($email) as $letter)
+	$link .= '&#'.ord($letter).';';
+	return $link;
+}
+
+
+
 	// Set path to function files
 	$includes_path = TEMPLATEPATH . '/includes/';
 	// Admin Pages
