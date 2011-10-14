@@ -28,6 +28,8 @@
 			if($options['hours']<>'') {
 				echo '<li>'.$options['hours'].'</li>';
 			}
+			if($options['email_public']<>'')
+				echo '<li><a href="'.obfuscate('mailto:').obfuscate($options['email_public']).'">'.obfuscate($options['email_public']).'</a></li>';
 			if($options['phone']<>'')
 				echo '<li>Phone: '.$options['phone'].'</li>';
 			if($options['fax']<>'')

@@ -303,18 +303,19 @@ if (!class_exists("AgrilifeCustomizer")) {
 				'county-name' => '',
 				'county-name-human' => '',
 			
-				'address-street1' => '',
+				'address-street1' => '600 John Kimbrough Boulevard',
 				'address-street2' => '',
-				'address-city' => '',
-				'address-zip' => '',
+				'address-city' => 'College Station',
+				'address-zip' => '77843',
 				'map-link' => '',
 				'map-img' => '',
 				
-				'address-mail-street1' => '600 John Kimbrough Boulevard',
+				'address-mail-street1' => '',
 				'address-mail-street2' => '',
-				'address-mail-city' => 'College Station',
-				'address-mail-zip' => '77843',
+				'address-mail-city' => '',
+				'address-mail-zip' => '',
 				
+				'email_public' => '',
 				'phone' => '',
 				'fax' =>'',
 				
@@ -371,6 +372,7 @@ if (!class_exists("AgrilifeCustomizer")) {
 			$options['address-mail-city'] = '';
 			$options['address-mail-zip'] = '';
 			
+			$options['email_public'] = '';
 			$options['phone'] = '';
 			$options['fax'] = '';
 			
@@ -477,7 +479,10 @@ if (!class_exists("AgrilifeCustomizer")) {
 		
 				if (isset($_POST['fax'])) 
 				  $agrilifeOptions['fax'] = stripslashes(apply_filters('content_save_pre', $_POST['fax']));
-		
+				
+				if (isset($_POST['email_public'])) 
+				  $agrilifeOptions['email_public'] = stripslashes(apply_filters('content_save_pre', $_POST['email_public']));
+				
 		
 				if (isset($_POST['feedBurner'])) 
 				  $agrilifeOptions['feedBurner'] = stripslashes(apply_filters('content_save_pre', $_POST['feedBurner'])); 
@@ -593,6 +598,16 @@ if (!class_exists("AgrilifeCustomizer")) {
 			<?php _e('Ex: 979-999-7777') ?>
 		</td>
 		</tr>
+		<tr valign="top"> 
+		<th scope="row">Email (public)</th> 
+		<td>
+		    <input type="text" name="email_public" id="email_public" class="regular-text" maxlength="200" value="<?php echo $agrilifeOptions['email_public']; ?>" />
+		    <br />
+			<?php _e('Ex: email@tamu.edu') ?>
+		</td>
+		</tr>
+		
+		
 		<tr valign="top"> 
 		<th scope="row">Hours</th> 
 		<td>
