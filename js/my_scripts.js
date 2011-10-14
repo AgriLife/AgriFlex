@@ -468,14 +468,14 @@ jQuery(document).ready(function($) {
 	/*
      * Set up the superfish arguments
      */
-    $( 'body.desktop .menu-header .sf-menu' ).superfish( {
+    $( '.no-touch .menu-header .sf-menu' ).superfish( {
         delay:       200,   // 0.05 second delay on mouseout
         animation:   { opacity: 'show', height: 'show' },   // fade-in and slide-down animation
         speed:       250 // Dropdown our menu fast
     } );
 
 	//background menu fading
-	$('body.desktop .menu-header .sf-menu li').hover(function() {
+	$('.no-touch .menu-header .sf-menu li').hover(function() {
 		$(this).find('ul.sub-menu .menu-item a').stop(true, true)
 		.css({
 			right: "-15px",
