@@ -119,7 +119,7 @@
 	</div><!-- #drop-nav -->	
 </div><!-- #drop-section-nav -->
 
-<?php if($collegeonly) college_top_level_section() ?>
+<?php if($iscollegeonly) college_top_level_section() ?>
 	
 <div id="wrapper" class="hfeed">
 	<div id="header">

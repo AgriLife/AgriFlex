@@ -7,7 +7,7 @@
 get_header(); ?>
 		<div id="wrap">
 			<div id="content" role="main">
-				<?php if($tvmdlonly) :?>
+				<?php if($istvmdlonly) :?>
 				<?php tvmdl_test_search() ?>
 				<?php endif; ?>
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
