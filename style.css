@@ -1011,12 +1011,12 @@ div.menu li {
 #access ul.menu li a[title='home'] {
 	display: block;
 	text-indent: -999em;
-	background: url('images/home.png') no-repeat 50% 5px;
+	background: url('images/home-gold.png') no-repeat 50% 5px;
 	width: 20px;
 }
 
 #access li a[title='home']:hover {
-	background-position: 50% -25px;
+	background-position: 50% -35px;
 }
 
 body.mobile #access .menu-header li ul.sub-menu {
@@ -1722,7 +1722,7 @@ a.test-listing-link:hover {
 }
 
 #aside #sidebar-navigation-widgets  {
-	margin: 0 10px 20px 0;
+	margin: 0 0 20px 0;
 	padding: 0;	
 	font-family: "ff-dagny-web-pro-1","ff-dagny-web-pro-2", 'Lucida Grande', "Lucida Sans Unicode", sans-serif;	
 }
@@ -2580,7 +2580,7 @@ img#wpstats {
 	}
 
 	#access ul.menu li a[title='home']:hover {
-		background-position: 50% -16px;
+		background-position: 50% -26px;
 	}	
 
 	#access ul.menu a {
@@ -2798,7 +2798,6 @@ img#wpstats {
 	#access .sf-menu ul li.sfHover > a > .sf-sub-indicator {
 		background-position: -10px 0; /* arrow hovers for modern browsers*/
 	}
-
 
 	/*----- Job Postings single page ------ */
 
@@ -3402,6 +3401,9 @@ img#wpstats {
 		margin-right: 10px;
 	}
 
+	#aside #sidebar-navigation-widgets  {
+		margin: 0 10px 20px 0;	
+	}
 	
 	#footer .wrap h4 {
 		font-size: 1.4em;
