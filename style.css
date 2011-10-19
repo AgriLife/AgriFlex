@@ -406,11 +406,11 @@ a.logout_btn {
 	z-index: 3;		
 	margin: 0 auto;
 	width: 100%;
-	background: #726b60;
+	background: #726b60 url('images/verticle-texture.png');
 	color: #fff;
-	-webkit-box-shadow: 0 1px 3px rgba(6,6,6,.3);
-	-moz-box-shadow: -4px 1px 3px rgba(6,6,6,.3);
-	box-shadow: 0 1px 3px rgba(6,6,6,.3);	
+	-webkit-box-shadow: 0 2px 5px rgba(6,6,6,.3);
+	-moz-box-shadow: -4px 2px 5px rgba(6,6,6,.3);
+	box-shadow: 0 2px 5px rgba(6,6,6,.3);	
 }
 
 #drop-section-nav #drop-nav {
@@ -544,7 +544,7 @@ body.collegeonly #drop-section-nav #drop-nav ul li a {
 
 
 #drop-section  {
-	background: #EAE8D9;
+	background: #EAE8D9 ;
 	border-bottom: 2px solid #fff;	
 	color: #fff;
 	padding-top: 30px;
@@ -832,22 +832,22 @@ body.collegeonly #drop-section .btn a, button.btn {
 }
 
 body.collegeonly #drop-section-nav {
-	background: #5b0125;
+	background-color: #5b0125;
 	border-bottom: 1px solid #5b0125;	
 }
 
 body.tvmdlonly #drop-section-nav {
-	background: #477f80;
+	background-color: #477f80;
 	border-bottom: 1px solid #477f80;	
 }
 
 body.extensiononly #drop-section-nav {
-	background: #004c6b;
+	background-color: #004c6b;
 	border-bottom: 1px solid #004c6b;	
 }
 
 body.researchonly #drop-section-nav {
-	background: #5a8c37;
+	background-color: #5a8c37;
 	border-bottom: 1px solid #5a8c37;	
 }
 
@@ -1011,12 +1011,12 @@ div.menu li {
 #access ul.menu li a[title='home'] {
 	display: block;
 	text-indent: -999em;
-	background: url('images/home.png') no-repeat 50% 5px;
+	background: url('images/home-gold.png') no-repeat 50% 5px;
 	width: 20px;
 }
 
 #access li a[title='home']:hover {
-	background-position: 50% -25px;
+	background-position: 50% -35px;
 }
 
 body.mobile #access .menu-header li ul.sub-menu {
@@ -1183,6 +1183,7 @@ body.home #content {
 	font-family: ff-dagny-web-pro-1, ff-dagny-web-pro-2, 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
 	font-weight: 600;
 	text-shadow: white 0px 1px 0px;
+	border-color: transparent;
 }
 
 #home-middle .home-middle-features h3 a {
@@ -1316,6 +1317,10 @@ body.home #home-middle .home-middle-features a {
 	border: none;
 }
 
+body.home.collegeonly #home-middle .home-middle-features a.feature-img-date {
+	color: #fff;
+}
+
 body.home #home-middle .home-middle-features a .date {
 	font-family: "ff-dagny-web-pro-1","ff-dagny-web-pro-2", 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;	
 	font-size: .8em;
@@ -1336,18 +1341,22 @@ body.home #home-middle .home-middle-features a .date {
 
 body.home.collegeonly #home-middle .home-middle-features a .date {
 	background: #5d0025;
+	color: #fff;
 }
 
 body.home.extensiononly #home-middle .home-middle-features a .date {
 	background: #004c6b;
+	color: #fff;	
 }
 
 body.home.tvmdlonly #home-middle .home-middle-features a .date {
 	background: #477f80;
+	color: #fff;	
 }
 
 body.home.researchonly #home-middle .home-middle-features a .date {
 	background: #5a8c37;
+	color: #fff;	
 }
 
 body.home #home-middle .home-middle-features img {
@@ -1399,7 +1408,7 @@ body .flickr-gallery-prev a {
 	box-shadow: 0 1px 2px #dad1ad;
 	border: none;
 	float: left;
-	margin: 20px 0 30px 2px;
+	margin: 20px 0 20px 2px;
 	}
 
 body.home span.read-more a:hover,
@@ -1439,7 +1448,7 @@ body.home .home-middle-1 {
 	z-index: 2;
 	border-top: 2px solid #e7e2cb;
 	margin-top: -2px;
-	width: 100%;
+	width: 100%;	
 }
 
 #breadcrumbs {
@@ -1713,7 +1722,7 @@ a.test-listing-link:hover {
 }
 
 #aside #sidebar-navigation-widgets  {
-	margin: 0 10px 20px 0;
+	margin: 0 0 20px 0;
 	padding: 0;	
 	font-family: "ff-dagny-web-pro-1","ff-dagny-web-pro-2", 'Lucida Grande', "Lucida Sans Unicode", sans-serif;	
 }
@@ -2555,7 +2564,7 @@ img#wpstats {
 		border-radius: 0;	
 	}	
 	#access ul.menu li.current-menu-item {
-		background: #f8f5f1 url(images/tan-background.png) top left;
+		background: #f8f5f1 url(images/tan-background.png) -1px 5px;
 		position: relative;
 		z-index: 5;
 	}
@@ -2563,7 +2572,7 @@ img#wpstats {
 		background: #e2dbc0;
 	}
 	#access ul.menu li.current-menu-item:first-child:hover {
-		background: #f8f5f1 url(images/tan-background.png) top left;
+		background: #f8f5f1 url(images/tan-background.png) -1px 5px;
 	}	
 	#access ul.menu li a[title='home'] {
 		background-position: 50% 14px;
@@ -2571,7 +2580,7 @@ img#wpstats {
 	}
 
 	#access ul.menu li a[title='home']:hover {
-		background-position: 50% -16px;
+		background-position: 50% -26px;
 	}	
 
 	#access ul.menu a {
@@ -2603,6 +2612,9 @@ img#wpstats {
 		border-bottom: none;
 		position: relative;
 		z-index: 2;
+		-webkit-box-shadow: 0 -2px 6px rgba(16,16,16,.075);
+		-moz-box-shadow: -4px -2px 6px rgba(16,16,16,.075);
+		box-shadow: 0 -2px 6px rgba(16,16,16,.075);		
 	}
 			
 	#access .sf-menu ul {
@@ -2787,7 +2799,6 @@ img#wpstats {
 		background-position: -10px 0; /* arrow hovers for modern browsers*/
 	}
 
-
 	/*----- Job Postings single page ------ */
 
 	.job-posting-dl {
@@ -2897,7 +2908,8 @@ img#wpstats {
 
 	#drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
 		background-image: url('images/tvmdl-logo.png');
-		width: 90px;
+		width: 100px;
+		margin-left: 10px;
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='research'] {
@@ -3130,7 +3142,7 @@ img#wpstats {
 	}	
 	body.extensioncounty #site-title a,
 	body.extensioncountytce #site-title a	 {
-		background: url('images/tx-state-regions.png') no-repeat left 7px;
+		background: url('images/tx.png') no-repeat left 7px;
 		font-size: 32px;
 		margin-left: 10px;
 		padding: 5px 0 60px 100px;	
@@ -3210,6 +3222,17 @@ img#wpstats {
 	
 	#content {
 		padding-bottom: 2em;
+	}
+
+	#content-wrap {
+		position: relative;
+		z-index: 2;
+		border-top: 2px solid #e7e2cb;
+		margin-top: -2px;
+		width: 100%;
+		-webkit-box-shadow: 0 -2px 6px rgba(16,16,16,.075);
+		-moz-box-shadow: -4px -2px 6px rgba(16,16,16,.075);
+		box-shadow: 0 -2px 6px rgba(16,16,16,.075);		
 	}
 						
 	body.home #content {
@@ -3378,6 +3401,9 @@ img#wpstats {
 		margin-right: 10px;
 	}
 
+	#aside #sidebar-navigation-widgets  {
+		margin: 0 10px 20px 0;	
+	}
 	
 	#footer .wrap h4 {
 		font-size: 1.4em;
@@ -4282,7 +4308,7 @@ abbr {
 
 /* FlexSlider Necessary Styles
 *********************************/ 
-.flex-container.fullwidth { padding-top: 20px;}
+.flex-container.fullwidth { margin-top: 20px;}
 .flexslider {width: 100%; }
 .flexslider .slides > li {display: none;} /* Hide the slides before the JS is loaded. Avoids image jumping */
 .flexslider .slides img {max-width: 100%; display: block; height: auto;}
@@ -4302,10 +4328,10 @@ abbr {
 
 /* FlexSlider
 *********************************/
-.flexslider {background: transparent; position: relative; margin-bottom: 50px; }
+.flexslider {background: transparent; position: relative;}
 .flexslider .slides > li {position: relative;}
 /* Suggested container for "Slide" animation setups. Can replace this with your own, if you wish */
-.flex-container {zoom: 1; position: relative;} 
+.flex-container {zoom: 1; position: relative; padding: 6px; background: #F0EEE3; background: rgba(255, 255, 255, .55);  margin-bottom: 50px; box-shadow: 0 0 7px rgba(16,16,16,.3);} 
 li.flex-slider-item { list-style-type: none; }
 /* Caption style */
 p.flex-caption {width: 96%; padding: 3% 2%; margin: 0; position: absolute; left: 0; bottom: 0; background: #000; background: rgba(0,0,0,.4); color: #fff; text-shadow: 0 -1px 0 rgba(0,0,0,.5); font-size: 14px; line-height: 18px;}
@@ -4313,13 +4339,13 @@ p.flex-caption a { font-size: 18px;color: #ddd; border: none;}
 p.flex-caption a:hover {color: #fff; border: none;}
 /* Direction Nav */
 #content ul.flex-direction-nav { list-style: none; }
-.flex-direction-nav li a { border: none; width: 32px; height: 32px; margin: -13px 0 0; display: block; background: url(images/arrows.png) no-repeat 0 0; position: absolute; top: 51%; cursor: pointer; text-indent: -9999px;} /* set negative margin-top equal to half the height on the directional-nav for perfect vertical centering */
-.flex-direction-nav li a.next {background-position: -32px 0; right: -16px;}
-.flex-direction-nav li a.prev {background-position: 0 0; left: -16px;}
-.flex-direction-nav li a.next:hover {background-position: -32px -45px;}
-.flex-direction-nav li a.prev:hover {background-position: 0 -45px;}
-.flex-direction-nav li a.next:active {background-position: -32px -44px;}
-.flex-direction-nav li a.prev:active {background-position: 0 -44px;}
+.flex-direction-nav li a { border: none; width: 36px; height: 36px; margin: -18px 0 0; display: block; background: url(images/arrows-white.png) no-repeat 0 0; position: absolute; top: 50%; cursor: pointer; text-indent: -9999px; } /* set negative margin-top equal to half the height on the directional-nav for perfect vertical centering */
+.flex-direction-nav li a.next {background-position: -40px 0; right: -12px;}
+.flex-direction-nav li a.prev {background-position: 0 0; left: -12px;}
+.flex-direction-nav li a.next:hover {background-position: -40px -43px;}
+.flex-direction-nav li a.prev:hover {background-position: 0 -43px;}
+.flex-direction-nav li a.next:active {background-position: -40px -42px;}
+.flex-direction-nav li a.prev:active {background-position: 0 -42px;}
 
 /* Control Nav */
 #content ol.flex-control-nav { list-style: none; }

@@ -37,7 +37,7 @@ get_header(); ?>
 	  		?>
 	        <div class="featured-wrap" id="featured-wrapper-<?php echo $count;?>">
 			<h3 class="entry-title"><a href="<?php the_permalink();?>"><?php echo get_the_title(); ?></a></h3>
-			<p><a href="<?php the_permalink();?>"><span class="date"><?php echo get_the_date('m/d'); ?></span><?php if ( has_post_thumbnail() ) {
+			<p><a class="feature-img-date" href="<?php the_permalink();?>"><span class="date"><?php echo get_the_date('m/d'); ?></span><?php if ( has_post_thumbnail() ) {
   the_post_thumbnail('featured-mediabox'); 
 } else  { 
 	echo '<img src="'.get_bloginfo("template_url").'/images/AgriLife-default-post-image.png" alt="AgriLife Logo" title="AgriLife" />'; 
