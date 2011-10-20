@@ -144,10 +144,10 @@ function show_county_directory($options) {
                     echo "<td>".$item[11]."</td>";
                     echo "<td>";
                     if($item[8]<>'')
-                         preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[8]).'<br />';
+                         echo 'Phone: '.preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[8]).'<br />';
 
                     if($item[9]<>'')
-                         echo preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[9]).'<br />';
+                         echo 'Fax: '.preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[9]).'<br />';
 
                     if($item[7]<>'')
                       echo "<a href=\"mailto:".$item[7]."\">".$item[7]."</a><br />";
