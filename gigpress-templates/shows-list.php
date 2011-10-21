@@ -74,9 +74,9 @@
 				<span class="gigpress-info-item"><span class="gigpress-info-label"><?php _e("Admission", "gigpress"); ?>:</span> <?php echo $showdata['price']; ?>.</span>
 			<?php endif; ?>
 			
-			<?php if($showdata['admittance']) : ?>
+			<?php /* if($showdata['admittance']) : ?>
 				<span class="gigpress-info-item"><span class="gigpress-info-label"><?php _e("Age restrictions", "gigpress"); ?>:</span> <?php echo $showdata['admittance']; ?>.</span>
-			<?php endif; ?>
+			<?php endif;*/ ?>
 			
 			<?php if($showdata['ticket_phone']) : ?>
 				<span class="gigpress-info-item"><span class="gigpress-info-label"><?php _e("Box office", "gigpress"); ?>:</span> <?php echo $showdata['ticket_phone']; ?>.</span>
