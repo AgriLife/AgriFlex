@@ -986,11 +986,6 @@ ul.menu {
 	margin: 0 10px;		
 }
 
-#access #menu-main-navigation {
-	margin: 0 auto;
-}
-
-
 #access .menu-header li,
 div.menu li {
 	font-family: 'Verdana',clean, sans-serif;
@@ -1540,13 +1535,23 @@ body.home .hentry {
 	overflow: hidden;
 }
 
-.home .test-search-form {
-	margin-left: 10px;
-}
-
 .test-search-form .s {
 	float: right;
-	width: 50%;
+	width: 40%;
+	margin-right: 5px;
+	margin-top: 3px;
+	padding-top: 6px;
+	padding-bottom: 6px;	
+}
+
+.test-search-form select {
+	padding: 0;
+	margin: 0 5px 0 0;
+}
+
+.test-search-form input.test-submit {
+	padding: 5px 10px;
+	margin-top: -4px;
 }
 
 .tax-options {
@@ -3211,11 +3216,6 @@ img#wpstats {
 		-webkit-box-shadow: 0 0 5px #2783e6;
 		-moz-box-shadow: 0 0 5px #2783e6;
 		box-shadow: 0 0 5px #2783e6;					
-	}
-
-	#access #menu-main-navigation {
-		width: 100%;
-		margin: 0;
 	}
 	
 	#breadcrumbs {

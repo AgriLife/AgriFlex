@@ -1034,6 +1034,7 @@ function tvmdl_test_search_form($species_selected='',$lab_sections_selected='',$
 	
 	?>
 	  <input type="text" class="s" name="searchtests" id="s" placeholder="<?php echo $term; ?>" onfocus="if(this.value==this.defaultValue)this.value='<?php echo $term; ?>';" onblur="if(this.value=='<?php echo $term; ?>')this.value=this.defaultValue;"/><br />
+	  <input class="test-submit" type="submit" name="submit" value="Search" />	
 	  <input type="hidden" name="post_type" value="tests" />
 	</form>
 	</div>
