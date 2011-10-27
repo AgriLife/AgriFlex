@@ -30,7 +30,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: rgba(0,150,0,3);
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -106,10 +106,12 @@ body {
 	background: #e8e7d0;
 	font: 62.5% "minion-pro-1","minion-pro-2", 'Cambria', 'Georgia', 'Times New Roman', serif;
 	line-height: 1.2em;
-	color: #433c3a;
-	text-rendering: optimizeLegibility;		
+	color: #433c3a;	
 }
-
+/*-- Target Modernizr.no-touch class  --*/
+.no-touch body {
+    text-rendering: optimizeLegibility;	/*-- Only target non touch based screens --*/
+}
 h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
 	line-height: 1.2em;
@@ -522,7 +524,7 @@ body.collegeonly #drop-section-nav #drop-nav ul li a {
 }
 
 .extensioncountytce #drop-section-nav #drop-nav ul li a[href*='pvcep'] {
-	background-image: url('images/cep.png');
+	background-image: url('images/cep-logo.png');
 	width: 204px;
 	margin-top: 0px;
 }
