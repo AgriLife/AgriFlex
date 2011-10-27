@@ -637,12 +637,11 @@ function create_tests_post_type() {
                     'not_found_in_trash' => __( 'No Tests found in Trash' ),
 
                ),
-          '_builtin' => false, // It's a custom post type, not built in!
-          '_edit_link' => 'post.php?post=%d',
           'capability_type' => 'post',
+          'has_archive' => true,
           'hierarchical' => false,
           'public' => true,
-          'rewrite' => array('slug' => 'tests'),
+          //'rewrite' => array('slug' => 'tests'),
           'supports' => array( 'title', 'editor' ),
           )
      );
@@ -673,13 +672,13 @@ function create_tests_taxonomies() {
           'labels' => $labels, /* NOTICE: Here is where the $labels variable is used */
           'show_ui' => true,
           'query_var' => true,
-          'rewrite' => array( 'slug' => 'species' ),
+          'rewrite' => false,
      ));
 
      // Add new taxonomy, make it hierarchical (like categories)
      $labels = array(
           'name' => _x( 'Lab Sections', 'taxonomy general name' ),
-          'singular_name' => _x( 'Lab Sections', 'taxonomy singular name' ),
+          'singular_name' => _x( 'Lab Section', 'taxonomy singular name' ),
           'search_items' =>  __( 'Search Lab Sections' ),
           'all_items' => __( 'All Lab Sections' ),
           'parent_item' => __( 'Parent Lab Section' ),
@@ -695,7 +694,7 @@ function create_tests_taxonomies() {
           'labels' => $labels, /* NOTICE: Here is where the $labels variable is used */
           'show_ui' => true,
           'query_var' => true,
-          'rewrite' => array( 'slug' => 'lab-sections' ),
+          'rewrite' => false,
      ));
 
 }
@@ -1015,66 +1014,193 @@ function my_meta_clean(&$arr)
 
 
 // TVMDL specific content for test search form
-function tvmdl_test_search() {
-    do_action('tvmdl_test_search');
+function tvmdl_test_search($species_selected='',$lab_sections_selected='',$term='') {
+    do_action('tvmdl_test_search',$species_selected,$lab_sections_selected,$term);
 }
 
-add_action('tvmdl_test_search','tvmdl_test_search_form',5);
+add_action('tvmdl_test_search','tvmdl_test_search_form',5,3);
 
-function tvmdl_test_search_form() { ?>
-     <div class="test-search-form">
-     <label>
-     <h4>Search for Tests</h4>
-     </label>
-     <form role="search" class="searchform" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
-<?php
-echo '<div class="tax-options">';
-function get_terms_dropdown($species, $lab_sections, $args){
-     $myspecies = get_terms($species, $args);
-     $mylab_sections = get_terms($lab_sections, $args);    
+function tvmdl_test_search_form($species_selected='',$lab_sections_selected='',$term='Avian Influenza') { ?>
+	<div class="test-search-form">
+	<label>
+	<h4>Search for Tests</h4>
+	</label>
+	<form role="search" class="searchform" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
+	<?php
+	echo '<div class="tax-options">';
+	$args = array('order'=>'ASC','hide_empty'=>true);
+	echo get_terms_dropdown($species_selected, $lab_sections_selected, $args);
+	echo '</div>';
+	
+	?>
+	  <input type="text" class="s" name="searchtests" id="s" placeholder="<?php echo $term; ?>" onfocus="if(this.value==this.defaultValue)this.value='<?php echo $term; ?>';" onblur="if(this.value=='<?php echo $term; ?>')this.value=this.defaultValue;"/><br />
+	  <input type="hidden" name="post_type" value="tests" />
+	</form>
+	</div>
+<?php 
+}
+
+
+
+function get_terms_dropdown($species_selected, $lab_sections_selected, $args){
+     $myspecies = get_terms('species', $args);
+     $mylab_sections = get_terms('lab_sections', $args);    
      $optionname = "optionname";
      $emptyvalue = "";
-     $output ="<select name='".$optionname."'><option selected='".$selected."' value='".$emptyvalue."'>Species</option>'";
+     $selected = '';
+     $selected_all = ($species_selected == '' ? 'selected="selected"' : '');
+     $output ="<select name='species'><option .$selected_all. value='".$emptyvalue."'>All Species</option>'";
 
      foreach($myspecies as $term){
           $term_taxonomy=$term->species;
           $term_slug=$term->slug;
           $term_name =$term->name;
           $link = $term_slug;
-          $output .="<option name='".$link."' value='".$link."'>".$term_name."</option>";
+          $selected = ($species_selected == $term_slug ? 'selected="selected"' : '');
+          $output .="<option name='".$link."' value='".$link."' ".$selected." >".$term_name."</option>";
      }
      $output .="</select>";    
     
-     $output .="<select name='".$optionname."'><option selected='".$selected."' value='".$emptyvalue."'>Lab Sections</option>'";
+     
 
+	 $selected = '';
+     $selected_all = ($lab_sections_selected == '' ? 'selected="selected"' : '');
+     $output .="<select name='lab_section'><option ".$selected_all." value='".$emptyvalue."'>All Lab Sections</option>'";
      foreach($mylab_sections as $term){
           $term_taxonomy=$term->lab_sections;
           $term_slug=$term->slug;
           $term_name =$term->name;
           $link = $term_slug;
-          $output .="<option name='".$link."' value='".$link."'>".$term_name."</option>";
+          $selected = ($lab_sections_selected == $term_slug ? 'selected="selected"' : '');
+          $output .="<option name='".$link."' ".$selected." value='".$link."'>".$term_name."</option>";
      }
      $output .="</select>";    
-    
-return $output;
-
-
+	return $output;
 }
 
-$species = array( 'species' );
-$lab_sections = array( 'lab_sections');
-$args = array('order'=>'ASC','hide_empty'=>true);
-echo get_terms_dropdown($species, $lab_sections, $args);
-echo '</div>';
-?>
-          <input type="text" class="s" name="s" id="s" placeholder="Avian Influenza" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;"/><br />
-          <input type="hidden" name="post_type" value="tests" />
-     </form>
-     </div>
-<?php 
+
+
+
+
+
+/* Get taxononies associated with a post */
+function ucc_get_terms( $id = '' ,$return_links = true) {
+  global $post;
+ 
+  if ( empty( $id ) )
+    $id = $post->ID;
+ 
+  if ( !empty( $id ) ) {
+    $post_taxonomies = array();
+    $post_type = get_post_type( $id );
+    $taxonomies = get_object_taxonomies( $post_type , 'names' );
+ 
+    foreach ( $taxonomies as $taxonomy ) {
+      $term_links = array();
+      $terms = get_the_terms( $id, $taxonomy );
+ 
+      if ( is_wp_error( $terms ) )
+        return $terms;
+ 
+      if ( $terms ) {
+        foreach ( $terms as $term ) {
+          $link = get_term_link( $term, $taxonomy );
+          if ( is_wp_error( $link ) )
+            return $link;
+          if($return_links)
+          	$term_links[] = '<a href="' . $link . '" rel="' . $taxonomy . '">' . $term->name . '</a>';
+          else
+            $term_links[] = $term->name;
+        }
+      }
+ 
+      $term_links = apply_filters( "term_links-$taxonomy" , $term_links );
+      $post_terms[$taxonomy] = $term_links;
+    }
+    return $post_terms;
+  } else {
+    return false;
+  }
 }
 
-// TVMDL specific content for test search form
+/* Make bulleted lists of taxononies associated with a post */
+function ucc_get_terms_list( $id = '' , $echo = true ) {
+  global $post;
+ 
+  if ( empty( $id ) )
+    $id = $post->ID;
+ 
+  if ( !empty( $id ) ) {
+    $my_terms = ucc_get_terms( $id , false);
+    if ( $my_terms ) {
+      $my_taxonomies = array();
+      foreach ( $my_terms as $taxonomy => $terms ) {
+        $my_taxonomy = get_taxonomy( $taxonomy );
+        if ( !empty( $terms ) )          $my_taxonomies[] = '<span class="' . $my_taxonomy->name . '-links">' . '<span class="entry-utility-prep entry-utility-prep-' . $my_taxonomy->name . '-links">' . $my_taxonomy->labels->name . ': ' . implode( $terms , ', ' ) . '</span></span>';
+      }
+ 
+      if ( !empty( $my_taxonomies ) ) {
+        $output = '<ul>' . "\n";
+        foreach ( $my_taxonomies as $my_taxonomy ) {
+          $output .= '<li>' . $my_taxonomy . '</li>' . "\n";
+        }
+        $output .= '</ul>' . "\n";
+      }
+ 
+      if ( $echo )
+        echo $output;
+      else
+        return $output;
+    } else {
+      return;
+    }
+  } else {
+    return false;
+  } 
+} 
+
+/*
+
+// Include taxonomies in search results
+// search all taxonomies, based on: http://projects.jesseheap.com/all-projects/wordpress-plugin-tag-search-in-wordpress-23
+
+function agrilife_search_where($where){
+  global $wpdb, $wp_query;
+  if ( !empty($qv['searchtests']) )
+    $where .= "OR (t.name LIKE '%".get_search_query()."%' AND {$wpdb->posts}.post_status = 'publish')";
+  return $where;
+}
+
+function agrilife_search_join($join){
+  global $wpdb, $wp_query;
+  if (!empty($qv['searchtests']))
+    $join .= "LEFT JOIN {$wpdb->term_relationships} tr ON {$wpdb->posts}.ID = tr.object_id INNER JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id=tr.term_taxonomy_id INNER JOIN {$wpdb->terms} t ON t.term_id = tt.term_id";
+  return $join;
+}
+
+function agrilife_search_groupby($groupby){
+  global $wpdb;
+
+  // we need to group on post ID
+  $groupby_id = "{$wpdb->posts}.ID";
+  if(!is_search() || strpos($groupby, $groupby_id) !== false) return $groupby;
+
+  // groupby was empty, use ours
+  if(!strlen(trim($groupby))) return $groupby_id;
+
+  // wasn't empty, append ours
+  return $groupby.", ".$groupby_id;
+}
+
+add_filter('posts_where','agrilife_search_where');
+add_filter('posts_join', 'agrilife_search_join');
+add_filter('posts_groupby', 'agrilife_search_groupby');
+
+*/
+
+
+
+// College specific content for drop-down
 function college_top_level_section() {
     do_action('college_top_level_section');
 }
