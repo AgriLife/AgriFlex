@@ -383,9 +383,7 @@ jQuery(document).ready(function($) {
 	$(function() {
 		$( "#tabs" ).tabs();
 	});
-	
-	//Enable CSS active pseudo styles in Mobile Safari http://miniapps.co.uk/blog/post/enable-css-active-pseudo-styles-in-mobile-safari/
-	document.addEventListener("touchstart", function() {},false);
+
 						
 	// Top level drop down
 		var Revealer = function(relativeParent,absoluteChild,speed) {

@@ -138,7 +138,7 @@ function agriflex_setup() {
                                   
             // enqueue the custom jquery js
              wp_enqueue_script('my_scripts',
-                 get_bloginfo('template_directory') . '/js/my_scripts.js', array('jquery'), '2.8', true);                
+                 get_bloginfo('template_directory') . '/js/my_scripts.js', array('jquery'), '2.9', true);                
           }             
      }   
      add_action('init', 'load_js');    

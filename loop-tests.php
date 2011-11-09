@@ -102,12 +102,13 @@ echo "</pre>";
 <dl class="job-listing-ul">
 	<?php while ( $filtered_search->have_posts() ) : $filtered_search->the_post(); ?>
 		<?php $my_meta = get_post_meta($post->ID,'_my_meta',TRUE); ?>	
-		<dt id="post-<?php the_ID(); ?>" class="test-listing-item"><a href="<?php echo $my_meta['link']; ?>" class="test-listing-link" title="<?php printf( esc_attr__( 'Permalink to %s test', 'agriflex' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-			<h2 class="test-title" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+		<a href="<?php echo $my_meta['link']; ?>" class="test-listing-link" title="<?php printf( esc_attr__( 'Permalink to %s test', 'agriflex' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+		<dt id="post-<?php the_ID(); ?>" class="test-listing-dt">
+			<h2 class="test-title" title="<?php the_title(); ?>"><?php the_title(); ?></h2>
 		</dt>
-		<dd class="test-listing-item">
+		<dd class="test-listing-dd">
 			<?php ucc_get_terms_list(); ?>				
 		</dd>
-			
+		</a>
 	<?php endwhile; ?>
 </dl>

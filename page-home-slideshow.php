@@ -6,7 +6,10 @@
 
 get_header(); ?>
 		<div id="wrap">
-			<div id="content" role="main">		
+			<div id="content" role="main">	
+			<?php if($istvmdlonly) :?>
+			<?php tvmdl_test_search() ?>
+			<?php endif; ?>	
 		<?php $my_query = new WP_Query('meta_key=feature-homepage&meta_value=1&showposts=5&post_type=any');
 		$count = 0;	?>
   		<?php if ( $my_query->have_posts() ) : ?>
@@ -29,7 +32,6 @@ get_header(); ?>
 		</div>
 
 		<?php endif;?>	
-
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 

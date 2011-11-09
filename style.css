@@ -519,6 +519,10 @@ body.collegeonly #drop-section-nav #drop-nav ul li a {
 	height: 46px;
 	margin-top: 2px;
 }	
+.tvmdlonly #drop-section-nav #drop-nav ul li a {
+	height: 40px;
+}
+
 .extensiononly #drop-section-nav #drop-nav ul li a[href*='extension'] {
 	background-image: url('images/ext-system-logo.png');
 }
@@ -537,13 +541,33 @@ body.collegeonly #drop-section-nav #drop-nav ul li a {
 
 .tvmdlonly #drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
 	background-image: url('images/tvmdl-logo.png');
-	width: 80px;
+	width: 90px;
 }
 
 .researchonly #drop-section-nav #drop-nav ul li a[href*='research'] {
 	background-image: url('images/research-logo.png');
 }
 
+.tvmdlonly #drop-section-nav #drop-nav ul li a.client-login {
+	background-image: none;
+	text-indent: 0;	
+	background: rgba(0,0,0,.3);
+	border-radius: 5px;
+	padding: 5px 10px;
+	height: auto;
+	width: auto;
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.tvmdlonly #drop-section-nav #drop-nav ul li a.client-login:hover {
+	background: rgba(0,0,0,.5);
+}
+
+.tvmdlonly #drop-section-nav #drop-nav .client-login-li {
+	margin-top: 8px;
+}
 
 #drop-section  {
 	background: #EAE8D9 ;
@@ -1537,7 +1561,7 @@ body.home .hentry {
 
 .test-search-form .s {
 	float: right;
-	width: 40%;
+	width: 35%;
 	margin-right: 5px;
 	margin-top: 3px;
 	padding-top: 6px;
@@ -1550,12 +1574,12 @@ body.home .hentry {
 }
 
 .test-search-form input.test-submit {
-	padding: 5px 10px;
 	margin-top: -4px;
+	float: right;
 }
 
 .tax-options {
-	width: 40%;
+	width: 45%;
 	float: left;
 	padding-top: 8px;
 }
@@ -1590,7 +1614,7 @@ body.home .hentry {
 
 .job-listing-item,
 .staff-listing-item,
-.test-listing-item {
+.test-listing-link {
 	list-style-type: none;
 	margin-left: 0;
 	padding-left: 0;
@@ -1599,6 +1623,10 @@ body.home .hentry {
 	background: #EAE6D2;
 	background: rgba(217, 208, 173, .30);
 	border-bottom: 1px solid #fafaf6;
+}
+
+.test-listing-item {
+	list-style-type: none;	
 }
 
 .job-listing-item:nth-child(even),
@@ -1644,6 +1672,23 @@ a.test-listing-link:hover {
 .test-title {
 	margin-bottom: 0;
 }
+
+#content .test-listing-dt {
+	float: left;
+	width: 60%;	
+	margin-bottom: 0;	
+}
+
+#content .test-listing-dd {
+	float: right;
+	width: 40%;	
+	margin-bottom: 0;
+}
+
+.test-listing-dd ul {
+	margin: 5px 0;	
+}
+
 
 .job-agency {
 	font-size: 14px;
@@ -1820,6 +1865,26 @@ a.test-listing-link:hover {
 	background: rgba(217, 208, 173,.40);
 }
 
+.intent-meta a {
+	margin: 0 5px 10px 0;
+	padding: 2px 4px;
+	background: rgba(255,255,255,.3);
+	border-radius: 3px;
+	font-size: 11px;
+	border: none;
+}
+
+.intent-meta a:hover,
+.intent-meta a:active {
+	background: rgba(255,255,255,.7);
+}
+
+#secondary span.entry-meta {
+	margin: 10px 0;
+	font-size: 11px;
+}
+
+
 #aside #aside-widget-area-1 ul li.Watch {
 	padding: 0;
 	margin-bottom: 20px;	
@@ -1935,7 +2000,11 @@ div.event.last dl {
 }
 
 .widget_twitter ul li {
-	padding: 20px 0 0 65px;
+	padding: 20px 0 20px 65px;
+}
+
+.follow-button {
+	margin: 20px 0;
 }
 
 .widget_twitter_hash_tag ul.twitter-hash-tag-widget > li:first-child,
@@ -2003,7 +2072,7 @@ body.page .gigpress-table th a {
 }
 
 body.page #content tr.gigpress-info td.description {
-	padding: 0;
+	padding: 10px;
 	width: 98%;
 }
 
@@ -2915,8 +2984,7 @@ img#wpstats {
 
 	#drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
 		background-image: url('images/tvmdl-logo.png');
-		width: 100px;
-		margin-left: 10px;
+		width: 90px;
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='research'] {
@@ -3124,7 +3192,11 @@ img#wpstats {
 		margin: 0 0 -20px 0;
 		display: inline;
 	}
-	
+
+	body.extension4h #site-title a img {
+		margin: 0 0 -15px 0;
+	}	
+		
 	#site-title a em {
 		font-size: 1.5em;
 		font-style: normal;		
@@ -3702,7 +3774,6 @@ div.ui-widget {
 div.gform_wrapper { 
 	margin:10px 0; 
 	max-width:960px;
-	font-family: "ff-dagny-web-pro-1","ff-dagny-web-pro-2", 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
 }
 	
 .gform_wrapper h1, 
@@ -3731,34 +3802,23 @@ div.gform_wrapper {
 div.gform_wrapper input,
 div.gform_wrapper textarea  {
 	font-size: 14px; 
-	font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif; 
 	padding: 7px 3px;
-	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;	
 	border-radius: 3px;
 	border: 1px solid #aaa;
 	outline-style: none; 
 	letter-spacing:normal;	
 	resize:none; /* doesn't validate but added for Safari field resizing */	
-	-webkit-box-shadow: 1px 0 4px #0c597c;
-	-moz-box-shadow: 1px 0 4px #0c597c;
-	box-shadow: 1px 0 4px #0c597c;	
 	}
 
 div.gform_wrapper input:hover,
 div.gform_wrapper textarea:hover  {
 	border: 1px solid #777;
-	-webkit-box-shadow: 1px 0 4px #083d55;
-	-moz-box-shadow: 1px 0 4px #083d55;
-	box-shadow: 1px 0 4px #083d55;
 	}
 
 div.gform_wrapper input:focus,
 div.gform_wrapper textarea:focus  {
-	border: 1px solid #6ea2b6;
-	-webkit-box-shadow: 1px 1px 1px #91d6ef;
-	-moz-box-shadow: 1px 1px 1px #91d6ef;
-	box-shadow: 1px 1px 1px #91d6ef;		
+	border: 1px solid #6ea2b6;		
 	}
 	
 div.gform_wrapper input.button {
@@ -3887,9 +3947,9 @@ html>body .entry ul, .gform_wrapper ul {
 .gform_wrapper .right_label input.large, .gform_wrapper .right_label select.large, .gform_wrapper .left_label input.large, .gform_wrapper .left_label select.large, .gform_wrapper textarea.textarea {width:59%}
 .gform_wrapper .right_label div.ginput_complex, .gform_wrapper .left_label div.ginput_complex {width:64%; float:left}
 .gform_wrapper h2.gsection_title {margin:0!important; padding:0!important; letter-spacing:normal!important}
-.gform_wrapper .gsection .gfield_label, .gform_wrapper h2.gsection_title, .gform_wrapper h3.gform_title {font-weight:bold; font-size:16px; font-family:Helvetica, sans-serif}
+.gform_wrapper .gsection .gfield_label, .gform_wrapper h2.gsection_title, .gform_wrapper h3.gform_title {font-weight:bold; font-size:16px; font-family:Helvetica, sans-serif;}
 .gform_wrapper h3.gform_title {letter-spacing:normal!important; margin:10px 0 6px 0}
-.gform_wrapper span.gform_description {font-weight:normal}
+.gform_wrapper span.gform_description {font-weight:normal; font-size: 16px; line-height: 22px; }
 .gform_wrapper h2.gsection_title, .gform_wrapper .gsection_description, .gform_wrapper h3.gform_title {width:98%}
 .gform_wrapper .gsection {border-bottom:1px dotted #ccc!important; padding:0 0 8px 0; margin:8px 0 16px 0}
 
@@ -3898,7 +3958,7 @@ html>body .entry ul, .gform_wrapper ul {
 .gform_wrapper .gfield_checkbox li, .gform_wrapper .gfield_radio li {position:relative}
 .gform_wrapper ul.gfield_checkbox, .gform_wrapper ul.gfield_radio {margin:6px 0; padding:0}
 .gform_wrapper .gfield_checkbox li label, .gform_wrapper .gfield_radio li label {display:block; margin: 0 0 0 24px; padding:0; width: auto; line-height:1.5; vertical-align: top}
-.gform_wrapper .gfield_checkbox li input[type=checkbox], .gform_wrapper .gfield_radio li input[type=radio], .gform_wrapper .gfield_checkbox li input {float:left; margin-top:2px}
+.gform_wrapper .gfield_checkbox li input[type=checkbox], .gform_wrapper .gfield_radio li input[type=radio], .gform_wrapper .gfield_checkbox li input {float:left; margin-top:2px; margin-left: 2px;}
 
 /* some built in styles to use for quick radio/checkbox columns ----------------------------------- */
 
