@@ -525,7 +525,7 @@ function county_footer_contact() {
 	//Get a handle to the webservice
 	$wsdl = new nusoap_client('https://agrilifepeople.tamu.edu/applicationAPI/organizationalModule.cfc?wsdl',true);
 	$proxy = $wsdl->getProxy();
-	$hash = md5('3rVj\hK{s%gB$8*pgetunits',true);
+	$hash = md5(AGRILIFE_API_KEY.'getunits',true);
 	$base64 = base64_encode($hash);	
 	$result = $proxy->getUnits(3,$base64,$countycode,'','','','','');
 	
@@ -622,7 +622,7 @@ function county_office_info() {
 	* Functions below are explained on PHP Manual http://php.net/manual/en/
 	*/
 	
-	$hash = md5('3rVj\hK{s%gB$8*pgetunits',true);
+	$hash = md5(AGRILIFE_API_KEY.'getunits',true);
 	
 	$base64 = base64_encode($hash);
 	
@@ -738,7 +738,7 @@ function show_county_directory($options) {
       * Functions below are explained on PHP Manual http://php.net/manual/en/
       */
 
-     $hash = md5('3rVj\hK{s%gB$8*pgetpersonnel',true);
+     $hash = md5(AGRILIFE_API_KEY.'getpersonnel',true);
 
      $base64 = base64_encode($hash);
 
