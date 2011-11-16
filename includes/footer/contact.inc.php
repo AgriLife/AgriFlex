@@ -4,6 +4,8 @@
 		<?php 
 		
 		if (($options['extension_type'] == 2 || $options['extension_type'] == 3) && $isextensiononly) {
+			require_once (MY_THEME_FOLDER . '/includes/counties.php');
+			require_once (MY_THEME_FOLDER . '/includes/nusoap/nusoap.php');
 			county_footer_contact();
 		} else {		
 			$mapaddress=$options['address-street1'].' '.$options['address-street2'].' '.$options['address-city'].', TX '.$options['address-zip'];
