@@ -768,7 +768,7 @@ if (!function_exists("AgrilifeCustomize_ap")) {
 			return;
 		}
 		if (function_exists('add_options_page')) {
-			add_options_page('AgriLife Site Configuration', 'AgriLife Options', 9, 'agrilife-config-admin', array(&$agrilife_customizer, 'printAdminPage'));
+			add_options_page('AgriLife Site Configuration', 'AgriLife Options', 'edit_others_pages', 'agrilife-config-admin', array(&$agrilife_customizer, 'printAdminPage'));
 		}
 		// Add Image Thickbox To Config Screen
 		if (isset($_GET['page']) && $_GET['page'] == 'agrilife-config-admin') {

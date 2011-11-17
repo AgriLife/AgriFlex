@@ -138,7 +138,7 @@ function agriflex_setup() {
                                   
             // enqueue the custom jquery js
              wp_enqueue_script('my_scripts',
-                 get_bloginfo('template_directory') . '/js/my_scripts.js', array('jquery'), '2.9', true);                
+                 get_bloginfo('template_directory') . '/js/my_scripts.js', array('jquery'), '2.9.1', false);                
           }             
      }   
      add_action('init', 'load_js');    
@@ -453,8 +453,8 @@ function agriflex_widgets_init() {
           'name' => __( 'Right Column', 'agriflex' ),
           'id' => 'right-column-widget-area',
           'description' => __( 'The right column area', 'agriflex' ),
-          'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-          'after_widget' => '</li>',
+          'before_widget' => '<li id="%1$s" class="widget-container %2$s"><div class="widget-wrap">',
+          'after_widget' => '</div></li>',
           'before_title' => '<h3 class="widget-title">',
           'after_title' => '</h3>',
      ) );
@@ -464,8 +464,8 @@ function agriflex_widgets_init() {
           'name' => __( 'Right Column Bottom', 'agriflex' ),
           'id' => 'right-column-bottom-widget-area',
           'description' => __( 'The right column bottom widget area', 'agriflex' ),
-          'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-          'after_widget' => '</li>',
+          'before_widget' => '<li id="%1$s" class="widget-container %2$s"><div class="widget-wrap">',
+          'after_widget' => '</div></li>',
           'before_title' => '<h3 class="widget-title">',
           'after_title' => '</h3>',
      ) );

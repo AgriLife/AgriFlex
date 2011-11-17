@@ -103,7 +103,7 @@ body, button, input, select, textarea { font-family: sans-serif; color: #222; }
 
 
 body {
-	background: #e8e7d0;
+	background: #fff;
 	font: 62.5% "minion-pro-1","minion-pro-2", 'Cambria', 'Georgia', 'Times New Roman', serif;
 	line-height: 1.2em;
 	color: #433c3a;	
@@ -446,18 +446,9 @@ a.logout_btn {
 	border: none;
 	padding: 5px 5px 0;
 	margin-right: 5px;
-	opacity: 0.4;
 	-webkit-transition: opacity .3s ease;
 	-moz-transition: opacity .3s ease;
 	
-}
-
-#drop-section-nav #drop-nav ul li a:hover,
-body.tvmdlonly #drop-section-nav #drop-nav ul li a,
-body.researchonly #drop-section-nav #drop-nav ul li a,
-body.extensiononly #drop-section-nav #drop-nav ul li a,
-body.collegeonly #drop-section-nav #drop-nav ul li a {
-	opacity: 1;
 }
 
 #drop-section-nav #drop-nav ul li a[href*='ask'] {
@@ -482,11 +473,16 @@ body.collegeonly #drop-section-nav #drop-nav ul li a {
 }
 
 #drop-section-nav #drop-nav ul li a[href*='extension'] {
-	color: #999;
+	
 }
 
 #drop-section-nav #drop-nav ul li a[href*='aglifesciences'] {
-
+	display: block;
+	background: url('images/college-logo.png') no-repeat left top;
+	margin-top: 5px;
+	height: 38px;
+	width: 180px;
+	text-indent: -999em;		
 }
 
 #drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
@@ -1022,10 +1018,10 @@ div.menu li {
 #access ul.menu a {
 	font-size: 1.15em;
 	border: none;	
-	line-height: .6em;
+	line-height: 1.2em;
 	overflow: hidden;
 	margin: 0 0 .1em 0;		
-	padding: 12px 15px;	
+	padding: 10px 15px;	
 	display: block;		
 }
 
@@ -1395,15 +1391,28 @@ body.home #home-middle .home-middle-features img:hover {
 
 body.home #home-middle .home-middle-features h3 {
 	padding-top: 20px;
-	border-top: double #E2DECA;	
 	line-height: 36px;
 }
 	
-body.home  #home-middle .home-middle-features h3 a {
-	border-bottom: 1px dotted #b19e56;
-	
+body.home  #home-middle .home-middle-features h3 a{
+	border-bottom: 1px dotted #b19e56;	
 }
-	
+
+body.home  #home-middle a.rsswidget {
+	font-size: 22px;
+	line-height: 30px;
+	font-weight: bold;
+		
+}
+
+body.home  #home-middle .rss-date {
+	display: block;
+	margin: 5px 0;
+	font-style: italic;
+	font-weight: bold;
+		
+}
+			
 body.home  #home-middle .home-middle-features h3 a:hover {
 	color: #a2904b;
 	border-bottom: 1px solid #a2904b;
@@ -1549,7 +1558,7 @@ body.home .hentry {
 .test-search-form {
 	margin-bottom: 20px;
 	padding: 10px;
-	background: #e8e7d5;
+	background: #edece4;
 	border-top: 1px solid #d5d1bf;
 	border-bottom: 1px solid #d5d1bf;
 	position: relative;
@@ -1675,7 +1684,7 @@ a.test-listing-link:hover {
 
 #content .test-listing-dt {
 	float: left;
-	width: 60%;	
+	width: 55%;	
 	margin-bottom: 0;	
 }
 
@@ -1781,8 +1790,8 @@ a.test-listing-link:hover {
 
 #aside #sidebar-navigation-widgets .widget_nav_menu,
 #aside #sidebar-navigation-widgets .widget_links {
-	background: #e0dbb9;	
-	background: rgba(217, 208, 173,.35);						
+	background: #f1f0ec;
+	border-radius: 3px;							
 }
 
 #aside #sidebar-navigation-widgets h3 {
@@ -1796,32 +1805,32 @@ a.test-listing-link:hover {
 	display: block;		
 	margin: 0;
 	background: url('images/navigation-arrow.png') no-repeat -1px 3px;
-	background-color: #eae6d2;
-	background-color: rgba(217, 208, 173,.4);	
+	background-color: #edece4;	
 	padding: 10px 10px 10px 27px;
 	border-bottom: 1px solid #E0DCBC;
 	border-top: 1px solid #F0EEDE;
 	cursor: pointer;
-    outline:none;			
+    outline:none;
+	-webkit-box-shadow: 0 0 3px rgba(10,10,10,.2);	
+	-moz-box-shadow: 0 0 2px rgba(100,100,100,.2);	
+	box-shadow: 0 0 2px rgba(100,100,100,.2);			
 }
 
 #aside #sidebar-navigation-widgets h3 a:hover {	
-    background-color: #d8d2a7;
-	background-color: rgba(217, 208, 173,.7);		
+    background-color: #d9d6c6;	
 }
 
 #aside #sidebar-navigation-widgets h3.ui-state-active a {
 	background-position: -2px -29px;	
-    background-color: #d8d2a7;
-	background-color: rgba(217, 208, 173,.7);		
+    background-color: #e3e1d5;		
 }
 
 #aside .menu li a,
 #aside .blogroll li a {
 	display: block;
 	padding: 5px 10px;
-	border-bottom: 1px solid #E0DCBC;
-	border-top: 1px solid #F0EEDE;
+	border-bottom: 1px solid #e0dfd8;
+	border-top: 1px solid #fff;
 }
 
 #aside .menu li ul li a,
@@ -1859,10 +1868,38 @@ a.test-listing-link:hover {
 
 #aside ul li.widget-container {
 	position: relative;
-	padding: 10px;
+	padding: 5px;
 	margin-bottom: 20px;	
-	background: #eae6d2;
-	background: rgba(217, 208, 173,.40);
+	background: #fff;
+	border-radius: 3px;
+	border: 1px solid #e3e1d5;
+	-webkit-box-shadow: 0 0 3px rgba(10,10,10,.2);	
+	-moz-box-shadow: 0 0 2px rgba(100,100,100,.2);	
+	box-shadow: 0 0 2px rgba(100,100,100,.2);	
+}
+
+
+#aside ul li.widget-container .widget-wrap {
+	position: relative;
+	padding: 10px;	
+	background: #edece4;	
+	border-radius: 2px;
+}
+
+#aside ul li.widget-container.Watch.Read.Listen {	
+	background: transparent;
+	border-radius: 0;
+	border: 1px solid transparent;
+	-webkit-box-shadow: 0 0 3px rgba(10,10,10,.0);	
+	-moz-box-shadow: 0 0 2px rgba(100,100,100,.0);	
+	box-shadow: 0 0 2px rgba(100,100,100,.0);		
+}
+
+#aside ul li.widget-container.Watch.Read.Listen .widget-wrap {	
+	position: relative;
+	padding: 0;	
+	background: transparent;
+	border-radius: 0px;		
 }
 
 .intent-meta a {
@@ -1897,8 +1934,13 @@ div.event dl,
 	overflow: hidden;
 	margin: 0;
 	padding: 25px 0 5px 0;
-	border-top: 1px solid #f0eede;
-	border-bottom: 1px solid #d0ca99;	
+	border-bottom: 1px solid #E0DFD8;
+	border-top: 1px solid white;	
+}
+
+div.event dl:last-child,
+.gigpress-listing dl:last-child {
+	border-bottom: 1px solid transparent;	
 }
 
 div.event dt.date,
@@ -1977,14 +2019,14 @@ div.event.last dl {
 .agrilifetoday ul li {
 	margin: 0;
 	padding: 20px 0 20px 65px;
-	border-bottom: 1px solid #e0dcbc;
-	border-top: 1px solid #F0EEDE;
+	border-bottom: 1px solid #e0dfd8;
+	border-top: 1px solid #fff;
 	position: relative;
 }
 
 .widget_twitter .twitter-avatar a {
 	position: absolute;
-	top: 50px;
+	top: 65px;
 	left: 10px;
 	padding: 4px;
 	margin-bottom: 3%;
@@ -2635,12 +2677,14 @@ img#wpstats {
 		margin: 0 2px 0 0;
 		border-top-right-radius: 6px;
 		background-color: #f5f5ee;	
+		background-color: rgba(245,245,238,.9);
 	}
 	#access ul.menu li li{
 		border-radius: 0;	
 	}	
 	#access ul.menu li.current-menu-item {
 		background: #f8f5f1 url(images/tan-background.png) -1px 5px;
+		background: #f1f0e7;
 		position: relative;
 		z-index: 5;
 	}
@@ -2649,6 +2693,7 @@ img#wpstats {
 	}
 	#access ul.menu li.current-menu-item:first-child:hover {
 		background: #f8f5f1 url(images/tan-background.png) -1px 5px;
+		background: #f1f0e7;		
 	}	
 	#access ul.menu li a[title='home'] {
 		background-position: 50% 14px;
@@ -2875,6 +2920,19 @@ img#wpstats {
 		background-position: -10px 0; /* arrow hovers for modern browsers*/
 	}
 
+	#content-wrap {
+		position: relative;
+		z-index: 2;
+		border-top: 2px solid #e7e2cb;
+		margin-top: -2px;
+		width: 100%;
+		-webkit-box-shadow: 0 -2px 6px rgba(16,16,16,.075);
+		-moz-box-shadow: -4px -2px 6px rgba(16,16,16,.075);
+		box-shadow: 0 -2px 6px rgba(16,16,16,.075);	
+		background: #fff url(images/gradient.png) repeat-x left -100px;
+		overflow: hidden;			
+	}
+
 	/*----- Job Postings single page ------ */
 
 	.job-posting-dl {
@@ -2896,7 +2954,7 @@ img#wpstats {
 	}
 	
 	#footer {
-		background: #F1EFE5 url(images/footer-texture.png) repeat-x left top;
+		background: #fff url(images/gradient.png) repeat-x left top;
 	}
 	
 	#footer .wrap h4 {
@@ -2940,10 +2998,6 @@ img#wpstats {
 
 
 @media screen and (min-width: 960px) {
-	
-	body {
-	background: #e8e7d0 url(images/tan-background.png) top left;
-	}
 		
 	p, li {
 		line-height: 1.4em;
@@ -2971,7 +3025,19 @@ img#wpstats {
 		width: 180px;
 		height: 42px;
 		margin-top: 2px;
+		opacity: 0.4;
+		-webkit-transition: opacity .3s ease;
+		-moz-transition: opacity .3s ease;		
 	}	
+
+	#drop-section-nav #drop-nav ul li a:hover,
+	body.tvmdlonly #drop-section-nav #drop-nav ul li a,
+	body.researchonly #drop-section-nav #drop-nav ul li a,
+	body.extensiononly #drop-section-nav #drop-nav ul li a,
+	body.collegeonly #drop-section-nav #drop-nav ul li a {
+		opacity: 1;
+	}	
+	
 	#drop-section-nav #drop-nav ul li a[href*='extension'] {
 		background-image: url('images/ext-system-logo.png');
 	}
@@ -2980,6 +3046,7 @@ img#wpstats {
 		background-image: url('images/college-logo.png');
 		margin-top: 6px;
 		height: 36px;
+		opacity: .4;		
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
@@ -2999,7 +3066,15 @@ img#wpstats {
 	#drop-section-nav #drop-nav ul li.explore a {
 		width: 100px;	
 	}
-	
+
+	#drop-section-nav #drop-nav ul li a[href*='aglifesciences']:hover,
+	#drop-section-nav #drop-nav ul li a:hover,
+	body.tvmdlonly #drop-section-nav #drop-nav ul li a,
+	body.researchonly #drop-section-nav #drop-nav ul li a,
+	body.extensiononly #drop-section-nav #drop-nav ul li a,
+	body.collegeonly #drop-section-nav #drop-nav ul li a {
+		opacity: 1;
+	}		
 	#college-top-level-section  {
 		display: block;
 		background: #5b0125 url('images/drop-background.png');	
@@ -3133,7 +3208,7 @@ img#wpstats {
 	}
 
 	#header, #access {
-		background: #fff;
+		background: transparent;							
 	}
 	
 	#branding, #access .menu-header, .wrap, #drop-nav, .drop-section-wrap {
@@ -3141,7 +3216,7 @@ img#wpstats {
 		margin: 0 auto;
 		position: relative;
 	}
-	
+		
 	.wrap {
 		margin: 0 auto 0;
 		padding-top: 50px;
@@ -3161,8 +3236,9 @@ img#wpstats {
 		padding: 55px 0 40px;		
 	}	
 	body.extensioncounty #header,
-	body.extensioncountytce #header {
-		padding: 30px 0 20px;		
+	body.extensioncountytce #header,
+	body.research.extension.college #header {
+		padding: 20px 0 30px;		
 	}				
 	#site-title {
 		text-align: left;
@@ -3173,15 +3249,17 @@ img#wpstats {
 		width: 100%;
 		font-weight: 500;
 		font-size: 46px;
-  		font-family: arno-pro-1,arno-pro-2;			
+  		font-family: "minion-pro-1","minion-pro-2", georgia, serif;
 	}
 	#site-title a span{
 		width: 390px;			
 	}	
 		
 	body #site-title a {	
-		padding: 20px 0;
+		padding: 10px 0;
 		margin-left: 0;	
+		font-weight: bold;
+		font-family: "ff-dagny-web-pro-1","ff-dagny-web-pro-2", 'Lucida Grande','Lucida Sans Unicode', sans-serif;
 	}
 						
 	body.collegeonly #site-title a {
@@ -3258,8 +3336,9 @@ img#wpstats {
 		display: block;
 	}
 	body.extensioncounty #branding .searchform,
-	body.extensioncountytce #branding .searchform {
-		top: -25px;		
+	body.extensioncountytce #branding .searchform,
+	body.extension.research.college #branding .searchform	 {
+		top: -15px;		
 	}	
 	.searchform input.s {
 		float: left;
@@ -3289,6 +3368,8 @@ img#wpstats {
 		-moz-box-shadow: 0 0 5px #2783e6;
 		box-shadow: 0 0 5px #2783e6;					
 	}
+
+.flex-container.fullwidth { margin-left: 10px;}
 	
 	#breadcrumbs {
 		width: 550px;	
@@ -3296,17 +3377,6 @@ img#wpstats {
 	
 	#content {
 		padding-bottom: 2em;
-	}
-
-	#content-wrap {
-		position: relative;
-		z-index: 2;
-		border-top: 2px solid #e7e2cb;
-		margin-top: -2px;
-		width: 100%;
-		-webkit-box-shadow: 0 -2px 6px rgba(16,16,16,.075);
-		-moz-box-shadow: -4px -2px 6px rgba(16,16,16,.075);
-		box-shadow: 0 -2px 6px rgba(16,16,16,.075);		
 	}
 						
 	body.home #content {
@@ -3389,7 +3459,8 @@ img#wpstats {
 		margin-left: 0;
 		padding-top: 25px;
 		position: relative;
-		display: block;		
+		display: block;	
+		overflow: hidden;	
 	}
 	
 	#aside ul.books li {
@@ -3509,8 +3580,7 @@ img#wpstats {
 
 @media all and (max-width: 960px) {
 	
-	body {  
-		background: #EAE8D9 url(images/tan-background.png) top left;		
+	body {  		
 	    font-size: 80%; 
 		line-height: 1.75em;
 	}
@@ -3647,9 +3717,9 @@ jQuery Tabs
 .ui-tabs { position: relative; zoom: 1; overflow: hidden;} /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
 .ui-tabs .ui-tabs-nav { margin: 0; padding:0; overflow: hidden; }
 .ui-tabs .ui-tabs-nav li { font-family: "ff-dagny-web-pro-1","ff-dagny-web-pro-2", 'Lucida Grande','Lucida Sans Unicode', sans-serif; list-style: none; float: left; position: relative; top: 1px; margin: 0 .17em 1px 0; border-bottom: 0 !important; padding: 0; white-space: nowrap; }
-.ui-tabs .ui-tabs-nav li a { float: left; padding: .5em 1em; text-decoration: none; background: #e8e7d5; border: none; border-top-right-radius: 5px; }
-.ui-tabs .ui-tabs-nav li a:hover { 	background: #e5e0c5; background: rgba(217, 208, 173, 0.7); border: none;}
-.ui-tabs .ui-tabs-nav li.ui-state-active a { 	background: #e5e0c5; background: rgba(217, 208, 173, 0.7); border: none;}
+.ui-tabs .ui-tabs-nav li a { position: relative; z-index: 1; float: left; padding: .5em 1em; text-decoration: none; background: #e9e7db; border: none; border-top-right-radius: 5px; }
+.ui-tabs .ui-tabs-nav li a:hover { 	background: #e3e1d5; border: none;}
+.ui-tabs .ui-tabs-nav li.ui-state-active a { position: relative; z-index: 9999;	background: #e3e1d5; 	border: 1px solid #ceccb6; border-bottom: none;}
 .ui-tabs .ui-tabs-nav li.ui-tabs-selected { margin-bottom: 0; padding-bottom: 1px; }
 .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a { cursor: text; }
 .ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
@@ -3659,11 +3729,13 @@ jQuery Tabs
 div#tabs-1, 
 div#tabs-2,
 div#tabs-3 {
-	background: #e5e0c5;		
-	background: rgba(217, 208, 173, 0.7);
+	background: #e3e1d5;
 	padding: 10px;
-	padding-bottom: 10px;
-	overflow: hidden;
+	border-radius: 3px;
+	border: 1px solid #ceccb6;
+	margin-top: -2px;
+	position: relative; 
+	z-index: 2;
 }
 
 div#tabs-1 object {
@@ -4370,7 +4442,7 @@ abbr {
 
 /* FlexSlider Necessary Styles
 *********************************/ 
-.flex-container.fullwidth { margin-top: 20px;}
+.flex-container.fullwidth { margin-top: 0;}
 .flexslider {width: 100%; }
 .flexslider .slides > li {display: none;} /* Hide the slides before the JS is loaded. Avoids image jumping */
 .flexslider .slides img {max-width: 100%; display: block; height: auto;}
@@ -4393,7 +4465,7 @@ abbr {
 .flexslider {background: transparent; position: relative;}
 .flexslider .slides > li {position: relative;}
 /* Suggested container for "Slide" animation setups. Can replace this with your own, if you wish */
-.flex-container {zoom: 1; position: relative; padding: 6px; background: #F0EEE3; background: rgba(255, 255, 255, .55);  margin-bottom: 50px; box-shadow: 0 0 7px rgba(16,16,16,.3);} 
+.flex-container {zoom: 1; position: relative; padding: 6px; background: #F0EEE3; background: rgba(255, 255, 255, .55);  margin-bottom: 50px; box-shadow: 0 0 5px rgba(10,10,10,.3); border-radius: 3px; border: #e3e1d5;} 
 li.flex-slider-item { list-style-type: none; }
 /* Caption style */
 p.flex-caption {width: 96%; padding: 3% 2%; margin: 0; position: absolute; left: 0; bottom: 0; background: #000; background: rgba(0,0,0,.4); color: #fff; text-shadow: 0 -1px 0 rgba(0,0,0,.5); font-size: 14px; line-height: 18px;}
