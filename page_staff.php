@@ -23,8 +23,8 @@ get_header(); ?>
 
                <?php
                if (($options['extension_type'] == 2 || $options['extension_type'] == 3) && $isextensiononly) :
-               		require_once ($includes_path . 'counties.php');
-					require_once ($includes_path . '/nusoap/nusoap.php');
+               		require_once (MY_THEME_FOLDER . '/includes/counties.php');
+					require_once (MY_THEME_FOLDER . '/includes/nusoap/nusoap.php');
                     // For County Extension Offices
                     // This pulls from a managed staff database web service
                     if ( have_posts() ) while ( have_posts() ) : the_post();
