@@ -95,7 +95,7 @@ class WatchReadListenWidget extends WP_Widget {
 					<a href="https://agrilifebookstore.org/publications_details.cfm?whichpublication=1496">
 					<dl>
 						<dt class="book-title">Keep Your Lawn Alive</dt>	
-						<dd class="book-cover"><img class="book" src="<?php bloginfo('template_directory') ?>/images/alive-book.jpg" /></dd>
+						<dd class="book-cover"><img class="book" src="<?php bloginfo('template_directory') ?>/images/alive-book.jpg" alt="keep your lawn alive book"/></dd>
 						<dd class="price"><em>$</em>2<span>00</span></dd>	
 					</dl>
 					</a>
@@ -105,7 +105,7 @@ class WatchReadListenWidget extends WP_Widget {
 					<a href="https://agrilifebookstore.org/publications_details.cfm?whichpublication=1979">
 					<dl>
 						<dt class="book-title">Rainwater Harvest</dt>	
-						<dd class="book-cover"><img class="book" src="<?php bloginfo('template_directory') ?>/images/rainwater-harvest-cover.png" /></dd>
+						<dd class="book-cover"><img class="book" src="<?php bloginfo('template_directory') ?>/images/rainwater-harvest-cover.png" alt="rainwater harvest book"/></dd>
 						<dd class="price"><em>$</em>4<span>50</span></dd>						
 					</dl>
 					</a>

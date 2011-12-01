@@ -29,9 +29,6 @@
 <!--<![endif]-->
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
-  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
-       More info: h5bp.com/b/378 ***Does not validate***-->
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title><?php
 	/*
@@ -43,7 +40,7 @@
 
 	?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>?107" />
+<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>?120" />
 <!--[if lt IE 9]>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/ie.css?1" />
 <![endif]-->
@@ -95,19 +92,19 @@
 			<li class="top-agency tvmdl-item"><a href="http://tvmdl.tamu.edu/">Texas Veterinary Medical Diagnostics Laboratory</a></li>	
 			
 			<?php elseif($isextension && $isresearch && !$iscollege && !$istvmdl)  :?>
-			<li class="top-agency tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife	Extension Service</a></li>
-			<li class="top-agency research-item"><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M Research</a></li>
+			<li class="top-agency tx-ext-item"><a href="http://agrilifeextension.tamu.edu/"><span class="top-level-hide">Texas AgriLife Extension Service</span><img src="<?php bloginfo('stylesheet_directory') ?>/images/extension-branding.png" alt="Texas A&M Extension Logo" /></a></li>
+			<li class="top-agency research-item"><a href="http://agriliferesearch.tamu.edu/"><span class="top-level-hide">Texas A&amp;M Research</span><img src="<?php bloginfo('stylesheet_directory') ?>/images/research-branding.png" alt="Texas A&M Research Logo" /></a></li>	
 					
 			<?php elseif($isextension && $isresearch && $iscollege && !$istvmdl) :?>
-			<li class="top-agency college-item"><a href="http://aglifesciences.tamu.edu/">Texas A&amp;M College of Agriculture and Life Sciences</a></li>				
-			<li class="top-agency tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife	Extension Service</a></li>
-			<li class="top-agency research-item"><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M Research</a></li>												
+			<li class="top-agency college-item"><a href="http://aglifesciences.tamu.edu/"><span class="top-level-hide">Texas A&amp;M College of Agriculture and Life Sciences</span><img src="<?php bloginfo('stylesheet_directory') ?>/images/college-branding.png" alt="Texas A&M College Logo" /></a></li>				
+			<li class="top-agency tx-ext-item"><a href="http://agrilifeextension.tamu.edu/"><span class="top-level-hide">Texas AgriLife Extension Service</span><img src="<?php bloginfo('stylesheet_directory') ?>/images/extension-branding.png" alt="Texas A&M Extension Logo" /></a></li>
+			<li class="top-agency research-item"><a href="http://agriliferesearch.tamu.edu/"><span class="top-level-hide">Texas A&amp;M Research</span><img src="<?php bloginfo('stylesheet_directory') ?>/images/research-branding.png" alt="Texas A&M Research Logo" /></a></li>												
 			<?php else : ?>
-			<li class="top-agency college-item"><a href="http://aglifesciences.tamu.edu/">Texas A&amp;M College of Agriculture and Life Sciences</a></li>				
-			<li class="top-agency tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife	Extension Service</a></li>
-			<li class="top-agency research-item"><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M Research</a></li>
-			<li class="top-agency tvmdl-item"><a href="http://tvmdl.tamu.edu/">Texas Veterinary Medical Diagnostics Laboratory</a></li>						
-			<li class="top-agency tfs-item"><a href="http:///txforestservice.tamu.edu/">Texas Forest Service</a></li>														
+			<li class="top-agency college-item"><a href="http://aglifesciences.tamu.edu/"><span class="top-level-hide">Texas A&amp;M College of Agriculture and Life Sciences</span><img src="<?php bloginfo('stylesheet_directory') ?>/images/college-branding.png" alt="Texas A&M College Logo" /></a></li>				
+			<li class="top-agency tx-ext-item"><a href="http://agrilifeextension.tamu.edu/"><span class="top-level-hide">Texas AgriLife Extension Service</span><img src="<?php bloginfo('stylesheet_directory') ?>/images/extension-branding.png" alt="Texas A&M Extension Logo" /></a></li>
+			<li class="top-agency research-item"><a href="http://agriliferesearch.tamu.edu/"><span class="top-level-hide">Texas A&amp;M Research</span><img src="<?php bloginfo('stylesheet_directory') ?>/images/research-branding.png" alt="Texas A&M Research Logo" /></a></li>
+			<li class="top-agency tvmdl-item"><a href="http://tvmdl.tamu.edu/"><span class="top-level-hide">Texas Veterinary Medical Diagnostics Laboratory</span><img src="<?php bloginfo('stylesheet_directory') ?>/images/tvmdl-branding.png" alt="TVMDL Logo" /></a></li>						
+			<li class="top-agency tfs-item"><a href="http:///txforestservice.tamu.edu/"><span class="top-level-hide">Texas Forest Service</span><img src="<?php bloginfo('stylesheet_directory') ?>/images/forest-branding.png" alt="Texas Forest Service Logo" /></a></li>														
 			<?php endif; ?>		
 			<!--<li class='ask'><a class="ext-link" href="/ask/">Ask</a></li>-->
 			
@@ -117,6 +114,7 @@
 			<?php else : ?>	
 			<!--<li class='explore right-align'><a class="ext-link" href="/explore/">Explore</a></li>-->
 			<?php endif; ?>
+			<div class="clear"></div>
 		</ul>				
 	</div><!-- #drop-nav -->	
 </div><!-- #drop-section-nav -->

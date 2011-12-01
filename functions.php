@@ -79,6 +79,7 @@ function agriflex_setup() {
      add_theme_support( 'post-thumbnails' );
      // Add new image sizes
      add_image_size('featured',965,475,true);
+     add_image_size('featured-2',585,305,true);
      add_image_size('featured-mediabox',175,124,true);    
      add_image_size('staff_single',175,9999);
      add_image_size('staff_archive',70,70,true);         

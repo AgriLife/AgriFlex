@@ -55,19 +55,19 @@ q:before, q:after {
    Tables
    ========================================================================== */
 
-table { border-collapse: collapse; border-spacing: 0; margin-top: 2em;	border-right: 1px solid #D0CA99; 	border-top: 1px solid #D0CA99;}
+table { border-collapse: collapse; border-spacing: 0; margin-top: 2em;	border-right: 1px solid #E3E1D5; 	border-top: 1px solid #E3E1D5; font-family: verdana, clean, sans-serif; font-size: 11px;}
 td { vertical-align: top; }
 
 tr {
 	margin: 0;
-	border-bottom: 1px solid #D2CA9C;
+	border-bottom: 1px solid #E3E1D5;
 }
 
 td,th {
 	line-height: 1.3em;
 	text-align: left;
 	padding: 20px 8px;
-	border-left: 1px solid #D0CA99;
+	border-left: 1px solid #E3E1D5;
 }
 
 th {
@@ -75,17 +75,15 @@ th {
 }
 
 tr:nth-child(odd) {
-	background: #f7f7ee;
-	background: rgba(247,247,238, 0.75);
+	background: #f9f9f7;
 }
 
 tr:nth-child(even) {
-	background: #eae6d1;
+	background: #fff;
 }
 
 tr:first-child {
-	background: #E5E0C5;
-	background: rgba(217, 208, 173, 0.7);
+	background: #f1f0e8;
 }
 /*
  * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
@@ -98,8 +96,8 @@ html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-
 body { margin: 0; font-size: 13px; line-height: 1.231; }
 
 body, button, input, select, textarea { font-family: sans-serif; color: #222; }
-::-moz-selection { background: #c9ab71; color: #fff; text-shadow: none; }
-::selection { background: #c9ab71; color: #fff; text-shadow: none; }
+::-moz-selection { background: #f9fd87; color: #000; text-shadow: none; }
+::selection { background: #f9fd87; color: #000; text-shadow: none; }
 
 
 body {
@@ -166,7 +164,9 @@ p {
 
 #content .post ul li,
 #content .page ul li {
-	margin-bottom: .5em;	
+	margin: .5em 0;
+	font-family: verdana, clean, sans-serif;
+	font-size: 13px;			
 }
 
 ul {	
@@ -268,9 +268,9 @@ audio {
 }
 
 a {
-	color:#726b60;
+	color:#111;
 	text-decoration: none;
-	border-bottom: 1px dotted #726b60;
+	border-bottom: 1px dotted #111;
 	-webkit-transition: .3s color ease, .3s border ease;
 	-moz-transition: .3s color ease, .3s border ease;	 
 }
@@ -316,14 +316,14 @@ body.extensiononly a:hover {
 }
 
 body.researchonly a {
-	color:#669e3e;
-	border-color: #669e3e;
+	color:#4e792f;
+	border-color: #4e792f;
 }
 
 body.researchonly a:active,
 body.researchonly a:hover {
-	color: #375521;
-	border-color: #375521;	
+	color: #1f3013;
+	border-color: #1f3013;	
 }
 
 span.gigpress-sidebar-status a, .btn a, button.btn, a.gigpress-tickets-link {
@@ -404,11 +404,11 @@ a.logout_btn {
 
 #drop-section-nav {
 	position: relative;
-	overflow: hidden;
 	z-index: 3;		
 	margin: 0 auto;
+	overflow: hidden;
 	width: 100%;
-	background: #726b60 url('images/verticle-texture.png');
+	background: #341f1a url('images/verticle-texture.png');
 	color: #fff;
 	-webkit-box-shadow: 0 2px 5px rgba(6,6,6,.3);
 	-moz-box-shadow: -4px 2px 5px rgba(6,6,6,.3);
@@ -423,6 +423,14 @@ a.logout_btn {
 #drop-section-nav #drop-nav ul {
 	padding: 4px 0;
 	margin: 0 0 0 10px;	
+}
+
+body.extension.research #drop-section-nav #drop-nav ul {
+
+}
+
+body.extension.research #drop-section-nav #drop-nav ul:hover {
+	background-position: -250px 80%;
 }
 
 #drop-section-nav #drop-nav ul li {
@@ -447,8 +455,23 @@ a.logout_btn {
 	padding: 5px 5px 0;
 	margin-right: 5px;
 	-webkit-transition: opacity .3s ease;
-	-moz-transition: opacity .3s ease;
-	
+	-moz-transition: opacity .3s ease;	
+}
+body.research.extension #drop-section-nav #drop-nav ul li {
+	width: 20%;	
+	margin-top: -9px;
+	margin-bottom: -21px;
+	-webkit-transition: margin .3s ease;
+	-moz-transition: margin .3s ease;		
+}
+body.research.extension #drop-section-nav #drop-nav ul li:hover {	
+}
+body.research.extension #drop-section-nav #drop-nav ul li a {
+	padding: 0;
+	margin-right: 0;	
+}
+body.research.extension #drop-section-nav #drop-nav ul li a img {
+						
 }
 
 #drop-section-nav #drop-nav ul li a[href*='ask'] {
@@ -484,6 +507,10 @@ a.logout_btn {
 	width: 180px;
 	text-indent: -999em;		
 }
+body.research.extension #drop-section-nav #drop-nav ul li a[href*='aglifesciences'] {
+	background: none;		
+}
+
 
 #drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
 
@@ -1433,9 +1460,9 @@ body .flickr-gallery-prev a {
 	padding: .2em 1em;
 	background: #e8e7d5;
 	border-radius: 3px;
-	-webkit-box-shadow: 0 1px 2px #dad1ad;	
-	-moz-box-shadow: 0 1px 2px #dad1ad;	
-	box-shadow: 0 1px 2px #dad1ad;
+	-webkit-box-shadow: 0 1px 2px #ddd;	
+	-moz-box-shadow: 0 1px 2px #ddd;	
+	box-shadow: 0 1px 2px #ddd;
 	border: none;
 	float: left;
 	margin: 20px 0 20px 2px;
@@ -1445,10 +1472,23 @@ body.home span.read-more a:hover,
 body .flickr-gallery-next a:hover,
 body .flickr-gallery-prev a:hover  {
 	background: #e2dbbf;
-	-webkit-box-shadow: 0 1px 1px #dfdec5;	
-	-moz-box-shadow: 0 1px 1px #dfdec5;	
-	box-shadow: 0 1px 1px #dfdec5;	
+	-webkit-box-shadow: 0 1px 1px #fff;	
+	-moz-box-shadow: 0 1px 1px #fff;	
+	box-shadow: 0 1px 1px #fff;	
 	}
+	
+body.home.researchonly #content span.read-more a,
+body.researchonly #content .flickr-gallery-next a,
+body.researchonly #content .flickr-gallery-prev a {
+	color: #fff;
+	background: #4e792f;
+	}
+
+body.home.researchonly #content span.read-more a:hover,
+body.researchonly #content .flickr-gallery-next a:hover,
+body.researchonly #content .flickr-gallery-prev a:hover  {
+	background: #1f2f12;	
+	}	
 
 body.home  #home-middle .featuredpost img {
 	background: #FFFFFF;
@@ -1879,6 +1919,13 @@ a.test-listing-link:hover {
 }
 
 
+#aside ul li.widget-container.agrilifetoday ul li,
+#aside ul li.widget-container.widget_rss ul li,
+#aside ul li.widget-container.widget_twitter ul li {
+	font-family: verdana, clean, sans-serif;
+	font-size: 13px;	
+}
+
 #aside ul li.widget-container .widget-wrap {
 	position: relative;
 	padding: 10px;	
@@ -1967,7 +2014,7 @@ dd.title-loc {
 	margin-right: .5em;	
 	margin-bottom: 1em;
 	float: left;
-	width: 60%;
+	width: 60%;	
 }
 
 dl dd.title-loc h4 {
@@ -2074,8 +2121,7 @@ ul.twitter-hash-tag-widget li a img,
 }
 
 .widget_twitter ul li .entry-meta {
-	font-size: 1em;
-	font-weight: 600;
+	font-size: .9em;
 	display: block;
 }
 
@@ -2656,11 +2702,9 @@ img#wpstats {
 	#breadcrumbs {
 		width: 100%;
 		margin-right: 25px;
-		border-top: 2px solid #eae6d2;
-		border-top: 2px solid rgba(217, 208, 173,.40);
-		border-bottom: 2px solid #eae6d2;
-		border-bottom: 2px solid rgba(217, 208, 173,.40);	
-		background: #f7f7ee;	
+		border-top: 2px solid #dcdace;
+		border-bottom: 2px solid #dcdace;	
+		background: #fff;	
 		padding: .8em 10px;		
 	}
 	
@@ -2683,16 +2727,14 @@ img#wpstats {
 		border-radius: 0;	
 	}	
 	#access ul.menu li.current-menu-item {
-		background: #f8f5f1 url(images/tan-background.png) -1px 5px;
 		background: #f1f0e7;
 		position: relative;
 		z-index: 5;
 	}
 	#access ul.menu li.current-menu-item:hover {
-		background: #e2dbc0;
+		background: #e3e1d5;
 	}
 	#access ul.menu li.current-menu-item:first-child:hover {
-		background: #f8f5f1 url(images/tan-background.png) -1px 5px;
 		background: #f1f0e7;		
 	}	
 	#access ul.menu li a[title='home'] {
@@ -2704,9 +2746,14 @@ img#wpstats {
 		background-position: 50% -26px;
 	}	
 
-	#access ul.menu a {
+	#access ul.menu li a {
 		background: transparent;
+		color: #666;
 	}	
+
+	#access ul.menu li a:hover {
+		color: #332c2c;
+	}
 	
 	.menu-button {
 		display: none;
@@ -2720,7 +2767,7 @@ img#wpstats {
 	}
 	
 	#access .sf-menu li:hover {
-		background-color: #e1dbbf;			
+		background-color: #e3e1d5;			
 	}
 	
 	#access .sf-menu li a {
@@ -2729,7 +2776,7 @@ img#wpstats {
 	}
 	
 	#access .sf-menu li.current-menu-item {
-		border: 2px solid #e7e2cb;
+		border: 2px solid #e3e1d5;
 		border-bottom: none;
 		position: relative;
 		z-index: 2;
@@ -2740,7 +2787,7 @@ img#wpstats {
 			
 	#access .sf-menu ul {
 		position:	absolute;
-		background-color: #e1dbbf;
+		background-color: #e3e1d5;
 		top: -999em;
 		width: 13em; /* left offset of submenus need to match (see below) */	
 		-webkit-box-shadow: 0 2px 4px rgba(3, 3, 3,.2);	
@@ -2781,7 +2828,7 @@ img#wpstats {
 		z-index: 4;	
 		border: none;
 		font-size: 12px;
-		border-bottom: 1px solid #d9d1ae;	
+		border-bottom: 1px solid #dcdace;	
 		background: transparent;					
 	}	
 	
@@ -2861,14 +2908,14 @@ img#wpstats {
 	}
 
 	body.researchonly #access ul.menu a {
-		color:#669e3e;
-		border-color: #669e3e;
+		color:#4e792f;
+		border-color: #4e792f;
 	}
 
 	body.researchonly #access ul.menu a:active,
 	body.researchonly #access ul.menu a:hover {
-		color: #375521;
-		border-color: #375521;	
+		color: #1f3013;
+		border-color: #1f3013;	
 	}
 
 	/*** arrows **/
@@ -3029,14 +3076,26 @@ img#wpstats {
 		-webkit-transition: opacity .3s ease;
 		-moz-transition: opacity .3s ease;		
 	}	
-
+	
+	body.research.extension #drop-section-nav #drop-nav ul li a {
+		background: none;	
+		opacity: 1;
+		-webkit-transition: opacity .3s ease;
+		-moz-transition: opacity .3s ease;
+		text-indent: 0;		
+	}
+	
+	body.research.extension #drop-section-nav #drop-nav ul li a span.top-level-hide {
+		display: none;		
+	}	
+	
 	#drop-section-nav #drop-nav ul li a:hover,
 	body.tvmdlonly #drop-section-nav #drop-nav ul li a,
 	body.researchonly #drop-section-nav #drop-nav ul li a,
 	body.extensiononly #drop-section-nav #drop-nav ul li a,
 	body.collegeonly #drop-section-nav #drop-nav ul li a {
 		opacity: 1;
-	}	
+	}		
 	
 	#drop-section-nav #drop-nav ul li a[href*='extension'] {
 		background-image: url('images/ext-system-logo.png');
@@ -3061,6 +3120,43 @@ img#wpstats {
 	#drop-section-nav #drop-nav ul li a[href*='txforestservice'] {
 		background-image: url('images/tfs-logo.png');
 		width: 109px;	
+	}
+	
+	body.research.extension #drop-section-nav #drop-nav ul li a[href*='extension'] {
+		background-image: none;
+		margin-top: 0;
+		height: auto;
+		opacity: 1;	
+	}
+
+	body.research.extension #drop-section-nav #drop-nav ul li a[href*='aglifesciences'] {
+		background-image: none;
+		margin-top: 0;
+		height: auto;
+		opacity: 1;		
+	}
+
+	body.research.extension #drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
+		background-image: none;
+		margin-top: 0;
+		height: auto;
+		opacity: 1;	
+		width: 175px;
+	}
+
+	body.research.extension #drop-section-nav #drop-nav ul li a[href*='research'] {
+		background-image: none;
+		margin-top: 0;
+		height: auto;
+		opacity: 1;	
+	}
+
+	body.research.extension #drop-section-nav #drop-nav ul li a[href*='txforestservice'] {
+		background-image: none;
+		margin-top: 0;
+		height: auto;
+		opacity: 1;	
+		width: 175px;	
 	}
 
 	#drop-section-nav #drop-nav ul li.explore a {
@@ -3236,9 +3332,11 @@ img#wpstats {
 		padding: 55px 0 40px;		
 	}	
 	body.extensioncounty #header,
-	body.extensioncountytce #header,
-	body.research.extension.college #header {
+	body.extensioncountytce #header {
 		padding: 20px 0 30px;		
+	}	
+	body.research.extension #header {
+		padding: 35px 0 30px;		
 	}				
 	#site-title {
 		text-align: left;
@@ -3256,10 +3354,8 @@ img#wpstats {
 	}	
 		
 	body #site-title a {	
-		padding: 10px 0;
-		margin-left: 0;	
-		font-weight: bold;
-		font-family: "ff-dagny-web-pro-1","ff-dagny-web-pro-2", 'Lucida Grande','Lucida Sans Unicode', sans-serif;
+		padding: 20px 0;
+		margin-left: 0;
 	}
 						
 	body.collegeonly #site-title a {
@@ -3337,8 +3433,10 @@ img#wpstats {
 	}
 	body.extensioncounty #branding .searchform,
 	body.extensioncountytce #branding .searchform,
-	body.extension.research.college #branding .searchform	 {
-		top: -15px;		
+	body.extension.research.college #branding .searchform,
+	body.extension.research #branding .searchform,
+	body.extension.college #branding .searchform			 {
+		top: -30px;		
 	}	
 	.searchform input.s {
 		float: left;
@@ -4444,6 +4542,8 @@ abbr {
 *********************************/ 
 .flex-container.fullwidth { margin-top: 0;}
 .flexslider {width: 100%; }
+body.page-template-page-home-slideshow-2-php .flex-container {max-width: 585px; margin-left: auto; margin-right: auto;}
+
 .flexslider .slides > li {display: none;} /* Hide the slides before the JS is loaded. Avoids image jumping */
 .flexslider .slides img {max-width: 100%; display: block; height: auto;}
 
