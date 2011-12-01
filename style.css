@@ -1249,8 +1249,7 @@ body.home #content {
 	}
 
 #home-middle-bg {
-	float: left;
-	overflow: hidden;	
+	float: left;	
 	}
 
 #home-middle {
@@ -2127,38 +2126,88 @@ ul.twitter-hash-tag-widget li a img,
 	display: block;
 }
 
-.agrilifetoday ul li {
-	padding: 20px 0 20px 175px;
+#home-middle .agrilifetoday ul li {
+	padding: 20px 0 20px 0;
 	border-bottom: 1px solid #e0dfd8;
 	border-top: 1px solid #fff;
+	overflow: visible;
+	position: relative;
 }
 
 #aside .agrilifetoday ul li {
 	padding: 20px 0 20px 65px;
 }
-.agrilifetoday ul li img {
+#home-middle .agrilifetoday ul li img {
 	width: 150px;
-	height: 150px;	
+	height: 150px;
+	left: 0;
+	top: 0;
+	margin-bottom: 20px;
+	float: left;
+	position: relative;
+	background: #f0eee3;
+	background: rgba(255,255,255,.55);	
+	-webkit-box-shadow: 0 2px 5px #ccc;
+	-moz-box-shadow: 0 2px 5px #ccc;
+	box-shodow: 0 2px 5px #ccc;			
 }
 #aside .agrilifetoday ul li img {
 	width: 48px;
 	height: 48px;	
 }
-.agrilifetoday ul li a {
-
+#home-middle .agrilifetoday ul li a.rss-title-link {
+	font-size: 22px;
+	line-height: 1.5em;
+	font-weight: bold;
 }
 
 .agrilifetoday ul li span.rss-date {
 	display: block;
-	padding-bottom: 3px;
+	padding-top: 7px;
+	margin-bottom: -10px;
 	text-transform: uppercase;
 	font-family: "minion-pro-1","minion-pro-2", 'Cambria', georgia, serif;	
+}
+
+#home-middle .agrilifetoday ul li .rss-content {
+	position: relative;
+}
+
+body.home #home-middle .agrilifetoday ul li span.rss-date {
+	font-family: "ff-dagny-web-pro-1","ff-dagny-web-pro-2", 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;	
+	font-size: .8em;
+	background: #726b60;
+	color: #fff;
+	border-top-right-radius: 6px;
+	border-bottom-left-radius: 6px;		
+	padding: 2px 5px 1px;
+	-webkit-box-shadow: 0 0 4px #fff;
+	-moz-box-shadow: 0 0 4px #fff;	
+	box-shadow: 0 0 4px #fff;
+	position: absolute;
+	left: -5px;
+	top: 20px;	
+	z-index: 999;
+	margin: 1px;
+	font-style: normal;
+}
+
+body.home.research #home-middle .agrilifetoday ul li span.rss-date {
+	background: #5A8C37;
+}
+body.home.extension #home-middle .agrilifetoday ul li span.rss-date {
+	background: #004C6B;
+}
+body.home.college #home-middle .agrilifetoday ul li span.rss-date {
+	background: #5D0025;
 }
 
 #aside .agrilifetoday ul li p.rss-excerpt {
 	font-size: 11px;	
 }
-
+#home-middle .agrilifetoday ul li .rss-title {
+	display: block;	
+}
 
 /* Events page
 -------------------------------------------------------------- */
