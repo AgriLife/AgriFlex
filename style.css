@@ -1926,6 +1926,8 @@ a.test-listing-link:hover {
 	font-size: 13px;	
 }
 
+
+
 #aside ul li.widget-container .widget-wrap {
 	position: relative;
 	padding: 10px;	
@@ -2125,10 +2127,23 @@ ul.twitter-hash-tag-widget li a img,
 	display: block;
 }
 
-.agrilifetoday ul li img {
-	width: 48px;	
+.agrilifetoday ul li {
+	padding: 20px 0 20px 175px;
+	border-bottom: 1px solid #e0dfd8;
+	border-top: 1px solid #fff;
 }
 
+#aside .agrilifetoday ul li {
+	padding: 20px 0 20px 65px;
+}
+.agrilifetoday ul li img {
+	width: 150px;
+	height: 150px;	
+}
+#aside .agrilifetoday ul li img {
+	width: 48px;
+	height: 48px;	
+}
 .agrilifetoday ul li a {
 
 }
@@ -2139,6 +2154,11 @@ ul.twitter-hash-tag-widget li a img,
 	text-transform: uppercase;
 	font-family: "minion-pro-1","minion-pro-2", 'Cambria', georgia, serif;	
 }
+
+#aside .agrilifetoday ul li p.rss-excerpt {
+	font-size: 11px;	
+}
+
 
 /* Events page
 -------------------------------------------------------------- */
@@ -3467,7 +3487,7 @@ img#wpstats {
 		box-shadow: 0 0 5px #2783e6;					
 	}
 
-.flex-container.fullwidth { margin-left: 10px;}
+	.flex-container.fullwidth { margin-left: 10px;}
 	
 	#breadcrumbs {
 		width: 550px;	
@@ -3483,6 +3503,10 @@ img#wpstats {
 		max-width: 564px;
 		float: left;
 	}
+	body.home.page-template-onecolumn-page-php #content {		
+		max-width: 975px;
+		float: none;
+	}	
 	.flex-container.fullwidth { margin-right: 10px;}
 	.ie8 .flexslider .slides img  { height: 272px;}
 	.ie8 .flex-container.fullwidth .flexslider .slides img  { height: 475px;}
@@ -3532,7 +3556,7 @@ img#wpstats {
 	}
 	
 	#aside {
-		width: 39%;
+		width: 38.99%;
 		float: right;
 	}
 
