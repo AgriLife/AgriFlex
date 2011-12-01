@@ -459,6 +459,16 @@ function agriflex_widgets_init() {
           'before_title' => '<h3 class="widget-title">',
           'after_title' => '</h3>',
      ) );
+     
+     // Area 4, located in the sidebar.
+     register_sidebar( array(
+          'name' => __( 'Sidebar Navigation', 'agriflex' ),
+          'id' => 'sidebar-widget-navigation',
+          'description' => __( 'Sidebar Navigation', 'agriflex' ),
+          'before_title' => '<h3 class="widget-title"><a>',
+          'after_title' => '</a></h3>',
+     ) );  
+
 
      // Area 2, located in the second sidebar.
      register_sidebar( array(
@@ -481,15 +491,7 @@ function agriflex_widgets_init() {
           'before_title' => '<h3 class="widget-title">',
           'after_title' => '</h3>',
      ) );    
-    
-     // Area 4, located in the sidebar.
-     register_sidebar( array(
-          'name' => __( 'Sidebar Navigation', 'agriflex' ),
-          'id' => 'sidebar-widget-navigation',
-          'description' => __( 'Sidebar Navigation', 'agriflex' ),
-          'before_title' => '<h3 class="widget-title"><a>',
-          'after_title' => '</a></h3>',
-     ) );    
+  
 }
 
 /** Register sidebars by running agriflex_widgets_init() on the widgets_init hook. */

@@ -175,6 +175,7 @@ register_widget('WatchReadListenWidget');
  * @param array $args Widget arguments.
  */
 function wp_widget_rss_podcast_output( $rss, $args = array() ) {
+
 	if ( is_string( $rss ) ) {
 		$rss = fetch_feed($rss);
 	} elseif ( is_array($rss) && isset($rss['url']) ) {
@@ -249,49 +250,42 @@ function wp_widget_rss_podcast_output( $rss, $args = array() ) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**
  * Widget: AgriLife Today Fees
  * Three widgets in one with thoughtful defaults in case of absentee user.
  */
 
 class Agrilife_Today_Widget_RSS extends WP_Widget {
+	private $feeds = array(
+						array('All AgriLife Today','http://agrilife.org/today/feed/'),
+						array('College','http://agrilife.org/today/category/college/feed/'),
+						array('Extension','http://agrilife.org/today/category/extension/feed/'),
+						array('Research','http://agrilife.org/today/category/agrilife-research/feed/'),
+					);
+
 	function Agrilife_Today_Widget_RSS() {
-	//Constructor
+		//Constructor
 		$widget_ops = array('classname' => 'widget agrilifetoday', 'description' => 'Show the latest AgriLife Today updates.' );
-		$this->WP_Widget('Agrilife_Today_Widget_RSS', 'AgriLife: Agrilife Today News Feed', $widget_ops);
+		$this->WP_Widget('Agrilife_Today_Widget_RSS', 'AgriLife: Agrilife Today News Feed', $widget_ops);		
 	}
 
 	function widget($args, $instance) {
-	
-	// prints the widget
+		// prints the widget
 		if ( isset($instance['error']) && $instance['error'] )
 			return;
-		extract($args, EXTR_SKIP);
 		
+		extract($args, EXTR_SKIP);	
 
  		// RSS Processing
- 		$podcast_link = 'http://agrilife.org/today/feed/';
-		$rss = fetch_feed($podcast_link);
+ 		$myfeeds 			= $this->feeds;
+ 		$feed_link_index	= (int) $instance['feed_link_index'];
+ 		$agrilife_feed_link = $myfeeds[$feed_link_index][1]; //'http://agrilife.org/today/feed/';
+		$rss = fetch_feed($agrilife_feed_link);
+		$title = $instance['title'];
+		$desc = '';
+		
 		if ( ! is_wp_error($rss) ) {
-			$podcast_desc = esc_attr(strip_tags(@html_entity_decode($rss->get_description(), ENT_QUOTES, get_option('blog_charset'))));
-			$podcast_title= esc_attr(strip_tags(@html_entity_decode($rss->get_title(), ENT_QUOTES, get_option('blog_charset'))));
-			//$podcast_link_audio= esc_attr(strip_tags(@html_entity_decode($rss->get_link(), ENT_QUOTES, get_option('blog_charset'))));
+			$agrilife_feed_title= esc_attr(strip_tags(@html_entity_decode($rss->get_title(), ENT_QUOTES, get_option('blog_charset'))));
 			if ( empty($title) )
 				$title = esc_html(strip_tags($rss->get_title()));
 			$link = esc_url(strip_tags($rss->get_permalink()));
@@ -300,43 +294,54 @@ class Agrilife_Today_Widget_RSS extends WP_Widget {
 			$podcast_site_link = $link;
 		}
 		
-		echo $before_widget;
-		 ?>
-		 
-<div class="watchreadlisten-bg widget">
-			<h3 class="widget-title"><a href="<?php echo $podcast_site_link;?>"><?php echo $podcast_title;?></a></h3>
+		// show the widget
+		echo $before_widget; ?>
+		<div class="watchreadlisten-bg widget">
+			<h3 class="widget-title"><a href="<?php echo $podcast_site_link;?>"><?php echo $agrilife_feed_title;?></a></h3>
 			<?php agrilife_widget_agrilifetoday_rss_output( $rss, $instance ); ?>		
-</div>
-				<?php 
-	echo $after_widget;
+		</div>
+		<?php echo $after_widget;
 	}
 
 	function update($new_instance, $old_instance) {
-	//save the widget
+		//save the widget
 		$instance = $old_instance;
-		//$instance['youtube_video'] = strip_tags($new_instance['youtube_video']);
+		$instance['feed_link_index'] = strip_tags($new_instance['feed_link_index']);
+		$instance['show_summary'] = strip_tags($new_instance['show_summary']);
 		$instance['items'] = strip_tags($new_instance['items']);
 		return $instance;
-
 	}
 
 	function form($instance) {
-	//widgetform in backend
-		$instance = wp_parse_args( (array) $instance, array('items' => '5') );
-		$items  = $instance['items'];
+		//widgetform in backend
+		$instance 			= wp_parse_args( (array) $instance, array('items' => '5', 'feed_link_index' => '0', 'show_summary' => true) );
 		
-		
-		
-		//if ( $inputs['items'] ) : ?>
-		<p><label for="<?php echo $this->get_field_name('items'); ?>"><?php _e('How many items would you like to display?'); ?></label>
-		<select id="<?php echo $this->get_field_name('items'); ?>" name="<?php echo $this->get_field_name('items'); ?>">
-	<?php
-			for ( $i = 1; $i <= 10; ++$i )
-				echo "<option value='$i' " . ( $items == $i ? "selected='selected'" : '' ) . ">$i</option>";
-	?>
-	</select></p>
-<?php //endif;
-
+		$items  			= $instance['items'];
+		$feed_link_index	= (int) $instance['feed_link_index'];
+		$myfeed 			= $this->feeds;
+		$show_summary   	= (int) $instance['show_summary'];
+		?>
+		<p><label for="<?php echo $this->get_field_id('items'); ?>"><?php _e('How many items would you like to display?'); ?></label>
+		<select id="<?php echo $this->get_field_id('items'); ?>" name="<?php echo $this->get_field_name('items'); ?>">
+		<?php
+				for ( $i = 1; $i <= 10; ++$i )
+					echo "<option value='$i' " . ( $items == $i ? "selected='selected'" : '' ) . ">$i</option>";
+		?>
+		</select></p>
+		<p><label for="<?php echo $this->get_field_id('feed_link_index'); ?>"><?php _e('What category do you want to display?'); ?></label>
+		<select id="<?php echo $this->get_field_id('feed_link_index'); ?>" name="<?php echo $this->get_field_name('feed_link_index'); ?>">
+		<?php			
+			for ($i=0; $i<count($myfeed); $i++) {
+				echo "<option value=\"".$i."\" " . ( $feed_link_index == $i ? "selected='selected'" : '' ) . ">".$myfeed[$i][0]."</option>";
+			}
+		?>
+		</select></p>
+	
+		<p>
+			<input id="<?php echo $this->get_field_id('show_summary'); ?>" name="<?php echo $this->get_field_name('show_summary'); ?>" type="checkbox" value="1" <?php checked( $show_summary ); ?> />
+			<label for="<?php echo $this->get_field_id('show_summary'); ?>"><?php _e('Display article excerpts?'); ?></label>
+		</p>
+		<?php
 	}
 
 }
@@ -370,13 +375,14 @@ function agrilife_widget_agrilifetoday_rss_output( $rss, $args = array() ) {
 		return;
 	}
 
-	$default_args = array( 'show_author' => 0, 'show_date' => 0, 'show_summary' => 0 );
+	$default_args = array( 'items' => 5, 'feed_link_index' => 0, 'show_summary' => 0  );
 	$args = wp_parse_args( $args, $default_args );
 	extract( $args, EXTR_SKIP );
 
 	$items = (int) $items;
 	if ( $items < 1 || 20 < $items )
 		$items = 10;
+	$show_summary  = (int) $show_summary;
 
 	if ( !$rss->get_item_quantity() ) {
 		echo '<ul><li>' . __( 'An error has occurred; the feed is probably down. Try again later.' ) . '</li></ul>';
@@ -396,10 +402,24 @@ function agrilife_widget_agrilifetoday_rss_output( $rss, $args = array() ) {
 			$title = __('Untitled');
 
 		$desc = str_replace( array("\n", "\r"), ' ', esc_attr( strip_tags( @html_entity_decode( $item->get_description(), ENT_QUOTES, get_option('blog_charset') ) ) ) );
-		$desc = wp_html_excerpt( $desc, 360 );
+		//$desc = wp_html_excerpt( $desc, 360 );
+		
+		// Append ellipsis. Change existing [...] to [&hellip;].
+		//if ( '[...]' == substr( $desc, -5 ) )
+		//	$desc = substr( $desc, 0, -5 ) . '[&hellip;]';
+		//elseif ( '[&hellip;]' != substr( $desc, -10 ) )
+		//	$desc .= ' [&hellip;]';
+
+		$desc = esc_html( $desc );
+		
+		if ( $show_summary ) {
+			$summary = "<p class='rss-excerpt'>$desc</p>";
+		} else {
+			$summary = '';
+		}
 		
 		// default
-		$image = '<img class="rssthumb" height="48" width="48" src="'.get_bloginfo('stylesheet_directory') . '/images/agrilifetodaythumb.jpg'.'" alt="'.$title.'" />';
+		$image = '<img class="rssthumb" src="'.get_bloginfo('stylesheet_directory') . '/images/agrilifetodaythumb.jpg'.'" alt="'.$title.'" />';
 
 		$date = $item->get_date( 'U' );
 		if ( $date ) {
@@ -412,14 +432,15 @@ function agrilife_widget_agrilifetoday_rss_output( $rss, $args = array() ) {
 		// http://tech.groups.yahoo.com/group/simplepie-support/message/2994	
 			if ($enclosure = $item->get_enclosure()) {		
 				if(	$enclosure->get_extension() == 'jpg' || $enclosure->get_extension() == 'png' || $enclosure->get_extension() == 'gif') {
-				  	$image = '<img class="rssthumb" height="48" width="48" src="'.$enclosure->get_link().'" alt="'.$title.'" />';
+				  	$image = '<img class="rssthumb" src="'.$enclosure->get_link().'" alt="'.$title.'" />';
 				 } else {
-				 	$image = '<img class="rssthumb" height="48" width="48" src="'.get_bloginfo('stylesheet_directory') . '/images/agrilifetodaythumb.jpg'.'" alt="'.$title.'" />';
+				 	$image = '<img class="rssthumb" src="'.get_bloginfo('stylesheet_directory') . '/images/agrilifetodaythumb.jpg'.'" alt="'.$title.'" />';
 				 }
 			}
 		}
 			
-	    echo "<li>{$date}".'<a href="'.$link.'" >'.$title."</a>{$image}</li>";
+		
+	    echo "<li>{$date}".'<a href="'.$link.'" >'.$title."</a>{$image}{$summary}</li>";
 
 	}
 	echo '</ul>';
