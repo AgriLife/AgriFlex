@@ -36,7 +36,8 @@ class WatchReadListenWidget extends WP_Widget {
 			// Normal video URL
 			else {
 				preg_match( '#http://(www.youtube|youtube|[A-Za-z]{2}.youtube)\.com/(watch\?v=|w/\?v=|\?v=)([\w-]+)(.*?)#i', $user_video, $matches );
-				if ( empty($matches) || empty($matches[3]) ) return $this->error( sprintf('Unable to parse URL, check for correct %s format', __('YouTube') ) );
+				if ( empty($matches) || empty($matches[3]) ) 
+					echo "Unable to parse URL, check for correct format: http://www.youtube.com/watch?v=iRbX2uPgGsw";
 
 				$embedpath = 'v/' . $matches[3];
 				$fallbacklink = 'http://www.youtube.com/watch?v=' . $matches[3];
