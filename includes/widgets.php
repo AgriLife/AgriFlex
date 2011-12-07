@@ -26,15 +26,39 @@ class WatchReadListenWidget extends WP_Widget {
  		$user_video = empty($instance['youtube_video']) ? $youtube_video_default : apply_filters('widget_youtube_video', $instance['youtube_video']);
  		// If a URL was passed
 		if ( 'http://' == substr( $user_video, 0, 7 ) ) {
-			// Playlist URL
-			if ( FALSE !== stristr( $user_video, 'view_play_list' ) ) {
+			if ( 'http://youtu.be' == substr( $user_video, 0, 15 )) {
+				// New short URL
+				// ex: http://youtu.be/iWCmfpFOC3A
+				
+				$user_video = explode("youtu.be/", $user_video);
+				$user_video = $user_video[1];
+				$embedpath = 'v/' . $user_video;
+				$fallbacklink = 'http://www.youtube.com/watch?v=' . $user_video;
+				$fallbackcontent = '<img src="http://img.youtube.com/vi/' . $user_video . '/0.jpg" alt="' . __('YouTube Preview Image', 'vipers-video-quicktags') . '" />';
+			
+			} else if ( FALSE !== stristr( $user_video, 'view_play_list' ) ) {
+			
+				// Playlist URL
+				// only works with the form: http://youtube.com/view_play_list?p=929CBCA261930FCE
 				preg_match( '#http://(www.youtube|youtube|[A-Za-z]{2}.youtube)\.com/view_play_list\?p=([\w-]+)(.*?)#i', $user_video, $matches );
-				if ( empty($matches) || empty($matches[2]) ) return $this->error( sprintf('Unable to parse URL, check for correct %s format', __('YouTube') ) );
+				if ( empty($matches) || empty($matches[2]) ) 
+					echo 'Unable to parse URL, check for correct format';
 				$embedpath = 'p/' . $matches[2];
 				$fallbacklink = $fallbackcontent = 'http://www.youtube.com/view_play_list?p=' . $matches[2];
-			}
-			// Normal video URL
-			else {
+				
+			} else if ( FALSE !== stristr( $user_video, '/user/' ) ) {
+			
+				// Playlist URL
+				// only works with the form: http://www.youtube.com/user/flottos#grid/user/0CE5AEDE96A3E414
+				
+				$matches = explode("/user/", $user_video);
+				
+				$embedpath = 'p/' . $matches[2];
+				$fallbacklink = $fallbackcontent = 'http://www.youtube.com/view_play_list?p=' . $matches[2];	
+			
+			} else {
+			
+				// Normal Video URL
 				preg_match( '#http://(www.youtube|youtube|[A-Za-z]{2}.youtube)\.com/(watch\?v=|w/\?v=|\?v=)([\w-]+)(.*?)#i', $user_video, $matches );
 				if ( empty($matches) || empty($matches[3]) ) 
 					echo "Unable to parse URL, check for correct format: http://www.youtube.com/watch?v=iRbX2uPgGsw";
@@ -148,7 +172,7 @@ class WatchReadListenWidget extends WP_Widget {
 
 ?>
 <p>
-  <label for="<?php echo $this->get_field_id('youtube_video'); ?>">YouTube Video Link: <br /><code>http://www.youtube.com/watch?v=iRbX2uPgGsw</code>
+  <label for="<?php echo $this->get_field_id('youtube_video'); ?>">YouTube Video or Playlist Link: <br /><code>http://www.youtube.com/watch?v=iRbX2uPgGsw</code>
   <input class="widefat" id="<?php echo $this->get_field_id('youtube_video'); ?>" name="<?php echo $this->get_field_name('youtube_video'); ?>" type="text" value="<?php echo attribute_escape($youtube_video); ?>" />
   </label>
 </p>
@@ -252,7 +276,7 @@ function wp_widget_rss_podcast_output( $rss, $args = array() ) {
 
 
 /**
- * Widget: AgriLife Today Fees
+ * Widget: AgriLife Today Feeds
  * Three widgets in one with thoughtful defaults in case of absentee user.
  */
 
@@ -406,12 +430,12 @@ function agrilife_widget_agrilifetoday_rss_output( $rss, $args = array() ) {
 		//$desc = wp_html_excerpt( $desc, 360 );
 		
 		// Append ellipsis. Change existing [...] to [&hellip;].
-		//if ( '[...]' == substr( $desc, -5 ) )
-		//	$desc = substr( $desc, 0, -5 ) . '[&hellip;]';
-		//elseif ( '[&hellip;]' != substr( $desc, -10 ) )
-		//	$desc .= ' [&hellip;]';
+		if ( '[...]' == substr( $desc, -5 ) )
+			$desc = substr( $desc, 0, -5 ) . '[&hellip;]';
+		elseif ( 'Read More...' == substr( $desc, -12 ) )
+			$desc = substr( $desc, 0, -13 ).'&hellip;';
 
-		$desc = esc_html( $desc );
+		$desc = trim(esc_html( $desc ));
 		
 		if ( $show_summary ) {
 			$summary = "<p class='rss-excerpt'>$desc</p>";
@@ -439,7 +463,9 @@ function agrilife_widget_agrilifetoday_rss_output( $rss, $args = array() ) {
 				 }
 			}
 		}
-			
+		
+		// Link the image	
+		$image = '<a class="rss-img-link" href="'.$link.'" >'.$image.'</a>';
 		
 	    echo "<li>".'<span class="rss-title"><a class="rss-title-link" href="'.$link.'" >'.$title."</a></span><div class='rss-content'>{$date}{$image}{$summary}</div></li>";
 
@@ -451,4 +477,95 @@ function agrilife_widget_agrilifetoday_rss_output( $rss, $args = array() ) {
 
 
 
+
+
+
+/**
+ * Recent_Posts_AgriFlex widget class
+ *
+ * @since 2.8.0
+ */
+ /*
+class WP_Widget_Recent_Posts_Pics extends WP_Widget {
+
+	function __construct() {
+		$widget_ops = array('classname' => 'widget_recent_entries_pics', 'description' => __( "The most recent posts on your site with images") );
+		parent::__construct('recent-posts', __('Recent Posts and Pics'), $widget_ops);
+		$this->alt_option_name = 'widget_recent_entries_pics';
+
+		add_action( 'save_post', array(&$this, 'flush_widget_cache') );
+		add_action( 'deleted_post', array(&$this, 'flush_widget_cache') );
+		add_action( 'switch_theme', array(&$this, 'flush_widget_cache') );
+	}
+
+	function widget($args, $instance) {
+		$cache = wp_cache_get('widget_recent_posts_pics', 'widget');
+
+		if ( !is_array($cache) )
+			$cache = array();
+
+		if ( isset($cache[$args['widget_id']]) ) {
+			echo $cache[$args['widget_id']];
+			return;
+		}
+
+		ob_start();
+		extract($args);
+
+		$title = apply_filters('widget_title', empty($instance['title']) ? __('Recent Posts') : $instance['title'], $instance, $this->id_base);
+		if ( ! $number = absint( $instance['number'] ) )
+ 			$number = 10;
+
+		$r = new WP_Query(array('posts_per_page' => $number, 'no_found_rows' => true, 'post_status' => 'publish', 'ignore_sticky_posts' => true));
+		if ($r->have_posts()) :
+?>
+		<?php echo $before_widget; ?>
+		<?php if ( $title ) echo $before_title . $title . $after_title; ?>
+		<ul>
+		<?php  while ($r->have_posts()) : $r->the_post(); ?>
+		<li><a href="<?php the_permalink() ?>" title="<?php echo esc_attr(get_the_title() ? get_the_title() : get_the_ID()); ?>"><?php if ( get_the_title() ) the_title(); else the_ID(); ?></a></li>
+		<?php endwhile; ?>
+		</ul>
+		<?php echo $after_widget; ?>
+<?php
+		// Reset the global $the_post as this query will have stomped on it
+		wp_reset_postdata();
+
+		endif;
+
+		$cache[$args['widget_id']] = ob_get_flush();
+		wp_cache_set('widget_recent_posts_pics', $cache, 'widget');
+	}
+
+	function update( $new_instance, $old_instance ) {
+		$instance = $old_instance;
+		$instance['title'] = strip_tags($new_instance['title']);
+		$instance['number'] = (int) $new_instance['number'];
+		$this->flush_widget_cache();
+
+		$alloptions = wp_cache_get( 'alloptions', 'options' );
+		if ( isset($alloptions['widget_recent_entries']) )
+			delete_option('widget_recent_entries');
+
+		return $instance;
+	}
+
+	function flush_widget_cache() {
+		wp_cache_delete('widget_recent_posts_pics', 'widget');
+	}
+
+	function form( $instance ) {
+		$title = isset($instance['title']) ? esc_attr($instance['title']) : '';
+		$number = isset($instance['number']) ? absint($instance['number']) : 5;
+?>
+		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></p>
+
+		<p><label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Number of posts to show:'); ?></label>
+		<input id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="text" value="<?php echo $number; ?>" size="3" /></p>
+<?php
+	}
+}
+
+*/
 
