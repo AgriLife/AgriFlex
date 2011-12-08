@@ -475,7 +475,7 @@ jQuery(document).ready(function($) {
         speed:       250 // Dropdown our menu fast
     } );
 
-	//background menu fading
+	//background menu animation
 	$('.no-touch .menu-header .sf-menu li').hover(function() {
 		$(this).find('ul.sub-menu .menu-item a').stop(true, true)
 		.css({

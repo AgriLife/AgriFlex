@@ -139,7 +139,7 @@ function agriflex_setup() {
                                   
             // enqueue the custom jquery js
              wp_enqueue_script('my_scripts',
-                 get_bloginfo('template_directory') . '/js/my_scripts.js', array('jquery'), '2.9.1', false);                
+                 get_bloginfo('template_directory') . '/js/my_scripts.js', array('jquery'), '2.9.1', true);                
           }             
      }   
      add_action('init', 'load_js');    
@@ -704,7 +704,7 @@ function create_tests_taxonomies() {
 }
 
 /* Staff Custom Post Type */
-if ($iscollegeonly) {
+if ($iscollegeonly || $istvmdlonly) {
      add_action( 'init', 'create_staff_post_type' );
      function create_staff_post_type() {
           register_post_type( 'staff',

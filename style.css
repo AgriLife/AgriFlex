@@ -524,9 +524,29 @@ body.research.extension #drop-section-nav #drop-nav ul li a[href*='aglifescience
 	
 }
 
-#drop-section-nav #drop-nav ul li.right-align {
+#drop-section-nav #drop-nav ul li.align-right {
 	display: none;
 }
+
+body.collegeonly #drop-section-nav #drop-nav ul li a.college-explore-link {
+	background: rgba(0,0,0,.1) url('images/explore-button.png') no-repeat 90% -34px;
+	display: block;
+	text-indent: 0;
+	border-radius: 3px;
+	padding: 5px 20px 5px 10px;
+	margin: 12px 0 0;
+	height: auto;
+	width: auto;
+	color: #cbb7a3;
+	font-family: verdana, clean, sans-serif;
+	font-size: 14px;
+}
+body.collegeonly #drop-section-nav #drop-nav ul li a.college-explore-link:hover {
+	background-position: 90% 7px;
+	background-color: rgba(0,0,0,.2);	
+	color: #e2dec7;
+}
+
 
 .collegeonly #drop-section-nav #drop-nav ul li a,
 .extensiononly #drop-section-nav #drop-nav ul li a,
@@ -729,7 +749,7 @@ body.research.extension #drop-section-nav #drop-nav ul li a[href*='aglifescience
 	margin-bottom: 25px;
 	padding: 2px;
 	border: 1px dashed #d9d1ae;
-	-webkit-transition: -webkit-box-shadow .2s ease-in;
+	-webkit-transition: -webkit-box-shadow .2s ease-in;	
 }
 
 #drop-section .flow .contents #top-level-nav .top-level-nav:hover {
@@ -792,8 +812,29 @@ body.research.extension #drop-section-nav #drop-nav ul li a[href*='aglifescience
 	border: none;	
 	text-decoration: underline;
 }
+#top-level-nav ul {
+	margin: 1.2em 0;
+	overflow: hidden;
+} 
 
-
+#top-level-nav li {
+	font: 13px "Verdana", clean, sans-serif;
+	padding: 2px 0;	
+} 
+#top-level-nav li a {
+	text-decoration: none;
+	border: none;
+} 
+#top-level-nav li a:hover {
+	text-decoration: underline;
+} 
+.top-level-li {
+	font-size: 13px;	
+}
+#top-level-nav li.sub {
+	font: 18px "ff-dagny-web-pro-1","ff-dagny-web-pro-2", 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+	text-shadow: 0 1px 1px #40001a;
+} 
 .collegeonly .gigpress-tickets-link {	
 	border: 1px solid #860125;
 	color: #fff;
@@ -2186,7 +2227,7 @@ body.home #home-middle .agrilifetoday ul li span.rss-date {
 	box-shadow: 0 0 4px #fff;
 	position: absolute;
 	left: -5px;
-	top: 20px;	
+	top: 30px;	
 	z-index: 999;
 	margin: 1px;
 	font-style: normal;
@@ -3045,8 +3086,7 @@ img#wpstats {
 		-webkit-box-shadow: 0 -2px 6px rgba(16,16,16,.075);
 		-moz-box-shadow: -4px -2px 6px rgba(16,16,16,.075);
 		box-shadow: 0 -2px 6px rgba(16,16,16,.075);	
-		background: #fff url(images/gradient.png) repeat-x left -100px;
-		overflow: hidden;			
+		background: #fff url(images/gradient.png) repeat-x left -100px;			
 	}
 
 	/*----- Job Postings single page ------ */
@@ -3263,7 +3303,8 @@ img#wpstats {
 		position: absolute;
 		overflow: hidden;
 		padding: 0 10px;
-		margin-top: 0;		
+		margin-top: 0;
+		width: 100%;		
 	}
 
 	#college-top-level-section .flow .contents a {
@@ -3365,7 +3406,14 @@ img#wpstats {
 
  	.top-level-li {
 		float: left;
-		width: 175px;
+		width: 20%;
+		margin-top: 20px;
+	}
+	#college-top-level-section .flow .contents .top-level-li ul li a {
+		color: #c0a3a8;
+	}
+	#college-top-level-section .flow .contents .top-level-li:hover ul li a {
+		color: #f4f2e9;
 	}
 	
 	.ask, .explore {
@@ -3405,7 +3453,7 @@ img#wpstats {
 		padding: 20px 0 30px;		
 	}	
 	body.research.extension #header {
-		padding: 35px 0 30px;		
+		padding: 35px 0 35px;		
 	}				
 	#site-title {
 		text-align: left;
