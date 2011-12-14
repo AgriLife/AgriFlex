@@ -29,7 +29,7 @@ get_header(); ?>
 <?php endwhile; ?>	
 		<div id="home-middle">
 		<div class="home-middle-features">
-			<?php $my_query = new WP_Query(array( 'post_type' => 'page', 'posts_per_page' => 3 ));
+			<?php $my_query = new WP_Query('meta_key=feature-homepage&meta_value=1&showposts=3&post_type=page');
 	  		while ($my_query->have_posts()) : $my_query->the_post();
 	  		?>
 	        <div class="featured-wrap" id="featured-wrapper-<?php echo $count;?>">
