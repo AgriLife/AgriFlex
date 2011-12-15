@@ -122,6 +122,8 @@ function get_IT_code($federalID) {
 			return 58;
 		case 117:
 			return 59;
+		case 119:
+			return 79;
 		case 121:
 			return 60;
 		case 123:
