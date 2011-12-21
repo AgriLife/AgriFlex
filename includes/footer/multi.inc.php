@@ -2,7 +2,14 @@
 			<div class="about">			
 				<h4>Texas A&amp;M AgriLife</h4>
 				<a href="http://www.youtube.com/watch?v=df_SGBF4LK4"><img src="<?php bloginfo( 'template_directory' ); ?>/images/about_video_multi.jpg" alt="link to AgriLife Solutions Video" /></a>
-				<p>Solutions for a Changing World</p>	
+				<p>Solutions for a Changing World</p>
+				<ul>
+					<li><a href="http://agrilife.tamu.edu/vc/">Office of the Vice Chancellor</a></li>
+					<li><a href="http://agrilife.tamu.edu/about/index.php">Services</a></li>
+					<li><a href="http://aglscomplex.tamu.edu/">Agriculture &amp; Life Sciences Complex</a></li>
+					<li><a href="http://agrilife.org/agrilifecenter/">AgriLife Center</a></li>
+					<li><a href="http://agrilifepeople.tamu.edu/">Employee Directory</a></li>
+				</ul>	
 			</div><!-- .about -->
 		</div><!-- #about -->		
 		<div id="popular-links">
