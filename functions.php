@@ -704,7 +704,7 @@ function create_tests_taxonomies() {
 }
 
 /* Staff Custom Post Type */
-if ($iscollegeonly || $istvmdlonly) {
+if ($iscollegeonly || $istvmdlonly || $isextension4h) {
      add_action( 'init', 'create_staff_post_type' );
      function create_staff_post_type() {
           register_post_type( 'staff',
