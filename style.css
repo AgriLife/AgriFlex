@@ -3552,13 +3552,16 @@ img#wpstats {
 		width: 35em;
 		display: block;
 	}
-	body.extensioncounty #branding .searchform,
-	body.extensioncountytce #branding .searchform,
 	body.extension.research.college #branding .searchform,
 	body.extension.research #branding .searchform,
-	body.extension.college #branding .searchform			 {
+	body.extension.college #branding .searchform {
 		top: -30px;		
+	}
+	body.extensioncounty #branding .searchform,
+	body.extensioncountytce #branding .searchform {
+		top: -15px;		
 	}	
+		
 	.searchform input.s {
 		float: left;
 	}

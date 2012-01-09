@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Flickr Photos
+ * 
  * @package WordPress
  */
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Home: Three Column News
+ *
  * @package WordPress
  */
 
