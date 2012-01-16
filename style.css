@@ -273,7 +273,6 @@ audio {
 }
 
 .entry-utility, .navigation {
-	font-size: 1.4em;
 	line-height: 1.5em;
 }
 
@@ -1645,14 +1644,12 @@ body.home .hentry {
 }
 
 .entry-meta {
-	font-size: 1.3em;
 	margin: 15px 0 25px;
 }
 
 #content .hentry .entry-meta {
 	font-weight: 600;
 	font-style: italic;
-	font-size: 1.6em;
 }
 
 #content ul {
@@ -3073,7 +3070,7 @@ img#wpstats {
 	}	
 }		
 
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 840px) {
 
 	.js #branding .searchform,
 	.js #access {
@@ -3876,7 +3873,7 @@ img#wpstats {
 	}
 	
 	#aside #sidebar-navigation-widgets  {
-		margin: 0 10px 20px 0;	
+		margin: 0 0 20px 0;	
 	}
 	
 	#footer .wrap h4 {
