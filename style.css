@@ -1269,6 +1269,7 @@ body.home #content {
 	font-weight: 600;
 	text-shadow: white 0px 1px 0px;
 	border-color: transparent;
+	line-height: 1.4em;
 }
 
 #home-middle .home-middle-features h3 a,
@@ -1329,6 +1330,7 @@ body.home #content p:first-child {
 	
 #home-middle ul li {
 	list-style-type: none;
+	margin-bottom: 1em;
 	}
 	
 .widget_rss ul li {
@@ -1633,6 +1635,25 @@ body.home .hentry {
 	border-bottom: 1px dashed #d2ca9c;	
 }
 
+#content .hentry footer.entry-meta,
+#content .hentry footer.entry-meta h2,
+#content .hentry footer.entry-meta #entry-author-info,
+#content .hentry footer.entry-meta .entry-utility  {
+	font-size: 14px;
+	line-height: 22px;
+	margin-bottom: 1em;
+}
+
+#content .hentry footer.entry-meta h2 {
+	font-size: 16px;
+	line-height: 22px;
+	margin-bottom: 1em;
+}
+
+.page-title {
+	margin-bottom: 1em;
+}
+
 
 /* Job Postings, Tests and Staff pages (Custom Post Types)
 -------------------------------------------------------------- */
@@ -1888,7 +1909,7 @@ a.test-listing-link:hover {
 #aside #sidebar-navigation-widgets h3 a {
 	display: block;		
 	margin: 0;
-	background: url('images/navigation-arrow.png') no-repeat -1px 3px;
+	background: url('images/navigation-arrow.png') no-repeat -1px 6px;
 	background-color: #edece4;	
 	padding: 10px 10px 10px 27px;
 	border-bottom: 1px solid #E0DCBC;
@@ -1905,7 +1926,7 @@ a.test-listing-link:hover {
 }
 
 #aside #sidebar-navigation-widgets h3.ui-state-active a {
-	background-position: -2px -29px;	
+	background-position: -2px -26px;	
     background-color: #e3e1d5;		
 }
 
@@ -2432,6 +2453,19 @@ img {
     height: auto;
 }
 
+.feature-img-excerpt {
+	float: left;
+	margin-right: 15px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border: none;
+}
+
+.feature-img-excerpt:hover {
+	opacity: .9;
+	border: none;
+}
+
 /* =Navigation
 -------------------------------------------------------------- */
 
@@ -2840,12 +2874,14 @@ img#wpstats {
 	#access ul.menu li li{
 		border-radius: 0;	
 	}	
-	#access ul.menu li.current-menu-item {
+	#access ul.menu li.current-menu-item,
+	#access ul.menu li.current_page_parent {
 		background: #f1f0e7;
 		position: relative;
 		z-index: 5;
 	}
-	#access ul.menu li.current-menu-item:hover {
+	#access ul.menu li.current-menu-item:hover,
+	#access ul.menu li.current_page_parent:hover {
 		background: #e3e1d5;
 	}
 	#access ul.menu li.current-menu-item:first-child:hover {
@@ -2889,7 +2925,8 @@ img#wpstats {
 		padding: 13px 17px 11px 19px;			
 	}
 	
-	#access .sf-menu li.current-menu-item {
+	#access .sf-menu li.current-menu-item,
+	#access .sf-menu li.current_page_parent {
 		border: 2px solid #e3e1d5;
 		border-bottom: none;
 		position: relative;

@@ -11,16 +11,17 @@
      define('MY_THEME_FOLDER',str_replace("\\",'/',dirname(__FILE__)));
      define('MY_THEME_PATH','/' . substr(MY_THEME_FOLDER,stripos(MY_THEME_FOLDER,'wp-content')));
     
-  // Make some nice human-readable options for what template and features to use
-  $options = get_option('AgrilifeOptions');
-  $isresearch      = (is_array($options) ? $options['isResearch']      : true);
-  $isextension     = (is_array($options) ? $options['isExtension'] : true);
-  $iscollege      = (is_array($options) ? $options['isCollege']      : true);
-  $istvmdl           = (is_array($options) ? $options['isTvmdl']      : true);
-  $isextensiononly = ($isextension && !$isresearch && !$iscollege && !$istvmdl ? true : false);
-  $isresearchonly = ($isresearch && !$isextension && !$iscollege && !$istvmdl ? true : false);
-  $iscollegeonly = ($iscollege && !$isextension && !$isresearch && !$istvmdl ? true : false);
-  $istvmdlonly = ($istvmdl && !$isextension && !$isresearch && !$iscollege ? true : false);
+	// Make some nice human-readable options for what template and features to use
+	$options = get_option('AgrilifeOptions');
+	$isresearch      = (is_array($options) ? $options['isResearch']      : true);
+	$isextension     = (is_array($options) ? $options['isExtension'] : true);
+	$iscollege      = (is_array($options) ? $options['isCollege']      : true);
+	$istvmdl           = (is_array($options) ? $options['isTvmdl']      : true);
+	$isextensiononly = ($isextension && !$isresearch && !$iscollege && !$istvmdl ? true : false);
+	$isresearchonly = ($isresearch && !$isextension && !$iscollege && !$istvmdl ? true : false);
+	$iscollegeonly = ($iscollege && !$isextension && !$isresearch && !$istvmdl ? true : false);
+	$istvmdlonly = ($istvmdl && !$isextension && !$isresearch && !$iscollege ? true : false);
+	$isall = ($istvmdl && $isextension && $isresearch && $iscollege ? true : false);
  
   if($isextensiononly) :
        $isextension4h = $isextensioncounty = $isextensioncountytce = $isextensionmg = $isextensionmn = false;
@@ -704,7 +705,7 @@ function create_tests_taxonomies() {
 }
 
 /* Staff Custom Post Type */
-if ($iscollegeonly || $istvmdlonly || $isextension4h) {
+if ($iscollegeonly || $istvmdlonly || $isextension4h || $isall) {
      add_action( 'init', 'create_staff_post_type' );
      function create_staff_post_type() {
           register_post_type( 'staff',

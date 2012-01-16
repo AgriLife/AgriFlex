@@ -122,8 +122,12 @@
 			</div><!-- .entry-summary -->
 	<?php else : ?>
 			<div class="entry-content">
-				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'agriflex' ) ); ?>
-				<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'agriflex' ), 'after' => '</div>' ) ); ?>
+				<a class="feature-img-excerpt" href="<?php the_permalink();?>"></span><?php if ( has_post_thumbnail() ) {
+  the_post_thumbnail('featured-mediabox'); 
+} else  { 
+	echo '<img src="'.get_bloginfo("template_url").'/images/AgriLife-default-post-image.png" alt="AgriLife Logo" title="AgriLife" />'; 
+	}
+	?></a><?php the_excerpt(); ?>
 			</div><!-- .entry-content -->
 	<?php endif; ?>
 
