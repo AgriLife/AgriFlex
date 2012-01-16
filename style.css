@@ -30,7 +30,6 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	-webkit-tap-highlight-color: rgba(0,150,0,3);
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -102,7 +101,7 @@ body, button, input, select, textarea { font-family: sans-serif; color: #222; }
 
 body {
 	background: #fff;
-	font: 62.5% "minion-pro-1","minion-pro-2", 'Cambria', 'Georgia', 'Times New Roman', serif;
+	font: 100% "minion-pro-1","minion-pro-2", 'Cambria', 'Georgia', 'Times New Roman', serif;
 	line-height: 1.2em;
 	color: #433c3a;	
 }
@@ -117,49 +116,60 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	font-size: 2.7em;
+	font-size: 2em;  /* 32px / 16px */
 }
 
 h2 {
-	font-size: 2.5em;
+	font-size: 1.75em;  /* 28px / 16px */
 }
 
 h3 {
-	font-size: 2.4em;
+	font-size: 1.5em;  /* 24px / 16px */
 }
 
 h4 {
-	font-size: 2.3em;
+	font-size: 1.25em;  /* 20px / 16px */
 }
 
 h5 {
-	font-size: 1.6em;
+	font-size: 1.125em;  /* 18px / 16px */
 }
 
 h6 {
-	font-size: 1.3em;
+	font-size: 1em;  /* 16px */
 }
 
 ol, 
 ul {
 	list-style: none;
-}
+}						
 
 .wrap {
 	position: relative;
 	margin: 0 auto;	
+	padding-left: 5%;
+	padding-right: 5%;
+	margin-top: 5%;	
 }
-
+.wrap:after { 
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
 #wrapper {
 	margin: 0 auto;	
-	max-width: 975px;	
+	max-width: 955px;	
 }
 
 /* Text elements */
 p {
-	margin-top: 1.2em;
-	margin-bottom: 1.2em;
-	font-size: 1.2em;
+	margin-top: 1.25em; /* 20px / 16px */
+	margin-bottom: 1.25em; /* 20px / 16px */
+	font-size: 1em; /* 16px */
+	line-height: 1.25em;  /* 20px / 16px */
 }
 
 #content .post ul li,
@@ -404,10 +414,12 @@ a.logout_btn {
 
 #drop-section-nav {
 	position: relative;
-	z-index: 3;		
+	z-index: 3;	
+	padding-left: 5%;
+	padding-right: 5%;	
 	margin: 0 auto;
 	overflow: hidden;
-	width: 100%;
+	width: 90%;
 	background: #341f1a url('images/verticle-texture.png');
 	color: #fff;
 	-webkit-box-shadow: 0 2px 5px rgba(6,6,6,.3);
@@ -989,18 +1001,22 @@ body.collegeonly #access li a[title='home'] {
 -------------------------------------------------------------- */
 
 #header {
-	overflow: hidden;	
+	overflow: hidden;
+	padding-left: 5%;
+	padding-right: 5%;		
 }
 #site-title {
 	text-align: center; 
 	margin-top: 25px;
 	margin-bottom: 1em;	
+	line-height: .875em; /* 14px / 16px */	
 }
 
 #site-title a {
 	border: none;
 	color: #443d3a;
 	padding: 20px 0;
+	font-size: .75em; /* 12px / 16px */	
 }
 
 #site-title a img {
@@ -1055,6 +1071,8 @@ body.collegeonly #site-title a {
 #access {
 	position: relative;
 	display: block;	
+	padding-left: 5%;
+	padding-right: 5%;	
 }
 
 .js #branding .searchform,
@@ -1071,7 +1089,7 @@ body.collegeonly #site-title a {
 #access .menu-header,
 ul.menu {
 	display: block;
-	margin: 0 10px;		
+	margin: 0;	
 }
 
 #access .menu-header li,
@@ -1102,6 +1120,28 @@ div.menu li {
 
 #access li a[title='home']:hover {
 	background-position: 50% -35px;
+}
+
+#access #menu-main-navigation {
+	width: 100%;
+}
+		
+#access .menu-header li,
+div.menu li {
+	float: none;
+	margin: 0;
+	border-bottom: 1px solid #E7E2CB;
+}
+
+#access  {
+	float: none;
+}
+
+body.no-touch #access ul.menu a {
+	font-size: 1.6em;
+	text-shadow: 0 1px 0 #fff;
+	display: block;
+	text-shadow: none;
 }
 
 body.mobile #access .menu-header li ul.sub-menu {
@@ -1161,6 +1201,11 @@ body.home #content {
 	margin: 0 auto 25px;
 	overflow: hidden;
 }
+
+.flex-container {
+	margin-top: 5%;
+} 
+
 
 #home-top #big-feature {
 	margin-left: 10px;
@@ -1959,6 +2004,87 @@ a.test-listing-link:hover {
 	margin-bottom: 20px;		
 }
 
+#aside ul.books {
+	padding-left: 0;
+	margin-left: 0;
+	padding-top: 25px;
+	position: relative;
+	display: block;	
+	overflow: hidden;	
+}
+
+#aside ul.books li {
+	position: relative;
+	display: block;		
+	width: 50%;
+	float: left;
+}
+
+#aside ul.books li dt.book-title {
+	float: right;
+	width: 55%;
+	padding-top: 25px;
+	line-height: 1em;
+}
+
+#aside ul.books li dd.price {
+	position: absolute;
+	background: url('images/price-circle.png') no-repeat 40% 50%;
+	z-index: 6;
+	top: -15px;
+	left: 30%;
+	padding: 13px 10px 16px 10px;
+	color: #8C2B17;
+	font: .95em georgia;
+}
+
+#aside ul.books li dd.price em {
+	font-size: .75em;
+	font-style: normal;
+}
+
+#aside ul.books li dd.price span {
+	font-size: .5em;
+	vertical-align:	super;	
+}
+				
+#aside ul.books li p.btn {
+	clear: both;
+	z-index: 5;
+}
+	
+#aside ul.books li p.btn a {
+	padding: 4px 12px;
+	font-size: 10px;
+	color: #806E38;
+	border: 1px solid #bba563;
+	background: #c7bc7f;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ded8b4), to(#c7bc7f));
+	background: -moz-linear-gradient(top, #ded8b4, #c7bc7f);		
+}
+
+#aside ul.books li p.btn a:hover {
+	cursor: pointer;
+	border: 1px solid #bba563;	
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shodow: none;	
+	background: #c7bc7f;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cfc591), to(#c7bc7f));
+	background: -moz-linear-gradient(top, #cfc591, #c7bc7f);
+}
+
+#aside ul.books li p.btn a:active {
+	cursor: pointer;	
+	background: #c7bc7f;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#c7bc7f), to(#cfc591));
+	background: -moz-linear-gradient(top, #c7bc7f, #cfc591);		
+}
+
+#aside ul.books li img.book {
+	width: 33%;		
+}
+
 #aside #event-bg {
 	padding: 10px;
 	margin-bottom: 20px;
@@ -2700,6 +2826,7 @@ h3#reply-title {
 #secondary ul {
 	margin: 0;
 }
+	
 
 /* Footer widget areas */
 #footer-widget-area {
@@ -2717,13 +2844,21 @@ h3#reply-title {
 #footer .wrap {	
 	margin: 20px auto 0;	
 	padding: 60px 0;
-	max-width: 975px;
 	overflow: hidden;	
 }
 
 img#wpstats {
 	display:block;
 	margin: 0 auto 10px;
+}
+
+#footer .wrap {
+	padding-left: 5%;
+	padding-right: 5%;		 
+}	
+		
+#footer .wrap ul {
+	margin-left: 0;		 
 }
 
 /* Mobile Safari ( iPad, iPhone and iPod Touch )
@@ -2825,28 +2960,35 @@ img#wpstats {
 	}
 }
 
-@media all and (min-width: 640px) {
 
-	table {
-		font-size: 1.4em;
+@media all and (min-width: 640px) {
+	#site-title a {
+		font-size: 1.125em; /* 18px / 16px */
+		line-height: 1.125em; /* 18px / 16px */		
 	}
-	
+
 	#about,
 	#popular-links,
 	#texas-a-m,
 	#contact,
 	#agrilife-bookstore {
 		float: left;
-		width: 20%;
+		width: 18.324607329843%; /* 175px / 955px */
+		margin: 0 1.047120418848%; /* 10px / 955px */				
 	}
 	
 	.about,
 	.popular-links,
 	.texas-a-m,
 	.contact,
-	.agrilife-bookstore {
-		padding: 0 10px;
+	.agrilife-bookstore {				
 	}
+	#about {
+		margin-left: 0;				
+	}	
+	#agrilife-bookstore {
+		margin-right: 0;				
+	}	
 	#breadcrumbs {
 		width: 100%;
 		margin-right: 25px;
@@ -2856,20 +2998,94 @@ img#wpstats {
 		padding: .8em 10px;		
 	}
 	
+	#content-wrap {
+		position: relative;
+		z-index: 2;
+		border-top: 2px solid #e7e2cb;
+		margin-top: -2px;
+		width: 100%;
+		-webkit-box-shadow: 0 -2px 6px rgba(16,16,16,.075);
+		-moz-box-shadow: -4px -2px 6px rgba(16,16,16,.075);
+		box-shadow: 0 -2px 6px rgba(16,16,16,.075);	
+		background: #fff url(images/gradient.png) repeat-x left -100px;			
+	}
+
+	/*----- Job Postings single page ------ */
+
+	.job-posting-dl {
+		padding: 20px 0 50px;
+	}
+
+	.job-posting-dt {
+		padding: .5em 0 1em 0;
+	}
+
+	.job-posting-dd {
+		border-bottom: 1px solid #d0ca9b;
+		margin: -3em 0 0 0;
+		padding: 0 0 .75em 195px;	
+	}
+
+	#wrap, #container {
+		width: 100%;	
+	}
+	
+	#footer {
+		background: #fff url(images/gradient.png) repeat-x left top;
+	}
+	
+	#footer .wrap h4 {
+		margin-bottom: 2.5em;
+		font-size: 1em;
+	}
+
+	#footer .wrap a {
+		border: none;
+	}
+
+	#footer .wrap a img:hover {
+		opacity: .75;
+	}
+
+	#footer .wrap ul {
+		margin-left: 0;
+		margin-top: 15px;
+	}
+
+	#footer .wrap p {
+		font-size: 1.1em;
+		line-height: 20px;
+		margin-top: 19px;
+	}
+
+	#footer .wrap ul li {
+		margin-right: 1px;
+		font-size: 1.1em;	
+	}
+
+	#footer .wrap ul li a {
+		display: block;
+		padding: 4px 0;	
+	}
+
+	#footer .wrap .contact ul li {
+		margin-bottom: 12px;
+	}	
+}		
+
+@media screen and (min-width: 960px) {
+
 	.js #branding .searchform,
 	.js #access {
 		display: block;	
-	}	
-	
-	#branding #site-title span.full-img-text {
-		
 	}
-	
+
 	#access ul.menu li {
 		margin: 0 2px 0 0;
 		border-top-right-radius: 6px;
 		background-color: #f5f5ee;	
 		background-color: rgba(245,245,238,.9);
+		float: left;
 	}
 	#access ul.menu li li{
 		border-radius: 0;	
@@ -3118,83 +3334,7 @@ img#wpstats {
 		background-position: -10px 0; /* arrow hovers for modern browsers*/
 	}
 
-	#content-wrap {
-		position: relative;
-		z-index: 2;
-		border-top: 2px solid #e7e2cb;
-		margin-top: -2px;
-		width: 100%;
-		-webkit-box-shadow: 0 -2px 6px rgba(16,16,16,.075);
-		-moz-box-shadow: -4px -2px 6px rgba(16,16,16,.075);
-		box-shadow: 0 -2px 6px rgba(16,16,16,.075);	
-		background: #fff url(images/gradient.png) repeat-x left -100px;			
-	}
 
-	/*----- Job Postings single page ------ */
-
-	.job-posting-dl {
-		padding: 20px 0 50px;
-	}
-
-	.job-posting-dt {
-		padding: .5em 0 1em 0;
-	}
-
-	.job-posting-dd {
-		border-bottom: 1px solid #d0ca9b;
-		margin: -3em 0 0 0;
-		padding: 0 0 .75em 195px;	
-	}
-
-	#wrap, #container {
-		padding-left: 10px;
-	}
-	
-	#footer {
-		background: #fff url(images/gradient.png) repeat-x left top;
-	}
-	
-	#footer .wrap h4 {
-		margin-bottom: 2.5em;
-		font-size: 1em;
-	}
-
-	#footer .wrap a {
-		border: none;
-	}
-
-	#footer .wrap a img:hover {
-		opacity: .75;
-	}
-
-	#footer .wrap ul {
-		margin-left: 0;
-		margin-top: 15px;
-	}
-
-	#footer .wrap p {
-		font-size: 1.1em;
-		line-height: 20px;
-		margin-top: 19px;
-	}
-
-	#footer .wrap ul li {
-		margin-right: 1px;
-		font-size: 1.1em;	
-	}
-
-	#footer .wrap ul li a {
-		display: block;
-		padding: 4px 0;	
-	}
-
-	#footer .wrap .contact ul li {
-		margin-bottom: 12px;
-	}	
-}		
-
-
-@media screen and (min-width: 960px) {
 		
 	p, li {
 		line-height: 1.4em;
@@ -3462,15 +3602,14 @@ img#wpstats {
 	}
 
 	#header, #access {
-		background: transparent;							
+		background: transparent;									
 	}
 	
 	#branding, #access .menu-header, .wrap, #drop-nav, .drop-section-wrap {
-		max-width: 975px;
+		max-width: 955px;
 		margin: 0 auto;
-		position: relative;
-	}
-		
+		position: relative;		
+	}		
 	.wrap {
 		margin: 0 auto 0;
 		padding-top: 50px;
@@ -3487,21 +3626,20 @@ img#wpstats {
 		margin-right: 10px;
 	}
 	body #header {
-		padding: 55px 0 40px;		
+		padding: 55px 5% 40px;		
 	}	
 	body.extensioncounty #header,
 	body.extensioncountytce #header {
-		padding: 20px 0 30px;		
+		padding: 20px 5% 30px;		
 	}	
 	body.research.extension #header {
-		padding: 35px 0 35px;		
+		padding: 35px 5% 35px;		
 	}				
 	#site-title {
 		text-align: left;
 		margin-top: 0;
 		padding: 0;
 		margin-bottom: 0;
-		margin-left: 10px;
 		width: 100%;
 		font-weight: 500;
 		font-size: 46px;
@@ -3544,8 +3682,8 @@ img#wpstats {
 	body.extensioncountytce #site-title	 {
 		text-align: left;
 		margin: 0;
-		padding: 0;		
-		height: 110px;	
+		padding: 20px 0 0;		
+		height: 90px;	
 	}
 	body.extensioncounty #site-title a span,
 	body.extensioncountytce #site-title a span	{
@@ -3555,7 +3693,6 @@ img#wpstats {
 	body.extensioncountytce #site-title a	 {
 		background: url('images/tx.png') no-repeat left 7px;
 		font-size: 32px;
-		margin-left: 10px;
 		padding: 5px 0 60px 100px;	
 	}
 
@@ -3565,13 +3702,7 @@ img#wpstats {
 		font-size: 1.5em;
 		font-style: normal;	
 		font-weight: 600;
- 		margin-top: -15px;
 		
-	}
-    
-	body.extension #access #menu-main-navigation,
-	body.extension #access #menu-main-navigation	{
-		margin-left: 10px;
 	}
 
 /* --- End County --- */	
@@ -3636,25 +3767,30 @@ img#wpstats {
 	
 	#content {
 		padding-bottom: 2em;
+		width: 100%;
+		margin-right: 2.094240837696%; /* 20px / 955px */		
 	}
 						
 	body.home #content {
 		display: block;
 		position: relative;
-		max-width: 564px;
 		float: left;
 	}
 	body.home.page-template-onecolumn-page-php #content {		
-		max-width: 975px;
+		max-width: 955px;
 		float: none;
 	}	
 	.flex-container.fullwidth { margin-right: 10px;}
 	.ie8 .flexslider .slides img  { height: 272px;}
 	.ie8 .flex-container.fullwidth .flexslider .slides img  { height: 475px;}
 				
-	#home-middle-bg, #home-middle, .home-middle-1, #wrap  {
-		width: 575px;
+	#wrap  {
+		width: 59.162303664921%; /* 565px / 955px */
 	}
+
+	.flex-container {
+		margin-top: 0;
+	} 
 		
 	#home-middle li,
 	#home-middle p	  {
@@ -3668,11 +3804,11 @@ img#wpstats {
 	
 	#home-middle h3.widget-title {
 		margin-bottom: 10px;
-		font-size: 2.7em;
+		font-size: 28px;
 	}
 	
 	body.home h2.entry-title {
-		font-size: 3em;
+		font-size: 32px;
 	}
 
 	.staff-person-details {
@@ -3697,7 +3833,7 @@ img#wpstats {
 	}
 	
 	#aside {
-		width: 38.99%;
+		width: 38.743455497382%; /* 370px / 955px */
 		float: right;
 	}
 
@@ -3717,85 +3853,6 @@ img#wpstats {
 		border: none;
 	}
 			
-	#aside ul.books {
-		padding-left: 0;
-		margin-left: 0;
-		padding-top: 25px;
-		position: relative;
-		display: block;	
-		overflow: hidden;	
-	}
-	
-	#aside ul.books li {
-		position: relative;
-		display: block;		
-		width: 50%;
-		float: left;
-	}
-	
-	#aside ul.books li dt.book-title {
-		float: right;
-		width: 55%;
-		padding-top: 25px;
-		line-height: 1em;
-	}
-			
-	#aside ul.books li dd.price {
-		position: absolute;
-		background: url('images/price-circle.png') no-repeat 40% 50%;
-		z-index: 6;
-		top: -15px;
-		left: 40px;
-		padding: 13px 10px 16px 10px;
-		color: #8C2B17;
-		font: .95em georgia;
-	}
-
-	#aside ul.books li dd.price em {
-		font-size: .75em;
-		font-style: normal;
-	}
-
-	#aside ul.books li dd.price span {
-		font-size: .5em;
-		vertical-align:	super;	
-	}
-					
-	#aside ul.books li p.btn {
-		position: absolute;
-		z-index: 5;
-		bottom: -0.7em;
-		right: 55px;
-	}
-		
-	#aside ul.books li p.btn a {
-		padding: 4px 12px;
-		font-size: 10px;
-		color: #806E38;
-		border: 1px solid #bba563;
-		background: #c7bc7f;
-		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ded8b4), to(#c7bc7f));
-		background: -moz-linear-gradient(top, #ded8b4, #c7bc7f);		
-	}
-
-	#aside ul.books li p.btn a:hover {
-		cursor: pointer;
-		border: 1px solid #bba563;	
-		-webkit-box-shadow: none;
-		-moz-box-shadow: none;
-		box-shodow: none;	
-		background: #c7bc7f;
-		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cfc591), to(#c7bc7f));
-		background: -moz-linear-gradient(top, #cfc591, #c7bc7f);
-	}
-
-	#aside ul.books li p.btn a:active {
-		cursor: pointer;	
-		background: #c7bc7f;
-		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#c7bc7f), to(#cfc591));
-		background: -moz-linear-gradient(top, #c7bc7f, #cfc591);		
-	}
-
 	div.event dd.sign-up a:active {
 		top: 27px;
 	}
@@ -3804,174 +3861,40 @@ img#wpstats {
 		font-size: 22px;
 	}
 
-	#aside #aside-widget-area-1,
-	#aside #aside-widget-area-2 {
-		margin-right: 10px;
+	#aside ul.books li dd.price {
+		left: 40px;
 	}
 
+	#aside ul.books li p.btn {
+		position: absolute;
+		bottom: -0.7em;
+		right: 55px;
+	}
+	
+	#aside ul.books li img.book {
+		width: 65px;
+	}
+	
 	#aside #sidebar-navigation-widgets  {
 		margin: 0 10px 20px 0;	
 	}
 	
 	#footer .wrap h4 {
-		font-size: 1.4em;
 		text-transform: uppercase;
 		letter-spacing: .1em;
-		font-weight: 600;
+		font-size: 1em;
 	}
 
 	#footer .wrap p {
-		font-size: 1.4em;
+		font-size: 1em;
 	}
 
 	#footer .wrap ul li {
-		font-size: 1.4em;	
-	}
-
-/* 3 Col homepage */
-	.page-template-page-3col-news-home-php #aside {
-		width: 29%;
-	}
-	.page-template-page-3col-news-home-php #left-sidebar {
-		width: 20%;
-		float: left;
-	}
-	.page-template-page-3col-news-home-php #wrap {
-		width: 36%;
-	}	
-}
-
-@media all and (max-width: 960px) {
-	
-	body {  		
-	    font-size: 80%; 
-		line-height: 1.75em;
-	}
-
-	.wrap, #footer .wrap, #branding, #access {
-		padding-left: 5%;
-		padding-right: 5%;		
-	}
-
-	#content {
-		padding-top:3em;
-	}
-	#header {
-		padding-bottom: 20px;
-	}
-	body .searchform {
-		margin-bottom: 20px;
-	}
-	img,video,object {
-	    max-width: 100%;
-	}
-	#aside {
-		float: none;
-		clear: both;
-	}	
-	#drop-section-nav #drop-nav ul {
-		margin: 0 5%;
-	}
-}
-
-/* mobile width */
-@media all and (max-width: 640px) {
-				
-	#site-title a {
-		font: 28px arno-pro-1,arno-pro-2, georgia, serif;
-	}
-	body  { 		
-		font-size: 76%; 
-		-webkit-text-size-adjust: 98%;					
-	}			
-	body #content {
-		width: 100%;	
-		border-right: none;
-		margin-left: 0;
-	}			
-	#header  {
-		margin: 0;
-	}	
-
-	body #site-title a  {
-		padding: 0;
-	}	
-	
-	body #access .menu-header, body div.menu	{
-		padding: 0 0 2em 0;
-		margin:  0 0 2em 0;
-	}
-	
-	#access #menu-main-navigation {
-		width: 100%;
-	}
-			
-	#access .menu-header li,
-	div.menu li {
-		float: none;
-		margin: 0;
-		border-bottom: 1px solid #E7E2CB;
-	}
-	
-	#access  {
-		float: none;
-	}
-	
-	body.no-touch #access ul.menu a {
-		font-size: 1.6em;
-		text-shadow: 0 1px 0 #fff;
-		display: block;
-		text-shadow: none;
-	}
-	
-	#home-top {
-		display: none;
-	}	
-	
-	#footer .wrap {
-		padding-left: 5%;
-		padding-right: 5%;		 
-	}	
-			
-	#footer .wrap ul {
-		margin-left: 0;		 
-	}			
-}
-/* mobile width */
-@media all and (max-width: 420px) {
-	
-	body .entry-content h2,
-	body .entry-content h3,
-	body .entry-content h4,	
-	body h3.entry-title,
-	body h2.entry-title,
-	body h1.entry-title {
-		font-size: 20px;
-	}
-	
-	body #header {
-		padding-bottom: 0;
-	}
-	body #site-title {
-		margin-top: 15px;
-		margin-bottom: 10px;
-		line-height: 18px;	
-	}
-	body #site-title a {
-		font-size: 22px;
-	}
-	body #content {
-		padding-top: 1em;
-	}	
-	div.event dl dd.title-loc h4 {
-		font-size: 18px;
-		padding-right: 15px;
-	}
-	div.event dd.sign-up a {
-		font-size: .75em;
+		font-size: 1em;	
 	}
 
 }
+
 /**********************************************************
 
 jQuery Tabs

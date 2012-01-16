@@ -312,11 +312,7 @@ jQuery(document).ready(function($) {
 	else {
 		$("body").addClass("desktop");	
 	}
-	
-	
-	// remove all height attributes from images for flexibility	
-	$('#content img').removeAttr('height');	
-	
+
 	
 /*global jQuery */
 /*! 
