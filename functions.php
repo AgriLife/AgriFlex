@@ -132,15 +132,15 @@ function agriflex_setup() {
           // register jquery CDN                   
           wp_deregister_script('jquery');
           wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"), false);         
-             wp_enqueue_script('jquery');
-    
-            // enqueue the custom jquery js
-             wp_enqueue_script('modernizr',
-                 get_bloginfo('template_directory') . '/js/modernizr-2.0.6.min.js' , array('jquery'), '2.0.6', false);
-                                  
-            // enqueue the custom jquery js
-             wp_enqueue_script('my_scripts',
-                 get_bloginfo('template_directory') . '/js/my_scripts.js', array('jquery'), '2.9.1', true);                
+          wp_enqueue_script('jquery');
+ 
+         // enqueue the custom jquery js
+          wp_enqueue_script('modernizr',
+              get_bloginfo('template_directory') . '/js/modernizr-2.0.6.min.js' , array('jquery'), '2.0.6', false);
+                               
+         // enqueue the custom jquery js
+          wp_enqueue_script('my_scripts',
+              get_bloginfo('template_directory') . '/js/my_scripts.js', array('jquery'), '2.9.1', true);                
           }             
      }   
      add_action('init', 'load_js');    
@@ -150,7 +150,6 @@ function agriflex_setup() {
      function remove_some_wp_widgets(){
        unregister_widget('WP_Widget_Calendar');
        unregister_widget('WP_Widget_Search');
-       unregister_widget('WP_Widget_Tag_Cloud');
      }
 
      add_action('widgets_init',remove_some_wp_widgets, 1);    

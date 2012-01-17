@@ -161,7 +161,7 @@ ul {
 }
 #wrapper {
 	margin: 0 auto;	
-	max-width: 955px;	
+	max-width: 1024px;	
 }
 
 /* Text elements */
@@ -303,14 +303,14 @@ body.collegeonly a:hover {
 }
 
 body.tvmdlonly a{
-	color:#477f80;
-	border-color: #477f80;
+	color:#8C5933;
+	border-color: #8C5933;
 }
 
 body.tvmdlonly a:active,
 body.tvmdlonly a:hover {
-	color: #2c4e4f;
-	border-color: #2c4e4f;	
+	color: #674125;
+	border-color: #674125;	
 }
 
 body.extensiononly a {
@@ -596,6 +596,7 @@ body.collegeonly #drop-section-nav #drop-nav ul li a.college-explore-link:hover 
 .tvmdlonly #drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
 	background-image: url('images/tvmdl-logo.png');
 	width: 90px;
+	margin-bottom: -4px;
 }
 
 .researchonly #drop-section-nav #drop-nav ul li a[href*='research'] {
@@ -869,23 +870,23 @@ body.collegeonly #drop-section-nav #drop-nav ul li a.college-explore-link:hover 
 
 
 body.tvmdlonly span.gigpress-sidebar-status a, body.tvmdlonly .btn a, body.tvmdlonly button.btn, body.tvmdlonly a.gigpress-tickets-link {	
-	border: 1px solid #477f80;
+	border: 1px solid #8c5933;
 	color: #fff;
-	background: #477f80;
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#59a0a1), to(#477f80));
-	background: -moz-linear-gradient(top, #59a0a1, #477f80);
+	background: #8c5933;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8c5933), to(#794d2c));
+	background: -moz-linear-gradient(top, #8c5933, #794d2c);
 }
 
 body.tvmdlonly span.gigpress-sidebar-status a, body.tvmdlonly .btn a:hover, body.tvmdlonly button.btn:hover, body.tvmdlonly a.gigpress-tickets-link:hover {	
-	background: #59a0a1;	
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#477f80), to(#59a0a1));
-	background: -moz-linear-gradient(top, #477f80, #59a0a1);		
+	background: #794d2c;	
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#794d2c), to(#8c5933));
+	background: -moz-linear-gradient(top, #794d2c, #8c5933);		
 }
 
 body.tvmdlonly span.gigpress-sidebar-status a, body.tvmdlonly .btn a:active, body.tvmdlonly button.btn:active, body.tvmdlonly a.gigpress-tickets-link:active {
-	background: #3e6f70;	
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#477f80), to(#3e6f70));
-	background: -moz-linear-gradient(top, #477f80, #3e6f70);	
+	background: #664125;	
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#664125), to(#53351e));
+	background: -moz-linear-gradient(top, #664125, #53351e);	
 }
 
 body.extensiononly span.gigpress-sidebar-status a, body.extensiononly .btn a, body.extensiononly button.btn, body.extensiononly a.gigpress-tickets-link {	
@@ -938,13 +939,13 @@ body.collegeonly #drop-section-nav {
 }
 
 body.tvmdlonly #drop-section-nav {
-	background-color: #477f80;
-	border-bottom: 1px solid #477f80;	
+	background-color: #8c5933;
+	border-bottom: 1px solid #8c5933;	
 }
 
 body.extensiononly #drop-section-nav {
-	background-color: #004c6b;
-	border-bottom: 1px solid #004c6b;	
+	background-color: #004C6B;
+	border-bottom: 1px solid #004C6B;	
 }
 
 body.researchonly #drop-section-nav {
@@ -1481,7 +1482,7 @@ body.home.extensiononly #home-middle .home-middle-features a .date {
 }
 
 body.home.tvmdlonly #home-middle .home-middle-features a .date {
-	background: #477f80;
+	background: #8c5933;
 	color: #fff;	
 }
 
@@ -1611,7 +1612,6 @@ body.home .home-middle-1 {
 }
 
 #breadcrumbs {
-	font-size: 1.6em;
 	margin-bottom: 1.6em;
 	display: block;
 	width: 100%;
@@ -1892,6 +1892,10 @@ a.test-listing-link:hover {
 
 /* Aside
 -------------------------------------------------------------- */
+
+#aside {
+	clear: both;
+}
 
 #aside img.left {
 	float: left;
@@ -2398,6 +2402,14 @@ body.home.college #home-middle .agrilifetoday ul li span.rss-date {
 	display: block;	
 }
 
+.tagcloud a {
+	line-height: 1.625em; /* 26px / 16px */
+	border: none;
+	font-family: verdana, clean, sans-serif;
+}
+.tagcloud a:hover {
+	text-decoration: underline;
+}
 /* Events page
 -------------------------------------------------------------- */
 
@@ -3026,7 +3038,6 @@ img#wpstats {
 	#wrap, #container {
 		width: 100%;	
 	}
-	
 	#footer {
 		background: #fff url(images/gradient.png) repeat-x left top;
 	}
@@ -3063,6 +3074,10 @@ img#wpstats {
 	#footer .wrap ul li a {
 		display: block;
 		padding: 4px 0;	
+	}
+	
+	#footer .wrap ul li a:hover {
+		text-decoration: underline;
 	}
 
 	#footer .wrap .contact ul li {
@@ -3250,14 +3265,14 @@ img#wpstats {
 	}
 
 	body.tvmdlonly #access ul.menu a {
-		color:#477f80;
-		border-color: #477f80;
+		color:#8c5933;
+		border-color: #8c5933;
 	}
 
 	body.tvmdlonly #access ul.menu a:hover,
 	body.tvmdlonly #access ul.menu a:active {
-		color: #2c4e4f;
-		border-color: #2c4e4f;	
+		color: #674125;
+		border-color: #674125;	
 	}
 
 	body.extensiononly #access ul.menu a {
@@ -3603,7 +3618,7 @@ img#wpstats {
 	}
 	
 	#branding, #access .menu-header, .wrap, #drop-nav, .drop-section-wrap {
-		max-width: 955px;
+		max-width: 1024px;
 		margin: 0 auto;
 		position: relative;		
 	}		
@@ -3759,7 +3774,7 @@ img#wpstats {
 	.flex-container.fullwidth { margin-left: 10px;}
 	
 	#breadcrumbs {
-		width: 550px;	
+		max-width: 585px;	
 	}	
 	
 	#content {
@@ -3774,7 +3789,7 @@ img#wpstats {
 		float: left;
 	}
 	body.home.page-template-onecolumn-page-php #content {		
-		max-width: 955px;
+		max-width: 1024px;
 		float: none;
 	}	
 	.flex-container.fullwidth { margin-right: 10px;}
@@ -3832,6 +3847,7 @@ img#wpstats {
 	#aside {
 		width: 38.743455497382%; /* 370px / 955px */
 		float: right;
+		clear: none;
 	}
 
 	#aside #event-bg {
@@ -3879,7 +3895,7 @@ img#wpstats {
 	#footer .wrap h4 {
 		text-transform: uppercase;
 		letter-spacing: .1em;
-		font-size: 1em;
+		font-size: 0.875em; /* 14px / 16px */
 	}
 
 	#footer .wrap p {
