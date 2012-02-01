@@ -2,7 +2,7 @@
     Theme Name: AgriFlex2011
     Description: Custom theme created for Texas A&M AgriLife network.
     Author: Jason Weaver
-    Version: 1.0
+    Version: 2.0
 */
 
 
@@ -101,7 +101,7 @@ body, button, input, select, textarea { font-family: sans-serif; color: #222; }
 
 body {
 	background: #fff;
-	font: 100% "minion-pro-1","minion-pro-2", 'Cambria', 'Georgia', 'Times New Roman', serif;
+	font: 90% "minion-pro-1","minion-pro-2", 'Cambria', 'Georgia', 'Times New Roman', serif;
 	line-height: 1.2em;
 	color: #433c3a;	
 }
@@ -604,16 +604,7 @@ body.collegeonly #drop-section-nav #drop-nav ul li a.college-explore-link:hover 
 }
 
 .tvmdlonly #drop-section-nav #drop-nav ul li a.client-login {
-	background-image: none;
-	text-indent: 0;	
-	background: rgba(0,0,0,.3);
-	border-radius: 5px;
-	padding: 5px 10px;
-	height: auto;
-	width: auto;
-	font-size: 11px;
-	text-transform: uppercase;
-	letter-spacing: 1px;
+	display: none;
 }
 
 .tvmdlonly #drop-section-nav #drop-nav ul li a.client-login:hover {
@@ -1007,15 +998,15 @@ body.collegeonly #access li a[title='home'] {
 }
 #site-title {
 	text-align: center; 
-	margin-top: 25px;
-	margin-bottom: 1em;	
+	margin-top: .3em;
+	margin-bottom: .3em;	
 	line-height: .875em; /* 14px / 16px */	
 }
 
 #site-title a {
 	border: none;
 	color: #443d3a;
-	padding: 20px 0;
+	padding: 0;
 	font-size: .75em; /* 12px / 16px */	
 }
 
@@ -1089,7 +1080,7 @@ body.collegeonly #site-title a {
 #access .menu-header,
 ul.menu {
 	display: block;
-	margin: 0;	
+	margin: 2em 0;	
 }
 
 #access .menu-header li,
@@ -1098,7 +1089,7 @@ div.menu li {
 	float: left;
 	list-style: none;
 	border-bottom: none;
-	position: relative;
+	position: relative;	
 }
 
 #access ul.menu a {
@@ -1108,13 +1099,13 @@ div.menu li {
 	overflow: hidden;
 	margin: 0 0 .1em 0;		
 	padding: 10px 15px;	
-	display: block;		
+	display: block;
 }
 
 #access ul.menu li a[title='home'] {
 	display: block;
 	text-indent: -999em;
-	background: url('images/home-gold.png') no-repeat 50% 5px;
+	background: url('images/home-gold.png') no-repeat 50% 12px;
 	width: 20px;
 }
 
@@ -1657,7 +1648,7 @@ body.home .hentry {
 }
 
 #content dl {
-	font-size: 1.6em;
+	font-size: 1em;
 	line-height: 1.4em;
 	margin: 0 0 .5em 0;
 }
@@ -1725,12 +1716,15 @@ body.home .hentry {
 
 .test-search-form select {
 	padding: 0;
-	margin: 0 5px 0 0;
+	margin: 0 5px 5px 0;
 }
 
 .test-search-form input.test-submit {
-	margin-top: -4px;
+	display: block;
+	clear: both;
 	float: right;
+	margin-top: 0px;
+	margin-right: 5px;
 }
 
 .tax-options {
@@ -1805,8 +1799,8 @@ body.tvmdlonly a.test-listing-link {
 }
 
 .staff-container img {
-	float: left;
-	margin-right: 10px;
+	float: right;
+	margin-right: 0;
 }
 
 .staff-listing-item:hover,
@@ -2870,18 +2864,9 @@ img#wpstats {
 	margin-left: 0;		 
 }
 
-/* Mobile Safari ( iPad, iPhone and iPod Touch )
--------------------------------------------------------------- */
-
-#access,
-.entry-meta,
-.entry-utility,
-.navigation,
-.widget-area {
-	-webkit-text-size-adjust: 120%;
-}
-#site-description {
-	-webkit-text-size-adjust: none;
+#footer .wrap ul li a {
+	display: block;
+	padding: .5em 0;	
 }
 
 /* =Print Style
@@ -2971,11 +2956,35 @@ img#wpstats {
 
 
 @media all and (min-width: 640px) {
+	
+	body {
+		font-size: 100%;
+	}
+	#site-title {
+		margin: 20px 0;	
+	}
 	#site-title a {
-		font-size: 1.125em; /* 18px / 16px */
+		font-size: 1em;		
 		line-height: 1.125em; /* 18px / 16px */		
 	}
+	
+	.tvmdlonly #drop-section-nav #drop-nav ul li a.client-login {
+		display: block;
+		background-image: none;
+		text-indent: 0;	
+		background: rgba(0,0,0,.3);
+		border-radius: 5px;
+		padding: 5px 10px;
+		height: auto;
+		width: auto;
+		font-size: 11px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
 
+	.tvmdlonly #drop-section-nav #drop-nav ul li a.client-login:hover {
+		background: rgba(0,0,0,.5);
+	}
 	#about,
 	#popular-links,
 	#texas-a-m,
@@ -3070,11 +3079,6 @@ img#wpstats {
 		margin-right: 1px;
 		font-size: 1.1em;	
 	}
-
-	#footer .wrap ul li a {
-		display: block;
-		padding: 4px 0;	
-	}
 	
 	#footer .wrap ul li a:hover {
 		text-decoration: underline;
@@ -3085,7 +3089,7 @@ img#wpstats {
 	}	
 }		
 
-@media screen and (min-width: 840px) {
+@media all and (min-width: 840px) {
 
 	.js #branding .searchform,
 	.js #access {
@@ -3212,13 +3216,13 @@ img#wpstats {
 	}	
 	
 	#access .sf-menu a {
-		display:		block;
-		position:		relative;
+		display: block;
+		position: relative;
 		background: transparent;
 	}
 	#access .sf-menu li:hover,
 	#access .sf-menu li.sfHover {
-		z-index:		7;
+		z-index: 7;
 		position: relative;					
 	}
 	#access .sf-menu li:hover ul,
@@ -3232,24 +3236,24 @@ img#wpstats {
 		
 	#access ul.sf-menu li:hover li ul,
 	#access ul.sf-menu li.sfHover li ul {
-		top:			-999em;		
+		top: -999em;		
 	}
 	#access ul.sf-menu li li:hover ul,
 	#access ul.sf-menu li li.sfHover ul {
-		left:			15.2em; /* match ul width */
-		top:			0;
+		left: 15.2em; /* match ul width */
+		top: 0;
 		margin-left: 0;
 		margin-top: 0;
 		padding-top: 0;				
 	}
 	#access ul.sf-menu li li:hover li ul,
 	#access ul.sf-menu li li.sfHover li ul {
-		top:			-999em;
+		top: -999em;
 	}
 	#access ul.sf-menu li li li:hover ul,
 	#access ul.sf-menu li li li.sfHover ul {
-		left:			13em; /* match ul width */
-		top:			0;
+		left: 13em; /* match ul width */
+		top: 0;
 		margin-left: 0px;	
 	}
 
@@ -3638,14 +3642,14 @@ img#wpstats {
 		margin-right: 10px;
 	}
 	body #header {
-		padding: 55px 5% 40px;		
+		padding: 55px 5% 20px;		
 	}	
 	body.extensioncounty #header,
 	body.extensioncountytce #header {
-		padding: 20px 5% 30px;		
+		padding: 20px 5% 10px;		
 	}	
 	body.research.extension #header {
-		padding: 35px 5% 35px;		
+		padding: 35px 5% 15px;		
 	}				
 	#site-title {
 		text-align: left;
@@ -3662,7 +3666,7 @@ img#wpstats {
 	}	
 		
 	body #site-title a {	
-		padding: 20px 0;
+		padding: .1em 0;
 		margin-left: 0;
 	}
 						
@@ -3710,10 +3714,13 @@ img#wpstats {
 
 	body.extensioncounty #site-title a em,
 	body.extensioncountytce #site-title a em	 {
-		margin-left: 102px;
+		margin-left: 93px;
 		font-size: 1.5em;
 		font-style: normal;	
 		font-weight: 600;
+		position: relative;
+		z-index: 999;
+		padding-top: 5px;
 		
 	}
 
@@ -3743,7 +3750,6 @@ img#wpstats {
 	}	
 		
 	.searchform input.s {
-		float: left;
 	}
 				
 	#branding .searchform input.s {
@@ -3904,6 +3910,10 @@ img#wpstats {
 
 	#footer .wrap ul li {
 		font-size: 1em;	
+	}
+	#footer .wrap ul li a {
+		display: block;
+		padding: .3em 0;	
 	}
 
 }

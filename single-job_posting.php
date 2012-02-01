@@ -42,7 +42,12 @@ get_header(); ?>
 							<dt class="job-posting-dt">Salary</dt>							
 								<dd class="job-posting-dd"><?php echo $my_meta['salary'];?></dd>
 							<?php } ?>
-								
+							
+							<?php if ($my_meta['apply-date']) { ?>	
+							<dt class="job-posting-dt">Last Date to Apply</dt>							
+								<dd class="job-posting-dd"><?php echo $my_meta['apply-date'];?></dd>
+							<?php } ?>							
+														
 							<?php if ($my_meta['description']) { ?>	
 							<dt class="job-posting-dt">Description</dt>	
 								<dd class="job-posting-dd"><?php echo $my_meta['description'];?></dd>

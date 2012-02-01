@@ -11,7 +11,15 @@
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<header class="entry-header">
 						<h1 class="entry-title"><?php the_title(); ?></h1>
-
+					        <?php if ( get_post_meta($post->ID, 'agnews_subtitle', true)) : ?>
+						<h2 class="subtitle"><?php echo get_post_meta($post->ID, 'agnews_subtitle', true);?></h2>
+						<?php endif; ?>
+	
+						<?php if ( get_post_meta($post->ID, 'agnews_contacts', true)) {
+							$contacts = '<p id="contacts" class="contact_sources"><h3><span>Contacts</span></h3></p>'.get_post_meta($post->ID, 'agnews_contacts', true).'';
+						} else {
+							$contacts = '';
+						}
 						<?php if ( 'post' == get_post_type() ) : ?>
 						<div class="entry-meta">
 							<?php agriflex_posted_on(); ?>

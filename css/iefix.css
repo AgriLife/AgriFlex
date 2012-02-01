@@ -1,24 +1,53 @@
-
-	table {
-		font-size: 1.4em;
+	body {
+		font-size: 100%;
+	}
+	#site-title {
+		margin: 20px 0;	
+	}
+	#site-title a {
+		font-size: 1em;		
+		line-height: 1.125em; /* 18px / 16px */		
 	}
 	
+	.tvmdlonly #drop-section-nav #drop-nav ul li a.client-login {
+		display: block;
+		background-image: none;
+		text-indent: 0;	
+		background: rgba(0,0,0,.3);
+		border-radius: 5px;
+		padding: 5px 10px;
+		height: auto;
+		width: auto;
+		font-size: 11px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+
+	.tvmdlonly #drop-section-nav #drop-nav ul li a.client-login:hover {
+		background: rgba(0,0,0,.5);
+	}
 	#about,
 	#popular-links,
 	#texas-a-m,
 	#contact,
 	#agrilife-bookstore {
 		float: left;
-		width: 20%;
+		width: 18.324607329843%; /* 175px / 955px */
+		margin: 0 1.047120418848%; /* 10px / 955px */				
 	}
 	
 	.about,
 	.popular-links,
 	.texas-a-m,
 	.contact,
-	.agrilife-bookstore {
-		padding: 0 10px;
+	.agrilife-bookstore {				
 	}
+	#about {
+		margin-left: 0;				
+	}	
+	#agrilife-bookstore {
+		margin-right: 0;				
+	}	
 	#breadcrumbs {
 		width: 100%;
 		margin-right: 25px;
@@ -28,30 +57,113 @@
 		padding: .8em 10px;		
 	}
 	
+	#content-wrap {
+		position: relative;
+		z-index: 2;
+		border-top: 2px solid #e7e2cb;
+		margin-top: -2px;
+		width: 100%;
+		-webkit-box-shadow: 0 -2px 6px rgba(16,16,16,.075);
+		-moz-box-shadow: -4px -2px 6px rgba(16,16,16,.075);
+		box-shadow: 0 -2px 6px rgba(16,16,16,.075);	
+		background: #fff url(images/gradient.png) repeat-x left -100px;			
+	}
+
+	/*----- Job Postings single page ------ */
+
+	.job-posting-dl {
+		padding: 20px 0 50px;
+	}
+
+	.job-posting-dt {
+		padding: .5em 0 1em 0;
+	}
+
+	.job-posting-dd {
+		border-bottom: 1px solid #d0ca9b;
+		margin: -3em 0 0 0;
+		padding: 0 0 .75em 195px;	
+	}
+
+	#wrap, #container {
+		width: 100%;	
+	}
+	#footer {
+		background: #fff url(images/gradient.png) repeat-x left top;
+	}
+	
+	#footer .wrap h4 {
+		margin-bottom: 2.5em;
+		font-size: 1em;
+	}
+
+	#footer .wrap a {
+		border: none;
+	}
+
+	#footer .wrap a img:hover {
+		opacity: .75;
+	}
+
+	#footer .wrap ul {
+		margin-left: 0;
+		margin-top: 15px;
+	}
+
+	#footer .wrap p {
+		font-size: 1.1em;
+		line-height: 20px;
+		margin-top: 19px;
+	}
+
+	#footer .wrap ul li {
+		margin-right: 1px;
+		font-size: 1.1em;	
+	}
+	
+	#footer .wrap ul li a:hover {
+		text-decoration: underline;
+	}
+
+	#footer .wrap .contact ul li {
+		margin-bottom: 12px;
+	}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	.js #branding .searchform,
 	.js #access {
 		display: block;	
-	}	
-	
-	#branding #site-title span.full-img-text {
-		
 	}
-	
+
 	#access ul.menu li {
 		margin: 0 2px 0 0;
 		border-top-right-radius: 6px;
 		background-color: #f5f5ee;	
 		background-color: rgba(245,245,238,.9);
+		float: left;
 	}
 	#access ul.menu li li{
 		border-radius: 0;	
 	}	
-	#access ul.menu li.current-menu-item {
+	#access ul.menu li.current-menu-item,
+	#access ul.menu li.current_page_parent {
 		background: #f1f0e7;
 		position: relative;
 		z-index: 5;
 	}
-	#access ul.menu li.current-menu-item:hover {
+	#access ul.menu li.current-menu-item:hover,
+	#access ul.menu li.current_page_parent:hover {
 		background: #e3e1d5;
 	}
 	#access ul.menu li.current-menu-item:first-child:hover {
@@ -95,7 +207,8 @@
 		padding: 13px 17px 11px 19px;			
 	}
 	
-	#access .sf-menu li.current-menu-item {
+	#access .sf-menu li.current-menu-item,
+	#access .sf-menu li.current_page_parent {
 		border: 2px solid #e3e1d5;
 		border-bottom: none;
 		position: relative;
@@ -153,13 +266,13 @@
 	}	
 	
 	#access .sf-menu a {
-		display:		block;
-		position:		relative;
+		display: block;
+		position: relative;
 		background: transparent;
 	}
 	#access .sf-menu li:hover,
 	#access .sf-menu li.sfHover {
-		z-index:		7;
+		z-index: 7;
 		position: relative;					
 	}
 	#access .sf-menu li:hover ul,
@@ -173,24 +286,24 @@
 		
 	#access ul.sf-menu li:hover li ul,
 	#access ul.sf-menu li.sfHover li ul {
-		top:			-999em;		
+		top: -999em;		
 	}
 	#access ul.sf-menu li li:hover ul,
 	#access ul.sf-menu li li.sfHover ul {
-		left:			15.2em; /* match ul width */
-		top:			0;
+		left: 15.2em; /* match ul width */
+		top: 0;
 		margin-left: 0;
 		margin-top: 0;
 		padding-top: 0;				
 	}
 	#access ul.sf-menu li li:hover li ul,
 	#access ul.sf-menu li li.sfHover li ul {
-		top:			-999em;
+		top: -999em;
 	}
 	#access ul.sf-menu li li li:hover ul,
 	#access ul.sf-menu li li li.sfHover ul {
-		left:			13em; /* match ul width */
-		top:			0;
+		left: 13em; /* match ul width */
+		top: 0;
 		margin-left: 0px;	
 	}
 
@@ -206,14 +319,14 @@
 	}
 
 	body.tvmdlonly #access ul.menu a {
-		color:#477f80;
-		border-color: #477f80;
+		color:#8c5933;
+		border-color: #8c5933;
 	}
 
 	body.tvmdlonly #access ul.menu a:hover,
 	body.tvmdlonly #access ul.menu a:active {
-		color: #2c4e4f;
-		border-color: #2c4e4f;	
+		color: #674125;
+		border-color: #674125;	
 	}
 
 	body.extensiononly #access ul.menu a {
@@ -287,80 +400,8 @@
 		background-position: -10px 0; /* arrow hovers for modern browsers*/
 	}
 
-	#content-wrap {
-		position: relative;
-		z-index: 2;
-		border-top: 2px solid #e7e2cb;
-		margin-top: -2px;
-		width: 100%;
-		-webkit-box-shadow: 0 -2px 6px rgba(16,16,16,.075);
-		-moz-box-shadow: -4px -2px 6px rgba(16,16,16,.075);
-		box-shadow: 0 -2px 6px rgba(16,16,16,.075);	
-		background: #fff url(images/gradient.png) repeat-x left -100px;			
-	}
 
-	/*----- Job Postings single page ------ */
-
-	.job-posting-dl {
-		padding: 20px 0 50px;
-	}
-
-	.job-posting-dt {
-		padding: .5em 0 1em 0;
-	}
-
-	.job-posting-dd {
-		border-bottom: 1px solid #d0ca9b;
-		margin: -3em 0 0 0;
-		padding: 0 0 .75em 195px;	
-	}
-
-	#wrap, #container {
-		padding-left: 10px;
-	}
-	
-	#footer {
-		background: #fff url(images/gradient.png) repeat-x left top;
-	}
-	
-	#footer .wrap h4 {
-		margin-bottom: 2.5em;
-		font-size: 1em;
-	}
-
-	#footer .wrap a {
-		border: none;
-	}
-
-	#footer .wrap a img:hover {
-		opacity: .75;
-	}
-
-	#footer .wrap ul {
-		margin-left: 0;
-		margin-top: 15px;
-	}
-
-	#footer .wrap p {
-		font-size: 1.1em;
-		line-height: 20px;
-		margin-top: 19px;
-	}
-
-	#footer .wrap ul li {
-		margin-right: 1px;
-		font-size: 1.1em;	
-	}
-
-	#footer .wrap ul li a {
-		display: block;
-		padding: 4px 0;	
-	}
-
-	#footer .wrap .contact ul li {
-		margin-bottom: 12px;
-	}	
-	
+		
 	p, li {
 		line-height: 1.4em;
 		font-size: 16px; 
@@ -627,15 +668,14 @@
 	}
 
 	#header, #access {
-		background: transparent;							
+		background: transparent;									
 	}
 	
 	#branding, #access .menu-header, .wrap, #drop-nav, .drop-section-wrap {
-		max-width: 975px;
+		max-width: 1024px;
 		margin: 0 auto;
-		position: relative;
-	}
-		
+		position: relative;		
+	}		
 	.wrap {
 		margin: 0 auto 0;
 		padding-top: 50px;
@@ -652,21 +692,20 @@
 		margin-right: 10px;
 	}
 	body #header {
-		padding: 55px 0 40px;		
+		padding: 55px 5% 20px;		
 	}	
 	body.extensioncounty #header,
 	body.extensioncountytce #header {
-		padding: 20px 0 30px;		
+		padding: 20px 5% 10px;		
 	}	
 	body.research.extension #header {
-		padding: 35px 0 35px;		
+		padding: 35px 5% 15px;		
 	}				
 	#site-title {
 		text-align: left;
 		margin-top: 0;
 		padding: 0;
 		margin-bottom: 0;
-		margin-left: 10px;
 		width: 100%;
 		font-weight: 500;
 		font-size: 46px;
@@ -677,7 +716,7 @@
 	}	
 		
 	body #site-title a {	
-		padding: 20px 0;
+		padding: .1em 0;
 		margin-left: 0;
 	}
 						
@@ -709,8 +748,8 @@
 	body.extensioncountytce #site-title	 {
 		text-align: left;
 		margin: 0;
-		padding: 0;		
-		height: 110px;	
+		padding: 20px 0 0;		
+		height: 90px;	
 	}
 	body.extensioncounty #site-title a span,
 	body.extensioncountytce #site-title a span	{
@@ -720,23 +759,19 @@
 	body.extensioncountytce #site-title a	 {
 		background: url('images/tx.png') no-repeat left 7px;
 		font-size: 32px;
-		margin-left: 10px;
 		padding: 5px 0 60px 100px;	
 	}
 
 	body.extensioncounty #site-title a em,
 	body.extensioncountytce #site-title a em	 {
-		margin-left: 102px;
+		margin-left: 93px;
 		font-size: 1.5em;
 		font-style: normal;	
 		font-weight: 600;
- 		margin-top: -15px;
+		position: relative;
+		z-index: 999;
+		padding-top: 5px;
 		
-	}
-    
-	body.extension #access #menu-main-navigation,
-	body.extension #access #menu-main-navigation	{
-		margin-left: 10px;
 	}
 
 /* --- End County --- */	
@@ -754,15 +789,17 @@
 		width: 35em;
 		display: block;
 	}
-	body.extensioncounty #branding .searchform,
-	body.extensioncountytce #branding .searchform,
 	body.extension.research.college #branding .searchform,
 	body.extension.research #branding .searchform,
-	body.extension.college #branding .searchform			 {
+	body.extension.college #branding .searchform {
 		top: -30px;		
+	}
+	body.extensioncounty #branding .searchform,
+	body.extensioncountytce #branding .searchform {
+		top: -15px;		
 	}	
+		
 	.searchform input.s {
-		float: left;
 	}
 				
 	#branding .searchform input.s {
@@ -793,30 +830,35 @@
 	.flex-container.fullwidth { margin-left: 10px;}
 	
 	#breadcrumbs {
-		width: 550px;	
+		max-width: 585px;	
 	}	
 	
 	#content {
 		padding-bottom: 2em;
+		width: 100%;
+		margin-right: 2.094240837696%; /* 20px / 955px */		
 	}
 						
 	body.home #content {
 		display: block;
 		position: relative;
-		max-width: 564px;
 		float: left;
 	}
 	body.home.page-template-onecolumn-page-php #content {		
-		max-width: 975px;
+		max-width: 1024px;
 		float: none;
 	}	
 	.flex-container.fullwidth { margin-right: 10px;}
 	.ie8 .flexslider .slides img  { height: 272px;}
 	.ie8 .flex-container.fullwidth .flexslider .slides img  { height: 475px;}
 				
-	#home-middle-bg, #home-middle, .home-middle-1, #wrap  {
-		width: 575px;
+	#wrap  {
+		width: 59.162303664921%; /* 565px / 955px */
 	}
+
+	.flex-container {
+		margin-top: 0;
+	} 
 		
 	#home-middle li,
 	#home-middle p	  {
@@ -830,11 +872,11 @@
 	
 	#home-middle h3.widget-title {
 		margin-bottom: 10px;
-		font-size: 2.7em;
+		font-size: 28px;
 	}
 	
 	body.home h2.entry-title {
-		font-size: 3em;
+		font-size: 32px;
 	}
 
 	.staff-person-details {
@@ -859,8 +901,9 @@
 	}
 	
 	#aside {
-		width: 38.99%;
+		width: 38.743455497382%; /* 370px / 955px */
 		float: right;
+		clear: none;
 	}
 
 	#aside #event-bg {
@@ -879,85 +922,6 @@
 		border: none;
 	}
 			
-	#aside ul.books {
-		padding-left: 0;
-		margin-left: 0;
-		padding-top: 25px;
-		position: relative;
-		display: block;	
-		overflow: hidden;	
-	}
-	
-	#aside ul.books li {
-		position: relative;
-		display: block;		
-		width: 50%;
-		float: left;
-	}
-	
-	#aside ul.books li dt.book-title {
-		float: right;
-		width: 55%;
-		padding-top: 25px;
-		line-height: 1em;
-	}
-			
-	#aside ul.books li dd.price {
-		position: absolute;
-		background: url('images/price-circle.png') no-repeat 40% 50%;
-		z-index: 6;
-		top: -15px;
-		left: 40px;
-		padding: 13px 10px 16px 10px;
-		color: #8C2B17;
-		font: .95em georgia;
-	}
-
-	#aside ul.books li dd.price em {
-		font-size: .75em;
-		font-style: normal;
-	}
-
-	#aside ul.books li dd.price span {
-		font-size: .5em;
-		vertical-align:	super;	
-	}
-					
-	#aside ul.books li p.btn {
-		position: absolute;
-		z-index: 5;
-		bottom: -0.7em;
-		right: 55px;
-	}
-		
-	#aside ul.books li p.btn a {
-		padding: 4px 12px;
-		font-size: 10px;
-		color: #806E38;
-		border: 1px solid #bba563;
-		background: #c7bc7f;
-		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ded8b4), to(#c7bc7f));
-		background: -moz-linear-gradient(top, #ded8b4, #c7bc7f);		
-	}
-
-	#aside ul.books li p.btn a:hover {
-		cursor: pointer;
-		border: 1px solid #bba563;	
-		-webkit-box-shadow: none;
-		-moz-box-shadow: none;
-		box-shodow: none;	
-		background: #c7bc7f;
-		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cfc591), to(#c7bc7f));
-		background: -moz-linear-gradient(top, #cfc591, #c7bc7f);
-	}
-
-	#aside ul.books li p.btn a:active {
-		cursor: pointer;	
-		background: #c7bc7f;
-		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#c7bc7f), to(#cfc591));
-		background: -moz-linear-gradient(top, #c7bc7f, #cfc591);		
-	}
-
 	div.event dd.sign-up a:active {
 		top: 27px;
 	}
@@ -966,38 +930,39 @@
 		font-size: 22px;
 	}
 
-	#aside #aside-widget-area-1,
-	#aside #aside-widget-area-2 {
-		margin-right: 10px;
+	#aside ul.books li dd.price {
+		left: 40px;
 	}
 
+	#aside ul.books li p.btn {
+		position: absolute;
+		bottom: -0.7em;
+		right: 55px;
+	}
+	
+	#aside ul.books li img.book {
+		width: 65px;
+	}
+	
 	#aside #sidebar-navigation-widgets  {
-		margin: 0 10px 20px 0;	
+		margin: 0 0 20px 0;	
 	}
 	
 	#footer .wrap h4 {
-		font-size: 1.4em;
 		text-transform: uppercase;
 		letter-spacing: .1em;
-		font-weight: 600;
+		font-size: 0.875em; /* 14px / 16px */
 	}
 
 	#footer .wrap p {
-		font-size: 1.4em;
+		font-size: 1em;
 	}
 
 	#footer .wrap ul li {
-		font-size: 1.4em;	
+		font-size: 1em;	
 	}
-
-/* 3 Col homepage */
-	.page-template-page-3col-news-home-php #aside {
-		width: 29%;
+	#footer .wrap ul li a {
+		display: block;
+		padding: .3em 0;	
 	}
-	.page-template-page-3col-news-home-php #left-sidebar {
-		width: 20%;
-		float: left;
-	}
-	.page-template-page-3col-news-home-php #wrap {
-		width: 36%;
-	}		
+			
