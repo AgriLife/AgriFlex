@@ -3849,6 +3849,43 @@ img#wpstats {
 	#wrap {
 		float: left;
 	}
+
+	.one-of-2 {
+		width: 48%;
+		clear: both;
+		float: left;
+		margin-bottom: 10px;
+		padding-right: 2%;		
+	}
+	
+	.two-of-2 {
+		width: 48%;
+		float: left;	
+		margin-bottom: 10px;
+		padding-right: 2%;					
+	}
+	
+	.one-of-3 {
+		width: 30%;
+		clear: both;
+		float: left;
+		margin-bottom: 10px;
+		padding-right: 2%;						
+	}
+		
+	.two-of-3 {
+		width: 30%;
+		float: left;
+		margin-bottom: 10px;
+		padding-right: 2%;						
+	}
+	
+	.three-of-3 {
+		width: 30%;
+		float: left;
+		margin-bottom: 10px;
+		padding-right: 2%;				
+	}		
 	
 	#aside {
 		width: 38.743455497382%; /* 370px / 955px */
