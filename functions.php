@@ -82,7 +82,7 @@ function agriflex_setup() {
      add_image_size('featured',965,475,true);
      add_image_size('featured-2',585,305,true);
      add_image_size('featured-mediabox',175,124,true);    
-     add_image_size('staff_single',175,9999);
+     add_image_size('staff_single',175,175,true);
      add_image_size('staff_archive',70,70,true);         
      // Add default posts and comments RSS feed links to head
      add_theme_support( 'automatic-feed-links' );
@@ -769,6 +769,37 @@ function create_job_posting_post_type() {
           )
      );
 }
+
+// hook into the init action and call create_tests_taxonomies() when it fires
+add_action( 'init', 'create_job_taxonomies', 0 );
+
+// create three taxonomies, species and lab sections for the post type "tests"
+function create_job_taxonomies() {
+
+     // Add new taxonomy, make it hierarchical (like categories)
+     $labels = array(
+          'name' => _x( 'Job Category', 'taxonomy general name' ),
+          'singular_name' => _x( 'Job Category', 'taxonomy singular name' ),
+          'search_items' =>  __( 'Search Job Categories' ),
+          'all_items' => __( 'All Job Categories' ),
+          'parent_item' => __( 'Parent Job Category' ),
+          'parent_item_colon' => __( 'Parent Job Category:' ),
+          'edit_item' => __( 'Edit Job Category' ),
+          'update_item' => __( 'Update Job Category' ),
+          'add_new_item' => __( 'Add New Job Category' ),
+          'new_item_name' => __( 'New Job Category Name' ),
+     );     
+
+     register_taxonomy( 'job_category', array( 'job_posting' ), array(
+          'hierarchical' => true,
+          'labels' => $labels, /* NOTICE: Here is where the $labels variable is used */
+          'show_ui' => true,
+          'query_var' => true,
+          'rewrite' => false,
+     ));
+
+}
+
 }
 
 

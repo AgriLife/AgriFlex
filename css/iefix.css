@@ -66,7 +66,7 @@
 		-webkit-box-shadow: 0 -2px 6px rgba(16,16,16,.075);
 		-moz-box-shadow: -4px -2px 6px rgba(16,16,16,.075);
 		box-shadow: 0 -2px 6px rgba(16,16,16,.075);	
-		background: #fff url(images/gradient.png) repeat-x left -100px;			
+		background: #fff url( ../images/gradient.png) repeat-x left -100px;			
 	}
 
 	/*----- Job Postings single page ------ */
@@ -89,7 +89,7 @@
 		width: 100%;	
 	}
 	#footer {
-		background: #fff url(images/gradient.png) repeat-x left top;
+		background: #fff url( ../images/gradient.png) repeat-x left top;
 	}
 	
 	#footer .wrap h4 {
@@ -354,13 +354,13 @@
 	/*** arrows **/
 	#access .sf-menu li a.sf-with-ul {
 		min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
-		background: url(images/down-arrow.png) no-repeat right 55%; 
+		background: url( ../images/down-arrow.png) no-repeat right 55%; 
 		padding-right: 28px;					
 	}
 		
 	#access .sf-menu li li a.sf-with-ul {
 		min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
-		background: url(images/right-arrow.png) no-repeat left 58%;
+		background: url( ../images/right-arrow.png) no-repeat left 58%;
 	}
 
 			
@@ -454,27 +454,27 @@
 	}		
 	
 	#drop-section-nav #drop-nav ul li a[href*='extension'] {
-		background-image: url('images/ext-system-logo.png');
+		background-image: url(' ../images/ext-system-logo.png');
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='aglifesciences'] {
-		background-image: url('images/college-logo.png');
+		background-image: url(' ../images/college-logo.png');
 		margin-top: 6px;
 		height: 36px;
 		opacity: .4;		
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
-		background-image: url('images/tvmdl-logo.png');
+		background-image: url(' ../images/tvmdl-logo.png');
 		width: 90px;
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='research'] {
-		background-image: url('images/research-logo.png');
+		background-image: url(' ../images/research-logo.png');
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='txforestservice'] {
-		background-image: url('images/tfs-logo.png');
+		background-image: url(' ../images/tfs-logo.png');
 		width: 109px;	
 	}
 	
@@ -529,7 +529,7 @@
 	}		
 	#college-top-level-section  {
 		display: block;
-		background: #5b0125 url('images/drop-background.png');	
+		background: #5b0125 url(' ../images/drop-background.png');	
 		color: #fff;
 		margin: 0 auto;
 	}
@@ -757,7 +757,7 @@
 	}	
 	body.extensioncounty #site-title a,
 	body.extensioncountytce #site-title a	 {
-		background: url('images/tx.png') no-repeat left 7px;
+		background: url(' ../images/tx.png') no-repeat left 7px;
 		font-size: 32px;
 		padding: 5px 0 60px 100px;	
 	}
@@ -807,7 +807,7 @@
 		float: right;
 		-webkit-transition: .5s width ease;
 		-moz-transition: .5s width ease;		
-		background: #fff url('images/search.png') no-repeat left 45%;
+		background: #fff url(' ../images/search.png') no-repeat left 45%;
 		-webkit-border-top-right-radius: 0;
 		-moz-border-radius-topright: 0;
 		border-top-right-radius:0;
