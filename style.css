@@ -1432,11 +1432,11 @@ body.home .page p:first-child {
 	text-shadow: 0 1px 0 #fff;		
 }
 
-body.home #home-middle .home-middle-features .featured-wrap p {
+.featured-wrap p {
 	position: relative;
 }
 
-body.home #home-middle .home-middle-features a {
+.featured-wrap a,  {
 	border: none;
 }
 
@@ -1444,7 +1444,7 @@ body.home.collegeonly #home-middle .home-middle-features a.feature-img-date {
 	color: #fff;
 }
 
-body.home #home-middle .home-middle-features a .date {
+.featured-wrap a .date {
 	font-family: "ff-dagny-web-pro-1","ff-dagny-web-pro-2", 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;	
 	font-size: .8em;
 	background: #726b60;
@@ -1482,7 +1482,7 @@ body.home.researchonly #home-middle .home-middle-features a .date {
 	color: #fff;	
 }
 
-body.home #home-middle .home-middle-features img {
+.featured-wrap img {
 	width: 175px;
 	float: left;
 	margin: 5px 1.2em 1.2em 0;
@@ -1491,7 +1491,7 @@ body.home #home-middle .home-middle-features img {
 	z-index: 998;	
 }
 
-body.home #home-middle .home-middle-features img:hover {
+.featured-wrap img:hover {
 	opacity: 1;
 }
 
@@ -1520,13 +1520,13 @@ body.home  #home-middle .rss-date {
 		
 }
 			
-body.home  #home-middle .home-middle-features h3 a:hover,
+.featured-wrap h3 a:hover,
 #content h2.entry-title a:hover {
 	color: #a2904b;
 	border-bottom: 1px solid #a2904b;
 }
 
-body.home span.read-more {
+.featured-wrap span.read-more {
 	display: block;
 	clear: left;
 	overflow: hidden;
@@ -1534,7 +1534,7 @@ body.home span.read-more {
 	margin-bottom: -5px;
 	}
 	
-body.home span.read-more a,
+.featured-wrap span.read-more a,
 body .flickr-gallery-next a,
 body .flickr-gallery-prev a {
 	font-family: "ff-dagny-web-pro-1","ff-dagny-web-pro-2", 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;		
@@ -1549,7 +1549,7 @@ body .flickr-gallery-prev a {
 	margin: 20px 0 20px 2px;
 	}
 
-body.home span.read-more a:hover,
+.featured-wrap span.read-more a:hover,
 body .flickr-gallery-next a:hover,
 body .flickr-gallery-prev a:hover  {
 	background: #e2dbbf;
