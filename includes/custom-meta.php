@@ -33,7 +33,7 @@ function myplugin_inner_custom_box( $post ) {
   echo '<label for="agrilife_featured_post">';
        _e("Feature this on the home page", 'myplugin_textdomain' );
   echo '</label> ';
-  echo '<input type="checkbox" name="agrilife_featured_post" id="agrilife_featured_post"', get_post_meta($post->ID,'feature-homepage', true )== 1 ? ' checked="checked"' : '', ' />';
+  echo '<input type="checkbox" name="agrilife_featured_post" id="agrilife_featured_post" ', (get_post_meta($post->ID,'feature-homepage', true )== 1 ? ' checked="checked"' : ''), ' />';
   
 }
 
