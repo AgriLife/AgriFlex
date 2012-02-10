@@ -19,7 +19,7 @@
 							$contacts = '<p id="contacts" class="contact_sources"><h3><span>Contacts</span></h3></p>'.get_post_meta($post->ID, 'agnews_contacts', true).'';
 						} else {
 							$contacts = '';
-						}
+						} ?>
 						<?php if ( 'post' == get_post_type() ) : ?>
 						<div class="entry-meta">
 							<?php agriflex_posted_on(); ?>
