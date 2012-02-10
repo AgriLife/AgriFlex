@@ -33,7 +33,7 @@ function myplugin_inner_custom_box( $post ) {
   echo '<label for="agrilife_featured_post">';
        _e("Feature this on the home page", 'myplugin_textdomain' );
   echo '</label> ';
-  echo '<input type="checkbox" name="agrilife_featured_post" id="agrilife_featured_post"', get_post_meta($post->ID,'feature-homepage', true )== 1 ? ' checked="checked"' : '', ' />';
+  echo '<input type="checkbox" name="agrilife_featured_post" id="agrilife_featured_post" ', (get_post_meta($post->ID,'feature-homepage', true )== 1 ? ' checked="checked"' : ''), ' />';
   
 }
 
@@ -66,16 +66,6 @@ function myplugin_save_postdata( $post_id ) {
   // OK, we're authenticated: we need to find and save the data
 
   // Update The Value
-  $old = get_post_meta($post_id, 'feature-homepage', true);
-  $new = $_POST['agrilife_featured_post'];
-
-  if ($new && $new != $old) {
-    if ($old <> '')
-      update_post_meta($post_id, 'feature-homepage', 1);
-    else
-      update_post_meta($post_id, 'feature-homepage', 0);
-  } elseif ('' == $new && $old) {
-    delete_post_meta($post_id, 'feature-homepage', $old);
-  }
+  update_post_meta($post_id, 'feature-homepage', ($_POST['agrilife_featured_post'] == 'on' ? 1 : 0));
 }
 ?>
