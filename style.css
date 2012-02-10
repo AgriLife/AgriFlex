@@ -1440,6 +1440,18 @@ body.home .page p:first-child {
 	border: none;
 }
 
+body.page .featured-wrap .entry-title a,  {
+	color: #A0915D;
+}
+
+.cat-posts-title  {
+	padding-top: 10px;
+	margin-bottom: 2%;
+	padding-bottom: 2%;
+	border-top: 2px solid #111;
+	border-bottom: 1px solid #ddd;
+}
+
 body.home.collegeonly #home-middle .home-middle-features a.feature-img-date {
 	color: #fff;
 }
