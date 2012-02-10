@@ -66,16 +66,6 @@ function myplugin_save_postdata( $post_id ) {
   // OK, we're authenticated: we need to find and save the data
 
   // Update The Value
-  $old = get_post_meta($post_id, 'feature-homepage', true);
-  $new = $_POST['agrilife_featured_post'];
-
-  if ($new && $new != $old) {
-    if ($old <> '')
-      update_post_meta($post_id, 'feature-homepage', 1);
-    else
-      update_post_meta($post_id, 'feature-homepage', 0);
-  } elseif ('' == $new && $old) {
-    delete_post_meta($post_id, 'feature-homepage', $old);
-  }
+  update_post_meta($post_id, 'feature-homepage', ($_POST['agrilife_featured_post'] == 'on' ? 1 : 0));
 }
 ?>
