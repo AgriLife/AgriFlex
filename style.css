@@ -1066,8 +1066,8 @@ body.collegeonly #site-title a {
 	padding-right: 5%;	
 }
 
-.js #branding .searchform,
-.js #access {
+.one-column .searchform,
+.one-column #access {
 	display: none;	
 } 
 
@@ -1080,7 +1080,23 @@ body.collegeonly #site-title a {
 #access .menu-header,
 ul.menu {
 	display: block;
-	margin: 2em 0;	
+	margin: .5em 0 0;		
+}
+
+#access .menu-header:before,
+ul.menu:before,
+#access .menu-header:after,
+ul.menu:after {
+    content:"";
+    display:table;
+}
+#access .menu-header:after,
+ul.menu:after {
+    clear:both;
+}
+#access .menu-header,
+ul.menu {
+    zoom:1; /* For IE 6/7 (trigger hasLayout) */
 }
 
 #access .menu-header li,
@@ -1612,6 +1628,18 @@ body.home .home-middle-1 {
 	border-top: 2px solid #e7e2cb;
 	margin-top: -2px;
 	width: 100%;	
+}
+
+#content-wrap:before,
+#content-wrap:after {
+    content:"";
+    display:table;
+}
+#content-wrap:after {
+    clear:both;
+}
+#content-wrap {
+    zoom:1; /* For IE 6/7 (trigger hasLayout) */
 }
 
 #breadcrumbs {
@@ -3637,7 +3665,11 @@ img#wpstats {
 		max-width: 1024px;
 		margin: 0 auto;
 		position: relative;		
-	}		
+	}	
+	#access .menu-header,
+	ul.menu {
+		margin-top: 1em;		
+	}			
 	.wrap {
 		margin: 0 auto 0;
 		padding-top: 50px;

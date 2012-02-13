@@ -295,16 +295,48 @@ paddingTop:"hide",paddingBottom:"hide"},a);else a.toShow.animate({height:"show",
 
 jQuery(document).ready(function($) {
 
-	// Toggle for nav menu
+    //set the initial values
+    detector = jQuery('.js');
+    compareWidth = detector.width();
+	smallScreen = '840'; 
+
+	if ($(window).width() < smallScreen) {
+		$("body").addClass("one-column");		
+	}
+	else {
+		$("body").addClass("two-column");	
+	}
+	
+	// Toggle for nav menu	
 	$('.menu-button').click(function() {
-		$('#access').slideToggle('fast', function() {});
-		$('.searchform').slideToggle('fast', function() {});			
+		$('#access, .searchform').slideToggle('medium');			
 	});
 
 	// Toggle click for sub-menus on touch screens
 	$('.touch .sf-with-ul').click(function() {
-		$(this).find('.sub-menu').hide.slideToggle('fast', function() {});
+		$(this).find('.sub-menu').hide.slideToggle('medium');
 	});	
+	
+	// Credit: http://webdeveloper2.com/2011/06/trigger-javascript-on-css3-media-query-change/
+    jQuery(window).resize(function(){
+        //compare everytime the window resize event fires
+        if(detector.width()!=compareWidth){
+
+            //a change has occurred so update the comparison variable
+            compareWidth = detector.width();
+
+			if (compareWidth < smallScreen) {
+				$("body").removeClass("two-column").addClass("one-column");				
+			}
+			else {
+				$("body").removeClass("one-column").addClass("two-column");	
+			}
+			if (compareWidth >= smallScreen) {
+				$('[role="navigation"]').show();
+			}
+        }
+
+    });	
 
 	if ($(window).width() < 1024) {
 		$("body").addClass("mobile");		
@@ -432,8 +464,7 @@ jQuery(document).ready(function($) {
 			opacity: "0",
 			easing:"easeInExpo"
 		},300);		
-	});	
-	
+	});		
 	
 });
 	

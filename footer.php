@@ -15,7 +15,6 @@
   GLOBAL $options;
 ?>
 </div><!--.wrap-->
-<div class="clear">
 </div><!--#content-wrap-->
 </div><!-- #wrapper -->
 	<footer id="footer" role="contentinfo">
