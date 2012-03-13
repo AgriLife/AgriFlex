@@ -704,7 +704,7 @@ function create_tests_taxonomies() {
 }
 
 /* Staff Custom Post Type */
-if ($iscollegeonly || $istvmdlonly || $isextension4h || $isall) {
+if (!$isextensiononly) {
      add_action( 'init', 'create_staff_post_type' );
      function create_staff_post_type() {
           register_post_type( 'staff',
@@ -765,7 +765,7 @@ function create_job_posting_post_type() {
           'hierarchical' => false,
           'public' => true,
           'rewrite' => array('slug' => 'jobs'),
-          'supports' => array( 'title', 'editor' ),
+          'supports' => array( 'title', 'editor', 'custom-fields' ),
           )
      );
 }
