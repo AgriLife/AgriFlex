@@ -131,7 +131,7 @@ function agriflex_setup() {
               
           // register jquery CDN                   
           wp_deregister_script('jquery');
-          wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"), false);         
+          wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"), false);         
           wp_enqueue_script('jquery');
  
          // enqueue the custom jquery js
@@ -140,7 +140,7 @@ function agriflex_setup() {
                                
          // enqueue the custom jquery js
           wp_enqueue_script('my_scripts',
-              get_bloginfo('template_directory') . '/js/my_scripts.js', array('jquery'), '2.9.1', true);                
+              get_bloginfo('template_directory') . '/js/my_scripts.js', array('jquery'), '2.9.2', true);                
           }             
      }   
      add_action('init', 'load_js');    
