@@ -30,6 +30,10 @@ elseif($istvmdlonly) :
 	include("includes/footer/tvmdl.inc.php");
 elseif($isextensiononly && $isextension4h) : 
 	include("includes/footer/4h.inc.php");
+elseif($isextensiononly && $isextensionmg) : 
+	include("includes/footer/txmg.inc.php");
+elseif($isextensiononly && $isextensionmn) : 
+	include("includes/footer/txmn.inc.php");
 elseif($isextensiononly) : 
 	include("includes/footer/extension.inc.php");
 else : 
