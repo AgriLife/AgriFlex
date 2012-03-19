@@ -765,7 +765,7 @@ function create_job_posting_post_type() {
           'hierarchical' => false,
           'public' => true,
           'rewrite' => array('slug' => 'jobs'),
-          'supports' => array( 'title', 'editor', 'custom-fields' ),
+          'supports' => array( 'title', 'editor' ),
           )
      );
 }
