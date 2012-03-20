@@ -12,7 +12,7 @@
   GLOBAL $options,$googlemap;
   GLOBAL $isresearch, $isextension, $iscollege, $istvmdl;
   GLOBAL $isextensiononly, $isresearchonly, $iscollegeonly, $istvmdlonly;
-  GLOBAL $isextensionh4, $isextensioncounty, $isextensioncountytce, $isextensionmg, $isextensionmn;
+  GLOBAL $isextension4h, $isextensioncounty, $isextensioncountytce, $isextensionmg, $isextensionmn;
   
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>
@@ -135,31 +135,44 @@
 	<div id="header">
 			<header id="branding" role="banner">
 				<hgroup>
-					
-				<?php if($isextensioncounty) :?>
 				<h1 id="site-title">
-						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><span>Texas AgriLife Extension Service</span> <em>in <?php echo $options['county-name-human']; ?> County</em></a></h1>
+				<?php if($isextensioncounty) :?>
+						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><span>Texas AgriLife Extension Service</span> <em>in <?php echo $options['county-name-human']; ?> County</em></a>
 				
 				<?php elseif($isextensioncountytce) :?>
-				<h1 id="site-title">
-						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><span>Extension Education</span> <em>in <?php echo $options['county-name-human']; ?> County</em></a></h1>
+						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><span>Extension Education</span> <em>in <?php echo $options['county-name-human']; ?> County</em></a>
 									
-				<?php else : ?>	
-				<h1 id="site-title">
+				<?php elseif($isextensionmg) :?>
 						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-						<?php if($options['header_type']==1 && $options['titleImg']<>'') :?>
+							<img src="<?php bloginfo('stylesheet_directory') ?>/images/txmg-logo80.gif" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
+							<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>
+						</a>
+				<?php elseif($isextensionmn) :?>
+						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+							<img src="<?php bloginfo('stylesheet_directory') ?>/images/txmn-logo.gif" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
+							<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>
+						</a>		
+
+				<?php else : ?>	
+			
+						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+						<?php if($options['header_type']==1 && $options['titleImg']<>'') :
+							// Image with Small Logo ?>
 							<img src="<?php echo $options['titleImg']; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
-							<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a>	
-						<?php elseif($options['header_type']==2) : ?>
+							<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>
+						<?php elseif($options['header_type']==2) : 
+							// Full Width Image ?>
 							<img src="<?php echo $options['titleImg']; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
-							<span class="full-img-text"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></span></a>
-						<?php else: ?>
-							<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a>
+							<span class="full-img-text"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></span>
+						<?php else: 
+							// Just Site Title ?>
+							<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>
 						<?php endif; ?>
+						</a>
 							
-							
-				</h1>
+				
 				<?php endif; ?>
+				</h1>
 				<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
 				</hgroup>
 				<?php get_search_form(); ?>					
