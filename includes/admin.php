@@ -292,6 +292,7 @@ if (!class_exists("AgrilifeCustomizer")) {
 				'isExtension' => false, 
 				'isCollege' => false,
 				'isTvmdl' => false,
+				'isFazd' => false,
 				
 				'extension_type' => 0,
 				
@@ -340,6 +341,7 @@ if (!class_exists("AgrilifeCustomizer")) {
 			$options['isExtension'] = false;
 			$options['isCollege'] = false;
 			$options['isTvmdl'] = false;
+			$options['isFazd'] = false;
 			
 			// Extension Sub-options
 			$options['extension_type'] = 0;
@@ -404,6 +406,9 @@ if (!class_exists("AgrilifeCustomizer")) {
 				}	
 				if (isset($_POST['isTvmdl'])) {
 				  $agrilifeOptions['isTvmdl'] = $_POST['isTvmdl'];
+				}
+				if (isset($_POST['isFazd'])) {
+				  $agrilifeOptions['isFazd'] = $_POST['isFazd'];
 				}	
 				
 				// Extension Sub-types
@@ -548,6 +553,15 @@ if (!class_exists("AgrilifeCustomizer")) {
 		<h3 valign="top">TVMDL</h3>
 		<p>Selecting "No" will disable the TVMDL tab in the header.</p>
 		<p><label for="isTvmdl_yes"><input type="radio" id="isTvmdl_yes" name="isTvmdl" value="1" <?php if ($agrilifeOptions['isTvmdl'] ) { _e('checked="checked"', "AgrilifeCustomizer"); }?> /> Yes</label>&nbsp;&nbsp;&nbsp;&nbsp;<label for="isTvmdl_no"><input type="radio" id="isTvmdl_no" name="isTvmdl" value="0" <?php if (!$agrilifeOptions['isTvmdl'] ) { _e('checked="checked"', "AgrilifeCustomizer"); }?>/> No</label></p>
+		
+		
+		<a href="javascript:void(0);" onclick="jQuery(this).next('div').toggle();">FAZD</a>
+		<div style="display:none; padding:10px 20px 20px; ">
+			<p>FAZD Center?
+			<label for="isFazd_yes"><input type="radio" id="isFazd_yes" name="isFazd" value="1" <?php if ($agrilifeOptions['isFazd'] ) { _e('checked="checked"', "AgrilifeCustomizer"); }?> /> Yes</label>&nbsp;&nbsp;&nbsp;&nbsp;<label for="isFazd_no"><input type="radio" id="isFazd_no" name="isFazd" value="0" <?php if (!$agrilifeOptions['isFazd'] ) { _e('checked="checked"', "AgrilifeCustomizer"); }?>/> No</label></p>
+		
+		</div>
+		
 		</td>
 		</tr>
 		</table>
