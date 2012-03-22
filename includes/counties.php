@@ -797,7 +797,7 @@ function show_county_directory($options) {
                echo "</tr>";
                foreach ( $result['ResultQuery']['data'] as $item ) {
                     echo "<tr>";
-                    echo "<td>".$item[2]." ".$item[3]." ".$item[4]."</td>";
+                    echo "<td>".$item[6]." ".$item[3]." ".$item[4]."</td>";
                     echo "<td>".$item[11]."</td>";
                     echo "<td>";
                     if($item[8]<>'')
