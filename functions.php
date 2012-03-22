@@ -17,10 +17,11 @@
 	$isextension     = (is_array($options) ? $options['isExtension'] : true);
 	$iscollege      = (is_array($options) ? $options['isCollege']      : true);
 	$istvmdl           = (is_array($options) ? $options['isTvmdl']      : true);
+	$isfazd           = (is_array($options) ? $options['isFazd']      : true);
 	$isextensiononly = ($isextension && !$isresearch && !$iscollege && !$istvmdl ? true : false);
 	$isresearchonly = ($isresearch && !$isextension && !$iscollege && !$istvmdl ? true : false);
 	$iscollegeonly = ($iscollege && !$isextension && !$isresearch && !$istvmdl ? true : false);
-	$istvmdlonly = ($istvmdl && !$isextension && !$isresearch && !$iscollege ? true : false);
+	$istvmdlonly = ($istvmdl && !$isextension && !$isresearch && !$iscollege && !$isfazd ? true : false);
 	$isall = ($istvmdl && $isextension && $isresearch && $iscollege ? true : false);
  
   if($isextensiononly) :
@@ -174,7 +175,8 @@ function agriflex_setup() {
                if($options['isResearch']) $classes[] .= 'research';
                if($options['isExtension']) $classes[] .= 'extension';
                if($options['isCollege']) $classes[] .= 'college';
-               if($options['isTvmdl']) $classes[] .= 'tvmdl';
+               if($options['isTvmdl'] || $options['isFazd']) $classes[] .= 'tvmdl';
+               if($options['isFazd'])$classes[] .= 'fazd';
               
                // Single Agency Classes
                if($options['isResearch'] && !$options['isExtension'] && !$options['isCollege'] && !$options['isTvmdl']) $classes[] .= 'researchonly';
@@ -202,7 +204,7 @@ function agriflex_setup() {
                                 $classes[] .= 'extensionmn';
                                 break;
                       }
-                 endif; 
+                endif;
 
           }    
           return $classes;
