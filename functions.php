@@ -1259,7 +1259,7 @@ function myLoop($atts, $content = null) {
 	$wp_query->query($query);
 	ob_start();
 	?>
-	<h2 class="cat-posts-title">Posts from: <?php echo $category; ?></h2>
+	
 	<?php while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
 	 <div class="featured-wrap" id="featured-wrapper-<?php echo $count;?>">
 			<h3 class="entry-title"><a href="<?php the_permalink();?>"><?php echo get_the_title(); ?></a></h3>
