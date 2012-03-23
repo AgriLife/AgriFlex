@@ -737,72 +737,12 @@ if (!$isextensiononly) {
     
 }
 
-
-
-
 /* Job Posting Custom Post Type */
 if ($iscollegeonly) {
-add_action( 'init', 'create_job_posting_post_type' );
-function create_job_posting_post_type() {
-     register_post_type( 'job_posting',
-          array(
-               'labels' => array(
-                    'name' => __( 'Job Posting' ),
-                    'singular_name' => __( 'Job' ),
-                    'add_new_item' => __( 'Add New Job Posting' ),
-                    'add_new' => __( 'Add New' ),
-                    'edit' => __( 'Edit' ),
-                    'edit_item' => __( 'Edit Job Posting' ),
-                    'new_item' => __( 'New Job Posting' ),
-                    'view' => __( 'View Job Posting' ),
-                    'view_item' => __( 'View Job Posting' ),
-                    'search_items' => __( 'Search Job Postings' ),
-                    'not_found' => __( 'No Job Posting found' ),
-                    'not_found_in_trash' => __( 'No Job Postings found in Trash' ),
-
-               ),
-          '_builtin' => false, // It's a custom post type, not built in!
-          '_edit_link' => 'post.php?post=%d',
-          'capability_type' => 'post',
-          'hierarchical' => false,
-          'public' => true,
-          'rewrite' => array('slug' => 'jobs'),
-          'supports' => array( 'title', 'editor' ),
-          )
-     );
+	include(MY_THEME_FOLDER . '/includes/cpt_job_board.php');
 }
 
-// hook into the init action and call create_tests_taxonomies() when it fires
-add_action( 'init', 'create_job_taxonomies', 0 );
 
-// create three taxonomies, species and lab sections for the post type "tests"
-function create_job_taxonomies() {
-
-     // Add new taxonomy, make it hierarchical (like categories)
-     $labels = array(
-          'name' => _x( 'Job Category', 'taxonomy general name' ),
-          'singular_name' => _x( 'Job Category', 'taxonomy singular name' ),
-          'search_items' =>  __( 'Search Job Categories' ),
-          'all_items' => __( 'All Job Categories' ),
-          'parent_item' => __( 'Parent Job Category' ),
-          'parent_item_colon' => __( 'Parent Job Category:' ),
-          'edit_item' => __( 'Edit Job Category' ),
-          'update_item' => __( 'Update Job Category' ),
-          'add_new_item' => __( 'Add New Job Category' ),
-          'new_item_name' => __( 'New Job Category Name' ),
-     );     
-
-     register_taxonomy( 'job_category', array( 'job_posting' ), array(
-          'hierarchical' => true,
-          'labels' => $labels, /* NOTICE: Here is where the $labels variable is used */
-          'show_ui' => true,
-          'query_var' => true,
-          'rewrite' => false,
-     ));
-
-}
-
-}
 
 
 /* Define the custom box */
@@ -852,42 +792,6 @@ function staff_details_meta_setup() {
      echo '<input type="hidden" name="my_meta_noncename" value="' . wp_create_nonce(__FILE__) . '" />';
 }
  
-
-/* Define the custom box for job posting custom post type */
-add_action('admin_init','job_posting_meta_init');
- 
-function job_posting_meta_init() {
-
-     // review the function reference for parameter details
-     // http://codex.wordpress.org/Function_Reference/add_meta_box
- 
-     // add a meta box for each of the wordpress page types: job_posting
-     foreach (array('job_posting') as $type)
-     {
-          add_meta_box('job_posting_details_meta', 'Enter Job Details', 'job_posting_details_meta_setup', $type, 'normal', 'high');
-     }
- 
-     // add a callback function to save any data a user enters in
-     add_action('save_post','box_meta_save');
-}
- 
-function job_posting_details_meta_setup() {
-     global $post;
- 
-     // using an underscore, prevents the meta variable
-     // from showing up in the custom fields section
-     $meta = get_post_meta($post->ID,'_my_meta',TRUE);
- 
-     // The Details fields for data entry
-
-     // instead of writing HTML here, lets do an include
-     include(MY_THEME_FOLDER . '/includes/meta_boxes/jobs_meta_html.php');
-
-     // create a custom nonce for submit verification later
-     echo '<input type="hidden" name="my_meta_noncename" value="' . wp_create_nonce(__FILE__) . '" />';
-
-}
-
 
 /* Define the custom box for "tests" custom post type */
 add_action('admin_init','tests_meta_init');
@@ -1259,7 +1163,7 @@ function myLoop($atts, $content = null) {
 	$wp_query->query($query);
 	ob_start();
 	?>
-	
+
 	<?php while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
 	 <div class="featured-wrap" id="featured-wrapper-<?php echo $count;?>">
 			<h3 class="entry-title"><a href="<?php the_permalink();?>"><?php echo get_the_title(); ?></a></h3>
