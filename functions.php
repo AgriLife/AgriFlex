@@ -23,7 +23,8 @@
 	$iscollegeonly = ($iscollege && !$isextension && !$isresearch && !$istvmdl ? true : false);
 	$istvmdlonly = ($istvmdl && !$isextension && !$isresearch && !$iscollege && !$isfazd ? true : false);
 	$isall = ($istvmdl && $isextension && $isresearch && $iscollege ? true : false);
- 
+	
+	$typekitkey = 'thu0wyf';
   if($isextensiononly) :
        $isextension4h = $isextensioncounty = $isextensioncountytce = $isextensionmg = $isextensionmn = false;
        switch ($options['extension_type']) {
@@ -45,10 +46,12 @@
             case 4:
                  // Master Gardener
                  $isextensionmg = true;
+				 $typekitkey = 'vaf4fhz';
                  break;
             case 5:
                  // Master Naturalist
                  $isextensionmn = true;
+ 		 		 $typekitkey = 'nqb0igu';
                  break;
        }
   endif;
@@ -67,7 +70,7 @@ add_action( 'after_setup_theme', 'agriflex_setup' );
 if ( ! function_exists( 'agriflex_setup' ) ):
 
 function agriflex_setup() {
-
+	 global $typekitkey;
      // Remove things that get stuck up in the doc head that we don't need
      remove_action( 'wp_head', 'wp_generator' );
      remove_action( 'wp_head', 'index_rel_link' );
@@ -105,19 +108,20 @@ function agriflex_setup() {
      /* -- Add typekit js and css to document head -- */
      add_action('wp_head','typekit_js');
           function typekit_js() {
+			   global $typekitkey;
                if( !is_admin() ) : ?>
-     <script type="text/javascript" src="http://use.typekit.com/thu0wyf.js"></script>
-     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-     <style type="text/css">
-       .wf-loading #site-title,
-       .wf-loading .entry-title {
-         /* Hide the blog title and post titles while web fonts are loading */
-         visibility: hidden;
-       }
-     </style>                        
+				<script type="text/javascript" src="http://use.typekit.com/<?php echo $typekitkey ?>.js"></script>
+				<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+				<style type="text/css">
+				  .wf-loading #site-title,
+				  .wf-loading .entry-title {
+				    /* Hide the blog title and post titles while web fonts are loading */
+				    visibility: hidden;
+				  }
+				</style>                        
      <?php
      endif;
-     }    
+     }  
 
      // load Slideshow scripts
      function load_js() {
@@ -153,7 +157,7 @@ function agriflex_setup() {
        unregister_widget('WP_Widget_Search');
      }
 
-     add_action('widgets_init',remove_some_wp_widgets, 1);    
+     add_action('widgets_init', 'remove_some_wp_widgets', 1);    
 
 
      // Custom admin styles
