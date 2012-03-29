@@ -62,7 +62,7 @@ function create_job_taxonomies() {
 }
 
 /* Define the custom box for job posting custom post type */
-//add_action('admin_init','job_posting_meta_init');
+//add_action('admin_init','job_posting_meta_init'); 
 add_action('admin_init','job_posting_meta_init'); 
 
 function job_posting_meta_init() {

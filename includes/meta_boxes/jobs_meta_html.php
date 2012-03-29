@@ -28,4 +28,4 @@
 	<input type="text" class="admin-form-input" id="contact-email" name="contact_email" value="<?php if(!empty($contact_email)) echo $contact_email; ?>"placeholder="janedoe@montanacompany.com" size="25" /></p>	
 
 	<p><label class="admin-form-label" for="phone">Contact Phone</label>
-	<input type="text" class="admin-form-input" id="contact-phone" name="contact_phone" value="<?php if(!empty($contact_phone)) echo $contact_phone; ?>" placeholder="777-777-7777" size="25" /></p>	
+	<input type="text" class="admin-form-input" id="contact-phone" name="contact_phone" value="<?php if(!empty($contact_phone)) echo $contact_phone; ?>" placeholder="777-777-7777" size="25" /></p>	 
