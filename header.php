@@ -149,7 +149,7 @@
 						</a>
 				<?php elseif($isextensionmn) :?>
 						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-							<img src="<?php bloginfo('stylesheet_directory') ?>/images/txmn-logo.gif" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
+							<img src="<?php bloginfo('stylesheet_directory') ?>/images/txmn-logo.png" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
 							<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>
 						</a>		
 
