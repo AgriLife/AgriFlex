@@ -11,7 +11,7 @@
  
   GLOBAL $options,$googlemap;
   GLOBAL $isresearch, $isextension, $iscollege, $istvmdl;
-  GLOBAL $isextensiononly, $isresearchonly, $iscollegeonly, $istvmdlonly;
+  GLOBAL $isextensiononly, $isresearchonly, $iscollegeonly, $istvmdlonly, $isfazd;
   GLOBAL $isextension4h, $isextensioncounty, $isextensioncountytce, $isextensionmg, $isextensionmn;
   
 ?><!DOCTYPE html>
@@ -88,7 +88,7 @@
 			<li class="top-agency tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife Extension Service</a></li>		
 			<?php elseif($isresearchonly) :?>
 			<li class="top-agency research-item"><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M Research</a></li>
-			<?php elseif($istvmdlonly) :?>
+			<?php elseif($istvmdlonly || $isfazd) :?>
 			<li class="top-agency tvmdl-item"><a href="http://tvmdl.tamu.edu/">Texas Veterinary Medical Diagnostics Laboratory</a></li>	
 			
 			<?php elseif($isextension && $isresearch && !$iscollege && !$istvmdl)  :?>
