@@ -3,6 +3,17 @@
 // Shortcodes
 // -----------------------------------------------------------------------------
 // Custom shortcodes
+//
+// 1. [children]
+// 2. [gallery_home]
+// 3. [sm-directory]
+// 4. [loop]
+//
+//
+
+// Allow shortcodes to execute in widgets
+add_filter('widget_text', 'do_shortcode');
+
 
 
 /**
@@ -21,7 +32,7 @@ add_shortcode('children', 'child_pages_shortcode');
 
 
 /**
- * The Home Gallery shortcode.
+ * The Home Gallery shortcode. [gallery_home]
  *
  * This implements the functionality of the jQuery Gallery Shortcode for the Home template
  *
@@ -198,5 +209,62 @@ function sm_dir_shortcode() {
 	return $return;
 }
 add_shortcode('sm-directory', 'sm_dir_shortcode');
+
+
+
+/**
+ * The custom post query shortcode. [loop]
+ */
+function myLoop($atts, $content = null) {
+	extract(shortcode_atts(array(
+		"pagination" => 'true',
+		"query" => '',
+		"category" => '',
+	), $atts));
+	global $wp_query,$paged,$post;
+	$temp = $wp_query;
+	$wp_query= null;
+	$wp_query = new WP_Query();
+	if($pagination == 'true'){
+		$query .= '&paged='.$paged;
+	}
+	if(!empty($category)){
+		$query .= '&category_name='.$category;
+	}
+	if(!empty($query)){
+		$query .= $query;
+	}
+	$wp_query->query($query);
+	ob_start();
+	?>
+
+	<?php while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
+	 <div class="featured-wrap" id="featured-wrapper-<?php echo $count;?>">
+			<h3 class="entry-title"><a href="<?php the_permalink();?>"><?php echo get_the_title(); ?></a></h3>
+			<p><a class="feature-img-date" href="<?php the_permalink();?>">
+			<?php if ( get_post_type() == 'post' ){ ?>
+ 				<span class="date"><?php echo get_the_date('m/d'); ?></span>
+			<?php }
+			if ( has_post_thumbnail() ) {
+  the_post_thumbnail('featured-mediabox'); 
+} else  { 
+	echo '<img src="'.get_bloginfo("template_url").'/images/AgriLife-default-post-image.png" alt="AgriLife Logo" title="AgriLife" />'; 
+	}
+	?></a></p>
+		<?php the_excerpt();?>
+			</div><!-- end .featured-wrap -->
+			<?php endwhile;  wp_reset_query; ?>	
+	<?php if(pagination == 'true'){ ?>
+	<div class="navigation">
+	  <div class="alignleft"><?php previous_posts_link('« Previous') ?></div>
+	  <div class="alignright"><?php next_posts_link('More »') ?></div>
+	</div>
+	<?php } ?>
+	<?php $wp_query = null; $wp_query = $temp;
+	$content = ob_get_contents();
+	ob_end_clean();
+	return $content;
+}
+add_shortcode("loop", "myLoop");
 
 ?>
