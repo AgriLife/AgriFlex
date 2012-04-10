@@ -566,11 +566,16 @@ function county_footer_contact() {
 				<?php
 				if (is_array($options)) {
 					if($item[15]<>'') {
-						$zip = str_split($item[20],5);
+						if(strlen($item[20])>5) {
+							$zip = str_split($item[20],5);
+							$zip = $zip[0].'-'.$zip[1];
+						} else {
+							$zip = $item[20];
+						}
 						echo '<li>';
 						echo $item[2].'<br />';
 						echo $item[15];
-						echo '<br />'.$item[18].', '.$item[19].' '.$zip[0].'-'.$zip[1].'</li>';
+						echo '<br />'.$item[18].', '.$item[19].' '.$zip.'</li>';
 					}
 					/*if($options['address-mail-street1']<>'') {
 						echo '<li>'.$options['address-mail-street1'];
@@ -627,21 +632,41 @@ function county_office_info() {
 	$hash = md5(AGRILIFE_API_KEY.'getunits',true);
 	
 	$base64 = base64_encode($hash);
-	
-	/* New Method From IT 11-10-11
-	* 
-	* getUnits method in the API now provides the the following information
-	*
-	* Unit URL (uniturl)
-	* Unit Phone Number (unitphonenumber)
-	* Unit Fax Number (unitfaxnumber)
-	* Unit Email Address (unitemialaddress)
-	* Street (address1 & address2)
-	* Mail stop (mailstop)
-	* City (city)
-	* State (state)
-	* Zip Code (zipcode)
-    */
+	    
+    /*
+    * [Karsten Pearce Apr 09 2012 14:21:45]
+	* The AgriLife People API has been updated to send out the mailing address. 
+	* If the fields are left blank it is then assumed that the mailing address is the same 
+	* as the physical/home address. The new fields to grab are:
+	*	
+		[0] => unitid
+        [1] => unitnumber
+        [2] => unitname
+        [3] => entitylist
+        [4] => parentunit
+        [5] => base_counties_countyid
+        [6] => base_districts_districtid
+        [7] => base_regions_regionid
+        [8] => countyname
+        [9] => districtname
+        [10] => regionname
+        [11] => uniturl
+        [12] => unitphonenumber
+        [13] => unitfaxnumber
+        [14] => unitemailaddress
+        [15] => address1
+        [16] => address2
+        [17] => mailstop
+        [18] => city
+        [19] => state
+        [20] => zipcode
+        [21] => mailing_address1
+        [22] => mailing_address2
+        [23] => mailing_mailstop
+        [24] => mailing_city
+        [25] => mailing_state
+        [26] => mailing_zipcode
+	*/
     
 	/*    
 	* Call the webservice getUnits
@@ -678,10 +703,29 @@ function county_office_info() {
 			//echo $countycode;
 			//print_r($result);
 			//echo '</pre>';
-
+			
 			foreach ( $result['ResultQuery']['data'] as $item ) {
-				$zip = str_split($item[20],5);
-				$zip = $zip[0].'-'.$zip[1];
+				if(strlen($item[20])>5) {
+					$zip = str_split($item[20],5);
+					$zip = $zip[0].'-'.$zip[1];
+				} else {
+					$zip = $item[20];
+				}
+				
+				
+				/* Show a Map */
+				/*
+				$mapaddress=$item[15].' '.$item[18].', '.$items[19].' '.$item[20];
+				$map_image = ($options['map-img']=='' ? 'http://maps.google.com/maps/api/staticmap?size=350x400&amp;maptype=roadmap&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office%7C'.urlencode($mapaddress).'&amp;sensor=false&amp;scale=2' : $options['map-img']);
+				
+				$map_link = ($options['map-link']=='' ? 'http://maps.google.com/?q='.urlencode($mapaddress).'&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office&amp;sensor=false' : $options['map-link']);
+				
+				echo '<div style="float:right;">';
+				echo '<a href="'.$map_link.'"><img src="'.$map_image.'" height="350" width="300" alt="Map to county office" /></a>';
+				echo '</div>';
+				*/
+				
+				/* Show county contact info */
 				echo '<div class="vcard">';                 
 				echo '<p><a class="url fn org" href="'.$item[11].'">'.$item[2].'</a></p>';
 				
@@ -700,18 +744,32 @@ function county_office_info() {
 				
 				echo "<div class=\"adr\">";
 				echo "<p class=\"street-address\">".$item[15].'<br />';
-				//if($options['address-street2']<>'')
-					//echo '<span class="extended-address">'.$options['address-street2'].'</span><br />';
+				if($item[16]<>'')
+					echo '<span class="extended-address">'.$item[16].'</span><br />';
 				echo '<span class="locality">'.$item[18].'</span>, ';
 				echo '<span class="region">'.$item[19].'</span> ';
 				echo '<span class="postal-code">'.$zip.'</span>';
 				echo '<br /><span class="country-name"> U.S.A.</span></p>';
 				echo '</div>';
+				
+				if($item[21]<>'') {
+					$mzip = str_split($item[26],5);
+					$mzip = $mzip[0].'-'.$mzip[1];
+					echo "<div class=\"mailing adr\">";
+					echo "<p class=\"mailing-address\">".$item[21].'<br />';
+					if($item[22]<>'')
+						echo '<span class="mailing-extended-address">'.$item[22].'</span><br />';
+					echo '<span class="mailing-locality">'.$item[24].'</span>, ';
+					echo '<span class="mailing-region">'.$item[25].'</span> ';
+					echo '<span class="mailing-postal-code">'.$mzip.'</span>';
+					echo '<br /><span class="mailing-country-name"> U.S.A.</span></p>';
+					echo '</div>';
+				}
+				
 				echo '<p><span class="email">'.obfuscate($item[14]).'</span></p>';                             
 				echo '</div> <!-- .vcard -->';
-			}
-          		
-          }
+			} 		
+     	}
      }
 }
 
