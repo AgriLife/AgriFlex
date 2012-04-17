@@ -157,8 +157,10 @@ function agriflex_setup() {
        unregister_widget('WP_Widget_Search');
      }
 
-     add_action('widgets_init', 'remove_some_wp_widgets', 1);    
-
+     add_action('widgets_init', 'remove_some_wp_widgets', 1);  
+  
+	// register Category_Widget widget
+	add_action( 'widgets_init', create_function( '', 'register_widget( "category_widget" );' ) );
 
      // Custom admin styles
      function admin_register_head() {
@@ -1189,6 +1191,32 @@ function obfuscate($email){
      return $link;
 }
 
+
+/**
+ * Category Loop function
+ *
+ * @return string|bool Category loop
+ */
+function cat_loop( $catClass ) {
+	global $post;
+	$cat_query = new WP_Query( 
+	array(
+		'posts_per_page' => 1
+		    )
+	);
+ 		while ($cat_query->have_posts()) : $cat_query->the_post();
+ 		?>				
+			<h2 class="mb-post-title cat-post-title"><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h2><a href="<?php the_permalink();?>">
+			<?php
+				if ( has_post_thumbnail() ) {
+			 		the_post_thumbnail('featured-mediabox'); 
+				} else  { 
+					echo '<img src="'.get_bloginfo("template_url").'/images/AgriLife-default-post-image.png" alt="AgriLife Logo" class="attachment-featured-mediabox wp-post-image .wp-post-image" title="AgriLife" />'; 
+				}	?></a>
+			<?php the_excerpt(); ?>
+		<?php endwhile;  wp_reset_query();
+	return true;
+}
 
 
      // Set path to function files

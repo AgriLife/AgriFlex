@@ -2665,7 +2665,9 @@ img {
 
 }
 
-
+/* =Plugin Styles
+-------------------------------------------------------------- */
+.addthis_toolbox a { border: none; }
 
 
 /* =Comments
@@ -2689,6 +2691,9 @@ h3#comments-title {
 .commentlist {
 	list-style: none;
 	margin: 0;
+}
+.commentlist li.odd {
+	background: #f4f3ea;
 }
 .commentlist li.comment {
 	border-bottom: 1px solid #e7e7e7;
