@@ -88,8 +88,10 @@
 			<li class="top-agency tx-ext-item"><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife Extension Service</a></li>		
 			<?php elseif($isresearchonly) :?>
 			<li class="top-agency research-item"><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M Research</a></li>
-			<?php elseif($istvmdlonly || $isfazd) :?>
-			<li class="top-agency tvmdl-item"><a href="http://tvmdl.tamu.edu/">Texas Veterinary Medical Diagnostics Laboratory</a></li>	
+			<?php elseif($istvmdlonly) :?>
+			<li class="top-agency tvmdl-item"><a href="http://tvmdl.tamu.edu/">Texas Veterinary Medical Diagnostics Laboratory</a></li>
+			<?php elseif($isfazd) :?>
+			<li class="top-agency fazd-item">A US Department of Homeland Security Science and Technology Center of Excellence</a></li>				
 			
 			<?php elseif($isextension && $isresearch && !$iscollege && !$istvmdl)  :?>
 			<li class="top-agency tx-ext-item"><a href="http://agrilifeextension.tamu.edu/"><span class="top-level-hide">Texas AgriLife Extension Service</span><img src="<?php bloginfo('stylesheet_directory') ?>/images/extension-branding.png" alt="Texas A&amp;M Extension Logo" /></a></li>
