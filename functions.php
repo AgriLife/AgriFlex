@@ -733,6 +733,9 @@ if (!$isextensiononly) {
     
                     ),
                'capability_type' => 'page',
+               'hierarchical' => true,
+               'has_archive' => true,
+               'public' => true,
                'public' => true,
                'rewrite' => array('slug' => 'staff'),
                'supports' => array( 'editor','thumbnail' ),

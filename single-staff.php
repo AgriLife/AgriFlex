@@ -11,10 +11,7 @@ get_header(); ?>
 
 		<div id="wrap">
 			<div id="content" role="main">
-				
-				<?php global $post;
-				$permalink = get_permalink($post->post_parent); ?>
-<a href="<?php echo $permalink; ?>">Parent</a> 
+			<p><span class="read-more"><a href="<?php bloginfo('url') ?>/staff">&larr; Back to Staff Listing</a><span></p>
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 			

@@ -1578,7 +1578,7 @@ body.home  #home-middle .rss-date {
 	margin-bottom: -5px;
 	}
 	
-.featured-wrap span.read-more a,
+span.read-more a,
 body .flickr-gallery-next a,
 body .flickr-gallery-prev a {
 	font-family: "ff-dagny-web-pro-1","ff-dagny-web-pro-2", 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;		
@@ -1593,7 +1593,13 @@ body .flickr-gallery-prev a {
 	margin: 20px 0 20px 2px;
 	}
 
-.featured-wrap span.read-more a:hover,
+.single-staff span.read-more a {
+	margin-top: 0;
+	float: none;
+	padding-top: .3em;
+}
+
+span.read-more a:hover,
 body .flickr-gallery-next a:hover,
 body .flickr-gallery-prev a:hover  {
 	background: #e2dbbf;
@@ -3938,15 +3944,17 @@ img#wpstats {
 		float: left;
 		margin-bottom: 10px;
 		padding-right: 2%;		
-	}
-	
+	}		
 	.two-of-2 {
 		width: 48%;
 		float: left;	
 		margin-bottom: 10px;
 		padding-right: 2%;					
 	}
-	
+	.two-of-2 ul, .one-of-2 ul,
+	.one-of-3 ul, .two-of-3 ul, .three-of-3 ul {
+		margin-left: 1em;		
+	} 	
 	.one-of-3 {
 		width: 30%;
 		clear: both;
