@@ -312,7 +312,11 @@ body.tvmdlonly a:hover {
 	color: #674125;
 	border-color: #674125;	
 }
-
+body.tvmdlonly.fazd a:active,
+body.tvmdlonly.fazd a:hover {
+	color: #d42127;
+	border-color: #d42127;	
+}
 body.extensiononly a {
 	color:#00709e;
 	border-color: #00709e;
@@ -448,6 +452,12 @@ body.extension.research #drop-section-nav #drop-nav ul:hover {
 	float: left;
 	padding: 0 0 2px 0;
 	line-height: .6em;
+}
+#drop-section-nav #drop-nav ul li.fazd-item {
+	padding: 10px 0;
+	font-size: 16px;
+	color: #938683;
+	line-height: 1.2em;	
 }
 
 #drop-section-nav #drop-nav ul li.ask,
@@ -932,6 +942,13 @@ body.collegeonly #drop-section-nav {
 body.tvmdlonly #drop-section-nav {
 	background-color: #8c5933;
 	border-bottom: 1px solid #8c5933;	
+}
+
+body.tvmdlonly.fazd #drop-section-nav {
+	background-color: #f5f5ee;
+	border-bottom: 1px solid #ddd;
+	box-shadow: none;
+	display: none;	
 }
 
 body.extensiononly #drop-section-nav {
@@ -1673,6 +1690,10 @@ body.home .hentry {
 	clear: both;
 }
 
+body.home.blog .hentry {
+	margin-bottom: 1em;
+	padding-bottom: 1em;
+}
 .entry-meta {
 	margin: 15px 0 25px;
 }
@@ -2698,7 +2719,7 @@ h3#comments-title {
 .commentlist li.comment {
 	border-bottom: 1px solid #e7e7e7;
 	margin: 0;
-	padding: 24px 0 24px 56px;
+	padding: 24px 56px;
 	position: relative;
 }
 .commentlist li:last-child {
@@ -3011,7 +3032,9 @@ img#wpstats {
 		font-size: 1em;		
 		line-height: 1.125em; /* 18px / 16px */		
 	}
-	
+	body.tvmdlonly.fazd #drop-section-nav {
+		display: block;	
+	}	
 	.tvmdlonly #drop-section-nav #drop-nav ul li a.client-login {
 		display: block;
 		background-image: none;
@@ -3322,6 +3345,11 @@ img#wpstats {
 		color: #674125;
 		border-color: #674125;	
 	}
+	body.tvmdlonly.fazd #access ul.menu a:hover,
+	body.tvmdlonly.fazd #access ul.menu a:active {
+		color: #d42127;
+		border-color: #d42127;	
+	}	
 
 	body.extensiononly #access ul.menu a {
 		color:#00709e;
@@ -3691,6 +3719,9 @@ img#wpstats {
 	}
 	body #header {
 		padding: 55px 5% 20px;		
+	}
+	body.fazd #header {
+		padding: 35px 5% 0;
 	}	
 	body.extensioncounty #header,
 	body.extensioncountytce #header {
@@ -3795,6 +3826,9 @@ img#wpstats {
 	body.extensioncounty #branding .searchform,
 	body.extensioncountytce #branding .searchform {
 		top: -15px;		
+	}
+	body.fazd #branding .searchform {
+		top: -20px;	
 	}	
 		
 	.searchform input.s {

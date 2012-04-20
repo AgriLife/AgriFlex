@@ -28,6 +28,8 @@ elseif($isresearchonly) :
 	include("includes/footer/research.inc.php"); 
 elseif($istvmdlonly) : 
 	include("includes/footer/tvmdl.inc.php");
+elseif($isfazd) : 
+	include("includes/footer/fazd.inc.php");	
 elseif($isextensiononly && $isextension4h) : 
 	include("includes/footer/4h.inc.php");
 elseif($isextensiononly && $isextensionmg) : 
