@@ -732,7 +732,7 @@ if (!$isextensiononly) {
                          'not_found_in_trash' => __( 'No Staff Employees found in Trash' ),
     
                     ),
-               'capability_type' => 'post',
+               'capability_type' => 'page',
                'public' => true,
                'rewrite' => array('slug' => 'staff'),
                'supports' => array( 'editor','thumbnail' ),
