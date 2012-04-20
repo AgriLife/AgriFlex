@@ -2698,7 +2698,7 @@ h3#comments-title {
 .commentlist li.comment {
 	border-bottom: 1px solid #e7e7e7;
 	margin: 0;
-	padding: 24px 0 24px 56px;
+	padding: 24px 56px;
 	position: relative;
 }
 .commentlist li:last-child {
