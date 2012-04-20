@@ -1,6 +1,5 @@
 <?php
 /**
- * Template Name: Staff
  * @package WordPress
  *
  * The Template for displaying all staff single posts or pulling in staff web service for counties.
@@ -15,8 +14,7 @@ get_header(); ?>
 
           <div id="wrap">
                <div id="content" role="main">
-
-
+				
                <?php
                if (($options['extension_type'] == 2 || $options['extension_type'] == 3) && $isextensiononly) :
                		require_once (MY_THEME_FOLDER . '/includes/counties.php');

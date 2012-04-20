@@ -157,8 +157,10 @@ function agriflex_setup() {
        unregister_widget('WP_Widget_Search');
      }
 
-     add_action('widgets_init', 'remove_some_wp_widgets', 1);    
-
+     add_action('widgets_init', 'remove_some_wp_widgets', 1);  
+  
+	// register Category_Widget widget
+	add_action( 'widgets_init', create_function( '', 'register_widget( "category_widget" );' ) );
 
      // Custom admin styles
      function admin_register_head() {
@@ -730,7 +732,10 @@ if (!$isextensiononly) {
                          'not_found_in_trash' => __( 'No Staff Employees found in Trash' ),
     
                     ),
-               'capability_type' => 'post',
+               'capability_type' => 'page',
+               'hierarchical' => true,
+               'has_archive' => true,
+               'public' => true,
                'public' => true,
                'rewrite' => array('slug' => 'staff'),
                'supports' => array( 'editor','thumbnail' ),
@@ -1190,6 +1195,58 @@ function obfuscate($email){
 }
 
 
+/**
+ * Category Loop function
+ *
+ * @return string|bool Category loop
+ */
+function cat_loop( $catClass ) {
+	global $post;
+	$cat_query = new WP_Query( 
+	array(
+		'posts_per_page' => 1
+		    )
+	);
+ 		while ($cat_query->have_posts()) : $cat_query->the_post();
+ 		?>				
+			<h2 class="mb-post-title cat-post-title"><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h2><a href="<?php the_permalink();?>">
+			<?php
+				if ( has_post_thumbnail() ) {
+			 		the_post_thumbnail('featured-mediabox'); 
+				} else  { 
+					echo '<img src="'.get_bloginfo("template_url").'/images/AgriLife-default-post-image.png" alt="AgriLife Logo" class="attachment-featured-mediabox wp-post-image .wp-post-image" title="AgriLife" />'; 
+				}	?></a>
+			<?php the_excerpt(); ?>
+		<?php endwhile;  wp_reset_query();
+	return true;
+}
+
+
+// Menu Fix for CPT
+function remove_parent($var)
+{
+	// check for current page values, return false if they exist.
+	if ($var == 'current_page_item' || $var == 'current_page_parent' || $var == 'current_page_ancestor'  || $var == 'current-menu-item') { return false; }
+
+	return true;
+}
+
+function add_class_to_cpt_menu($classes)
+{
+	// your custom post type name
+	if (get_post_type() == 'staff')
+	{
+		// we're viewing a custom post type, so remove the 'current_page_xxx and current-menu-item' from all menu items.
+		$classes = array_filter($classes, "remove_parent");
+
+		// add the current page class to a specific menu item.
+		if (in_array('menu-item-xx', $classes)) $classes[] = 'current_page_parent';
+	}
+
+	return $classes;
+}
+
+add_filter('nav_menu_css_class', 'add_class_to_cpt_menu');
 
      // Set path to function files
      $includes_path = TEMPLATEPATH . '/includes/';
