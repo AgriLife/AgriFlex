@@ -23,14 +23,26 @@ get_header(); ?>
 			  		while ($my_query->have_posts()) : $my_query->the_post();
 			  		global $post;
 					$my_meta = get_post_meta($post->ID,'_my_meta',TRUE);
+					
+					$custom = get_post_custom($post->ID);
+					
+					//echo '<hr />my_meta:<pre>'.print_r($my_meta['agency']).'</pre>';
+					//echo 'agency: '.$my_meta['agency'];
+					//echo '<hr />custom:<pre>'.print_r($custom).'</pre>';
+	  
+					$job_number 	= $custom["job_number"][0];
+					$agency 		= ($my_meta['agency']<>'' ? $my_meta['agency'] 		: $custom["agency"][0]);
+					$location		= ($my_meta['location']<>'' ? $my_meta['location'] 	: $custom["location"][0]);
+					$type			= ($my_meta['type'] <>'' ? $my_meta['type']			: $custom["classification"][0]);
+					
 			  	?>
 					<li class="job-listing-item">
 						<a class="job-listing-link" href="<?php the_permalink(); ?>">
 						<div class="role">
 							<h2 class="job-title" title="<?php the_title(); ?>"><?php the_title(); ?></h2>
-							<h3 class="job-agency"><?php echo $my_meta['agency']; ?></h3>
-							<p class="job-location location"><?php echo $my_meta['location']; ?></p>
-							<p class="job-type type"><?php echo $my_meta['type']; ?></p>
+							<h3 class="job-agency"><?php echo $agency; ?></h3>
+							<p class="job-location location"><?php echo $location; ?></p>
+							<p class="job-type type"><?php echo $type; ?></p>
 						</div>
 						</a>
 					</li>
