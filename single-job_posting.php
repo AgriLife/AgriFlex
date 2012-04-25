@@ -45,7 +45,7 @@ get_header(); ?>
 						$contact_name 	= ($my_meta['contact-name'] <> '' ? $my_meta['contact-name'] : $custom["contact_name"][0]);
 						$contact_phone	= ($my_meta['contact-phone'] <> '' ? $my_meta['contact-phone'] : $custom["contact_phone"][0]);
 						$contact_email	= ($my_meta['contact-email'] <> '' ? $my_meta['contact-email'] : $custom["contact_email"][0]);
-						
+						$job_categories   = get_the_terms( $post->ID, 'job_category');
 						?>
 						<div class="job-posting-details">
 							<dl class="job-posting-dl">	
@@ -56,6 +56,17 @@ get_header(); ?>
 							<?php if ($location) { ?> 
 							<dt class="job-posting-dt">Location</dt>	
 								<dd class="job-posting-dd"><?php echo $location;?></dd> 
+							<?php } ?>
+							<?php 
+							if ( $job_categories && ! is_wp_error( $job_categories ) ) {							
+								$job_category_names = array();
+								foreach ( $job_categories as $term ) {
+									$job_category_names[] = $term->name;
+								}						
+								$the_job_category = join( ", ", $job_category_names );
+								?>
+								<dt class="job-posting-dt">Job Category</dt>	 
+								<dd class="job-posting-dd"><?php echo $the_job_category;?></dd> 
 							<?php } ?>
 								
 							<?php if ($salary) { ?>	

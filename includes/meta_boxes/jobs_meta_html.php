@@ -12,7 +12,10 @@
 	<input type="text" class="admin-form-input" id="salary" name="salary" value="<?php if(!empty($salary)) echo $salary; ?>" placeholder="$50,000" size="25" /></p>
 
 	<p><label class="admin-form-label" for="apply_date">Last Date to Apply</label>
-	<input type="text" class="admin-form-input" id="apply-date" name="apply_date" value="<?php if(!empty($apply_date)) echo $apply_date; ?>" placeholder="October 3, 2012" size="25" /></p>	
+	<input type="text" class="admin-form-input" id="apply-date" name="apply_date" value="<?php if(!empty($apply_date)) echo $apply_date; ?>" placeholder="October 3, 2013" size="25" /></p>
+	
+	<p><label class="admin-form-label" for="start_date">Start Date</label>
+	<input type="text" class="admin-form-input" id="start-date" name="start_date" value="<?php if(!empty($start_date)) echo $start_date; ?>" placeholder="October 15, 2013" size="25" /></p>	
 	
 	<p><label class="admin-form-label" for="description">Job Description</label>
 	<textarea class="admin-form-input" id="description" name="description" cols="65" rows="8"><?php if(!empty($description)) echo $description; ?></textarea></p>
