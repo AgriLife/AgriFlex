@@ -267,4 +267,27 @@ function myLoop($atts, $content = null) {
 }
 add_shortcode("loop", "myLoop");
 
+
+
+/**
+ * The Job Postings shortcode. [job_postings]
+ *
+ * Shows the entries in the job_postings custom post type. Just points to the archive page.
+ **
+ */
+function job_postings_shortcode() {
+	global $post;
+
+	$paged = 1; 
+	if ( get_query_var('paged') ) $paged = get_query_var('paged'); 
+	if ( get_query_var('page') ) $paged = get_query_var('page'); 
+	 
+	query_posts( '&post_type=job_posting&paged=' . $paged ); 
+	//include(MY_THEME_FOLDER . '/archive-job_posting.php');
+	get_template_part( 'loop', 'job_listings' );
+
+}
+add_shortcode('job_postings', 'job_postings_shortcode');
+
+
 ?>
