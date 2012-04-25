@@ -1,6 +1,35 @@
 <?php
 /* Job Posting Custom Post Type */
 
+function job_posting_search($job_type_selected='',$term='') {
+    do_action('job_posting_search',$job_type_selected,$term);
+}
+
+add_action('job_posting_search','job_posting_search_form',5,3);
+
+function job_posting_search_form($job_type_selected='',$term='Wildlife Biologist') { ?>
+	<div class="job_posting-search-form">
+	<label>
+	<h4>Search Job Postings</h4>
+	</label>
+	<form role="search" class="searchform" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
+	<?php
+	/*echo '<div class="tax-options">';
+	$args = array('order'=>'ASC','hide_empty'=>true);
+	echo get_terms_dropdown($job_type_selected, $args);
+	echo '</div>';
+	*/
+	?>
+	  <input type="text" class="s" name="searchjobpostings" id="s" placeholder="<?php echo $term; ?>" onfocus="if(this.value==this.defaultValue)this.value='<?php echo $term; ?>';" onblur="if(this.value=='<?php echo $term; ?>')this.value=this.defaultValue;"/>
+	  <input class="job_posting-submit" type="submit" name="submit" value="Search" />	
+	  <input type="hidden" name="post_type" value="job_posting" />
+	</form>
+	</div>
+<?php 
+}
+
+
+
 add_action( 'init', 'create_job_posting_post_type' );
 function create_job_posting_post_type() {
      register_post_type( 'job_posting',
@@ -31,10 +60,10 @@ function create_job_posting_post_type() {
      );
 }
 
-// hook into the init action and call create_tests_taxonomies() when it fires
+// hook into the init action and call create_job_taxonomies() when it fires
 add_action( 'init', 'create_job_taxonomies', 0 );
 
-// create three taxonomies, species and lab sections for the post type "tests"
+// create three taxonomies, species and lab sections for the post type "job_posting"
 function create_job_taxonomies() {
 
      // Add new taxonomy, make it hierarchical (like categories)
@@ -70,21 +99,26 @@ function job_posting_meta_init() {
 }
 
 function job_posting_details_meta() {
-	  global $post;
-	  $custom = get_post_custom($post->ID);
-	  
-	  $job_number 	= $custom["job_number"][0];
-	  $agency 		= $custom["agency"][0];
-	  $location		= $custom["location"][0];
-	  $salary		= $custom["salary"][0];
-	  $apply_date	= $custom["apply_date"][0];
-	  $description  = $custom["description"][0];
-	  $qualifications=$custom["qualifications"][0];
-	  $contact_name = $custom["contact_name"][0];
-	  $contact_email= $custom["contact_email"][0];
-	  $contact_phone= $custom["contact_phone"][0];
-	  
-	  include(MY_THEME_FOLDER . '/includes/meta_boxes/jobs_meta_html.php');
+	global $post;
+	$custom = get_post_custom($post->ID);
+	
+	// Still Support the legacy _my_meta fields
+	$my_meta = get_post_meta($post->ID,'_my_meta',TRUE);
+	
+	$job_number 	= ($my_meta['job_number']<>''? $my_meta['job_number'] : $custom["job_number"][0]);
+	$agency 		= ($my_meta['agency']<>'' ? $my_meta['agency'] 		: $custom["agency"][0]);
+	$location		= ($my_meta['location']<>'' ? $my_meta['location'] 	: $custom["location"][0]);
+	$type			= ($my_meta['type'] <>'' ? $my_meta['type']			: $custom["classification"][0]);
+	$salary			= ($my_meta['salary']<>'' ? $my_meta['salary']		: $custom["salary"][0]);
+	$apply_date		= ($my_meta['apply-date'] <> '' ? $my_meta['apply-date'] : $custom["apply_date"][0]);
+	$start_date		= ($my_meta['start-date'] <> '' ? $my_meta['start-date'] : $custom["start_date"][0]);
+	$description  	= ($my_meta['description'] <> '' ? $my_meta['description'] : $custom["description"][0]);
+	$qualifications	= ($my_meta['qualifications'] <> '' ? $my_meta['qualifications'] : $custom["qualifications"][0]);
+	$contact_name 	= ($my_meta['contact-name'] <> '' ? $my_meta['contact-name'] : $custom["contact_name"][0]);
+	$contact_phone	= ($my_meta['contact-phone'] <> '' ? $my_meta['contact-phone'] : $custom["contact_phone"][0]);
+	$contact_email	= ($my_meta['contact-email'] <> '' ? $my_meta['contact-email'] : $custom["contact_email"][0]);
+	
+	include(MY_THEME_FOLDER . '/includes/meta_boxes/jobs_meta_html.php');
 }
 
 
