@@ -282,10 +282,22 @@ function wp_widget_rss_podcast_output( $rss, $args = array() ) {
 
 class Agrilife_Today_Widget_RSS extends WP_Widget {
 	private $feeds = array(
-						array('All AgriLife Today','http://agrilife.org/today/feed/'),
-						array('College','http://agrilife.org/today/category/college/feed/'),
-						array('Extension','http://agrilife.org/today/category/extension/feed/'),
-						array('Research','http://agrilife.org/today/category/agrilife-research/feed/'),
+						array('All AgriLife Today','http://today.agrilife.org/feed/'),
+						array('College','http://today.agrilife.org/agency/college-of-agriculture-and-life-sciences/feed/'),
+						array('Extension','http://today.agrilife.org/agency/texas-agrilife-extension-service/feed/'),
+						array('Research','http://today.agrilife.org/agency/texas-agrilife-research/feed/'),
+						array('TVMDL','http://today.agrilife.org/agency/texas-veterinary-medical-diagnostics-laboratory/feed/'),
+						array('Category: Business &amp; Finance','http://today.agrilife.org/category/business/feed/'),
+						array('Category: Environment','http://today.agrilife.org/category/environment/feed/'),
+						array('Category: Farm &amp; Ranch','http://today.agrilife.org/category/farm-ranch/feed/'),
+						array('Category: Lawn &amp; Garden','http://today.agrilife.org/category/lawn-garden/feed/'),
+						array('Category: Life &amp; Health','http://today.agrilife.org/category/life-health/feed/'),
+						array('Category: Science &amp; Tech','http://today.agrilife.org/category/science-and-technology/feed/'),
+						array('Sub-Cat: 4-H','http://today.agrilife.org/tag/4h-youth/feed/'),
+						array('Sub-Cat: AgriLife Personnel','http://today.agrilife.org/tag/personnel/feed/'),
+						array('Sub-Cat: Gardening','http://today.agrilife.org/tag/gardening-landscaping/feed/'),
+						array('Sub-Cat: Energy','http://today.agrilife.org/tag/biofuel-energy/feed/'),
+
 					);
 
 	function Agrilife_Today_Widget_RSS() {
@@ -306,11 +318,14 @@ class Agrilife_Today_Widget_RSS extends WP_Widget {
  		$feed_link_index	= (int) $instance['feed_link_index'];
  		$agrilife_feed_link = $myfeeds[$feed_link_index][1]; //'http://agrilife.org/today/feed/';
 		$rss = fetch_feed($agrilife_feed_link);
-		$title = $instance['title'];
+		//$title = $instance['title'];
+		
 		$desc = '';
 		
 		if ( ! is_wp_error($rss) ) {
-			$agrilife_feed_title= esc_attr(strip_tags(@html_entity_decode($rss->get_title(), ENT_QUOTES, get_option('blog_charset'))));
+			//$agrilife_feed_title= esc_attr(strip_tags(@html_entity_decode($rss->get_title(), ENT_QUOTES, get_option('blog_charset'))));
+			$title = apply_filters('widget_title', empty($instance['title']) ? __('AgriLife Today') : $instance['title'], $instance, $this->id_base);
+			
 			if ( empty($title) )
 				$title = esc_html(strip_tags($rss->get_title()));
 			$link = esc_url(strip_tags($rss->get_permalink()));
@@ -322,7 +337,7 @@ class Agrilife_Today_Widget_RSS extends WP_Widget {
 		// show the widget
 		echo $before_widget; ?>
 		<div class="watchreadlisten-bg widget">
-			<h3 class="widget-title"><a href="<?php echo $podcast_site_link;?>"><?php echo $agrilife_feed_title;?></a></h3>
+			<?php if ( $title ) echo $before_title . $title . $after_title; ?>
 			<?php agrilife_widget_agrilifetoday_rss_output( $rss, $instance ); ?>		
 		</div>
 		<?php echo $after_widget;
@@ -334,6 +349,7 @@ class Agrilife_Today_Widget_RSS extends WP_Widget {
 		$instance['feed_link_index'] = strip_tags($new_instance['feed_link_index']);
 		$instance['show_summary'] = strip_tags($new_instance['show_summary']);
 		$instance['items'] = strip_tags($new_instance['items']);
+		$instance['title'] = strip_tags($new_instance['title']);
 		return $instance;
 	}
 
@@ -345,7 +361,12 @@ class Agrilife_Today_Widget_RSS extends WP_Widget {
 		$feed_link_index	= (int) $instance['feed_link_index'];
 		$myfeed 			= $this->feeds;
 		$show_summary   	= (int) $instance['show_summary'];
-		?>
+		
+		$title = isset($instance['title']) ? esc_attr($instance['title']) : '';
+?>
+		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></p>
+		
 		<p><label for="<?php echo $this->get_field_id('items'); ?>"><?php _e('How many items would you like to display?'); ?></label>
 		<select id="<?php echo $this->get_field_id('items'); ?>" name="<?php echo $this->get_field_name('items'); ?>">
 		<?php
@@ -430,8 +451,8 @@ function agrilife_widget_agrilifetoday_rss_output( $rss, $args = array() ) {
 		//$desc = wp_html_excerpt( $desc, 360 );
 		
 		// Append ellipsis. Change existing [...] to [&hellip;].
-		if ( '[...]' == substr( $desc, -5 ) )
-			$desc = substr( $desc, 0, -5 ) . '[&hellip;]';
+		if ( '...' == substr( $desc, -3 ) )
+			$desc = substr( $desc, 0, -5 ) . '&hellip;';
 		elseif ( 'Read More...' == substr( $desc, -12 ) )
 			$desc = substr( $desc, 0, -13 ).'&hellip;';
 
@@ -550,96 +571,5 @@ class Category_Widget extends WP_Widget {
 		<?php 
 	}
 
-} // class Category_Widget
-
-
-
-/**
- * Recent_Posts_AgriFlex widget class
- *
- * @since 2.8.0
- */
- /*
-class WP_Widget_Recent_Posts_Pics extends WP_Widget {
-
-	function __construct() {
-		$widget_ops = array('classname' => 'widget_recent_entries_pics', 'description' => __( "The most recent posts on your site with images") );
-		parent::__construct('recent-posts', __('Recent Posts and Pics'), $widget_ops);
-		$this->alt_option_name = 'widget_recent_entries_pics';
-
-		add_action( 'save_post', array(&$this, 'flush_widget_cache') );
-		add_action( 'deleted_post', array(&$this, 'flush_widget_cache') );
-		add_action( 'switch_theme', array(&$this, 'flush_widget_cache') );
-	}
-
-	function widget($args, $instance) {
-		$cache = wp_cache_get('widget_recent_posts_pics', 'widget');
-
-		if ( !is_array($cache) )
-			$cache = array();
-
-		if ( isset($cache[$args['widget_id']]) ) {
-			echo $cache[$args['widget_id']];
-			return;
-		}
-
-		ob_start();
-		extract($args);
-
-		$title = apply_filters('widget_title', empty($instance['title']) ? __('Recent Posts') : $instance['title'], $instance, $this->id_base);
-		if ( ! $number = absint( $instance['number'] ) )
- 			$number = 10;
-
-		$r = new WP_Query(array('posts_per_page' => $number, 'no_found_rows' => true, 'post_status' => 'publish', 'ignore_sticky_posts' => true));
-		if ($r->have_posts()) :
-?>
-		<?php echo $before_widget; ?>
-		<?php if ( $title ) echo $before_title . $title . $after_title; ?>
-		<ul>
-		<?php  while ($r->have_posts()) : $r->the_post(); ?>
-		<li><a href="<?php the_permalink() ?>" title="<?php echo esc_attr(get_the_title() ? get_the_title() : get_the_ID()); ?>"><?php if ( get_the_title() ) the_title(); else the_ID(); ?></a></li>
-		<?php endwhile; ?>
-		</ul>
-		<?php echo $after_widget; ?>
-<?php
-		// Reset the global $the_post as this query will have stomped on it
-		wp_reset_postdata();
-
-		endif;
-
-		$cache[$args['widget_id']] = ob_get_flush();
-		wp_cache_set('widget_recent_posts_pics', $cache, 'widget');
-	}
-
-	function update( $new_instance, $old_instance ) {
-		$instance = $old_instance;
-		$instance['title'] = strip_tags($new_instance['title']);
-		$instance['number'] = (int) $new_instance['number'];
-		$this->flush_widget_cache();
-
-		$alloptions = wp_cache_get( 'alloptions', 'options' );
-		if ( isset($alloptions['widget_recent_entries']) )
-			delete_option('widget_recent_entries');
-
-		return $instance;
-	}
-
-	function flush_widget_cache() {
-		wp_cache_delete('widget_recent_posts_pics', 'widget');
-	}
-
-	function form( $instance ) {
-		$title = isset($instance['title']) ? esc_attr($instance['title']) : '';
-		$number = isset($instance['number']) ? absint($instance['number']) : 5;
-?>
-		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
-		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></p>
-
-		<p><label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Number of posts to show:'); ?></label>
-		<input id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="text" value="<?php echo $number; ?>" size="3" /></p>
-<?php
-	}
 }
-
-*/
-
+?>
