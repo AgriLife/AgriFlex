@@ -110,6 +110,7 @@ function job_posting_details_meta() {
 	$location		= ($my_meta['location']<>'' ? $my_meta['location'] 	: $custom["location"][0]);
 	$type			= ($my_meta['type'] <>'' ? $my_meta['type']			: $custom["classification"][0]);
 	$salary			= ($my_meta['salary']<>'' ? $my_meta['salary']		: $custom["salary"][0]);
+	$website		= ($my_meta['website']<>'' ? $my_meta['website']		: $custom["website"][0]);
 	$apply_date		= ($my_meta['apply-date'] <> '' ? $my_meta['apply-date'] : $custom["apply_date"][0]);
 	$start_date		= ($my_meta['start-date'] <> '' ? $my_meta['start-date'] : $custom["start_date"][0]);
 	$description  	= ($my_meta['description'] <> '' ? $my_meta['description'] : $custom["description"][0]);
@@ -133,6 +134,7 @@ function save_job_meta(){
   update_post_meta($post->ID, "agency", $_POST["agency"]);
   update_post_meta($post->ID, "location", $_POST["location"]);
   update_post_meta($post->ID, "salary", $_POST["salary"]);
+  update_post_meta($post->ID, "website", $_POST["website"]);
   update_post_meta($post->ID, "apply_date", $_POST["apply_date"]);
   update_post_meta($post->ID, "description", $_POST["description"]);
   update_post_meta($post->ID, "qualifications", $_POST["qualifications"]);

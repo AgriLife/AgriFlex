@@ -8,6 +8,9 @@
 	<p><label class="admin-form-label" for="location">Location</label>
 	<input type="text" class="admin-form-input" id="location" name="location" value="<?php if(!empty($location)) echo $location; ?>" placeholder="Austin, Texas" size="25" /></p>
 	
+	<p><label class="admin-form-label" for="website">Website</label>
+	<input type="text" class="admin-form-input" id="website" name="website" value="<?php if(!empty($website)) echo $website; ?>" placeholder="http://agrilife.org" size="25" /></p>
+	
 	<p><label class="admin-form-label" for="salary">Salary</label>
 	<input type="text" class="admin-form-input" id="salary" name="salary" value="<?php if(!empty($salary)) echo $salary; ?>" placeholder="$50,000" size="25" /></p>
 
