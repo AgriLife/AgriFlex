@@ -38,6 +38,7 @@ get_header(); ?>
 						$location		= ($my_meta['location']<>'' ? $my_meta['location'] 	: $custom["location"][0]);
 						$type			= ($my_meta['type'] <>'' ? $my_meta['type']			: $custom["classification"][0]);
 						$salary			= ($my_meta['salary']<>'' ? $my_meta['salary']		: $custom["salary"][0]);
+						$website		= ($my_meta['website']<>'' ? $my_meta['website']		: $custom["website"][0]);
 						$apply_date		= ($my_meta['apply-date'] <> '' ? $my_meta['apply-date'] : $custom["apply_date"][0]);
 						$start_date		= ($my_meta['start-date'] <> '' ? $my_meta['start-date'] : $custom["start_date"][0]);
 						$description  	= ($my_meta['description'] <> '' ? $my_meta['description'] : $custom["description"][0]);
@@ -67,6 +68,11 @@ get_header(); ?>
 								?>
 								<dt class="job-posting-dt">Job Category</dt>	 
 								<dd class="job-posting-dd"><?php echo $the_job_category;?></dd> 
+							<?php } ?>
+							
+							<?php if ($website) { ?>	
+							<dt class="job-posting-dt">website</dt>							
+								<dd class="job-posting-dd"><?php echo $website;?></dd>
 							<?php } ?>
 								
 							<?php if ($salary) { ?>	

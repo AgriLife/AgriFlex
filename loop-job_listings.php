@@ -37,12 +37,8 @@
 	 	//job_posting_search($_GET['job_type'],$_GET['searchjobpostings']); 
 	?>		
 
-	<?php 
-	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-	$my_query = new WP_Query('post_type=job_posting&post_status=publish&posts_per_page=30&paged='. $paged);
-	?>
 	<?php /* If there are no tests to display, let the user know */ ?>
-	<?php if ( ! $my_query -> have_posts() ) : ?>
+	<?php if ( ! have_posts() ) : ?>
 		<div id="post-0" class="post error404 not-found">
 			<h1 class="entry-title"><?php _e( 'Not Found', 'agriflex' ); ?></h1>
 			<div class="entry-content">
@@ -54,7 +50,7 @@
 	
 	<ul class="job-listing-ul">
 	<?php	
-			while ($my_query->have_posts()) : $my_query->the_post();
+			while (have_posts()) : the_post();
 				global $post;
 			$my_meta = get_post_meta($post->ID,'_my_meta',TRUE);
 			
@@ -85,6 +81,7 @@
 			
 		<?php endwhile;?>
 	</ul>
+	
 	<div class="navigation">
 		<div class="alignleft"><?php next_posts_link('Previous entries') ?></div>
 		<div class="alignright"><?php previous_posts_link('Next entries') ?></div>
