@@ -472,17 +472,15 @@ function agrilife_widget_agrilifetoday_rss_output( $rss, $args = array() ) {
 			$date = ' <span class="rss-date">' . date_i18n( 'M d', $date ) . '</span>';
 		}
 
-		foreach ($item->get_enclosures() as $enclosure) {
 		// SimplePie Bug:
 		// get_enclosures only returns one enclosure
 		// http://tech.groups.yahoo.com/group/simplepie-support/message/2994	
-			if ($enclosure = $item->get_enclosure()) {		
-				if(	$enclosure->get_extension() == 'jpg' || $enclosure->get_extension() == 'png' || $enclosure->get_extension() == 'gif') {
-				  	$image = '<img class="rssthumb" src="'.$enclosure->get_link().'" alt="'.$title.'" />';
-				 } else {
-				 	$image = '<img class="rssthumb" src="'.get_bloginfo('stylesheet_directory') . '/images/agrilifetodaythumb.jpg'.'" alt="'.$title.'" />';
-				 }
-			}
+		if ($enclosure = $item->get_enclosure()) {		
+			if(	$enclosure->get_extension() == 'jpg' || $enclosure->get_extension() == 'png' || $enclosure->get_extension() == 'gif') {
+			  	$image = '<img class="rssthumb" src="'.$enclosure->get_link().'" alt="'.$title.'" />';
+			 } else {
+			 	$image = '<img class="rssthumb" src="'.get_bloginfo('stylesheet_directory') . '/images/agrilifetodaythumb.jpg'.'" alt="'.$title.'" />';
+			 }
 		}
 		
 		// Link the image	
@@ -508,7 +506,7 @@ class Category_Widget extends WP_Widget {
 	public function __construct() {
 		parent::__construct(
 	 		'category_widget', // Base ID
-			'Categroy Widget', // Name
+			'Category Widget', // Name
 			array( 'description' => __( 'A Category Widget', 'text_domain' ), ) // Args
 		);
 	}
