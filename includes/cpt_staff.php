@@ -1,4 +1,99 @@
+<?php
+/* Staff Custom Post Type */
 
+add_action( 'init', 'create_staff_post_type' );
+     function create_staff_post_type() {
+          register_post_type( 'staff',
+               array(
+                    'labels' => array(
+                         'name' => __( 'Staff' ),
+                         'singular_name' => __( 'Employee' ),
+                         'add_new_item' => __( 'Add New Staff Employee' ),
+                         'add_new' => __( 'Add New' ),
+                         'edit' => __( 'Edit' ),
+                         'edit_item' => __( 'Edit Staff Employee' ),
+                         'new_item' => __( 'New Staff Employee' ),
+                         'view' => __( 'View Staff Employee' ),
+                         'view_item' => __( 'View Staff Employee' ),
+                         'search_items' => __( 'Search Staff Employees' ),
+                         'not_found' => __( 'No Staff Employees found' ),
+                         'not_found_in_trash' => __( 'No Staff Employees found in Trash' ),
+    
+                    ),
+               'capability_type' => 'page',
+               'hierarchical' => true,
+               'has_archive' => true,
+               'public' => true,
+               'public' => true,
+               'rewrite' => array('slug' => 'staff'),
+               'supports' => array( 'editor','thumbnail' ),
+               )
+          );
+     }
+       // Add new taxonomy, make it hierarchical (like categories)
+     $labels = array(
+          'name' => _x( 'Type', 'taxonomy general name' ),
+          'singular_name' => _x( 'Type', 'taxonomy singular name' ),
+          'search_items' =>  __( 'Search Types' ),
+          'all_items' => __( 'All Types' ),
+          'parent_item' => __( 'Parent Type' ),
+          'parent_item_colon' => __( 'Parent Types:' ),
+          'edit_item' => __( 'Edit Type' ),
+          'update_item' => __( 'Update Type' ),
+          'add_new_item' => __( 'Add New Type' ),
+          'new_item_name' => __( 'New Type Name' ),
+     );     
+
+     register_taxonomy( 'types', array( 'staff' ), array(
+          'hierarchical' => true,
+          'labels' => $labels, /* NOTICE: Here is where the $labels variable is used */
+          'show_ui' => true,
+          'query_var' => true,
+          'rewrite' => false,
+     ));
+     
+     
+/* Define the custom box */
+add_action('admin_init','staff_meta_init');
+ 
+function staff_meta_init() {
+
+     // review the function reference for parameter details
+     // http://codex.wordpress.org/Function_Reference/add_meta_box
+ 
+     // add a meta box for each of the wordpress page types: posts and pages
+     foreach (array('staff') as $type)
+     {
+          add_meta_box('staff_details_meta', 'Enter Employee Details', 'staff_details_meta_setup', $type, 'normal', 'high');
+     }
+ 
+     // add a callback function to save any data a user enters in
+     add_action('save_post','box_meta_save');
+    
+     // Populate Title Field with _my_meta[lastname], _my_meta[firstname] for alphabetical sorting by title
+     add_filter('title_save_pre', 'save_staff_title');
+}
+
+
+function save_staff_title($people_title) {
+	$_post_meta = $_POST['_my_meta'];
+	if ($_POST['post_type'] == 'staff') :
+	  $fname = $_post_meta['firstname'];
+	  $lname = $_post_meta['lastname'];
+	  $people_title = $lname.', '.$fname;
+	endif;
+	return $people_title;
+}
+ 
+function staff_details_meta_setup() {
+	global $post;
+	
+	// using an underscore, prevents the meta variable
+	// from showing up in the custom fields section
+	$meta = get_post_meta($post->ID,'_my_meta',TRUE);
+	// The Details fields for data entry
+	// instead of writing HTML here, lets do an include
+	?>
 	<h4>Contact Details</h4>
 	
 	<p><label  class="admin-form-label" for="lastname">First Name</label>
@@ -68,6 +163,25 @@
 	<input type="text" class="admin-form-input" id="course_4" name="_my_meta[course_4]" value="<?php if(!empty($meta['course_4'])) echo $meta['course_4']; ?>" placeholder="e.g. Introduction to Leadership for Outdoor Education" size="40" /></p>	
 			
 	<p><label  class="admin-form-label" for="course_5">Course #5</label>
-	<input type="text" class="admin-form-input" id="course_5" name="_my_meta[course_5]" value="<?php if(!empty($meta['course_5'])) echo $meta['course_5']; ?>" placeholder="e.g. Research and Evaluation" size="40" /></p>	
+	<input type="text" class="admin-form-input" id="course_5" name="_my_meta[course_5]" value="<?php if(!empty($meta['course_5'])) echo $meta['course_5']; ?>" placeholder="e.g. Research and Evaluation" size="40" /></p><?php
 	
-		
+	// create a custom nonce for submit verification later
+	echo '<input type="hidden" name="my_meta_noncename" value="' . wp_create_nonce(__FILE__) . '" />';
+}
+
+function add_class_to_cpt_menu($classes)
+{
+	// your custom post type name
+	if (get_post_type() == 'staff')
+	{
+		// we're viewing a custom post type, so remove the 'current_page_xxx and current-menu-item' from all menu items.
+		$classes = array_filter($classes, "remove_parent");
+
+		// add the current page class to a specific menu item.
+		if (in_array('menu-item-xx', $classes)) $classes[] = 'current_page_parent';
+	}
+
+	return $classes;
+}
+
+add_filter('nav_menu_css_class', 'add_class_to_cpt_menu');
