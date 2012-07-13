@@ -11,7 +11,7 @@ get_header(); ?>
 
 		<div id="wrap">
 			<div id="content" role="main">
-			<p><span class="read-more"><a href="<?php bloginfo('url') ?>/staff">&larr; Back to Staff Listing</a><span></p>
+			<p><span class="read-more"><a href="../">&larr; Back to Staff Listing</a><span></p>
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 			
@@ -82,10 +82,6 @@ get_header(); ?>
 								
 							<?php if ($my_meta['specialty']) { ?>							
 								<dd><?php echo $my_meta['specialty'];?></dd>
-							<?php } ?> 
-							
-							<?php if ($my_meta['research']) { ?>							
-								<dt>Research Direction</dt>
 							<?php } ?> 
 							
 							<?php if ($my_meta['research']) { ?>							
