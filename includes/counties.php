@@ -525,85 +525,87 @@ function county_footer_contact() {
     $countycode = get_IT_code($countycode);             
 	           
 	//Get a handle to the webservice
-	$wsdl = new nusoap_client('https://agrilifepeople.tamu.edu/applicationAPI/organizationalModule.cfc?wsdl',true);
+	$wsdl = new nusoap_client('https://agrilifepeople-beta.tamu.edu/applicationAPI/organizationalModule.cfc?wsdl',true);
 	$proxy = $wsdl->getProxy();
 	$hash = md5(AGRILIFE_API_KEY.'getunits',true);
 	$base64 = base64_encode($hash);	
-	$result = $proxy->getUnits(3,$base64,$countycode,'','','','','');
+	if(is_object($proxy)){
+		$result = $proxy->getUnits(3,$base64,$countycode,'','','','','');
+		
+		
+		if ($proxy->fault) {
+	          echo '<h2>Fault</h2><pre>';
+	          print_r($result);
+	          echo '</pre>';
 	
+	     } else {
+	          // Check for errors
+	          $err = $proxy->getError();
 	
-	if ($proxy->fault) {
-          echo '<h2>Fault</h2><pre>';
-          print_r($result);
-          echo '</pre>';
-
-     } else {
-          // Check for errors
-          $err = $proxy->getError();
-
-          if ($err) {
-               // Display the error
-               echo '<h2>Error</h2><pre>' . $err . '</pre>';
-
-          } else {
-          
-			// Show Everything
-			//echo '<pre>';
-			//echo $countycode;
-			//print_r($result);
-			//echo '</pre>';
-
-			foreach ( $result['ResultQuery']['data'] as $item ) {
-
-				$mapaddress=$item[15].' '.$item[18].', '.$items[19].' '.$item[20];
-				$map_image = ($options['map-img']=='' ? 'http://maps.google.com/maps/api/staticmap?size=175x101&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office%7C'.urlencode($mapaddress).'&amp;sensor=false' : $options['map-img']);
-				
-				$map_link = ($options['map-link']=='' ? 'http://maps.google.com/?q='.urlencode($mapaddress).'&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office&amp;sensor=false' : $options['map-link']);
-				
-				?>
-				<a href="<?php echo $map_link; ?>"><img src="<?php echo $map_image; ?>" height="101" width="175" alt="Map to office" /></a>
-				<ul>
-				<?php
-				if (is_array($options)) {
-					if($item[15]<>'') {
-						if(strlen($item[20])>5) {
-							$zip = str_split($item[20],5);
-							$zip = $zip[0].'-'.$zip[1];
-						} else {
-							$zip = $item[20];
+	          if ($err) {
+	               // Display the error
+	               echo '<h2>Error</h2><pre>' . $err . '</pre>';
+	
+	          } else {
+	          
+				// Show Everything
+				//echo '<pre>';
+				//echo $countycode;
+				//print_r($result);
+				//echo '</pre>';
+	
+				foreach ( $result['ResultQuery']['data'] as $item ) {
+	
+					$mapaddress=$item[15].' '.$item[18].', '.$items[19].' '.$item[20];
+					$map_image = ($options['map-img']=='' ? 'http://maps.google.com/maps/api/staticmap?size=175x101&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office%7C'.urlencode($mapaddress).'&amp;sensor=false' : $options['map-img']);
+					
+					$map_link = ($options['map-link']=='' ? 'http://maps.google.com/?q='.urlencode($mapaddress).'&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office&amp;sensor=false' : $options['map-link']);
+					
+					?>
+					<a href="<?php echo $map_link; ?>"><img src="<?php echo $map_image; ?>" height="101" width="175" alt="Map to office" /></a>
+					<ul>
+					<?php
+					if (is_array($options)) {
+						if($item[15]<>'') {
+							if(strlen($item[20])>5) {
+								$zip = str_split($item[20],5);
+								$zip = $zip[0].'-'.$zip[1];
+							} else {
+								$zip = $item[20];
+							}
+							echo '<li>';
+							echo $item[2].'<br />';
+							echo $item[15];
+							echo '<br />'.$item[18].', '.$item[19].' '.$zip.'</li>';
 						}
-						echo '<li>';
-						echo $item[2].'<br />';
-						echo $item[15];
-						echo '<br />'.$item[18].', '.$item[19].' '.$zip.'</li>';
+						/*if($options['address-mail-street1']<>'') {
+							echo '<li>'.$options['address-mail-street1'];
+							if($options['address-mail-street2']<>'')
+								echo '<br />'.$options['address-mail-street2'];
+							echo '<br />'.$options['address-mail-city'].', TX '.$options['address-mail-zip'].'</li>';
+						}
+						*/
+						if($options['hours']<>'') {
+							echo '<li>'.$options['hours'].'</li>';
+						}
+						if($item[14]<>'')
+							echo '<li><a href="'.obfuscate('mailto:').obfuscate($item[14]).'">'.obfuscate($item[14]).'</a></li>';
+						if($item[12]<>'')
+							echo '<li>Phone: '.preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[12]).'</li>';
+						if($item[13]<>'')
+							echo '<li>Fax: '.preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[13]).'</li>';	 						
 					}
-					/*if($options['address-mail-street1']<>'') {
-						echo '<li>'.$options['address-mail-street1'];
-						if($options['address-mail-street2']<>'')
-							echo '<br />'.$options['address-mail-street2'];
-						echo '<br />'.$options['address-mail-city'].', TX '.$options['address-mail-zip'].'</li>';
-					}
-					*/
-					if($options['hours']<>'') {
-						echo '<li>'.$options['hours'].'</li>';
-					}
-					if($item[14]<>'')
-						echo '<li><a href="'.obfuscate('mailto:').obfuscate($item[14]).'">'.obfuscate($item[14]).'</a></li>';
-					if($item[12]<>'')
-						echo '<li>Phone: '.preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[12]).'</li>';
-					if($item[13]<>'')
-						echo '<li>Fax: '.preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[13]).'</li>';	 						
+					?>
+					</ul>
+				<?php
+	
+	
+					
+					
 				}
-				?>
-				</ul>
-			<?php
-
-
-				
-				
-			}
-          		
-          }
+	          		
+	          }
+	     }
      }
 		
 }
@@ -615,7 +617,7 @@ function county_office_info() {
     $countycode = get_IT_code($countycode);             
 	           
 	//Get a handle to the webservice
-	$wsdl = new nusoap_client('https://agrilifepeople.tamu.edu/applicationAPI/organizationalModule.cfc?wsdl',true);
+	$wsdl = new nusoap_client('https://agrilifepeople-beta.tamu.edu/applicationAPI/organizationalModule.cfc?wsdl',true);
 	$proxy = $wsdl->getProxy();
 	
 	/*
@@ -680,96 +682,98 @@ function county_office_info() {
 	* string WhichCounty		= ?
 	* string WhichDistrict		= ?
 	*/	
-	$result = $proxy->getUnits(3,$base64,$countycode,'','','','','');
+	if(is_object($proxy)){
+		$result = $proxy->getUnits(3,$base64,$countycode,'','','','','');
+		
+		
+		if ($proxy->fault) {
+	          echo '<h2>Fault</h2><pre>';
+	          print_r($result);
+	          echo '</pre>';
 	
+	     } else {
+	          // Check for errors
+	          $err = $proxy->getError();
 	
-	if ($proxy->fault) {
-          echo '<h2>Fault</h2><pre>';
-          print_r($result);
-          echo '</pre>';
-
-     } else {
-          // Check for errors
-          $err = $proxy->getError();
-
-          if ($err) {
-               // Display the error
-               echo '<h2>Error</h2><pre>' . $err . '</pre>';
-
-          } else {
-          
-			// Show Everything
-			//echo '<pre>';
-			//echo $countycode;
-			//print_r($result);
-			//echo '</pre>';
-			
-			foreach ( $result['ResultQuery']['data'] as $item ) {
-				if(strlen($item[20])>5) {
-					$zip = str_split($item[20],5);
-					$zip = $zip[0].'-'.$zip[1];
-				} else {
-					$zip = $item[20];
-				}
+	          if ($err) {
+	               // Display the error
+	               echo '<h2>Error</h2><pre>' . $err . '</pre>';
+	
+	          } else {
+	          
+				// Show Everything
+				//echo '<pre>';
+				//echo $countycode;
+				//print_r($result);
+				//echo '</pre>';
 				
-				
-				/* Show a Map */
-				/*
-				$mapaddress=$item[15].' '.$item[18].', '.$items[19].' '.$item[20];
-				$map_image = ($options['map-img']=='' ? 'http://maps.google.com/maps/api/staticmap?size=350x400&amp;maptype=roadmap&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office%7C'.urlencode($mapaddress).'&amp;sensor=false&amp;scale=2' : $options['map-img']);
-				
-				$map_link = ($options['map-link']=='' ? 'http://maps.google.com/?q='.urlencode($mapaddress).'&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office&amp;sensor=false' : $options['map-link']);
-				
-				echo '<div style="float:right;">';
-				echo '<a href="'.$map_link.'"><img src="'.$map_image.'" height="350" width="300" alt="Map to county office" /></a>';
-				echo '</div>';
-				*/
-				
-				/* Show county contact info */
-				echo '<div class="vcard">';                 
-				echo '<p><a class="url fn org" href="'.$item[11].'">'.$item[2].'</a></p>';
-				
-				if($item[12]<>'') {
-					echo '<p class="tel">';
-					echo '<span class="type">Office</span>: ';
-					echo '<span class="value">'.preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[12]).'</span>';
-					echo '</p>';
-				}
-				if($item[13]<>'') {
-					echo '<p class="tel">';
-					echo '<span class="type">Fax</span>: ';
-					echo '<span class="value">'.preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[13]).'</span>';
-					echo '</p>';
-				}
-				
-				echo "<div class=\"adr\">";
-				echo "<p class=\"street-address\">".$item[15].'<br />';
-				if($item[16]<>'')
-					echo '<span class="extended-address">'.$item[16].'</span><br />';
-				echo '<span class="locality">'.$item[18].'</span>, ';
-				echo '<span class="region">'.$item[19].'</span> ';
-				echo '<span class="postal-code">'.$zip.'</span>';
-				echo '<br /><span class="country-name"> U.S.A.</span></p>';
-				echo '</div>';
-				
-				if($item[21]<>'') {
-					$mzip = str_split($item[26],5);
-					$mzip = $mzip[0].'-'.$mzip[1];
-					echo "<div class=\"mailing adr\">";
-					echo "<p class=\"mailing-address\">".$item[21].'<br />';
-					if($item[22]<>'')
-						echo '<span class="mailing-extended-address">'.$item[22].'</span><br />';
-					echo '<span class="mailing-locality">'.$item[24].'</span>, ';
-					echo '<span class="mailing-region">'.$item[25].'</span> ';
-					echo '<span class="mailing-postal-code">'.$mzip.'</span>';
-					echo '<br /><span class="mailing-country-name"> U.S.A.</span></p>';
+				foreach ( $result['ResultQuery']['data'] as $item ) {
+					if(strlen($item[20])>5) {
+						$zip = str_split($item[20],5);
+						$zip = $zip[0].'-'.$zip[1];
+					} else {
+						$zip = $item[20];
+					}
+					
+					
+					/* Show a Map */
+					/*
+					$mapaddress=$item[15].' '.$item[18].', '.$items[19].' '.$item[20];
+					$map_image = ($options['map-img']=='' ? 'http://maps.google.com/maps/api/staticmap?size=350x400&amp;maptype=roadmap&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office%7C'.urlencode($mapaddress).'&amp;sensor=false&amp;scale=2' : $options['map-img']);
+					
+					$map_link = ($options['map-link']=='' ? 'http://maps.google.com/?q='.urlencode($mapaddress).'&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office&amp;sensor=false' : $options['map-link']);
+					
+					echo '<div style="float:right;">';
+					echo '<a href="'.$map_link.'"><img src="'.$map_image.'" height="350" width="300" alt="Map to county office" /></a>';
 					echo '</div>';
-				}
-				
-				echo '<p><span class="email">'.obfuscate($item[14]).'</span></p>';                             
-				echo '</div> <!-- .vcard -->';
-			} 		
-     	}
+					*/
+					
+					/* Show county contact info */
+					echo '<div class="vcard">';                 
+					echo '<p><a class="url fn org" href="'.$item[11].'">'.$item[2].'</a></p>';
+					
+					if($item[12]<>'') {
+						echo '<p class="tel">';
+						echo '<span class="type">Office</span>: ';
+						echo '<span class="value">'.preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[12]).'</span>';
+						echo '</p>';
+					}
+					if($item[13]<>'') {
+						echo '<p class="tel">';
+						echo '<span class="type">Fax</span>: ';
+						echo '<span class="value">'.preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[13]).'</span>';
+						echo '</p>';
+					}
+					
+					echo "<div class=\"adr\">";
+					echo "<p class=\"street-address\">".$item[15].'<br />';
+					if($item[16]<>'')
+						echo '<span class="extended-address">'.$item[16].'</span><br />';
+					echo '<span class="locality">'.$item[18].'</span>, ';
+					echo '<span class="region">'.$item[19].'</span> ';
+					echo '<span class="postal-code">'.$zip.'</span>';
+					echo '<br /><span class="country-name"> U.S.A.</span></p>';
+					echo '</div>';
+					
+					if($item[21]<>'') {
+						$mzip = str_split($item[26],5);
+						$mzip = $mzip[0].'-'.$mzip[1];
+						echo "<div class=\"mailing adr\">";
+						echo "<p class=\"mailing-address\">".$item[21].'<br />';
+						if($item[22]<>'')
+							echo '<span class="mailing-extended-address">'.$item[22].'</span><br />';
+						echo '<span class="mailing-locality">'.$item[24].'</span>, ';
+						echo '<span class="mailing-region">'.$item[25].'</span> ';
+						echo '<span class="mailing-postal-code">'.$mzip.'</span>';
+						echo '<br /><span class="mailing-country-name"> U.S.A.</span></p>';
+						echo '</div>';
+					}
+					
+					echo '<p><span class="email">'.obfuscate($item[14]).'</span></p>';                             
+					echo '</div> <!-- .vcard -->';
+				} 		
+	     	}
+	     }
      }
 }
 
@@ -780,11 +784,10 @@ function show_county_directory($options) {
      // As configured on the county's setting page
         if (is_array($options))
              $countycode = (int) $options['county-name'];
-                   
-     //echo "county: ".$countycode;              
+        $countycode = get_IT_code($countycode);             
                    
      //Get a handle to the webservice
-     $wsdl = new nusoap_client('https://agrilifepeople.tamu.edu/applicationAPI/organizationalModule.cfc?wsdl',true);
+     $wsdl = new nusoap_client('https://agrilifepeople-beta.tamu.edu/applicationAPI/organizationalModule.cfc?wsdl',true);
      $proxy = $wsdl->getProxy();
     
      /*
@@ -826,59 +829,60 @@ function show_county_directory($options) {
       * unitnumber, activestatus
       */
 
-     
+     if(is_object($proxy)){
 
-     $result = $proxy->getPersonnel(3,$base64,'','',$countycode,true);
-     // Checking for a faults
-
-     if ($proxy->fault) {
-          echo '<h2>Fault</h2><pre>';
-          print_r($result);
-          echo '</pre>';
-
-     } else {
-          // Check for errors
-          $err = $proxy->getError();
-
-          if ($err) {
-               // Display the error
-               echo '<h2>Error</h2><pre>' . $err . '</pre>';
-
-          } else {
-
-               // Display the result
-               echo "<table>";
-               echo "<tr>";
-               echo "<th scope=\"col\">Name</th>";
-               echo "<th scope=\"col\">Title</th>";
-               echo "<th scope=\"col\">Phone/Fax/Email</th>";
-               echo "</tr>";
-               foreach ( $result['ResultQuery']['data'] as $item ) {
-                    echo "<tr>";
-                    echo "<td>".$item[6]." ".$item[3]." ".$item[4]."</td>";
-                    echo "<td>".$item[11]."</td>";
-                    echo "<td>";
-                    if($item[8]<>'')
-                         echo 'Phone: '.preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[8]).'<br />';
-
-                    if($item[9]<>'')
-                         echo 'Fax: '.preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[9]).'<br />';
-
-                    if($item[7]<>'')
-                      echo "<a href=\"".obfuscate('mailto:').obfuscate($item[7])."\">".obfuscate($item[7])."</a><br />";
-                    echo "</td>";
-                    echo "</tr>";
-
-               }
-               echo "</table>";
-
-               //echo '<!-- <h2>Result</h2><pre>';
-               //echo $countycode;
-               //print_r($result);
-               //echo '</pre>-->';
-
-          }
-
+	     $result = $proxy->getPersonnel(3,$base64,'',$countycode,'',true);
+	     // Checking for a faults
+	
+	     if ($proxy->fault) {
+	          echo '<h2>Fault</h2><pre>';
+	          print_r($result);
+	          echo '</pre>';
+	
+	     } else {
+	          // Check for errors
+	          $err = $proxy->getError();
+	
+	          if ($err) {
+	               // Display the error
+	               echo '<h2>Error</h2><pre>' . $err . '</pre>';
+	
+	          } else {
+	
+	               // Display the result
+	               echo "<table>";
+	               echo "<tr>";
+	               echo "<th scope=\"col\">Name</th>";
+	               echo "<th scope=\"col\">Title</th>";
+	               echo "<th scope=\"col\">Phone/Fax/Email</th>";
+	               echo "</tr>";
+	               foreach ( $result['ResultQuery']['data'] as $item ) {
+	                    echo "<tr>";
+	                    echo "<td>".$item[6]." ".$item[3]." ".$item[4]."</td>";
+	                    echo "<td>".$item[11]."</td>";
+	                    echo "<td>";
+	                    if($item[8]<>'')
+	                         echo 'Phone: '.preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[8]).'<br />';
+	
+	                    if($item[9]<>'')
+	                         echo 'Fax: '.preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[9]).'<br />';
+	
+	                    if($item[7]<>'')
+	                      echo "<a href=\"".obfuscate('mailto:').obfuscate($item[7])."\">".obfuscate($item[7])."</a><br />";
+	                    echo "</td>";
+	                    echo "</tr>";
+	
+	               }
+	               echo "</table>";
+	
+	               //echo '<!-- <h2>Result</h2><pre>';
+	               //echo $countycode;
+	               //print_r($result);
+	               //echo '</pre>-->';
+	
+	          }
+	
+	     }
      }
 
 }

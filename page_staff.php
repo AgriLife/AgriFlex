@@ -39,7 +39,7 @@ get_header(); ?>
                <?php else:
                     // Everyone else gets info from 'Staff' custom post type ?>
                    
-                    <h1 class="entry-title">Staff</h1>
+                    <h1 class="entry-title"><?php the_title(); ?></h1>
                          <div class="staff-search-form">
                               <label>
                               <h4>Search Staff Database</h4>
