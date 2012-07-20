@@ -106,9 +106,9 @@
 			</div><!-- .entry-utility -->
 		</div><!-- #post-## -->
 
-<?php /* How to display all other posts. */ ?>
-
+	<?php /* How to display all other posts. */ ?>
 	<?php else : ?>
+		
 		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'agriflex' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 
@@ -117,21 +117,24 @@
 			</div><!-- .entry-meta -->
 
 	<?php if ( is_archive() || is_search() ) : // Only display excerpts for archives and search. ?>
-			<div class="entry-summary">
-				<?php the_excerpt(); ?>
-			</div><!-- .entry-summary -->
+		<div class="entry-summary">
+			<?php the_excerpt(); ?>
+		</div><!-- .entry-summary -->
 	<?php else : ?>
-			<div class="entry-content">
-				<a class="feature-img-excerpt" href="<?php the_permalink();?>"></span><?php if ( has_post_thumbnail() ) {
-  the_post_thumbnail('featured-mediabox'); 
-} else  { 
-	echo '<img src="'.get_bloginfo("template_url").'/images/AgriLife-default-post-image.png" alt="AgriLife Logo" title="AgriLife" />'; 
-	}
-	?></a><?php the_excerpt(); ?>
-			</div><!-- .entry-content -->
+		<div class="entry-content">
+			<a class="feature-img-excerpt" href="<?php the_permalink();?>">
+			<?php if ( has_post_thumbnail() ) {
+				the_post_thumbnail('featured-mediabox'); 
+			} else  { 
+				echo '<img src="'.get_bloginfo("template_url").'/images/AgriLife-default-post-image.png" alt="AgriLife Logo" title="AgriLife" />';
+			}
+			?></a>
+		<?php the_excerpt(); ?>
+		</div><!-- .entry-content -->
 	<?php endif; ?>
-
-			<div class="entry-utility">
+	
+	<?php /* ?>
+			<div class="entry-utility clearfix">
 				<?php if ( count( get_the_category() ) ) : ?>
 					<span class="cat-links">
 						<?php printf( __( '<span class="%1$s">Posted in</span> %2$s', 'agriflex' ), 'entry-utility-prep entry-utility-prep-cat-links', get_the_category_list( ', ' ) ); ?>
@@ -150,6 +153,7 @@
 				<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'agriflex' ), __( '1 Comment', 'agriflex' ), __( '% Comments', 'agriflex' ) ); ?></span>
 				<?php edit_post_link( __( 'Edit', 'agriflex' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
 			</div><!-- .entry-utility -->
+		<?php */ ?>
 		</div><!-- #post-## -->
 
 		<?php comments_template( '', true ); ?>
