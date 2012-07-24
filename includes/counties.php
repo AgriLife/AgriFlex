@@ -862,43 +862,47 @@ function show_county_directory($options) {
 	          } else {
 	          	   $job		= array();
 	          	   $item 	= array();
+	          	   $role	= array();
 	          	   $i=0;
+	          	   $j=0;
 	
-	               // Display the result
-	               echo "<table width=\"98%\">";
-	               echo "<tr>";
-	               echo "<th scope=\"col\">Name</th>";
-	               echo "<th scope=\"col\">Title</th>";
-	               echo "<th scope=\"col\">Phone/Fax/Email</th>";
-	               echo "</tr>";
+	               // Display the result					    
+	               echo '<ul class="staff-listing-ul county-staff-list">';
 	               foreach ( $result['ResultQuery']['data'] as $item ) {
-	                    echo "<tr>";
-	                    echo "<td>".$item[5]." ".$item[3]." ".$item[4]."</td>";
-	                    echo "<td>"; 
+	                    echo '<li class="staff-listing-item">';
+	                    echo '<div class="role staff-container">';
+	                    //echo '<a href="http://agrilife.org/link/to/staff/page/" rel="bookmark"><img width="70" height="70" src="http://agrilife.org/image.jpg" class="attachment-staff_archive wp-post-image" alt="'.$item[5].' '.$item[4].'" title="'.$item[5].' '.$item[4].'" /></a>';
+					    echo '<hgroup class="staff-head">';
+	                    echo '<h2 class="staff-title" title="'.$item[5].' '.$item[4].'">'.$item[5]." ".$item[4]."</h2>";
 	                    
 	                    // Pull All Job Titles, but
 	                    // Only pulling one (the last) phone/fax info for county offices
 	                    // since all office info is same for county employees
 	                    foreach ( $result['ResultQuery']['data'][$i][18]['data'] as $job ) {
-	                    	echo $job[2];
-	                    }
+	                    	echo '<h3 class="staff-position">';
+	                    	echo $job[2].'</h3>';
+	                    	foreach ( $result['ResultQuery']['data'][$i][18]['data'][$j][25]['data'] as $role ) {
+	                    		echo '<h4 class="staff-position">&bull; '.$role[1].'</h4>';
+	                    	}	                    	
+	                    }                  
+	                    echo "</hgroup>";
 	                    
-	                    echo "</td>";
-	                    echo "<td>";
+	                    echo '<div class="staff-contact-details">';
 	                    if($job[7]<>'')
-	                         echo 'Phone: '.preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $job[7]).'<br />';
+	                         echo '<p class="staff-phone tel">'.preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $job[7]).'</p>';
 	
 	                    if($job[8]<>'')
-	                         echo 'Fax: '.preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $job[8]).'<br />';
+	                         echo '<p class="staff-phone fax">'.preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $job[8]).' (fax)</p>';
 	
 	                    if($item[7]<>'')
-	                      echo "<a href=\"".obfuscate('mailto:').obfuscate($item[7])."\">".obfuscate($item[7])."</a><br />";
-	                    echo "</td>";
-	                    echo "</tr>";
+	                      echo ' <p class="staff-email email"><a href="'.obfuscate('mailto:').obfuscate($item[7]).'">'.obfuscate($item[7]).'</a></p>';
+	                    echo "</div>";
+	                    echo '</div>';
+	                    echo '</li>';
 	                    $i++;
 	
 	               }
-	               echo "</table>";
+	               echo '</ul>';
 	
 	               //echo '<h2>Result</h2><pre>';
 	               //print_r($result);
