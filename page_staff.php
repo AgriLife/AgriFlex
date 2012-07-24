@@ -27,7 +27,7 @@ get_header(); ?>
                          county_office_info(); ?>
                         
                         
-                         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                         <div id="post-<?php the_ID(); ?>">
                          <h1 class="entry-title"><?php the_title(); ?></h1>                   
                               <div class="entry-content">
                                    <?php the_content(); ?>
