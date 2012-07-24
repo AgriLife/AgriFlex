@@ -16,24 +16,11 @@
 				<h4>Research Topics</h4>
 				<a href="http://agriliferesearch.tamu.edu/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/agrilife-research-footer-logo.png" alt="Texas A and M AgriLife Research Logo" /></a>	
 				<ul>
-					<li><a href="http://agriliferesearch.tamu.edu/topics/airquality/">Air Quality</a></li>
-					<li><a href="http://agriliferesearch.tamu.edu/topics/animals/">Animals and Livestock</a></li>
-					<li><a href="http://agriliferesearch.tamu.edu/topics/bioenergy/">Bioenergy</a></li>
-					<li><a href="http://agriliferesearch.tamu.edu/topics/crops/">Crops</a></li>
-					<li><a href="http://agriliferesearch.tamu.edu/topics/ecology/">Ecology</a></li>
-					<li><a href="http://agriliferesearch.tamu.edu/topics/economy/">Economy</a></li>
-					<li><a href="http://agriliferesearch.tamu.edu/topics/fish/">Fish and Aquaculture</a></li>
-					<li><a href="http://agriliferesearch.tamu.edu/topics/food/">Food and Nutrition</a></li>
-					<li><a href="http://agriliferesearch.tamu.edu/topics/genetics/">Genetics</a></li>
-					<li><a href="http://agriliferesearch.tamu.edu/topics/health/">Health and Safety</a></li>
-					<li><a href="http://agriliferesearch.tamu.edu/topics/insects/">Insects and Pest Management</a></li>
-					<li><a href="http://agriliferesearch.tamu.edu/topics/international/">International</a></li>
-					<li><a href="http://agriliferesearch.tamu.edu/topics/naturalresources/">Natural Resources</a></li>
-					<li><a href="http://agriliferesearch.tamu.edu/topics/plants/">Plants and Grasses</a></li>
-					<li><a href="http://agriliferesearch.tamu.edu/topics/publicpolicy/">Public Policy</a></li>
-					<li><a href="http://agriliferesearch.tamu.edu/topics/poultry/">Poultry</a></li>
-					<li><a href="http://agriliferesearch.tamu.edu/topics/soils/">Soils</a></li>
-					<li><a href="http://agriliferesearch.tamu.edu/topics/water/">Water Use and Management</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/topics/animals/">Animals</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/topics/crops-plants/">Crops &amp; Plants</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/topics/natural-resources/">Environment &amp; Natural Resources</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/topics/health-and-food/">Health &amp; Food Science</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/topics/policy-and-economics/">Policy &amp; Economics</a></li>
 				</ul>	
 			</div><!-- .popular-links -->			
 		</div><!-- #popular-links -->
