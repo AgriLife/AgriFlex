@@ -27,14 +27,15 @@ get_header(); ?>
                          county_office_info(); ?>
                         
                         
-                         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                         <div id="post-<?php the_ID(); ?>">
                          <h1 class="entry-title"><?php the_title(); ?></h1>                   
                               <div class="entry-content">
                                    <?php the_content(); ?>
                               </div><!-- .entry-content -->
-                              <?php show_county_directory($options); ?>
+                              
                          </div><!-- #post-## -->
                     <?php endwhile; // end of the loop. ?>
+                    <?php show_county_directory($options); ?>
                         
                <?php else:
                     // Everyone else gets info from 'Staff' custom post type ?>
@@ -84,7 +85,6 @@ get_header(); ?>
 							                    <p class="staff-email email"><a href="mailto:<?php echo $my_meta['email']; ?>"><?php echo $my_meta['email']; ?></a></p>
 							               </div>
 							          </div>
-							          </a>
 							     </li>
 							 <?php endwhile; ?>
 						 </ul>

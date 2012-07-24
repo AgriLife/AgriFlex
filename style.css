@@ -50,6 +50,11 @@ q:before, q:after {
 	content: '';
 	content: none;
 }
+/* Contain floats: h5bp.com/q */
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+
 /* =============================================================================
    Tables
    ========================================================================== */
@@ -1956,6 +1961,17 @@ body.home #content h4.job-number {
 	margin: 0 0 0 65%;
 	padding-left: 20px;
 	background: transparent url('images/map-marker.png') no-repeat left top;
+}
+#content .stafftable ul {
+	margin: 0;
+	list-style: none;
+}
+#content .stafftable ul ul {
+	margin: 0 0 0 2em;
+	list-style: circle;
+}
+.county-staff-list .staff-contact-details {
+	width: 45%;
 }
 
 /* Aside
