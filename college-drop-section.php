@@ -59,7 +59,6 @@
 					<li><a href="http://www.tamu.edu/home/formerstdts/">Resources</a></li>
 					<li><a href="http://aglifesciences.tamu.edu/giving/meet-our-staff/">Contact</a></li>
 				</ul>
-				   </div>
 				 </li>
 				</ul>												
 			</div><!-- #top-level-nav -->				
