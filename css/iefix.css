@@ -1,6 +1,10 @@
 	body {
 		font-size: 100%;
 	}
+	.ie8 img {
+		height: inherit;
+		width: inherit;
+	}
 	#site-title {
 		margin: 20px 0;	
 	}
