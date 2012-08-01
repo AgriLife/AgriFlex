@@ -757,55 +757,6 @@ function tests_details_meta_setup() {
 
 }
 
-function box_meta_save($post_id)
-{
-     // verify if this is an auto save routine.
-       // If it is our form has not been submitted, so we dont want to do anything
-       if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
-      return;
-
-     // authentication checks
- 
-     // make sure data came from our meta box
-     if (!wp_verify_nonce($_POST['my_meta_noncename'],__FILE__)) return $post_id;
- 
-     // check user permissions
-
-       if ( array('job_posting','staff','tests') == $_POST['post_type'] )
-       {
-         if ( !current_user_can( 'edit_page', $post_id ) )
-         return;
-       }
-       else
-       {
-         if ( !current_user_can( 'edit_post', $post_id ) )
-             return;
-       }
-     // authentication passed, save data
- 
-     // var types
-     // single: _my_meta[var]
-     // array: _my_meta[var][]
-     // grouped array: _my_meta[var_group][0][var_1], _my_meta[var_group][0][var_2]
- 
-     $current_data = get_post_meta($post_id, '_my_meta', TRUE);    
- 
-     $new_data = $_POST['_my_meta'];
- 
-
- 
-     if ($current_data)
-     {
-          if (is_null($new_data)) delete_post_meta($post_id,'_my_meta');
-          else update_post_meta($post_id,'_my_meta',$new_data);
-     }
-     elseif (!is_null($new_data))
-     {
-          add_post_meta($post_id,'_my_meta',$new_data,TRUE);
-     }
- 
-     return $post_id;
-}
  
 function my_meta_save($post_id)
 {
