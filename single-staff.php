@@ -11,7 +11,7 @@ get_header(); ?>
 
 		<div id="wrap">
 			<div id="content" role="main">
-			<p><span class="read-more"><a href="../">&larr; Back to Staff Listing</a><span></p>
+			<p><span class="read-more"><a href="../">&larr; All Employees</a><span></p>
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 			
