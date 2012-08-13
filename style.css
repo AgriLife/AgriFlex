@@ -260,6 +260,7 @@ pre {
 	margin-bottom: 1.8em;
 	padding: 1.5em;
 	overflow: scroll;
+	font-family: monospace;
 }
 
 abbr {
