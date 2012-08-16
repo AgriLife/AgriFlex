@@ -4948,6 +4948,7 @@ p.flex-caption a:hover {color: #fff; border: none;}
   width: 36px;
   text-indent: -999em;
   text-decoration: none;
+  border-bottom: none;
   background-repeat: no-repeat;
   background-position: left top;
   background-image: url('images/social-icons.png');
