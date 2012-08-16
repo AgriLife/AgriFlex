@@ -719,7 +719,7 @@ class AgriLife_Social_Media_Icons extends WP_Widget {
       <input class="widefat" id="<?php echo $this->get_field_id( 'facebook' ); ?>" name="<?php echo $this->get_field_name( 'facebook' ); ?>" type="text" value="<?php echo esc_attr( $facebook ); ?>" />
     </p>
     <p>
-      <label for="<?php echo $this->get_field_id( 'googleplus' ); ?>"><?php _e( 'Google+ Username:' ); ?></label>
+      <label for="<?php echo $this->get_field_id( 'googleplus' ); ?>"><?php _e( 'Google+ User Number:' ); ?></label>
       <input class="widefat" id="<?php echo $this->get_field_id( 'googleplus' ); ?>" name="<?php echo $this->get_field_name( 'googleplus' ); ?>" type="text" value="<?php echo esc_attr( $googleplus ); ?>" />
     </p>
     <p>
