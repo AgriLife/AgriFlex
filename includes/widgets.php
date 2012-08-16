@@ -577,7 +577,7 @@ class Category_Widget extends WP_Widget {
  * Allows users to input usernames from various social media outlets
  */
 
-class AgriLife_Social_Media_Icons extents WP_Widget {
+class AgriLife_Social_Media_Icons extends WP_Widget {
 
   /**
    * Register widget with WordPress
@@ -585,7 +585,7 @@ class AgriLife_Social_Media_Icons extents WP_Widget {
   public function __construct() {
     parent::__construct(
       'social_media', // Base ID
-      'Foo_Widget', // Name
+      'Social_Media', // Name
       array('description' => __('Add social media icons', 'text_domain'), ) // Args
     );
   }
@@ -649,5 +649,5 @@ class AgriLife_Social_Media_Icons extents WP_Widget {
   }
 } // class SocialMediaIcons
 
-register_widget('AgriLife_Social_Media_Icons');
+// register_widget('AgriLife_Social_Media_Icons');
 ?>
