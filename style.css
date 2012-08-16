@@ -4928,3 +4928,67 @@ p.flex-caption a:hover {color: #fff; border: none;}
 .flex-control-nav li a { border: none; width: 13px; height: 13px; display: block; background: url(images/bg_control_nav.png) no-repeat 0 0; cursor: pointer; text-indent: -9999px;}
 .flex-control-nav li a:hover {background-position: 0 -13px;}
 .flex-control-nav li a.active {background-position: 0 -26px; cursor: default;}
+
+/* Social Media Icons
+******************************/
+.social_media_widget ul {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1em 0 .5em;
+}
+
+.social-media-item {
+  float: left;
+  width: 16.666666666666667%;
+}
+
+.social-media-item a {
+  display: block;
+  height: 36px;
+  width: 36px;
+  text-indent: -999em;
+  text-decoration: none;
+  border-bottom: none;
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-image: url('images/social-icons.png');
+  margin: auto;
+}
+
+.social-media-item a:hover {
+	background-position: left bottom;
+}
+a.googleplus {
+	background-position: left top;
+}
+a.facebook {
+	background-position: -43px top;
+}
+a.facebook:hover {
+	background-position: -43px bottom;
+}
+a.twitter {
+	background-position: -86px top;
+}
+a.twitter:hover {
+	background-position: -86px bottom;
+}
+a.flickr {
+	background-position: -129px top;
+}
+a.flickr:hover {
+	background-position: -129px bottom;
+}
+a.youtube {
+	background-position: -172px top;
+}
+a.youtube:hover {
+	background-position: -172px bottom;
+}
+a.rss {
+	background-position: -215px top;
+}
+a.rss:hover {
+	background-position: -215px bottom;
+}
+
