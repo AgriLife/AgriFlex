@@ -26,7 +26,7 @@
 	
 	$typekitkey = 'thu0wyf';
   if($isextensiononly) :
-       $isextension4h = $isextensioncounty = $isextensioncountytce = $isextensionmg = $isextensionmn = false;
+       $isextension4h = $isextensioncounty = $isextensioncountytce = $isextensionmg = $isextensionmn = $isextensionsg = false;
        switch ($options['extension_type']) {
             case 0:
                  // Typical
@@ -46,12 +46,16 @@
             case 4:
                  // Master Gardener
                  $isextensionmg = true;
-				 $typekitkey = 'vaf4fhz';
+                 $typekitkey = 'vaf4fhz';
                  break;
             case 5:
                  // Master Naturalist
                  $isextensionmn = true;
- 		 		 $typekitkey = 'nqb0igu';
+                 $typekitkey = 'nqb0igu';
+                 break;
+            case 6:
+                 // Sea Grant
+                 $isextensionsg = true;
                  break;
        }
   endif;
@@ -208,6 +212,9 @@ function agriflex_setup() {
                                 break;
                            case 5:
                                 $classes[] .= 'extensionmn';
+                                break;
+                           case 6:
+                                $classes[] .= 'extensionsg';
                                 break;
                       }
                 endif;
