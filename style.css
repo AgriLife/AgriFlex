@@ -589,12 +589,18 @@ body.collegeonly #drop-section-nav #drop-nav ul li a.college-explore-link:hover 
 	height: 46px;
 	margin-top: 2px;
 }	
+.extensionmn #drop-section-nav #drop-nav ul .txmn-item a {
+  width: 50px;
+}
 .tvmdlonly #drop-section-nav #drop-nav ul li a {
 	height: 40px;
 }
 
 .extensiononly #drop-section-nav #drop-nav ul li a[href*='extension'] {
 	background-image: url('images/ext-system-logo.png');
+}
+.extensionmn #drop-section-nav #drop-nav ul li a[href*='tpwd'] {
+  background-image: url('images/tpwd.png');
 }
 
 .extensioncountytce #drop-section-nav #drop-nav ul li a[href*='pvcep'] {

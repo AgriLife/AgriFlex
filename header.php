@@ -127,6 +127,9 @@
 			<?php else : ?>	
 			<!--<li class='explore right-align'><a class="ext-link" href="/explore/">Explore</a></li>-->
 			<?php endif; ?>
+      <?php if ( $isextensionmn ) : ?>
+        <li class='top-agency txmn-item'><a href="http://www.tpwd.state.tx.us">Texas Parks & Wildlife</a></li>
+      <?php endif; ?>
 		</ul>				
 	</div><!-- #drop-nav -->	
 </div><!-- #drop-section-nav -->
