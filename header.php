@@ -12,7 +12,7 @@
   GLOBAL $options,$googlemap;
   GLOBAL $isresearch, $isextension, $iscollege, $istvmdl;
   GLOBAL $isextensiononly, $isresearchonly, $iscollegeonly, $istvmdlonly, $isfazd;
-  GLOBAL $isextension4h, $isextensioncounty, $isextensioncountytce, $isextensionmg, $isextensionmn;
+  GLOBAL $isextension4h, $isextensioncounty, $isextensioncountytce, $isextensionmg, $isextensionmn, $isextensionsg;
   
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>
@@ -129,6 +129,9 @@
 			<?php endif; ?>
       <?php if ( $isextensionmn ) : ?>
         <li class='top-agency txmn-item'><a href="http://www.tpwd.state.tx.us">Texas Parks & Wildlife</a></li>
+      <?php endif; ?>
+      <?php if ( $isextensionsg ) : ?>
+        <li class='top-agency sg-item'><a href="http://texas-sea-grant.tamu.edu/">Texas Sea Grant</a></li>
       <?php endif; ?>
 		</ul>				
 	</div><!-- #drop-nav -->	

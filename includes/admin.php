@@ -540,6 +540,7 @@ if (!class_exists("AgrilifeCustomizer")) {
 			<input type="radio" name="extension_type" id="ext_type_3" value="3" <?php if($agrilifeOptions['extension_type']==3) echo 'checked="checked"';?> /> County TCE Office<br />
 			<input type="radio" name="extension_type" id="ext_type_4" value="4" <?php if($agrilifeOptions['extension_type']==4) echo 'checked="checked"';?> /> Master Gardener Chapter<br />
 			<input type="radio" name="extension_type" id="ext_type_5" value="5" <?php if($agrilifeOptions['extension_type']==5) echo 'checked="checked"';?> /> Master Naturalist Chapter<br />
+			<input type="radio" name="extension_type" id="ext_type_6" value="6" <?php if($agrilifeOptions['extension_type']==6) echo 'checked="checked"';?> /> Sea Grant<br />
 			</div>
 			
 						
