@@ -136,7 +136,6 @@ function save_job_meta(){
   update_post_meta($post->ID, "salary", $_POST["salary"]);
   update_post_meta($post->ID, "website", $_POST["website"]);
   update_post_meta($post->ID, "apply_date", $_POST["apply_date"]);
-  update_post_meta($post->ID, "start_date", $_POST["start_date"]);
   update_post_meta($post->ID, "description", $_POST["description"]);
   update_post_meta($post->ID, "qualifications", $_POST["qualifications"]);
   update_post_meta($post->ID, "contact_name", $_POST["contact_name"]);
