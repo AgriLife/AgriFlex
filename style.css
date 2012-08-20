@@ -3536,6 +3536,11 @@ img#wpstats {
 		background-image: url('images/tfs-logo.png');
 		width: 109px;	
 	}
+
+	#drop-section-nav #drop-nav ul li a[href*='texas-sea'] {
+		background-image: url('images/seagrant.png');
+    width: 91px;
+	}
 	
 	body.research.extension #drop-section-nav #drop-nav ul li a[href*='extension'] {
 		background-image: none;
