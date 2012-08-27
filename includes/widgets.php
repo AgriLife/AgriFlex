@@ -639,7 +639,7 @@ class AgriLife_Social_Media_Icons extends WP_Widget {
         return $url;
         break;
       case 'youtube' :
-        $url = 'http://youtube.com/user/' . $value;
+        $url = $value;
         return $url;
         break;
       case 'rss' :
@@ -731,7 +731,7 @@ class AgriLife_Social_Media_Icons extends WP_Widget {
       <input class="widefat" id="<?php echo $this->get_field_id( 'flickr' ); ?>" name="<?php echo $this->get_field_name( 'flickr' ); ?>" type="text" value="<?php echo esc_attr( $flickr ); ?>" />
     </p>
     <p>
-      <label for="<?php echo $this->get_field_id( 'youtube' ); ?>"><?php _e( 'Youtube Username:' ); ?></label>
+      <label for="<?php echo $this->get_field_id( 'youtube' ); ?>"><?php _e( 'Youtube URL (include "http://"):' ); ?></label>
       <input class="widefat" id="<?php echo $this->get_field_id( 'youtube' ); ?>" name="<?php echo $this->get_field_name( 'youtube' ); ?>" type="text" value="<?php echo esc_attr( $youtube ); ?>" />
     </p>
     <p>
