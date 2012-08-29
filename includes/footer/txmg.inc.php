@@ -1,7 +1,7 @@
 <div id="about">
 			<div class="about">			
 				<h4>About Us</h4>
-				<a href="http://www.4-h.org/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/about_txmg.jpg" alt="link to txmg.org" /></a>
+				<a href="http://www.txmg.org/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/about_txmg.jpg" alt="link to txmg.org" /></a>
 				<p><a href="http://txmg.org/">Texas Master Gardeners</a> is a volunteer program designed to grow horticultural information throughout the state, town by town. </p>	
 				<ul>
 					<li><a href="http://txmg.org/become-a-master-gardener/become-a-texas-master-gardener/">Become a Master Gardener</a></li>
