@@ -2,7 +2,7 @@
 			<div class="about">			
 				<h4>About</h4>
 				<a href="http://www.youtube.com/watch?v=7Cdai78sCPw"><img src="<?php bloginfo( 'template_directory' ); ?>/images/about_video_tvmdl.jpg" alt="link to TVMDL about video" /></a>
-				<p>The Texas Veterinary Medical Diagnostic Laboratory protects animal and human health through diagnostics. TVMDL has provided excellence in veterinary diagnostic services since 1967. TVMDL services veterinarians and citizens throughout Texas, the United States, and beyond.</p>	
+				<p>The Texas A&amp;M Veterinary Medical Diagnostic Laboratory protects animal and human health through diagnostics. TVMDL has provided excellence in veterinary diagnostic services since 1967. TVMDL services veterinarians and citizens throughout Texas, the United States, and beyond.</p>	
 			</div><!-- .about -->
 		</div><!-- #about -->	
 			
