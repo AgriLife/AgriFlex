@@ -1,7 +1,7 @@
 <div id="about">
 			<div class="about">			
 				<h4>About Us</h4>
-				<a href="http://www.4-h.org/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/about_txmn.jpg" alt="link to txmn.org" /></a>
+				<a href="http://www.txmn.org/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/about_txmn.jpg" alt="link to txmn.org" /></a>
 				<p><a href="http://txmn.org/">Texas Master Naturalists</a> enjoy digging in the dirt and slogging through the mud while giving back to the community.</p>	
 				<ul>
 					<li><a href="http://txmn.org/whats-a-master-naturalist/">What&apos;s a Master Naturalist?</a></li>

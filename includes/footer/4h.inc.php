@@ -25,8 +25,8 @@
 					<li><a href="http://agdirectory.tamu.edu/">Contact Directory</a></li>
 					<li><a href="http://agrilife.org/today/contact-us/">Media Contacts</a></li>					
 					<li><a href="http://texas4-h.tamu.edu/">Texas 4-H and Youth Dev.</a></li>					
-					<li><a href="http://agrilifeextension.tamu.edu/about/strategyimpact/index.php">Strategic Plans, Impacts and Roadmaps</a></li>
-					<li class="last"><a href="http://agrilifeextension.tamu.edu/careers/index.php">Employment Opportunities</a></li>										
+					<li><a href="http://agrilifeextension.tamu.edu/about/strategyimpact/index.php">Strategic Plan and Impacts</a></li>
+					<li class="last"><a href="https://greatjobs.tamu.edu/">Employment Opportunities</a></li>										
 				</ul>		
 			</div><!-- .popular-links -->			
 		</div><!-- #popular-links -->
