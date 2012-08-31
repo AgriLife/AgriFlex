@@ -15,7 +15,7 @@
 		<div id="popular-links">
 			<div class="popular-links">			
 				<h4>Popular Links</h4>
-				<a href="http://agrilifeextension.tamu.edu/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/agrilife_ext_logo.png" alt="Texas AgriLife Extension" /></a>	
+				<a href="http://agrilifeextension.tamu.edu/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/agrilife_ext_logo.png" alt="Texas A&amp;M AgriLife Extension" /></a>	
 				<ul>
 					<li><a href="http://county-tx.tamu.edu/">County Extension Offices</a></li>
 					<li><a href="http://agrilife.tamu.edu/locations-window/#centers">Research and Extension Centers</a></li>

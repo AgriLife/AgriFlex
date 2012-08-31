@@ -17,13 +17,13 @@
 				<h4>AgriLife Agencies</h4>
 				<a href="http://aglifesciences.tamu.edu/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/agrilife-footer-logo.png" alt="Texas A and M AgriLife Logo" /></a>	
 				<ul>
-					<li><a href="http://agrilifeextension.tamu.edu/">Texas AgriLife Extension Service</a></li>
-					<li><a href="http://agriliferesearch.tamu.edu/">Texas AgriLife Research</a></li>
+					<li><a href="http://agrilifeextension.tamu.edu/">Texas A&amp;M AgriLife Extension Service</a></li>
+					<li><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M AgriLife Research</a></li>
 					<li><a href="http://tamu.edu/">Texas A&amp;M University</a></li>
 					<li><a href="http://aglifesciences.tamu.edu/">College of Agriculture and Life Sciences</a></li>
 					<li><a href="http://vetmed.tamu.edu/">College of Veterinary Medicine (cooperative with AgriLife Extension &amp; Research)</a></li>
-					<li><a href="http://tvmdl.tamu.edu/">Texas Veterinary Medical Diagnostic Laboratory</a></li>
-					<li><a href="http://texasforestservice.tamu.edu/">Texas Forest Service</a></li>																			 									
+					<li><a href="http://tvmdl.tamu.edu/">Texas A&amp;M Veterinary Medical Diagnostic Laboratory</a></li>
+					<li><a href="http://texasforestservice.tamu.edu/">Texas A&amp;M Forest Service</a></li>																			 									
 				</ul>		
 			</div><!-- .popular-links -->			
 		</div><!-- #popular-links -->
