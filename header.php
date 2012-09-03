@@ -40,7 +40,7 @@
 
 	?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>?3" />
+<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>?5" />
 <!--[if lt IE 9]>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/iefix.css?2" />
 <![endif]-->
@@ -144,10 +144,7 @@
 			<header id="branding" role="banner">
 				<hgroup>
 				<h1 id="site-title">
-				<?php if($isextensioncounty) :?>
-						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><span>Texas A&amp;M AgriLife Extension Service</span> <em>in <?php echo $options['county-name-human']; ?> County</em></a>
-				
-				<?php elseif($isextensioncountytce) :?>
+				<?php if($isextensioncounty || $isextensioncountytce) :?>
 						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><span>Extension Education</span> <em>in <?php echo $options['county-name-human']; ?> County</em></a>
 									
 				<?php elseif($isextensionmg) :?>
