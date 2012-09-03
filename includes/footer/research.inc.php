@@ -1,7 +1,7 @@
 <div id="about">
 			<div class="about">			
 				<h4>About</h4>
-				<a href="http://www.youtube.com/watch?v=UnLkKMJasXk"><img src="<?php bloginfo( 'template_directory' ); ?>/images/research-video-pic.jpg" alt="link to Texas A&amp;M Research about video" /></a>
+				<a href="http://www.youtube.com/watch?v=UnLkKMJasXk"><img src="<?php bloginfo( 'template_directory' ); ?>/images/research-video-pic.jpg?v=100" alt="link to Texas A&amp;M Research about video" /></a>
 				<p><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M AgriLife Research</a> is the state&apos;s premier research agency in agriculture, natural resources, and the life sciences. Our research spans numerous scientific disciplines and is international in scope.</p>
 				<ul>
 					<li><a href="http://agriliferesearch.tamu.edu/research-units/">Research Units</a></li>
@@ -14,7 +14,7 @@
 		<div id="popular-links">
 			<div class="popular-links">			
 				<h4>Research Topics</h4>
-				<a href="http://agriliferesearch.tamu.edu/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/agrilife-research-footer-logo.png" alt="Texas A and M AgriLife Research Logo" /></a>	
+				<a href="http://agriliferesearch.tamu.edu/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/agrilife-research-footer-logo.png?v=100" alt="Texas A and M AgriLife Research Logo" /></a>	
 				<ul>
 					<li><a href="http://agriliferesearch.tamu.edu/topics/animals/">Animals</a></li>
 					<li><a href="http://agriliferesearch.tamu.edu/topics/crops-plants/">Crops &amp; Plants</a></li>
@@ -28,7 +28,7 @@
 		<div id="texas-a-m">
 			<div class="texas-a-m">			
 			<h4>Required Links</h4>
-				<a href="http://www.tamus.edu"><img src="<?php bloginfo( 'template_directory' ); ?>/images/texas-a-m-system.png" alt="Texas A&amp;M System image" /></a>
+				<a href="http://www.tamus.edu"><img src="<?php bloginfo( 'template_directory' ); ?>/images/texas-a-m-system.png?v=100" alt="Texas A&amp;M System image" /></a>
 				<ul>
 					<li><a href="http://agrilife.org/vc/compact/">Compact with Texans</a></li>
 					<li><a href="http://agrilife.org/vc/privacy/">Privacy and Security</a></li>

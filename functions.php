@@ -1071,7 +1071,7 @@ function cat_loop( $catClass ) {
 				if ( has_post_thumbnail() ) {
 			 		the_post_thumbnail('featured-mediabox'); 
 				} else  { 
-					echo '<img src="'.get_bloginfo("template_url").'/images/AgriLife-default-post-image.png" alt="AgriLife Logo" class="attachment-featured-mediabox wp-post-image .wp-post-image" title="AgriLife" />'; 
+					echo '<img src="'.get_bloginfo("template_url").'/images/AgriLife-default-post-image.png?v=100" alt="AgriLife Logo" class="attachment-featured-mediabox wp-post-image .wp-post-image" title="AgriLife" />'; 
 				}	?></a>
 			<?php the_excerpt(); ?>
 		<?php endwhile;  wp_reset_query();

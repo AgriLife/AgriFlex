@@ -1,7 +1,7 @@
 <div id="about">
 			<div class="about">			
 				<h4>About Us</h4>
-				<a href="http://www.txmg.org/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/about_txmg.jpg" alt="link to txmg.org" /></a>
+				<a href="http://www.txmg.org/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/about_txmg.jpg?v=100" alt="link to txmg.org" /></a>
 				<p><a href="http://txmg.org/">Texas Master Gardeners</a> is a volunteer program designed to grow horticultural information throughout the state, town by town. </p>	
 				<ul>
 					<li><a href="http://txmg.org/become-a-master-gardener/become-a-texas-master-gardener/">Become a Master Gardener</a></li>
@@ -15,7 +15,7 @@
 		<div id="popular-links">
 			<div class="popular-links">			
 				<h4>Popular Links</h4>
-				<a href="http://agrilifeextension.tamu.edu/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/agrilife_ext_logo.png" alt="Texas A&amp;M AgriLife Extension" /></a>	
+				<a href="http://agrilifeextension.tamu.edu/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/agrilife_ext_logo.png?v=100" alt="Texas A&amp;M AgriLife Extension" /></a>	
 				<ul>
 					<li><a href="http://county-tx.tamu.edu/">County Extension Offices</a></li>
 					<li><a href="http://agrilife.tamu.edu/locations-window/#centers">Research and Extension Centers</a></li>
@@ -31,7 +31,7 @@
 		<div id="texas-a-m">
 			<div class="texas-a-m">			
 			<h4>Required Links</h4>
-				<a href="http://www.tamus.edu"><img src="<?php bloginfo( 'template_directory' ); ?>/images/texas-a-m-system.png" alt="Texas A&amp;M System image" /></a>
+				<a href="http://www.tamus.edu"><img src="<?php bloginfo( 'template_directory' ); ?>/images/texas-a-m-system.png?v=100" alt="Texas A&amp;M System image" /></a>
 				<ul>
 					<li><a href="http://agrilife.org/vc/compact/">Compact with Texans</a></li>
 					<li><a href="http://agrilife.org/vc/privacy/">Privacy and Security</a></li>
