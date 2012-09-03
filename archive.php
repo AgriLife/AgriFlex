@@ -36,8 +36,6 @@ get_header(); ?>
 					<?php printf( __( 'Yearly Archives: <span>%s</span>', 'agriflex' ), get_the_date('Y') ); ?>				
 				<?php elseif ( 'tests' == get_post_type() && $istvmdlonly) : ?>
 					<?php _e( 'Test Search', 'agriflex' ); ?>
-				<?php elseif ( 'vfic_publications' == get_post_type()) : ?>
-					<?php _e( 'Publications Search', 'agriflex' ); ?>
 				<?php else : ?>
 					<?php _e( 'Blog Archives', 'agriflex' ); ?>							
 				<?php endif; ?>
@@ -55,11 +53,6 @@ get_header(); ?>
 		 * Uses loop-tests.php.
 		 */
 		get_template_part( 'loop', 'tests' ); 
-	elseif ( 'vfic_publications' == get_post_type() ) : 
-		/* Run the loop for the publications search to output the posts.
-		 * Uses loop-vfic_publications.php.
-		 */
-		get_template_part( 'loop', 'vfic_publications' ); 
 	else : 
 		/* Run the loop for the archives page to output the posts.
 		 * If you want to overload this in a child theme then include a file
