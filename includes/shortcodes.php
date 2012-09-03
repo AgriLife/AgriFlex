@@ -153,13 +153,13 @@ function sm_dir_shortcode() {
 			
 			//Facebook
 			if($e['data']['Facebook Page or Group Address']<>'' && $e['data']['Facebook Page or Group Address'] <>'http://') {
-				$return .=  '<a href="'.$e['data']['Facebook Page or Group Address'].'" target="_blank"><img src="http://agrilifeweb.tamu.edu/us/files/2010/01/facebook.gif" alt="'.$e['data']['Facebook Page or Group Address'].'" /></a>';
+				$return .=  '<a href="'.$e['data']['Facebook Page or Group Address'].'" target="_blank"><img src="http://agrilifeweb.tamu.edu/us/files/2010/01/facebook.gif?v=100" alt="'.$e['data']['Facebook Page or Group Address'].'" /></a>';
 			}
 			
 			//Flickr
 			if ($e['data']['Flickr Photostream Address'] <> '' && $e['data']['Flickr Photostream Address'] <> 'http://') {
 			  $return .=  '<a href="'.$e['data']['Flickr Photostream Address'].'">'.
-			  '<img src="http://agrilifeweb.tamu.edu/us/files/2010/01/flickr.gif" alt="'.$e['data']['Flickr Photostream Address'] . ' Flickr Photos" /></a>';
+			  '<img src="http://agrilifeweb.tamu.edu/us/files/2010/01/flickr.gif?v=100" alt="'.$e['data']['Flickr Photostream Address'] . ' Flickr Photos" /></a>';
 			}
 			
 			//YouTube
@@ -167,21 +167,21 @@ function sm_dir_shortcode() {
 			//  $return .=  $e['data']['YouTube Username'] . '<br />';
 			if($e['data']['YouTube Channel Address']<>'' && $e['data']['YouTube Channel Address'] <> 'http://') {
 			  $return .=  '<a href="'.$e['data']['YouTube Channel Address'].'">'.
-		  		'<img src="http://agrilifeweb.tamu.edu/us/files/2010/01/youtube.gif" alt="'.$e['data']['YouTube Channel Address'] . 
+		  		'<img src="http://agrilifeweb.tamu.edu/us/files/2010/01/youtube.gif?v=100" alt="'.$e['data']['YouTube Channel Address'] . 
 		  		' Flickr Photos" /></a>';
 		  	}
 		  	
 		  	//Twitter
 			if ($e['data']['Twitter Account']<>'' && $e['data']['Twitter Account']<>'@username') {	
 				  $return .=  '<a href="'.$e['data']['Twitter Account'].'" target="_blank">'.
-				  '<img src="http://agrilifeweb.tamu.edu/us/files/2010/01/twitter.gif" alt="'.$e['data']['Twitter Account'] . 
+				  '<img src="http://agrilifeweb.tamu.edu/us/files/2010/01/twitter.gif?v=100" alt="'.$e['data']['Twitter Account'] . 
 		  		  ' Twitter Page" /></a>';
 			}
 			
 			//Blog
 			if ($e['data']['Blog Address']<>'' && $e['data']['Blog Address'] <> 'http://') {
 			  $return .=  '<a href="'.$e['data']['Blog Address'].'" target="_blank">'.
-			  '<img src="http://agrilifeweb.tamu.edu/us/files/2010/01/rss.png" alt="'.$e['data']['What AgriLife office do you represent?'] . 
+			  '<img src="http://agrilifeweb.tamu.edu/us/files/2010/01/rss.png?v=100" alt="'.$e['data']['What AgriLife office do you represent?'] . 
 	  		  ' Blog" /></a>';
 			}
 
@@ -248,7 +248,7 @@ function myLoop($atts, $content = null) {
 			if ( has_post_thumbnail() ) {
   the_post_thumbnail('featured-mediabox'); 
 } else  { 
-	echo '<img src="'.get_bloginfo("template_url").'/images/AgriLife-default-post-image.png" alt="AgriLife Logo" title="AgriLife" />'; 
+	echo '<img src="'.get_bloginfo("template_url").'/images/AgriLife-default-post-image.png?v=100" alt="AgriLife Logo" title="AgriLife" />'; 
 	}
 	?></a></p>
 		<?php the_excerpt();?>

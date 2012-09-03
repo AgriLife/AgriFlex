@@ -871,7 +871,7 @@ function show_county_directory($options) {
 	               foreach ( $result['ResultQuery']['data'] as $item ) {
 	                    echo '<li class="staff-listing-item">';
 	                    echo '<div class="role staff-container">';
-	                    //echo '<a href="http://agrilife.org/link/to/staff/page/" rel="bookmark"><img width="70" height="70" src="http://agrilife.org/image.jpg" class="attachment-staff_archive wp-post-image" alt="'.$item[5].' '.$item[4].'" title="'.$item[5].' '.$item[4].'" /></a>';
+	                    //echo '<a href="http://agrilife.org/link/to/staff/page/" rel="bookmark"><img width="70" height="70" src="http://agrilife.org/image.jpg?v=100" class="attachment-staff_archive wp-post-image" alt="'.$item[5].' '.$item[4].'" title="'.$item[5].' '.$item[4].'" /></a>';
 					    echo '<hgroup class="staff-head">';
 	                    echo '<h2 class="staff-title" title="'.$item[5].' '.$item[4].'">'.$item[5]." ".$item[4]."</h2>";
 	                    
