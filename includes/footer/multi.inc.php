@@ -1,7 +1,7 @@
 <div id="about">
 			<div class="about">			
 				<h4>Texas A&amp;M AgriLife</h4>
-				<a href="http://www.youtube.com/watch?v=df_SGBF4LK4"><img src="<?php bloginfo( 'template_directory' ); ?>/images/about_video_multi.jpg" alt="link to AgriLife Solutions Video" /></a>
+				<a href="http://www.youtube.com/watch?v=df_SGBF4LK4"><img src="<?php bloginfo( 'template_directory' ); ?>/images/about_video_multi.jpg?v=100" alt="link to AgriLife Solutions Video" /></a>
 				<p>Solutions for a Changing World</p>
 				<ul>
 					<li><a href="http://agrilife.tamu.edu/vc/">Office of the Vice Chancellor</a></li>
@@ -15,7 +15,7 @@
 		<div id="popular-links">
 			<div class="popular-links">			
 				<h4>AgriLife Agencies</h4>
-				<a href="http://aglifesciences.tamu.edu/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/agrilife-footer-logo.png" alt="Texas A and M AgriLife Logo" /></a>	
+				<a href="http://aglifesciences.tamu.edu/"><img src="<?php bloginfo( 'template_directory' ); ?>/images/agrilife-footer-logo.png?v=100" alt="Texas A and M AgriLife Logo" /></a>	
 				<ul>
 					<li><a href="http://agrilifeextension.tamu.edu/">Texas A&amp;M AgriLife Extension Service</a></li>
 					<li><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M AgriLife Research</a></li>
@@ -31,7 +31,7 @@
 		<div id="texas-a-m">
 			<div class="texas-a-m">			
 			<h4>Required Links</h4>
-				<a href="http://www.tamus.edu"><img src="<?php bloginfo( 'template_directory' ); ?>/images/texas-a-m-system.png" alt="Texas A&amp;M System image" /></a>
+				<a href="http://www.tamus.edu"><img src="<?php bloginfo( 'template_directory' ); ?>/images/texas-a-m-system.png?v=100" alt="Texas A&amp;M System image" /></a>
 				<ul>
 					<li><a href="http://agrilife.org/vc/compact/">Compact with Texans</a></li>
 					<li><a href="http://agrilife.org/vc/privacy/">Privacy and Security</a></li>

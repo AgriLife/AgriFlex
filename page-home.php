@@ -44,7 +44,7 @@ get_header(); ?>
 			if ( has_post_thumbnail() ) {
   the_post_thumbnail('featured-mediabox'); 
 } else  { 
-	echo '<img src="'.get_bloginfo("template_url").'/images/AgriLife-default-post-image.png" alt="AgriLife Logo" title="AgriLife" />'; 
+	echo '<img src="'.get_bloginfo("template_url").'/images/AgriLife-default-post-image.png?v=100" alt="AgriLife Logo" title="AgriLife" />'; 
 	}
 	?></a></p>
 		<?php the_excerpt();?>
