@@ -634,89 +634,6 @@ function base_admin_body_class( $classes )
 }
 add_filter('admin_body_class', 'base_admin_body_class');
 
-/* Test Custom Post Type & Taxonomies*/
-if ($istvmdlonly) {
-add_action( 'init', 'create_tests_post_type' );
-function create_tests_post_type() {
-     register_post_type( 'tests',
-          array(
-               'labels' => array(
-                    'name' => __( 'Tests' ),
-                    'singular_name' => __( 'Test' ),
-                    'add_new_item' => __( 'Add New Test' ),
-                    'add_new' => __( 'Add New' ),
-                    'edit' => __( 'Edit' ),
-                    'edit_item' => __( 'Edit Test' ),
-                    'new_item' => __( 'New Test' ),
-                    'view' => __( 'View Test' ),
-                    'view_item' => __( 'View Test' ),
-                    'search_items' => __( 'Search Tests' ),
-                    'not_found' => __( 'No Tests found' ),
-                    'not_found_in_trash' => __( 'No Tests found in Trash' ),
-
-               ),
-          'capability_type' => 'post',
-          'has_archive' => true,
-          'hierarchical' => false,
-          'public' => true,
-          //'rewrite' => array('slug' => 'tests'),
-          'supports' => array( 'title', 'editor' ),
-          )
-     );
-}
-
-// hook into the init action and call create_tests_taxonomies() when it fires
-add_action( 'init', 'create_tests_taxonomies', 0 );
-
-// create three taxonomies, species and lab sections for the post type "tests"
-function create_tests_taxonomies() {
-
-     // Add new taxonomy, make it hierarchical (like categories)
-     $labels = array(
-          'name' => _x( 'Species', 'taxonomy general name' ),
-          'singular_name' => _x( 'Species', 'taxonomy singular name' ),
-          'search_items' =>  __( 'Search Species' ),
-          'all_items' => __( 'All Species' ),
-          'parent_item' => __( 'Parent Species' ),
-          'parent_item_colon' => __( 'Parent Species:' ),
-          'edit_item' => __( 'Edit Species' ),
-          'update_item' => __( 'Update Species' ),
-          'add_new_item' => __( 'Add New Species' ),
-          'new_item_name' => __( 'New Species Name' ),
-     );     
-
-     register_taxonomy( 'species', array( 'tests' ), array(
-          'hierarchical' => true,
-          'labels' => $labels, /* NOTICE: Here is where the $labels variable is used */
-          'show_ui' => true,
-          'query_var' => true,
-          'rewrite' => false,
-     ));
-
-     // Add new taxonomy, make it hierarchical (like categories)
-     $labels = array(
-          'name' => _x( 'Lab Sections', 'taxonomy general name' ),
-          'singular_name' => _x( 'Lab Section', 'taxonomy singular name' ),
-          'search_items' =>  __( 'Search Lab Sections' ),
-          'all_items' => __( 'All Lab Sections' ),
-          'parent_item' => __( 'Parent Lab Section' ),
-          'parent_item_colon' => __( 'Parent Lab Section:' ),
-          'edit_item' => __( 'Edit Lab Section' ),
-          'update_item' => __( 'Update Lab Section' ),
-          'add_new_item' => __( 'Add New Lab Section' ),
-          'new_item_name' => __( 'New Lab Section Name' ),
-     );     
-
-     register_taxonomy( 'lab_sections', array( 'tests' ), array(
-          'hierarchical' => true,
-          'labels' => $labels, /* NOTICE: Here is where the $labels variable is used */
-          'show_ui' => true,
-          'query_var' => true,
-          'rewrite' => false,
-     ));
-
-}
-}
 
 /* Staff Custom Post Type */
 if (!$isextensiononly) {
@@ -728,43 +645,6 @@ if ($iscollegeonly) {
 	include(MY_THEME_FOLDER . '/includes/cpt_job_board.php');
 }
  
-
-/* Define the custom box for "tests" custom post type */
-add_action('admin_init','tests_meta_init');
- 
-function tests_meta_init() {
-
-     // review the function reference for parameter details
-     // http://codex.wordpress.org/Function_Reference/add_meta_box
- 
-     // add a meta box for each of the wordpress page types: posts and pages
-     foreach (array('tests') as $type)
-     {
-          add_meta_box('tests_details_meta', 'Enter Test url', 'tests_details_meta_setup', $type, 'normal', 'high');
-     }
- 
-     // add a callback function to save any data a user enters in
-     add_action('save_post','box_meta_save');
-}
- 
-function tests_details_meta_setup() {
-     global $post;
- 
-     // using an underscore, prevents the meta variable
-     // from showing up in the custom fields section
-     $meta = get_post_meta($post->ID,'_my_meta',TRUE);
- 
-     // The Details fields for data entry
-
-     // instead of writing HTML here, lets do an include
-     include(MY_THEME_FOLDER . '/includes/meta_boxes/tests_meta_html.php');
-
-     // create a custom nonce for submit verification later
-     echo '<input type="hidden" name="my_meta_noncename" value="' . wp_create_nonce(__FILE__) . '" />';    
-
-}
-
- 
 function my_meta_save($post_id)
 {
      // authentication checks
@@ -773,7 +653,7 @@ function my_meta_save($post_id)
      if (!wp_verify_nonce($_POST['my_meta_noncename'],__FILE__)) return $post_id;
  
      // check user permissions
-     if ($_POST['post_type'] == array('staff', 'job_posting', 'tests'))
+     if ($_POST['post_type'] == array('staff', 'job_posting'))
      {
           if (!current_user_can('edit_page', $post_id)) return $post_id;
      }
@@ -838,78 +718,6 @@ function my_meta_clean(&$arr)
           }
      }
 }
-
-
-// TVMDL specific content for test search form
-function tvmdl_test_search($species_selected='',$lab_sections_selected='',$term='') {
-    do_action('tvmdl_test_search',$species_selected,$lab_sections_selected,$term);
-}
-
-add_action('tvmdl_test_search','tvmdl_test_search_form',5,3);
-
-function tvmdl_test_search_form($species_selected='',$lab_sections_selected='',$term='Avian Influenza') { ?>
-	<div class="test-search-form">
-	<label>
-	<h4>Search for Tests</h4>
-	</label>
-	<form role="search" class="searchform" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
-	<?php
-	echo '<div class="tax-options">';
-	$args = array('order'=>'ASC','hide_empty'=>true);
-	echo get_terms_dropdown($species_selected, $lab_sections_selected, $args);
-	echo '</div>';
-	
-	?>
-	  <input type="text" class="s" name="searchtests" id="s" placeholder="<?php echo $term; ?>" onfocus="if(this.value==this.defaultValue)this.value='<?php echo $term; ?>';" onblur="if(this.value=='<?php echo $term; ?>')this.value=this.defaultValue;"/>
-	  <input class="test-submit" type="submit" name="submit" value="Search" />	
-	  <input type="hidden" name="post_type" value="tests" />
-	</form>
-	</div>
-<?php 
-}
-
-
-
-function get_terms_dropdown($species_selected, $lab_sections_selected, $args){
-     $myspecies = get_terms('species', $args);
-     $mylab_sections = get_terms('lab_sections', $args);    
-     $optionname = "optionname";
-     $emptyvalue = "";
-     $selected = '';
-     $selected_all = ($species_selected == '' ? 'selected="selected"' : '');
-     $output ="<select name='species'><option .$selected_all. value='".$emptyvalue."'>All Species</option>'";
-
-     foreach($myspecies as $term){
-          $term_taxonomy=$term->species;
-          $term_slug=$term->slug;
-          $term_name =$term->name;
-          $link = $term_slug;
-          $selected = ($species_selected == $term_slug ? 'selected="selected"' : '');
-          $output .="<option name='".$link."' value='".$link."' ".$selected." >".$term_name."</option>";
-     }
-     $output .="</select>";    
-    
-     
-
-	 $selected = '';
-     $selected_all = ($lab_sections_selected == '' ? 'selected="selected"' : '');
-     $output .="<select name='lab_section'><option ".$selected_all." value='".$emptyvalue."'>All Lab Sections</option>'";
-     foreach($mylab_sections as $term){
-          $term_taxonomy=$term->lab_sections;
-          $term_slug=$term->slug;
-          $term_name =$term->name;
-          $link = $term_slug;
-          $selected = ($lab_sections_selected == $term_slug ? 'selected="selected"' : '');
-          $output .="<option name='".$link."' ".$selected." value='".$link."'>".$term_name."</option>";
-     }
-     $output .="</select>";    
-	return $output;
-}
-
-
-
-
-
 
 /* Get taxononies associated with a post */
 function ucc_get_terms( $id = '' ,$return_links = true) {
