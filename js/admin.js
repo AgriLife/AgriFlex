@@ -6,18 +6,30 @@
 jQuery(document).ready(function() {
 
 // Add image uploader for AgriLife options header/logo
-jQuery('#upload_image_button').click(function() {
- formfield = jQuery('#upload_image').attr('name');
+jQuery('#upload_image_button_header').click(function() {
+ formfield = jQuery('#upload_image_header').attr('name');
  tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
  return false;
 });
 
 window.send_to_editor = function(html) {
  imgurl = jQuery('img',html).attr('src');
- jQuery('#upload_image').val(imgurl);
+ jQuery('#upload_image_header').val(imgurl);
  tb_remove();
 }
 
+// Add image uploader for AgriLife options custom logo
+jQuery('#upload_image_button_custom').click(function() {
+ formfield = jQuery('#upload_image_custom').attr('name');
+ tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
+ return false;
+});
+
+window.send_to_editor = function(html) {
+ imgurl = jQuery('img',html).attr('src');
+ jQuery('#upload_image_custom').val(imgurl);
+ tb_remove();
+}
 
 
 

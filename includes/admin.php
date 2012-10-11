@@ -295,6 +295,8 @@ if (!class_exists("AgrilifeCustomizer")) {
 				'isFazd' => false,
 				
 				'extension_type' => 0,
+
+        'custom_logo' => '',
 				
 				'header_type' => 0,
 				'titleImg' => '',
@@ -346,6 +348,9 @@ if (!class_exists("AgrilifeCustomizer")) {
 			// Extension Sub-options
 			$options['extension_type'] = 0;
 			
+      // Additional agency logo
+      $options['custom_logo'] = '';
+
 			//Set Site Title Image
 			$options['header_type'] = 0;
 			$options['titleImg'] = '';
@@ -417,6 +422,13 @@ if (!class_exists("AgrilifeCustomizer")) {
 				} else {
 				  $agrilifeOptions['extension_type'] = 0;
 				}
+
+        // Addtional agency logo
+        if (isset($_POST['custom_logo'])) {
+          $agrilifeOptions['custom_logo'] = $_POST['custom_logo'];
+        } else {
+          $agrilifeOptions['custom_logo'] = '';
+        }
 				
 				//County Name Default
 				if (isset($_POST['county-name'])) {
@@ -567,8 +579,18 @@ if (!class_exists("AgrilifeCustomizer")) {
 		</tr>
 		</table>
 		
+		<h3>Addtional Agency Logo</h3>
 		
-		
+    <table class="form-table" id="image_upload_custom">
+    <tr valign="top">
+    <th scope="row">Upload Image</th>
+    <td><label for="upload_image">
+    <input id="upload_image_custom" type="text" size="100" name="custom_logo" value="<?php _e($this->showHtml($agrilifeOptions['custom_logo']), 'AgrilifeCustomizer') ?>" />
+    <input id="upload_image_button_custom" type="button" value="Upload Image" />
+    <br />Enter an URL or upload an image for the addtional logo. Must be 45px in height.
+    </label></td>
+    </tr>
+    </table>
 		
 		
 		
@@ -579,12 +601,12 @@ if (!class_exists("AgrilifeCustomizer")) {
 		 
 		<p style="display: none;">A custom 900px by 60px image you have designed.  Make sure it's exported for Web at 72 dpi.</p>
 				
-<table class="form-table" id="image_upload">
+<table class="form-table image_upload" id="image_upload_header">
 <tr valign="top">
 <th scope="row">Upload Image</th>
 <td><label for="upload_image">
-<input id="upload_image" type="text" size="100" name="titleImg" value="<?php _e($this->showHtml($agrilifeOptions['titleImg']), 'AgrilifeCustomizer') ?>" />
-<input id="upload_image_button" type="button" value="Upload Image" />
+<input id="upload_image_header" type="text" size="100" name="titleImg" value="<?php _e($this->showHtml($agrilifeOptions['titleImg']), 'AgrilifeCustomizer') ?>" />
+<input id="upload_image_button_header" type="button" value="Upload Image" />
 <br />Enter an URL or upload an image for the banner.
 </label></td>
 </tr>

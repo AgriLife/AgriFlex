@@ -133,6 +133,9 @@
       <?php if ( $isextensionsg ) : ?>
         <li class='top-agency sg-item'><a href="http://texas-sea-grant.tamu.edu/">Texas Sea Grant</a></li>
       <?php endif; ?>
+<?php if ( ! empty($options['custom_logo']) ) : ?>
+  <li class="custom-logo"><img src="<?php echo $options['custom_logo']; ?>" height="45px"/></li>
+<?php endif; ?>
 		</ul>				
 	</div><!-- #drop-nav -->	
 </div><!-- #drop-section-nav -->
