@@ -13,6 +13,7 @@
   GLOBAL $isextensiononly, $isresearchonly, $iscollegeonly, $istvmdlonly, $isfazd;
   GLOBAL $isextension4h, $isextensioncounty, $isextensioncountytce, $isextensionmg, $isextensionmn;
   GLOBAL $options;
+  GLOBAL $useCustomFooter;
 ?>
 </div><!--.wrap-->
 </div><!--#content-wrap-->
@@ -46,6 +47,8 @@ elseif($isfazd) :
 	//include("includes/footer/contact.inc.php");  
 	// Column 5
 	//include("includes/footer/bookstore.inc.php"); 	
+elseif($options['useCustomFooter']) :
+  include("includes/footer/fazd.inc.php");
 elseif($isextensiononly && $isextension4h) : 
 	include("includes/footer/4h.inc.php");
 	// Column 4

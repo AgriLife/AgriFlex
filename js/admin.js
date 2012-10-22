@@ -144,9 +144,20 @@ jQuery('#ext_type_5').click(function() {
   return true;
 });
 
+jQuery('#useCustomHeader').click( function() {
+  if( jQuery(this).is(':checked')) {
+    jQuery('#custom-header').show();
+  } else {
+    jQuery('#custom-header').hide();
+  }
+});
 
+if( jQuery('#useCustomHeader').is(':not(:checked)') ) {
+  jQuery('#custom-header').hide();
+}
 
 
 });
+
 
 

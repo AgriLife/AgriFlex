@@ -465,6 +465,12 @@ body.extension.research #drop-section-nav #drop-nav ul:hover {
 	color: #938683;
 	line-height: 1.2em;	
 }
+#drop-section-nav #drop-nav ul li.custom-header {
+	padding: 10px 0;
+	font-size: 16px;
+	color: #938683;
+	line-height: 1.2em;	
+}
 
 #drop-section-nav #drop-nav ul li.ask,
 #drop-section-nav #drop-nav ul li.explore,
