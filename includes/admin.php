@@ -293,6 +293,9 @@ if (!class_exists("AgrilifeCustomizer")) {
 				'isCollege' => false,
 				'isTvmdl' => false,
 				'isFazd' => false,
+        'useCustomHeader' => false,
+        'custom_header_text' => '',
+        'useCustomFooter' => false,
 				
 				'extension_type' => 0,
 
@@ -344,6 +347,10 @@ if (!class_exists("AgrilifeCustomizer")) {
 			$options['isCollege'] = false;
 			$options['isTvmdl'] = false;
 			$options['isFazd'] = false;
+      $options['useCustomHeader'] = false;
+      $options['custom_header_text'] = '';
+      $options['useCustomFeader'] = false;
+
 			
 			// Extension Sub-options
 			$options['extension_type'] = 0;
@@ -415,6 +422,20 @@ if (!class_exists("AgrilifeCustomizer")) {
 				if (isset($_POST['isFazd'])) {
 				  $agrilifeOptions['isFazd'] = $_POST['isFazd'];
 				}	
+				if (isset($_POST['useCustomHeader'])) {
+				  $agrilifeOptions['useCustomHeader'] = $_POST['useCustomHeader'];
+        } else {
+          $agrilifeOptions['useCustomHeader'] = null;
+        }	
+
+				if (isset($_POST['custom_header_text'])) {
+				  $agrilifeOptions['custom_header_text'] = $_POST['custom_header_text'];
+				}	
+				if (isset($_POST['useCustomFooter'])) {
+				  $agrilifeOptions['useCustomFooter'] = $_POST['useCustomFooter'];
+        }	else {
+          $agrilifeOptions['useCustomFooter'] = null;
+        }
 				
 				// Extension Sub-types
 				if (isset($_POST['extension_type']) && ($_POST['isExtension']) ) {
@@ -578,6 +599,28 @@ if (!class_exists("AgrilifeCustomizer")) {
 		</td>
 		</tr>
 		</table>
+
+<?php if( is_super_admin() ) : ?>
+<h3>Custom Header/Footer</h3>
+<p>
+  <input type="checkbox" id="useCustomHeader" name="useCustomHeader"<?php if (isset($agrilifeOptions['useCustomHeader'])) { _e( 'checked', AgrilifeCustomizer); }?> />
+<label for="useCustomHeader">Show custom header</label>
+</p>
+<table class="form-table" id="custom-header">
+  <tr valign="top">
+    <th scope="row">Custom Header Text</th>
+      <td><label for="custom-header-text">
+        <input id="custom_header_text" type="text" size="100" name="custom_header_text" value="<?php _e($this->showHtml($agrilifeOptions['custom_header_text']), 'AgrilifeCustomizer') ?>" />
+    </label></td>
+  </tr>
+</table>
+
+<p>
+  <input type="checkbox" id="useCustomFooter" name="useCustomFooter"<?php if ($agrilifeOptions['useCustomFooter']) { _e( 'checked="checked"', AgrilifeCustomizer); }?> />
+<label for="useCustomFooter">Show custom footer</label>
+</p>
+
+<?php endif; ?>
 		
 		<h3>Addtional Agency Logo</h3>
 		
