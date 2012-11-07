@@ -640,11 +640,6 @@ if (!$isextensiononly) {
 	include(MY_THEME_FOLDER . '/includes/cpt_staff.php');
 }
 
-/* Job Posting Custom Post Type */
-if ($iscollegeonly) {
-	include(MY_THEME_FOLDER . '/includes/cpt_job_board.php');
-}
- 
 function my_meta_save($post_id)
 {
      // authentication checks
@@ -653,7 +648,7 @@ function my_meta_save($post_id)
      if (!wp_verify_nonce($_POST['my_meta_noncename'],__FILE__)) return $post_id;
  
      // check user permissions
-     if ($_POST['post_type'] == array('staff', 'job_posting'))
+     if ($_POST['post_type'] == 'staff')
      {
           if (!current_user_can('edit_page', $post_id)) return $post_id;
      }

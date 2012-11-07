@@ -1774,7 +1774,6 @@ body.home.blog .hentry {
 
 /* Job Postings, Tests and Staff pages (Custom Post Types)
 -------------------------------------------------------------- */
-.job-search-form,
 .staff-search-form,
 .test-search-form {
 	margin-bottom: 20px;
@@ -1817,25 +1816,20 @@ body.home.blog .hentry {
 	padding-top: 8px;
 }
 
-.job-search-form .searchform,
 .staff-search-form .searchform,
 .test-search-form .searchform {
 	top: 8px;
 }
 
-.job-search-form label h4,
 .staff-search-form label h4,
 .test-search-form label h4 {
 	margin-bottom: 5px;
 }
 
-.job-listing-ul,
 .staff-listing-ul {
 	border-top: double #d5d1bf;	
 }
 
-.job-listing-ul,
-.job-listing-item,
 .staff-listing-ul,
 .staff-listing-item,
 .test-listing-ul,
@@ -1845,7 +1839,6 @@ body.home.blog .hentry {
 	padding-left: 0;
 }
 
-.job-listing-item,
 .staff-listing-item,
 .test-listing-link {
 	list-style-type: none;
@@ -1862,7 +1855,6 @@ body.home.blog .hentry {
 	list-style-type: none;	
 }
 
-.job-listing-item:nth-child(even),
 .staff-listing-item:nth-child(even),
 .test-listing-item:nth-child(even)  {
 	background: #EAE6D2;
@@ -1870,10 +1862,6 @@ body.home.blog .hentry {
 }
 
 .staff-container,
-a.job-listing-link,
-body.extensiononly a.job-listing-link,
-body.researchonly a.job-listing-link,
-body.collegeonly a.job-listing-link,
 body.tvmdlonly a.test-listing-link {
 	overflow: hidden;
 	display: block;	
@@ -1888,14 +1876,12 @@ body.tvmdlonly a.test-listing-link {
 }
 
 .staff-listing-item:hover,
-a.job-listing-link:hover,
 a.staff-listing-link:hover,
 a.test-listing-link:hover {
 	background: #f1efce;
 	border-bottom: 1px solid #9f9490;		
 }
 
-.job-title,
 .staff-title,
 .test-title {
 	font: 90% "minion-pro-1","minion-pro-2", 'Cambria', 'Georgia', 'Times New Roman', serif;
@@ -1921,22 +1907,6 @@ a.test-listing-link:hover {
 
 .test-listing-dd ul {
 	margin: 5px 0;	
-}
-
-
-.job-agency,
-.job-posted-date,
-.job-number,
-body.home #content h3.job-agency,
-body.home #content h4.job-posted-date,
-body.home #content h4.job-number {
-	font-family: ff-dagny-web-pro-1, ff-dagny-web-pro-2, 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
-	font-size: 14px;
-	font-weight: normal;
-	color: #433C3A;
-	float: left;
-	line-height: 1.2em;
-	width: 65%;
 }
 
 .staff-phone,
