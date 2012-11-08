@@ -342,11 +342,11 @@ if (!class_exists("AgrilifeCustomizer")) {
 			$options = get_option('AgrilifeOptions');
 			
 			// Set Header Tabs
-			$options['isResearch'] = false;
-			$options['isExtension'] = false;
-			$options['isCollege'] = false;
-			$options['isTvmdl'] = false;
-			$options['isFazd'] = false;
+      $options['isResearch'] = false;
+      $options['isExtension'] = false;
+      $options['isCollege'] = false;
+      $options['isTvmdl'] = false;
+      $options['isFazd'] = false;
       $options['useCustomHeader'] = false;
       $options['custom_header_text'] = '';
       $options['useCustomFeader'] = false;

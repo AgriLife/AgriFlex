@@ -548,12 +548,6 @@ function county_footer_contact() {
 	
 	          } else {
 	          
-				// Show Everything
-				//echo '<pre>';
-				//echo $countycode;
-				//print_r($result);
-				//echo '</pre>';
-	
 				foreach ( $result['ResultQuery']['data'] as $item ) {
 	
 					$mapaddress=$item[14].' '.$item[17].', '.$items[18].' '.$item[19];
@@ -578,13 +572,6 @@ function county_footer_contact() {
 							echo $item[14];
 							echo '<br />'.$item[17].', '.$item[18].' '.$zip.'</li>';
 						}
-						/*if($options['address-mail-street1']<>'') {
-							echo '<li>'.$options['address-mail-street1'];
-							if($options['address-mail-street2']<>'')
-								echo '<br />'.$options['address-mail-street2'];
-							echo '<br />'.$options['address-mail-city'].', TX '.$options['address-mail-zip'].'</li>';
-						}
-						*/
 						if($options['hours']<>'') {
 							echo '<li>'.$options['hours'].'</li>';
 						}
@@ -700,12 +687,6 @@ function county_office_info() {
 	
 	          } else {
 	          
-				// Show Everything
-				//echo '<pre>';
-				//echo $countycode;
-				//print_r($result);
-				//echo '</pre>';
-				
 				foreach ( $result['ResultQuery']['data'] as $item ) {
 					if(strlen($item[19])>5) {
 						$zip = str_split($item[19],5);
@@ -871,7 +852,6 @@ function show_county_directory($options) {
 	               foreach ( $result['ResultQuery']['data'] as $item ) {
 	                    echo '<li class="staff-listing-item">';
 	                    echo '<div class="role staff-container">';
-	                    //echo '<a href="http://agrilife.org/link/to/staff/page/" rel="bookmark"><img width="70" height="70" src="http://agrilife.org/image.jpg?v=100" class="attachment-staff_archive wp-post-image" alt="'.$item[5].' '.$item[4].'" title="'.$item[5].' '.$item[4].'" /></a>';
 					    echo '<hgroup class="staff-head">';
 	                    echo '<h2 class="staff-title" title="'.$item[5].' '.$item[4].'">'.$item[5]." ".$item[4]."</h2>";
 	                    
@@ -903,10 +883,6 @@ function show_county_directory($options) {
 	
 	               }
 	               echo '</ul>';
-	
-	               //echo '<h2>Result</h2><pre>';
-	               //print_r($result);
-	               //echo '</pre>';
 	
 	          }
 	

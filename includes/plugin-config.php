@@ -11,7 +11,6 @@ TABLE OF CONTENTS
 	- $content_width
 	- Yoast Breadcrumb Defaults
 	- Gravity Form Defaults
-	- Vipers Video Tags Defaults [not working]
 	- Tiny MCE
 
 -----------------------------------------------------------------------------------*/
@@ -49,19 +48,6 @@ function remove_gravityforms_style() {
 }
 add_action('wp_print_styles', 'remove_gravityforms_style');
 /* END Set Gravity Form Defaults */
-
-/* BEGIN Config Vipers Video Tags Defaults */
-/* This does not work. Want to turn off all options except YouTube by default.  */
-/* Setting it in PU works, but PU upgrades break it. */
-/*
-$vvq_defaultsettings							= array();
-$vvq_defaultsettings['vimeo']['button'] 		= 0;
-$vvq_defaultsettings['veoh']['button'] 			= 0;
-$vvq_defaultsettings['dailymotion']['button'] 	= 0;
-$vvq_defaultsettings['bliptv']['button']		= 0;
-update_option("vvq_options",$vvq_defaultsettings);
-*/
-/* END Config Vipers Video Tags Defaults */
 
 /* BEGIN Tiny MCE */
 /* Allow iframe content to 'stick' when toggling visual editor */

@@ -740,46 +740,6 @@ function ucc_get_terms_list( $id = '' , $echo = true ) {
   } 
 } 
 
-/*
-
-// Include taxonomies in search results
-// search all taxonomies, based on: http://projects.jesseheap.com/all-projects/wordpress-plugin-tag-search-in-wordpress-23
-
-function agrilife_search_where($where){
-  global $wpdb, $wp_query;
-  if ( !empty($qv['searchtests']) )
-    $where .= "OR (t.name LIKE '%".get_search_query()."%' AND {$wpdb->posts}.post_status = 'publish')";
-  return $where;
-}
-
-function agrilife_search_join($join){
-  global $wpdb, $wp_query;
-  if (!empty($qv['searchtests']))
-    $join .= "LEFT JOIN {$wpdb->term_relationships} tr ON {$wpdb->posts}.ID = tr.object_id INNER JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id=tr.term_taxonomy_id INNER JOIN {$wpdb->terms} t ON t.term_id = tt.term_id";
-  return $join;
-}
-
-function agrilife_search_groupby($groupby){
-  global $wpdb;
-
-  // we need to group on post ID
-  $groupby_id = "{$wpdb->posts}.ID";
-  if(!is_search() || strpos($groupby, $groupby_id) !== false) return $groupby;
-
-  // groupby was empty, use ours
-  if(!strlen(trim($groupby))) return $groupby_id;
-
-  // wasn't empty, append ours
-  return $groupby.", ".$groupby_id;
-}
-
-add_filter('posts_where','agrilife_search_where');
-add_filter('posts_join', 'agrilife_search_join');
-add_filter('posts_groupby', 'agrilife_search_groupby');
-
-*/
-
-
 // College specific content for drop-down
 function college_top_level_section() {
     do_action('college_top_level_section');

@@ -66,11 +66,6 @@ function gallery_home_shortcode($attr) {
 		'size'       => array(585,305)
 	), $attr));
 
-	// dropped:
-	// itemtag
-	// icontag
-	// captiontag
-	// columns
 
 	$id = intval($id);
 	$attachments = get_children( array('post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
@@ -84,11 +79,6 @@ function gallery_home_shortcode($attr) {
 			$output .= wp_get_attachment_link($att_id, $size, true) . "\n";
 		return $output;
 	}
-
-	//$itemtag = tag_escape($itemtag);
-	//$captiontag = tag_escape($captiontag);
-	//$columns = intval($columns);
-	//$itemwidth = $columns > 0 ? floor(100/$columns) : 100;
 
 	$selector = "gallery-{$instance}";
 
@@ -124,9 +114,6 @@ function gallery_home_shortcode($attr) {
 function sm_dir_shortcode() {
 	global $post;
 	
-    // $array = get_cforms_entries();   /* all data, no filters */
-	//$array = get_cforms_entries('Social Media Efforts',false,date ("Y-m-d H:i:s", time()-(3600*24*20)),'What AgriLife office do you represent?',false,'asc'); //20 day buffer
-	//$array = get_cforms_entries('Social Media Efforts');
 	$array = get_cforms_entries('Social Media Efforts',false,date ("Y-m-d H:i:s", time()),'What AgriLife office do you represent?',false,'asc');
 
 	$return = '<div class="table2">
@@ -163,8 +150,6 @@ function sm_dir_shortcode() {
 			}
 			
 			//YouTube
-			//if($e['data']['YouTube Username']<>'' && $e['data']['YouTube Username']<>'@username')
-			//  $return .=  $e['data']['YouTube Username'] . '<br />';
 			if($e['data']['YouTube Channel Address']<>'' && $e['data']['YouTube Channel Address'] <> 'http://') {
 			  $return .=  '<a href="'.$e['data']['YouTube Channel Address'].'">'.
 		  		'<img src="http://agrilifeweb.tamu.edu/us/files/2010/01/youtube.gif?v=100" alt="'.$e['data']['YouTube Channel Address'] . 
@@ -190,22 +175,6 @@ function sm_dir_shortcode() {
 	}	
 	$return .=  '</div><!-- .table2 -->';
 	
-	/* 
-	$return .=  '<table>';
-	$return .=  '<tr><th>Department</th><th>SM Efforts</th></tr>';
-	foreach( $array as $e ){
-		$return .=  '<tr valign="top"><td>' . $e['data']['What AgriLife office do you represent?'] . '</td>'.
-		'<td>';
-		
-		if($e['data']['Website']<>'' && $e['data']['Website']<>'http://')
-		  $return .=  $e['data']['Website'].'<br />';
-		if ($e['data']['Blog Address']<>'' && $e['data']['Blog Address'] <> 'http://')
-		  $return .=  $e['data']['Blog Address'] . '<br />';
-		$return .=  '</td><tr>';
-	}
-	$return .=  '</table>';
-	*/
-
 	return $return;
 }
 add_shortcode('sm-directory', 'sm_dir_shortcode');
