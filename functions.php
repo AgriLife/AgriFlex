@@ -90,8 +90,7 @@ function agriflex_setup() {
      add_image_size('featured',965,475,true);
      add_image_size('featured-2',585,305,true);
      add_image_size('featured-mediabox',175,124,true);    
-     add_image_size('staff_single',175,175,true);
-     add_image_size('staff_archive',70,70,true);         
+
      // Add default posts and comments RSS feed links to head
      add_theme_support( 'automatic-feed-links' );
 
@@ -634,55 +633,6 @@ function base_admin_body_class( $classes )
 }
 add_filter('admin_body_class', 'base_admin_body_class');
 
-
-/* Staff Custom Post Type */
-if (!$isextensiononly) {
-	include(MY_THEME_FOLDER . '/includes/cpt_staff.php');
-}
-
-function my_meta_save($post_id)
-{
-     // authentication checks
- 
-     // make sure data came from our meta box
-     if (!wp_verify_nonce($_POST['my_meta_noncename'],__FILE__)) return $post_id;
- 
-     // check user permissions
-     if ($_POST['post_type'] == 'staff')
-     {
-          if (!current_user_can('edit_page', $post_id)) return $post_id;
-     }
-     else
-     {
-          if (!current_user_can('edit_post', $post_id)) return $post_id;
-     }
- 
-     // authentication passed, save data
- 
-     // var types
-     // single: _my_meta[var]
-     // array: _my_meta[var][]
-     // grouped array: _my_meta[var_group][0][var_1], _my_meta[var_group][0][var_2]
- 
-     $current_data = get_post_meta($post_id, '_my_meta', TRUE);    
- 
-     $new_data = $_POST['_my_meta'];
- 
-     my_meta_clean($new_data);
- 
-     if ($current_data)
-     {
-          if (is_null($new_data)) delete_post_meta($post_id,'_my_meta');
-          else update_post_meta($post_id,'_my_meta',$new_data);
-     }
-     elseif (!is_null($new_data))
-     {
-          add_post_meta($post_id,'_my_meta',$new_data,TRUE);
-     }
- 
-     return $post_id;
-}
- 
 function my_meta_clean(&$arr)
 {
      if (is_array($arr))
