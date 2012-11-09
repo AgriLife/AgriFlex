@@ -14,7 +14,9 @@
   GLOBAL $isextensiononly, $isresearchonly, $iscollegeonly, $istvmdlonly, $isfazd;
   GLOBAL $isextension4h, $isextensioncounty, $isextensioncountytce, $isextensionmg, $isextensionmn, $isextensionsg;
   
-?><!DOCTYPE html>
+?>
+
+<!DOCTYPE html>
 <!--[if lt IE 7]>
 <html id="ie6" class="no-js ie6 oldie" <?php language_attributes(); ?>>
 <![endif]-->
@@ -28,51 +30,62 @@
 <html <?php language_attributes(); ?>>
 <!--<![endif]-->
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>" />
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title><?php
-	/*
-	 * Print the <title> tag based on what is being viewed.
-	 * We filter the output of wp_title() a bit -- see
-	 * agriflex_filter_wp_title() in functions.php.
-	 */
-	wp_title( '|', true, 'right' );
 
-	?></title>
-<link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>?v=100" />
-<!--[if lt IE 9]>
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/iefix.css?2" />
-<![endif]-->
-<link rel="shortcut icon" href="http://agrilifecdn.tamu.edu/wp-content/themes/agrilife-2.0/favicon.ico" type="image/ico" />
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-<?php if ($googlemap) echo $googlemap; ?>
-<?php
-	/* We add some JavaScript to pages with the comment form
-	 * to support sites with threaded comments (when in use).
-	 */
-	if ( is_singular() && get_option( 'thread_comments' ) )
-		wp_enqueue_script( 'comment-reply' );
+  <meta charset="<?php bloginfo( 'charset' ); ?>" />
 
-	/* Always have wp_head() just before the closing </head>
-	 * tag of your theme, or you will break many plugins, which
-	 * generally use this hook to add elements to <head> such
-	 * as styles, scripts, and meta tags.
-	 */
-	wp_head();
-?>
-	<!-- Hook up the FlexSlider and FitVids-->
-	<script type="text/javascript">
-	
-		$(window).load(function() {
-			$('.flexslider').flexslider({
-				animation: "slide",
-          		controlsContainer: ".flex-container",
-				animationDuration: 300     
-				});
-			$("#tabs-1,.entry-content").fitVids();
-		});
-	</script>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>
+    <!-- Print the <title> tag based on what is being viewed.
+      We filter the output of wp_title() a bit - see
+      agriflex_filter_wp_title() in functions.php.
+      -->
+    <?php wp_title( '|', true, 'right' ); ?>
+  </title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11" />
+
+  <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>?v=100" />
+
+  <!--[if lt IE 9]>
+  <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/iefix.css?2" />
+  <![endif]-->
+
+  <link rel="shortcut icon" href="http://agrilifecdn.tamu.edu/wp-content/themes/agrilife-2.0/favicon.ico" type="image/ico" />
+
+  <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+
+  <?php
+
+  if ($googlemap) echo $googlemap;
+
+  /* We add some JavaScript to pages with the comment form
+   * to support sites with threaded comments (when in use).
+   */
+  if ( is_singular() && get_option( 'thread_comments' ) )
+    wp_enqueue_script( 'comment-reply' );
+
+  /* Always have wp_head() just before the closing </head>
+   * tag of your theme, or you will break many plugins, which
+   * generally use this hook to add elements to <head> such
+   * as styles, scripts, and meta tags.
+   */
+  wp_head();
+
+  ?>
+
+  <!-- Hook up the FlexSlider and FitVids-->
+  <script type="text/javascript">
+    $(window).load(function() {
+      $('.flexslider').flexslider({
+        animation: "slide",
+              controlsContainer: ".flex-container",
+        animationDuration: 300     
+        });
+      $("#tabs-1,.entry-content").fitVids();
+    });
+  </script>
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -188,14 +201,6 @@
 			</header><!-- #branding -->	
 		</div><!-- end #header -->
 			<div class='menu-button'>Menu</div>
-			<nav id="access" role="navigation">		
-			  <?php /*  Allow screen readers / text browsers to skip the navigation menu and get right to the good stuff */ ?>
-				<div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'agriflex' ); ?>"><?php _e( 'Skip to content', 'agriflex' ); ?></a></div>
-				
-				<?php /* Our navigation menu.  If one isn't filled out, wp_nav_menu falls back to wp_page_menu.  The menu assiged to the primary position is the one used.  If none is assigned, the menu with the lowest ID is used.  */ ?>
-
-				<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>  
-				
-			</nav><!-- .access -->
-	<div id="content-wrap">		
-		<div class="wrap">	
+        <?php get_template_part( 'nav', 'primary' ); ?>
+        <div id="content-wrap">		
+          <div class="wrap">	
