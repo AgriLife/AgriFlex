@@ -1,21 +1,22 @@
 <?php
 
-GLOBAL $options;
-
-GLOBAL $isextensioncounty,
-  $isextensioncountytce,
-  $isextensionmg,
-  $isextensionmn;
 
 
 function agriflex_show_header() {
+
+  GLOBAL $options;
+
+  GLOBAL $isextensioncounty,
+    $isextensioncountytce,
+    $isextensionmg,
+    $isextensionmn;
 
   $home_url = get_home_url( '/' );
   $blog_name = esc_attr( get_bloginfo( 'name', 'display' ) );
   
   if ( $isextensioncounty || $isextensioncountytce ) {
     $display = '<span>Extension Education</span> <em>in ' . 
-               $options['county-human-name'] .
+               $options['county-name-human'] .
                ' County</em>';
 
   } elseif ( $isextensionmg ) {
