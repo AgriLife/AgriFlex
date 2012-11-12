@@ -804,6 +804,8 @@ function remove_parent($var)
 
      // Set path to function files
      $includes_path = TEMPLATEPATH . '/includes/';
+      $include_path = TEMPLATEPATH . '/inc/';
+      
      // Admin Pages
      require_once ($includes_path . 'admin.php');
      // Remove Admin Menus and Dashboards
@@ -819,3 +821,5 @@ function remove_parent($var)
     
      // Add Logout Button to password-protected posts 
       require_once ($includes_path . 'logout-password-protected-posts/logout.php');
+     // Add header functions
+     require_once ( $include_path . 'site-header.php' );

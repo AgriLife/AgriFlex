@@ -96,49 +96,7 @@
 <?php if($iscollegeonly) college_top_level_section() ?>
 	
 <div id="wrapper" class="hfeed">
-	<div id="header">
-			<header id="branding" role="banner">
-				<hgroup>
-				<h1 id="site-title">
-				<?php if($isextensioncounty || $isextensioncountytce) :?>
-						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><span>Extension Education</span> <em>in <?php echo $options['county-name-human']; ?> County</em></a>
-									
-				<?php elseif($isextensionmg) :?>
-						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-							<img src="<?php bloginfo('stylesheet_directory') ?>/images/txmg-logo80.gif?v=100" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
-							<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>
-						</a>
-				<?php elseif($isextensionmn) :?>
-						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-							<img src="<?php bloginfo('stylesheet_directory') ?>/images/txmn-logo.png?v=100" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
-							<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>
-						</a>		
-
-				<?php else : ?>	
-			
-						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-						<?php if($options['header_type']==1 && $options['titleImg']<>'') :
-							// Image with Small Logo ?>
-							<img src="<?php echo $options['titleImg']; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
-							<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>
-						<?php elseif($options['header_type']==2) : 
-							// Full Width Image ?>
-							<img src="<?php echo $options['titleImg']; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
-							<span class="full-img-text"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></span>
-						<?php else: 
-							// Just Site Title ?>
-							<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>
-						<?php endif; ?>
-						</a>
-							
-				
-				<?php endif; ?>
-				</h1>
-				<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
-				</hgroup>
-				<?php get_search_form(); ?>					
-			</header><!-- #branding -->	
-		</div><!-- end #header -->
+  <?php echo agriflex_show_header(); ?>
 			<div class='menu-button'>Menu</div>
         <?php get_template_part( 'nav', 'primary' ); ?>
         <div id="content-wrap">		
