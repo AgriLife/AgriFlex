@@ -15,6 +15,18 @@ function agriflex_threaded_comments() {
 
 }
 
+// College specific content for drop-down
+function agriflex_college_drop_down() {
+
+  GLOBAL $iscollegeonly;
+
+  if ( $iscollegeonly ) {
+    // instead of writing HTML here, lets do an include
+    include( __FILE__ . '/college-drop-down.php');
+  }
+
+}
+
 function agriflex_show_header() {
 
   GLOBAL $options;

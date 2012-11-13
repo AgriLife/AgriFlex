@@ -77,7 +77,7 @@
 <!-- Conditional Agency navigation -->
 <?php get_template_part( 'nav', 'agency' ); ?>
 
-<?php if($iscollegeonly) college_top_level_section() ?>
+<?php agriflex_college_drop_down(); ?>
 	
 <div id="wrapper" class="hfeed">
   <?php agriflex_show_header(); ?>
