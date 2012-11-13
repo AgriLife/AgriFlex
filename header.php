@@ -55,9 +55,8 @@
 
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
-  <?php
+  <?php agriflex_return_map; ?>
 
-  if ($googlemap) echo $googlemap;
 
   /* We add some JavaScript to pages with the comment form
    * to support sites with threaded comments (when in use).

@@ -1,6 +1,12 @@
 <?php
 
+function agriflex_return_map() {
 
+  GLOBAL $googlemap;
+
+  if ( $googlemap ) echo $googlemap;
+
+}
 
 function agriflex_show_header() {
 
