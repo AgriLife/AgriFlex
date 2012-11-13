@@ -814,3 +814,6 @@ function remove_parent($var)
 
      // Add footer functions
      require_once ( $include_path . 'site-footer.php' );
+    
+     // Add archive functions
+     require_once ( $include_path . 'site-archive.php' );
