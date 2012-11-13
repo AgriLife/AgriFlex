@@ -793,6 +793,7 @@ if ( ! function_exists( 'agriflex_content_nav' ) ) :
 /**
  * Display navigation to next/previous pages/posts when applicable
  * Works on single entries and loops
+ * See: https://github.com/Automattic/_s/blob/master/inc/template-tags.php
  *
  * @since agriflex 2.0
  * @global $wp_query
