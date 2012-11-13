@@ -8,6 +8,13 @@ function agriflex_return_map() {
 
 }
 
+function agriflex_threaded_comments() {
+
+  if ( is_singular() && get_option( 'thread_comments' ) )
+    wp_enqueue_script( 'comment-reply' );
+
+}
+
 function agriflex_show_header() {
 
   GLOBAL $options;
@@ -75,6 +82,6 @@ function agriflex_show_header() {
   $html .= '</header><!-- end #branding -->';
   $html .= '</div><!-- end #header -->';
 
-  return $html;
+  echo $html;
 
 }

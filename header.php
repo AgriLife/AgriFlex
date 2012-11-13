@@ -57,33 +57,18 @@
 
   <?php agriflex_return_map; ?>
 
+  <!-- We add some JavaScript to pages with the comment form
+  to support sites with threaded comments (when in use). -->
+  <?php agriflex_threaded_comments(); ?>
 
-  /* We add some JavaScript to pages with the comment form
-   * to support sites with threaded comments (when in use).
-   */
-  if ( is_singular() && get_option( 'thread_comments' ) )
-    wp_enqueue_script( 'comment-reply' );
-
-  /* Always have wp_head() just before the closing </head>
-   * tag of your theme, or you will break many plugins, which
-   * generally use this hook to add elements to <head> such
-   * as styles, scripts, and meta tags.
-   */
-  wp_head();
-
-  ?>
+  <!--Always have wp_head() just before the closing </head>
+  tag of your theme, or you will break many plugins, which
+  generally use this hook to add elements to <head> such
+  as styles, scripts, and meta tags. -->
+  <?php wp_head(); ?>
 
   <!-- Hook up the FlexSlider and FitVids-->
-  <script type="text/javascript">
-    $(window).load(function() {
-      $('.flexslider').flexslider({
-        animation: "slide",
-              controlsContainer: ".flex-container",
-        animationDuration: 300     
-        });
-      $("#tabs-1,.entry-content").fitVids();
-    });
-  </script>
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/flex-bootstrap.js"></script>
 
 </head>
 
@@ -95,8 +80,9 @@
 <?php if($iscollegeonly) college_top_level_section() ?>
 	
 <div id="wrapper" class="hfeed">
-  <?php echo agriflex_show_header(); ?>
-			<div class='menu-button'>Menu</div>
-        <?php get_template_part( 'nav', 'primary' ); ?>
-        <div id="content-wrap">		
+  <?php agriflex_show_header(); ?>
+  <div class='menu-button'>Menu</div>
+  <!-- Tabbed menu -->
+  <?php get_template_part( 'nav', 'primary' ); ?>
+  <div id="content-wrap">		
           <div class="wrap">	
