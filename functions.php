@@ -811,3 +811,6 @@ function remove_parent($var)
       require_once ($includes_path . 'logout-password-protected-posts/logout.php');
      // Add header functions
      require_once ( $include_path . 'site-header.php' );
+
+     // Add footer functions
+     require_once ( $include_path . 'site-footer.php' );
