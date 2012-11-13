@@ -1,5 +1,6 @@
 <?php
 
+// Show location map if available
 function agriflex_return_map() {
 
   GLOBAL $googlemap;
@@ -8,6 +9,8 @@ function agriflex_return_map() {
 
 }
 
+// We add some JavaScript to pages with the comment form
+// to support sites with threaded comments (when in use).
 function agriflex_threaded_comments() {
 
   if ( is_singular() && get_option( 'thread_comments' ) )
@@ -27,6 +30,7 @@ function agriflex_college_drop_down() {
 
 }
 
+// Logic to determine which header to show
 function agriflex_show_header() {
 
   GLOBAL $options;

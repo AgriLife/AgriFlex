@@ -740,18 +740,6 @@ function ucc_get_terms_list( $id = '' , $echo = true ) {
   } 
 } 
 
-// College specific content for drop-down
-function college_top_level_section() {
-    do_action('college_top_level_section');
-}
-
-add_action('college_top_level_section','college_drop_down',5);
-
-function college_drop_down() {
-
-// instead of writing HTML here, lets do an include
-     include(MY_THEME_FOLDER . '/college-drop-section.php');
-}
 
 
 /** @param     email     email to obfuscate (String)

@@ -2,18 +2,13 @@
 /**
  * The Header for our theme.
  *
- * Displays all of the <head> section and everything up till <div id="main">
+ * Displays all of the <head> section and everything up till <div id="wrap">
  *
  * @package WordPress
  * @subpackage agriflex
  * @since agriflex 1.0
  */
  
-  GLOBAL $options,$googlemap;
-  GLOBAL $isresearch, $isextension, $iscollege, $istvmdl;
-  GLOBAL $isextensiononly, $isresearchonly, $iscollegeonly, $istvmdlonly, $isfazd;
-  GLOBAL $isextension4h, $isextensioncounty, $isextensioncountytce, $isextensionmg, $isextensionmn, $isextensionsg;
-  
 ?>
 
 <!DOCTYPE html>
@@ -57,8 +52,6 @@
 
   <?php agriflex_return_map; ?>
 
-  <!-- We add some JavaScript to pages with the comment form
-  to support sites with threaded comments (when in use). -->
   <?php agriflex_threaded_comments(); ?>
 
   <!--Always have wp_head() just before the closing </head>
