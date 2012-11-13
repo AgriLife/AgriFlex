@@ -7,40 +7,50 @@
  * and that other 'pages' on your wordpress site will use a
  * different template.
  *
- * @package WordPress
- * @subpackage agriflex
+ * @package agriflex
  * @since agriflex 1.0
  */
+?>
 
-get_header(); ?>
+<?php get_header(); ?>
 
-		<div id="wrap">
-			<div id="content" role="main">
-		<?php if ( function_exists('yoast_breadcrumb') ) {
-		yoast_breadcrumb('<div id="breadcrumbs">','</div>');
-		} ?>
-<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+<div id="wrap">
+  <div id="content" role="main">
 
-				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-					<?php if ( is_front_page() ) { ?>
-						<h2 class="entry-title"><?php the_title(); ?></h2>
-					<?php } else { ?>	
-						<h1 class="entry-title"><?php the_title(); ?></h1>
-					<?php } ?>				
+    <?php if ( function_exists('yoast_breadcrumb') ) {
+      yoast_breadcrumb('<div id="breadcrumbs">','</div>');
+    } ?>
 
-					<div class="entry-content">
-						<?php the_content(); ?>
-						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'agriflex' ), 'after' => '</div>' ) ); ?>
-						<?php edit_post_link( __( 'Edit', 'agriflex' ), '<span class="edit-link">', '</span>' ); ?>
-					</div><!-- .entry-content -->
-				</div><!-- #post-## -->
+    <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-				<?php comments_template( '', true ); ?>
+    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+      <?php if ( is_front_page() ) { ?>
+      <h2 class="entry-title"><?php the_title(); ?></h2>
+      <?php } else { ?>	
+      <h1 class="entry-title"><?php the_title(); ?></h1>
+      <?php } ?>				
 
-<?php endwhile; ?>
+      <div class="entry-content">
 
-			</div><!-- #content -->
-		</div><!-- #wrap -->
+        <?php the_content(); ?>
+
+        <?php wp_link_pages( array(
+          'before' => '<div class="page-link">' . __( 'Pages:', 'agriflex' ),
+          'after' => '</div>' ) ); ?>
+
+        <?php edit_post_link( __( 'Edit', 'agriflex' ),
+          '<span class="edit-link">', '</span>' ); ?>
+
+      </div><!-- .entry-content -->
+
+    </div><!-- #post-## -->
+
+    <?php comments_template( '', true ); ?>
+
+    <?php endwhile; ?>
+
+  </div><!-- #content -->
+</div><!-- #wrap -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
