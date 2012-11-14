@@ -295,6 +295,7 @@ add_filter( 'wp_title', 'agriflex_filter_wp_title', 10, 2 );
  * your own function tied to the wp_page_menu_args filter hook.
  *
  * @since agriflex 1.0
+ * @return array $args The updated array of menu arguments
  */
 function agriflex_page_menu_args( $args ) {
      $args['show_home'] = true;
@@ -461,6 +462,7 @@ function custom_search_form() {
  * function tied to the init hook.
  *
  * @uses register_sidebar
+ * @since AgriFlex 1.0
  */
 function agriflex_widgets_init() {
      // Area 1, located at the top of the sidebar.
@@ -664,91 +666,21 @@ function my_meta_clean(&$arr)
      }
 }
 
-/* Get taxononies associated with a post */
-function ucc_get_terms( $id = '' ,$return_links = true) {
-  global $post;
- 
-  if ( empty( $id ) )
-    $id = $post->ID;
- 
-  if ( !empty( $id ) ) {
-    $post_taxonomies = array();
-    $post_type = get_post_type( $id );
-    $taxonomies = get_object_taxonomies( $post_type , 'names' );
- 
-    foreach ( $taxonomies as $taxonomy ) {
-      $term_links = array();
-      $terms = get_the_terms( $id, $taxonomy );
- 
-      if ( is_wp_error( $terms ) )
-        return $terms;
- 
-      if ( $terms ) {
-        foreach ( $terms as $term ) {
-          $link = get_term_link( $term, $taxonomy );
-          if ( is_wp_error( $link ) )
-            return $link;
-          if($return_links)
-          	$term_links[] = '<a href="' . $link . '" rel="' . $taxonomy . '">' . $term->name . '</a>';
-          else
-            $term_links[] = $term->name;
-        }
-      }
- 
-      $term_links = apply_filters( "term_links-$taxonomy" , $term_links );
-      $post_terms[$taxonomy] = $term_links;
-    }
-    return $post_terms;
-  } else {
-    return false;
-  }
-}
-
-/* Make bulleted lists of taxononies associated with a post */
-function ucc_get_terms_list( $id = '' , $echo = true ) {
-  global $post;
- 
-  if ( empty( $id ) )
-    $id = $post->ID;
- 
-  if ( !empty( $id ) ) {
-    $my_terms = ucc_get_terms( $id , false);
-    if ( $my_terms ) {
-      $my_taxonomies = array();
-      foreach ( $my_terms as $taxonomy => $terms ) {
-        $my_taxonomy = get_taxonomy( $taxonomy );
-        if ( !empty( $terms ) )          $my_taxonomies[] = '<span class="' . $my_taxonomy->name . '-links">' . '<span class="entry-utility-prep entry-utility-prep-' . $my_taxonomy->name . '-links">' . $my_taxonomy->labels->name . ': ' . implode( $terms , ', ' ) . '</span></span>';
-      }
- 
-      if ( !empty( $my_taxonomies ) ) {
-        $output = '<ul>' . "\n";
-        foreach ( $my_taxonomies as $my_taxonomy ) {
-          $output .= '<li>' . $my_taxonomy . '</li>' . "\n";
-        }
-        $output .= '</ul>' . "\n";
-      }
- 
-      if ( $echo )
-        echo $output;
-      else
-        return $output;
-    } else {
-      return;
-    }
-  } else {
-    return false;
-  } 
-} 
-
-
-
-/** @param     email     email to obfuscate (String)
-* @return     String     obfuscated email
-*/
+/** 
+ * Obfuscates email addresses
+ *
+ * @since AgriFlex 1.0
+ * @param string $email Email to obfuscate
+ * @return string $link Obfuscated email
+ */
 function obfuscate($email){
+
      $link = '';
-     foreach(str_split($email) as $letter)
-     $link .= '&#'.ord($letter).';';
+
+     foreach( str_split( $email ) as $letter ) {
+       $link .= '&#' . ord( $letter ) . ';';
+     }
+
      return $link;
 }
 
@@ -756,6 +688,7 @@ function obfuscate($email){
 /**
  * Category Loop function
  *
+ * @todo - Move to Category Widget
  * @return string|bool Category loop
  */
 function cat_loop( $catClass ) {
@@ -780,22 +713,34 @@ function cat_loop( $catClass ) {
 }
 
 
-// Menu Fix for CPT
-function remove_parent($var)
-{
+/**
+ *  Menu Fix for CPT
+ *
+ *  @since AgriFlex 1.0
+ *  @param int $var Post/page ID
+ *  @return bool
+ */
+function remove_parent($var) {
+
 	// check for current page values, return false if they exist.
-	if ($var == 'current_page_item' || $var == 'current_page_parent' || $var == 'current_page_ancestor'  || $var == 'current-menu-item') { return false; }
+  if ($var == 'current_page_item' ||
+      $var == 'current_page_parent' ||
+      $var == 'current_page_ancestor' ||
+      $var == 'current-menu-item') {
+        return false;
+  }
 
 	return true;
+
 }
 
 if ( ! function_exists( 'agriflex_content_nav' ) ) :
 /**
  * Display navigation to next/previous pages/posts when applicable
  * Works on single entries and loops
- * See: https://github.com/Automattic/_s/blob/master/inc/template-tags.php
- *
- * @since agriflex 2.0
+ * 
+ * @link https://github.com/Automattic/_s/blob/master/inc/template-tags.php Source
+ * @since AgriFlex 2.0
  * @global $wp_query
  * @global $post
  * @param string $nav_id Unique identifier to be used as ID
