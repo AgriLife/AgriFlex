@@ -914,6 +914,38 @@ function agriflex_get_format() {
 }
 endif; // agriflex_get_format
 
+if ( ! function_exists( 'agriflex_post_thumbnail' ) ) :
+/**
+ * Retrieves the post's thumbnail. Returns a default thumbnail
+ * if one doesn't exist.
+ *
+ * @todo - Change default thumbnail to specific agency
+ *
+ * @package AgriFlex
+ * @since AgriFlex 2.0
+ * @global $post
+ * @returns void
+ */
+function agriflex_post_thumbnail() {
+
+  global $post;
+
+  $html = '<a class="feature-img-excerpt" href="' . get_permalink( $post->ID ) . '">';
+
+  if ( has_post_thumbnail( $post->ID ) ) {
+    // Show the post thumbnail
+    $html .= get_the_post_thumbnail( $post->ID, 'featured-mediabox'); 
+  } else  { 
+    // Show the default thumbnail
+    $html .='<img src="' . get_bloginfo('template_url') . '/images/AgriLife-default-post-image.png?v=100" alt="AgriLife Logo" title="AgriLife" />';
+  }
+  $html .= '</a>';
+
+  echo $html;
+
+}
+endif; // agriflex_post_thumbnail
+
      // Set path to function files
      $includes_path = TEMPLATEPATH . '/includes/';
       $include_path = TEMPLATEPATH . '/inc/';
