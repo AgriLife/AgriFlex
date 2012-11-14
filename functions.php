@@ -735,68 +735,6 @@ function remove_parent($var) {
 }
 
 
-if ( ! function_exists( 'agriflex_get_format' ) ) :
-/**
- * Retrieves the post's category or format.
- * This is required for backwards compatibility with sites that used
- * AgriFlex 1.0
- *
- * @package AgriFlex
- * @since AgriFlex 2.0
- * @returns string $format The post's category or format
- */
-function agriflex_get_format() {
-
-  global $wp_query, $post;
-
-  $post_format[] = get_post_format( $post->ID );
-  $post_cats = get_the_category( $post->ID );
-
-  // Combine the post format with the categories
-  foreach ( $post_cats as $c ) {
-    $post_format[] = $c->name;
-  }
-
-  switch ( $post_format ) {
-
-    case empty( $post_format ) :
-      $format = 'index';
-      break;
-
-    // Applies to both the old category and post format
-    case in_array( 'gallery', $post_format ) :
-      $format = 'gallery';
-      break;
-
-    // Old category 'asides'
-    case in_array( 'asides', $post_format ) :
-      $format = 'aside';
-      break;
-
-    // The post format 'aside'
-    case in_array( 'aside', $post_format ) :
-      $format = 'aside';
-      break;
-
-    case in_array( 'video', $post_format ) :
-      $format = 'video';
-      break;
-
-    case in_array( 'audio', $post_format ) :
-      $format = 'audio';
-      break;
-
-  }
-
-  unset( $post_format );
-
-  return $format;
-
-}
-endif; // agriflex_get_format
-
-
-
 
      // Set path to function files
      $includes_path = TEMPLATEPATH . '/includes/';
