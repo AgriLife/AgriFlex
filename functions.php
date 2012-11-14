@@ -923,10 +923,11 @@ if ( ! function_exists( 'agriflex_post_thumbnail' ) ) :
  *
  * @package AgriFlex
  * @since AgriFlex 2.0
+ * @param string $size Thumbnail size to use
  * @global $post
  * @returns void
  */
-function agriflex_post_thumbnail() {
+function agriflex_post_thumbnail( $size = 'featured-mediabox' ) {
 
   global $post;
 
@@ -934,7 +935,7 @@ function agriflex_post_thumbnail() {
 
   if ( has_post_thumbnail( $post->ID ) ) {
     // Show the post thumbnail
-    $html .= get_the_post_thumbnail( $post->ID, 'featured-mediabox'); 
+    $html .= get_the_post_thumbnail( $post->ID, $size ); 
   } else  { 
     // Show the default thumbnail
     $html .='<img src="' . get_bloginfo('template_url') . '/images/AgriLife-default-post-image.png?v=100" alt="AgriLife Logo" title="AgriLife" />';
