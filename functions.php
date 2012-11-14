@@ -889,7 +889,7 @@ function agriflex_get_format() {
 
     // Old category 'asides'
     case in_array( 'asides', $post_format ) :
-      $format = 'asides';
+      $format = 'aside';
       break;
 
     // The post format 'aside'
@@ -945,6 +945,56 @@ function agriflex_post_thumbnail() {
 
 }
 endif; // agriflex_post_thumbnail
+
+if ( ! function_exists( 'agriflex_post_title' ) ) :
+/**
+ * Echos the post's title wrapped in a header anchor tag.
+ * Tags are configurable
+ *
+ * @package AgriFlex
+ * @since AgriFlex 2.0
+ * @param string $header Header size (h1, h2, etc.)
+ * @param bool $anchor Whether to wrap title in an anchor tag
+ * @global $post
+ * @returns void
+ */
+function agriflex_post_title( $header = '', $anchor = TRUE ) {
+
+  global $post;
+
+  $id = $post->ID;
+
+  // Setting a default header size
+  if ( empty( $header ) ) $header = 'h2';
+
+  // Opening header tag
+  $html = '<' . $header . ' class="entry-title">';
+
+  // Opening anchor tag
+  if ( $anchor ) {
+    $html .= '<a href="' . get_permalink( $id ) . '" ' .
+      'title="' . esc_attr( sprintf( __('Permalink to %s', 'agriflex'  ),
+        the_title_attribute( 'echo=0' )  ) ) . '" ' .
+      'rel="bookmark">';
+  }
+
+  // The actual post title, false returns it for PHP use
+  $html .= the_title( '', '', FALSE );
+
+  // Closing anchor tag
+  if ( $anchor ) {
+    $html .= '</a>';
+  }
+
+  // Closing header tag
+  $html .= '</' . $header . '>';
+
+  echo $html;
+
+}
+
+endif; // agriflex_post_title
+
 
      // Set path to function files
      $includes_path = TEMPLATEPATH . '/includes/';
