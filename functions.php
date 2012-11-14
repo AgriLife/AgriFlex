@@ -734,70 +734,6 @@ function remove_parent($var) {
 
 }
 
-if ( ! function_exists( 'agriflex_content_nav' ) ) :
-/**
- * Display navigation to next/previous pages/posts when applicable
- * Works on single entries and loops
- * 
- * @link https://github.com/Automattic/_s/blob/master/inc/template-tags.php Source
- * @since AgriFlex 2.0
- * @global $wp_query
- * @global $post
- * @param string $nav_id Unique identifier to be used as ID
- * @return void
- */
-function agriflex_content_nav( $nav_id ) {
-
-  global $wp_query, $post;
-
-  // Don't print empty markup on single pages if there's nowhere to navigate
-  if ( is_single() ) {
-    $previous = ( is_attachment() ) ? get_post( $post->post_parent ) :
-      get_adjacent_post( false, '', true );
-    $next = get_adjacent_post( false, '', false );
-
-    if ( ! $next && ! $previous )
-      return;
-  }
-
-  // Dont' print empty markup in archives if there's only one page
-  if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) )
-    return;
-
-  $nav_class = 'navigation paging-navigation';
-  if ( is_single() )
-    $nav_class = 'navigation post-navigation';
-  ?>
-  <nav role="navigation" id="<?php echo $nav_id; ?>" class="<?php echo $nav_class; ?>">
-    <h1 class="assistive-text"><?php _e ( 'Post navigation', 'agriflex' ); ?></h1>
-    <?php if ( is_single() ) : // navigation links for single posts ?>
-
-      <?php previous_post_link( '<div class="nav-previous">%link</div>',
-        '<span class="meta-nav">' .
-        _x( '&larr;', 'Previous post', 'agriflex' ) . 
-        '</span> %title' ); ?>
-
-      <?php next_post_link( '<div class="nav-next">%link</div>',
-        '%title <span class="meta-nav">' .
-        _x( '&rarr;', 'Newer posts', 'agriflex' ) . 
-        '</span>' ); ?>
-
-    <?php elseif ( $wp_query->max_num_pages > 1 && ( is_archive() || is_search() ) ) : ?>
-
-      <?php if ( get_next_posts_link() ) : ?>
-        <div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', '_s' ) ); ?></div>
-        <?php endif; ?>
-
-        <?php if ( get_previous_posts_link() ) : ?>
-        <div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', '_s' ) ); ?></div>
-        <?php endif; ?>
-
-    <?php endif; ?>
-
-  </nav><!-- #<?php echo $nav_id; ?> -->
-<?php
-}
-endif; // agriflex_content_nav
 
 if ( ! function_exists( 'agriflex_get_format' ) ) :
 /**
@@ -859,87 +795,7 @@ function agriflex_get_format() {
 }
 endif; // agriflex_get_format
 
-if ( ! function_exists( 'agriflex_post_thumbnail' ) ) :
-/**
- * Retrieves the post's thumbnail. Returns a default thumbnail
- * if one doesn't exist.
- *
- * @todo - Change default thumbnail to specific agency
- *
- * @package AgriFlex
- * @since AgriFlex 2.0
- * @param string $size Thumbnail size to use
- * @global $post
- * @returns void
- */
-function agriflex_post_thumbnail( $size = 'featured-mediabox' ) {
 
-  global $post;
-
-  $html = '<a class="feature-img-excerpt" href="' . get_permalink( $post->ID ) . '">';
-
-  if ( has_post_thumbnail( $post->ID ) ) {
-    // Show the post thumbnail
-    $html .= get_the_post_thumbnail( $post->ID, $size ); 
-  } else  { 
-    // Show the default thumbnail
-    $html .='<img src="' . get_bloginfo('template_url') . '/images/AgriLife-default-post-image.png?v=100" alt="AgriLife Logo" title="AgriLife" />';
-  }
-  $html .= '</a>';
-
-  echo $html;
-
-}
-endif; // agriflex_post_thumbnail
-
-if ( ! function_exists( 'agriflex_post_title' ) ) :
-/**
- * Echos the post's title wrapped in a header anchor tag.
- * Tags are configurable
- *
- * @package AgriFlex
- * @since AgriFlex 2.0
- * @param string $header Header size (h1, h2, etc.)
- * @param bool $anchor Whether to wrap title in an anchor tag
- * @global $post
- * @returns void
- */
-function agriflex_post_title( $header = '', $anchor = TRUE ) {
-
-  global $post;
-
-  $id = $post->ID;
-
-  // Setting a default header size
-  if ( empty( $header ) ) $header = 'h2';
-
-  // Opening header tag
-  $html = '<' . $header . ' class="entry-title">';
-
-  // Opening anchor tag
-  if ( $anchor ) {
-    $html .= '<a href="' . get_permalink( $id ) . '" ' .
-      'title="' . esc_attr( sprintf( __('Permalink to %s', 'agriflex'  ),
-        the_title_attribute( 'echo=0' )  ) ) . '" ' .
-      'rel="bookmark">';
-  }
-
-  // The actual post title, false returns it for PHP use
-  $html .= the_title( '', '', FALSE );
-
-  // Closing anchor tag
-  if ( $anchor ) {
-    $html .= '</a>';
-  }
-
-  // Closing header tag
-  $html .= '</' . $header . '>';
-
-  echo $html;
-
-}
-
-endif; // agriflex_post_title
 
 
      // Set path to function files
@@ -961,11 +817,8 @@ endif; // agriflex_post_title
     
      // Add Logout Button to password-protected posts 
       require_once ($includes_path . 'logout-password-protected-posts/logout.php');
-     // Add header functions
-     require_once ( $include_path . 'site-header.php' );
-
-     // Add footer functions
-     require_once ( $include_path . 'site-footer.php' );
-    
-     // Add archive functions
-     require_once ( $include_path . 'site-archive.php' );
+     // Add template tags
+     require_once ( $include_path . 'template-tags.php' );
+     
+     // Add helper functions
+     require_once ( $include_path . 'helpers.php' );
