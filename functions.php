@@ -71,60 +71,58 @@ if ( ! isset( $content_width ) )
 /** Tell WordPress to run agriflex_setup() when the 'after_setup_theme' hook is run. */
 add_action( 'after_setup_theme', 'agriflex_setup' );
 
-if ( ! function_exists( 'agriflex_setup' ) ):
-
 function agriflex_setup() {
-	 global $typekitkey;
-     // Remove things that get stuck up in the doc head that we don't need
-     remove_action( 'wp_head', 'wp_generator' );
-     remove_action( 'wp_head', 'index_rel_link' );
-     remove_action( 'wp_head', 'rsd_link' );
-     remove_action( 'wp_head', 'feed_links_extra', 3 );
-     remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 ); // prev link
-     remove_action( 'wp_head', 'start_post_rel_link', 10, 0 ); // start link
-     remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 );
 
-     // This theme uses post thumbnails
-     add_theme_support( 'post-thumbnails' );
-     // Add new image sizes
-     add_image_size('featured',965,475,true);
-     add_image_size('featured-2',585,305,true);
-     add_image_size('featured-mediabox',175,124,true);    
+  global $typekitkey;
 
-     // Add default posts and comments RSS feed links to head
-     add_theme_support( 'automatic-feed-links' );
+  // Remove things that get stuck up in the doc head that we don't need
+  remove_action( 'wp_head', 'wp_generator' );
+  remove_action( 'wp_head', 'index_rel_link' );
+  remove_action( 'wp_head', 'rsd_link' );
+  remove_action( 'wp_head', 'feed_links_extra', 3 );
+  remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 ); // prev link
+  remove_action( 'wp_head', 'start_post_rel_link', 10, 0 ); // start link
+  remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 );
 
-     // Make theme available for translation
-     // Translations can be filed in the /languages/ directory
-     load_theme_textdomain( 'agriflex', TEMPLATEPATH . '/languages' );
+  // Initiate theme functionality
+  add_theme_support( 'post-thumbnails' );
+  add_theme_support( 'automatic-feed-links' );
 
-     $locale = get_locale();
-     $locale_file = TEMPLATEPATH . "/languages/$locale.php";
-     if ( is_readable( $locale_file ) )
-          require_once( $locale_file );
+  // Add new image sizes
+  add_image_size('featured',965,475,true);
+  add_image_size('featured-2',585,305,true);
+  add_image_size('featured-mediabox',175,124,true);    
 
-     // This theme uses wp_nav_menu() in one location.
-     register_nav_menus( array(
-          'primary' => __( 'Primary Navigation', 'agriflex' ),
-     ) );
+  // Make theme available for translation
+  // Translations can be filed in the /languages/ directory
+  load_theme_textdomain( 'agriflex', TEMPLATEPATH . '/languages' );
 
-     /* -- Add typekit js and css to document head -- */
-     add_action('wp_head','typekit_js');
-          function typekit_js() {
-			   global $typekitkey;
-               if( !is_admin() ) : ?>
-				<script type="text/javascript" src="http://use.typekit.com/<?php echo $typekitkey ?>.js"></script>
-				<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-				<style type="text/css">
-				  .wf-loading #site-title,
-				  .wf-loading .entry-title {
-				    /* Hide the blog title and post titles while web fonts are loading */
-				    visibility: hidden;
-				  }
-				</style>                        
-     <?php
-     endif;
-     }  
+  $locale = get_locale();
+  $locale_file = TEMPLATEPATH . "/languages/$locale.php";
+  if ( is_readable( $locale_file ) )
+  require_once( $locale_file );
+
+  // This theme uses wp_nav_menu() in one location.
+  register_nav_menus( array(
+  'primary' => __( 'Primary Navigation', 'agriflex' ),
+  ) );
+
+  /* -- Add typekit js and css to document head -- */
+  add_action('wp_head','typekit_js');
+  function typekit_js() {
+  global $typekitkey;
+     if( !is_admin() ) : ?>
+  <script type="text/javascript" src="http://use.typekit.com/<?php echo $typekitkey ?>.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <style type="text/css">
+  .wf-loading #site-title,
+  .wf-loading .entry-title {
+  /* Hide the blog title and post titles while web fonts are loading */
+  visibility: hidden;
+  }
+  </style>                        
+<?php
+}
 
      // load Slideshow scripts
      function load_js() {
