@@ -93,15 +93,6 @@ function agriflex_setup() {
   add_image_size('featured-2',585,305,true);
   add_image_size('featured-mediabox',175,124,true);    
 
-  // Make theme available for translation
-  // Translations can be filed in the /languages/ directory
-  load_theme_textdomain( 'agriflex', TEMPLATEPATH . '/languages' );
-
-  $locale = get_locale();
-  $locale_file = TEMPLATEPATH . "/languages/$locale.php";
-  if ( is_readable( $locale_file ) )
-  require_once( $locale_file );
-
   // This theme uses wp_nav_menu() in one location.
   register_nav_menus( array(
   'primary' => __( 'Primary Navigation', 'agriflex' ),
