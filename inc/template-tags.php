@@ -304,6 +304,12 @@ function agriflex_archive_title() {
   } elseif ( is_year() ) {
     $html .= sprintf( __( 'Yearly Archives: <span>%s</span>', 'agriflex' ),
             get_the_date('Y') );
+  } elseif ( is_author() ) {
+    $html .= sprintf( __( 'Author Archives: %s', 'agriflex'),
+            '<span class="vcard"><a class="url fn n" href="' .
+            get_author_posts_url( get_the_author_meta( 'ID' ) ) .
+            '" title="' . esc_attr( get_the_author() ) . '"' .
+            'rel="me">' . get_the_author() . '</a></span>' );
   } else {
     $html .= __( 'Blog Archives', 'agriflex' );
   }
@@ -364,6 +370,36 @@ function agriflex_posted_in() {
      );
 }
 endif;
+
+/**
+ * Displays author image, bio, and contact information
+ *
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @since AgriFlex 2.0
+ */
+function agriflex_author_info() {
+
+  // If a user has filled out their description, show a bio on their entries.
+  if ( get_the_author_meta( 'description' ) ) :
+
+    $html = '<div id="entry-author-info">';
+    $html .= '<div id="author-avatar">';
+    $html .= get_avatar( get_the_author_meta( 'user_email' ),
+      apply_filters( 'agriflex_author_bio_avatar_size', 60 ) );
+    $html .= '</div><!-- #author-avatar -->';
+    $html .= '<div id="author-description">';
+    $html .= '<h2>';
+    $html .= sprintf( __( 'About %s', 'agriflex' ), get_the_author() );
+    $html .= '</h2>';
+    $html .= get_the_author_meta( 'description' );
+    $html .= '</div><!-- #author-description	-->';
+    $html .= '</div><!-- #entry-author-info -->';
+
+    echo $html;
+
+  endif;
+
+} // agriflex_author_info
 
 if ( ! function_exists( 'agriflex_comment' ) ) :
 /**
