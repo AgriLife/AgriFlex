@@ -10,7 +10,8 @@
  * Custom Body Classes Based On Agency Selected
  *
  * @since AgriFlex 1.0
- * @return array $classes
+ * @param array $classes Existing class values
+ * @return array $classes Filtered class values
  */
 add_filter('body_class','my_class_names');
 function my_class_names($classes) {
