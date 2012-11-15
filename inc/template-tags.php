@@ -310,6 +310,12 @@ function agriflex_archive_title() {
             get_author_posts_url( get_the_author_meta( 'ID' ) ) .
             '" title="' . esc_attr( get_the_author() ) . '"' .
             'rel="me">' . get_the_author() . '</a></span>' );
+  } elseif ( is_category() ) {
+    $html .= sprintf( __( 'Category Archives: %s', 'agriflex' ),
+      '<span>' . single_cat_title( '', false ) . '</span>' );
+    $desc = category_description();
+    if ( ! empty( $desc ) )
+      $html .= '<div class="archive-meta">' . $desc . '</div>';
   } else {
     $html .= __( 'Blog Archives', 'agriflex' );
   }
