@@ -243,7 +243,6 @@ function agriflex_post_title( $header = '', $anchor = TRUE ) {
 
 endif; // agriflex_post_title
 
-if ( ! function_exists( 'agriflex_post_thumbnail' ) ) :
 /**
  * Retrieves the post's thumbnail. Returns a default thumbnail
  * if one doesn't exist.
@@ -273,8 +272,7 @@ function agriflex_post_thumbnail( $size = 'featured-mediabox' ) {
 
   echo $html;
 
-}
-endif; // agriflex_post_thumbnail
+} // agriflex_post_thumbnail
 
 /**
  * Determines which title to display on the archive page
