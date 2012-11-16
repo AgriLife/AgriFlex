@@ -407,6 +407,37 @@ function agriflex_author_info() {
 
 } // agriflex_author_info
 
+/**
+ * Displays comment navigation if comments are available
+ *
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @since AgriFlex 2.0
+ * @param string $nav_id Used as the nav ID
+ * @return void
+ */
+function agriflex_comment_nav( $nav_id ) {
+
+  if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
+
+    $html = '<div id="' . $nav_id . '" class="comment-nav navigation">';
+    $html .= '<div class="nav-previous">';
+    $html .= sprintf(previous_comments_link(
+              __( '<span class="meta-nav">&larr;</span> Older Comments',
+              'agriflex' ) ) );
+    $html .= '</div>';
+    $html .= '<div class="nav-next">';
+    $html .= sprintf(next_comments_link(
+              __( 'Newer Comments <span class="meta-nav">&rarr;</span>',
+              'agriflex' ) ) );
+    $html .= '</div>';
+    $html .= '</div> <!-- #' . $nav_id . ' -->';
+
+    echo $html;
+
+  endif; // check for comment navigation
+
+}
+
 if ( ! function_exists( 'agriflex_comment' ) ) :
 /**
  * Template for comments and pingbacks.
