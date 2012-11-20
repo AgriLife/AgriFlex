@@ -53,7 +53,7 @@
 
 						<section class="entry-utility">
 							<?php agriflex_posted_in(); ?>
-							<?php edit_post_link( __( 'Edit', 'agriflex' ), '<span class="edit-link">', '</span>' ); ?>
+              <?php agriflex_edit_link(); ?>
 						</section><!-- .entry-utility -->
 					</footer><!-- .entry-meta -->
 				</article><!-- #post-<?php the_ID(); ?> -->

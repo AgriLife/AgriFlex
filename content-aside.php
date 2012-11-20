@@ -35,12 +35,8 @@
   <div class="entry-utility">
     <?php agriflex_posted_on(); ?>
     <span class="meta-sep">|</span>
-    <span class="comments-link">
-      <?php comments_popup_link( __( 'Leave a comment', 'agriflex' ),
-        __( '1 Comment', 'agriflex' ), __( '% Comments', 'agriflex' ) ); ?>
-    </span>
-    <?php edit_post_link( __( 'Edit', 'agriflex' ),
-      '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
+    <?php agriflex_comments_link(); ?>
+    <?php agriflex_edit_link(); ?>
   </div><!-- .entry-utility -->
 
 </div><!-- #post-<?php the_ID(); ?> -->

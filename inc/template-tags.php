@@ -438,6 +438,40 @@ function agriflex_comment_nav( $nav_id ) {
 
 }
 
+/**
+ * Displays the comments link in the loop
+ *
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @since AgriFlex 2.0
+ * @return void
+ */
+function agriflex_comments_link() {
+
+    $html = '<span class="comments-link">';
+    $html .= sprintf(comments_popup_link( __( 'Leave a comment', 'agriflex' ),
+        __( '1 Comment', 'agriflex' ), __( '% Comments', 'agriflex' ) ) );
+    $html .= '</span>';
+
+    echo $html;
+
+} // agriflex_comments_link
+
+/**
+ * Displays the edit link for logged-in users
+ *
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @since AgriFlex 2.0
+ * @return void
+ */
+function agriflex_edit_link() {
+
+    $html .= sprintf(edit_post_link( __( 'Edit', 'agriflex' ),
+      '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ) );
+
+    echo $html;
+
+} // agriflex_edit_link
+
 if ( ! function_exists( 'agriflex_comment' ) ) :
 /**
  * Template for comments and pingbacks.
