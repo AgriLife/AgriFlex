@@ -7,9 +7,8 @@
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package WordPress
- * @subpackage agriflex
- * @since agriflex 1.0
+ * @subpackage AgriFlex
+ * @since AgriFlex 1.0
  */
 ?>
 
@@ -22,7 +21,7 @@
 	
   <!-- Run the loop for the archives page to output the posts.
   If you want to overload this in a child theme then include a file
-  called loop-archives.php and that will be used instead. -->
+  called content-archives.php and that will be used instead. -->
 	<?php get_template_part( 'content', 'archive' ); ?>
 
 	</div><!-- #content -->

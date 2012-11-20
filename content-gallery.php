@@ -1,3 +1,19 @@
+<?php
+/**
+ * Template for displaying galleries.
+ *
+ * In AgriFlex 1.0 the category 'gallery' was used. Since its creation
+ * post formats were introduced to WordPress. We have implemented post formats
+ * into 2.0 and have created a function to maintain backwards compatibility.
+ *
+ * @see inc/helpers.php
+ *
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @package AgriFlex
+ * @since AgriFlex 2.0
+ */
+?>
+
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
   <h2 class="entry-title">

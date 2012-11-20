@@ -2,9 +2,8 @@
 /**
  * The template for displaying 404 pages (Not Found).
  *
- * @package WordPress
- * @subpackage agriflex
- * @since agriflex 1.0
+ * @package AgriFlex
+ * @since AgriFlex 1.0
  */
 ?>
 

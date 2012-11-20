@@ -7,7 +7,6 @@
  */
 ?>
 
-						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'agriflex' ), 'after' => '</div>' ) ); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
   <header class="entry-header">
@@ -31,6 +30,9 @@
     <?php if ( 'post' == get_post_type() ) : ?>
       <div class="entry-meta">
         <?php agriflex_posted_on(); ?>
+        <?php wp_link_pages(
+          array( 'before' => '<div class="page-link">' . __( 'Pages:',
+          'agriflex' ), 'after' => '</div>' ) ); ?>
       </div><!-- .entry-meta -->
     <?php endif; ?>
 

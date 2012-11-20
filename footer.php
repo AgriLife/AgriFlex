@@ -5,9 +5,8 @@
  * Contains the closing of the id=main div and all content
  * after.  Calls sidebar-footer.php for bottom widgets.
  *
- * @package WordPress
- * @subpackage agriflex
- * @since agriflex 1.0
+ * @package AgriFlex
+ * @since AgriFlex 1.0
  */
 ?>
     </div><!-- .wrap -->

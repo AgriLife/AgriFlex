@@ -6,7 +6,6 @@
  */
 ?>
 
-						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'county_ext' ), 'after' => '</div>' ) ); ?>
 <?php get_header(); ?>
 <div id="wrap">
   <div id="content" role="main">		

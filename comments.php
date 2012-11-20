@@ -7,13 +7,13 @@
  * handled by a callback to agriflex_comment which is
  * located in the inc/template-tags.php file.
  *
- * @package WordPress
- * @subpackage agriflex
- * @since agriflex 1.0
+ * @package AgriFlex
+ * @since AgriFlex 1.0
  */
 ?>
 
 <div id="comments">
+
   <?php if ( post_password_required() ) : ?>
     <p class="nopassword">
       <?php _e( 'This post is password protected. Enter the password to view any comments.', 'agriflex' ); ?>

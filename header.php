@@ -4,9 +4,8 @@
  *
  * Displays all of the <head> section and everything up till <div id="wrap">
  *
- * @package WordPress
- * @subpackage agriflex
- * @since agriflex 1.0
+ * @package AgriFlex
+ * @since AgriFlex 1.0
  */
  
 ?>
