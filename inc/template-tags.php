@@ -316,6 +316,8 @@ function agriflex_archive_title() {
     $desc = category_description();
     if ( ! empty( $desc ) )
       $html .= '<div class="archive-meta">' . $desc . '</div>';
+  } elseif ( is_tag() ) {
+    $html .= sprintf( __( 'Tag Archives: %s', 'agriflex' ), '<span>' . single_tag_title( '', false ) . '</span>' );
   } else {
     $html .= __( 'Blog Archives', 'agriflex' );
   }
