@@ -7,8 +7,8 @@
  * and that other 'pages' on your wordpress site will use a
  * different template.
  *
- * @package agriflex
- * @since agriflex 1.0
+ * @package AgriFlex
+ * @since AgriFlex 1.0
  */
 ?>
 
@@ -38,12 +38,10 @@
           'before' => '<div class="page-link">' . __( 'Pages:', 'agriflex' ),
           'after' => '</div>' ) ); ?>
 
-        <?php edit_post_link( __( 'Edit', 'agriflex' ),
-          '<span class="edit-link">', '</span>' ); ?>
-
+        <?php agriflex_edit_link(); ?>
       </div><!-- .entry-content -->
 
-    </div><!-- #post-## -->
+    </div><!-- #post-<?php the_ID(); ?> -->
 
     <?php comments_template( '', true ); ?>
 

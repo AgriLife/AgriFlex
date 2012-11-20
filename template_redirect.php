@@ -1,6 +1,9 @@
 <?php
-/*
-Template Name: Redirect
+/**
+ * Template Name: Redirect
+ *
+ * @package AgriFlex
+ * @since AgriFlex 1.0
 */
 ?>
 
@@ -21,6 +24,7 @@ use custom field "redirect"
 */
 
 global $post;
+
 if (have_posts()) : the_post(); 
 
 	if (get_post_meta($post->ID, 'redirect', true)) :

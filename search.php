@@ -3,7 +3,7 @@
  * The template for displaying Search Results pages.
  *
  * @package AgriFlex
- * @since agriflex 1.0
+ * @since AgriFlex 1.0
  */
 ?>
 
@@ -22,19 +22,12 @@
       <!-- Run the loop for the search to output the results.
       If you want to overload this in a child theme then include a file
       called loop-search.php and that will be used instead. -->
-      <?php get_template_part( 'loop', 'search' ); ?>
+      <?php get_template_part( 'content', 'search' ); ?>
 
     <?php else : ?>
 
-      <div id="post-0" class="post no-results not-found">
+      <?php get_template_part( 'no-results', 'index' ); ?>
 
-        <h2 class="entry-title"><?php _e( 'Nothing Found', 'agriflex' ); ?></h2>
-
-        <div class="entry-content">
-          <p><?php _e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'agriflex' ); ?></p>
-          <?php get_search_form(); ?>
-        </div><!-- .entry-content -->
-      </div><!-- #post-0 -->
     <?php endif; ?>
   </div><!-- #content -->
 </div><!-- #wrap -->

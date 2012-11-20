@@ -10,8 +10,8 @@
  * @since agriflex 1.0
  */
 ?>
-    </div><!--.wrap-->
-  </div><!--#content-wrap-->
+    </div><!-- .wrap -->
+  </div><!-- #content-wrap -->
 </div><!-- #wrapper -->
 <footer id="footer" role="contentinfo">
   <div class="wrap">

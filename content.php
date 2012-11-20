@@ -26,7 +26,7 @@
     <?php agriflex_posted_on(); ?>
   </div><!-- .entry-meta -->
 
-  <?php if ( is_archive() || is_search() ) : // Only display excerpts for archives and search. ?>
+  <?php if ( is_archive() || is_search() ) : ?>
     <div class="entry-summary">
       <?php the_excerpt(); ?>
     </div><!-- .entry-summary -->
@@ -37,7 +37,7 @@
     </div><!-- .entry-content -->
   <?php endif; ?>
 
-</div><!-- #post-## -->
+</div><!-- #post-<?php the_ID(); ?> -->
 
 <?php comments_template( '', true ); ?>
 
