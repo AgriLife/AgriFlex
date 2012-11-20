@@ -164,7 +164,7 @@ function agriflex_content_nav( $nav_id ) {
     $nav_class = 'navigation post-navigation';
   ?>
   <nav role="navigation" id="<?php echo $nav_id; ?>" class="<?php echo $nav_class; ?>">
-    <h1 class="assistive-text"><?php _e ( 'Post navigation', 'agriflex' ); ?></h1>
+    <h1 class="assistive-text screen-reader-text"><?php _e ( 'Post navigation', 'agriflex' ); ?></h1>
     <?php if ( is_single() ) : // navigation links for single posts ?>
 
       <?php previous_post_link( '<div class="nav-previous">%link</div>',
