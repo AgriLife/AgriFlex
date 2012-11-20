@@ -366,9 +366,6 @@ $include_path = TEMPLATEPATH . '/inc/';
 // Admin Pages
 require_once ($includes_path . 'admin.php');
 
-// Remove Admin Menus and Dashboards
-//     require_once ($includes_path . 'admin-remove.php');
-
 // Custom Shortcodes
 require_once ($includes_path . 'shortcodes.php');
 
