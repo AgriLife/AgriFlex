@@ -11,11 +11,15 @@
  * @package AgriFlex
  * @since AgriFlex 1.0
  */
+?>
 
-get_header(); ?>
+<?php get_header(); ?>
 
   <div id="wrap">
     <div id="content" role="main">
+
+      <!-- Action hook to insert content before the loop starts -->
+      <?php agriflex_before_loop(); ?>
 
       <?php if ( have_posts() ) : ?>
 
@@ -40,6 +44,9 @@ get_header(); ?>
         <?php get_template_part( 'no-results', 'index' ); ?>
 
       <?php endif; ?>
+
+      <!-- Action hook to insert content after the loop -->
+      <?php agriflex_after_loop(); ?>
 
     </div><!-- #content -->
   </div><!-- #container -->

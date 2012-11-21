@@ -389,3 +389,6 @@ require_once ( $include_path . 'helpers.php' );
 
 // Add filter functions
 require_once ( $include_path . 'filters.php' );
+
+// Add action functions
+require_once ( $include_path . 'actions.php' );

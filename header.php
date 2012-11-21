@@ -49,9 +49,7 @@
 
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
-  <?php agriflex_return_map; ?>
-
-  <?php agriflex_threaded_comments(); ?>
+  <?php agriflex_head(); ?>
 
   <!--Always have wp_head() just before the closing </head>
   tag of your theme, or you will break many plugins, which
@@ -66,13 +64,17 @@
 
 <body <?php body_class(); ?>>
 
-<!-- Conditional Agency navigation -->
-<?php get_template_part( 'nav', 'agency' ); ?>
+<!-- Action hook for inserting top navigation and other elements -->
+<?php agriflex_before_header(); ?>
 
-<?php agriflex_college_drop_down(); ?>
-	
 <div id="wrapper" class="hfeed">
-  <?php agriflex_show_header(); ?>
+
+  <!-- Action hook creating the site header -->
+  <?php agriflex_header(); ?>
+
+  <!-- Action hook for placing content below the site header -->
+  <?php agriflex_after_header(); ?>
+
   <div class='menu-button'>Menu</div>
   <!-- Tabbed menu -->
   <?php get_template_part( 'nav', 'primary' ); ?>

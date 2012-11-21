@@ -6,6 +6,7 @@
  * @since AgriFlex 2.0
  */
 
+add_action( 'agriflex_head', 'agriflex_return_map', 10 );
 /**
  * Show location map if available
  * 
@@ -20,6 +21,7 @@ function agriflex_return_map() {
 
 }
 
+add_action( 'agriflex_head', 'agriflex_threaded_comments', 20 );
 /**
  * We add some JavaScript to pages with the comment form
  * to support sites with threaded comments (when in use).
@@ -34,6 +36,20 @@ function agriflex_threaded_comments() {
 
 }
 
+add_action( 'agriflex_before_header', 'agriflex_agency_nav', 10 );
+/**
+ * Pull in the agency navigation template part
+ *
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @since AgriFlex 2.0
+ */
+function agriflex_agency_nav() {
+
+  get_template_part( 'nav', 'agency' );
+
+} // agriflex_agency_nav
+
+add_action( 'agriflex_before_header', 'agriflex_college_drop_down', 20 );
 /**
  * College specific content for drop-down
  *
@@ -51,14 +67,18 @@ function agriflex_college_drop_down() {
 
 }
 
+add_action( 'agriflex_header', 'agriflex_site_title', 30 );
 /**
  * Determines which header to show then echos it
  *
+ * Filter: agriflex_site_title
+ *
+ * @todo - Move agency logic to consolidated area
  * @author J. Aaron Eaton <aaron@channeleaton.com>
  * @since AgriFlex 2.0
  * @return void
  */
-function agriflex_show_header() {
+function agriflex_site_title() {
 
   GLOBAL $options;
 
@@ -125,7 +145,7 @@ function agriflex_show_header() {
   $html .= '</header><!-- end #branding -->';
   $html .= '</div><!-- end #header -->';
 
-  echo $html;
+  echo apply_filters( 'agriflex_site_title', $html );
 
 }
 
