@@ -392,3 +392,15 @@ require_once ( $include_path . 'filters.php' );
 
 // Add action functions
 require_once ( $include_path . 'actions.php' );
+
+// Add header extensions
+require_once ( $include_path . 'header-extensions.php' );
+
+// Add content extensions
+require_once ( $include_path . 'content-extensions.php' );
+
+// Add sidebar extensions
+require_once ( $include_path . 'sidebar-extensions.php' );
+
+// Add footer extensions
+require_once ( $include_path . 'footer-extensions.php' );

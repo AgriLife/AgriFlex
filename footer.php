@@ -3,7 +3,7 @@
  * The template for displaying the footer.
  *
  * Contains the closing of the id=main div and all content
- * after.  Calls sidebar-footer.php for bottom widgets.
+ * after.
  *
  * @package AgriFlex
  * @since AgriFlex 1.0
@@ -13,11 +13,15 @@
   </div><!-- #content-wrap -->
 </div><!-- #wrapper -->
 <footer id="footer" role="contentinfo">
+
+  <?php agriflex_before_footer(); ?>
   <div class="wrap">
 
-    <?php agriflex_show_footer(); ?> 
+    <?php agriflex_footer(); ?> 
 
   </div><!-- .wrap -->		
+  <?php agriflex_after_footer(); ?>
+
 </footer><!-- #footer -->
 
 <!-- Always have wp_footer() just before the closing </body>

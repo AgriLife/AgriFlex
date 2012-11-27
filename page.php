@@ -21,6 +21,9 @@
       yoast_breadcrumb('<div id="breadcrumbs">','</div>');
     } ?>
 
+    <!-- Action hook to insert content before the loop starts -->
+    <?php agriflex_before_loop(); ?>
+
     <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
     <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -42,6 +45,9 @@
       </div><!-- .entry-content -->
 
     </div><!-- #post-<?php the_ID(); ?> -->
+
+    <!-- Action hook to insert content after the loop ends -->
+    <?php agriflex_after_loop(); ?>
 
     <?php comments_template( '', true ); ?>
 

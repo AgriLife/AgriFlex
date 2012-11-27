@@ -14,6 +14,9 @@
 
     <?php agriflex_archive_title(); ?>
 
+    <!-- Action hook to insert content before the loop starts -->
+    <?php agriflex_before_loop(); ?>
+
     <!-- Run the loop for the category page to output the posts.
     If you want to overload this in a child theme then include a file
     called loop-category.php and that will be used instead. -->
@@ -23,6 +26,9 @@
       <?php get_template_part( 'content', 'category' ); ?>
 
     <?php endwhile; ?>
+
+    <!-- Action hook to insert content after the loop ends -->
+    <?php agriflex_after_loop(); ?>
 
     <?php agriflex_content_nav( 'nav-below' ); ?>
 

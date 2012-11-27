@@ -11,6 +11,7 @@
 
   <?php // @todo - Change this action to something more generic ?>
 	<?php do_action('posts_logout_link','Logout','logout_btn'); ?>
+  <?php agriflex_before_sidebar(); ?>
 	<div id="aside-widget-area-1">
 		<div id="primary" class="widget-area" role="complementary">
 			<ul class="xoxo">
@@ -35,6 +36,8 @@
     </ul>
   </div><!-- #sidebar-navigation-widgets -->
 
-<?php get_sidebar( 'widgets' ); ?>		
+  <?php get_sidebar( 'widgets' ); ?>		
+
+  <?php agriflex_after_sidebar(); ?>
 
 </div><!-- #aside -->	

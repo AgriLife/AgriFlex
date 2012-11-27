@@ -49,6 +49,7 @@
 
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
+  <!-- Action hook to include some head stuff -->
   <?php agriflex_head(); ?>
 
   <!--Always have wp_head() just before the closing </head>
@@ -75,8 +76,5 @@
   <!-- Action hook for placing content below the site header -->
   <?php agriflex_after_header(); ?>
 
-  <div class='menu-button'>Menu</div>
-  <!-- Tabbed menu -->
-  <?php get_template_part( 'nav', 'primary' ); ?>
   <div id="content-wrap">		
           <div class="wrap">	

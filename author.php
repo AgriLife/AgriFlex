@@ -16,6 +16,9 @@
 
     <?php agriflex_author_info(); ?>
 
+    <!-- Action hook to insert content before the loop starts -->
+    <?php agriflex_before_loop(); ?>
+
     <?php while ( have_posts() ) : the_post(); ?>
 
       <!-- Run the loop for the author archive page to output the authors posts
@@ -25,6 +28,9 @@
       <?php get_template_part( 'content', 'author' ); ?>
 
     <?php endwhile; ?>
+
+    <!-- Action hook to insert content after the loop ends -->
+    <?php agriflex_after_loop(); ?>
 
     <?php agriflex_content_nav( 'nav-below' );?>
 

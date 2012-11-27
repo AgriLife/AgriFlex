@@ -19,10 +19,21 @@
 	
   <?php agriflex_archive_title(); ?>
 	
-  <!-- Run the loop for the archives page to output the posts.
-  If you want to overload this in a child theme then include a file
-  called content-archives.php and that will be used instead. -->
-	<?php get_template_part( 'content', 'archive' ); ?>
+    <!-- Action hook to insert content before the loop starts -->
+    <?php agriflex_before_loop(); ?>
+
+    <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+
+      <?php get_template_part( 'content', 'archive' ); ?>
+
+      <?php comments_template( '', true ); ?>
+
+    <?php endwhile; // end of the loop. ?>
+
+    <?php agriflex_content_nav( 'nav-below' ); ?>
+
+    <!-- Action hook to insert content after the loop ends -->
+    <?php agriflex_after_loop(); ?>
 
 	</div><!-- #content -->
 </div><!-- #wrap -->

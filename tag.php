@@ -14,10 +14,21 @@
 
     <?php agriflex_archive_title(); ?>
 
-    <!-- Run the loop for the tag archive to output the posts
+    <!-- Action hook to insert content before the loop starts -->
+    <?php agriflex_before_loop(); ?>
+
+    <!-- Run the loop for the category page to output the posts.
     If you want to overload this in a child theme then include a file
-    called content-tag.php and that will be used instead.-- >
-    <?php get_template_part( 'content', 'tag' ); ?>
+    called loop-category.php and that will be used instead. -->
+
+    <?php while ( have_posts() ) : the_post(); ?>
+
+      <?php get_template_part( 'content', 'tag' ); ?>
+
+    <?php endwhile; ?>
+
+    <!-- Action hook to insert content after the loop ends -->
+    <?php agriflex_after_loop(); ?>
 
   </div><!-- #content -->
 </div><!-- #wrap -->
