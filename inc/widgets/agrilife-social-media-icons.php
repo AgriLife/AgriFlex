@@ -1,9 +1,14 @@
 <?php
 
 /**
- * Adds Social Media Widget
+ * AgriLife Social Media Icons
  *
- * Allows users to input usernames from various social media outlets
+ * Allows users to input usernames/urls from various social media outlets
+ * and displays icons in a sidebar widget
+ *
+ * @package AgriFlex
+ * @since 1.0+
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
  */
 
 class AgriLife_Social_Media_Icons extends WP_Widget {
@@ -31,21 +36,23 @@ class AgriLife_Social_Media_Icons extends WP_Widget {
     extract( $args );
     $title = apply_filters( 'widget_title', $instance['title'] );
 
-    echo $before_widget;
+    $html = $before_widget;
     if( ! empty( $title ) )
-        echo $before_title . $title . $after_title;
+        $html .= $before_title . $title . $after_title;
 
-    echo '<ul class="clearfix">';
+    $html .= '<ul class="clearfix">';
     foreach( $instance['s'] as $key => $value ) {
       if( ! empty( $value ) ) {
-        echo '<li class="social-media-item">';
-        echo '<a class="' . $key . '" href="' . $this->socialUrl( $key, $value ) . '">' . $key . '</a>';
-        echo '</li>';
+        $html .= '<li class="social-media-item">';
+        $html .= '<a class="' . $key . '" href="' . $this->socialUrl( $key, $value ) . '">' . $key . '</a>';
+        $html .= '</li>';
       }
     }
-    echo '</ul>';
+    $html .= '</ul>';
 
-    echo $after_widget;
+    $html .= $after_widget;
+
+    echo $html;
 
   }
 
