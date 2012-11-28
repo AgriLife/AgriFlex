@@ -354,7 +354,7 @@ require_once ($includes_path . 'plugin-config.php');
 require_once ( $include_path . 'featured-meta.php');
 
 // Add Logout Button to password-protected posts 
-require_once ($includes_path . 'logout-password-protected-posts/logout.php');
+require_once ($include_path . 'logout-password-protected-posts/logout.php');
 
 // Add template tags
 require_once ( $include_path . 'template-tags.php' );
