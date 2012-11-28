@@ -1,47 +1,53 @@
 <?php
 
-// Shortcodes
-// -----------------------------------------------------------------------------
-// Custom shortcodes
-//
-// 1. [children]
-// 2. [gallery_home]
-// 3. [sm-directory]
-// 4. [loop]
-//
-//
+/**
+ * Useful shortcodes
+ *
+ * 1. [children]
+ * 2. [gallery_home]
+ * 3. [sm-directory]
+ * 4. [loop]
+ *
+ * @package AgriFlex
+ */
 
 // Allow shortcodes to execute in widgets
 add_filter('widget_text', 'do_shortcode');
 
-
-
+add_shortcode('children', 'child_pages_shortcode');
 /**
  * The Child Page shortcode. [children]
  *
- * This lists children of the current page.
- **
+ * Lists children of the current page.
+ *
+ * @since AgriFlex 1.0
+ * @return string $html The list of children pages in html format
+ *
  */
 function child_pages_shortcode() {
+
 	global $post;
-	return '<ul class="childpages">'.wp_list_pages('echo=0&depth=0&title_li=&child_of='.$post->ID).'</ul>';
+
+  $html .= '<ul class="childpages">';
+  $html .= wp_list_pages('echo=0&depth=0&title_li=&child_of=' . $post->ID);
+  $html .= '</ul>';
+
+  return $html;
+
 }
-add_shortcode('children', 'child_pages_shortcode');
 
-
-
-
+add_shortcode('gallery_home', 'gallery_home_shortcode');
 /**
  * The Home Gallery shortcode. [gallery_home]
  *
  * This implements the functionality of the jQuery Gallery Shortcode for the Home template
  *
+ * @since AgriFlex 1.0
  * @param array $attr Attributes attributed to the shortcode.
  * @return string HTML content to display gallery.
  */
- add_shortcode('gallery_home', 'gallery_home_shortcode');
- 
 function gallery_home_shortcode($attr) {
+
 	global $post;
 
 	static $instance = 0;
@@ -52,9 +58,11 @@ function gallery_home_shortcode($attr) {
 	if ( $output != '' )
 		return $output;
 
-	// We're trusting author input, so let's at least make sure it looks like a valid orderby statement
+  // We're trusting author input, so let's at least make sure it looks
+  // like a valid orderby statement
 	if ( isset( $attr['orderby'] ) ) {
 		$attr['orderby'] = sanitize_sql_orderby( $attr['orderby'] );
+
 		if ( !$attr['orderby'] )
 			unset( $attr['orderby'] );
 	}
@@ -68,7 +76,14 @@ function gallery_home_shortcode($attr) {
 
 
 	$id = intval($id);
-	$attachments = get_children( array('post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby) );
+  $attachments = get_children( array(
+    'post_parent' => $id,
+    'post_status' => 'inherit',
+    'post_type' => 'attachment',
+    'post_mime_type' => 'image',
+    'order' => $order,
+    'orderby' => $orderby
+  ) );
 
 	if ( empty($attachments) )
 		return '';
@@ -85,31 +100,41 @@ function gallery_home_shortcode($attr) {
 	$output = apply_filters('gallery_home_style', "<div id='$selector' class='pics galleryid-{$id}'>");
 
 	$i = 0;
+
 	foreach ( $attachments as $id => $attachment ) {
 		$link = isset($attr['link']) && 'file' == $attr['link'] 
-				? wp_get_attachment_image($id, $size, false) 
-				: wp_get_attachment_image($id, $size, false);
+      ? wp_get_attachment_image($id, $size, false) 
+      : wp_get_attachment_image($id, $size, false);
 				
 		$image = wp_get_attachment_image_src($id,$size);
-		//$output .= "\n<!-- ".$image[0]." -->";
 
 		$output .= "\n	<div class='home-slide'>\n		";
-		//$output .= '<img src="'.$image[0].'" alt="'.wptexturize($attachment->post_title).'" title="'.wptexturize($attachment->post_excerpt).'" />';
+
 		// accomodate links : anchor tags
 		$output .= '<img src="'.$image[0].'" alt="slide show image" title="" />';
 
-		  if ( trim($attachment->post_excerpt) ) {
-			  $output .= "<p class='home-caption'><span>" . wptexturize($attachment->post_title) . "</span>". wptexturize($attachment->post_excerpt) ."</p>";
-		  }
+    if ( trim( $attachment->post_excerpt ) ) {
+      $output .= '<p class="home-caption"><span>';
+      $output .= wptexturize($attachment->post_title);
+      $output .= '</span>';
+      $output .= wptexturize( $attachment->post_excerpt );
+      $output .= '</p>';
+    }
+
 		$output .= "\n	</div><!-- .gallery-icon -->";
 	}
+
 	$output .= "\n</div><!-- .pics -->\n";
+
 	return $output;
+
 }
 
 
 /**
  * The Social Media Directory shortcode. [sm-directory]
+ *
+ * @deprecated AgriFlex 2.0 Will be replaced by the social media directory
  */
 function sm_dir_shortcode() {
 	global $post;
@@ -181,59 +206,87 @@ add_shortcode('sm-directory', 'sm_dir_shortcode');
 
 
 
+add_shortcode( 'loop', 'myLoop' );
 /**
  * The custom post query shortcode. [loop]
+ *
+ * @since AgriFlex 1.0
+ * @param string $atts
+ * @param string $content
+ * @return string $content
  */
-function myLoop($atts, $content = null) {
-	extract(shortcode_atts(array(
+function myLoop( $atts, $content = null ) {
+
+	extract( shortcode_atts( array(
 		"pagination" => 'true',
 		"query" => '',
 		"category" => '',
-	), $atts));
-	global $wp_query,$paged,$post;
+	), $atts) );
+
+	global $wp_query, $paged, $post;
+
 	$temp = $wp_query;
 	$wp_query= null;
 	$wp_query = new WP_Query();
-	if($pagination == 'true'){
+
+	if ( $pagination == 'true' ) {
 		$query .= '&paged='.$paged;
 	}
-	if(!empty($category)){
-		$query .= '&category_name='.$category;
+
+	if ( !empty( $category ) ) {
+		$query .= '&category_name=' . $category;
 	}
-	if(!empty($query)){
+
+	if ( !empty( $query ) ){
 		$query .= $query;
 	}
-	$wp_query->query($query);
+
+	$wp_query->query( $query );
+
 	ob_start();
 	?>
 
-	<?php while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
+	<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
+
 	 <div class="featured-wrap" id="featured-wrapper-<?php echo $count;?>">
 			<h3 class="entry-title"><a href="<?php the_permalink();?>"><?php echo get_the_title(); ?></a></h3>
-			<p><a class="feature-img-date" href="<?php the_permalink();?>">
-			<?php if ( get_post_type() == 'post' ){ ?>
- 				<span class="date"><?php echo get_the_date('m/d'); ?></span>
-			<?php }
-			if ( has_post_thumbnail() ) {
-  the_post_thumbnail('featured-mediabox'); 
-} else  { 
-	echo '<img src="'.get_bloginfo("template_url").'/images/AgriLife-default-post-image.png?v=100" alt="AgriLife Logo" title="AgriLife" />'; 
-	}
-	?></a></p>
+      <p>
+        <a class="feature-img-date" href="<?php the_permalink();?>">
+          <?php if ( get_post_type() == 'post' ) : ?>
+            <span class="date"><?php echo get_the_date( 'm/d' ); ?></span>
+          <?php endif;
+
+          if ( has_post_thumbnail() ) {
+            the_post_thumbnail( 'featured-mediabox' ); 
+          } else{
+            echo '<img src="' .
+              get_bloginfo('template_url') .
+              '/images/AgriLife-default-post-image.png?v=100" alt="AgriLife Logo" title="AgriLife" />'; 
+          }
+          ?>
+      </a>
+    </p>
 		<?php the_excerpt();?>
-			</div><!-- end .featured-wrap -->
-			<?php endwhile;  wp_reset_query; ?>	
-	<?php if(pagination == 'true'){ ?>
+  </div><!-- end .featured-wrap -->
+  <?php endwhile;  wp_reset_query; ?>	
+
+	<?php if ( pagination == 'true' ) : ?>
 	<div class="navigation">
-	  <div class="alignleft"><?php previous_posts_link('« Previous') ?></div>
-	  <div class="alignright"><?php next_posts_link('More »') ?></div>
+    <div class="alignleft">
+      <?php previous_posts_link( '&laquo; Previous' ) ?>
+    </div>
+    <div class="alignright">
+      <?php next_posts_link( 'More &raquo;' ) ?>
+    </div>
 	</div>
-	<?php } ?>
-	<?php $wp_query = null; $wp_query = $temp;
+	<?php endif;
+
+	$wp_query = null; $wp_query = $temp;
 	$content = ob_get_contents();
 	ob_end_clean();
+
 	return $content;
+
 }
-add_shortcode("loop", "myLoop");
 
 ?>

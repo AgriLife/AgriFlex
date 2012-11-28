@@ -336,46 +336,23 @@ function obfuscate($email){
 $includes_path = TEMPLATEPATH . '/includes/';
 $include_path = TEMPLATEPATH . '/inc/';
 
+// Auto-include extensions
+foreach ( glob( $include_path . "*.php" ) as $file ) {
+  require_once( $file );
+}
+unset( $file );
+
 // Auto-include all widget files
 foreach ( glob( $include_path . "/widgets/*.php" ) as $file ) {
   require_once( $file );
 }
+unset( $file );
 
 // Admin Pages
 require_once ($includes_path . 'admin.php');
 
-// Custom Shortcodes
-require_once ($includes_path . 'shortcodes.php');
-
 // Auto-configure plugins
 require_once ($includes_path . 'plugin-config.php');
 
-// Custom Featured Page/Post metaboxes
-require_once ( $include_path . 'featured-meta.php');
-
 // Add Logout Button to password-protected posts 
 require_once ($include_path . 'logout-password-protected-posts/logout.php');
-
-// Add template tags
-require_once ( $include_path . 'template-tags.php' );
-
-// Add helper functions
-require_once ( $include_path . 'helpers.php' );
-
-// Add filter functions
-require_once ( $include_path . 'filters.php' );
-
-// Add action functions
-require_once ( $include_path . 'actions.php' );
-
-// Add header extensions
-require_once ( $include_path . 'header-extensions.php' );
-
-// Add content extensions
-require_once ( $include_path . 'content-extensions.php' );
-
-// Add sidebar extensions
-require_once ( $include_path . 'sidebar-extensions.php' );
-
-// Add footer extensions
-require_once ( $include_path . 'footer-extensions.php' );
