@@ -9,8 +9,6 @@
 
 <div id="aside">
 
-  <?php // @todo - Change this action to something more generic ?>
-	<?php do_action('posts_logout_link','Logout','logout_btn'); ?>
   <?php agriflex_before_sidebar(); ?>
 	<div id="aside-widget-area-1">
 		<div id="primary" class="widget-area" role="complementary">

@@ -27,3 +27,15 @@ function agriflex_after_sidebar() {
   do_action( 'agriflex_after_sidebar' );
 
 } // agriflex_after_sidebar
+
+add_action( 'agriflex_before_sidebar', 'agriflex_logout_pages', 10 );
+/**
+ * Show the logout button on password-protected pages if logged in
+ *
+ * @since AgriFlex 2.0
+ */
+function agriflex_logout_pages() {
+  
+	do_action('posts_logout_link','Logout','logout_btn');
+
+}
