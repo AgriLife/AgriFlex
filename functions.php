@@ -359,9 +359,15 @@ function cat_loop( $catClass ) {
 	return true;
 }
 
+
 // Set path to function files
 $includes_path = TEMPLATEPATH . '/includes/';
 $include_path = TEMPLATEPATH . '/inc/';
+
+// Auto-include all widget files
+foreach ( glob( $include_path . "/widgets/*.php" ) as $file ) {
+  require_once( $file );
+}
 
 // Admin Pages
 require_once ($includes_path . 'admin.php');
@@ -371,9 +377,6 @@ require_once ($includes_path . 'shortcodes.php');
 
 // Auto-configure plugins
 require_once ($includes_path . 'plugin-config.php');
-
-// Add Custom Widgets
-require_once ($includes_path . 'widgets.php');
 
 // Custom Featured Page/Post metaboxes
 require_once ( $include_path . 'featured-meta.php');
