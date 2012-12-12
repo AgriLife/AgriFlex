@@ -240,3 +240,8 @@ require_once ($includes_path . 'plugin-config.php');
 
 // Add Logout Button to password-protected posts 
 require_once ($include_path . 'logout-password-protected-posts/logout.php');
+
+define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/options/' );
+// Add the options library
+require_once( $include_path . 'options/options-framework.php');
+
