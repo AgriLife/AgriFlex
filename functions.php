@@ -244,4 +244,5 @@ require_once ($include_path . 'logout-password-protected-posts/logout.php');
 define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/options/' );
 // Add the options library
 require_once( $include_path . 'options/options-framework.php');
-
+$options = of_get_option();
+print_r($options);

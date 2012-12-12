@@ -403,7 +403,9 @@ if ( ! function_exists( 'of_get_option' ) ) {
 
 		if ( isset( $options[$name] ) ) {
 			return $options[$name];
-		}
+    } else {
+      return $options;
+    }
 
 		return $default;
 	}
