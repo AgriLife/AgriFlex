@@ -73,6 +73,7 @@ add_action( 'agriflex_head', 'agriflex_threaded_comments', 20 );
  * 
  * @author J. Aaron Eaton <aaron@channeleaton.com>
  * @since AgriFlex 2.0
+ * @return void
  */
 function agriflex_threaded_comments() {
 
@@ -83,10 +84,11 @@ function agriflex_threaded_comments() {
 
 add_action( 'agriflex_before_header', 'agriflex_agency_nav_begin', 1 );
 /**
- * Pull in the agency navigation template part
+ * Displays the opening agency nav markup
  *
  * @author J. Aaron Eaton <aaron@channeleaton.com>
  * @since AgriFlex 2.0
+ * @return void
  */
 function agriflex_agency_nav_begin() {
 
@@ -98,16 +100,16 @@ function agriflex_agency_nav_begin() {
 
 } // agriflex_agency_nav_begin
 
-//add_action( 'agriflex_before_header', 'agriflex_agency_logos', 10 );
-function agriflex_agency_logos() {
-
-  $html .= apply_filters( 'agriflex_logo_filter', $html );
-
-  echo $html;
-
-} // agriflex_agency_logos
-
 add_action( 'agriflex_before_header', 'agriflex_college_logo', 10 );
+/**
+ * Displays the college logo when selected.
+ *
+ * Also shows the 'Explore' menu if college only
+ *
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @since AgriFlex 2.0
+ * @return void
+ */
 function agriflex_college_logo() {
 
   $agencies = of_get_option( 'agency-top' );
@@ -139,6 +141,13 @@ function agriflex_college_logo() {
 } // agriflex_college_logo
 
 add_action( 'agriflex_before_header', 'agriflex_ext_logo', 20 );
+/**
+ * Displays the extension logo when selected
+ *
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @since AgriFlex 2.0
+ * @return void
+ */
 function agriflex_ext_logo() {
 
   $agencies = of_get_option( 'agency-top' );
@@ -159,6 +168,13 @@ function agriflex_ext_logo() {
 } // agriflex_ext_logo
 
 add_action( 'agriflex_before_header', 'agriflex_res_logo', 30 );
+/**
+ * Displays the research logo when selected
+ *
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @since AgriFlex 2.0
+ * @return void
+ */
 function agriflex_res_logo() {
 
   $agencies = of_get_option( 'agency-top' );
@@ -179,6 +195,15 @@ function agriflex_res_logo() {
 } // agriflex_res_logo
 
 add_action( 'agriflex_before_header', 'agriflex_tvmdl_logo', 40 );
+/**
+ * Displays the TVMDL logo when selected
+ *
+ * Also shows the client login button when TVMDL only
+ *
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @since AgriFlex 2.0
+ * @return void
+ */
 function agriflex_tvmdl_logo() {
 
   $agencies = of_get_option( 'agency-top' );
@@ -210,6 +235,13 @@ function agriflex_tvmdl_logo() {
 } // agriflex_tvmdl_logo
 
 add_action( 'agriflex_before_header', 'agriflex_tfs_logo', 50 );
+/**
+ * Displays the TFS logo when selected
+ *
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @since AgriFlex 2.0
+ * @return void
+ */
 function agriflex_tfs_logo() {
 
   $agencies = of_get_option( 'agency-top' );
@@ -230,6 +262,13 @@ function agriflex_tfs_logo() {
 } // agriflex_tfs_logo
 
 add_action( 'agriflex_before_header', 'agriflex_tpwd_logo', 60 );
+/**
+ * Displays the TPWD logo when Master Naturalist is selected
+ *
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @since AgriFlex 2.0
+ * @return void
+ */
 function agriflex_tpwd_logo() {
 
   $ext_type = of_get_option( 'ext-type' );
@@ -247,6 +286,13 @@ function agriflex_tpwd_logo() {
 } // agriflex_tpwd_logo
 
 add_action( 'agriflex_before_header', 'agriflex_sg_logo', 60 );
+/**
+ * Displays the sea grant logo when selected
+ *
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @since AgriFlex 2.0
+ * @return void
+ */
 function agriflex_sg_logo() {
 
   $ext_type = of_get_option( 'ext-type' );
@@ -264,6 +310,13 @@ function agriflex_sg_logo() {
 } // agriflex_sg_logo
 
 add_action( 'agriflex_before_header', 'agriflex_custom_logo', 70 );
+/**
+ * Displays the custom logo if available
+ *
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @since AgriFlex 2.0
+ * @return void
+ */
 function agriflex_custom_logo() {
 
   $logo = of_get_option( 'custom-agency-logo' );
@@ -278,8 +331,14 @@ function agriflex_custom_logo() {
 
 } // agriflex_custom_logo
 
-
 add_action( 'agriflex_before_header', 'agriflex_agency_nav_end', 99 );
+/**
+ * Displays the closing agency nav markup
+ *
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @since AgriFlex 2.0
+ * @return void
+ */
 function agriflex_agency_nav_end() {
 
   $html .= '</ul>';
