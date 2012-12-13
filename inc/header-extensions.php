@@ -132,6 +132,7 @@ function agriflex_college_logo() {
       $html .= 'Explore';
       $html .= '</a>';
       $html .= '</li>';
+      include( __FILE__ . '/college/college-drop-down.php');
     }
 
   }
@@ -348,24 +349,6 @@ function agriflex_agency_nav_end() {
   echo $html;
 
 } // agriflex_agency_nav_end
-
-add_action( 'agriflex_before_header', 'agriflex_college_drop_down', 20 );
-/**
- * College specific content for drop-down
- *
- * @author J. Aaron Eaton <aaron@channeleaton.com>
- * @since AgriFlex 2.0
- */
-function agriflex_college_drop_down() {
-
-  GLOBAL $iscollegeonly;
-
-  if ( $iscollegeonly ) {
-    // instead of writing HTML here, lets do an include
-    include( __FILE__ . '/college/college-drop-down.php');
-  }
-
-}
 
 add_action( 'agriflex_header', 'agriflex_site_title', 30 );
 /**
