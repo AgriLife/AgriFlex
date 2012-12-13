@@ -113,7 +113,7 @@ function agriflex_college_logo() {
   $agencies = of_get_option( 'agency-top' );
   $val = array_count_values( $agencies );
 
-  if ( $agencies['college'] == 1 ) {
+  if ( $agencies['college'] ) {
     $html = '<li class="top-agency college-item">';
     $html .= '<a href="http://aglifesciences.tamu.edu/">';
     $html .= '<span class="top-level-hide">';
@@ -143,7 +143,7 @@ function agriflex_ext_logo() {
 
   $agencies = of_get_option( 'agency-top' );
 
-  if ( $agencies['extension'] == 1 ) {
+  if ( $agencies['extension'] ) {
     $html = '<li class="top-agency tx-ext-item">';
     $html .= '<a href="http://agrilifeextension.tamu.edu/">';
     $html .= '<span class="top-level-hide">';
@@ -163,7 +163,7 @@ function agriflex_res_logo() {
 
   $agencies = of_get_option( 'agency-top' );
 
-  if ( $agencies['research'] == 1 ) {
+  if ( $agencies['research'] ) {
     $html = '<li class="top-agency research-item">';
     $html .= '<a href="http://agriliferesearch.tamu.edu/">';
     $html .= '<span class="top-level-hide">';
@@ -184,7 +184,7 @@ function agriflex_tvmdl_logo() {
   $agencies = of_get_option( 'agency-top' );
   $val = array_count_values( $agencies );
 
-  if ( $agencies['tvmdl'] == 1 ) {
+  if ( $agencies['tvmdl'] ) {
     $html = '<li class="top-agency tvmdl-item">';
     $html .= '<a href="http://tvmdl.tamu.edu/">';
     $html .= '<span class="top-level-hide">';
@@ -209,12 +209,12 @@ function agriflex_tvmdl_logo() {
 
 } // agriflex_tvmdl_logo
 
-add_action( 'agriflex_before_header', 'agriflex_tfs_logo', 40 );
+add_action( 'agriflex_before_header', 'agriflex_tfs_logo', 50 );
 function agriflex_tfs_logo() {
 
   $agencies = of_get_option( 'agency-top' );
 
-  if ( $agencies['tfs'] == 1 ) {
+  if ( $agencies['tfs'] ) {
     $html = '<li class="top-agency tfs-item">';
     $html .= '<a href="http://txforestservice.tamu.edu/">';
     $html .= '<span class="top-level-hide">';
