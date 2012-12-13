@@ -111,6 +111,7 @@ add_action( 'agriflex_before_header', 'agriflex_college_logo', 10 );
 function agriflex_college_logo() {
 
   $agencies = of_get_option( 'agency-top' );
+  $val = array_count_values( $agencies );
 
   if ( $agencies['college'] == 1 ) {
     $html = '<li class="top-agency college-item">';
@@ -121,6 +122,16 @@ function agriflex_college_logo() {
     $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/images/college-branding.png" alt="Texas A&amp;M College Logo" />';
     $html .= '</a>';
     $html .= '</li>';
+
+    // If college only, show 'Explore' menu
+    if ( $val[1] == 1 ) {
+      $html .= '<li class="explore right-align">';
+      $html .= '<a class="ext-link college-explore-link" href="/explore/">';
+      $html .= 'Explore';
+      $html .= '</a>';
+      $html .= '</li>';
+    }
+
   }
 
   echo $html;
@@ -171,6 +182,7 @@ add_action( 'agriflex_before_header', 'agriflex_tvmdl_logo', 40 );
 function agriflex_tvmdl_logo() {
 
   $agencies = of_get_option( 'agency-top' );
+  $val = array_count_values( $agencies );
 
   if ( $agencies['tvmdl'] == 1 ) {
     $html = '<li class="top-agency tvmdl-item">';
@@ -181,6 +193,16 @@ function agriflex_tvmdl_logo() {
     $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/images/tvmdl-branding.png" alt="Texas A&amp;M Research Logo" />';
     $html .= '</a>';
     $html .= '</li>';
+
+    // Show client login if TVMDL only
+    if ( $val[1] == 1) {
+      $html .= '<li class="right-align client-login-li">';
+      $html .= '<a class="client-login" href="https://tvmdl.tamu.edu/webaccess/">';
+      $html .= 'Client Login';
+      $html .= '</a>';
+      $html .= '</li>';
+    }
+
   }
 
   echo $html;
@@ -206,6 +228,56 @@ function agriflex_tfs_logo() {
   echo $html;
 
 } // agriflex_tfs_logo
+
+add_action( 'agriflex_before_header', 'agriflex_tpwd_logo', 60 );
+function agriflex_tpwd_logo() {
+
+  $ext_type = of_get_option( 'ext-type' );
+
+  if ( $ext_type == 'mn' ) {
+    $html = '<li class="top-agency txmn-item">';
+    $html .= '<a href="http://www.tpwd.state.tx.us/">';
+    $html .= 'Texas Parks &amp; Wildlife';
+    $html .= '</a>';
+    $html .= '</li>';
+  }
+
+  echo $html;
+
+} // agriflex_tpwd_logo
+
+add_action( 'agriflex_before_header', 'agriflex_sg_logo', 60 );
+function agriflex_sg_logo() {
+
+  $ext_type = of_get_option( 'ext-type' );
+
+  if ( $ext_type == 'sg' ) {
+    $html = '<li class="top-agency sg-item">';
+    $html .= '<a href="http://texas-sea-grant.tamu.edu/">';
+    $html .= 'Texas Sea Grant';
+    $html .= '</a>';
+    $html .= '</li>';
+  }
+
+  echo $html;
+
+} // agriflex_sg_logo
+
+add_action( 'agriflex_before_header', 'agriflex_custom_logo', 70 );
+function agriflex_custom_logo() {
+
+  $logo = of_get_option( 'custom-agency-logo' );
+
+  if ( $logo ) {
+    $html = '<li class="custom-logo">';
+    $html .= '<img src="' . $logo . '" />';
+    $html .= '</li>';
+  }
+
+  echo $html;
+
+} // agriflex_custom_logo
+
 
 add_action( 'agriflex_before_header', 'agriflex_agency_nav_end', 99 );
 function agriflex_agency_nav_end() {
