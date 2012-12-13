@@ -38,7 +38,16 @@ function optionsframework_options() {
     'research' => 'Research',
     'extension' => 'Extension',
     'college'   => 'College',
-    'tvmdl'     => 'TVMDL'
+    'tvmdl'     => 'TVMDL',
+    'tfs'       => 'Texas Forest Service'
+  );
+
+  $agency_default = array(
+    'research'  => 1,
+    'extension' => 1,
+    'college'   => 1,
+    'tvmdl'     => 1,
+    'tfs'       => 1,
   );
 
   $ext_array = array(
@@ -301,6 +310,7 @@ function optionsframework_options() {
     'name' => __( 'Agency Selection', 'options_framework_theme' ),
     'desc' => __( 'Select all that apply', 'options_framework_theme' ),
     'id'   => 'agency-top',
+    'std'  => $agency_default,
     'type' => 'multicheck',
     'options' => $agency_array
   );
