@@ -81,18 +81,142 @@ function agriflex_threaded_comments() {
 
 }
 
-add_action( 'agriflex_before_header', 'agriflex_agency_nav', 10 );
+add_action( 'agriflex_before_header', 'agriflex_agency_nav_begin', 1 );
 /**
  * Pull in the agency navigation template part
  *
  * @author J. Aaron Eaton <aaron@channeleaton.com>
  * @since AgriFlex 2.0
  */
-function agriflex_agency_nav() {
+function agriflex_agency_nav_begin() {
 
-  get_template_part( 'nav', 'agency' );
+  $html .= '<div id="drop-section-nav">';
+  $html .= '<div id="drop-nav">';
+  $html .= '<ul>';
 
-} // agriflex_agency_nav
+  echo $html;
+
+} // agriflex_agency_nav_begin
+
+//add_action( 'agriflex_before_header', 'agriflex_agency_logos', 10 );
+function agriflex_agency_logos() {
+
+  $html .= apply_filters( 'agriflex_logo_filter', $html );
+
+  echo $html;
+
+} // agriflex_agency_logos
+
+add_action( 'agriflex_before_header', 'agriflex_college_logo', 10 );
+function agriflex_college_logo() {
+
+  $agencies = of_get_option( 'agency-top' );
+
+  if ( $agencies['college'] == 1 ) {
+    $html = '<li class="top-agency college-item">';
+    $html .= '<a href="http://aglifesciences.tamu.edu/">';
+    $html .= '<span class="top-level-hide">';
+    $html .= 'Texas A&amp;M College of Agriculture and Life Sciences';
+    $html .= '</span>';
+    $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/images/college-branding.png" alt="Texas A&amp;M College Logo" />';
+    $html .= '</a>';
+    $html .= '</li>';
+  }
+
+  echo $html;
+
+} // agriflex_college_logo
+
+add_action( 'agriflex_before_header', 'agriflex_ext_logo', 20 );
+function agriflex_ext_logo() {
+
+  $agencies = of_get_option( 'agency-top' );
+
+  if ( $agencies['extension'] == 1 ) {
+    $html = '<li class="top-agency tx-ext-item">';
+    $html .= '<a href="http://agrilifeextension.tamu.edu/">';
+    $html .= '<span class="top-level-hide">';
+    $html .= 'Texas A&amp;M AgriLife Extension Service';
+    $html .= '</span>';
+    $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/images/extension-branding.png" alt="Texas A&amp;M Extension Logo" />';
+    $html .= '</a>';
+    $html .= '</li>';
+  }
+
+  echo $html;
+
+} // agriflex_ext_logo
+
+add_action( 'agriflex_before_header', 'agriflex_res_logo', 30 );
+function agriflex_res_logo() {
+
+  $agencies = of_get_option( 'agency-top' );
+
+  if ( $agencies['research'] == 1 ) {
+    $html = '<li class="top-agency research-item">';
+    $html .= '<a href="http://agriliferesearch.tamu.edu/">';
+    $html .= '<span class="top-level-hide">';
+    $html .= 'Texas A&amp;M AgriLife Research';
+    $html .= '</span>';
+    $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/images/research-branding.png" alt="Texas A&amp;M Research Logo" />';
+    $html .= '</a>';
+    $html .= '</li>';
+  }
+
+  echo $html;
+
+} // agriflex_res_logo
+
+add_action( 'agriflex_before_header', 'agriflex_tvmdl_logo', 40 );
+function agriflex_tvmdl_logo() {
+
+  $agencies = of_get_option( 'agency-top' );
+
+  if ( $agencies['tvmdl'] == 1 ) {
+    $html = '<li class="top-agency tvmdl-item">';
+    $html .= '<a href="http://tvmdl.tamu.edu/">';
+    $html .= '<span class="top-level-hide">';
+    $html .= 'Texas A&amp;M Veterinary Medical Diagnostics Laboratory';
+    $html .= '</span>';
+    $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/images/tvmdl-branding.png" alt="Texas A&amp;M Research Logo" />';
+    $html .= '</a>';
+    $html .= '</li>';
+  }
+
+  echo $html;
+
+} // agriflex_tvmdl_logo
+
+add_action( 'agriflex_before_header', 'agriflex_tfs_logo', 40 );
+function agriflex_tfs_logo() {
+
+  $agencies = of_get_option( 'agency-top' );
+
+  if ( $agencies['tfs'] == 1 ) {
+    $html = '<li class="top-agency tfs-item">';
+    $html .= '<a href="http://txforestservice.tamu.edu/">';
+    $html .= '<span class="top-level-hide">';
+    $html .= 'Texas A&amp;M Forest Service';
+    $html .= '</span>';
+    $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/images/forest-branding.png" alt="Texas A&amp;M Forest Service Logo" />';
+    $html .= '</a>';
+    $html .= '</li>';
+  }
+
+  echo $html;
+
+} // agriflex_tfs_logo
+
+add_action( 'agriflex_before_header', 'agriflex_agency_nav_end', 99 );
+function agriflex_agency_nav_end() {
+
+  $html .= '</ul>';
+  $html .= '</div><!-- #drop-nav -->';
+  $html .= '</div><!-- #drop-section-nav -->';
+
+  echo $html;
+
+} // agriflex_agency_nav_end
 
 add_action( 'agriflex_before_header', 'agriflex_college_drop_down', 20 );
 /**
