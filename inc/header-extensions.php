@@ -352,7 +352,8 @@ function agriflex_agency_nav_end() {
 
 add_action( 'agriflex_header', 'agriflex_site_title', 30 );
 /**
- * Determines which header to show then echos it
+ * Shows the default site title style. Allows for filtering to make
+ * custom site titles.
  *
  * Filter: agriflex_site_title
  *
@@ -363,56 +364,19 @@ add_action( 'agriflex_header', 'agriflex_site_title', 30 );
  */
 function agriflex_site_title() {
 
-  GLOBAL $options;
-
-  GLOBAL $isextensioncounty,
-    $isextensioncountytce,
-    $isextensionmg,
-    $isextensionmn;
-
   $home_url = get_home_url( '/' );
   $blog_name = esc_attr( get_bloginfo( 'name', 'display' ) );
-  
-  if ( $isextensioncounty || $isextensioncountytce ) {
-    $display = '<span>Extension Education</span> <em>in ' . 
-               $options['county-name-human'] .
-               ' County</em>';
 
-  } elseif ( $isextensionmg ) {
-    $src = get_bloginfo( 'stylesheet_directory' ) . '/img/txmg-logo80.gif';
-    $img = '<img src="' . $src . '" alt="' . $blog_name . '" />';
+  $args = array(
+    'url' => $home_url,
+    'name' => $blog_name
+  );
 
-    $display = $img . $blog_name;
-    
-  } elseif ( $isextensionmn ) {
-    $src = get_bloginfo( 'stylesheet_directory' ) . '/img/txmn-logo.png';
-    $img = '<img src="' . $src . '" alt="' . $blog_name . '" />';
+  $link = '<a href="' . $home_url . '" title="' . $blog_name . '">';
+  $link .= $blog_name;
+  $link .= '</a>';
 
-    $display = $img . $blog_name;
-
-  } else {
-  
-    if ( $options['header_type'] == 1 && $options['titleImg'] <> '' ) {
-      $src = $options['titleImg'];
-      $img = '<img src="' . $src . '" alt="' . $blog_name . '" />';
-
-      $display = $img . $blog_name;
-
-    } elseif ( $options['header_type'] == 2 ) {
-      $src = $options['titleImg'];
-      $img = '<img src="' . $src . '" alt="' . $blog_name . '" />';
-
-      $display = $img . '<span class="full-img-text">' . $blog_name . '</span>';
-
-    } else {
-      $display = $blog_name;
-    }
-  
-  }
-
-  $link = '<a href="' . $home_url . '" 
-    title="' . $blog_name . '" >' . 
-    $display . '</a>';
+  $link = apply_filters( 'agriflex_site_title', $link, $args );
 
   $html = '<div id="header">';
   $html .= '<header id="branding" role="banner">';
@@ -428,9 +392,52 @@ function agriflex_site_title() {
   $html .= '</header><!-- end #branding -->';
   $html .= '</div><!-- end #header -->';
 
-  echo apply_filters( 'agriflex_site_title', $html );
+  echo $html;
 
-}
+} // agriflex_site_title
+
+
+add_filter( 'agriflex_site_title', 'agriflex_mg_title', 10, 2 );
+function agriflex_mg_title( $link, $args ) {
+
+  $ext_type = of_get_option( 'ext-type' );
+
+  if ( $ext_type == 'mg' ) {
+    $src = get_bloginfo( 'stylesheet_directory' ) . '/img/txmg-logo80.gif';
+    $img = '<img src="' . $src . '" alt="' . $args['name'] . '" />';
+
+    $link = '<a href="' . $args['url'] . '" ';
+    $link .= 'title="' . $args['name'] . '">';
+    $link .= $img . $args['name'];
+    $link .= '</a>';
+
+    return $link;
+  }
+
+  return $link;
+
+} // agriflex_mg_title
+
+add_filter( 'agriflex_site_title', 'agriflex_mn_title', 10, 2 );
+function agriflex_mn_title( $link, $args ) {
+
+  $ext_type = of_get_option( 'ext-type' );
+
+  if ( $ext_type == 'mn' ) {
+    $src = get_bloginfo( 'stylesheet_directory' ) . '/img/txmn-logo.png';
+    $img = '<img src="' . $src . '" alt="' . $args['name'] . '" />';
+
+    $link = '<a href="' . $args['url'] . '" ';
+    $link .= 'title="' . $args['name'] . '">';
+    $link .= $img . $args['name'];
+    $link .= '</a>';
+
+    return $link;
+  }
+
+  return $link;
+
+} // agriflex_mn_title
 
 add_action( 'agriflex_after_header', 'agriflex_main_nav', 30 );
 /**
