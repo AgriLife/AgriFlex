@@ -257,16 +257,14 @@ function optionsframework_options() {
     'id'   => 'county-name',
     'std'  => 0,
     'type' => 'select',
-    'options' => $county_array
+    'options' => $county_array,
   );
 
-  $county = of_get_option( 'county-name' );
   $options[] = array(
     'name' => __( 'County Name Human', 'options_framework_theme' ),
     'id'   => 'county-name-human',
-    'std'  => agriflex_county_listing( $county ),
-    'class' => 'hidden',
     'type' => 'text',
+    'class' => 'hidden'
   );
 
   $options[] = array(
@@ -291,13 +289,11 @@ function optionsframework_custom_scripts() { ?>
 <script type="text/javascript">
 jQuery(document).ready(function($) {
 
-	$('#example_showhidden').click(function() {
-  		$('#section-example_text_hidden').fadeToggle(400);
+  // Changes the human-readable name based on the county selection
+	$('select#county-name').change(function() {
+  		$('input#county-name-human').val($(this).children(':selected').text());
 	});
 
-	if ($('#example_showhidden:checked').val() !== undefined) {
-		$('#section-example_text_hidden').show();
-	}
 
 });
 </script>
