@@ -396,6 +396,24 @@ function agriflex_site_title() {
 
 } // agriflex_site_title
 
+add_filter( 'agriflex_site_title', 'agriflex_county_title', 10, 2 );
+function agriflex_county_title( $link, $args ) {
+
+  $ext_type = of_get_option( 'ext-type' );
+
+  if ( $ext_type == 'county' || $ext_type == 'tce' ) {
+    $link = '<a href="' . $args['url'] . '" ';
+    $link .= 'title="' . $args['name'] . '">';
+    $link .= '<span>Extension Education</span>';
+    $link .= '<em>in ' . of_get_option( 'county-name-human' ) . 'County</em>';
+    $link .= '</a>';
+
+    return $link;
+  }
+
+  return $link;
+
+} // agriflex_mg_title
 
 add_filter( 'agriflex_site_title', 'agriflex_mg_title', 10, 2 );
 function agriflex_mg_title( $link, $args ) {
