@@ -291,8 +291,13 @@ jQuery(document).ready(function($) {
 
   // Changes the human-readable name based on the county selection
 	$('select#county-name').change(function() {
-  		$('input#county-name-human').val($(this).children(':selected').text());
+    $('input#county-name-human').val($(this).children(':selected').text());
 	});
+
+  // Removes ext-type when agency selection changes. It's a failsafe.
+  $('#section-agency-top input').change(function() {
+    $('#section-ext-type input').removeAttr('checked');
+  });
 
 
 });
