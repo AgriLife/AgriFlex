@@ -60,78 +60,7 @@ function optionsframework_options() {
     'sg'      => 'Sea Grant'
   );
 
-	// Test data
-	$test_array = array(
-		'one' => __('One', 'options_framework_theme'),
-		'two' => __('Two', 'options_framework_theme'),
-		'three' => __('Three', 'options_framework_theme'),
-		'four' => __('Four', 'options_framework_theme'),
-		'five' => __('Five', 'options_framework_theme')
-	);
-
-	// Multicheck Array
-	$multicheck_array = array(
-		'one' => __('French Toast', 'options_framework_theme'),
-		'two' => __('Pancake', 'options_framework_theme'),
-		'three' => __('Omelette', 'options_framework_theme'),
-		'four' => __('Crepe', 'options_framework_theme'),
-		'five' => __('Waffle', 'options_framework_theme')
-	);
-
-	// Multicheck Defaults
-	$multicheck_defaults = array(
-		'one' => '1',
-		'five' => '1'
-	);
-
-	// Background Defaults
-	$background_defaults = array(
-		'color' => '',
-		'image' => '',
-		'repeat' => 'repeat',
-		'position' => 'top center',
-		'attachment'=>'scroll' );
-
-	// Typography Defaults
-	$typography_defaults = array(
-		'size' => '15px',
-		'face' => 'georgia',
-		'style' => 'bold',
-		'color' => '#bada55' );
-		
-	// Typography Options
-	$typography_options = array(
-		'sizes' => array( '6','12','14','16','20' ),
-		'faces' => array( 'Helvetica Neue' => 'Helvetica Neue','Arial' => 'Arial' ),
-		'styles' => array( 'normal' => 'Normal','bold' => 'Bold' ),
-		'color' => false
-	);
-
-	// Pull all the categories into an array
-	$options_categories = array();
-	$options_categories_obj = get_categories();
-	foreach ($options_categories_obj as $category) {
-		$options_categories[$category->cat_ID] = $category->cat_name;
-	}
-	
-	// Pull all tags into an array
-	$options_tags = array();
-	$options_tags_obj = get_tags();
-	foreach ( $options_tags_obj as $tag ) {
-		$options_tags[$tag->term_id] = $tag->name;
-	}
-
-
-	// Pull all the pages into an array
-	$options_pages = array();
-	$options_pages_obj = get_pages('sort_column=post_parent,menu_order');
-	$options_pages[''] = 'Select a page:';
-	foreach ($options_pages_obj as $page) {
-		$options_pages[$page->ID] = $page->post_title;
-	}
-
-	// If using image radio buttons, define a directory path
-	$imagepath =  get_template_directory_uri() . '/images/';
+  $county_array = agriflex_county_listing(); 
 
 	$options = array();
 
@@ -321,6 +250,23 @@ function optionsframework_options() {
     'std'  => 'typical',
     'type' => 'radio',
     'options' => $ext_array
+  );
+
+  $options[] = array(
+    'name' => __( 'County Name', 'options_framework_theme' ),
+    'id'   => 'county-name',
+    'std'  => 0,
+    'type' => 'select',
+    'options' => $county_array
+  );
+
+  $county = of_get_option( 'county-name' );
+  $options[] = array(
+    'name' => __( 'County Name Human', 'options_framework_theme' ),
+    'id'   => 'county-name-human',
+    'std'  => agriflex_county_listing( $county ),
+    'class' => 'hidden',
+    'type' => 'text',
   );
 
   $options[] = array(
