@@ -198,6 +198,19 @@ function agriflex_admin_register_head() {
 
 } // agriflex_admin_register_head
 
+function agriflex_single_agency( $agency ) {
+
+  $agencies = of_get_option( 'agency-top' );
+  $val = array_count_values( $agencies );
+
+  if ( in_array( $agency, $agencies ) && $val[1] == 1 ) {
+    return TRUE;
+  } else {
+    return FALSE;
+  }
+
+} // agriflex_single_agency
+
 /** 
  * Obfuscates email addresses
  *
@@ -242,8 +255,9 @@ require_once ($includes_path . 'plugin-config.php');
 require_once ($include_path . 'logout-password-protected-posts/logout.php');
 
 define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/options/' );
+
 // Add the options library
 require_once( $include_path . 'options/options-framework.php');
 $options = of_get_option();
-print_r($options);
 
+print_r($options);

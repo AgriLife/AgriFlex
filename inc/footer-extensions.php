@@ -64,6 +64,85 @@ function agriflex_show_footer() {
 
 } // agriflex_show_footer
 
+add_action( 'footer_col_4', 'agriflex_contact_footer', 10, 1 );
+function agriflex_contact_footer() {
+
+  $options = of_get_option();
+
+  $html = '<div id="contact">';
+  $html .= '<div class="contact">';
+  $html .= '<h4>Contact</h4>';
+
+  if ( ( $options['ext-type'] == 'county' || $options['ext-type'] == 'tce') && agriflex_single_agency() ) {
+    require_once( TEMPLATEPATH . '/inc/nusoap/nusoap.php' );
+    $html .= sprintf( county_footer_contact() );
+  } else {
+    $mapaddress = $options['p-street-1'] . ' ';
+    $mapaddress .= $options['p-street-2'] . ' ';
+    $mapaddress .= $options['p-city'] . ', TX ';
+    $mapaddress .= $options['p-zip'];
+
+    $map_image = 'http://maps.google.com/maps/api/staticmap?size=175x101&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office%7C' . urlencode($mapaddress) . '&amp;sensor=false';
+
+    $map_link = 'http://maps.google.com/?q=' . urlencode($mapaddress) . '&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office&amp;sensor=false';
+
+    $html .= '<a href="' . $map_link . '">';
+    $html .= '<img src="' . $map_image . '" height="101" width="175" alt="Map to office" />';
+    $html .= '</a>';
+
+    $html .= '<ul>';
+
+    if ( ! empty( $options['p-street-1'] ) ) {
+      $html .= '<li>' . $options['p-street-1'] . '<br />';
+      if ( ! empty( $options['p-street-2'] ) ) {
+        $html .= $options['p-street-2'] . '<br />';
+      }
+      $html .= $options['p-city'] . ', TX ' . $options['p-zip'] . '</li>';
+    }
+
+    if ( ! empty( $options['m-street-1'] ) ) {
+      $html .= '<li>' . $options['m-street-1'] . '<br />';
+      if ( ! empty( $options['m-street-2'] ) ) {
+        $html .= $options['m-street-2'] . '<br />';
+      }
+      $html .= $options['m-city'] . ', TX ' . $options['m-zip'] . '</li>';
+    }
+
+    if ( ! empty( $options['hours'] ) ) {
+      $html .= '<li>' . $options['hours']. '</li>';
+    }
+
+    if ( ! empty( $options['email'] ) ) {
+      $html .= '<li>';
+      $html .= '<a href="' . obfuscate( 'mailto:' ) . obfuscate( $options['email'] ) . '">';
+      $html .= obfuscate( $options['email'] );
+      $html .= '</a>';
+      $html .= '</li>';
+    }
+
+    if ( ! empty( $options['phone'] ) ) {
+      $html .= '<li>';
+      $html .= '<a href="tel:+1' . $options['phone'] . '">';
+      $html .= 'Phone: ' . $options['phone'];
+      $html .= '</a>';
+      $html .= '</li>';
+    }
+
+    if ( ! empty( $options['fax'] ) ) {
+      $html .= '<li>' . $options['fax']. '</li>';
+    }
+
+    $html .= '</ul>';
+
+  }
+
+  $html .= '</div><!-- .contact -->';
+  $html .= '</div><!-- #contact -->';
+
+  echo $html;
+
+} // agriflex_contact_footer
+
 add_action( 'footer_col_5', 'agriflex_bookstore_footer', 10, 1 );
 function agriflex_bookstore_footer() {
 
