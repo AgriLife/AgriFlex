@@ -52,87 +52,31 @@ add_action( 'agriflex_footer', 'agriflex_show_footer' );
  */
 function agriflex_show_footer() {
 
-  GLOBAL $isresearch,
-    $isextension,
-    $iscollege,
-    $istvmdl;
+  do_action( 'footer_col_1' );
 
-  GLOBAL $isextensiononly,
-    $isresearchonly,
-    $iscollegeonly,
-    $istvmdlonly,
-    $isfazd;
+  do_action( 'footer_col_2' );
 
-  GLOBAL $isextension4h,
-    $isextensioncounty,
-    $isextensioncountytce,
-    $isextensionmg,
-    $isextensionmn;
+  do_action( 'footer_col_3' );
 
-  GLOBAL $options;
+  do_action( 'footer_col_4' );
 
-  GLOBAL $useCustomFooter;
-  
-  $path = get_template_directory() . '/inc/footer/';
+  do_action( 'footer_col_5' );
 
-// Column 1-3
-if ( $iscollegeonly ) : 
-	include( $path . 'college.inc.php' );
-	// Column 4
-	include( $path . 'contact.inc.php' );  
-	// Column 5
-	include( $path . 'bookstore.inc.php' ); 
-elseif ( $isresearchonly ) : 
-	include( $path . 'research.inc.php' );
-	// Column 4
-	include( $path . 'contact.inc.php' );  
-	// Column 5
-	include( $path . 'bookstore.inc.php' );  
-elseif ( $istvmdlonly ) : 
-	include( $path . 'tvmdl.inc.php' );
-	// Column 4
-	include( $path . 'contact.inc.php' );  
-	// Column 5
-	include( $path . 'bookstore.inc.php' ); 
-elseif ( $isfazd ) : 
-	include( $path . 'fazd.inc.php' );
-	// Column 4
-	//include($path . 'contact.inc.php' );  
-	// Column 5
-	//include($path . 'bookstore.inc.php' ); 	
-elseif ( $options['useCustomFooter'] ) :
-  include( $path . 'fazd.inc.php' );
-elseif ( $isextensiononly && $isextension4h ) : 
-	include( $path . '4h.inc.php' );
-	// Column 4
-	include( $path . 'contact.inc.php' );  
-	// Column 5
-	include( $path . 'bookstore.inc.php' ); 
-elseif ( $isextensiononly && $isextensionmg ) : 
-	include( $path . 'txmg.inc.php' );
-	// Column 4
-	include( $path . 'contact.inc.php' );  
-	// Column 5
-	include( $path . 'bookstore.inc.php' ); 
-elseif ( $isextensiononly && $isextensionmn ) : 
-	include( $path . 'txmn.inc.php' );
-	// Column 4
-	include( $path . 'contact.inc.php' );  
-	// Column 5
-	include( $path . 'bookstore.inc.php' ); 
-elseif( $isextensiononly ) : 
-	include( $path . 'extension.inc.php' );
-	// Column 4
-	include( $path . 'contact.inc.php' );  
-	// Column 5
-	include( $path . 'bookstore.inc.php' ); 
-else : 
-	// Multi-agency 
-	include( $path . 'multi.inc.php' );
-	// Column 4
-	include( $path . 'contact.inc.php' );  
-	// Column 5
-	include( $path . 'bookstore.inc.php' ); 
-endif;
+} // agriflex_show_footer
+
+add_action( 'footer_col_5', 'agriflex_bookstore_footer', 10, 1 );
+function agriflex_bookstore_footer() {
+
+  $html = '<div id="agrilife-bookstore">';
+  $html .= '<div class="agrilife-bookstore">';
+  $html .= '<h4>AgriLife Bookstore</h4>';
+  $html .= '<a href="https://agrilifebookstore.org/">';
+  $html .= '<img src="' . get_bloginfo( 'template_directory' ) . '/images/bookstore-books.png?v=100" alt="AgriLife Bookstore image" />';
+  $html .= '</a>';
+  $html .= '<p>AgriLife Extension&apos;s online Bookstore offers educational information and resources related to our many areas of expertise and programming; from agriculture, horticulture, and natural resources to nutrition, wellness for families and youth, and much more.</p>';
+  $html .= '</div><!-- .agrilife-bookstore -->';
+  $html .= '</div><!-- #agrilife-bookstore -->';
+
+  echo $html;
 
 }

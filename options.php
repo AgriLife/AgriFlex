@@ -299,6 +299,14 @@ jQuery(document).ready(function($) {
     $('#section-ext-type input').removeAttr('checked');
   });
 
+  // Shows the custom site logo field if options 1 or 2 are checked
+  $('#section-site-title').change( function() {
+    if ( $('#agriflex-site-title-1').attr('checked') ) {
+      $('#section-custom-site-logo').show('fast');
+    } else {
+      $('#section-custom-site-logo').hide('fast');
+    }
+  });
 
 });
 </script>
