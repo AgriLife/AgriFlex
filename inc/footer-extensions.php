@@ -64,6 +64,91 @@ function agriflex_show_footer() {
 
 } // agriflex_show_footer
 
+add_action( 'footer_col_1', 'agriflex_about_footer', 10, 1 );
+function agriflex_about_footer() {
+
+  $html .= '<div id="about">';
+  $html .= '<div class="about">			';
+
+  $about .= '<h4>Texas A&amp;M AgriLife</h4>';
+  $about .= '<a href="http://www.youtube.com/watch?v=df_SGBF4LK4"><img src="' . get_bloginfo( 'template_directory' ) . '/images/about_video_multi.jpg?v=100" alt="link to AgriLife Solutions Video" /></a>';
+  $about .= '<p>Solutions for a Changing World</p>';
+  $about .= '<ul>';
+  $about .= '<li><a href="http://agrilife.tamu.edu/vc/">Office of the Vice Chancellor</a></li>';
+  $about .= '<li><a href="http://agrilife.tamu.edu/about/index.php">Services</a></li>';
+  $about .= '<li><a href="http://aglscomplex.tamu.edu/">Agriculture &amp; Life Sciences Complex</a></li>';
+  $about .= '<li><a href="http://agrilife.org/agrilifecenter/">AgriLife Center</a></li>';
+  $about .= '<li><a href="http://agrilifepeople.tamu.edu/">Employee Directory</a></li>';
+  $about .= '</ul>	';
+
+  $html .= apply_filters( 'agriflex_about', $about );
+
+  $html .= '</div><!-- .about -->';
+  $html .= '</div><!-- #about -->	';
+
+  echo $html;
+
+} // agriflex_about_footer
+add_action( 'footer_col_2', 'agriflex_popular_links', 10, 1 );
+function agriflex_popular_links() {
+
+  $html .= '<div id="popular-links">';
+  $html .= '<div class="popular-links">			';
+
+  $links .= '<h4>AgriLife Agencies</h4>';
+  $links .= '<a href="http://aglifesciences.tamu.edu/"><img src="' . get_bloginfo( 'template_directory' ) . '/images/agrilife-footer-logo.png?v=100" alt="Texas A and M AgriLife Logo" /></a>	';
+  $links .= '<ul>';
+  $links .= '<li><a href="http://agrilifeextension.tamu.edu/">Texas A&amp;M AgriLife Extension Service</a></li>';
+  $links .= '<li><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M AgriLife Research</a></li>';
+  $links .= '<li><a href="http://tamu.edu/">Texas A&amp;M University</a></li>';
+  $links .= '<li><a href="http://aglifesciences.tamu.edu/">College of Agriculture and Life Sciences</a></li>';
+  $links .= '<li><a href="http://vetmed.tamu.edu/">College of Veterinary Medicine (cooperative with AgriLife Extension &amp; Research)</a></li>';
+  $links .= '<li><a href="http://tvmdl.tamu.edu/">Texas A&amp;M Veterinary Medical Diagnostic Laboratory</a></li>';
+  $links .= '<li><a href="http://texasforestservice.tamu.edu/">Texas A&amp;M Forest Service</a></li>																			 									';
+  $links .= '</ul>		';
+
+  $html .= apply_filters( 'footer_links', $links );
+
+  $html .= '</div><!-- .popular-links -->			';
+  $html .= '</div><!-- #popular-links -->';
+
+  echo $html;
+
+} // agriflex_extension_links
+
+add_action( 'footer_col_3', 'agriflex_required_footer', 10, 1 );
+function agriflex_required_footer() {
+
+  $html = '<div id="texas-a-m">';
+  $html .= '<div class="texas-a-m">';
+  $html .= '<h4>Required Links</h4>';
+
+  $link_logo = '<a href="http://www.tamus.edu">';
+  $link_logo .= '<img src="' . get_bloginfo( 'template_directory' ) . '/images/texas-a-m-system.png?v=100" alt="Texas A&amp;M System image" />';
+  $link_logo .= '</a>';
+
+  $html .= apply_filters( 'required_links_logo', $link_logo );
+
+  $html .= '<ul>';
+  $html .= '<li><a href="http://agrilife.org/vc/compact/">Compact with Texans</a></li>';
+  $html .= '<li><a href="http://agrilife.org/vc/privacy/">Privacy and Security</a></li>';
+  $html .= '<li><a href="http://itaccessibility.tamu.edu/">Accessibility Policy</a></li>';
+  $html .= '<li><a href="http://www.dir.texas.gov/pubs/srrpubs/pages/srrpub11-agencylink.aspx">State Link Policy</a></li>					';
+  $html .= '<li><a href="http://www.tsl.state.tx.us/trail">Statewide Search</a></li>					';
+  $html .= '<li><a href="http://aghr.tamu.edu/education-civil-rights.htm">Equal Opportunity for Educational Programs Statement</a></li>';
+  $html .= '<li><a href="http://www.tamus.edu/veterans/">Veterans Benefits</a></li>		';
+  $html .= '<li><a href="http://fcs.tamu.edu/families/military_families/">Military Families</a></li>';
+  $html .= '<li><a href="https://secure.ethicspoint.com/domain/en/report_custom.asp?clientid=19681">Risk, Fraud &amp; Misconduct Hotline</a></li>';
+  $html .= '<li><a href="http://www.texashomelandsecurity.com/">Texas Homeland Security</a></li>';
+  $html .= '<li class="last"><a href="http://agrilife.org/vc/orpi/">Open Records/Public Information</a></li>';
+  $html .= '</ul>		';
+  $html .= '</div><!-- .texas-a-m -->			';
+  $html .= '</div><!-- #texas-a-m -->';
+
+  echo $html;
+
+} // agriflex_required_footer
+
 add_action( 'footer_col_4', 'agriflex_contact_footer', 10, 1 );
 function agriflex_contact_footer() {
 
