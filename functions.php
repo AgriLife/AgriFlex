@@ -198,18 +198,6 @@ function agriflex_admin_register_head() {
 
 } // agriflex_admin_register_head
 
-function agriflex_single_agency( $agency ) {
-
-  $agencies = of_get_option( 'agency-top' );
-  $val = array_count_values( $agencies );
-
-  if ( in_array( $agency, $agencies ) && $val[1] == 1 ) {
-    return TRUE;
-  } else {
-    return FALSE;
-  }
-
-} // agriflex_single_agency
 
 /** 
  * Obfuscates email addresses
@@ -260,4 +248,51 @@ define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/opti
 require_once( $include_path . 'options/options-framework.php');
 $options = of_get_option();
 
-print_r($options);
+function agriflex_agency() {
+
+  $agencies = of_get_option( 'agency-top' );
+  $ext_type = of_get_option( 'ext-type' );
+  $val = array_count_values( $agencies );
+
+  $active = array();
+
+  // Add the active agency slugs to the $active array
+  foreach ( $agencies as $k => $v ) {
+    if ( $v == 1 )
+      array_push( $active, $k );
+  }
+  
+  // If there's only one active agency, return true
+  if ( $val[1] == 1 ) {
+    $only = TRUE;
+  }
+
+  // Build the return payload
+  $return = array(
+    'agencies' => $active,
+    'single'   => $only,
+    'ext-type' => $ext_type
+  );
+  print_r($return);
+
+  return $return;
+
+} // agriflex_agency
+
+// Conditional inclusion based on agriflex_agency()
+$a = agriflex_agency();
+$custom = $include_path . '/agency-custom/';
+
+if ( ! $a['single'] ) {
+  print_r('Multiple Agencies');
+} elseif ( in_array( 'extension', $a['agencies'] ) ) {
+  print_r('Extension');
+} elseif ( in_array( 'research', $a['agencies'] ) ) {
+  print_r('Research');
+} elseif ( in_array( 'college', $a['agencies'] ) ) {
+  require_once( $custom . 'college.php' );
+} elseif ( in_array( 'tvmdl', $a['agencies'] ) ) {
+  // Include tvmdl.php
+} elseif ( in_array( 'tfs', $a['agencies'] ) ) {
+  // Include tfs.php
+}
