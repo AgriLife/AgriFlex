@@ -292,7 +292,7 @@ if ( ! $a['single'] ) {
 } elseif ( in_array( 'college', $a['agencies'] ) ) {
   require_once( $custom . 'college.php' );
 } elseif ( in_array( 'tvmdl', $a['agencies'] ) ) {
-  // Include tvmdl.php
+  require_once( $custom . 'tvmdl.php' );
 } elseif ( in_array( 'tfs', $a['agencies'] ) ) {
   // Include tfs.php
 }
