@@ -8,67 +8,64 @@
 
 /**
  * Custom Body Classes Based On Agency Selected
+ * Function updated in AgriFlex 2.0 to accommodate the new options framework.
  *
  * @since AgriFlex 1.0
  * @param array $classes Existing class values
  * @return array $classes Filtered class values
  */
-add_filter('body_class','my_class_names');
-function my_class_names($classes) {
+add_filter('body_class','agriflex_class_names');
+function agriflex_class_names($classes) {
 
   $classes[] = '';
 
-  if (class_exists("AgrilifeCustomizer")) {
-    GLOBAL $options;
+  $a = agriflex_agency();
 
-    // Set Header Tabs
-    if($options['isResearch']) $classes[] .= 'research';
-    if($options['isExtension']) $classes[] .= 'extension';
-    if($options['isCollege']) $classes[] .= 'college';
-    if($options['isTvmdl'] || $options['isFazd']) $classes[] .= 'tvmdl';
-    if($options['isFazd'])$classes[] .= 'fazd';
+  // Set Header Tabs
+  if ( in_array( 'research', $a['agencies'] ) ) $classes[] .= 'research';
+  if ( in_array( 'extension', $a['agencies'] ) ) $classes[] .= 'extension';
+  if ( in_array( 'college', $a['agencies'] ) ) $classes[] .= 'college';
+  if ( in_array( 'tvmdl', $a['agencies'] ) ) $classes[] .= 'tvmdl';
+  if ( in_array( 'fazd', $a['agencies'] ) ) $classes[] .= 'fazd';
 
-    // Single Agency Classes
-    if($options['isResearch'] && !$options['isExtension'] && !$options['isCollege'] && !$options['isTvmdl']) $classes[] .= 'researchonly';
+  // Single Agency Classes
+  if ( in_array( 'research', $a['agencies'] ) && $a['single'] )
+    $classes[] .= 'researchonly';
 
-    if($options['isCollege'] && !$options['isExtension'] && !$options['isResearch'] && !$options['isTvmdl']) $classes[] .= 'collegeonly';
+  if ( in_array( 'college', $a['agencies'] ) && $a['single'] )
+    $classes[] .= 'collegeonly';
 
-    if($options['isTvmdl'] && !$options['isExtension'] && !$options['isResearch'] && !$options['isCollege']) $classes[] .= 'tvmdlonly';
+  if ( in_array( 'tvmdl', $a['agencies'] ) && $a['single'] )
+    $classes[] .= 'tvmdlonly';
 
-    if($options['isExtension'] && !$options['isResearch'] && !$options['isCollege'] && !$options['isTvmdl']) :
+  if ( in_array( 'extension', $a['agencies'] ) && $a['single'] )
+    $classes[] .= 'extensiononly';              
 
-      $classes[] .= 'extensiononly';              
-
-      // Extension Only Sub-categories
-      switch ($options['extension_type']) {
-        case 0:
-          break;
-        case 1:
-          $classes[] .= 'extension4h';
-          break;
-        case 2:
-          $classes[] .= 'extensioncounty';
-          break;
-        case 3:
-          $classes[] .= 'extensioncountytce';
-          break;
-        case 4:
-          $classes[] .= 'extensionmg';
-          break;
-        case 5:
-          $classes[] .= 'extensionmn';
-          break;
-        case 6:
-          $classes[] .= 'extensionsg';
-          break;
-      }
-    endif;
-
-  }    
+  // Extension Only Sub-categories
+  switch ( $a['ext-type'] ) {
+    case '4h':
+      $classes[] .= 'extension4h';
+      break;
+    case 'county':
+      $classes[] .= 'extensioncounty';
+      break;
+    case 'tce':
+      $classes[] .= 'extensioncountytce';
+      break;
+    case 'mg':
+      $classes[] .= 'extensionmg';
+      break;
+    case 'mn':
+      $classes[] .= 'extensionmn';
+      break;
+    case 'sg':
+      $classes[] .= 'extensionsg';
+      break;
+  }
 
   return $classes;
 
-}
+} // agriflex_class_names
 
 /**
  * Makes some changes to the <title> tag, by filtering the output of wp_title().
