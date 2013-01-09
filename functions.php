@@ -273,7 +273,6 @@ function agriflex_agency() {
     'single'   => $only,
     'ext-type' => $ext_type
   );
-  print_r($return);
 
   return $return;
 
