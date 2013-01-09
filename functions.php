@@ -285,6 +285,10 @@ $custom = $include_path . '/agency-custom/';
 
 if ( ! $a['single'] ) {
   print_r('Multiple Agencies');
+} elseif ( $a['ext-type'] == 'mg' ) { 
+  require_once( $custom . 'txmg.php' );
+} elseif ( $a['ext-type'] == 'mn' ) { 
+  require_once( $custom . 'txmn.php' );
 } elseif ( in_array( 'extension', $a['agencies'] ) ) {
   require_once( $custom . 'extension.php' );
 } elseif ( in_array( 'research', $a['agencies'] ) ) {
