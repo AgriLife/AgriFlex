@@ -288,7 +288,7 @@ if ( ! $a['single'] ) {
 } elseif ( in_array( 'extension', $a['agencies'] ) ) {
   require_once( $custom . 'extension.php' );
 } elseif ( in_array( 'research', $a['agencies'] ) ) {
-  print_r('Research');
+  require_once( $custom . 'research.php' );
 } elseif ( in_array( 'college', $a['agencies'] ) ) {
   require_once( $custom . 'college.php' );
 } elseif ( in_array( 'tvmdl', $a['agencies'] ) ) {
