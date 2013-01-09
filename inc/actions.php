@@ -42,6 +42,7 @@ function agriflex_analytics_code() {
     </script>
   <?php
   endif;
+
 } // agriflex_analytics_code    
 
 /**
