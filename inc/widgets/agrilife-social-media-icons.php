@@ -7,7 +7,7 @@
  * and displays icons in a sidebar widget
  *
  * @package AgriFlex
- * @since 1.0+
+ * @since AgriFlex 1.0+
  * @author J. Aaron Eaton <aaron@channeleaton.com>
  */
 
@@ -20,7 +20,7 @@ class AgriLife_Social_Media_Icons extends WP_Widget {
     parent::__construct(
       'social_media', // Base ID
       'Social Media', // Name
-      array('description' => __('Add social media icons', 'text_domain'), ) // Args
+      array( 'description' => __( 'Add social media icons', 'text_domain' ), ) // Args
     );
   }
 
@@ -57,7 +57,7 @@ class AgriLife_Social_Media_Icons extends WP_Widget {
   }
 
   private function socialUrl( $key, $value ) {
-    switch($key) {
+    switch( $key ) {
       case 'facebook' :
         $url = 'https://facebook.com/' . $value;
         return $url;
@@ -178,4 +178,4 @@ class AgriLife_Social_Media_Icons extends WP_Widget {
   }
 } // class SocialMediaIcons
 
-register_widget('AgriLife_Social_Media_Icons');
+register_widget( 'AgriLife_Social_Media_Icons' );
