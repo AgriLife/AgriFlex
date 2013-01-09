@@ -286,7 +286,7 @@ $custom = $include_path . '/agency-custom/';
 if ( ! $a['single'] ) {
   print_r('Multiple Agencies');
 } elseif ( in_array( 'extension', $a['agencies'] ) ) {
-  print_r('Extension');
+  require_once( $custom . 'extension.php' );
 } elseif ( in_array( 'research', $a['agencies'] ) ) {
   print_r('Research');
 } elseif ( in_array( 'college', $a['agencies'] ) ) {
