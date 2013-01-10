@@ -283,7 +283,6 @@ $a = agriflex_agency();
 $custom = $include_path . '/agency-custom/';
 
 if ( ! $a['single'] ) {
-  print_r('Multiple Agencies');
 } elseif ( $a['ext-type'] == 'mg' ) { 
   require_once( $custom . 'txmg.php' );
 } elseif ( $a['ext-type'] == 'mn' ) { 
