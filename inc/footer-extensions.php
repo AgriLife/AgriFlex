@@ -153,12 +153,14 @@ add_action( 'footer_col_4', 'agriflex_contact_footer', 10, 1 );
 function agriflex_contact_footer() {
 
   $options = of_get_option();
+  $a = agriflex_agency();
 
   $html = '<div id="contact">';
   $html .= '<div class="contact">';
   $html .= '<h4>Contact</h4>';
 
-  if ( ( $options['ext-type'] == 'county' || $options['ext-type'] == 'tce') && agriflex_single_agency() ) {
+  if ( ( $a['ext-type'] == 'county' || $a['ext-type'] == 'tce') &&
+    $a['single'] ) {
     require_once( TEMPLATEPATH . '/inc/nusoap/nusoap.php' );
     $html .= sprintf( county_footer_contact() );
   } else {

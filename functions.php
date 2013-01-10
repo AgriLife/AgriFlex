@@ -11,54 +11,6 @@
      define('MY_THEME_FOLDER',str_replace("\\",'/',dirname(__FILE__)));
      define('MY_THEME_PATH','/' . substr(MY_THEME_FOLDER,stripos(MY_THEME_FOLDER,'wp-content')));
     
-	// Make some nice human-readable options for what template and features to use
-	$options = get_option('AgrilifeOptions');
-	$isresearch      = (is_array($options) ? $options['isResearch']      : true);
-	$isextension     = (is_array($options) ? $options['isExtension'] : true);
-	$iscollege      = (is_array($options) ? $options['isCollege']      : true);
-	$istvmdl           = (is_array($options) ? $options['isTvmdl']      : true);
-	$isfazd           = (is_array($options) ? $options['isFazd']      : true);
-	$isextensiononly = ($isextension && !$isresearch && !$iscollege && !$istvmdl ? true : false);
-	$isresearchonly = ($isresearch && !$isextension && !$iscollege && !$istvmdl ? true : false);
-	$iscollegeonly = ($iscollege && !$isextension && !$isresearch && !$istvmdl ? true : false);
-	$istvmdlonly = ($istvmdl && !$isextension && !$isresearch && !$iscollege && !$isfazd ? true : false);
-	$isall = ($istvmdl && $isextension && $isresearch && $iscollege ? true : false);
-	
-	$typekitkey = 'thu0wyf';
-  if($isextensiononly) :
-       $isextension4h = $isextensioncounty = $isextensioncountytce = $isextensionmg = $isextensionmn = $isextensionsg = false;
-       switch ($options['extension_type']) {
-            case 0:
-                 // Typical
-                 break;
-            case 1:
-                 // 4-h
-                 $isextension4h = true;
-                 break;
-            case 2:
-                 // County
-                 $isextensioncounty = true;
-                 break;
-            case 3:
-                 // County TCE
-                 $isextensioncountytce = true;
-                 break;
-            case 4:
-                 // Master Gardener
-                 $isextensionmg = true;
-                 $typekitkey = 'vaf4fhz';
-                 break;
-            case 5:
-                 // Master Naturalist
-                 $isextensionmn = true;
-                 $typekitkey = 'nqb0igu';
-                 break;
-            case 6:
-                 // Sea Grant
-                 $isextensionsg = true;
-                 break;
-       }
-  endif;
 /**
  * Set the content width based on the theme's design and stylesheet.
  *

@@ -115,7 +115,6 @@ class AgriLife_Social_Media_Icons extends WP_Widget {
    * @param array $instance   Previously saved values from database
    */
   public function form( $instance ) {
-    global $options;
 
     if ( isset( $instance['title'] ) ) {
       $title = $instance['title'];
@@ -139,7 +138,7 @@ class AgriLife_Social_Media_Icons extends WP_Widget {
       $youtube = $instance['s']['youtube'];
     }
     if ( empty( $instance['s']['rss'] ) ) {
-      $rss = $options['feedBurner'];
+      $rss = of_get_option('feedburner');
     }
     else {
       $rss = $instance['s']['rss'];
