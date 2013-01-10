@@ -132,7 +132,6 @@ function agriflex_college_logo() {
       $html .= 'Explore';
       $html .= '</a>';
       $html .= '</li>';
-      include( __FILE__ . '/college/college-drop-down.php');
     }
 
   }
@@ -140,6 +139,16 @@ function agriflex_college_logo() {
   echo $html;
 
 } // agriflex_college_logo
+
+add_action( 'agriflex_header', 'agriflex_college_explore', 1 );
+function agriflex_college_explore() {
+
+  $a = agriflex_agency();
+
+  if ( in_array( 'college', $a['agencies'] ) && $a['single'])
+    include( TEMPLATEPATH . '/inc/college/college-drop-down.php' );
+
+} // agriflex_college_explore
 
 add_action( 'agriflex_before_header', 'agriflex_ext_logo', 20 );
 /**
