@@ -210,13 +210,13 @@ class WatchReadListenWidget extends WP_Widget {
     <p>
       <label for="<?php echo $this->get_field_id( 'youtube_video' ); ?>">YouTube Video or Playlist Link: <br />
         <code>http://www.youtube.com/watch?v=iRbX2uPgGsw</code>
-        <input class="widefat" id="<?php echo $this->get_field_id( 'youtube_video' ); ?>" name="<?php echo $this->get_field_name( 'youtube_video' ); ?>" type="text" value="<?php echo attribute_escape( $youtube_video ); ?>" />
+        <input class="widefat" id="<?php echo $this->get_field_id( 'youtube_video' ); ?>" name="<?php echo $this->get_field_name( 'youtube_video' ); ?>" type="text" value="<?php echo esc_attr( $youtube_video ); ?>" />
       </label>
     </p>
     <p>
       <label for="<?php echo $this->get_field_id( 'podcast_link' ); ?>">Podcast Link: <br />
         <code>http://tmnpodcast.libsyn.com/rss</code>
-        <input class="widefat" id="<?php echo $this->get_field_id( 'podcast_link' ); ?>" name="<?php echo $this->get_field_name( 'podcast_link' ); ?>" type="text" value="<?php echo attribute_escape( $podcast_link ); ?>" />
+        <input class="widefat" id="<?php echo $this->get_field_id( 'podcast_link' ); ?>" name="<?php echo $this->get_field_name( 'podcast_link' ); ?>" type="text" value="<?php echo esc_attr( $podcast_link ); ?>" />
       </label>
     </p>
     <?php
