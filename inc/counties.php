@@ -790,77 +790,70 @@ function county_footer_contact() {
 	$options = of_get_option();
 	
 	$countycode = (int) $options['county-name'];
-    $countycode = get_IT_code( $countycode );             
+
+  $countycode = get_IT_code( $countycode );             
 	           
 	//Get a handle to the webservice
-	$wsdl = new nusoap_client( 'https://agrilifepeople.tamu.edu/agrilifepeopleAPI/v3.cfc?wsdl', true );
-	$proxy = $wsdl->getProxy();
+	$wsdl = new soapclient( 'https://agrilifepeople.tamu.edu/agrilifepeopleAPI/v3.cfc?wsdl' );
 	$hash = md5( AGRILIFE_API_KEY . 'getunits', true);
 	$base64 = base64_encode( $hash );	
-	if(is_object( $proxy )){
-		$result = $proxy->getUnits( 3, $base64, $countycode ,'', '', '', '', '' );
+	if(is_object( $wsdl )){
+		$result = $wsdl->getUnits( 3, $base64, $countycode ,'', '', '', '', '' );
 		
-		
-		if ( $proxy->fault ) {
-	          echo '<h2>Fault</h2><pre>';
-	          print_r( $result );
-	          echo '</pre>';
-	
-	     } else {
-	          // Check for errors
-	          $err = $proxy->getError();
-	
-	          if ( $err ) {
-	               // Display the error
-	               echo '<h2>Error</h2><pre>' . $err . '</pre>';
-	
-	          } else {
-	          
-              foreach ( $result['ResultQuery']['data'] as $item ) {
-        
-                $mapaddress = $item[14] . ' ' . $item[17] . ', ' . $items[18] . ' '. $item[19];
-                $map_image = ( 'http://maps.google.com/maps/api/staticmap?size=175x101&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office%7C' .
-                  urlencode( $mapaddress ) . '&amp;sensor=false' );
-                
-                $map_link = ( 'http://maps.google.com/?q=' .
-                  urlencode( $mapaddress ) .
-                  '&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office&amp;sensor=falsehad' );
-                
-                ?>
-                <a href="<?php echo $map_link; ?>"><img src="<?php echo $map_image; ?>" height="101" width="175" alt="Map to office" /></a>
-                <ul>
-                <?php
-                if ( is_array( $options ) ) {
-                  if( $item[14]<>'' ) {
-                    if( strlen( $item[19] )>5 ) {
-                      $zip = str_split( $item[19], 5 );
-                      $zip = $zip[0] . '-' . $zip[1];
-                    } else {
-                      $zip = $item[19];
-                    }
-                    echo '<li>';
-                    echo $item[2] . '<br />';
-                    echo $item[14];
-                    echo '<br />' . $item[17] . ', ' . $item[18] . ' ' . $zip . '</li>';
-                  }
-                  if( $options['hours']<>'' ) {
-                    echo '<li>' . $options['hours'] . '</li>';
-                  }
-                  if( $item[13]<>'' )
-                    echo '<li><a href="' . obfuscate( 'mailto:' ) . obfuscate( $item[13] ) . '">' . obfuscate( $item[13] ) . '</a></li>';
-                  if( $item[11]<>'' )
-                    echo '<li>Phone: ' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[11] ) . '</li>';
-                  if( $item[12]<>'' )
-                    echo '<li>Fax: ' . preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[12]) . '</li>';	 						
-                }
-                ?>
-                </ul>
+          // Check for errors
+          (int) $err = $result['ResultCode'];
+
+          if ( $err != 200 ) {
+               // Display the error
+               echo '<h2>Error</h2><pre>' . $result['ResultMessages'] . '</pre>';
+
+          } else {
+          
+            $payload = $result['ResultQuery']->enc_value->data;
+            foreach ( $payload as $item ) {
+      
+              $mapaddress = $item[14] . ' ' . $item[17] . ', ' . $item[18] . ' '. $item[19];
+              $map_image = ( 'http://maps.google.com/maps/api/staticmap?size=175x101&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office%7C' .
+                urlencode( $mapaddress ) . '&amp;sensor=false' );
+              
+              $map_link = ( 'http://maps.google.com/?q=' .
+                urlencode( $mapaddress ) .
+                '&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office&amp;sensor=falsehad' );
+              
+              ?>
+              <a href="<?php echo $map_link; ?>"><img src="<?php echo $map_image; ?>" height="101" width="175" alt="Map to office" /></a>
+              <ul>
               <?php
-					
+              if ( is_array( $options ) ) {
+                if( $item[14]<>'' ) {
+                  if( strlen( $item[19] )>5 ) {
+                    $zip = str_split( $item[19], 5 );
+                    $zip = $zip[0] . '-' . $zip[1];
+                  } else {
+                    $zip = $item[19];
+                  }
+                  echo '<li>';
+                  echo $item[2] . '<br />';
+                  echo $item[14];
+                  echo '<br />' . $item[17] . ', ' . $item[18] . ' ' . $zip . '</li>';
+                }
+                if( $options['hours']<>'' ) {
+                  echo '<li>' . $options['hours'] . '</li>';
+                }
+                if( $item[13]<>'' )
+                  echo '<li><a href="' . obfuscate( 'mailto:' ) . obfuscate( $item[13] ) . '">' . obfuscate( $item[13] ) . '</a></li>';
+                if( $item[11]<>'' )
+                  echo '<li>Phone: ' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[11] ) . '</li>';
+                if( $item[12]<>'' )
+                  echo '<li>Fax: ' . preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[12]) . '</li>';	 						
+              }
+              ?>
+              </ul>
+            <?php
+        
               }
            }
         }
-      }
 		
 }
 

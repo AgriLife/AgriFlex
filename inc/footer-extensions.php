@@ -161,7 +161,6 @@ function agriflex_contact_footer() {
 
   if ( ( $a['ext-type'] == 'county' || $a['ext-type'] == 'tce') &&
     $a['single'] ) {
-    require_once( TEMPLATEPATH . '/inc/nusoap/nusoap.php' );
     $html .= sprintf( county_footer_contact() );
   } else {
     $mapaddress = $options['p-street-1'] . ' ';
