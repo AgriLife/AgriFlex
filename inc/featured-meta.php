@@ -76,7 +76,12 @@ function agriflex_save_postdata( $post_id ) {
   // OK, we're authenticated: we need to find and save the data
 
   // Update The Value
+  if ( ! empty( $_POST['agrilife_featured_post'] ) ) {
+    $featured == 'on';
+  } else {
+    $featured == 'off';
+  }
   update_post_meta($post_id, 'feature-homepage',
-    ($_POST['agrilife_featured_post'] == 'on' ? 1 : 0));
+    ( $featured == 'on' ? 1 : 0 ) );
 }
 ?>

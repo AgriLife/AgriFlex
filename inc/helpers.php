@@ -29,10 +29,6 @@ function agriflex_get_format() {
 
   switch ( $post_format ) {
 
-    case empty( $post_format ) :
-      $format = 'index';
-      break;
-
     // Applies to both the old category and post format
     case in_array( 'gallery', $post_format ) :
       $format = 'gallery';
@@ -55,6 +51,9 @@ function agriflex_get_format() {
     case in_array( 'audio', $post_format ) :
       $format = 'audio';
       break;
+
+    default :
+      $format = 'index';
 
   }
 

@@ -3,7 +3,7 @@
 add_filter( 'agriflex_about', 'research_about', 10, 1 );
 function research_about( $about ) {
 
-  $html .= '<h4>About</h4>';
+  $html = '<h4>About</h4>';
   $html .= '<a href="http://www.youtube.com/watch?v=UnLkKMJasXk"><img src="' . get_bloginfo( 'template_directory' ) . '/images/research-video-pic.jpg?v=100" alt="link to Texas A&amp;M Research about video" /></a>';
   $html .= '<p><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M AgriLife Research</a> is the state&apos;s premier research agency in agriculture, natural resources, and the life sciences. Our research spans numerous scientific disciplines and is international in scope.</p>';
   $html .= '<ul>';
@@ -20,7 +20,7 @@ function research_about( $about ) {
 add_filter( 'footer_links', 'research_links', 10, 1 );
 function research_links( $links ) {
 
-  $html .= '<h4>Research Topics</h4>';
+  $html = '<h4>Research Topics</h4>';
   $html .= '<a href="http://agriliferesearch.tamu.edu/"><img src="' . get_bloginfo( 'template_directory' ) . '/images/agrilife-research-footer-logo.png?v=100" alt="Texas A and M AgriLife Research Logo" /></a>	';
   $html .= '<ul>';
   $html .= '<li><a href="http://agriliferesearch.tamu.edu/topics/animals/">Animals</a></li>';

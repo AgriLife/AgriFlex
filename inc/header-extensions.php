@@ -92,7 +92,7 @@ add_action( 'agriflex_before_header', 'agriflex_agency_nav_begin', 1 );
  */
 function agriflex_agency_nav_begin() {
 
-  $html .= '<div id="drop-section-nav">';
+  $html = '<div id="drop-section-nav">';
   $html .= '<div id="drop-nav">';
   $html .= '<ul>';
 
@@ -134,9 +134,10 @@ function agriflex_college_logo() {
       $html .= '</li>';
     }
 
+    echo $html;
+
   }
 
-  echo $html;
 
 } // agriflex_college_logo
 
@@ -171,9 +172,11 @@ function agriflex_ext_logo() {
     $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/images/extension-branding.png" alt="Texas A&amp;M Extension Logo" />';
     $html .= '</a>';
     $html .= '</li>';
+
+    echo $html;
+
   }
 
-  echo $html;
 
 } // agriflex_ext_logo
 
@@ -198,9 +201,11 @@ function agriflex_res_logo() {
     $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/images/research-branding.png" alt="Texas A&amp;M Research Logo" />';
     $html .= '</a>';
     $html .= '</li>';
+
+    echo $html;
+
   }
 
-  echo $html;
 
 } // agriflex_res_logo
 
@@ -238,9 +243,10 @@ function agriflex_tvmdl_logo() {
       $html .= '</li>';
     }
 
+    echo $html;
+
   }
 
-  echo $html;
 
 } // agriflex_tvmdl_logo
 
@@ -265,9 +271,11 @@ function agriflex_tfs_logo() {
     $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/images/forest-branding.png" alt="Texas A&amp;M Forest Service Logo" />';
     $html .= '</a>';
     $html .= '</li>';
+
+    echo $html;
+
   }
 
-  echo $html;
 
 } // agriflex_tfs_logo
 
@@ -289,9 +297,11 @@ function agriflex_tpwd_logo() {
     $html .= 'Texas Parks &amp; Wildlife';
     $html .= '</a>';
     $html .= '</li>';
+
+    echo $html;
+
   }
 
-  echo $html;
 
 } // agriflex_tpwd_logo
 
@@ -313,9 +323,11 @@ function agriflex_sg_logo() {
     $html .= 'Texas Sea Grant';
     $html .= '</a>';
     $html .= '</li>';
+
+    echo $html;
+
   }
 
-  echo $html;
 
 } // agriflex_sg_logo
 
@@ -335,9 +347,10 @@ function agriflex_custom_logo() {
     $html = '<li class="custom-logo">';
     $html .= '<img src="' . $logo . '" />';
     $html .= '</li>';
+
+    echo $html;
   }
 
-  echo $html;
 
 } // agriflex_custom_logo
 
@@ -351,7 +364,7 @@ add_action( 'agriflex_before_header', 'agriflex_agency_nav_end', 99 );
  */
 function agriflex_agency_nav_end() {
 
-  $html .= '</ul>';
+  $html = '</ul>';
   $html .= '</div><!-- #drop-nav -->';
   $html .= '</div><!-- #drop-section-nav -->';
 

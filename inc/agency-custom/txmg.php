@@ -3,7 +3,7 @@
 add_filter( 'agriflex_about', 'txmg_about', 10, 1 );
 function txmg_about( $about ) {
 
-  $html .= '<h4>About Us</h4>';
+  $html = '<h4>About Us</h4>';
   $html .= '<a href="http://www.txmg.org/"><img src="' . get_bloginfo( 'template_directory' ) . '/images/about_txmg.jpg?v=100" alt="link to txmg.org" /></a>';
   $html .= '<p><a href="http://txmg.org/">Texas Master Gardeners</a> is a volunteer program designed to grow horticultural information throughout the state, town by town. </p>	';
   $html .= '<ul>';
@@ -20,7 +20,7 @@ function txmg_about( $about ) {
 add_filter( 'footer_links', 'txmg_links', 10, 1 );
 function txmg_links( $links ) {
 
-  $html .= '<h4>Popular Links</h4>';
+  $html = '<h4>Popular Links</h4>';
   $html .= '<a href="http://agrilifeextension.tamu.edu/"><img src="' . get_bloginfo( 'template_directory' ) . '/images/agrilife_ext_logo.png?v=100" alt="Texas A&amp;M AgriLife Extension" /></a>	';
   $html .= '<ul>';
   $html .= '<li><a href="http://county-tx.tamu.edu/">County Extension Offices</a></li>';

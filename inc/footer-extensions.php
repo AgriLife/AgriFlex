@@ -67,10 +67,10 @@ function agriflex_show_footer() {
 add_action( 'footer_col_1', 'agriflex_about_footer', 10, 1 );
 function agriflex_about_footer() {
 
-  $html .= '<div id="about">';
+  $html = '<div id="about">';
   $html .= '<div class="about">			';
 
-  $about .= '<h4>Texas A&amp;M AgriLife</h4>';
+  $about = '<h4>Texas A&amp;M AgriLife</h4>';
   $about .= '<a href="http://www.youtube.com/watch?v=df_SGBF4LK4"><img src="' . get_bloginfo( 'template_directory' ) . '/images/about_video_multi.jpg?v=100" alt="link to AgriLife Solutions Video" /></a>';
   $about .= '<p>Solutions for a Changing World</p>';
   $about .= '<ul>';
@@ -92,10 +92,10 @@ function agriflex_about_footer() {
 add_action( 'footer_col_2', 'agriflex_popular_links', 10, 1 );
 function agriflex_popular_links() {
 
-  $html .= '<div id="popular-links">';
+  $html = '<div id="popular-links">';
   $html .= '<div class="popular-links">			';
 
-  $links .= '<h4>AgriLife Agencies</h4>';
+  $links = '<h4>AgriLife Agencies</h4>';
   $links .= '<a href="http://aglifesciences.tamu.edu/"><img src="' . get_bloginfo( 'template_directory' ) . '/images/agrilife-footer-logo.png?v=100" alt="Texas A and M AgriLife Logo" /></a>	';
   $links .= '<ul>';
   $links .= '<li><a href="http://agrilifeextension.tamu.edu/">Texas A&amp;M AgriLife Extension Service</a></li>';

@@ -308,7 +308,7 @@ function agriflex_admin_body_class( $classes ) {
   }
 
   // Editting a post type
-  $post_query = $_GET['post'];
+  if ( isset( $_GET['post'] ) ) $post_query = $_GET['post'];
 
   if ( isset( $post_query ) ) {
     $current_post_edit = get_post( $post_query );

@@ -38,7 +38,7 @@
                   </a>
                 </p><!-- end .flex-caption -->
               </li><!-- end .feature-item -->						
-            <?php endwhile;  wp_reset_query; ?>
+            <?php endwhile;  wp_reset_query(); ?>
 
           </ul>
         </div><!-- .flexslider -->

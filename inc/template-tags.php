@@ -344,7 +344,7 @@ function agriflex_comments_link() {
  */
 function agriflex_edit_link() {
 
-    $html .= sprintf(edit_post_link( __( 'Edit', 'agriflex' ),
+    $html = sprintf(edit_post_link( __( 'Edit', 'agriflex' ),
       '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ) );
 
     echo $html;

@@ -392,7 +392,7 @@ if ( ! function_exists( 'of_get_option' ) ) {
 	 * Needed because options are saved as serialized strings.
 	 */
 	 
-	function of_get_option( $name, $default = false ) {
+	function of_get_option( $name = '', $default = false ) {
 		$config = get_option( 'optionsframework' );
 
 		if ( ! isset( $config['id'] ) ) {

@@ -3,7 +3,7 @@
 add_filter( 'agriflex_about', 'extension_about', 10, 1 );
 function extension_about( $about ) {
 
-  $html .= '<h4>About</h4>';
+  $html = '<h4>About</h4>';
   $html .= '<a href="http://www.youtube.com/watch?v=q_UsLHl_YDQ"><img src="' . get_bloginfo( 'template_directory' ) . '/images/about_video.jpg?v=100" alt="link to Extension about video" /></a>';
   $html .= '<p>A unique education agency, the Texas A&amp;M AgriLife Extension Service teaches Texans wherever they live, extending research-based knowledge to benefit their families and communities.</p>	';
 
@@ -14,7 +14,7 @@ function extension_about( $about ) {
 add_filter( 'footer_links', 'extension_links', 10, 1 );
 function extension_links( $links ) {
 
-  $html .= '<h4>Popular Links</h4>';
+  $html = '<h4>Popular Links</h4>';
   $html .= '<a href="http://agrilifeextension.tamu.edu/"><img src="' . get_bloginfo( 'template_directory' ) . '/images/agrilife_ext_logo.png?v=100" alt="Texas A&amp;M AgriLife Extension" /></a>	';
   $html .= '<ul>';
   $html .= '<li><a href="http://county-tx.tamu.edu/">County Extension Offices</a></li>';
