@@ -161,7 +161,7 @@ function agriflex_contact_footer() {
 
   if ( ( $a['ext-type'] == 'county' || $a['ext-type'] == 'tce') &&
     $a['single'] ) {
-    $html .= sprintf( county_footer_contact() );
+    $html .= county_footer_contact();
   } else {
     $mapaddress = $options['p-street-1'] . ' ';
     $mapaddress .= $options['p-street-2'] . ' ';

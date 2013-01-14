@@ -805,7 +805,7 @@ function county_footer_contact() {
 
           if ( $err != 200 ) {
                // Display the error
-               echo '<h2>Error</h2><pre>' . $result['ResultMessages'] . '</pre>';
+               $return = '<h2>Error</h2><pre>' . $result['ResultMessages'] . '</pre>';
 
           } else {
           
@@ -820,10 +820,8 @@ function county_footer_contact() {
                 urlencode( $mapaddress ) .
                 '&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office&amp;sensor=falsehad' );
               
-              ?>
-              <a href="<?php echo $map_link; ?>"><img src="<?php echo $map_image; ?>" height="101" width="175" alt="Map to office" /></a>
-              <ul>
-              <?php
+              $return = '<a href="' . $map_link . '"><img src="' . $map_image . '" height="101" width="175" alt="Map to office" /></a>';
+              $return .= '<ul>';
               if ( is_array( $options ) ) {
                 if( $item[14]<>'' ) {
                   if( strlen( $item[19] )>5 ) {
@@ -832,25 +830,23 @@ function county_footer_contact() {
                   } else {
                     $zip = $item[19];
                   }
-                  echo '<li>';
-                  echo $item[2] . '<br />';
-                  echo $item[14];
-                  echo '<br />' . $item[17] . ', ' . $item[18] . ' ' . $zip . '</li>';
+                  $return .= '<li>';
+                  $return .= $item[2] . '<br />';
+                  $return .= $item[14];
+                  $return .= '<br />' . $item[17] . ', ' . $item[18] . ' ' . $zip . '</li>';
                 }
                 if( $options['hours']<>'' ) {
-                  echo '<li>' . $options['hours'] . '</li>';
+                  $return .= '<li>' . $options['hours'] . '</li>';
                 }
                 if( $item[13]<>'' )
-                  echo '<li><a href="' . obfuscate( 'mailto:' ) . obfuscate( $item[13] ) . '">' . obfuscate( $item[13] ) . '</a></li>';
+                  $return .= '<li><a href="' . obfuscate( 'mailto:' ) . obfuscate( $item[13] ) . '">' . obfuscate( $item[13] ) . '</a></li>';
                 if( $item[11]<>'' )
-                  echo '<li>Phone: ' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[11] ) . '</li>';
+                  $return .= '<li>Phone: ' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[11] ) . '</li>';
                 if( $item[12]<>'' )
-                  echo '<li>Fax: ' . preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[12]) . '</li>';	 						
+                  $return .= '<li>Fax: ' . preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[12]) . '</li>';	 						
               }
-              ?>
-              </ul>
-            <?php
-        
+              $return .= '</ul>';
+      return $return; 
               }
            }
         }
