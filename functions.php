@@ -1,26 +1,30 @@
 <?php
 /**
- * agriflex functions and definitions
+ * AgriFlex functions and definitions
  *
- * @package WordPress
- * @subpackage agriflex
- * @since agriflex 1.0
+ * @package AgriFlex
  */
 
-     define('MY_WORDPRESS_FOLDER',$_SERVER['DOCUMENT_ROOT']);
-     define('MY_THEME_FOLDER',str_replace("\\",'/',dirname(__FILE__)));
-     define('MY_THEME_PATH','/' . substr(MY_THEME_FOLDER,stripos(MY_THEME_FOLDER,'wp-content')));
+define('MY_WORDPRESS_FOLDER',$_SERVER['DOCUMENT_ROOT']);
+define('MY_THEME_FOLDER',str_replace("\\",'/',dirname(__FILE__)));
+define('MY_THEME_PATH','/' . substr(MY_THEME_FOLDER,stripos(MY_THEME_FOLDER,'wp-content')));
     
 /**
  * Set the content width based on the theme's design and stylesheet.
  *
  * Used to set the width of images and content. Should be equal to the width the theme
  * is designed for, generally via the style.css stylesheet.
+ *
+ * @since AgriFlex 1.0
  */
 if ( ! isset( $content_width ) )
      $content_width = 640;
 
-/** Tell WordPress to run agriflex_setup() when the 'after_setup_theme' hook is run. */
+/**
+ * Tell WordPress to run agriflex_setup() when the 'after_setup_theme' hook is run. 
+ *
+ * @since AgriFlex 1.0
+ */
 add_action( 'after_setup_theme', 'agriflex_setup' );
 function agriflex_setup() {
 
@@ -55,7 +59,7 @@ function agriflex_setup() {
   add_action( 'widgets_init',
     create_function( '', 'register_widget( "category_widget" );' ) );
     
-}    
+} // agriflex_setup
 
 // @todo - Move this to separate file
 /* -- Add typekit js and css to document head -- */
@@ -115,7 +119,8 @@ function load_js() {
       true);                
 
   }             
-}   
+
+} // load_js
 
 /**
  * Disable some widgets that are replaced by theme funcitonality
@@ -123,13 +128,13 @@ function load_js() {
  *
  * @since AgriFlex 1.0
  */
-add_action('widgets_init', 'remove_some_wp_widgets', 1);  
-function remove_some_wp_widgets(){
+add_action('widgets_init', 'agriflex_remove_wp_widgets', 1);  
+function agriflex_remove_wp_widgets(){
 
   unregister_widget('WP_Widget_Calendar');
   unregister_widget('WP_Widget_Search');
 
-}
+} // agriflex_remove_wp_widgets
 
 /**
  * Custom admin styles
@@ -194,12 +199,21 @@ require_once ($includes_path . 'plugin-config.php');
 // Add Logout Button to password-protected posts 
 require_once ($include_path . 'logout-password-protected-posts/logout.php');
 
+// Define location of Options Framework
 define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/options/' );
 
 // Add the options library
 require_once( $include_path . 'options/options-framework.php');
 $options = of_get_option();
 
+/**
+ * Determines the site's agency and returns a useful array of information
+ *
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @return array $return Array containing the site agency, single status,
+ * and extension type (if applicable).
+ */
 function agriflex_agency() {
 
   $agencies = of_get_option( 'agency-top' );
