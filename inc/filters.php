@@ -63,6 +63,18 @@ function agriflex_class_names($classes) {
       break;
   }
 
+  // Minimal header/footer
+  $minh = of_get_option( 'minimal-header' );
+  $minf = of_get_option( 'minimal-footer' );
+
+  if ( $minh ) {
+    $classes[] .= 'min-header';
+  }
+
+  if ( $minf ) {
+    $classes[] .= 'min-footer';
+  }
+
   return $classes;
 
 } // agriflex_class_names

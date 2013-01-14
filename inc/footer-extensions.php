@@ -245,3 +245,52 @@ function agriflex_bookstore_footer() {
   echo $html;
 
 }
+
+/**
+ * Sets up agriflex_footer for the minimal footer
+ *
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @return void
+ */
+add_action( 'init', 'agriflex_remove_footer_actions', 10 );
+function agriflex_remove_footer_actions() {
+
+  $min = of_get_option( 'minimal-footer' );
+
+  if ( $min ) {
+    remove_action( 'agriflex_footer', 'agriflex_show_footer' );
+    add_action( 'agriflex_footer', 'agriflex_minimal_footer' );
+  }
+
+} // agriflex_remove_footer_actions
+
+/**
+ * Builds the minimal footer
+ *
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @see agriflex_remove_footer_actions()
+ * @return void
+ */
+function agriflex_minimal_footer() {
+
+  $html = '<div class="fazd-footer">';
+  $html .= '<ul>';
+  $html .= '<li><a href="http://agrilife.org/vc/compact/">Compact with Texans</a></li>';
+  $html .= '<li><a href="http://agrilife.org/vc/privacy/">Privacy and Security</a></li>';
+  $html .= '<li><a href="http://itaccessibility.tamu.edu/">Accessibility Policy</a></li>';
+  $html .= '<li><a href="http://www.dir.texas.gov/pubs/srrpubs/pages/srrpub11-agencylink.aspx">State Link Policy</a></li>					';
+  $html .= '<li><a href="http://www.tsl.state.tx.us/trail">Statewide Search</a></li>					';
+  $html .= '<li><a href="http://aghr.tamu.edu/education-civil-rights.htm">Equal Opportunity for Educational Programs Statement</a></li>';
+  $html .= '<li><a href="http://www.tamus.edu/veterans/">Veterans Benefits</a></li>		';
+  $html .= '<li><a href="http://fcs.tamu.edu/families/military_families/">Military Families</a></li>';
+  $html .= '<li><a href="https://secure.ethicspoint.com/domain/en/report_custom.asp?clientid=19681">Risk, Fraud &amp; Misconduct Hotline</a></li>';
+  $html .= '<li><a href="http://www.texashomelandsecurity.com/">Texas Homeland Security</a></li>';
+  $html .= '<li class="last"><a href="http://agrilife.org/vc/orpi/">Open Records/Public Information</a></li>';
+  $html .= '</ul>		';
+  $html .= '</div><!-- .fazd-footer -->';
+
+  echo $html;
+
+} // agriflex_minimal_footer

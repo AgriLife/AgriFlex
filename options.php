@@ -93,6 +93,13 @@ function optionsframework_options() {
   );
 
   $options[] = array(
+    'name' => __( 'Minimal Header Text', 'options_framework_theme' ),
+    'desc' => __( 'Header text. Keep it short.', 'options_framework_theme' ),
+    'id'   => 'minimal-header-text',
+    'type' => 'text',
+  );
+
+  $options[] = array(
     'name' => __( 'Minimal Footer', 'options_framework_theme' ),
     'desc' => __( 'Shows only the required links', 'options_framework_theme' ),
     'id'   => 'minimal-footer',
@@ -310,6 +317,21 @@ jQuery(document).ready(function($) {
       $('#section-custom-site-logo').show('fast');
     } else {
       $('#section-custom-site-logo').hide('fast');
+    }
+  });
+
+  if ( $('#section-minimal-header input').is(':checked') ) {
+      $('#section-minimal-header-text').show();
+    } else {
+      $('#section-minimal-header-text').hide();
+    }
+
+  $('#section-minimal-header input').change( function() {
+    if ( $('#minimal-header' ).is(':checked') ) {
+      $('#section-minimal-header-text').show();
+    } else {
+      $('#section-minimal-header-text').hide();
+      $('#minimal-header-text').val('');
     }
   });
 

@@ -82,6 +82,46 @@ function agriflex_threaded_comments() {
 
 }
 
+
+/**
+ * Sets up the header actions in preparation for the minimal header
+ *
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @return void
+ */
+add_action( 'init', 'agriflex_remove_header_actions' );
+function agriflex_remove_header_actions() {
+
+  $min = of_get_option( 'minimal-header' );
+
+  if ( $min ) {
+    remove_all_actions( 'agriflex_before_header' );
+    add_action( 'agriflex_before_header', 'agriflex_agency_nav_begin', 1 );
+    add_action( 'agriflex_before_header', 'agriflex_minimal_header', 10 );
+    add_action( 'agriflex_before_header', 'agriflex_agency_nav_end', 99 );
+  }
+
+}
+
+/**
+ * Inserts the minimal header if selected in theme settings
+ *
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @see agriflex_remove_header_actions()
+ * @return void
+ */
+function agriflex_minimal_header() {
+
+  $html = '<li class="top-agency fazd-item">';
+  $html .= of_get_option( 'minimal-header-text' );
+  $html .= '</li>';
+
+  echo $html;
+
+} // agriflex_minimal_header
+
 add_action( 'agriflex_before_header', 'agriflex_agency_nav_begin', 1 );
 /**
  * Displays the opening agency nav markup
