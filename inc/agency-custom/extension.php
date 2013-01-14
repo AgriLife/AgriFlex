@@ -1,5 +1,18 @@
 <?php
+/**
+ * Contains the custom filters and actions for the
+ * Extension agency type.
+ *
+ * @package AgriFlex
+ */
 
+/**
+ * Replaces the default about to the Extension about
+ *
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @return void
+ */
 add_filter( 'agriflex_about', 'extension_about', 10, 1 );
 function extension_about( $about ) {
 
@@ -11,6 +24,13 @@ function extension_about( $about ) {
 
 } // extension_about
 
+/**
+ * Replaces the default links with Extension related links
+ *
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @return void
+ */
 add_filter( 'footer_links', 'extension_links', 10, 1 );
 function extension_links( $links ) {
 
