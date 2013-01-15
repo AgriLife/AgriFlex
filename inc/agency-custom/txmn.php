@@ -1,5 +1,19 @@
 <?php
+/**
+ * Contains the custom filters and actions for the
+ * TXMN extension type.
+ *
+ * @package AgriFlex
+ */
 
+/**
+ * Filters the 'About' footer column. Inserts TXMN-related about information.
+ *
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @param string $about The unfiltered, default about information
+ * @return string $html The TXMN about information
+ */
 add_filter( 'agriflex_about', 'txmn_about', 10, 1 );
 function txmn_about( $about ) {
 
@@ -16,6 +30,14 @@ function txmn_about( $about ) {
 
 } // txmn_about
 
+/**
+ * Filters the 'Popular Links' footer column. Inserts TXMN popular links.
+ *
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @param string $links The unfiltered, default popular links
+ * @return string $html The TXMN popular links
+ */
 add_filter( 'footer_links', 'txmn_links', 10, 1 );
 function txmn_links( $links ) {
 

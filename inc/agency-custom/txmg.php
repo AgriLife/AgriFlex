@@ -1,5 +1,19 @@
 <?php
+/**
+ * Contains the custom filters and actions for the
+ * TXMG extension type.
+ *
+ * @package AgriFlex
+ */
 
+/**
+ * Filters the 'About' footer column. Inserts TXMG-related about information.
+ *
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @param string $about The unfiltered, default about information
+ * @return string $html The college about information
+ */
 add_filter( 'agriflex_about', 'txmg_about', 10, 1 );
 function txmg_about( $about ) {
 
@@ -17,6 +31,15 @@ function txmg_about( $about ) {
 
 } // txmg_about
 
+/**
+ * Filters the 'Popular Links' footer column. Inserts
+ * TXMG popular links.
+ *
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @param string $links The unfiltered, default popular links
+ * @return string $html The TXMG popular links
+ */
 add_filter( 'footer_links', 'txmg_links', 10, 1 );
 function txmg_links( $links ) {
 

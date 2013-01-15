@@ -1,5 +1,19 @@
 <?php
+/**
+ * Contains the custom filters and actions for the
+ * Research agency type.
+ *
+ * @package AgriFlex
+ */
 
+/**
+ * Filters the 'About' footer column. Inserts Extension-related about information.
+ *
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @param string $about The unfiltered, default about information
+ * @return string $html The Research about information
+ */
 add_filter( 'agriflex_about', 'research_about', 10, 1 );
 function research_about( $about ) {
 
@@ -17,6 +31,15 @@ function research_about( $about ) {
 
 } // research_about
 
+/**
+ * Filters the 'Popular Links' footer column. Inserts links for
+ * Extension research topics.
+ *
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @param string $links The unfiltered, default popular links
+ * @return string $html The research topic links
+ */
 add_filter( 'footer_links', 'research_links', 10, 1 );
 function research_links( $links ) {
 

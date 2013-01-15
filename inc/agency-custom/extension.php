@@ -11,7 +11,8 @@
  *
  * @since AgriFlex 2.0
  * @author J. Aaron Eaton <aaron@channeleaton.com>
- * @return void
+ * @param string $about The unfiltered, default about information
+ * @return string $html The Extension about information
  */
 add_filter( 'agriflex_about', 'extension_about', 10, 1 );
 function extension_about( $about ) {
@@ -29,7 +30,8 @@ function extension_about( $about ) {
  *
  * @since AgriFlex 2.0
  * @author J. Aaron Eaton <aaron@channeleaton.com>
- * @return void
+ * @param string $links The unfiltered, default popular links
+ * @return string $html The Extension popular links
  */
 add_filter( 'footer_links', 'extension_links', 10, 1 );
 function extension_links( $links ) {

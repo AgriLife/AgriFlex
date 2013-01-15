@@ -1,5 +1,19 @@
 <?php
+/**
+ * Contains the custom filters and actions for the
+ * TVMDL agency type.
+ *
+ * @package AgriFlex
+ */
 
+/**
+ * Filters the 'About' footer column. Inserts TVMDL-related about information.
+ *
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @param string $about The unfiltered, default about information
+ * @return string $html The college about information
+ */
 add_filter( 'agriflex_about', 'tvmdl_about', 10, 1 );
 function tvmdl_about( $about ) {
 
@@ -11,6 +25,15 @@ function tvmdl_about( $about ) {
 
 } // tvmdl_about
 
+/**
+ * Filters the 'Popular Links' footer column. Inserts links to
+ * TVMDL tests.
+ *
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @param string $links The unfiltered, default popular links
+ * @return string $html The TVMDL testing links
+ */
 add_filter( 'footer_links', 'tvmdl_links', 10, 1 );
 function tvmdl_links( $links ) {
 
