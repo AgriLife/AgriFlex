@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * This class migrates the options from AgriFlex 1.x to the new options
+ * framework in 2.0.
+ *
+ * @package AgriFlex
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ */
 class AgriFlex_Migrate {
 
   private $option = '';
@@ -48,6 +56,11 @@ class AgriFlex_Migrate {
 
   } // __construct
 
+  /**
+   * Retrives the old AgriFlex 1.0 options
+   * 
+   * @access private
+   */
   private function set_old_options() {
   
     if ( $old = get_option( 'AgrilifeOptions' ) ) {
@@ -56,6 +69,13 @@ class AgriFlex_Migrate {
   
   } // set_old_options
 
+  /**
+   * Translates the given option to the old option key
+   *
+   * @access private
+   * @param  string $option  The given option key
+   * @return string $old_key The matched old option key
+   */
   private function get_old_key( $option ) {
   
     $old_key = array_search( $option, $this->translation );
@@ -64,6 +84,13 @@ class AgriFlex_Migrate {
   
   } // get_old_key
 
+  /**
+   * Gets the old option value based on the given option key
+   *
+   * @access public
+   * @param  string $option The given option name
+   * @return string $value  The corresponding option value
+   */
   public function get_default( $option ) {
   
     $old_key = $this->get_old_key( $option );

@@ -55,28 +55,33 @@ class WatchReadListenWidget extends WP_Widget {
         $user_video = $user_video[1];
         $embedpath = 'v/' . $user_video;
         $fallbacklink = 'http://www.youtube.com/watch?v=' . $user_video;
-        $fallbackcontent = '<img src="http://img.youtube.com/vi/' . $user_video .
-          '/0.jpg?v=100" alt="' . __( 'YouTube Preview Image', 'vipers-video-quicktags' ) . '" />';
+        $fallbackcontent = '<img src="http://img.youtube.com/vi/' .
+          $user_video . '/0.jpg?v=100" alt="' .
+          __( 'YouTube Preview Image', 'vipers-video-quicktags' ) . '" />';
 
       } elseif ( FALSE !== stristr( $user_video, 'view_play_list' ) ) {
 
         // Playlist URL
-        // only works with the form: http://youtube.com/view_play_list?p=929CBCA261930FCE
+        // only works with the form:
+        // http://youtube.com/view_play_list?p=929CBCA261930FCE
         preg_match( '#http://(www.youtube|youtube|[A-Za-z]{2}.youtube)\.com/view_play_list\?p=([\w-]+)(.*?)#i', $user_video, $matches );
         if ( empty( $matches ) || empty( $matches[2] ) ) 
           echo 'Unable to parse URL, check for correct format';
         $embedpath = 'p/' . $matches[2];
-        $fallbacklink = $fallbackcontent = 'http://www.youtube.com/view_play_list?p=' . $matches[2];
+        $fallbacklink = $fallbackcontent =
+          'http://www.youtube.com/view_play_list?p=' . $matches[2];
 
       } elseif ( FALSE !== stristr( $user_video, '/user/' ) ) {
 
         // Playlist URL
-        // only works with the form: http://www.youtube.com/user/flottos#grid/user/0CE5AEDE96A3E414
+        // only works with the form:
+        // http://www.youtube.com/user/flottos#grid/user/0CE5AEDE96A3E414
 
         $matches = explode( "/user/", $user_video );
 
         $embedpath = 'p/' . $matches[2];
-        $fallbacklink = $fallbackcontent = 'http://www.youtube.com/view_play_list?p=' . $matches[2];	
+        $fallbacklink = $fallbackcontent =
+          'http://www.youtube.com/view_play_list?p=' . $matches[2];	
 
       } else {
 
@@ -87,8 +92,9 @@ class WatchReadListenWidget extends WP_Widget {
 
         $embedpath = 'v/' . $matches[3];
         $fallbacklink = 'http://www.youtube.com/watch?v=' . $matches[3];
-        $fallbackcontent = '<img src="http://img.youtube.com/vi/' . $matches[3] .
-          '/0.jpg?v=100" alt="' . __( 'YouTube Preview Image', 'vipers-video-quicktags' ) . '" />';
+        $fallbackcontent = '<img src="http://img.youtube.com/vi/' .
+          $matches[3] . '/0.jpg?v=100" alt="' .
+          __( 'YouTube Preview Image', 'vipers-video-quicktags' ) . '" />';
       }
 
     } else { // If a URL wasn't passed, assume a video ID was passed instead
@@ -96,7 +102,8 @@ class WatchReadListenWidget extends WP_Widget {
       $embedpath = 'v/' . $user_video;
       $fallbacklink = 'http://www.youtube.com/watch?v=' . $user_video;
       $fallbackcontent = '<img src="http://img.youtube.com/vi/' . $user_video .
-        '/0.jpg?v=100" alt="' . __( 'YouTube Preview Image', 'vipers-video-quicktags' ) . '" />';
+        '/0.jpg?v=100" alt="' .
+        __( 'YouTube Preview Image', 'vipers-video-quicktags' ) . '" />';
 
     }
 
@@ -104,14 +111,25 @@ class WatchReadListenWidget extends WP_Widget {
 
 
     // Podcast Processing
-    $podcast_link = empty( $instance['podcast_link'] ) ? $podcast_link_default : apply_filters( 'widget_podcast_link', $instance['podcast_link'] );
+    $podcast_link = empty( $instance['podcast_link'] ) ?
+      $podcast_link_default :
+      apply_filters( 'widget_podcast_link', $instance['podcast_link'] );
+
     $rss = fetch_feed( $podcast_link );
 
     if ( ! is_wp_error( $rss ) ) {
 
-      $podcast_desc = esc_attr( strip_tags( @html_entity_decode( $rss->get_description(), ENT_QUOTES, get_option( 'blog_charset' ) ) ) );
-      $podcast_title= esc_attr( strip_tags( @html_entity_decode( $rss->get_title(), ENT_QUOTES, get_option( 'blog_charset' ) ) ) );
-      $podcast_link_audio= esc_attr( strip_tags( @html_entity_decode( $rss->get_link(), ENT_QUOTES, get_option( 'blog_charset' ) ) ) );
+      $podcast_desc = esc_attr( strip_tags(
+        @html_entity_decode( $rss->get_description(),
+        ENT_QUOTES, get_option( 'blog_charset' ) ) ) );
+
+      $podcast_title = esc_attr( strip_tags(
+        @html_entity_decode( $rss->get_title(),
+        ENT_QUOTES, get_option( 'blog_charset' ) ) ) );
+
+      $podcast_link_audio = esc_attr( strip_tags(
+        @html_entity_decode( $rss->get_link(),
+        ENT_QUOTES, get_option( 'blog_charset' ) ) ) );
 
       if ( empty( $title ) )
         $title = esc_html( strip_tags( $rss->get_title() ) );
@@ -157,7 +175,9 @@ class WatchReadListenWidget extends WP_Widget {
                   </dd>	
                 </dl>
               </a>
-              <p class="buy btn"><a href="https://agrilifebookstore.org/publications_details.cfm?whichpublication=1496">Buy</a></p>					
+              <p class="buy btn">
+                <a href="https://agrilifebookstore.org/publications_details.cfm?whichpublication=1496">Buy</a>
+              </p>					
             </li>
             <li>	
               <a href="https://agrilifebookstore.org/publications_details.cfm?whichpublication=1979">
@@ -176,10 +196,13 @@ class WatchReadListenWidget extends WP_Widget {
           </ul>
         </div><!-- end #read-tab -->
         <div id="tabs-3">
-          <h4><a href="<?php echo $podcast_site_link;?>"><?php echo $podcast_title;?></a></h4>
+          <h4>
+            <a href="<?php echo $podcast_site_link;?>">
+              <?php echo $podcast_title;?>
+            </a>
+          </h4>
           <?php $this->podcast_output( $rss, $instance ); ?>
 
-          <!--<p><?php echo $podcast_desc;?></p>-->
         </div><!-- end #listen-tab -->
       </div><!-- end #tabs -->					
     </div><!-- end #watchreadlisten -->
@@ -202,7 +225,10 @@ class WatchReadListenWidget extends WP_Widget {
 	function form($instance) {
 
     //widgetform in backend
-		$instance = wp_parse_args( (array) $instance, array( 'youtube_video' => '', 'podcast_link' => '' ) );
+    $instance = wp_parse_args(
+      (array) $instance, array( 'youtube_video' => '', 'podcast_link' => '' )
+    );
+
 		$youtube_video = strip_tags( $instance['youtube_video'] );
 		$podcast_link = strip_tags( $instance['podcast_link'] );
 
@@ -243,12 +269,20 @@ class WatchReadListenWidget extends WP_Widget {
 
     if ( is_wp_error( $rss ) ) {
       if ( is_admin() || current_user_can( 'manage_options' ) )
-        echo '<p>' . sprintf( __( '<strong>RSS Error</strong>: %s'), $rss->get_error_message() ) . '</p>';
+        echo '<p>' .
+        sprintf( __( '<strong>RSS Error</strong>: %s'), $rss->get_error_message() ) .
+        '</p>';
       return;
     }
 
-    $default_args = array( 'show_author' => 0, 'show_date' => 0, 'show_summary' => 0 );
+    $default_args = array(
+      'show_author' => 0,
+      'show_date' => 0,
+      'show_summary' => 0
+    );
+
     $args = wp_parse_args( $args, $default_args );
+
     extract( $args, EXTR_SKIP );
 
     $items = 1;  // Just show the latest podcast
@@ -274,8 +308,11 @@ class WatchReadListenWidget extends WP_Widget {
         $title = __( 'Untitled' );
 
       $desc = str_replace( array("\n", "\r"), ' ',
-        esc_attr( strip_tags( @html_entity_decode( $item->get_description(), ENT_QUOTES, get_option( 'blog_charset' ) ) ) ) );
-          $desc = wp_html_excerpt( $desc, 360 );
+        esc_attr( strip_tags( 
+          @html_entity_decode( $item->get_description(),
+          ENT_QUOTES, get_option( 'blog_charset' ) ) ) ) );
+
+      $desc = wp_html_excerpt( $desc, 360 );
 
       // Append ellipsis. Change existing [...] to [&hellip;].
       if ( '[...]' == substr( $desc, -5 ) )

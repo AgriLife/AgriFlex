@@ -38,6 +38,7 @@ function optionsframework_options() {
     2 => 'Custom Image Header'
   );
 
+  // Agency selections
   $agency_array = array(
     'research' => 'Research',
     'extension' => 'Extension',
@@ -46,6 +47,7 @@ function optionsframework_options() {
     'fazd'       => 'FAZD'
   );
 
+  // Agency default selections
   $agency_default = array(
     'research'  => $migrate->get_default( 'research' ),
     'extension' => $migrate->get_default( 'extension' ),
@@ -54,6 +56,7 @@ function optionsframework_options() {
     'fazd'       => $migrate->get_default( 'fazd' ),
   );
 
+  // Extension types
   $ext_array = array(
     'typical' => 'Typical',
     '4h'      => '4-H',
@@ -64,10 +67,12 @@ function optionsframework_options() {
     'sg'      => 'Sea Grant'
   );
 
+  // Associative array of county IDs and names
   $county_array = agriflex_county_listing(); 
 
 	$options = array();
 
+  // Appearance Tab
 	$options[] = array(
 		'name' => __( 'Appearance', 'options_framework_theme' ),
     'type' => 'heading'
@@ -329,6 +334,7 @@ jQuery(document).ready(function($) {
     }
   });
 
+  // Shows the minimal header text field if Minimal Header is checked
   if ( $('#section-minimal-header input').is(':checked') ) {
       $('#section-minimal-header-text').show();
     } else {
@@ -360,11 +366,12 @@ jQuery(document).ready(function($) {
     }
   });
 
-    if($('#agriflex-ext-type-county').is(':checked') || $('#agriflex-ext-type-tce').is(':checked')) {
-      $('#section-county-name').show();
-    } else {
-      $('#section-county-name').hide();
-    }
+  // Shows county selection if County or TCE extension types are selected
+  if($('#agriflex-ext-type-county').is(':checked') || $('#agriflex-ext-type-tce').is(':checked')) {
+    $('#section-county-name').show();
+  } else {
+    $('#section-county-name').hide();
+  }
 
   $('#section-ext-type').change(function() {
     if($('#agriflex-ext-type-county').is(':checked') || $('#agriflex-ext-type-tce').is(':checked')) {
@@ -372,7 +379,7 @@ jQuery(document).ready(function($) {
     } else {
       $('#section-county-name').hide();
     }
-});
+  });
 
 });
 </script>

@@ -9,7 +9,9 @@
 
 add_action( 'add_meta_boxes', 'agriflex_add_custom_box' );
 
-/* Adds a box to the main column on the Post and Page edit screens */
+/**
+ * Adds a box to the main column on the Post and Page edit screens
+ */
 function agriflex_add_custom_box() {
   add_meta_box( 
     'agrilife_featured_post',
@@ -27,7 +29,11 @@ function agriflex_add_custom_box() {
   );
 }
 
-/* Prints the box content */
+/**
+ * Prints the box content
+ *
+ * @param object $post The Post object
+ */
 function agriflex_inner_custom_box( $post ) {
 
   // Use nonce for verification
