@@ -1,0 +1,117 @@
+<?php
+
+class AgriFlex_Migrate {
+
+  private $option = '';
+
+  private $old_options = array();
+
+  private $translation = array(
+    'isResearch' => 'research',
+    'isExtension' => 'extension',
+    'isCollege'   => 'college',
+    'isTvmdl'     => 'tvmdl',
+    'isFazd'      => 'fazd',
+    'useCustomHeader' => 'minimal-header',
+    'custom_header_text' => 'minimal-header-text',
+    'useCustomFooter' => 'minimal-footer',
+    'extension_type'  => 'ext-type',
+    'custom_logo'     => 'custom-agency-logo',
+    'header_type'     => 'site-title',
+    'titleImg'        => 'custom-site-logo',
+    'hours'       => 'hours',
+    'county-name' => 'county-name',
+    'county-name-human' => 'county-name-human',
+    'address-street1' => 'p-street-1',
+    'address-street2' => 'p-street-2',
+    'address-city'    => 'p-city',
+    'address-zip'     => 'p-zip',
+    'address-mail-street1'  => 'm-street-1',
+    'address-mail-street2'  => 'm-street-2',
+    'address-mail-city'     => 'm-city',
+    'address-mail-zip'      => 'm-zip',
+    'email_public'  => 'email',
+    'phone' => 'phone',
+    'fax'   => 'fax',
+    'feedBurner' => 'feedburner',
+    'googleAnalytics' => 'g-analytics',
+  );
+
+  private $checkbox = array(
+    'useCustomHeader',
+    'useCustomFooter',
+  );
+
+  function __construct() {
+
+    $this->set_old_options();
+
+  } // __construct
+
+  private function set_old_options() {
+  
+    if ( $old = get_option( 'AgrilifeOptions' ) ) {
+      $this->old_options = $old;
+    }
+  
+  } // set_old_options
+
+  private function get_old_key( $option ) {
+  
+    $old_key = array_search( $option, $this->translation );
+
+    return $old_key;
+  
+  } // get_old_key
+
+  public function get_default( $option ) {
+  
+    $old_key = $this->get_old_key( $option );
+
+    $value = $this->old_options[$old_key];
+
+    if ( in_array( $old_key, $this->checkbox ) ) {
+      switch ( $value ) {
+        case 'on' :
+          $value = 1;
+          break;
+        default :
+          $value = 0;
+      }
+    }
+
+    if ( $old_key == 'extension_type' ) {
+      switch ( $value ) {
+        case 0 :
+          $value = 'typical';
+          break;
+        case 1 :
+          $value = '4h';
+          break;
+        case 2 :
+          $value = 'county';
+          break;
+        case 3 :
+          $value = 'tce';
+          break;
+        case 4 :
+          $value = 'mg';
+          break;
+        case 5 :
+          $value = 'mn';
+          break;
+        case 6 :
+          $value = 'sg';
+          break;
+      }
+    }
+
+    if ( ! empty( $value ) ) {
+      return $value;
+    } else {
+      return '';
+    }
+
+  } // get_default
+
+} // class AgriFlex_Migrate

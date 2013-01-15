@@ -4,6 +4,7 @@
  * By default it uses the theme name, in lowercase and without spaces, but this can be changed if needed.
  * If the identifier changes, it'll appear as if the options have been reset.
  */
+include('migrate.php');
 
 function optionsframework_option_name() {
 
@@ -27,6 +28,9 @@ function optionsframework_option_name() {
 
 function optionsframework_options() {
 
+  // Get the migration going
+  $migrate = new AgriFlex_Migrate();
+
   // Site title selections
   $site_title_array = array(
     0 => 'Site Title (text only)',
@@ -39,15 +43,15 @@ function optionsframework_options() {
     'extension' => 'Extension',
     'college'   => 'College',
     'tvmdl'     => 'TVMDL',
-    'tfs'       => 'Texas Forest Service'
+    'fazd'       => 'FAZD'
   );
 
   $agency_default = array(
-    'research'  => 1,
-    'extension' => 1,
-    'college'   => 1,
-    'tvmdl'     => 1,
-    'tfs'       => 1,
+    'research'  => $migrate->get_default( 'research' ),
+    'extension' => $migrate->get_default( 'extension' ),
+    'college'   => $migrate->get_default( 'college' ),
+    'tvmdl'     => $migrate->get_default( 'tvmdl' ),
+    'fazd'       => $migrate->get_default( 'fazd' ),
   );
 
   $ext_array = array(
@@ -73,14 +77,16 @@ function optionsframework_options() {
 		'name' => __('Site Title Style', 'options_framework_theme'),
 		'desc' => __('Select your site title style', 'options_framework_theme'),
 		'id' => 'site-title',
-		'std' => 0,
+		'std' => $migrate->get_default( 'site-title' ),
 		'type' => 'radio',
-		'options' => $site_title_array);
+    'options' => $site_title_array
+  );
 
   $options[] = array(
     'name' => __( 'Custom Site Logo', 'options_framework_theme' ),
     'desc' => __( 'Upload your custom logo', 'options_framework_theme' ),
     'id'   => 'custom-site-logo',
+    'std'  => $migrate->get_default( 'custom-site-logo' ),
     'type' => 'upload',
   );
 
@@ -88,7 +94,7 @@ function optionsframework_options() {
     'name' => __( 'Minimal Header', 'options_framework_theme' ),
     'desc' => __( 'Removes agency logos', 'options_framework_theme' ),
     'id'   => 'minimal-header',
-    'std'  => 0,
+    'std'  => $migrate->get_default( 'minimal-header' ),
     'type' => 'checkbox',
   );
 
@@ -96,6 +102,7 @@ function optionsframework_options() {
     'name' => __( 'Minimal Header Text', 'options_framework_theme' ),
     'desc' => __( 'Header text. Keep it short.', 'options_framework_theme' ),
     'id'   => 'minimal-header-text',
+    'std'  => $migrate->get_default( 'minimal-header-text' ),
     'type' => 'text',
   );
 
@@ -103,7 +110,7 @@ function optionsframework_options() {
     'name' => __( 'Minimal Footer', 'options_framework_theme' ),
     'desc' => __( 'Shows only the required links', 'options_framework_theme' ),
     'id'   => 'minimal-footer',
-    'std'  => 0,
+    'std'  => $migrate->get_default( 'minimal-footer' ),
     'type' => 'checkbox',
   );
 
@@ -117,7 +124,7 @@ function optionsframework_options() {
     'name' => __( 'Phone Number', 'options_framework_theme' ),
     'desc' => __( 'Ex. 979-999-7777', 'options_framework_theme' ),
     'id'   => 'phone',
-    'std'  => '',
+    'std'  => $migrate->get_default( 'phone' ),
     'type' => 'text'
   );
 
@@ -125,7 +132,7 @@ function optionsframework_options() {
     'name' => __( 'Fax Number', 'options_framework_theme' ),
     'desc' => __( 'Ex. 979-999-7777', 'options_framework_theme' ),
     'id'   => 'fax',
-    'std'  => '',
+    'std'  => $migrate->get_default( 'fax' ),
     'type' => 'text'
   );
 
@@ -133,7 +140,7 @@ function optionsframework_options() {
     'name' => __( 'Email Address (public)', 'options_framework_theme' ),
     'desc' => __( 'Ex. example@tamu.edu', 'options_framework_theme' ),
     'id'   => 'email',
-    'std'  => '',
+    'std'  => $migrate->get_default( 'email' ),
     'type' => 'text'
   );
 
@@ -141,7 +148,7 @@ function optionsframework_options() {
     'name' => __( 'Hours of Operation', 'options_framework_theme' ),
     'desc' => __( 'Ex. Mon-Fri 8:00am-5:00pm', 'options_framework_theme' ),
     'id'   => 'hours',
-    'std'  => '',
+    'std'  => $migrate->get_default( 'hours' ),
     'type' => 'text'
   );
 
@@ -155,28 +162,28 @@ function optionsframework_options() {
   $options[] = array(
     'name' => __( 'Street 1', 'options_framework_theme' ),
     'id'   => 'p-street-1',
-    'std'  => '600 John Kimbrough Blvd.',
+    'std'  => $migrate->get_default( 'p-street-1' ),
     'type' => 'text'
   );
 
   $options[] = array(
     'name' => __( 'Street 2', 'options_framework_theme' ),
     'id'   => 'p-street-2',
-    'std'  => '',
+    'std'  => $migrate->get_default( 'p-street-2' ),
     'type' => 'text'
   );
 
   $options[] = array(
     'name' => __( 'City', 'options_framework_theme' ),
     'id'   => 'p-city',
-    'std'  => 'College Station',
+    'std'  => $migrate->get_default( 'p-city' ),
     'type' => 'text'
   );
 
   $options[] = array(
     'name' => __( 'Zip', 'options_framework_theme' ),
     'id'   => 'p-zip',
-    'std'  => '77843',
+    'std'  => $migrate->get_default( 'p-zip' ),
     'type' => 'text'
   );
 
@@ -189,28 +196,28 @@ function optionsframework_options() {
   $options[] = array(
     'name' => __( 'Street 1', 'options_framework_theme' ),
     'id'   => 'm-street-1',
-    'std'  => '',
+    'std'  => $migrate->get_default( 'm-street-1' ),
     'type' => 'text'
   );
 
   $options[] = array(
     'name' => __( 'Street 2', 'options_framework_theme' ),
     'id'   => 'm-street-2',
-    'std'  => '',
+    'std'  => $migrate->get_default( 'm-street-2' ),
     'type' => 'text'
   );
 
   $options[] = array(
     'name' => __( 'City', 'options_framework_theme' ),
     'id'   => 'm-city',
-    'std'  => '',
+    'std'  => $migrate->get_default( 'm-city' ),
     'type' => 'text'
   );
 
   $options[] = array(
     'name' => __( 'Zip', 'options_framework_theme' ),
     'id'   => 'm-zip',
-    'std'  => '',
+    'std'  => $migrate->get_default( 'm-zip' ),
     'type' => 'text'
   );
 
@@ -224,7 +231,7 @@ function optionsframework_options() {
     'name' => __( 'Google Analytics', 'options_framework_theme' ),
     'desc' => __( 'Ex. UA-XXXXX-2', 'options_framework_theme' ),
     'id'   => 'g-analytics',
-    'std'  => '',
+    'std'  => $migrate->get_default( 'g-analytics' ),
     'type' => 'text'
   );
 
@@ -232,7 +239,7 @@ function optionsframework_options() {
     'name' => __( 'FeedBurner Feed Address', 'options_framework_theme' ),
     'desc' => __( 'Ex. http://feeds.feedburner.com/AgriLife', 'options_framework_theme' ),
     'id'   => 'feedburner',
-    'std'  => '',
+    'std'  => $migrate->get_default( 'feedburner' ),
     'type' => 'text'
   );
 
@@ -254,7 +261,7 @@ function optionsframework_options() {
   $options[] = array(
     'name' => __( 'Extension Type', 'options_framework_theme' ),
     'id'   => 'ext-type',
-    'std'  => 'typical',
+    'std'  => $migrate->get_default( 'ext-type' ),
     'type' => 'radio',
     'options' => $ext_array
   );
@@ -262,7 +269,7 @@ function optionsframework_options() {
   $options[] = array(
     'name' => __( 'County Name', 'options_framework_theme' ),
     'id'   => 'county-name',
-    'std'  => 0,
+    'std'  => $migrate->get_default( 'county-name' ),
     'type' => 'select',
     'options' => $county_array,
   );
@@ -270,6 +277,7 @@ function optionsframework_options() {
   $options[] = array(
     'name' => __( 'County Name Human', 'options_framework_theme' ),
     'id'   => 'county-name-human',
+    'std'  => $migrate->get_default( 'county-name-human' ),
     'type' => 'text',
     'class' => 'hidden'
   );
@@ -278,6 +286,7 @@ function optionsframework_options() {
     'name' => __( 'Additional Agency Logos', 'options_framework_theme' ),
     'desc' => __( 'Upload your custom logo. Must be 45px in height.', 'options_framework_theme' ),
     'id'   => 'custom-agency-logo',
+    'std'  => $migrate->get_default( 'custom-agency-logo' ),
     'type' => 'upload',
   );
 
