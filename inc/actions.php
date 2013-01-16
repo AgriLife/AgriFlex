@@ -48,6 +48,38 @@ function agriflex_analytics_code() {
 
 } // agriflex_analytics_code    
 
+/* -- Add typekit js and css to document head -- */
+add_action('wp_head','typekit_js');
+function typekit_js() {
+
+  $a = agriflex_agency();
+
+  switch ( $a['ext-type'] ) {
+    case 'mg' :
+      $key = 'vaf4fhz';
+      break;
+    case 'mn' :
+      $key = 'nqb0igu';
+      break;
+    default :
+      $key = 'thu0wyf';
+  }
+
+  if( !is_admin() ) : ?>
+    <script type="text/javascript" src="http://use.typekit.com/<?php echo $key ?>.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <style type="text/css">
+      .wf-loading #site-title,
+      .wf-loading .entry-title {
+      /* Hide the blog title and post titles while web fonts are loading */
+      visibility: hidden;
+      }
+    </style>                        
+  <?php
+  endif;
+
+}
+
 /**
  * Removes the default styles that are packaged with the Recent Comments widget.
  *

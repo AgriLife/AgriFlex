@@ -61,24 +61,6 @@ function agriflex_setup() {
     
 } // agriflex_setup
 
-// @todo - Move this to separate file
-/* -- Add typekit js and css to document head -- */
-add_action('wp_head','typekit_js');
-function typekit_js() {
-global $typekitkey;
-if( !is_admin() ) : ?>
-<script type="text/javascript" src="http://use.typekit.com/<?php echo $typekitkey ?>.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-<style type="text/css">
-.wf-loading #site-title,
-.wf-loading .entry-title {
-/* Hide the blog title and post titles while web fonts are loading */
-visibility: hidden;
-}
-</style>                        
-<?php
-  endif;
-}
 
 /**
  * Load/configure javascripts
