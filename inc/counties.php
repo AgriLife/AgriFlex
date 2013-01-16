@@ -860,8 +860,7 @@ function county_office_info() {
     $countycode = get_IT_code( $countycode );             
 	           
 	//Get a handle to the webservice
-	$wsdl = new nusoap_client( 'https://agrilifepeople.tamu.edu/agrilifepeopleAPI/v3.cfc?wsdl', true );
-	$proxy = $wsdl->getProxy();
+	$wsdl = new soapclient( 'https://agrilifepeople.tamu.edu/agrilifepeopleAPI/v3.cfc?wsdl' );
 	
 	/*
 	* This API will not be open to the public so we will be requiring all
@@ -924,26 +923,22 @@ function county_office_info() {
 	* string WhichCounty		= ?
 	* string WhichDistrict		= ?
 	*/	
-	if( is_object( $proxy ) ){
-		$result = $proxy->getUnits( 3, $base64, $countycode, '', '', '', '', '' );
+	if( is_object( $wsdl ) ){
+		$result = $wsdl->getUnits( 3, $base64, $countycode, '', '', '', '', '' );
 		
 		
-		if ( $proxy->fault ) {
-	          echo '<h2>Fault</h2><pre>';
-	          print_r( $result );
-	          echo '</pre>';
-	
-	     } else {
 	          // Check for errors
-	          $err = $proxy->getError();
-	
-	          if ( $err ) {
-	               // Display the error
-	               echo '<h2>Error</h2><pre>' . $err . '</pre>';
+          (int) $err = $result['ResultCode'];
+
+          if ( $err != 200 ) {
+               // Display the error
+               $return = '<h2>Error</h2><pre>' . $result['ResultMessages'] . '</pre>';
 	
 	          } else {
+
+            $payload = $result['ResultQuery']->enc_value->data;
 	          
-				foreach ( $result['ResultQuery']['data'] as $item ) {
+				foreach ( $payload as $item ) {
 					if( strlen( $item[19] )>5 ) {
 						$zip = str_split( $item[19], 5 );
 						$zip = $zip[0] . '-' . $zip[1];
@@ -997,38 +992,21 @@ function county_office_info() {
 				} 		
 	     	}
 	     }
-     }
 }
 
 
 
 function show_county_directory($options) {
-     // Get The County's Code to pass to web service
-     // As configured on the county's setting page
-        if (is_array($options))
-             $countycode = (int) $options['county-name'];
-        $countycode = get_IT_code($countycode);             
-                   
-     //Get a handle to the webservice
-     $wsdl = new nusoap_client('https://agrilifepeople.tamu.edu/agrilifepeopleAPI/v3.cfc?wsdl',true);
-     $proxy = $wsdl->getProxy();
-    
-     /*
-      * This API will not be open to the public so we will be requiring all
-      * applications to authenticate themselves with a validation key that is a
-      * Base64 MD5 hash comprised of three data points:
-      *          1. Site ID: a numeric value assigned by SDG Team for your application
-      *          2. Access Key: a secure "password" usually created by the developer
-      *          3. The method name being called (all lower case)
-      * The hash we use is raw binary format with a length of 16 before we encode it to base64
-      * Functions below are explained on PHP Manual http://php.net/manual/en/
-      */
+	$options = of_get_option();
+	
+	$countycode = (int) $options['county-name'];
 
-     $hash = md5(AGRILIFE_API_KEY.'getpersonnel',true);
-
-     $base64 = base64_encode($hash);
-
-    
+  $countycode = get_IT_code( $countycode );             
+	           
+	//Get a handle to the webservice
+	$wsdl = new soapclient( 'https://agrilifepeople.tamu.edu/agrilifepeopleAPI/v3.cfc?wsdl' );
+  $hash = md5( AGRILIFE_API_KEY . 'getpersonnel', true);
+	$base64 = base64_encode( $hash );	
 
      /*
       * Call the webservice getPersonnel method and pass in the parameters
@@ -1065,23 +1043,16 @@ function show_county_directory($options) {
 	  *
       */
 
-     if(is_object($proxy)){
+     if( is_object( $wsdl ) ){
 
-	     $result = $proxy->getPersonnel(3,$base64,'','',$countycode,'',true,true);
+	     $result = $wsdl->getPersonnel( 3, $base64, '', '', $countycode, '', true, true);
 	     // Checking for a faults
 	
-	     if ($proxy->fault) {
-	          echo '<h2>Fault</h2><pre>';
-	          print_r($result);
-	          echo '</pre>';
-	
-	     } else {
-	          // Check for errors
-	          $err = $proxy->getError();
-	
-	          if ($err) {
-	               // Display the error
-	               echo '<h2>Error</h2><pre>' . $err . '</pre>';
+          (int) $err = $result['ResultCode'];
+
+          if ( $err != 200 ) {
+               // Display the error
+               $return = '<h2>Error</h2><pre>' . $result['ResultMessages'] . '</pre>';
 	
 	          } else {
 	          	   $job		= array();
@@ -1092,7 +1063,8 @@ function show_county_directory($options) {
 	
 	               // Display the result					    
 	               echo '<ul class="staff-listing-ul county-staff-list">';
-	               foreach ( $result['ResultQuery']['data'] as $item ) {
+            $payload = $result['ResultQuery']->enc_value->data;
+	               foreach ( $payload as $item ) {
 	                    echo '<li class="staff-listing-item">';
 	                    echo '<div class="role staff-container">';
 					    echo '<hgroup class="staff-head">';
@@ -1101,13 +1073,12 @@ function show_county_directory($options) {
 	                    // Pull All Job Titles, but
 	                    // Only pulling one (the last) phone/fax info for county offices
 	                    // since all office info is same for county employees
-	                    foreach ( $result['ResultQuery']['data'][$i][18]['data'] as $job ) {
+                      $job = $item[18]->data[0];
 	                    	echo '<h3 class="staff-position">';
-	                    	echo $job[2].'</h3>';
-	                    	foreach ( $result['ResultQuery']['data'][$i][18]['data'][$j][25]['data'] as $role ) {
+	                    	echo $job[2] . '</h3>';
+	                    	foreach ( $job[25]->data as $role ) {
 	                    		echo '<h4 class="staff-position">&bull; '.$role[1].'</h4>';
 	                    	}	                    	
-	                    }                  
 	                    echo "</hgroup>";
 	                    
 	                    echo '<div class="staff-contact-details">';
@@ -1130,7 +1101,6 @@ function show_county_directory($options) {
 	          }
 	
 	     }
-     }
 
 }
 
