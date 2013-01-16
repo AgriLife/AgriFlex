@@ -211,9 +211,6 @@ require_once ($include_path . 'logout-password-protected-posts/logout.php');
 // Define location of Options Framework
 define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/options/' );
 
-// Add the options library
-$options = of_get_option();
-
 /**
  * Determines the site's agency and returns a useful array of information
  *

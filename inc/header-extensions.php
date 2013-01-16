@@ -140,11 +140,6 @@ function agriflex_agency_nav_begin() {
 
 } // agriflex_agency_nav_begin
 
-
-
-
-
-
 add_action( 'agriflex_before_header', 'agriflex_tfs_logo', 50 );
 /**
  * Displays the TFS logo when selected
@@ -171,10 +166,7 @@ function agriflex_tfs_logo() {
 
   }
 
-
 } // agriflex_tfs_logo
-
-
 
 add_action( 'agriflex_before_header', 'agriflex_custom_logo', 70 );
 /**
