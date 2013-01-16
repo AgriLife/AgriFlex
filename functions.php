@@ -174,9 +174,12 @@ function obfuscate($email){
      return $link;
 } // obfuscate
 
+
 // Set path to function files
 $includes_path = TEMPLATEPATH . '/includes/';
 $include_path = TEMPLATEPATH . '/inc/';
+
+require_once( $include_path . 'options/options-framework.php');
 
 // Auto-include extensions
 foreach ( glob( $include_path . "*.php" ) as $file ) {
@@ -186,6 +189,12 @@ unset( $file );
 
 // Auto-include all widget files
 foreach ( glob( $include_path . "/widgets/*.php" ) as $file ) {
+  require_once( $file );
+}
+unset( $file );
+//
+// Auto-include all widget files
+foreach ( glob( $include_path . "/agency-custom/*.php" ) as $file ) {
   require_once( $file );
 }
 unset( $file );
@@ -203,9 +212,7 @@ require_once ($include_path . 'logout-password-protected-posts/logout.php');
 define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/options/' );
 
 // Add the options library
-require_once( $include_path . 'options/options-framework.php');
 $options = of_get_option();
-print_r($options);
 
 /**
  * Determines the site's agency and returns a useful array of information
@@ -246,24 +253,3 @@ function agriflex_agency() {
   return $return;
 
 } // agriflex_agency
-
-// Conditional inclusion based on agriflex_agency()
-$a = agriflex_agency();
-$custom = $include_path . '/agency-custom/';
-
-if ( ! $a['single'] ) {
-} elseif ( $a['ext-type'] == 'mg' ) { 
-  require_once( $custom . 'txmg.php' );
-} elseif ( $a['ext-type'] == 'mn' ) { 
-  require_once( $custom . 'txmn.php' );
-} elseif ( in_array( 'extension', $a['agencies'] ) ) {
-  require_once( $custom . 'extension.php' );
-} elseif ( in_array( 'research', $a['agencies'] ) ) {
-  require_once( $custom . 'research.php' );
-} elseif ( in_array( 'college', $a['agencies'] ) ) {
-  require_once( $custom . 'college.php' );
-} elseif ( in_array( 'tvmdl', $a['agencies'] ) ) {
-  require_once( $custom . 'tvmdl.php' );
-} elseif ( in_array( 'tfs', $a['agencies'] ) ) {
-  // Include tfs.php
-}

@@ -6,6 +6,52 @@
  * @package AgriFlex
  */
 
+$a = agriflex_agency();
+
+if ( in_array( 'tvmdl', $a['agencies'] ) ) {
+  add_action( 'agriflex_before_header', 'agriflex_tvmdl_logo', 40 );
+
+  if ( $a['single'] ) {
+    add_filter( 'agriflex_about', 'tvmdl_about', 10, 1 );
+    add_filter( 'footer_links', 'tvmdl_links', 10, 1 );
+  }
+}
+
+/**
+ * Displays the TVMDL logo when selected
+ *
+ * Also shows the client login button when TVMDL only
+ *
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @since AgriFlex 2.0
+ * @return void
+ */
+function agriflex_tvmdl_logo() {
+
+  $a = agrilife_agency();
+
+  $html = '<li class="top-agency tvmdl-item">';
+  $html .= '<a href="http://tvmdl.tamu.edu/">';
+  $html .= '<span class="top-level-hide">';
+  $html .= 'Texas A&amp;M Veterinary Medical Diagnostics Laboratory';
+  $html .= '</span>';
+  $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/images/tvmdl-branding.png" alt="Texas A&amp;M Research Logo" />';
+  $html .= '</a>';
+  $html .= '</li>';
+
+  // Show client login if TVMDL only
+  if ( $a['single'] ) {
+    $html .= '<li class="right-align client-login-li">';
+    $html .= '<a class="client-login" href="https://tvmdl.tamu.edu/webaccess/">';
+    $html .= 'Client Login';
+    $html .= '</a>';
+    $html .= '</li>';
+  }
+
+  echo $html;
+
+} // agriflex_tvmdl_logo
+
 /**
  * Filters the 'About' footer column. Inserts TVMDL-related about information.
  *
@@ -14,7 +60,6 @@
  * @param string $about The unfiltered, default about information
  * @return string $html The college about information
  */
-add_filter( 'agriflex_about', 'tvmdl_about', 10, 1 );
 function tvmdl_about( $about ) {
 
   $html = '<h4>About</h4>';
@@ -34,7 +79,6 @@ function tvmdl_about( $about ) {
  * @param string $links The unfiltered, default popular links
  * @return string $html The TVMDL testing links
  */
-add_filter( 'footer_links', 'tvmdl_links', 10, 1 );
 function tvmdl_links( $links ) {
 
   $html = '<h4>Testing Sections</h4>';

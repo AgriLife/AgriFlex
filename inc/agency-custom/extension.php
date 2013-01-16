@@ -6,6 +6,39 @@
  * @package AgriFlex
  */
 
+$a = agriflex_agency();
+
+if ( in_array( 'extension', $a['agencies'] ) ) {
+  add_action( 'agriflex_before_header', 'agriflex_ext_logo', 20 );
+
+  if ( $a['single'] ) {
+    add_filter( 'agriflex_about', 'extension_about', 10, 1 );
+    add_filter( 'footer_links', 'extension_links', 10, 1 );
+  }
+}
+
+/**
+ * Displays the extension logo when selected
+ *
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @since AgriFlex 2.0
+ * @return void
+ */
+function agriflex_ext_logo() {
+
+  $html = '<li class="top-agency tx-ext-item">';
+  $html .= '<a href="http://agrilifeextension.tamu.edu/">';
+  $html .= '<span class="top-level-hide">';
+  $html .= 'Texas A&amp;M AgriLife Extension Service';
+  $html .= '</span>';
+  $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/images/extension-branding.png" alt="Texas A&amp;M Extension Logo" />';
+  $html .= '</a>';
+  $html .= '</li>';
+
+  echo $html;
+
+} // agriflex_ext_logo
+
 /**
  * Replaces the default about to the Extension about
  *
@@ -14,7 +47,6 @@
  * @param string $about The unfiltered, default about information
  * @return string $html The Extension about information
  */
-add_filter( 'agriflex_about', 'extension_about', 10, 1 );
 function extension_about( $about ) {
 
   $html = '<h4>About</h4>';
@@ -33,7 +65,6 @@ function extension_about( $about ) {
  * @param string $links The unfiltered, default popular links
  * @return string $html The Extension popular links
  */
-add_filter( 'footer_links', 'extension_links', 10, 1 );
 function extension_links( $links ) {
 
   $html = '<h4>Popular Links</h4>';

@@ -6,6 +6,39 @@
  * @package AgriFlex
  */
 
+$a = agriflex_agency();
+
+if ( in_array( 'research', $a['agencies'] ) ) {
+  add_action( 'agriflex_before_header', 'agriflex_res_logo', 30 );
+
+  if ( $a['single'] ) {
+    add_filter( 'agriflex_about', 'research_about', 10, 1 );
+    add_filter( 'footer_links', 'research_links', 10, 1 );
+  }
+}
+
+/**
+ * Displays the research logo when selected
+ *
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @since AgriFlex 2.0
+ * @return void
+ */
+function agriflex_res_logo() {
+
+  $html = '<li class="top-agency research-item">';
+  $html .= '<a href="http://agriliferesearch.tamu.edu/">';
+  $html .= '<span class="top-level-hide">';
+  $html .= 'Texas A&amp;M AgriLife Research';
+  $html .= '</span>';
+  $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/images/research-branding.png" alt="Texas A&amp;M Research Logo" />';
+  $html .= '</a>';
+  $html .= '</li>';
+
+  echo $html;
+
+} // agriflex_res_logo
+
 /**
  * Filters the 'About' footer column. Inserts Extension-related about information.
  *
@@ -14,7 +47,6 @@
  * @param string $about The unfiltered, default about information
  * @return string $html The Research about information
  */
-add_filter( 'agriflex_about', 'research_about', 10, 1 );
 function research_about( $about ) {
 
   $html = '<h4>About</h4>';
@@ -40,7 +72,6 @@ function research_about( $about ) {
  * @param string $links The unfiltered, default popular links
  * @return string $html The research topic links
  */
-add_filter( 'footer_links', 'research_links', 10, 1 );
 function research_links( $links ) {
 
   $html = '<h4>Research Topics</h4>';

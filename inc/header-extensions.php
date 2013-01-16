@@ -140,155 +140,10 @@ function agriflex_agency_nav_begin() {
 
 } // agriflex_agency_nav_begin
 
-add_action( 'agriflex_before_header', 'agriflex_college_logo', 10 );
-/**
- * Displays the college logo when selected.
- *
- * Also shows the 'Explore' menu if college only
- *
- * @author J. Aaron Eaton <aaron@channeleaton.com>
- * @since AgriFlex 2.0
- * @return void
- */
-function agriflex_college_logo() {
-
-  $agencies = of_get_option( 'agency-top' );
-  $val = array_count_values( $agencies );
-
-  if ( $agencies['college'] ) {
-    $html = '<li class="top-agency college-item">';
-    $html .= '<a href="http://aglifesciences.tamu.edu/">';
-    $html .= '<span class="top-level-hide">';
-    $html .= 'Texas A&amp;M College of Agriculture and Life Sciences';
-    $html .= '</span>';
-    $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/images/college-branding.png" alt="Texas A&amp;M College Logo" />';
-    $html .= '</a>';
-    $html .= '</li>';
-
-    // If college only, show 'Explore' menu
-    if ( $val[1] == 1 ) {
-      $html .= '<li class="explore right-align">';
-      $html .= '<a class="ext-link college-explore-link" href="/explore/">';
-      $html .= 'Explore';
-      $html .= '</a>';
-      $html .= '</li>';
-    }
-
-    echo $html;
-
-  }
 
 
-} // agriflex_college_logo
-
-add_action( 'agriflex_header', 'agriflex_college_explore', 1 );
-function agriflex_college_explore() {
-
-  $a = agriflex_agency();
-
-  if ( in_array( 'college', $a['agencies'] ) && $a['single'])
-    include( TEMPLATEPATH . '/inc/college/college-drop-down.php' );
-
-} // agriflex_college_explore
-
-add_action( 'agriflex_before_header', 'agriflex_ext_logo', 20 );
-/**
- * Displays the extension logo when selected
- *
- * @author J. Aaron Eaton <aaron@channeleaton.com>
- * @since AgriFlex 2.0
- * @return void
- */
-function agriflex_ext_logo() {
-
-  $agencies = of_get_option( 'agency-top' );
-
-  if ( $agencies['extension'] ) {
-    $html = '<li class="top-agency tx-ext-item">';
-    $html .= '<a href="http://agrilifeextension.tamu.edu/">';
-    $html .= '<span class="top-level-hide">';
-    $html .= 'Texas A&amp;M AgriLife Extension Service';
-    $html .= '</span>';
-    $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/images/extension-branding.png" alt="Texas A&amp;M Extension Logo" />';
-    $html .= '</a>';
-    $html .= '</li>';
-
-    echo $html;
-
-  }
 
 
-} // agriflex_ext_logo
-
-add_action( 'agriflex_before_header', 'agriflex_res_logo', 30 );
-/**
- * Displays the research logo when selected
- *
- * @author J. Aaron Eaton <aaron@channeleaton.com>
- * @since AgriFlex 2.0
- * @return void
- */
-function agriflex_res_logo() {
-
-  $agencies = of_get_option( 'agency-top' );
-
-  if ( $agencies['research'] ) {
-    $html = '<li class="top-agency research-item">';
-    $html .= '<a href="http://agriliferesearch.tamu.edu/">';
-    $html .= '<span class="top-level-hide">';
-    $html .= 'Texas A&amp;M AgriLife Research';
-    $html .= '</span>';
-    $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/images/research-branding.png" alt="Texas A&amp;M Research Logo" />';
-    $html .= '</a>';
-    $html .= '</li>';
-
-    echo $html;
-
-  }
-
-
-} // agriflex_res_logo
-
-add_action( 'agriflex_before_header', 'agriflex_tvmdl_logo', 40 );
-/**
- * Displays the TVMDL logo when selected
- *
- * Also shows the client login button when TVMDL only
- *
- * @author J. Aaron Eaton <aaron@channeleaton.com>
- * @since AgriFlex 2.0
- * @return void
- */
-function agriflex_tvmdl_logo() {
-
-  $agencies = of_get_option( 'agency-top' );
-  $val = array_count_values( $agencies );
-
-  if ( $agencies['tvmdl'] ) {
-    $html = '<li class="top-agency tvmdl-item">';
-    $html .= '<a href="http://tvmdl.tamu.edu/">';
-    $html .= '<span class="top-level-hide">';
-    $html .= 'Texas A&amp;M Veterinary Medical Diagnostics Laboratory';
-    $html .= '</span>';
-    $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/images/tvmdl-branding.png" alt="Texas A&amp;M Research Logo" />';
-    $html .= '</a>';
-    $html .= '</li>';
-
-    // Show client login if TVMDL only
-    if ( $val[1] == 1) {
-      $html .= '<li class="right-align client-login-li">';
-      $html .= '<a class="client-login" href="https://tvmdl.tamu.edu/webaccess/">';
-      $html .= 'Client Login';
-      $html .= '</a>';
-      $html .= '</li>';
-    }
-
-    echo $html;
-
-  }
-
-
-} // agriflex_tvmdl_logo
 
 add_action( 'agriflex_before_header', 'agriflex_tfs_logo', 50 );
 /**
@@ -302,7 +157,7 @@ function agriflex_tfs_logo() {
 
   $agencies = of_get_option( 'agency-top' );
 
-  if ( $agencies['tfs'] ) {
+  if ( $agencies['fazd'] ) {
     $html = '<li class="top-agency tfs-item">';
     $html .= '<a href="http://txforestservice.tamu.edu/">';
     $html .= '<span class="top-level-hide">';
@@ -319,57 +174,7 @@ function agriflex_tfs_logo() {
 
 } // agriflex_tfs_logo
 
-add_action( 'agriflex_before_header', 'agriflex_tpwd_logo', 60 );
-/**
- * Displays the TPWD logo when Master Naturalist is selected
- *
- * @author J. Aaron Eaton <aaron@channeleaton.com>
- * @since AgriFlex 2.0
- * @return void
- */
-function agriflex_tpwd_logo() {
 
-  $ext_type = of_get_option( 'ext-type' );
-
-  if ( $ext_type == 'mn' ) {
-    $html = '<li class="top-agency txmn-item">';
-    $html .= '<a href="http://www.tpwd.state.tx.us/">';
-    $html .= 'Texas Parks &amp; Wildlife';
-    $html .= '</a>';
-    $html .= '</li>';
-
-    echo $html;
-
-  }
-
-
-} // agriflex_tpwd_logo
-
-add_action( 'agriflex_before_header', 'agriflex_sg_logo', 60 );
-/**
- * Displays the sea grant logo when selected
- *
- * @author J. Aaron Eaton <aaron@channeleaton.com>
- * @since AgriFlex 2.0
- * @return void
- */
-function agriflex_sg_logo() {
-
-  $ext_type = of_get_option( 'ext-type' );
-
-  if ( $ext_type == 'sg' ) {
-    $html = '<li class="top-agency sg-item">';
-    $html .= '<a href="http://texas-sea-grant.tamu.edu/">';
-    $html .= 'Texas Sea Grant';
-    $html .= '</a>';
-    $html .= '</li>';
-
-    echo $html;
-
-  }
-
-
-} // agriflex_sg_logo
 
 add_action( 'agriflex_before_header', 'agriflex_custom_logo', 70 );
 /**

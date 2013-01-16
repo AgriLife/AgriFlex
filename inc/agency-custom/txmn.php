@@ -6,6 +6,33 @@
  * @package AgriFlex
  */
 
+$a = agriflex_agency();
+
+if ( $a['ext-type'] == 'mn' ) {
+  add_action( 'agriflex_before_header', 'agriflex_tpwd_logo', 60 );
+  add_filter( 'agriflex_about', 'txmn_about', 10, 1 );
+  add_filter( 'footer_links', 'txmn_links', 10, 1 );
+}
+
+/**
+ * Displays the TPWD logo when Master Naturalist is selected
+ *
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @since AgriFlex 2.0
+ * @return void
+ */
+function agriflex_tpwd_logo() {
+
+  $html = '<li class="top-agency txmn-item">';
+  $html .= '<a href="http://www.tpwd.state.tx.us/">';
+  $html .= 'Texas Parks &amp; Wildlife';
+  $html .= '</a>';
+  $html .= '</li>';
+
+  echo $html;
+
+} // agriflex_tpwd_logo
+
 /**
  * Filters the 'About' footer column. Inserts TXMN-related about information.
  *
@@ -14,7 +41,6 @@
  * @param string $about The unfiltered, default about information
  * @return string $html The TXMN about information
  */
-add_filter( 'agriflex_about', 'txmn_about', 10, 1 );
 function txmn_about( $about ) {
 
   $html = '<h4>About Us</h4>';
@@ -38,7 +64,6 @@ function txmn_about( $about ) {
  * @param string $links The unfiltered, default popular links
  * @return string $html The TXMN popular links
  */
-add_filter( 'footer_links', 'txmn_links', 10, 1 );
 function txmn_links( $links ) {
 
   $html = '<h4>Popular Links</h4>';

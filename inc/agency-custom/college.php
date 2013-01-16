@@ -6,6 +6,66 @@
  * @package AgriFlex
  */
 
+$a = agriflex_agency();
+
+if ( in_array( 'college', $a['agencies'] ) ) {
+  add_action( 'agriflex_before_header', 'agriflex_college_logo', 10 );
+
+  if ( $a['single'] ) {
+    add_action( 'agriflex_header', 'agriflex_college_explore', 1 );
+    add_filter( 'agriflex_about', 'college_about', 10, 1 );
+    add_filter( 'footer_links', 'college_links', 10, 1 );
+    add_filter( 'required_links_logo', 'college_required_logo', 10, 1 );
+  }
+}
+
+/**
+ * Displays the college logo when selected.
+ *
+ * Also shows the 'Explore' menu if college only
+ *
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @since AgriFlex 2.0
+ * @return void
+ */
+function agriflex_college_logo() {
+
+  $a = agriflex_agency();
+
+  $html = '<li class="top-agency college-item">';
+  $html .= '<a href="http://aglifesciences.tamu.edu/">';
+  $html .= '<span class="top-level-hide">';
+  $html .= 'Texas A&amp;M College of Agriculture and Life Sciences';
+  $html .= '</span>';
+  $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/images/college-branding.png" alt="Texas A&amp;M College Logo" />';
+  $html .= '</a>';
+  $html .= '</li>';
+
+  // If college only, show 'Explore' menu
+  if ( $a['single'] ) {
+    $html .= '<li class="explore right-align">';
+    $html .= '<a class="ext-link college-explore-link" href="/explore/">';
+    $html .= 'Explore';
+    $html .= '</a>';
+    $html .= '</li>';
+  }
+
+  echo $html;
+
+} // agriflex_college_logo
+
+/**
+ * Includes the college drop-down navigation
+ */
+function agriflex_college_explore() {
+
+  $a = agriflex_agency();
+
+  if ( in_array( 'college', $a['agencies'] ) && $a['single'])
+    include( TEMPLATEPATH . '/inc/college/college-drop-down.php' );
+
+} // agriflex_college_explore
+
 /**
  * Filters the 'About' footer column. Inserts College-related about information.
  *
@@ -14,7 +74,6 @@
  * @param string $about The unfiltered, default about information
  * @return string $html The college about information
  */
-add_filter( 'agriflex_about', 'college_about', 10, 1 );
 function college_about( $about ) {
 
   $html = '<h4>About</h4>';
@@ -34,7 +93,6 @@ function college_about( $about ) {
  * @param string $links The unfiltered, default popular links
  * @return string $html The college department links
  */
-add_filter( 'footer_links', 'college_links', 10, 1 );
 function college_links( $links ) {
 
   $html = '<h4>Departments</h4>';
@@ -69,7 +127,6 @@ function college_links( $links ) {
  * @param string $link_logo The linkified System logo
  * @return string $link_logo The linkfied TAMU logo
  */
-add_filter( 'required_links_logo', 'college_required_logo', 10, 1 );
 function college_required_logo( $link_logo ) {
 
   $link_logo = '<a href="http://www.tamu.edu">';

@@ -5,6 +5,12 @@
  *
  * @package AgriFlex
  */
+$a = agriflex_agency();
+
+if ( $a['ext-type'] == 'mg' ) {
+  add_filter( 'agriflex_about', 'txmg_about', 10, 1 );
+  add_filter( 'footer_links', 'txmg_links', 10, 1 );
+}
 
 /**
  * Filters the 'About' footer column. Inserts TXMG-related about information.
@@ -14,7 +20,6 @@
  * @param string $about The unfiltered, default about information
  * @return string $html The college about information
  */
-add_filter( 'agriflex_about', 'txmg_about', 10, 1 );
 function txmg_about( $about ) {
 
   $html = '<h4>About Us</h4>';
@@ -40,7 +45,6 @@ function txmg_about( $about ) {
  * @param string $links The unfiltered, default popular links
  * @return string $html The TXMG popular links
  */
-add_filter( 'footer_links', 'txmg_links', 10, 1 );
 function txmg_links( $links ) {
 
   $html = '<h4>Popular Links</h4>';
