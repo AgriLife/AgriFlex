@@ -15,6 +15,14 @@ if ( in_array( 'extension', $a['agencies'] ) ) {
     add_filter( 'agriflex_about', 'extension_about', 10, 1 );
     add_filter( 'footer_links', 'extension_links', 10, 1 );
   }
+
+  if ( $a['ext-type'] == 'county' || $a['ext-type'] == 'tce' ) {
+    add_filter( 'agriflex_site_title', 'agriflex_county_title', 10, 2 );
+  }
+  if ( $a['ext-type'] == 'mg' )
+    add_filter( 'agriflex_site_title', 'agriflex_mg_title', 10, 2 );
+  if ( $a['ext-type'] == 'mn' )
+    add_filter( 'agriflex_site_title', 'agriflex_mn_title', 10, 2 );
 }
 
 /**
@@ -38,6 +46,73 @@ function agriflex_ext_logo() {
   echo $html;
 
 } // agriflex_ext_logo
+
+/**
+ * Displays the county/TCE site title
+ *
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @param string $link The old, unfiltered site title
+ * @param array  $args The site URL and name
+ * @return string $link The new site title
+ */
+function agriflex_county_title( $link, $args ) {
+
+    $link = '<a href="' . $args['url'] . '" ';
+    $link .= 'title="' . $args['name'] . '">';
+    $link .= '<span>Extension Education</span>';
+    $link .= '<em>in ' . of_get_option( 'county-name-human' ) . 'County</em>';
+    $link .= '</a>';
+
+    return $link;
+
+} // agriflex_county_title
+
+/**
+ * Displays the Master Gardener site title
+ *
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @param string $link The old, unfiltered site title
+ * @param array  $args The site URL and name
+ * @return string $link The new site title
+ */
+function agriflex_mg_title( $link, $args ) {
+
+  $src = get_bloginfo( 'stylesheet_directory' ) . '/img/txmg-logo80.gif';
+  $img = '<img src="' . $src . '" alt="' . $args['name'] . '" />';
+
+  $link = '<a href="' . $args['url'] . '" ';
+  $link .= 'title="' . $args['name'] . '">';
+  $link .= $img . $args['name'];
+  $link .= '</a>';
+
+  return $link;
+
+} // agriflex_mg_title
+
+/**
+ * Displays the Master Naturalist site title
+ *
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @param string $link The old, unfiltered site title
+ * @param array  $args The site URL and name
+ * @return string $link The new site title
+ */
+function agriflex_mn_title( $link, $args ) {
+
+  $src = get_bloginfo( 'stylesheet_directory' ) . '/img/txmn-logo.png';
+  $img = '<img src="' . $src . '" alt="' . $args['name'] . '" />';
+
+  $link = '<a href="' . $args['url'] . '" ';
+  $link .= 'title="' . $args['name'] . '">';
+  $link .= $img . $args['name'];
+  $link .= '</a>';
+
+  return $link;
+
+} // agriflex_mn_title
 
 /**
  * Replaces the default about to the Extension about

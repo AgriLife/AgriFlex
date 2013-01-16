@@ -797,81 +797,77 @@ function county_footer_contact() {
 	$wsdl = new soapclient( 'https://agrilifepeople.tamu.edu/agrilifepeopleAPI/v3.cfc?wsdl' );
 	$hash = md5( AGRILIFE_API_KEY . 'getunits', true);
 	$base64 = base64_encode( $hash );	
-	if(is_object( $wsdl )){
-		$result = $wsdl->getUnits( 3, $base64, $countycode ,'', '', '', '', '' );
-		
-          // Check for errors
-          (int) $err = $result['ResultCode'];
+	if( is_object( $wsdl ) ){
+    $result = $wsdl->getUnits( 3, $base64, $countycode ,'', '', '', '', '' );
+    
+    // Check for errors
+    (int) $err = $result['ResultCode'];
 
-          if ( $err != 200 ) {
-               // Display the error
-               $return = '<h2>Error</h2><pre>' . $result['ResultMessages'] . '</pre>';
+    if ( $err != 200 ) {
+    // Display the error
+    $return = '<h2>Error</h2><pre>' . $result['ResultMessages'] . '</pre>';
 
-          } else {
-          
-            $payload = $result['ResultQuery']->enc_value->data;
-            foreach ( $payload as $item ) {
-      
-              $mapaddress = $item[14] . ' ' . $item[17] . ', ' . $item[18] . ' '. $item[19];
-              $map_image = ( 'http://maps.google.com/maps/api/staticmap?size=175x101&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office%7C' .
-                urlencode( $mapaddress ) . '&amp;sensor=false' );
-              
-              $map_link = ( 'http://maps.google.com/?q=' .
-                urlencode( $mapaddress ) .
-                '&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office&amp;sensor=falsehad' );
-              
-              $return = '<a href="' . $map_link . '"><img src="' . $map_image . '" height="101" width="175" alt="Map to office" /></a>';
-              $return .= '<ul>';
-              if ( is_array( $options ) ) {
-                if( $item[14]<>'' ) {
-                  if( strlen( $item[19] )>5 ) {
-                    $zip = str_split( $item[19], 5 );
-                    $zip = $zip[0] . '-' . $zip[1];
-                  } else {
-                    $zip = $item[19];
-                  }
-                  $return .= '<li>';
-                  $return .= $item[2] . '<br />';
-                  $return .= $item[14];
-                  $return .= '<br />' . $item[17] . ', ' . $item[18] . ' ' . $zip . '</li>';
-                }
-                if( $options['hours']<>'' ) {
-                  $return .= '<li>' . $options['hours'] . '</li>';
-                }
-                if( $item[13]<>'' )
-                  $return .= '<li><a href="' . obfuscate( 'mailto:' ) . obfuscate( $item[13] ) . '">' . obfuscate( $item[13] ) . '</a></li>';
-                if( $item[11]<>'' )
-                  $return .= '<li>Phone: ' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[11] ) . '</li>';
-                if( $item[12]<>'' )
-                  $return .= '<li>Fax: ' . preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[12]) . '</li>';	 						
-              }
-              $return .= '</ul>';
-      return $return; 
-              }
-           }
-        }
+    } else {
+
+      $payload = $result['ResultQuery']->enc_value->data;
+
+      foreach ( $payload as $item ) {
+
+        $mapaddress = $item[14] . ' ' . $item[17] . ', ' . $item[18] . ' '. $item[19];
+
+        $map_image = ( 'http://maps.google.com/maps/api/staticmap?size=175x101&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office%7C' .
+          urlencode( $mapaddress ) . '&amp;sensor=false' );
+        
+        $map_link = ( 'http://maps.google.com/?q=' .
+          urlencode( $mapaddress ) .
+          '&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office&amp;sensor=falsehad' );
+        
+        $return = '<a href="' . $map_link . '"><img src="' . $map_image . '" height="101" width="175" alt="Map to office" /></a>';
+        $return .= '<ul>';
+
+        if ( is_array( $options ) ) {
+          if( $item[14]<>'' ) {
+            if( strlen( $item[19] )>5 ) {
+              $zip = str_split( $item[19], 5 );
+              $zip = $zip[0] . '-' . $zip[1];
+            } else {
+              $zip = $item[19];
+            }
+
+            $return .= '<li>';
+            $return .= $item[2] . '<br />';
+            $return .= $item[14];
+            $return .= '<br />' . $item[17] . ', ' . $item[18] . ' ' . $zip . '</li>';
+          }
+          if( $options['hours']<>'' ) {
+            $return .= '<li>' . $options['hours'] . '</li>';
+          }
+          if( $item[13]<>'' )
+            $return .= '<li><a href="' . obfuscate( 'mailto:' ) . obfuscate( $item[13] ) . '">' . obfuscate( $item[13] ) . '</a></li>';
+          if( $item[11]<>'' )
+            $return .= '<li>Phone: ' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[11] ) . '</li>';
+          if( $item[12]<>'' )
+            $return .= '<li>Fax: ' . preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[12]) . '</li>';	 						
+        } 
+
+        $return .= '</ul>';
+
+        return $return; 
+      }
+    }
+  }
 		
 }
 
 function county_office_info() {
+
 	$options = of_get_option();
 
-    $countycode = (int) $options['county-name'];
-    $countycode = get_IT_code( $countycode );             
+  $countycode = (int) $options['county-name'];
+  $countycode = get_IT_code( $countycode );             
 	           
 	//Get a handle to the webservice
 	$wsdl = new soapclient( 'https://agrilifepeople.tamu.edu/agrilifepeopleAPI/v3.cfc?wsdl' );
-	
-	/*
-	* This API will not be open to the public so we will be requiring all
-	* applications to authenticate themselves with a validation key that is a
-	* Base64 MD5 hash comprised of three data points:
-	*          1. Site ID: a numeric value assigned by SDG Team for your application
-	*          2. Access Key: a secure "password" usually created by the developer
-	*          3. The method name being called (all lower case)
-	* The hash we use is raw binary format with a length of 16 before we encode it to base64
-	* Functions below are explained on PHP Manual http://php.net/manual/en/
-	*/
 	
 	$hash = md5( AGRILIFE_API_KEY . 'getunits', true );
 	
@@ -927,71 +923,71 @@ function county_office_info() {
 		$result = $wsdl->getUnits( 3, $base64, $countycode, '', '', '', '', '' );
 		
 		
-	          // Check for errors
-          (int) $err = $result['ResultCode'];
+      // Check for errors
+    (int) $err = $result['ResultCode'];
 
-          if ( $err != 200 ) {
-               // Display the error
-               $return = '<h2>Error</h2><pre>' . $result['ResultMessages'] . '</pre>';
-	
-	          } else {
+    if ( $err != 200 ) {
+         // Display the error
+         $return = '<h2>Error</h2><pre>' . $result['ResultMessages'] . '</pre>';
 
-            $payload = $result['ResultQuery']->enc_value->data;
-	          
-				foreach ( $payload as $item ) {
-					if( strlen( $item[19] )>5 ) {
-						$zip = str_split( $item[19], 5 );
-						$zip = $zip[0] . '-' . $zip[1];
-					} else {
-						$zip = $item[19];
-					}
-					
-					/* Show county contact info */
-					echo '<div class="vcard">';                 
-					echo '<p><a class="url fn org" href="' . $item[10] . '">' . $item[2] . '</a></p>';
-					
-					if( $item[11]<>'' ) {
-						echo '<p class="tel">';
-						echo '<span class="type">Office</span>: ';
-						echo '<span class="value">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[11] ).'</span>';
-						echo '</p>';
-					}
-					if($item[12]<>'') {
-						echo '<p class="tel">';
-						echo '<span class="type">Fax</span>: ';
-						echo '<span class="value">'.preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[12]).'</span>';
-						echo '</p>';
-					}
-					
-					echo "<div class=\"adr\">";
-					echo "<p class=\"street-address\">".$item[14].'<br />';
-					if($item[15]<>'')
-						echo '<span class="extended-address">'.$item[15].'</span><br />';
-					echo '<span class="locality">'.$item[17].'</span>, ';
-					echo '<span class="region">'.$item[18].'</span> ';
-					echo '<span class="postal-code">'.$zip.'</span>';
-					echo '<br /><span class="country-name"> U.S.A.</span></p>';
-					echo '</div>';
-					
-					if($item[20]<>'') {
-						$mzip = str_split($item[25],5);
-						$mzip = $mzip[0].'-'.$mzip[1];
-						echo "<div class=\"mailing adr\">";
-						echo "<p class=\"mailing-address\">".$item[20].'<br />';
-						if($item[20]<>'')
-							echo '<span class="mailing-extended-address">'.$item[21].'</span><br />';
-						echo '<span class="mailing-locality">'.$item[23].'</span>, ';
-						echo '<span class="mailing-region">'.$item[24].'</span> ';
-						echo '<span class="mailing-postal-code">'.$mzip.'</span>';
-						echo '<br /><span class="mailing-country-name"> U.S.A.</span></p>';
-						echo '</div>';
-					}
-					
-					echo '<p><span class="email">'.obfuscate($item[13]).'</span></p>';                             
-					echo '</div> <!-- .vcard -->';
-				} 		
-	     	}
-	     }
+    } else {
+
+      $payload = $result['ResultQuery']->enc_value->data;
+        
+      foreach ( $payload as $item ) {
+        if( strlen( $item[19] )>5 ) {
+          $zip = str_split( $item[19], 5 );
+          $zip = $zip[0] . '-' . $zip[1];
+        } else {
+          $zip = $item[19];
+        }
+        
+        /* Show county contact info */
+        echo '<div class="vcard">';                 
+        echo '<p><a class="url fn org" href="' . $item[10] . '">' . $item[2] . '</a></p>';
+        
+        if( $item[11]<>'' ) {
+          echo '<p class="tel">';
+          echo '<span class="type">Office</span>: ';
+          echo '<span class="value">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[11] ) . '</span>';
+          echo '</p>';
+        }
+        if($item[12]<>'') {
+          echo '<p class="tel">';
+          echo '<span class="type">Fax</span>: ';
+          echo '<span class="value">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[12] ) . '</span>';
+          echo '</p>';
+        }
+        
+        echo "<div class=\"adr\">";
+        echo "<p class=\"street-address\">" . $item[14] . '<br />';
+        if($item[15]<>'')
+          echo '<span class="extended-address">' . $item[15] . '</span><br />';
+        echo '<span class="locality">' . $item[17] . '</span>, ';
+        echo '<span class="region">' . $item[18] . '</span> ';
+        echo '<span class="postal-code">' . $zip . '</span>';
+        echo '<br /><span class="country-name"> U.S.A.</span></p>';
+        echo '</div>';
+        
+        if( $item[20] <> '' ) {
+          $mzip = str_split( $item[25], 5);
+          $mzip = $mzip[0] . '-' . $mzip[1];
+          echo "<div class=\"mailing adr\">";
+          echo "<p class=\"mailing-address\">" . $item[20] . '<br />';
+          if( $item[20] <> '' )
+            echo '<span class="mailing-extended-address">' . $item[21] . '</span><br />';
+          echo '<span class="mailing-locality">' . $item[23] . '</span>, ';
+          echo '<span class="mailing-region">' . $item[24] . '</span> ';
+          echo '<span class="mailing-postal-code">' . $mzip . '</span>';
+          echo '<br /><span class="mailing-country-name"> U.S.A.</span></p>';
+          echo '</div>';
+        }
+        
+        echo '<p><span class="email">' . obfuscate( $item[13] ) . '</span></p>';                             
+        echo '</div> <!-- .vcard -->';
+      } 		
+    }
+  }
 }
 
 
@@ -1005,104 +1001,66 @@ function show_county_directory($options) {
 	           
 	//Get a handle to the webservice
 	$wsdl = new soapclient( 'https://agrilifepeople.tamu.edu/agrilifepeopleAPI/v3.cfc?wsdl' );
-  $hash = md5( AGRILIFE_API_KEY . 'getpersonnel', true);
+  $hash = md5( AGRILIFE_API_KEY . 'getpersonnel', true );
 	$base64 = base64_encode( $hash );	
 
-     /*
-      * Call the webservice getPersonnel method and pass in the parameters
-      * All parameters are required to be passed in
-      *           3 = The TECO site ID
-      *           $base64 = The Hash we just created
-      *          '' = Personnel ID (list)
-      *          '' = Position ID (list)
-      *           999 = AgriLife IT Unit ID (list)
-      *			 '' = Position Role IDs (list)
-      *			 true = active only filter
-      *          true = public only positions
-      */
+  if( is_object( $wsdl ) ){
 
-     
+    $result = $wsdl->getPersonnel( 3, $base64, '', '', $countycode, '', true, true);
 
-     /*
-      * Revised Fields:
-      * personnelid, uin, firstname, middleinitial, lastname,
-      * preferred_name (never blank), suffix, emailaddress, blurbage (bio), link_picture 
-	  * link_cv, research (area), courses, education, honors
-	  * publictions, isStudent, listPublicly, qPositions (obj)
-	  *
-	  * qPositions Object:
-	  * positionid, positionisactive, positiontitle, unitid, unitname, 
-	  * unitnumber, connectionisactive, phonenumber, faxnumber, address1, 
-	  * address2, mailstop, city, base_states_stateid, base_countries_countryid, 
-	  * zipcode, mailing_address1, mailing_address2, mailing_mailstop, mailing_city, 
-	  * mailing_base_states_stateid, mailing_base_countries_countryid,  mailing_zipcode, isprimaryunit, entityname,
-	  * qPosition Roles (obj)
-	  *
-	  * qPosition Roles (obj):
-	  * positionroleid, positionrole
-	  *
-      */
+    (int) $err = $result['ResultCode'];
 
-     if( is_object( $wsdl ) ){
+    if ( $err != 200 ) {
+      // Display the error
+      $return = '<h2>Error</h2><pre>' . $result['ResultMessages'] . '</pre>';
+    } else {
+      $job = array();
+      $item	= array();
+      $role	= array();
+      $i=0;
+      $j=0;
 
-	     $result = $wsdl->getPersonnel( 3, $base64, '', '', $countycode, '', true, true);
-	     // Checking for a faults
-	
-          (int) $err = $result['ResultCode'];
+      // Display the result					    
+      echo '<ul class="staff-listing-ul county-staff-list">';
+      $payload = $result['ResultQuery']->enc_value->data;
+      foreach ( $payload as $item ) {
+        echo '<li class="staff-listing-item">';
+        echo '<div class="role staff-container">';
+        echo '<hgroup class="staff-head">';
+        echo '<h2 class="staff-title" title="' . $item[5] . ' ' . $item[4] . '">' . $item[5] . " " . $item[4] . "</h2>";
 
-          if ( $err != 200 ) {
-               // Display the error
-               $return = '<h2>Error</h2><pre>' . $result['ResultMessages'] . '</pre>';
-	
-	          } else {
-	          	   $job		= array();
-	          	   $item 	= array();
-	          	   $role	= array();
-	          	   $i=0;
-	          	   $j=0;
-	
-	               // Display the result					    
-	               echo '<ul class="staff-listing-ul county-staff-list">';
-            $payload = $result['ResultQuery']->enc_value->data;
-	               foreach ( $payload as $item ) {
-	                    echo '<li class="staff-listing-item">';
-	                    echo '<div class="role staff-container">';
-					    echo '<hgroup class="staff-head">';
-	                    echo '<h2 class="staff-title" title="'.$item[5].' '.$item[4].'">'.$item[5]." ".$item[4]."</h2>";
-	                    
-	                    // Pull All Job Titles, but
-	                    // Only pulling one (the last) phone/fax info for county offices
-	                    // since all office info is same for county employees
-                      $job = $item[18]->data[0];
-	                    	echo '<h3 class="staff-position">';
-	                    	echo $job[2] . '</h3>';
-	                    	foreach ( $job[25]->data as $role ) {
-	                    		echo '<h4 class="staff-position">&bull; '.$role[1].'</h4>';
-	                    	}	                    	
-	                    echo "</hgroup>";
-	                    
-	                    echo '<div class="staff-contact-details">';
-	                    if($job[7]<>'')
-	                         echo '<p class="staff-phone tel">'.preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $job[7]).'</p>';
-	
-	                    if($job[8]<>'')
-	                         echo '<p class="staff-phone fax">'.preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $job[8]).' (fax)</p>';
-	
-	                    if($item[7]<>'')
-	                      echo ' <p class="staff-email email"><a href="'.obfuscate('mailto:').obfuscate($item[7]).'">'.obfuscate($item[7]).'</a></p>';
-	                    echo "</div>";
-	                    echo '</div>';
-	                    echo '</li>';
-	                    $i++;
-	
-	               }
-	               echo '</ul>';
-	
-	          }
-	
-	     }
+        // Pull All Job Titles, but
+        // Only pulling one (the last) phone/fax info for county offices
+        // since all office info is same for county employees
+        $job = $item[18]->data[0];
+        echo '<h3 class="staff-position">';
+        echo $job[2] . '</h3>';
+
+        foreach ( $job[25]->data as $role ) {
+          echo '<h4 class="staff-position">&bull; ' . $role[1] . '</h4>';
+        }	                    	
+        echo "</hgroup>";
+
+        echo '<div class="staff-contact-details">';
+        if( $job[7] <> '' )
+          echo '<p class="staff-phone tel">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $job[7] ) . '</p>';
+
+        if( $job[8] <> '' )
+          echo '<p class="staff-phone fax">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $job[8] ) . ' (fax)</p>';
+
+        if( $item[7] <> '' )
+          echo ' <p class="staff-email email"><a href="' . obfuscate( 'mailto:' ) . obfuscate( $item[7] ) . '">' . obfuscate( $item[7] ) . '</a></p>';
+
+        echo "</div>";
+        echo '</div>';
+        echo '</li>';
+        $i++;
+
+      }
+      echo '</ul>';
+
+    }
+
+   }
 
 }
-
-
-?>

@@ -21,7 +21,7 @@ function agriflex_class_names($classes) {
 
   $a = agriflex_agency();
 
-  // Set Header Tabs
+  // Set extension classes 
   if ( in_array( 'research', $a['agencies'] ) ) $classes[] .= 'research';
   if ( in_array( 'extension', $a['agencies'] ) ) $classes[] .= 'extension';
   if ( in_array( 'college', $a['agencies'] ) ) $classes[] .= 'college';
@@ -171,7 +171,7 @@ function agriflex_page_menu_args( $args ) {
 /**
  * Add some classes to our nav menu
  *
- * @since Agriflex 1.0
+ * @since AgriFlex 1.0
  * @param array $args The original nav menu arguments
  * @return array $args The filtered nav menu arguments
  */
@@ -190,7 +190,7 @@ function agriflex_nav_menu_args( $args = 'sf-menu' ) {
  * To override this length in a child theme, remove the filter and add your own
  * function tied to the excerpt_length filter hook.
  *
- * @since agriflex 1.0
+ * @since AgriFlex 1.0
  * @return int
  */
 add_filter( 'excerpt_length', 'agriflex_excerpt_length' );
@@ -203,7 +203,7 @@ function agriflex_excerpt_length( $length ) {
 /**
  * Returns a "Continue Reading" link for excerpts
  *
- * @since agriflex 1.0
+ * @since AgriFlex 1.0
  * @return string "Continue Reading" link
  */
 function agriflex_continue_reading_link() {
@@ -220,7 +220,8 @@ function agriflex_continue_reading_link() {
  * To override this in a child theme, remove the filter and add your own
  * function tied to the excerpt_more filter hook.
  *
- * @since agriflex 1.0
+ * @since AgriFlex 1.0
+ * @param string $more The default 'Read More' link
  * @return string An ellipsis
  */
 add_filter( 'excerpt_more', 'agriflex_auto_excerpt_more' );
@@ -236,8 +237,9 @@ function agriflex_auto_excerpt_more( $more ) {
  * To override this link in a child theme, remove the filter and add your own
  * function tied to the get_the_excerpt filter hook.
  *
- * @since agriflex 1.0
- * @return string Excerpt with a pretty "Continue Reading" link
+ * @since AgriFlex 1.0
+ * @param  string $output The default Continue Reading link
+ * @return string $output Excerpt with a pretty "Continue Reading" link
  */
 add_filter( 'get_the_excerpt', 'agriflex_custom_excerpt_more' );
 function agriflex_custom_excerpt_more( $output ) {
@@ -255,7 +257,8 @@ function agriflex_custom_excerpt_more( $output ) {
  *
  * Galleries are styled by the theme in Twenty Ten's style.css.
  *
- * @since agriflex 1.0
+ * @since AgriFlex 1.0
+ * @param  string $css The inline gallery css
  * @return string The gallery style filter, with the styles themselves removed.
  */
 add_filter( 'gallery_style', 'agriflex_remove_gallery_css' );
@@ -265,7 +268,12 @@ function agriflex_remove_gallery_css( $css ) {
 
 } // agriflex_remove_gallery_css
 
-// Custom search
+/**
+ * Creates the custom search box with neato behaviors
+ *
+ * @since AgriFlex 1.0
+ * @return string The new Javascript and such
+ */
 add_filter('get_search_form', 'agriflex_custom_search_form');
 function agriflex_custom_search_form() {
 
