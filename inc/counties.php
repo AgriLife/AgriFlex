@@ -1,6 +1,21 @@
 <?php
-// Extension county-specific functions
+/**
+ * Extension county-specific functions
+ *
+ * @package AgriFlex
+ * @since AgriFlex 1.0
+ */
 
+/**
+ * Retrieves all county names or just the selected county name
+ * if ID is specified.
+ *
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @param int $id The county ID number
+ * @return array|string All county names or the specified
+ * county name.
+ */
 function agriflex_county_listing( $id = 0 ) {
 
   $counties = array(
@@ -269,6 +284,12 @@ function agriflex_county_listing( $id = 0 ) {
 
 }
 
+/**
+ * Converts the federal county code into AG IT's new index
+ *
+ * @param  int $federalID The federal county code
+ * @return int AG IT county code
+ */
 function get_IT_code( $federalID ) {
 	// Translation for Federal County Code to AG IT's new index
 	switch ( $federalID ) {
@@ -785,7 +806,11 @@ function get_IT_code( $federalID ) {
 	}
 }
 
-
+/**
+ * Grabs the county contact information from AG IT's API
+ *
+ * @return string $return The HTML for the footer panel
+ */
 function county_footer_contact() {
 	$options = of_get_option();
 	
@@ -859,6 +884,10 @@ function county_footer_contact() {
 		
 }
 
+/**
+ * Grabs the county office info from AG IT's API and
+ * echos it out.
+ */
 function county_office_info() {
 
 	$options = of_get_option();
@@ -990,9 +1019,11 @@ function county_office_info() {
   }
 }
 
-
-
-function show_county_directory($options) {
+/**
+ * Grabs county office employees from AG IT's API based on
+ * the selected county ID and echos the result.
+ */
+function show_county_directory() {
 	$options = of_get_option();
 	
 	$countycode = (int) $options['county-name'];

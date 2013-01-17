@@ -12,7 +12,6 @@
  *
  * @since AgriFlex 1.0
  */
-add_action('wp_head','agriflex_analytics_code',0);
 function agriflex_analytics_code() {
 
   $options = of_get_option();
@@ -47,6 +46,7 @@ function agriflex_analytics_code() {
   endif;
 
 } // agriflex_analytics_code    
+add_action('wp_head','agriflex_analytics_code',0);
 
 /**
  * Adds the Typekit goodies to the document head
@@ -54,7 +54,6 @@ function agriflex_analytics_code() {
  * @since AgriFlex 2.0
  * @author J. Aaron Eaton <aaron@channeleaton.com>
  */
-add_action('wp_head','typekit_js');
 function typekit_js() {
 
   $a = agriflex_agency();
@@ -84,6 +83,7 @@ function typekit_js() {
   endif;
 
 } // typekit_js
+add_action('wp_head','typekit_js');
 
 /**
  * Removes the default styles that are packaged with the Recent Comments widget.
@@ -94,7 +94,6 @@ function typekit_js() {
  * @since AgriFlex 1.0
  * @global $wp_widget_factory
  */
-add_action( 'widgets_init', 'agriflex_remove_recent_comments_style' );
 function agriflex_remove_recent_comments_style() {
 
   global $wp_widget_factory;
@@ -103,4 +102,5 @@ function agriflex_remove_recent_comments_style() {
     array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'],
     'recent_comments_style' ) );
 
-}
+} // agriflex_remove_recent_comments_style
+add_action( 'widgets_init', 'agriflex_remove_recent_comments_style' );

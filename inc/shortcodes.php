@@ -22,7 +22,6 @@ add_filter('widget_text', 'do_shortcode');
  * @since AgriFlex 1.0
  * @return string $html The list of children pages in html format
  */
-add_shortcode('children', 'child_pages_shortcode');
 function child_pages_shortcode() {
 
 	global $post;
@@ -33,7 +32,8 @@ function child_pages_shortcode() {
 
   return $html;
 
-}
+} // child_pages_shortcode
+add_shortcode('children', 'child_pages_shortcode');
 
 /**
  * The Home Gallery shortcode. [gallery_home]
@@ -44,7 +44,6 @@ function child_pages_shortcode() {
  * @param array $attr Attributes attributed to the shortcode.
  * @return string HTML content to display gallery.
  */
-add_shortcode('gallery_home', 'gallery_home_shortcode');
 function gallery_home_shortcode($attr) {
 
 	global $post;
@@ -127,7 +126,8 @@ function gallery_home_shortcode($attr) {
 
 	return $output;
 
-}
+} // gallery_home_shortcode
+add_shortcode('gallery_home', 'gallery_home_shortcode');
 
 
 /**
@@ -135,7 +135,6 @@ function gallery_home_shortcode($attr) {
  *
  * @since AgriFlex 1.0
  */
-add_shortcode('sm-directory', 'sm_dir_shortcode');
 function sm_dir_shortcode() {
 	global $post;
 	
@@ -201,9 +200,8 @@ function sm_dir_shortcode() {
 	$return .=  '</div><!-- .table2 -->';
 	
 	return $return;
-}
-
-
+} // sm_dir_shortcode
+add_shortcode('sm-directory', 'sm_dir_shortcode');
 
 /**
  * The custom post query shortcode. [loop]
@@ -213,7 +211,6 @@ function sm_dir_shortcode() {
  * @param string $content
  * @return string $content
  */
-add_shortcode( 'loop', 'myLoop' );
 function myLoop( $atts, $content = null ) {
 
 	extract( shortcode_atts( array(
@@ -286,4 +283,5 @@ function myLoop( $atts, $content = null ) {
 
 	return $content;
 
-}
+} // myLoop
+add_shortcode( 'loop', 'myLoop' );

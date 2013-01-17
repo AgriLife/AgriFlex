@@ -18,7 +18,7 @@ define('MY_THEME_PATH','/' . substr(MY_THEME_FOLDER,stripos(MY_THEME_FOLDER,'wp-
  * @since AgriFlex 1.0
  */
 if ( ! isset( $content_width ) )
-     $content_width = 640;
+  $content_width = 640;
 
 /**
  * Tell WordPress to run agriflex_setup() when the 'after_setup_theme'
@@ -26,7 +26,6 @@ if ( ! isset( $content_width ) )
  *
  * @since AgriFlex 1.0
  */
-add_action( 'after_setup_theme', 'agriflex_setup' );
 function agriflex_setup() {
 
   // Remove things that get stuck up in the doc head that we don't need
@@ -59,14 +58,13 @@ function agriflex_setup() {
     create_function( '', 'register_widget( "category_widget" );' ) );
     
 } // agriflex_setup
-
+add_action( 'after_setup_theme', 'agriflex_setup' );
 
 /**
  * Load/configure javascripts
  *
  * @since AgriFlex 1.0
  */
-add_action('init', 'load_js');    
 function load_js() {
  
   // instruction to only load if it is not the admin area
@@ -102,6 +100,7 @@ function load_js() {
   }             
 
 } // load_js
+add_action('init', 'load_js');    
 
 /**
  * Disable some widgets that are replaced by theme funcitonality
@@ -109,20 +108,19 @@ function load_js() {
  *
  * @since AgriFlex 1.0
  */
-add_action('widgets_init', 'agriflex_remove_wp_widgets', 1);  
 function agriflex_remove_wp_widgets(){
 
   unregister_widget('WP_Widget_Calendar');
   unregister_widget('WP_Widget_Search');
 
 } // agriflex_remove_wp_widgets
+add_action('widgets_init', 'agriflex_remove_wp_widgets', 1);  
 
 /**
  * Custom admin styles
  *
  * @since AgriFlex 1.0
  */
-add_action('admin_head', 'agriflex_admin_register_head');
 function agriflex_admin_register_head() {
 
   $siteurl = get_option('siteurl');
@@ -135,6 +133,7 @@ function agriflex_admin_register_head() {
   echo "<link rel='stylesheet' type='text/css' href='$url' />\n";
 
 } // agriflex_admin_register_head
+add_action('admin_head', 'agriflex_admin_register_head');
 
 // Set path to function files
 $include_path = TEMPLATEPATH . '/inc/';

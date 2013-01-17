@@ -1,13 +1,15 @@
 <?php
-/*-----------------------------------------------------------------------------------
 
-TABLE OF CONTENTS
-
-- Yoast Breadcrumb Defaults
-- Gravity Form Defaults
-- Tiny MCE
-
------------------------------------------------------------------------------------*/
+/**
+ * Some plugin configurations that should be hard-coded
+ *
+ * TABLE OF CONTENTS
+ * - Yoast Breadcrumb Defaults
+ * - Gravity Form Defaults
+ * - Tiny MCE
+ *
+ * @package AgriFlex
+ */
 
 /* BEGIN Config Yoast Breadcrumb Defaults */
 $yoast_bc_opt = array();
@@ -24,12 +26,15 @@ $yoast_bc_opt['searchprefix'] 		= "Search for";
 add_option("yoast_breadcrumbs",$yoast_bc_opt);
 /* END Config Yoast Breadcrumb Defaults */
 
-// Remove The Gravity Form Stylesheet
-add_action('wp_print_styles', 'remove_gravityforms_style');
+/**
+ * Remove The Gravity Form Stylesheet
+ *
+ * @since AgriFlex 1.0
+ */
 function remove_gravityforms_style() {
 	wp_dequeue_style('gforms_css');
 }
-/* END Set Gravity Form Defaults */
+add_action('wp_print_styles', 'remove_gravityforms_style');
 
 /* BEGIN Tiny MCE */
 /* Allow iframe content to 'stick' when toggling visual editor */

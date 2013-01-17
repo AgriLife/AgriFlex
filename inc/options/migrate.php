@@ -9,12 +9,28 @@
  * @since AgriFlex 2.0
  * @author J. Aaron Eaton <aaron@channeleaton.com>
  */
+
 class AgriFlex_Migrate {
 
+  /**
+   * The option being migrated
+   *
+   * @var string
+   */
   private $option = '';
 
+  /**
+   * Array of AgriFlex 1.0 options
+   *
+   * @var array
+   */
   private $old_options = array();
 
+  /**
+   * Array to translate old option keys to new keys
+   *
+   * @var array
+   */
   private $translation = array(
     'isResearch' => 'research',
     'isExtension' => 'extension',
@@ -46,11 +62,19 @@ class AgriFlex_Migrate {
     'googleAnalytics' => 'g-analytics',
   );
 
+  /**
+   * Array of options that require special translation
+   *
+   * @var array
+   */
   private $checkbox = array(
     'useCustomHeader',
     'useCustomFooter',
   );
 
+  /**
+   * Initialize the class by setting the old options
+   */
   function __construct() {
 
     $this->set_old_options();

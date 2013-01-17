@@ -1,3 +1,12 @@
+<?php
+/**
+ * The college 'Explore' dropdown markup
+ *
+ * There's no PHP here.
+ * 
+ * @package AgriFlex
+ */
+?>
 <div id="college-top-level-section" class="drop-section">
 	<div class="flow">
 		<div class="contents">

@@ -51,7 +51,6 @@ function agriflex_after_footer() {
  * 
  * @since AgriFlex 2.0
  */
-add_action( 'agriflex_footer', 'agriflex_show_footer' );
 function agriflex_show_footer() {
 
   do_action( 'footer_col_1' );
@@ -65,6 +64,7 @@ function agriflex_show_footer() {
   do_action( 'footer_col_5' );
 
 } // agriflex_show_footer
+add_action( 'agriflex_footer', 'agriflex_show_footer' );
 
 /**
  * Creates the default About footer panel
@@ -73,7 +73,6 @@ function agriflex_show_footer() {
  *
  * @since AgriFlex 2.0
  */
-add_action( 'footer_col_1', 'agriflex_about_footer', 10, 1 );
 function agriflex_about_footer() {
 
   $html = '<div id="about">';
@@ -98,6 +97,7 @@ function agriflex_about_footer() {
   echo $html;
 
 } // agriflex_about_footer
+add_action( 'footer_col_1', 'agriflex_about_footer', 10, 1 );
 
 /**
  * Creates the default popular links footer panel
@@ -106,7 +106,6 @@ function agriflex_about_footer() {
  *
  * @since AgriFlex 2.0
  */
-add_action( 'footer_col_2', 'agriflex_popular_links', 10, 1 );
 function agriflex_popular_links() {
 
   $html = '<div id="popular-links">';
@@ -132,6 +131,7 @@ function agriflex_popular_links() {
   echo $html;
 
 } // agriflex_extension_links
+add_action( 'footer_col_2', 'agriflex_popular_links', 10, 1 );
 
 /**
  * Creates the default required links footer panel
@@ -140,7 +140,6 @@ function agriflex_popular_links() {
  *
  * @since AgriFlex 2.0
  */
-add_action( 'footer_col_3', 'agriflex_required_footer', 10, 1 );
 function agriflex_required_footer() {
 
   $html = '<div id="texas-a-m">';
@@ -172,6 +171,7 @@ function agriflex_required_footer() {
   echo $html;
 
 } // agriflex_required_footer
+add_action( 'footer_col_3', 'agriflex_required_footer', 10, 1 );
 
 /**
  * Creates the contact panel on the default footer. Uses county_footer_contact
@@ -179,7 +179,6 @@ function agriflex_required_footer() {
  *
  * @since AgriFlex 2.0
  */
-add_action( 'footer_col_4', 'agriflex_contact_footer', 10, 1 );
 function agriflex_contact_footer() {
 
   $options = of_get_option();
@@ -258,13 +257,13 @@ function agriflex_contact_footer() {
   echo $html;
 
 } // agriflex_contact_footer
+add_action( 'footer_col_4', 'agriflex_contact_footer', 10, 1 );
 
 /**
  * Creates the bookstore panel on the default footer
  *
  * @since AgriFlex 2.0
  */
-add_action( 'footer_col_5', 'agriflex_bookstore_footer', 10, 1 );
 function agriflex_bookstore_footer() {
 
   $html = '<div id="agrilife-bookstore">';
@@ -280,13 +279,13 @@ function agriflex_bookstore_footer() {
   echo $html;
 
 } // agriflex_bookstore_footer
+add_action( 'footer_col_5', 'agriflex_bookstore_footer', 10, 1 );
 
 /**
  * Sets up agriflex_footer for the minimal footer
  *
  * @since AgriFlex 2.0
  */
-add_action( 'init', 'agriflex_remove_footer_actions', 10 );
 function agriflex_remove_footer_actions() {
 
   $min = of_get_option( 'minimal-footer' );
@@ -297,6 +296,7 @@ function agriflex_remove_footer_actions() {
   }
 
 } // agriflex_remove_footer_actions
+add_action( 'init', 'agriflex_remove_footer_actions', 10 );
 
 /**
  * Builds the minimal footer

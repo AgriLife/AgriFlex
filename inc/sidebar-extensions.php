@@ -52,7 +52,6 @@ function agriflex_logout_pages() {
  * @uses register_sidebar
  * @since AgriFlex 1.0
  */
-add_action( 'widgets_init', 'agriflex_widgets_init' );
 function agriflex_widgets_init() {
 
   // Area 1, located at the top of the sidebar.
@@ -101,3 +100,4 @@ function agriflex_widgets_init() {
   ) );    
 
 } // agriflex_widgets_init
+add_action( 'widgets_init', 'agriflex_widgets_init' );

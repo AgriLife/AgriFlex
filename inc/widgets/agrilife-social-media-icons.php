@@ -1,5 +1,4 @@
 <?php
-
 /**
  * AgriLife Social Media Icons
  *
@@ -56,6 +55,14 @@ class AgriLife_Social_Media_Icons extends WP_Widget {
 
   }
 
+  /**
+   * Creates the proper URLs for each social media outlet
+   *
+   * @access private
+   * @param  string $key   The social media outlet
+   * @param  string $value The username/identification
+   * @return string
+   */
   private function socialUrl( $key, $value ) {
     switch( $key ) {
       case 'facebook' :

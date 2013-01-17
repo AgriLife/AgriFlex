@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Widget: Watch, Read, Listen
  *
@@ -11,6 +10,9 @@
 
 class WatchReadListenWidget extends WP_Widget {
 
+  /**
+   * Sets up the widget settings
+   */
 	function __construct() {
 
     $widget_ops = array(
@@ -26,6 +28,12 @@ class WatchReadListenWidget extends WP_Widget {
 
 	}
 
+  /**
+   * Outputs the widget on the frontend
+   *
+   * @param array $args
+   * @param array $instance The saved widget information
+   */
 	function widget( $args, $instance ) {
 
     // Set YouTube Default
@@ -211,6 +219,13 @@ class WatchReadListenWidget extends WP_Widget {
 
 	}
 
+  /**
+   * Saves the form
+   *
+   * @param  array $new_instance New information from the widget form
+   * @param  array $old_instance The old saved widget information
+   * @return array $instance The sanitized new information
+   */
 	function update( $new_instance, $old_instance ) {
 
     //save the widget
@@ -222,9 +237,13 @@ class WatchReadListenWidget extends WP_Widget {
 
 	}
 
+  /**
+   * Outputs the form on the Widget page
+   *
+   * @param array $instance The array of saved values
+   */
 	function form($instance) {
 
-    //widgetform in backend
     $instance = wp_parse_args(
       (array) $instance, array( 'youtube_video' => '', 'podcast_link' => '' )
     );
@@ -251,7 +270,7 @@ class WatchReadListenWidget extends WP_Widget {
   /**
    * Display the RSS podcast entries in a list
    *
-   * @since 1.0 
+   * @since AgriFlex1.0 
    *
    * @param string|array|object $rss RSS url.
    * @param array $args Widget arguments.

@@ -63,14 +63,14 @@ function agriflex_after_header() {
  * 
  * @since AgriFlex 2.0
  */
-add_action( 'agriflex_head', 'agriflex_return_map', 10 );
 function agriflex_return_map() {
 
   GLOBAL $googlemap;
 
   if ( $googlemap ) echo $googlemap;
 
-}
+} // agriflex_return_map
+add_action( 'agriflex_head', 'agriflex_return_map', 10 );
 
 /**
  * We add some JavaScript to pages with the comment form
@@ -78,13 +78,13 @@ function agriflex_return_map() {
  * 
  * @since AgriFlex 2.0
  */
-add_action( 'agriflex_head', 'agriflex_threaded_comments', 20 );
 function agriflex_threaded_comments() {
 
   if ( is_singular() && get_option( 'thread_comments' ) )
     wp_enqueue_script( 'comment-reply' );
 
-}
+} // agriflex_threaded_comments
+add_action( 'agriflex_head', 'agriflex_threaded_comments', 20 );
 
 /**
  * Sets up the header actions in preparation for the minimal header
@@ -92,7 +92,6 @@ function agriflex_threaded_comments() {
  * @since AgriFlex 2.0
  * @author J. Aaron Eaton <aaron@channeleaton.com>
  */
-add_action( 'init', 'agriflex_remove_header_actions' );
 function agriflex_remove_header_actions() {
 
   $min = of_get_option( 'minimal-header' );
@@ -104,7 +103,8 @@ function agriflex_remove_header_actions() {
     add_action( 'agriflex_before_header', 'agriflex_agency_nav_end', 99 );
   }
 
-}
+} // agriflex_remove_header_actions
+add_action( 'init', 'agriflex_remove_header_actions' );
 
 /**
  * Inserts the minimal header if selected in theme settings
@@ -129,7 +129,6 @@ function agriflex_minimal_header() {
  * @since AgriFlex 2.0
  * @author J. Aaron Eaton <aaron@channeleaton.com>
  */
-add_action( 'agriflex_before_header', 'agriflex_agency_nav_begin', 1 );
 function agriflex_agency_nav_begin() {
 
   $html = '<div id="drop-section-nav">';
@@ -139,6 +138,7 @@ function agriflex_agency_nav_begin() {
   echo $html;
 
 } // agriflex_agency_nav_begin
+add_action( 'agriflex_before_header', 'agriflex_agency_nav_begin', 1 );
 
 /**
  * Displays the TFS logo when selected
@@ -146,7 +146,6 @@ function agriflex_agency_nav_begin() {
  * @since AgriFlex 2.0
  * @author J. Aaron Eaton <aaron@channeleaton.com>
  */
-add_action( 'agriflex_before_header', 'agriflex_tfs_logo', 50 );
 function agriflex_tfs_logo() {
 
   $agencies = of_get_option( 'agency-top' );
@@ -166,6 +165,7 @@ function agriflex_tfs_logo() {
   }
 
 } // agriflex_tfs_logo
+add_action( 'agriflex_before_header', 'agriflex_tfs_logo', 50 );
 
 /**
  * Displays the custom agency logo if available
@@ -173,7 +173,6 @@ function agriflex_tfs_logo() {
  * @since AgriFlex 2.0
  * @author J. Aaron Eaton <aaron@channeleaton.com>
  */
-add_action( 'agriflex_before_header', 'agriflex_custom_logo', 70 );
 function agriflex_custom_logo() {
 
   $logo = of_get_option( 'custom-agency-logo' );
@@ -186,10 +185,9 @@ function agriflex_custom_logo() {
     echo $html;
   }
 
-
 } // agriflex_custom_logo
+add_action( 'agriflex_before_header', 'agriflex_custom_logo', 70 );
 
-add_action( 'agriflex_before_header', 'agriflex_agency_nav_end', 99 );
 /**
  * Displays the closing agency nav markup
  *
@@ -205,6 +203,7 @@ function agriflex_agency_nav_end() {
   echo $html;
 
 } // agriflex_agency_nav_end
+add_action( 'agriflex_before_header', 'agriflex_agency_nav_end', 99 );
 
 /**
  * Shows the default site title style. Allows for filtering to make
@@ -215,7 +214,6 @@ function agriflex_agency_nav_end() {
  * @since AgriFlex 2.0
  * @author J. Aaron Eaton <aaron@channeleaton.com>
  */
-add_action( 'agriflex_header', 'agriflex_site_title', 30 );
 function agriflex_site_title() {
 
   $home_url = get_home_url( '/' );
@@ -249,6 +247,7 @@ function agriflex_site_title() {
   echo $html;
 
 } // agriflex_site_title
+add_action( 'agriflex_header', 'agriflex_site_title', 30 );
 
 /**
  * Displays the site title containing a small logo and title
@@ -259,7 +258,6 @@ function agriflex_site_title() {
  * @param  array  $args The site url and name
  * @return string $link The new site title
  */
-add_filter( 'agriflex_site_title', 'agriflex_small_logo', 20, 2 );
 function agriflex_small_logo( $link, $args ) {
 
   $style = of_get_option( 'site-title' );
@@ -280,6 +278,7 @@ function agriflex_small_logo( $link, $args ) {
   return $link;
 
 } // agriflex_small_logo
+add_filter( 'agriflex_site_title', 'agriflex_small_logo', 20, 2 );
 
 /**
  * Displays the site title only a large image
@@ -290,7 +289,6 @@ function agriflex_small_logo( $link, $args ) {
  * @param  array  $args The site url and name
  * @return string $link The new site title
  */
-add_filter( 'agriflex_site_title', 'agriflex_big_logo', 20, 2 );
 function agriflex_big_logo( $link, $args ) {
 
   $style = of_get_option( 'site-title' );
@@ -311,6 +309,7 @@ function agriflex_big_logo( $link, $args ) {
   return $link;
 
 } // agriflex_big_logo
+add_filter( 'agriflex_site_title', 'agriflex_big_logo', 20, 2 );
 
 /**
  * Includes the main navigation
@@ -318,10 +317,10 @@ function agriflex_big_logo( $link, $args ) {
  * @since Agriflex 2.0
  * @author J. Aaron Eaton <aaron@channeleaton.com>
  */
-add_action( 'agriflex_after_header', 'agriflex_main_nav', 30 );
 function agriflex_main_nav() {
 
   echo '<div class="menu-button">Menu</div>';
   get_template_part( 'nav', 'primary' );
 
 } // agriflex_main_nav
+add_action( 'agriflex_after_header', 'agriflex_main_nav', 30 );

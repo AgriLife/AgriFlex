@@ -13,7 +13,6 @@
  * @param array $classes Existing class values
  * @return array $classes Filtered class values
  */
-add_filter('body_class','agriflex_class_names');
 function agriflex_class_names($classes) {
 
   $classes[] = '';
@@ -77,6 +76,7 @@ function agriflex_class_names($classes) {
   return $classes;
 
 } // agriflex_class_names
+add_filter('body_class','agriflex_class_names');
 
 /**
  * Makes some changes to the <title> tag, by filtering the output of wp_title().
@@ -98,7 +98,6 @@ function agriflex_class_names($classes) {
  *      vertical bar, "|", as a separator in header.php.
  * @return string The new title, ready for the <title> tag.
  */
-add_filter( 'wp_title', 'agriflex_filter_wp_title', 10, 2 );
 function agriflex_filter_wp_title( $title, $separator ) {
 
   // Don't affect wp_title() calls in feeds.
@@ -147,7 +146,8 @@ function agriflex_filter_wp_title( $title, $separator ) {
   // Return the new title to wp_title():
   return $title;
 
-}
+} // agriflex_filter_wp_title
+add_filter( 'wp_title', 'agriflex_filter_wp_title', 10, 2 );
 
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
@@ -159,13 +159,13 @@ function agriflex_filter_wp_title( $title, $separator ) {
  * @param  array $args The default menu arguments
  * @return array $args The updated array of menu arguments
  */
-add_filter( 'wp_page_menu_args', 'agriflex_page_menu_args' );
 function agriflex_page_menu_args( $args ) {
 
   $args['show_home'] = true;
   return $args;
 
 } // agriflex_page_menu_args
+add_filter( 'wp_page_menu_args', 'agriflex_page_menu_args' );
 
 /**
  * Add some classes to our nav menu
@@ -174,7 +174,6 @@ function agriflex_page_menu_args( $args ) {
  * @param array $args The original nav menu arguments
  * @return array $args The filtered nav menu arguments
  */
-add_filter( 'wp_nav_menu_args', 'agriflex_nav_menu_args' );
 function agriflex_nav_menu_args( $args = 'sf-menu' ) {
 
   $args['menu_class'] = 'sf-menu menu';
@@ -182,6 +181,7 @@ function agriflex_nav_menu_args( $args = 'sf-menu' ) {
   return $args;
 
 } // agriflex_nav_menu_args
+add_filter( 'wp_nav_menu_args', 'agriflex_nav_menu_args' );
 
 /**
  * Sets the post excerpt length to 40 characters.
@@ -193,12 +193,12 @@ function agriflex_nav_menu_args( $args = 'sf-menu' ) {
  * @param  int $length The default excerpt length
  * @return int         The new excerpt length
  */
-add_filter( 'excerpt_length', 'agriflex_excerpt_length' );
 function agriflex_excerpt_length( $length ) {
 
      return 88;
 
 } // agriflex_excerpt_length
+add_filter( 'excerpt_length', 'agriflex_excerpt_length' );
 
 /**
  * Returns a "Continue Reading" link for excerpts
@@ -224,12 +224,12 @@ function agriflex_continue_reading_link() {
  * @param string $more The default 'Read More' link
  * @return string An ellipsis
  */
-add_filter( 'excerpt_more', 'agriflex_auto_excerpt_more' );
 function agriflex_auto_excerpt_more( $more ) {
 
   return '...' . agriflex_continue_reading_link();
 
 } // agriflex_auto_excerpt_more
+add_filter( 'excerpt_more', 'agriflex_auto_excerpt_more' );
 
 /**
  * Adds a pretty "Continue Reading" link to custom post excerpts.
@@ -241,7 +241,6 @@ function agriflex_auto_excerpt_more( $more ) {
  * @param  string $output The default Continue Reading link
  * @return string $output Excerpt with a pretty "Continue Reading" link
  */
-add_filter( 'get_the_excerpt', 'agriflex_custom_excerpt_more' );
 function agriflex_custom_excerpt_more( $output ) {
 
   if ( has_excerpt() && ! is_attachment() ) {
@@ -251,6 +250,7 @@ function agriflex_custom_excerpt_more( $output ) {
   return $output;
 
 } // agriflex_custom_excerpt_more
+add_filter( 'get_the_excerpt', 'agriflex_custom_excerpt_more' );
 
 /**
  * Remove inline styles printed when the gallery shortcode is used.
@@ -261,12 +261,12 @@ function agriflex_custom_excerpt_more( $output ) {
  * @param  string $css The inline gallery css
  * @return string The gallery style filter, with the styles themselves removed.
  */
-add_filter( 'gallery_style', 'agriflex_remove_gallery_css' );
 function agriflex_remove_gallery_css( $css ) {
 
   return preg_replace( "#<style type='text/css'>(.*?)</style>#s", '', $css );
 
 } // agriflex_remove_gallery_css
+add_filter( 'gallery_style', 'agriflex_remove_gallery_css' );
 
 /**
  * Creates the custom search box with neato behaviors
@@ -274,7 +274,6 @@ function agriflex_remove_gallery_css( $css ) {
  * @since AgriFlex 1.0
  * @return string The new Javascript and such
  */
-add_filter('get_search_form', 'agriflex_custom_search_form');
 function agriflex_custom_search_form() {
 
   $search_text = get_search_query() ?
@@ -299,13 +298,13 @@ function agriflex_custom_search_form() {
   return apply_filters('custom_search_form', $form, $search_text, $button_text);
 
 } // agriflex_custom_search_form
+add_filter('get_search_form', 'agriflex_custom_search_form');
 
 /**
  * Body classes for admin
  *
  * @since AgriFlex 1.0
  */
-add_filter('admin_body_class', 'agriflex_admin_body_class');
 function agriflex_admin_body_class( $classes ) {
 
   // Current action
@@ -344,3 +343,4 @@ function agriflex_admin_body_class( $classes ) {
   return $classes;
 
 } // agriflex_admin_body_class
+add_filter('admin_body_class', 'agriflex_admin_body_class');

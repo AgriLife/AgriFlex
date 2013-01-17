@@ -1,11 +1,14 @@
 <?php
 /**
- * A unique identifier is defined to store the options in the database and reference them from the theme.
- * By default it uses the theme name, in lowercase and without spaces, but this can be changed if needed.
- * If the identifier changes, it'll appear as if the options have been reset.
+ * Here's where all of the theme options are setup.
+ *
+ * @package AgriFlex
  */
 include('migrate.php');
 
+/**
+ * Registers the theme options
+ */
 function optionsframework_option_name() {
 
 	// This gets the theme name from the stylesheet
@@ -18,14 +21,17 @@ function optionsframework_option_name() {
 }
 
 /**
- * Defines an array of options that will be used to generate the settings page and be saved in the database.
+ * Defines an array of options that will be used to generate the settings
+ * page and be saved in the database.
  * When creating the 'id' fields, make sure to use all lowercase and no spaces.
  *
- * If you are making your theme translatable, you should replace 'options_framework_theme'
- * with the actual text domain for your theme.  Read more:
+ * If you are making your theme translatable, you should replace
+ * 'options_framework_theme' with the actual text domain for your theme.  Read
+ * more:
  * http://codex.wordpress.org/Function_Reference/load_theme_textdomain
+ *
+ * @return array $options All of the options to render
  */
-
 function optionsframework_options() {
 
   // Get the migration going
@@ -296,15 +302,11 @@ function optionsframework_options() {
   );
 
 	return $options;
-}
+} // optionsframework_option_name
 
 /*
- * This is an example of how to add custom scripts to the options panel.
- * This example shows/hides an option when a checkbox is clicked.
+ * Loads up the custom javascript for the options form
  */
-
-add_action('optionsframework_custom_scripts', 'optionsframework_custom_scripts');
-
 function optionsframework_custom_scripts() { ?>
 
 <script type="text/javascript">
@@ -385,4 +387,5 @@ jQuery(document).ready(function($) {
 </script>
 
 <?php
-}
+} // optionsframework_custom_scripts
+add_action('optionsframework_custom_scripts', 'optionsframework_custom_scripts');

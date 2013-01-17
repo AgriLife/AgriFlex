@@ -5,18 +5,18 @@
  * @package AgriFlex
  */
 
+if ( ! function_exists( 'agriflex_content_nav' ) ) :
 /**
  * Display navigation to next/previous pages/posts when applicable
  * Works on single entries and loops
  * 
- * @link https://github.com/Automattic/_s/blob/master/inc/template-tags.php Source
+ * @link https://github.com/Automattic/_s/blob/master/inc/template-tags.php
  * @since AgriFlex 2.0
  * @author J. Aaron Eaton <aaron@channeleaton.com>
  * @global $wp_query
  * @global $post
  * @param string $nav_id Unique identifier to be used as ID
  */
-if ( ! function_exists( 'agriflex_content_nav' ) ) :
 function agriflex_content_nav( $nav_id ) {
 
   global $wp_query, $post;
@@ -70,6 +70,7 @@ function agriflex_content_nav( $nav_id ) {
 }
 endif; // agriflex_content_nav
 
+if ( ! function_exists( 'agriflex_post_title' ) ) :
 /**
  * Echos the post's title wrapped in a header anchor tag.
  * Tags are configurable
@@ -80,7 +81,6 @@ endif; // agriflex_content_nav
  * @param bool $anchor Whether to wrap title in an anchor tag
  * @global $post
  */
-if ( ! function_exists( 'agriflex_post_title' ) ) :
 function agriflex_post_title( $header = '', $anchor = TRUE ) {
 
   global $post;
@@ -207,15 +207,15 @@ function agriflex_archive_title() {
 	 */
 	rewind_posts();
 
-}
+} // agriflex_archive_title
 
+if ( ! function_exists( 'agriflex_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post—date/time and author.
  *
  * @since AgriFlex 1.0
  * @author J. Aaron Eaton <aaron@channeleaton.com>
  */
-if ( ! function_exists( 'agriflex_posted_on' ) ) :
 function agriflex_posted_on() {
      printf( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'twentyeleven' ),
           esc_url( get_permalink() ),
@@ -227,15 +227,15 @@ function agriflex_posted_on() {
           esc_html( get_the_author() )
      );
 }
-endif;
+endif; // agriflex_posted_on
 
+if ( ! function_exists( 'agriflex_posted_in' ) ) :
 /**
  * Prints HTML with meta information for the current post (category, tags and permalink).
  *
  * @since AgriFlex 1.0
  * @author J. Aaron Eaton <aaron@channeleaton.com>
  */
-if ( ! function_exists( 'agriflex_posted_in' ) ) :
 function agriflex_posted_in() {
      // Retrieves tag list of current post, separated by commas.
      $tag_list = get_the_tag_list( '', ', ' );
@@ -255,7 +255,7 @@ function agriflex_posted_in() {
           the_title_attribute( 'echo=0' )
      );
 }
-endif;
+endif; // agriflex_posted_in
 
 /**
  * Displays author image, bio, and contact information
@@ -360,6 +360,9 @@ if ( ! function_exists( 'agriflex_comment' ) ) :
  * Used as a callback by wp_list_comments() for displaying the comments.
  *
  * @since AgriFlex 1.0
+ * @param object $comment The comment object
+ * @param array  $args    Processing arguments
+ * @param string $depth   The number of children to process
  */
 function agriflex_comment( $comment, $args, $depth ) {
      $GLOBALS['comment'] = $comment;
@@ -402,4 +405,4 @@ function agriflex_comment( $comment, $args, $depth ) {
                break;
      endswitch;
 }
-endif;
+endif; // agriflex_comment
