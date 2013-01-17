@@ -24,9 +24,8 @@ if ( in_array( 'college', $a['agencies'] ) ) {
  *
  * Also shows the 'Explore' menu if college only
  *
- * @author J. Aaron Eaton <aaron@channeleaton.com>
  * @since AgriFlex 2.0
- * @return void
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
  */
 function agriflex_college_logo() {
 
@@ -56,6 +55,9 @@ function agriflex_college_logo() {
 
 /**
  * Includes the college drop-down navigation
+ *
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
  */
 function agriflex_college_explore() {
 

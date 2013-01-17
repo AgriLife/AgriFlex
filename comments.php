@@ -19,14 +19,15 @@
       <?php _e( 'This post is password protected. Enter the password to view any comments.', 'agriflex' ); ?>
     </p>
 </div><!-- #comments -->
-<?php
-/* Stop the rest of comments.php from being processed,
-* but don't kill the script entirely -- we still have
-* to fully load the template.
-*/
-return;
-endif;
-?>
+  <?php
+  /**
+   * Stop the rest of comments.php from being processed,
+   * but don't kill the script entirely -- we still have
+   * to fully load the template.
+   */
+  return;
+  endif;
+  ?>
 
 <?php if ( have_comments() ) : ?>
 

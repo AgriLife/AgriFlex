@@ -10,6 +10,8 @@
  * Register action hook: agriflex_before_footer
  *
  * Located in footer.php, just after the opening footer tag
+ *
+ * @since AgriFlex 2.0
  */
 function agriflex_before_footer() {
 
@@ -21,6 +23,8 @@ function agriflex_before_footer() {
  * Register action hook: agriflex_footer
  *
  * Located in footer.php, inside the wrap div
+ *
+ * @since AgriFlex 2.0
  */
 function agriflex_footer() {
 
@@ -32,6 +36,8 @@ function agriflex_footer() {
  * Register action hook: agriflex_after_footer
  *
  * Located in footer.php, just before the closing footer tag
+ *
+ * @since AgriFlex 2.0
  */
 function agriflex_after_footer() {
 

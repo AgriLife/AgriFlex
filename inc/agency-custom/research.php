@@ -20,9 +20,8 @@ if ( in_array( 'research', $a['agencies'] ) ) {
 /**
  * Displays the research logo when selected
  *
- * @author J. Aaron Eaton <aaron@channeleaton.com>
  * @since AgriFlex 2.0
- * @return void
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
  */
 function agriflex_res_logo() {
 

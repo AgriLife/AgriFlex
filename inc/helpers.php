@@ -3,7 +3,6 @@
  * Helper functions for the AgriFlex theme
  *
  * @package AgriFlex
- * @since AgriFlex 2.0
  */
 
 /**
@@ -11,8 +10,8 @@
  * This is required for backwards compatibility with sites that used
  * AgriFlex 1.0
  *
- * @author J. Aaron Eaton <aaron@channeleaton.com>
  * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
  * @returns string $format The post's category or format
  */
 function agriflex_get_format() {
@@ -62,3 +61,61 @@ function agriflex_get_format() {
   return $format;
 
 } // agriflex_get_format
+
+/** 
+ * Obfuscates email addresses
+ *
+ * @since AgriFlex 1.0
+ * @param string $email Email to obfuscate
+ * @return string $link Obfuscated email
+ */
+function obfuscate($email){
+
+     $link = '';
+
+     foreach( str_split( $email ) as $letter ) {
+       $link .= '&#' . ord( $letter ) . ';';
+     }
+
+     return $link;
+} // obfuscate
+
+/**
+ * Determines the site's agency and returns a useful array of information
+ *
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ * @return array $return Array containing the site agency, single status,
+ * and extension type (if applicable).
+ */
+function agriflex_agency() {
+
+  $agencies = of_get_option( 'agency-top' );
+  $ext_type = of_get_option( 'ext-type' );
+  $val = array_count_values( $agencies );
+
+  $active = array();
+
+  // Add the active agency slugs to the $active array
+  foreach ( $agencies as $k => $v ) {
+    if ( $v == 1 )
+      array_push( $active, $k );
+  }
+  
+  // If there's only one active agency, return true
+  if ( $val[1] == 1 ) {
+    $only = TRUE;
+  } else {
+    $only = FALSE;
+  }
+
+  // Build the return payload
+  $return = array(
+    'agencies' => $active,
+    'single'   => $only,
+    'ext-type' => $ext_type
+  );
+
+  return $return;
+
+} // agriflex_agency

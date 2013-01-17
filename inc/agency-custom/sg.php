@@ -14,9 +14,8 @@ if ( $a['ext-type'] == 'sg' ) {
 /**
  * Displays the sea grant logo when selected
  *
- * @author J. Aaron Eaton <aaron@channeleaton.com>
  * @since AgriFlex 2.0
- * @return void
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
  */
 function agriflex_sg_logo() {
 

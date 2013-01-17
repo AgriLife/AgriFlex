@@ -12,8 +12,8 @@ define('MY_THEME_PATH','/' . substr(MY_THEME_FOLDER,stripos(MY_THEME_FOLDER,'wp-
 /**
  * Set the content width based on the theme's design and stylesheet.
  *
- * Used to set the width of images and content. Should be equal to the width the theme
- * is designed for, generally via the style.css stylesheet.
+ * Used to set the width of images and content. Should be equal to
+ * the width the theme is designed for, generally via the style.css stylesheet.
  *
  * @since AgriFlex 1.0
  */
@@ -21,14 +21,13 @@ if ( ! isset( $content_width ) )
      $content_width = 640;
 
 /**
- * Tell WordPress to run agriflex_setup() when the 'after_setup_theme' hook is run. 
+ * Tell WordPress to run agriflex_setup() when the 'after_setup_theme'
+ * hook is run. 
  *
  * @since AgriFlex 1.0
  */
 add_action( 'after_setup_theme', 'agriflex_setup' );
 function agriflex_setup() {
-
-  global $typekitkey;
 
   // Remove things that get stuck up in the doc head that we don't need
   remove_action( 'wp_head', 'wp_generator' );
@@ -137,28 +136,7 @@ function agriflex_admin_register_head() {
 
 } // agriflex_admin_register_head
 
-
-/** 
- * Obfuscates email addresses
- *
- * @since AgriFlex 1.0
- * @param string $email Email to obfuscate
- * @return string $link Obfuscated email
- */
-function obfuscate($email){
-
-     $link = '';
-
-     foreach( str_split( $email ) as $letter ) {
-       $link .= '&#' . ord( $letter ) . ';';
-     }
-
-     return $link;
-} // obfuscate
-
-
 // Set path to function files
-$includes_path = TEMPLATEPATH . '/includes/';
 $include_path = TEMPLATEPATH . '/inc/';
 
 require_once( $include_path . 'options/options-framework.php');
@@ -174,61 +152,15 @@ foreach ( glob( $include_path . "/widgets/*.php" ) as $file ) {
   require_once( $file );
 }
 unset( $file );
-//
-// Auto-include all widget files
+
+// Auto-include all custom agency files
 foreach ( glob( $include_path . "/agency-custom/*.php" ) as $file ) {
   require_once( $file );
 }
 unset( $file );
-
-// Admin Pages
-require_once ($includes_path . 'admin.php');
-
-// Auto-configure plugins
-require_once ($includes_path . 'plugin-config.php');
 
 // Add Logout Button to password-protected posts 
 require_once ($include_path . 'logout-password-protected-posts/logout.php');
 
 // Define location of Options Framework
 define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/options/' );
-
-/**
- * Determines the site's agency and returns a useful array of information
- *
- * @since AgriFlex 2.0
- * @author J. Aaron Eaton <aaron@channeleaton.com>
- * @return array $return Array containing the site agency, single status,
- * and extension type (if applicable).
- */
-function agriflex_agency() {
-
-  $agencies = of_get_option( 'agency-top' );
-  $ext_type = of_get_option( 'ext-type' );
-  $val = array_count_values( $agencies );
-
-  $active = array();
-
-  // Add the active agency slugs to the $active array
-  foreach ( $agencies as $k => $v ) {
-    if ( $v == 1 )
-      array_push( $active, $k );
-  }
-  
-  // If there's only one active agency, return true
-  if ( $val[1] == 1 ) {
-    $only = TRUE;
-  } else {
-    $only = FALSE;
-  }
-
-  // Build the return payload
-  $return = array(
-    'agencies' => $active,
-    'single'   => $only,
-    'ext-type' => $ext_type
-  );
-
-  return $return;
-
-} // agriflex_agency

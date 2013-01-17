@@ -3,21 +3,20 @@
  * Custom template tags for the AgriFlex Theme
  *
  * @package AgriFlex
- * @since AgriFlex 2.0
  */
 
-if ( ! function_exists( 'agriflex_content_nav' ) ) :
 /**
  * Display navigation to next/previous pages/posts when applicable
  * Works on single entries and loops
  * 
  * @link https://github.com/Automattic/_s/blob/master/inc/template-tags.php Source
  * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
  * @global $wp_query
  * @global $post
  * @param string $nav_id Unique identifier to be used as ID
- * @return void
  */
+if ( ! function_exists( 'agriflex_content_nav' ) ) :
 function agriflex_content_nav( $nav_id ) {
 
   global $wp_query, $post;
@@ -71,18 +70,17 @@ function agriflex_content_nav( $nav_id ) {
 }
 endif; // agriflex_content_nav
 
-if ( ! function_exists( 'agriflex_post_title' ) ) :
 /**
  * Echos the post's title wrapped in a header anchor tag.
  * Tags are configurable
  *
- * @author J. Aaron Eaton <aaron@channeleaton.com>
  * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
  * @param string $header Header size (h1, h2, etc.)
  * @param bool $anchor Whether to wrap title in an anchor tag
  * @global $post
- * @returns void
  */
+if ( ! function_exists( 'agriflex_post_title' ) ) :
 function agriflex_post_title( $header = '', $anchor = TRUE ) {
 
   global $post;
@@ -126,11 +124,10 @@ endif; // agriflex_post_title
  *
  * @todo - Change default thumbnail to specific agency
  *
- * @author J. Aaron Eaton <aaron@channeleaton.com>
  * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
  * @param string $size Thumbnail size to use
  * @global $post
- * @returns void
  */
 function agriflex_post_thumbnail( $size = 'featured-mediabox' ) {
 
@@ -160,7 +157,8 @@ function agriflex_post_thumbnail( $size = 'featured-mediabox' ) {
  */
 function agriflex_archive_title() {
 
-  /* Queue the first post, that way we know
+  /**
+   * Queue the first post, that way we know
    * what date we're dealing with (if that is the case).
    *
    * We reset this later so we can run the loop
@@ -211,12 +209,13 @@ function agriflex_archive_title() {
 
 }
 
-if ( ! function_exists( 'agriflex_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post—date/time and author.
  *
- * @since agriflex 1.0
+ * @since AgriFlex 1.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
  */
+if ( ! function_exists( 'agriflex_posted_on' ) ) :
 function agriflex_posted_on() {
      printf( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'twentyeleven' ),
           esc_url( get_permalink() ),
@@ -230,11 +229,13 @@ function agriflex_posted_on() {
 }
 endif;
 
-if ( ! function_exists( 'agriflex_posted_in' ) ) :
 /**
  * Prints HTML with meta information for the current post (category, tags and permalink).
  *
+ * @since AgriFlex 1.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
  */
+if ( ! function_exists( 'agriflex_posted_in' ) ) :
 function agriflex_posted_in() {
      // Retrieves tag list of current post, separated by commas.
      $tag_list = get_the_tag_list( '', ', ' );
@@ -259,8 +260,8 @@ endif;
 /**
  * Displays author image, bio, and contact information
  *
- * @author J. Aaron Eaton <aaron@channeleaton.com>
  * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
  */
 function agriflex_author_info() {
 
@@ -289,10 +290,9 @@ function agriflex_author_info() {
 /**
  * Displays comment navigation if comments are available
  *
- * @author J. Aaron Eaton <aaron@channeleaton.com>
  * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
  * @param string $nav_id Used as the nav ID
- * @return void
  */
 function agriflex_comment_nav( $nav_id ) {
 
@@ -320,9 +320,8 @@ function agriflex_comment_nav( $nav_id ) {
 /**
  * Displays the comments link in the loop
  *
- * @author J. Aaron Eaton <aaron@channeleaton.com>
  * @since AgriFlex 2.0
- * @return void
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
  */
 function agriflex_comments_link() {
 
@@ -338,9 +337,8 @@ function agriflex_comments_link() {
 /**
  * Displays the edit link for logged-in users
  *
- * @author J. Aaron Eaton <aaron@channeleaton.com>
  * @since AgriFlex 2.0
- * @return void
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
  */
 function agriflex_edit_link() {
 
@@ -361,7 +359,7 @@ if ( ! function_exists( 'agriflex_comment' ) ) :
  *
  * Used as a callback by wp_list_comments() for displaying the comments.
  *
- * @since agriflex 1.0
+ * @since AgriFlex 1.0
  */
 function agriflex_comment( $comment, $args, $depth ) {
      $GLOBALS['comment'] = $comment;
@@ -405,4 +403,3 @@ function agriflex_comment( $comment, $args, $depth ) {
      endswitch;
 }
 endif;
-

@@ -1,7 +1,9 @@
 <?php
-
 /**
  * Adds Category Widget widget.
+ *
+ * @package AgriFlex
+ * @since AgriFlex 1.0+
  */
 class Category_Widget extends WP_Widget {
 

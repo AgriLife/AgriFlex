@@ -5,6 +5,7 @@
  * framework in 2.0.
  *
  * @package AgriFlex
+ * @subpackage Options Framework
  * @since AgriFlex 2.0
  * @author J. Aaron Eaton <aaron@channeleaton.com>
  */

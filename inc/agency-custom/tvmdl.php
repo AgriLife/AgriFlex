@@ -22,9 +22,8 @@ if ( in_array( 'tvmdl', $a['agencies'] ) ) {
  *
  * Also shows the client login button when TVMDL only
  *
- * @author J. Aaron Eaton <aaron@channeleaton.com>
  * @since AgriFlex 2.0
- * @return void
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
  */
 function agriflex_tvmdl_logo() {
 

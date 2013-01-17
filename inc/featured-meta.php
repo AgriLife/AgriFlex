@@ -7,11 +7,12 @@
  * @since AgriFlex 1.0
  */
 
-add_action( 'add_meta_boxes', 'agriflex_add_custom_box' );
-
 /**
  * Adds a box to the main column on the Post and Page edit screens
+ *
+ * @since AgriFlex 1.0
  */
+add_action( 'add_meta_boxes', 'agriflex_add_custom_box' );
 function agriflex_add_custom_box() {
   add_meta_box( 
     'agrilife_featured_post',
@@ -32,6 +33,7 @@ function agriflex_add_custom_box() {
 /**
  * Prints the box content
  *
+ * @since AgriFlex 1.0
  * @param object $post The Post object
  */
 function agriflex_inner_custom_box( $post ) {
@@ -53,9 +55,12 @@ function agriflex_inner_custom_box( $post ) {
 
 }
 
-/* Do something with the data entered */
+/**
+ * Do something with the data entered
+ *
+ * @since AgriFlex 1.0
+ */
 add_action( 'save_post', 'agriflex_save_postdata' );
-
 function agriflex_save_postdata( $post_id ) {
 
   // verify if this is an auto save routine. 
@@ -90,4 +95,3 @@ function agriflex_save_postdata( $post_id ) {
   update_post_meta($post_id, 'feature-homepage',
     ( $featured == 'on' ? 1 : 0 ) );
 }
-?>

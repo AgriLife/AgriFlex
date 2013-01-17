@@ -48,7 +48,12 @@ function agriflex_analytics_code() {
 
 } // agriflex_analytics_code    
 
-/* -- Add typekit js and css to document head -- */
+/**
+ * Adds the Typekit goodies to the document head
+ *
+ * @since AgriFlex 2.0
+ * @author J. Aaron Eaton <aaron@channeleaton.com>
+ */
 add_action('wp_head','typekit_js');
 function typekit_js() {
 
@@ -78,7 +83,7 @@ function typekit_js() {
   <?php
   endif;
 
-}
+} // typekit_js
 
 /**
  * Removes the default styles that are packaged with the Recent Comments widget.

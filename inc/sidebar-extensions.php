@@ -3,13 +3,14 @@
  * Hooks, filters, and template tags for the sidebar
  *
  * @package AgriFlex
- * @since AgriFlex 2.0
  */
 
 /**
  * Register action hook: agriflex_before_sidebar
  *
  * Located in sidebar.php after the opening aside div
+ *
+ * @since AgriFlex 2.0
  */
 function agriflex_before_sidebar() {
 
@@ -21,6 +22,8 @@ function agriflex_before_sidebar() {
  * Register action hook: agriflex_after_sidebar
  *
  * Located in sidebar.php after the opening aside div
+ *
+ * @since AgriFlex 2.0
  */
 function agriflex_after_sidebar() {
 
