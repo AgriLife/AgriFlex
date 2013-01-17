@@ -91,11 +91,12 @@ function load_js() {
       false);
                  
     // enqueue the custom jquery js
-    wp_enqueue_script('my_scripts',
+    wp_register_script('my_scripts',
       get_bloginfo('template_directory') . '/js/my_scripts.js',
       array('jquery'),
       '2.9.2',
       true);                
+    wp_enqueue_script( 'my_scripts' );
 
   }             
 
