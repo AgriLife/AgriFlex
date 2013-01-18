@@ -9,7 +9,6 @@
  */
  
 ?>
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>
 <html id="ie6" class="no-js ie6 oldie" <?php language_attributes(); ?>>
