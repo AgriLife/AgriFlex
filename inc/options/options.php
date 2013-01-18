@@ -199,6 +199,30 @@ function optionsframework_options() {
   );
 
   $options[] = array(
+    'name' => __( 'Map not working', 'options_framework_theme' ),
+    'desc' => __( 'Manually enter map information', 'options_framework_theme' ),
+    'id'   => 'map-error',
+    'std'  => $migrate->get_default( 'map-error' ),
+    'type' => 'checkbox',
+  );
+
+  $options[] = array(
+    'name' => __( 'Override Image Link', 'options_framework_theme' ),
+    'desc' => __( 'This is a link to a Google maps image', 'options_framework_theme' ),
+    'id'   => 'map-image',
+    'std'  => $migrate->get_default( 'map-image' ),
+    'type' => 'text'
+  );
+
+  $options[] = array(
+    'name' => __( 'Override Map Link', 'options_framework_theme' ),
+    'desc' => __( 'This is a permalink to a Google maps address', 'options_framework_theme' ),
+    'id'   => 'map-link',
+    'std'  => $migrate->get_default( 'map-link' ),
+    'type' => 'text'
+  );
+
+  $options[] = array(
     'name' => __( 'Mailing Address', 'options_framework_theme' ),
     'id'   => 'mail-addr',
     'type' => 'info'
@@ -349,6 +373,21 @@ jQuery(document).ready(function($) {
     } else {
       $('#section-minimal-header-text').hide();
       $('#minimal-header-text').val('');
+    }
+  });
+
+  // Shows the map override fields if Map not working is checked
+  if ( $('#section-map-error input').is(':checked') ) {
+      $('#section-map-image, #section-map-link').show();
+    } else {
+      $('#section-map-image, #section-map-link').hide();
+    }
+
+  $('#section-map-error input').change( function() {
+    if ( $('#map-error' ).is(':checked') ) {
+      $('#section-map-image, #section-map-link').show();
+    } else {
+      $('#section-map-image, #section-map-link').hide();
     }
   });
 

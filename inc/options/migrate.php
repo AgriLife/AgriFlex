@@ -51,6 +51,8 @@ class AgriFlex_Migrate {
     'address-street2' => 'p-street-2',
     'address-city'    => 'p-city',
     'address-zip'     => 'p-zip',
+    'map-link'        => 'map-link',
+    'map-img'         => 'map-image',
     'address-mail-street1'  => 'm-street-1',
     'address-mail-street2'  => 'm-street-2',
     'address-mail-city'     => 'm-city',
@@ -120,7 +122,9 @@ class AgriFlex_Migrate {
   
     $old_key = $this->get_old_key( $option );
 
-    $value = $this->old_options[$old_key];
+    if ( $old_key ) {
+      $value = $this->old_options[$old_key];
+    }
 
     if ( in_array( $old_key, $this->checkbox ) ) {
       switch ( $value ) {
