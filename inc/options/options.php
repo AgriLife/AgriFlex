@@ -325,7 +325,18 @@ function optionsframework_options() {
     'type' => 'upload',
   );
 
+  // Get options added by other developers and add to the $options array
+  $added = '';
+  $added = apply_filters( 'agriflex_add_options', $added );
+
+  if ( ! empty( $added ) ) {
+    foreach ( $added as $a ) {
+      $options[] = $a;
+    }
+  }
+
 	return $options;
+
 } // optionsframework_option_name
 
 /*
