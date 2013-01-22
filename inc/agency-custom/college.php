@@ -61,10 +61,7 @@ function agriflex_college_logo() {
  */
 function agriflex_college_explore() {
 
-  $a = agriflex_agency();
-
-  if ( in_array( 'college', $a['agencies'] ) && $a['single'])
-    include( TEMPLATEPATH . '/inc/college/college-drop-down.php' );
+  include( TEMPLATEPATH . '/inc/college/college-drop-down.php' );
 
 } // agriflex_college_explore
 

@@ -69,10 +69,11 @@ function agriflex_get_format() {
  * @param string $email Email to obfuscate
  * @return string $link Obfuscated email
  */
-function obfuscate($email){
+function obfuscate( $email ){
 
      $link = '';
 
+     // Convert each letter in $email to ASCII
      foreach( str_split( $email ) as $letter ) {
        $link .= '&#' . ord( $letter ) . ';';
      }

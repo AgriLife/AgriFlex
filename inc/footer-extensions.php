@@ -188,6 +188,7 @@ function agriflex_contact_footer() {
   $html .= '<div class="contact">';
   $html .= '<h4>Contact</h4>';
 
+  // Condition: Is county or TCE and a single agency
   if ( ( $a['ext-type'] == 'county' || $a['ext-type'] == 'tce') &&
     $a['single'] ) {
     $html .= county_footer_contact();
@@ -196,9 +197,10 @@ function agriflex_contact_footer() {
     $mapaddress .= $options['p-street-2'] . ' ';
     $mapaddress .= $options['p-city'] . ', TX ';
     $mapaddress .= $options['p-zip'];
-    $map_image = ($options['map-image']=='' ? 'http://maps.google.com/maps/api/staticmap?size=175x101&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office%7C'.urlencode($mapaddress).'&amp;sensor=false' : $options['map-image']);
-
-    $map_link = ($options['map-link']=='' ? 'http://maps.google.com/?q='.urlencode($mapaddress).'&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office&amp;sensor=false' : $options['map-link']);
+    // Checks to see if there's a map image override
+    $map_image = ( $options['map-image'] == '' ? 'http://maps.google.com/maps/api/staticmap?size=175x101&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office%7C' . urlencode( $mapaddress ) . '&amp;sensor=false' : $options['map-image'] );
+    // Checks to see if there's a map link override
+    $map_link = ( $options['map-link'] == '' ? 'http://maps.google.com/?q=' . urlencode( $mapaddress ) . '&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office&amp;sensor=false' : $options['map-link'] );
 
     $html .= '<a href="' . $map_link . '">';
     $html .= '<img src="' . $map_image . '" height="101" width="175" alt="Map to office" />';
