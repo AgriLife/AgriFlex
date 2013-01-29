@@ -46,11 +46,11 @@ function optionsframework_options() {
 
   // Agency selections
   $agency_array = array(
-    'research' => 'Research',
+    'research'  => 'Research',
     'extension' => 'Extension',
     'college'   => 'College',
     'tvmdl'     => 'TVMDL',
-    'fazd'       => 'FAZD'
+    'fazd'      => 'FAZD',
   );
 
   // Agency default selections

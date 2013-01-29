@@ -27,7 +27,7 @@ if ( in_array( 'tvmdl', $a['agencies'] ) ) {
  */
 function agriflex_tvmdl_logo() {
 
-  $a = agrilife_agency();
+  $a = agriflex_agency();
 
   $html = '<li class="top-agency tvmdl-item">';
   $html .= '<a href="http://tvmdl.tamu.edu/">';
