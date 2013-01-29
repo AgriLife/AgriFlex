@@ -429,7 +429,7 @@ a.logout_btn {
 	margin: 0 auto;
 	overflow: hidden;
 	width: 90%;
-	background: #341f1a url('images/verticle-texture.png');
+	background: #341f1a url('img/verticle-texture.png');
 	color: #fff;
 	-webkit-box-shadow: 0 2px 5px rgba(6,6,6,.3);
 	-moz-box-shadow: -4px 2px 5px rgba(6,6,6,.3);
@@ -534,7 +534,7 @@ body.research.extension #drop-section-nav #drop-nav ul li a img {
 
 #drop-section-nav #drop-nav ul li a[href*='aglifesciences'] {
 	display: block;
-	background: url('images/college-logo.png?v=100') no-repeat left top;
+	background: url('img/college-logo.png?v=100') no-repeat left top;
 	margin-top: 5px;
 	height: 38px;
 	width: 180px;
@@ -562,7 +562,7 @@ body.research.extension #drop-section-nav #drop-nav ul li a[href*='aglifescience
 }
 
 body.collegeonly #drop-section-nav #drop-nav ul li a.college-explore-link {
-	background: rgba(0,0,0,.1) url('images/explore-button.png?v=100') no-repeat 90% -34px;
+	background: rgba(0,0,0,.1) url('img/explore-button.png?v=100') no-repeat 90% -34px;
 	display: block;
 	text-indent: 0;
 	border-radius: 3px;
@@ -603,32 +603,32 @@ body.collegeonly #drop-section-nav #drop-nav ul li a.college-explore-link:hover 
 }
 
 .extensiononly #drop-section-nav #drop-nav ul li a[href*='extension'] {
-	background-image: url('images/ext-system-logo.png?v=100');
+	background-image: url('img/ext-system-logo.png?v=100');
 }
 .extensionmn #drop-section-nav #drop-nav ul li a[href*='tpwd'] {
-  background-image: url('images/tpwd.png?v=100');
+  background-image: url('img/tpwd.png?v=100');
 }
 
 .extensioncountytce #drop-section-nav #drop-nav ul li a[href*='pvcep'] {
-	background-image: url('images/cep-logo.png?v=100');
+	background-image: url('img/cep-logo.png?v=100');
 	width: 204px;
 	margin-top: 0px;
 }
 
 .collegeonly #drop-section-nav #drop-nav ul li a[href*='aglifesciences'] {
-	background-image: url('images/college-logo.png?v=100');
+	background-image: url('img/college-logo.png?v=100');
 	margin-top: 8px;
 	height: 39px;
 }
 
 .tvmdlonly #drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
-	background-image: url('images/tvmdl-logo.png?v=100');
+	background-image: url('img/tvmdl-logo.png?v=100');
 	width: 90px;
 	margin-bottom: -4px;
 }
 
 .researchonly #drop-section-nav #drop-nav ul li a[href*='research'] {
-	background-image: url('images/research-logo.png?v=100');
+	background-image: url('img/research-logo.png?v=100');
 }
 
 .tvmdlonly #drop-section-nav #drop-nav ul li a.client-login {
@@ -795,7 +795,7 @@ body.collegeonly #drop-section-nav #drop-nav ul li a.college-explore-link:hover 
 	text-transform: uppercase;
 	padding: 7px 0 7px 38px;
 	color: #815a08;
-	background: #d0c69b url(images/top-level-arrow.png?v=100) no-repeat left -31px;	
+	background: #d0c69b url(img/top-level-arrow.png?v=100) no-repeat left -31px;	
 	border-bottom: 1px solid #c6c097;
 	-webkit-transition: border .3s ease-in;	
 }
@@ -986,7 +986,7 @@ body.collegeonly #drop-section-nav #drop-nav ul li.tx-uni-item a {
 	height: 32px;
 	width: 194px;
 	display: block;
-	background: url('images/college-logo.png?v=100') no-repeat left center;
+	background: url('img/college-logo.png?v=100') no-repeat left center;
 }
 
 body.collegeonly #drop-section .flow .contents #ext-intro {	
@@ -1016,7 +1016,7 @@ body.collegeonly #drop-section .flow .contents #top-level-nav .top-level-nav {
 }
 
 body.collegeonly #access li a[title='home'] {
-	background-image: url('images/home-college.png?v=100');
+	background-image: url('img/home-college.png?v=100');
 }
 
 #college-top-level-section, .ask, .explore  {
@@ -1156,7 +1156,7 @@ div.menu li {
 #access ul.menu li a[title='home'] {
 	display: block;
 	text-indent: -999em;
-	background: url('images/home-gold.png?v=100') no-repeat 50% 12px;
+	background: url('img/home-gold.png?v=100') no-repeat 50% 12px;
 	width: 20px;
 }
 
@@ -1203,7 +1203,7 @@ body.touch #access .menu-header li ul.sub-menu {
 .s {
 	width: 100%;
 	padding: 8px 5px 8px 30px;
-	background: #fff url('images/search.png?v=100') no-repeat left 45%;
+	background: #fff url('img/search.png?v=100') no-repeat left 45%;
 	border-radius: 10px; 
 	color: #999;
 	border: 1px solid #ccc;
@@ -1293,7 +1293,7 @@ body.home #content {
 
 #home-top #slideshow-nav a.slideNext,
 #home-top #slideshow-nav a.slidePrev {
-	background-image: url(images/arrows.png?v=100);
+	background-image: url(img/arrows.png?v=100);
 	background-repeat: no-repeat;
 	top: 0;
 	height: 31px;
@@ -1335,7 +1335,7 @@ body.home #content {
 }
 
 #home-top #slidePager a {
-	background-image: url(images/dots.png?v=100);
+	background-image: url(img/dots.png?v=100);
 	background-repeat: no-repeat;
 	background-position: center -33px;
 	text-indent: -9999px;	
@@ -1774,7 +1774,6 @@ body.home.blog .hentry {
 
 /* Job Postings, Tests and Staff pages (Custom Post Types)
 -------------------------------------------------------------- */
-.job-search-form,
 .staff-search-form,
 .test-search-form {
 	margin-bottom: 20px;
@@ -1817,25 +1816,20 @@ body.home.blog .hentry {
 	padding-top: 8px;
 }
 
-.job-search-form .searchform,
 .staff-search-form .searchform,
 .test-search-form .searchform {
 	top: 8px;
 }
 
-.job-search-form label h4,
 .staff-search-form label h4,
 .test-search-form label h4 {
 	margin-bottom: 5px;
 }
 
-.job-listing-ul,
 .staff-listing-ul {
 	border-top: double #d5d1bf;	
 }
 
-.job-listing-ul,
-.job-listing-item,
 .staff-listing-ul,
 .staff-listing-item,
 .test-listing-ul,
@@ -1845,7 +1839,6 @@ body.home.blog .hentry {
 	padding-left: 0;
 }
 
-.job-listing-item,
 .staff-listing-item,
 .test-listing-link {
 	list-style-type: none;
@@ -1862,7 +1855,6 @@ body.home.blog .hentry {
 	list-style-type: none;	
 }
 
-.job-listing-item:nth-child(even),
 .staff-listing-item:nth-child(even),
 .test-listing-item:nth-child(even)  {
 	background: #EAE6D2;
@@ -1870,10 +1862,6 @@ body.home.blog .hentry {
 }
 
 .staff-container,
-a.job-listing-link,
-body.extensiononly a.job-listing-link,
-body.researchonly a.job-listing-link,
-body.collegeonly a.job-listing-link,
 body.tvmdlonly a.test-listing-link {
 	overflow: hidden;
 	display: block;	
@@ -1888,14 +1876,12 @@ body.tvmdlonly a.test-listing-link {
 }
 
 .staff-listing-item:hover,
-a.job-listing-link:hover,
 a.staff-listing-link:hover,
 a.test-listing-link:hover {
 	background: #f1efce;
 	border-bottom: 1px solid #9f9490;		
 }
 
-.job-title,
 .staff-title,
 .test-title {
 	font: 90% "minion-pro-1","minion-pro-2", 'Cambria', 'Georgia', 'Times New Roman', serif;
@@ -1921,22 +1907,6 @@ a.test-listing-link:hover {
 
 .test-listing-dd ul {
 	margin: 5px 0;	
-}
-
-
-.job-agency,
-.job-posted-date,
-.job-number,
-body.home #content h3.job-agency,
-body.home #content h4.job-posted-date,
-body.home #content h4.job-number {
-	font-family: ff-dagny-web-pro-1, ff-dagny-web-pro-2, 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
-	font-size: 14px;
-	font-weight: normal;
-	color: #433C3A;
-	float: left;
-	line-height: 1.2em;
-	width: 65%;
 }
 
 .staff-phone,
@@ -1973,7 +1943,7 @@ body.home #content h4.job-number {
 	width: 30%;
 	margin: 0 0 0 65%;
 	padding-left: 20px;
-	background: transparent url('images/map-marker.png?v=100') no-repeat left top;
+	background: transparent url('img/map-marker.png?v=100') no-repeat left top;
 }
 #content .stafftable ul {
 	margin: 0;
@@ -2052,7 +2022,7 @@ body.home #content h4.job-number {
 #aside #sidebar-navigation-widgets h3 a {
 	display: block;		
 	margin: 0;
-	background: url('images/navigation-arrow.png?v=100') no-repeat -1px 6px;
+	background: url('img/navigation-arrow.png?v=100') no-repeat -1px 6px;
 	background-color: #edece4;	
 	padding: 10px 10px 10px 27px;
 	border-bottom: 1px solid #E0DCBC;
@@ -2127,7 +2097,7 @@ body.home #content h4.job-number {
 
 #aside ul.books li dd.price {
 	position: absolute;
-	background: url('images/price-circle.png?v=100') no-repeat 40% 50%;
+	background: url('img/price-circle.png?v=100') no-repeat 40% 50%;
 	z-index: 6;
 	top: -15px;
 	left: 30%;
@@ -3135,7 +3105,7 @@ img#wpstats {
 		-webkit-box-shadow: 0 -2px 6px rgba(16,16,16,.075);
 		-moz-box-shadow: -4px -2px 6px rgba(16,16,16,.075);
 		box-shadow: 0 -2px 6px rgba(16,16,16,.075);	
-		background: #fff url(images/gradient.png?v=100) repeat-x left -100px;			
+		background: #fff url(img/gradient.png?v=100) repeat-x left -100px;			
 	}
 
 	/*----- Job Postings single page ------ */
@@ -3158,7 +3128,7 @@ img#wpstats {
 		width: 100%;	
 	}
 	#footer {
-		background: #fff url(images/gradient.png?v=100) repeat-x left top;
+		background: #fff url(img/gradient.png?v=100) repeat-x left top;
 	}
 	
 	#footer .wrap h4 {
@@ -3419,13 +3389,13 @@ img#wpstats {
 	/*** arrows **/
 	#access .sf-menu li a.sf-with-ul {
 		min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
-		background: url(images/down-arrow.png?v=100) no-repeat right 55%; 
+		background: url(img/down-arrow.png?v=100) no-repeat right 55%; 
 		padding-right: 28px;					
 	}
 		
 	#access .sf-menu li li a.sf-with-ul {
 		min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
-		background: url(images/right-arrow.png?v=100) no-repeat left 58%;
+		background: url(img/right-arrow.png?v=100) no-repeat left 58%;
 	}
 
 			
@@ -3519,32 +3489,32 @@ img#wpstats {
 	}		
 	
 	#drop-section-nav #drop-nav ul li a[href*='extension'] {
-		background-image: url('images/ext-system-logo.png?v=100');
+		background-image: url('img/ext-system-logo.png?v=100');
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='aglifesciences'] {
-		background-image: url('images/college-logo.png?v=100');
+		background-image: url('img/college-logo.png?v=100');
 		margin-top: 6px;
 		height: 36px;
 		opacity: .4;		
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
-		background-image: url('images/tvmdl-logo.png?v=100');
+		background-image: url('img/tvmdl-logo.png?v=100');
 		width: 90px;
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='research'] {
-		background-image: url('images/research-logo.png?v=100');
+		background-image: url('img/research-logo.png?v=100');
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='txforestservice'] {
-		background-image: url('images/tfs-logo.png?v=100');
+		background-image: url('img/tfs-logo.png?v=100');
 		width: 109px;	
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='texas-sea'] {
-		background-image: url('images/seagrant.png?v=100');
+		background-image: url('img/seagrant.png?v=100');
     width: 91px;
 	}
 	
@@ -3599,7 +3569,7 @@ img#wpstats {
 	}		
 	#college-top-level-section  {
 		display: block;
-		background: #5b0125 url('images/drop-background.png?v=100');	
+		background: #5b0125 url('img/drop-background.png?v=100');	
 		color: #fff;
 		margin: 0 auto;
 	}
@@ -3834,7 +3804,7 @@ img#wpstats {
 	}	
 	body.extensioncounty #site-title a,
 	body.extensioncountytce #site-title a	 {
-		background: url('images/tx.png?v=100') no-repeat left 7px;
+		background: url('img/tx.png?v=100') no-repeat left 7px;
 		font-size: 32px;
 		padding: 5px 0 60px 100px;	
 	}
@@ -3887,7 +3857,7 @@ img#wpstats {
 		float: right;
 		-webkit-transition: .5s width ease;
 		-moz-transition: .5s width ease;		
-		background: #fff url('images/search.png?v=100') no-repeat left 45%;
+		background: #fff url('img/search.png?v=100') no-repeat left 45%;
 		-webkit-border-top-right-radius: 0;
 		-moz-border-radius-topright: 0;
 		border-top-right-radius:0;
@@ -4780,7 +4750,7 @@ a.gigpress-links-toggle {
     text-indent: -9999px;
     width: 11px;
     height: 11px;
-    background: transparent url(/images/calendar-toggle.png?v=100) no-repeat left top;
+    background: transparent url(/img/calendar-toggle.png?v=100) no-repeat left top;
     cursor: pointer;
 }
 
@@ -4803,7 +4773,7 @@ div.gigpress-calendar-links {
     top: -1.2em;
     width: 15em;
     padding-left: 7px;
-    background: transparent url('/images/calendar-links-bg.png?v=100') no-repeat left center;
+    background: transparent url('/img/calendar-links-bg.png?v=100') no-repeat left center;
 }
 
 .gigpress-calendar-links-inner {
@@ -4833,11 +4803,11 @@ p.gigpress-subscribe a {
 }
 
 a.gigpress-rss, a.gigpress-rss:hover {
-    background: transparent url(/images/feed-icon-12x12.png?v=100) no-repeat left center;   
+    background: transparent url(/img/feed-icon-12x12.png?v=100) no-repeat left center;   
 }
 
 a.gigpress-ical, a.gigpress-ical:hover {
-    background: transparent url(/images/icalendar-icon.gif) no-repeat left center;    
+    background: transparent url(/img/icalendar-icon.gif) no-repeat left center;    
 }
 
 /* For tour headings in the sidebar */
@@ -4929,7 +4899,7 @@ p.flex-caption a { font-size: 18px;color: #ddd; border: none;}
 p.flex-caption a:hover {color: #fff; border: none;}
 /* Direction Nav */
 #content ul.flex-direction-nav { list-style: none; }
-.flex-direction-nav li a { border: none; width: 36px; height: 36px; margin: -18px 0 0; display: block; background: url(images/arrows-white.png?v=100) no-repeat 0 0; position: absolute; top: 50%; cursor: pointer; text-indent: -9999px; } /* set negative margin-top equal to half the height on the directional-nav for perfect vertical centering */
+.flex-direction-nav li a { border: none; width: 36px; height: 36px; margin: -18px 0 0; display: block; background: url(img/arrows-white.png?v=100) no-repeat 0 0; position: absolute; top: 50%; cursor: pointer; text-indent: -9999px; } /* set negative margin-top equal to half the height on the directional-nav for perfect vertical centering */
 .flex-direction-nav li a.next {background-position: -40px 0; right: -12px;}
 .flex-direction-nav li a.prev {background-position: 0 0; left: -12px;}
 .flex-direction-nav li a.next:hover {background-position: -40px -43px;}
@@ -4968,7 +4938,7 @@ p.flex-caption a:hover {color: #fff; border: none;}
   border-bottom: none;
   background-repeat: no-repeat;
   background-position: left top;
-  background-image: url('images/social-icons.png?v=100');
+  background-image: url('img/social-icons.png?v=100');
   margin: auto;
 }
 

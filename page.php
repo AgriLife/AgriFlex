@@ -7,40 +7,54 @@
  * and that other 'pages' on your wordpress site will use a
  * different template.
  *
- * @package WordPress
- * @subpackage agriflex
- * @since agriflex 1.0
+ * @package AgriFlex
+ * @since AgriFlex 1.0
  */
+?>
 
-get_header(); ?>
+<?php get_header(); ?>
 
-		<div id="wrap">
-			<div id="content" role="main">
-		<?php if ( function_exists('yoast_breadcrumb') ) {
-		yoast_breadcrumb('<div id="breadcrumbs">','</div>');
-		} ?>
-<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+<div id="wrap">
+  <div id="content" role="main">
 
-				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-					<?php if ( is_front_page() ) { ?>
-						<h2 class="entry-title"><?php the_title(); ?></h2>
-					<?php } else { ?>	
-						<h1 class="entry-title"><?php the_title(); ?></h1>
-					<?php } ?>				
+    <?php if ( function_exists('yoast_breadcrumb') ) {
+      yoast_breadcrumb('<div id="breadcrumbs">','</div>');
+    } ?>
 
-					<div class="entry-content">
-						<?php the_content(); ?>
-						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'agriflex' ), 'after' => '</div>' ) ); ?>
-						<?php edit_post_link( __( 'Edit', 'agriflex' ), '<span class="edit-link">', '</span>' ); ?>
-					</div><!-- .entry-content -->
-				</div><!-- #post-## -->
+    <!-- Action hook to insert content before the loop starts -->
+    <?php agriflex_before_loop(); ?>
 
-				<?php comments_template( '', true ); ?>
+    <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-<?php endwhile; ?>
+    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+      <?php if ( is_front_page() ) { ?>
+      <h2 class="entry-title"><?php the_title(); ?></h2>
+      <?php } else { ?>	
+      <h1 class="entry-title"><?php the_title(); ?></h1>
+      <?php } ?>				
 
-			</div><!-- #content -->
-		</div><!-- #wrap -->
+      <div class="entry-content">
+
+        <?php the_content(); ?>
+
+        <?php wp_link_pages( array(
+          'before' => '<div class="page-link">' . __( 'Pages:', 'agriflex' ),
+          'after' => '</div>' ) ); ?>
+
+        <?php agriflex_edit_link(); ?>
+      </div><!-- .entry-content -->
+
+    </div><!-- #post-<?php the_ID(); ?> -->
+
+    <!-- Action hook to insert content after the loop ends -->
+    <?php agriflex_after_loop(); ?>
+
+    <?php comments_template( '', true ); ?>
+
+    <?php endwhile; ?>
+
+  </div><!-- #content -->
+</div><!-- #wrap -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

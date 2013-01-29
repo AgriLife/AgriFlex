@@ -7,12 +7,12 @@
  * The "Template Name:" bit above allows this to be selectable
  * from a dropdown menu on the edit page screen.
  *
- * @package WordPress
- * @subpackage agriflex
- * @since agriflex 1.0
+ * @package AgriFlex
+ * @since AgriFlex 1.0
  */
+?>
 
-get_header(); ?>
+<?php get_header(); ?>
 
 		<div id="wrap" class="one-column">
 			<div id="content" role="main">
@@ -24,9 +24,9 @@ get_header(); ?>
 					<div class="entry-content">
 						<?php the_content(); ?>
 						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'agriflex' ), 'after' => '</div>' ) ); ?>
-						<?php edit_post_link( __( 'Edit', 'agriflex' ), '<span class="edit-link">', '</span>' ); ?>
+            <?php agriflex_edit_link(); ?>
 					</div><!-- .entry-content -->
-				</div><!-- #post-## -->
+        </div><!-- #post-<?php the_ID(); ?> -->
 
 				<?php comments_template( '', true ); ?>
 
