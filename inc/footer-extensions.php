@@ -79,7 +79,7 @@ function agriflex_about_footer() {
   $html .= '<div class="about">';
 
   $about = '<h4>Texas A&amp;M AgriLife</h4>';
-  $about .= '<a href="http://www.youtube.com/watch?v=df_SGBF4LK4"><img src="' . get_bloginfo( 'template_directory' ) . '/images/about_video_multi.jpg?v=100" alt="link to AgriLife Solutions Video" /></a>';
+  $about .= '<a href="http://www.youtube.com/watch?v=df_SGBF4LK4"><img src="' . get_bloginfo( 'template_directory' ) . '/img/about_video_multi.jpg?v=100" alt="link to AgriLife Solutions Video" /></a>';
   $about .= '<p>Solutions for a Changing World</p>';
   $about .= '<ul>';
   $about .= '<li><a href="http://agrilife.tamu.edu/vc/">Office of the Vice Chancellor</a></li>';
@@ -112,7 +112,7 @@ function agriflex_popular_links() {
   $html .= '<div class="popular-links">';
 
   $links = '<h4>AgriLife Agencies</h4>';
-  $links .= '<a href="http://aglifesciences.tamu.edu/"><img src="' . get_bloginfo( 'template_directory' ) . '/images/agrilife-footer-logo.png?v=100" alt="Texas A and M AgriLife Logo" /></a>	';
+  $links .= '<a href="http://aglifesciences.tamu.edu/"><img src="' . get_bloginfo( 'template_directory' ) . '/img/agrilife-footer-logo.png?v=100" alt="Texas A and M AgriLife Logo" /></a>	';
   $links .= '<ul>';
   $links .= '<li><a href="http://agrilifeextension.tamu.edu/">Texas A&amp;M AgriLife Extension Service</a></li>';
   $links .= '<li><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M AgriLife Research</a></li>';
@@ -147,7 +147,7 @@ function agriflex_required_footer() {
   $html .= '<h4>Required Links</h4>';
 
   $link_logo = '<a href="http://www.tamus.edu">';
-  $link_logo .= '<img src="' . get_bloginfo( 'template_directory' ) . '/images/texas-a-m-system.png?v=100" alt="Texas A&amp;M System image" />';
+  $link_logo .= '<img src="' . get_bloginfo( 'template_directory' ) . '/img/texas-a-m-system.png?v=100" alt="Texas A&amp;M System image" />';
   $link_logo .= '</a>';
 
   $html .= apply_filters( 'required_links_logo', $link_logo );
@@ -271,7 +271,7 @@ function agriflex_bookstore_footer() {
   $html .= '<div class="agrilife-bookstore">';
   $html .= '<h4>AgriLife Bookstore</h4>';
   $html .= '<a href="https://agrilifebookstore.org/">';
-  $html .= '<img src="' . get_bloginfo( 'template_directory' ) . '/images/bookstore-books.png?v=100" alt="AgriLife Bookstore image" />';
+  $html .= '<img src="' . get_bloginfo( 'template_directory' ) . '/img/bookstore-books.png?v=100" alt="AgriLife Bookstore image" />';
   $html .= '</a>';
   $html .= '<p>AgriLife Extension&apos;s online Bookstore offers educational information and resources related to our many areas of expertise and programming; from agriculture, horticulture, and natural resources to nutrition, wellness for families and youth, and much more.</p>';
   $html .= '</div><!-- .agrilife-bookstore -->';

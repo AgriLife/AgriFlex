@@ -38,7 +38,7 @@ function agriflex_ext_logo() {
   $html .= '<span class="top-level-hide">';
   $html .= 'Texas A&amp;M AgriLife Extension Service';
   $html .= '</span>';
-  $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/images/extension-branding.png" alt="Texas A&amp;M Extension Logo" />';
+  $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/img/extension-branding.png" alt="Texas A&amp;M Extension Logo" />';
   $html .= '</a>';
   $html .= '</li>';
 
@@ -124,7 +124,7 @@ function agriflex_mn_title( $link, $args ) {
 function extension_about( $about ) {
 
   $html = '<h4>About</h4>';
-  $html .= '<a href="http://www.youtube.com/watch?v=q_UsLHl_YDQ"><img src="' . get_bloginfo( 'template_directory' ) . '/images/about_video.jpg?v=100" alt="link to Extension about video" /></a>';
+  $html .= '<a href="http://www.youtube.com/watch?v=q_UsLHl_YDQ"><img src="' . get_bloginfo( 'template_directory' ) . '/img/about_video.jpg?v=100" alt="link to Extension about video" /></a>';
   $html .= '<p>A unique education agency, the Texas A&amp;M AgriLife Extension Service teaches Texans wherever they live, extending research-based knowledge to benefit their families and communities.</p>	';
 
   return $html;
@@ -142,7 +142,7 @@ function extension_about( $about ) {
 function extension_links( $links ) {
 
   $html = '<h4>Popular Links</h4>';
-  $html .= '<a href="http://agrilifeextension.tamu.edu/"><img src="' . get_bloginfo( 'template_directory' ) . '/images/agrilife_ext_logo.png?v=100" alt="Texas A&amp;M AgriLife Extension" /></a>	';
+  $html .= '<a href="http://agrilifeextension.tamu.edu/"><img src="' . get_bloginfo( 'template_directory' ) . '/img/agrilife_ext_logo.png?v=100" alt="Texas A&amp;M AgriLife Extension" /></a>	';
   $html .= '<ul>';
   $html .= '<li><a href="http://county-tx.tamu.edu/">County Extension Offices</a></li>';
   $html .= '<li><a href="http://agrilife.tamu.edu/locations-window/#centers">Research and Extension Centers</a></li>';

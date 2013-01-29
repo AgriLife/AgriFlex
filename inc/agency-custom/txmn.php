@@ -43,7 +43,7 @@ function agriflex_tpwd_logo() {
 function txmn_about( $about ) {
 
   $html = '<h4>About Us</h4>';
-  $html .= '<a href="http://www.txmn.org/"><img src="' . get_bloginfo( 'template_directory' ) . '/images/about_txmn.jpg?v=100" alt="link to txmn.org" /></a>';
+  $html .= '<a href="http://www.txmn.org/"><img src="' . get_bloginfo( 'template_directory' ) . '/img/about_txmn.jpg?v=100" alt="link to txmn.org" /></a>';
   $html .= '<p><a href="http://txmn.org/">Texas Master Naturalists</a> enjoy digging in the dirt and slogging through the mud while giving back to the community.</p>	';
   $html .= '<ul>';
   $html .= '<li><a href="http://txmn.org/whats-a-master-naturalist/">What&apos;s a Master Naturalist?</a></li>';
@@ -66,7 +66,7 @@ function txmn_about( $about ) {
 function txmn_links( $links ) {
 
   $html = '<h4>Popular Links</h4>';
-  $html .= '<a href="http://agrilifeextension.tamu.edu/"><img src="' . get_bloginfo( 'template_directory' ) . '/images/agrilife_ext_logo.png?v=100" alt="Texas AgriLife Extension" /></a>	';
+  $html .= '<a href="http://agrilifeextension.tamu.edu/"><img src="' . get_bloginfo( 'template_directory' ) . '/img/agrilife_ext_logo.png?v=100" alt="Texas AgriLife Extension" /></a>	';
   $html .= '<ul>';
   $html .= '<li><a href="http://county-tx.tamu.edu/">County Extension Offices</a></li>';
   $html .= '<li><a href="http://agrilife.tamu.edu/locations-window/#centers">Research and Extension Centers</a></li>';

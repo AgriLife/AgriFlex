@@ -30,7 +30,7 @@ function agriflex_res_logo() {
   $html .= '<span class="top-level-hide">';
   $html .= 'Texas A&amp;M AgriLife Research';
   $html .= '</span>';
-  $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/images/research-branding.png" alt="Texas A&amp;M Research Logo" />';
+  $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/img/research-branding.png" alt="Texas A&amp;M Research Logo" />';
   $html .= '</a>';
   $html .= '</li>';
 
@@ -49,7 +49,7 @@ function agriflex_res_logo() {
 function research_about( $about ) {
 
   $html = '<h4>About</h4>';
-  $html .= '<a href="http://www.youtube.com/watch?v=UnLkKMJasXk"><img src="' . get_bloginfo( 'template_directory' ) . '/images/research-video-pic.jpg?v=100" alt="link to Texas A&amp;M Research about video" /></a>';
+  $html .= '<a href="http://www.youtube.com/watch?v=UnLkKMJasXk"><img src="' . get_bloginfo( 'template_directory' ) . '/img/research-video-pic.jpg?v=100" alt="link to Texas A&amp;M Research about video" /></a>';
   $html .= '<p><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M AgriLife Research</a> is the state&apos;s premier research agency in agriculture, natural resources, and the life sciences. Our research spans numerous scientific disciplines and is international in scope.</p>';
   $html .= '<ul>';
   $html .= '<li><a href="http://agriliferesearch.tamu.edu/research-units/">Research Units</a></li>';
@@ -74,7 +74,7 @@ function research_about( $about ) {
 function research_links( $links ) {
 
   $html = '<h4>Research Topics</h4>';
-  $html .= '<a href="http://agriliferesearch.tamu.edu/"><img src="' . get_bloginfo( 'template_directory' ) . '/images/agrilife-research-footer-logo.png?v=100" alt="Texas A and M AgriLife Research Logo" /></a>	';
+  $html .= '<a href="http://agriliferesearch.tamu.edu/"><img src="' . get_bloginfo( 'template_directory' ) . '/img/agrilife-research-footer-logo.png?v=100" alt="Texas A and M AgriLife Research Logo" /></a>	';
   $html .= '<ul>';
   $html .= '<li><a href="http://agriliferesearch.tamu.edu/topics/animals/">Animals</a></li>';
   $html .= '<li><a href="http://agriliferesearch.tamu.edu/topics/crops-plants/">Crops &amp; Plants</a></li>';

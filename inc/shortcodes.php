@@ -257,7 +257,7 @@ function myLoop( $atts, $content = null ) {
           } else{
             echo '<img src="' .
               get_bloginfo('template_url') .
-              '/images/AgriLife-default-post-image.png?v=100" alt="AgriLife Logo" title="AgriLife" />'; 
+              '/img/AgriLife-default-post-image.png?v=100" alt="AgriLife Logo" title="AgriLife" />'; 
           }
           ?>
       </a>

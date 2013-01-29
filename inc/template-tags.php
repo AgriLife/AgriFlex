@@ -140,7 +140,7 @@ function agriflex_post_thumbnail( $size = 'featured-mediabox' ) {
     $html .= get_the_post_thumbnail( $post->ID, $size ); 
   } else  { 
     // Show the default thumbnail
-    $html .='<img src="' . get_bloginfo('template_url') . '/images/AgriLife-default-post-image.png?v=100" alt="AgriLife Logo" title="AgriLife" />';
+    $html .='<img src="' . get_bloginfo('template_url') . '/img/AgriLife-default-post-image.png?v=100" alt="AgriLife Logo" title="AgriLife" />';
   }
   $html .= '</a>';
 

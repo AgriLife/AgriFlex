@@ -176,7 +176,7 @@ class WatchReadListenWidget extends WP_Widget {
                 <dl>
                   <dt class="book-title">Keep Your Lawn Alive</dt>	
                   <dd class="book-cover">
-                    <img class="book" src="<?php bloginfo( 'template_directory' ) ?>/images/alive-book.jpg?v=100" alt="keep your lawn alive book"/>
+                    <img class="book" src="<?php bloginfo( 'template_directory' ) ?>/img/alive-book.jpg?v=100" alt="keep your lawn alive book"/>
                   </dd>
                   <dd class="price">
                     <em>$</em>2<span>00</span>
@@ -192,7 +192,7 @@ class WatchReadListenWidget extends WP_Widget {
                 <dl>
                   <dt class="book-title">Rainwater Harvest</dt>	
                   <dd class="book-cover">
-                    <img class="book" src="<?php bloginfo( 'template_directory' ) ?>/images/rainwater-harvest-cover.png?v=100" alt="rainwater harvest book"/>
+                    <img class="book" src="<?php bloginfo( 'template_directory' ) ?>/img/rainwater-harvest-cover.png?v=100" alt="rainwater harvest book"/>
                   </dd>
                   <dd class="price">
                     <em>$</em>4<span>50</span>

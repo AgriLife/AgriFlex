@@ -156,7 +156,7 @@ function agriflex_tfs_logo() {
     $html .= '<span class="top-level-hide">';
     $html .= 'Texas A&amp;M Forest Service';
     $html .= '</span>';
-    $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/images/forest-branding.png" alt="Texas A&amp;M Forest Service Logo" />';
+    $html .= '<img src="' . get_bloginfo( 'stylesheet_directory') . '/img/forest-branding.png" alt="Texas A&amp;M Forest Service Logo" />';
     $html .= '</a>';
     $html .= '</li>';
 
