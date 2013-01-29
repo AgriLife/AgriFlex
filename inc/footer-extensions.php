@@ -290,8 +290,9 @@ add_action( 'footer_col_5', 'agriflex_bookstore_footer', 10, 1 );
 function agriflex_remove_footer_actions() {
 
   $min = of_get_option( 'minimal-footer' );
+  $a = agriflex_agency();
 
-  if ( $min ) {
+  if ( $min || in_array('fazd', $a['agencies'] ) ) {
     remove_action( 'agriflex_footer', 'agriflex_show_footer' );
     add_action( 'agriflex_footer', 'agriflex_minimal_footer' );
   }
