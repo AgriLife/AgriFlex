@@ -20,7 +20,7 @@
 <html id="ie8" class="no-js ie8 oldie" <?php language_attributes(); ?>>
 <![endif]-->
 <!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> class="no-js" id="doc">
 <!--<![endif]-->
 <head>
 
@@ -62,7 +62,7 @@
 
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('not-active'); ?> id="page-body">
 
 <!-- Action hook for inserting top navigation and other elements -->
 <?php agriflex_before_header(); ?>
@@ -75,5 +75,5 @@
   <!-- Action hook for placing content below the site header -->
   <?php agriflex_after_header(); ?>
 
-  <div id="content-wrap">		
+  <div id="content-wrap" role="document">		
           <div class="wrap">	
