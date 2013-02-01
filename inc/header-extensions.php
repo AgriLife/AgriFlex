@@ -320,7 +320,7 @@ add_filter( 'agriflex_site_title', 'agriflex_big_logo', 20, 2 );
  */
 function agriflex_main_nav() {
 
-  echo '<div class="menu-button">Menu</div>';
+  echo '<div class="menu-button" id="menu-button">Menu</div>';
   get_template_part( 'nav', 'primary' );
 
 } // agriflex_main_nav
