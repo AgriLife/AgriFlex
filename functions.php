@@ -98,6 +98,12 @@ function load_js() {
       true);                
     wp_enqueue_script( 'my_scripts' );
 
+    // enqueue fitvids
+    wp_register_script( 'fitvids',
+      get_bloginfo( 'template_directory' ) . '/js/flex-bootstrap.js'
+    );
+    wp_enqueue_script( 'fitvids' );
+
   }             
 
 } // load_js

@@ -57,9 +57,6 @@
   as styles, scripts, and meta tags. -->
   <?php wp_head(); ?>
 
-  <!-- Hook up the FlexSlider and FitVids-->
-  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/flex-bootstrap.js"></script>
-
 </head>
 
 <body <?php body_class('not-active'); ?> id="page-body">
