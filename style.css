@@ -2,7 +2,7 @@
     Theme Name: AgriFlex2
     Description: Custom theme created for Texas A&M AgriLife network.
     Author: AgriLife Communications
-    Version: 2.0
+    Version: 2.1.1
 */
 
 
@@ -1611,11 +1611,6 @@ body .flickr-gallery-prev a {
 	margin: 20px 0 20px 2px;
 	}
 
-.single-staff span.read-more a {
-	margin-top: 0;
-	float: none;
-	padding-top: .3em;
-}
 
 span.read-more a:hover,
 body .flickr-gallery-next a:hover,
@@ -1774,15 +1769,6 @@ body.home.blog .hentry {
 
 /* Job Postings, Tests and Staff pages (Custom Post Types)
 -------------------------------------------------------------- */
-.staff-search-form,
-.test-search-form {
-	margin-bottom: 20px;
-	padding: 10px;
-	background: #edece4;
-	border-top: 1px solid #d5d1bf;
-	border-bottom: 1px solid #d5d1bf;
-	position: relative;
-}
 
 .test-search-form {
 	overflow: hidden;
@@ -1816,143 +1802,6 @@ body.home.blog .hentry {
 	padding-top: 8px;
 }
 
-.staff-search-form .searchform,
-.test-search-form .searchform {
-	top: 8px;
-}
-
-.staff-search-form label h4,
-.test-search-form label h4 {
-	margin-bottom: 5px;
-}
-
-.staff-listing-ul {
-	border-top: double #d5d1bf;	
-}
-
-.staff-listing-ul,
-.staff-listing-item,
-.test-listing-ul,
-.test-listing-item {
-	list-style-type: none;
-	margin-left: 0;
-	padding-left: 0;
-}
-
-.staff-listing-item,
-.test-listing-link {
-	list-style-type: none;
-	margin-left: 0;
-	padding-left: 0;
-	overflow: hidden;
-	display: block;
-	background: #EAE6D2;
-	background: rgba(217, 208, 173, .30);
-	border-bottom: 1px solid #fafaf6;
-}
-
-.test-listing-item {
-	list-style-type: none;	
-}
-
-.staff-listing-item:nth-child(even),
-.test-listing-item:nth-child(even)  {
-	background: #EAE6D2;
-	background: rgba(217, 208, 173, .10);
-}
-
-.staff-container,
-body.tvmdlonly a.test-listing-link {
-	overflow: hidden;
-	display: block;	
-	text-decoration: none;
-	padding: 10px;
-	border-bottom: 1px solid #d5d1c3;		
-}
-
-.staff-container img {
-	float: right;
-	margin-right: 0;
-}
-
-.staff-listing-item:hover,
-a.staff-listing-link:hover,
-a.test-listing-link:hover {
-	background: #f1efce;
-	border-bottom: 1px solid #9f9490;		
-}
-
-.staff-title,
-.test-title {
-	font: 90% "minion-pro-1","minion-pro-2", 'Cambria', 'Georgia', 'Times New Roman', serif;
-	font-size: 22px;
-	font-weight: bold;
-	margin-bottom: 10px;
-}
-.test-title {
-	margin-bottom: 0;
-}
-
-#content .test-listing-dt {
-	float: left;
-	width: 55%;	
-	margin-bottom: 0;	
-}
-
-#content .test-listing-dd {
-	float: right;
-	width: 40%;	
-	margin-bottom: 0;
-}
-
-.test-listing-dd ul {
-	margin: 5px 0;	
-}
-
-.staff-phone,
-.staff-email,
-.staff-position {
-	font-size: 14px;
-	color: #433C3A;	
-}
-
-.staff-position {
-	font-weight: bold;	
-}
-
-.staff-head {
-	width: 45%;
-	float: left;
-}
-
-.staff-contact-details {
-	font-size: 14px;
-	color: #433C3A;
-	float: right;
-	width: 30%;
-	padding-left: 20px;	
-}
-
-.staff-contact-details p{
-	margin: 7px 0;
-}
-
-#content p.job-location {
-	font-size: 12px;
-	color: #9f9490;
-	width: 30%;
-	margin: 0 0 0 65%;
-	padding-left: 20px;
-	background: transparent url('img/map-marker.png?v=100') no-repeat left top;
-}
-#content .stafftable ul {
-	margin: 0;
-	list-style: none;
-}
-#content .stafftable ul ul {
-	margin: 0 0 0 2em;
-	list-style: circle;
-}
 .county-staff-list .staff-contact-details {
 	width: 45%;
 }
@@ -3929,22 +3778,6 @@ img#wpstats {
 		font-size: 32px;
 	}
 
-	.staff-person-details {
-		margin-left: 200px;
-	}
-	
-	#content .staff-person-details dt {
-		margin-top: 20px;
-	}
-		
-	#content .staff-person-details dd {
-		margin: 0;
-		padding: 2px 0;
-	}
-
-	img.attachment-staff_single {
-		float: left;
-	}
 			
 	#wrap {
 		float: left;
