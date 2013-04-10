@@ -88,9 +88,9 @@ function agriflex_save_postdata( $post_id ) {
 
   // Update The Value
   if ( ! empty( $_POST['agrilife_featured_post'] ) ) {
-    $featured == 'on';
+    $featured = 'on';
   } else {
-    $featured == 'off';
+    $featured = 'off';
   }
   update_post_meta($post_id, 'feature-homepage',
     ( $featured == 'on' ? 1 : 0 ) );
