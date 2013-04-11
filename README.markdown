@@ -4,9 +4,28 @@ Custom theme created for the Texas A&M AgriLife network.
 
 __Author__: Texas A&M AgriLife Communications
 
-__Version__: 2.0
+__Version__: 2.2
 
 ## Change Log
+
+### 2.2
+
+- Fixed issue where site title/logo would link to the base site in multisite.
+- Fixed featured post checkbox saving on post and page edit screends.
+- Now saves the map images as base64 encoded transient in the database.
+- Map transient is reset when theme options are saved.
+
+### 2.1.1
+
+- Removed styles related to the staff custom post type
+- Updated version number in style.css to clarify the information on the backend.
+
+### 2.1
+
+- Added some classes and ID's to accommodate off-canvas child themes more easily.
+- Improved the .gitignore
+- Moved flexslider & fitvids JS to properly enqueue.
+
 
 ### 2.0
 

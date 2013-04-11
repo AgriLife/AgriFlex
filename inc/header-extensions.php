@@ -217,7 +217,7 @@ add_action( 'agriflex_before_header', 'agriflex_agency_nav_end', 99 );
  */
 function agriflex_site_title() {
 
-  $home_url = get_home_url( '/' );
+  $home_url = get_home_url();
   $blog_name = esc_attr( get_bloginfo( 'name', 'display' ) );
 
   $args = array(

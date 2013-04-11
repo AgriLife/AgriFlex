@@ -120,3 +120,31 @@ function agriflex_agency() {
   return $return;
 
 } // agriflex_agency
+
+/**
+ * Retrieves the static map image, encodes, then caches it. Returns the
+ * transient if available.
+ * 
+ * @since AgriFlex 2.2
+ * @param  string $mapaddress The map image url
+ * @return string             The encoded image data
+ */
+function agriflex_get_map( $mapaddress ) {
+
+  $options = of_get_option();
+  $map_image_trans = get_transient( 'map_image' );
+
+  if ( empty( $map_image_trans ) ) {
+    $map_image = ( $options['map-image'] == '' ? 'http://maps.google.com/maps/api/staticmap?size=175x101&markers=size:mid%7Ccolor:blue%7Clabel:Office%7C' . urlencode( $mapaddress ) . '&sensor=false' : $options['map-image'] );
+    $map_file = file_get_contents( $map_image );
+    $map_encoded = 'data:image/png;base64, ' . base64_encode( $map_file );
+
+    set_transient( 'map_image', $map_encoded, WEEK_IN_SECONDS );
+
+    return $map_encoded;
+  } else {
+    return $map_image_trans;
+  }
+
+
+}

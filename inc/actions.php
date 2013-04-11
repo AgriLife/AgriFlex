@@ -104,3 +104,15 @@ function agriflex_remove_recent_comments_style() {
 
 } // agriflex_remove_recent_comments_style
 add_action( 'widgets_init', 'agriflex_remove_recent_comments_style' );
+
+/**
+ * Resets the map_image transient after options are updated
+ * 
+ * @since AgriFlex 2.2
+ */
+function agriflex_reset_map() {
+
+  delete_transient( 'map_image' );
+
+}
+add_action( 'optionsframework_after_validate', 'agriflex_reset_map' );
