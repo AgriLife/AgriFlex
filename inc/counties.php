@@ -840,8 +840,7 @@ function county_footer_contact() {
 
         $mapaddress = $item[14] . ' ' . $item[17] . ', ' . $item[18] . ' '. $item[19];
 
-        $map_image = ( 'http://maps.google.com/maps/api/staticmap?size=175x101&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office%7C' .
-          urlencode( $mapaddress ) . '&amp;sensor=false' );
+        $map_image = agriflex_get_map( $mapaddress );
         
         $map_link = ( 'http://maps.google.com/?q=' .
           urlencode( $mapaddress ) .

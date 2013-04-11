@@ -198,7 +198,7 @@ function agriflex_contact_footer() {
     $mapaddress .= $options['p-city'] . ', TX ';
     $mapaddress .= $options['p-zip'];
     // Checks to see if there's a map image override
-    $map_image = ( $options['map-image'] == '' ? 'http://maps.google.com/maps/api/staticmap?size=175x101&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office%7C' . urlencode( $mapaddress ) . '&amp;sensor=false' : $options['map-image'] );
+    $map_image = agriflex_get_map( $mapaddress );
     // Checks to see if there's a map link override
     $map_link = ( $options['map-link'] == '' ? 'http://maps.google.com/?q=' . urlencode( $mapaddress ) . '&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office&amp;sensor=false' : $options['map-link'] );
 
