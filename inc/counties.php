@@ -840,13 +840,11 @@ function county_footer_contact() {
 
         $mapaddress = $item[14] . ' ' . $item[17] . ', ' . $item[18] . ' '. $item[19];
 
-        $map_image = agriflex_get_map( $mapaddress );
-        
         $map_link = ( 'http://maps.google.com/?q=' .
           urlencode( $mapaddress ) .
           '&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office&amp;sensor=falsehad' );
         
-        $return = '<a href="' . $map_link . '"><img src="' . $map_image . '" height="101" width="175" alt="Map to office" /></a>';
+        $return = '<img src="' . get_bloginfo( 'template_directory' ) . '/img/contact-img.png?v=100" alt="Texas A&amp;M System image" />';
         $return .= '<ul>';
 
         if ( is_array( $options ) ) {
@@ -858,10 +856,12 @@ function county_footer_contact() {
               $zip = $item[19];
             }
 
+            $return .= '<a href="' . $map_link . '">';
             $return .= '<li>';
             $return .= $item[2] . '<br />';
             $return .= $item[14];
             $return .= '<br />' . $item[17] . ', ' . $item[18] . ' ' . $zip . '</li>';
+            $return .= '</a>';
           }
           if( $options['hours']<>'' ) {
             $return .= '<li>' . $options['hours'] . '</li>';

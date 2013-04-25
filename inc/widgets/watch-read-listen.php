@@ -61,7 +61,7 @@ class WatchReadListenWidget extends WP_Widget {
         // ex: http://youtu.be/iWCmfpFOC3A
         $user_video = explode( "youtu.be/", $user_video );
         $user_video = $user_video[1];
-        $embedpath = 'v/' . $user_video;
+        $embedpath = 'embed/' . $user_video;
         $fallbacklink = 'http://www.youtube.com/watch?v=' . $user_video;
         $fallbackcontent = '<img src="http://img.youtube.com/vi/' .
           $user_video . '/0.jpg?v=100" alt="' .
@@ -98,7 +98,7 @@ class WatchReadListenWidget extends WP_Widget {
         if ( empty( $matches ) || empty( $matches[3] ) ) 
         echo "Unable to parse URL, check for correct format: http://www.youtube.com/watch?v=iRbX2uPgGsw";
 
-        $embedpath = 'v/' . $matches[3];
+        $embedpath = 'embed/' . $matches[3];
         $fallbacklink = 'http://www.youtube.com/watch?v=' . $matches[3];
         $fallbackcontent = '<img src="http://img.youtube.com/vi/' .
           $matches[3] . '/0.jpg?v=100" alt="' .
@@ -107,7 +107,7 @@ class WatchReadListenWidget extends WP_Widget {
 
     } else { // If a URL wasn't passed, assume a video ID was passed instead
 
-      $embedpath = 'v/' . $user_video;
+      $embedpath = 'embed/' . $user_video;
       $fallbacklink = 'http://www.youtube.com/watch?v=' . $user_video;
       $fallbackcontent = '<img src="http://img.youtube.com/vi/' . $user_video .
         '/0.jpg?v=100" alt="' .
@@ -162,12 +162,7 @@ class WatchReadListenWidget extends WP_Widget {
           <li><a href="#tabs-3">Listen</a></li>
         </ul>
         <div id="tabs-1">
-          <object type="application/x-shockwave-flash" width="372" height="236" data="<?php echo $youtube_video;?>">
-            <param name="movie" value="<?php echo $youtube_video;?>">
-            <param name="allowFullScreen" value="true">
-            <param name="allowscriptaccess" value="always">
-            <param name="wmode" value="opaque" />
-          </object>	
+          <iframe width="372" height="236" src="<?php echo $youtube_video; ?>" frameborder="0" allowfullscreen></iframe>
         </div><!-- end #watch-tab -->
         <div id="tabs-2">		
           <ul class="books">
