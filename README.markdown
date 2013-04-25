@@ -4,9 +4,14 @@ Custom theme created for the Texas A&M AgriLife network.
 
 __Author__: Texas A&M AgriLife Communications
 
-__Version__: 2.2
+__Version__: 2.2.1
 
 ## Change Log
+
+### 2.2.1
+
+- Fixed YouTube embeds in the Read, Watch, Listen widget for Firefox
+- Removed google map functionality in the footer. Replaced map with some icons.
 
 ### 2.2
 
