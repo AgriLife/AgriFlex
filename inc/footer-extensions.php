@@ -202,11 +202,9 @@ function agriflex_contact_footer() {
     // Checks to see if there's a map link override
     $map_link = ( $options['map-link'] == '' ? 'http://maps.google.com/?q=' . urlencode( $mapaddress ) . '&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office&amp;sensor=false' : $options['map-link'] );
 
-    $html .= '<a href="' . $map_link . '">';
-    $html .= '<img src="' . $map_image . '" height="101" width="175" alt="Map to office" />';
-    $html .= '</a>';
-
+    $html .= '<img src="' . get_bloginfo( 'template_directory' ) . '/img/contact-img.png?v=100" alt="Texas A&amp;M System image" />';
     $html .= '<ul>';
+    $html .= '<a href="' . $map_link . '">';
 
     if ( ! empty( $options['p-street-1'] ) ) {
       $html .= '<li>' . $options['p-street-1'] . '<br />';
@@ -215,6 +213,7 @@ function agriflex_contact_footer() {
       }
       $html .= $options['p-city'] . ', TX ' . $options['p-zip'] . '</li>';
     }
+    $html .= '</a>';
 
     if ( ! empty( $options['m-street-1'] ) ) {
       $html .= '<li>' . $options['m-street-1'] . '<br />';
