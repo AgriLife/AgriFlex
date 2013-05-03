@@ -4,9 +4,14 @@ Custom theme created for the Texas A&M AgriLife network.
 
 __Author__: Texas A&M AgriLife Communications
 
-__Version__: 2.2.1
+__Version__: 2.2.2
 
 ## Change Log
+
+### 2.2.2
+
+- Removed the social media widget. It now lives in a plugin [here][4]
+- Fixed the State Link Policy link in footer
 
 ### 2.2.1
 
@@ -55,3 +60,4 @@ __Version__: 2.2.1
 [1]:https://github.com/devinsays/options-framework-theme
 [2]:http://codex.wordpress.org/Post_Formats
 [3]:https://github.com/AgriLife/AgriFlex/wiki
+[4]:https://github.com/AgriLife/AgriLife-Social-Media
