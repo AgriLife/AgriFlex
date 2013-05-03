@@ -156,7 +156,7 @@ function agriflex_required_footer() {
   $html .= '<li><a href="http://agrilife.org/vc/compact/">Compact with Texans</a></li>';
   $html .= '<li><a href="http://agrilife.org/vc/privacy/">Privacy and Security</a></li>';
   $html .= '<li><a href="http://itaccessibility.tamu.edu/">Accessibility Policy</a></li>';
-  $html .= '<li><a href="http://www.dir.texas.gov/pubs/srrpubs/pages/srrpub11-agencylink.aspx">State Link Policy</a></li>';
+  $html .= '<li><a href="http://www.dir.texas.gov/pubs/retired/Pages/srrpub11-agencylink.aspx">State Link Policy</a></li>';
   $html .= '<li><a href="http://www.tsl.state.tx.us/trail">Statewide Search</a></li>';
   $html .= '<li><a href="http://aghr.tamu.edu/education-civil-rights.htm">Equal Opportunity for Educational Programs Statement</a></li>';
   $html .= '<li><a href="http://www.tamus.edu/veterans/">Veterans Benefits</a></li>';
