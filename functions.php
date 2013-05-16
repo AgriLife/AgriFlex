@@ -111,7 +111,7 @@ add_action('init', 'load_js');
 
 function agriflex_load_ie_styles() {
 
-  echo '<!--[if lt IE 9]><link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/iefix.css?2" /><![endif]-->';
+  echo '<!--[if lt IE 9]><link rel="stylesheet" type="text/css" media="all" href="' . get_template_directory_uri() . '/css/iefix.css?2" /><![endif]-->';
 
 } // agriflex_load_styles
 add_action( 'wp_enqueue_scripts', 'agriflex_load_ie_styles' );
