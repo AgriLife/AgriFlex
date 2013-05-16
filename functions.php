@@ -107,7 +107,14 @@ function load_js() {
   }             
 
 } // load_js
-add_action('init', 'load_js');    
+add_action('init', 'load_js');
+
+function agriflex_load_ie_styles() {
+
+  echo '<!--[if lt IE 9]><link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/iefix.css?2" /><![endif]-->';
+
+} // agriflex_load_styles
+add_action( 'wp_enqueue_scripts', 'agriflex_load_ie_styles' );
 
 /**
  * Disable some widgets that are replaced by theme funcitonality
