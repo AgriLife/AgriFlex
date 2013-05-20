@@ -6,3 +6,4 @@ search-tests.php
 images/agrilife-research-footer-logo2.png
 *.sublime*
 ._*
+.fuse*
