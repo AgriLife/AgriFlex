@@ -256,7 +256,7 @@ function myLoop( $atts, $content = null ) {
             the_post_thumbnail( 'featured-mediabox' ); 
           } else{
             echo '<img src="' .
-              get_bloginfo('template_url') .
+              get_template_directory_uri() .
               '/img/AgriLife-default-post-image.png?v=100" alt="AgriLife Logo" title="AgriLife" />'; 
           }
           ?>
