@@ -844,7 +844,7 @@ function county_footer_contact() {
           urlencode( $mapaddress ) .
           '&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office&amp;sensor=falsehad' );
         
-        $return = '<img src="' . get_bloginfo( 'template_directory' ) . '/img/contact-img.png?v=100" alt="Texas A&amp;M System image" />';
+        $return = '<img src="' . get_stylesheet_directory_uri() . '/img/contact-img.png?v=100" alt="Texas A&amp;M System image" />';
         $return .= '<ul>';
 
         if ( is_array( $options ) ) {

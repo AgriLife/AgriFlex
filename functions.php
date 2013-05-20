@@ -85,14 +85,14 @@ function load_js() {
 
     // enqueue the custom jquery js
     wp_enqueue_script('modernizr',
-      get_bloginfo('template_directory') . '/js/modernizr-2.6.min.js',
+      get_template_directory_uri() . '/js/modernizr-2.6.min.js',
       array('jquery'),
       '2.6',
       false);
                  
     // enqueue the custom jquery js
     wp_register_script('my_scripts',
-      get_bloginfo('template_directory') . '/js/my_scripts.js',
+      get_template_directory_uri() . '/js/my_scripts.js',
       array('jquery'),
       '2.9.2',
       true);                
@@ -100,7 +100,7 @@ function load_js() {
 
     // enqueue fitvids
     wp_register_script( 'fitvids',
-      get_bloginfo( 'template_directory' ) . '/js/flex-bootstrap.js'
+      get_template_directory_uri() . '/js/flex-bootstrap.js'
     );
     wp_enqueue_script( 'fitvids' );
 

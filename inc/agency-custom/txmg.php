@@ -23,7 +23,7 @@ if ( $a['ext-type'] == 'mg' ) {
 function txmg_about( $about ) {
 
   $html = '<h4>About Us</h4>';
-  $html .= '<a href="http://www.txmg.org/"><img src="' . get_bloginfo( 'template_directory' ) . '/img/about_txmg.jpg?v=100" alt="link to txmg.org" /></a>';
+  $html .= '<a href="http://www.txmg.org/"><img src="' . get_template_directory_uri() . '/img/about_txmg.jpg?v=100" alt="link to txmg.org" /></a>';
   $html .= '<p><a href="http://txmg.org/">Texas Master Gardeners</a> is a volunteer program designed to grow horticultural information throughout the state, town by town. </p>	';
   $html .= '<ul>';
   $html .= '<li><a href="http://txmg.org/become-a-master-gardener/become-a-texas-master-gardener/">Become a Master Gardener</a></li>';
@@ -48,7 +48,7 @@ function txmg_about( $about ) {
 function txmg_links( $links ) {
 
   $html = '<h4>Popular Links</h4>';
-  $html .= '<a href="http://agrilifeextension.tamu.edu/"><img src="' . get_bloginfo( 'template_directory' ) . '/img/agrilife_ext_logo.png?v=100" alt="Texas A&amp;M AgriLife Extension" /></a>	';
+  $html .= '<a href="http://agrilifeextension.tamu.edu/"><img src="' . get_template_directory_uri() . '/img/agrilife_ext_logo.png?v=100" alt="Texas A&amp;M AgriLife Extension" /></a>	';
   $html .= '<ul>';
   $html .= '<li><a href="http://county-tx.tamu.edu/">County Extension Offices</a></li>';
   $html .= '<li><a href="http://agrilife.tamu.edu/locations-window/#centers">Research and Extension Centers</a></li>';

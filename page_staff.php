@@ -72,7 +72,7 @@
               <?php if ( has_post_thumbnail() ) {
               the_post_thumbnail('staff_archive');
               } else  {
-              echo '<img src="'.get_bloginfo("template_url").'/images/AgriLife-default-staff-image.png?v=100" alt="AgriLife Logo" title="AgriLife" />';
+              echo '<img src="' . get_stylesheet_directory_uri() .'/images/AgriLife-default-staff-image.png?v=100" alt="AgriLife Logo" title="AgriLife" />';
               }
               ?></a>
               <hgroup class="staff-head">
