@@ -4,9 +4,14 @@ Custom theme created for the Texas A&M AgriLife network.
 
 __Author__: Texas A&M AgriLife Communications
 
-__Version__: 2.2.2
+__Version__: 2.2.3
 
 ## Change Log
+
+### 2.2.3
+
+- Changed all calls to template directory to `get_template_directory_uri()` to allow for HTTPS
+- Properly enqueuing lt IE9 stylesheet
 
 ### 2.2.2
 
