@@ -12,7 +12,6 @@ if ( in_array( 'college', $a['agencies'] ) ) {
   add_action( 'agriflex_before_header', 'agriflex_college_logo', 10 );
 
   if ( $a['single'] ) {
-    add_action( 'agriflex_header', 'agriflex_college_explore', 1 );
     add_filter( 'agriflex_about', 'college_about', 10, 1 );
     add_filter( 'footer_links', 'college_links', 10, 1 );
     add_filter( 'required_links_logo', 'college_required_logo', 10, 1 );
@@ -40,30 +39,9 @@ function agriflex_college_logo() {
   $html .= '</a>';
   $html .= '</li>';
 
-  // If college only, show 'Explore' menu
-  if ( $a['single'] ) {
-    $html .= '<li class="explore right-align">';
-    $html .= '<a class="ext-link college-explore-link" href="/explore/">';
-    $html .= 'Explore';
-    $html .= '</a>';
-    $html .= '</li>';
-  }
-
   echo $html;
 
 } // agriflex_college_logo
-
-/**
- * Includes the college drop-down navigation
- *
- * @since AgriFlex 2.0
- * @author J. Aaron Eaton <aaron@channeleaton.com>
- */
-function agriflex_college_explore() {
-
-  include( TEMPLATEPATH . '/inc/college/college-drop-down.php' );
-
-} // agriflex_college_explore
 
 /**
  * Filters the 'About' footer column. Inserts College-related about information.

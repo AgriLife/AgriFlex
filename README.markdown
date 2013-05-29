@@ -4,9 +4,13 @@ Custom theme created for the Texas A&M AgriLife network.
 
 __Author__: Texas A&M AgriLife Communications
 
-__Version__: 2.2.3
+__Version__: 2.2.4
 
 ## Change Log
+
+### 2.2.4
+
+- Removed the college 'Explore' menu and button. The menu was no longer relevant with the new COALS site.
 
 ### 2.2.3
 
