@@ -117,6 +117,27 @@ function agriflex_load_ie_styles() {
 add_action( 'wp_enqueue_scripts', 'agriflex_load_ie_styles' );
 
 /**
+ * Use the Feedburner link if it exists
+ *
+ * @since 2.2.5
+ * @param  string $output The link output
+ * @param  string $feed   
+ * @return string         The new feed link
+ */
+function agriflex_use_feedburner( $output, $feed ) {
+
+  $url = of_get_option( 'feedburner' );
+
+  if ( strpos( $output, 'comments' ) || empty( $url ) )
+    return $output;
+
+
+  return esc_url( $url );
+
+}
+add_action ( 'feed_link', 'agriflex_use_feedburner', 10, 2 );
+
+/**
  * Disable some widgets that are replaced by theme funcitonality
  * or plugins
  *
