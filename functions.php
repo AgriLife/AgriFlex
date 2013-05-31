@@ -53,10 +53,6 @@ function agriflex_setup() {
     'primary' => __( 'Primary Navigation', 'agriflex' ),
   ) );
   
-	// register Category_Widget widget
-  add_action( 'widgets_init',
-    create_function( '', 'register_widget( "category_widget" );' ) );
-    
 } // agriflex_setup
 add_action( 'after_setup_theme', 'agriflex_setup' );
 
