@@ -4,9 +4,13 @@ Custom theme created for the Texas A&M AgriLife network.
 
 __Author__: Texas A&M AgriLife Communications
 
-__Version__: 2.2.4
+__Version__: 2.2.5
 
 ## Change Log
+
+### 2.2.5
+
+- Fixed feedburner RSS functionality
 
 ### 2.2.4
 
