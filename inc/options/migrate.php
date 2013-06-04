@@ -24,7 +24,38 @@ class AgriFlex_Migrate {
    *
    * @var array
    */
-  private $old_options = array();
+  private $old_options = array(
+    'isResearch' => '',
+    'isExtension' => '',
+    'isCollege'   => '',
+    'isTvmdl'     => '',
+    'isFazd'      => '',
+    'useCustomHeader' => '',
+    'custom_header_text' => '',
+    'useCustomFooter' => '',
+    'extension_type'  => '',
+    'custom_logo'     => '',
+    'header_type'     => '',
+    'titleImg'        => '',
+    'hours'       => '',
+    'county-name' => '',
+    'county-name-human' => '',
+    'address-street1' => '',
+    'address-street2' => '',
+    'address-city'    => '',
+    'address-zip'     => '',
+    'map-link'        => '',
+    'map-img'         => '',
+    'address-mail-street1'  => '',
+    'address-mail-street2'  => '',
+    'address-mail-city'     => '',
+    'address-mail-zip'      => '',
+    'email_public'  => '',
+    'phone' => '',
+    'fax'   => '',
+    'feedBurner' => '',
+    'googleAnalytics' => '',
+    );
 
   /**
    * Array to translate old option keys to new keys
@@ -79,53 +110,20 @@ class AgriFlex_Migrate {
    */
   function __construct() {
 
-    $this->set_old_options();
+    add_action( 'after_theme_switch', array( $this, 'set_old_options' ) );
 
   } // __construct
 
   /**
-   * Retrives the old AgriFlex 1.0 options
+   * Retrives the old AgriFlex 1.0 options or set the old options to
+   * empty strings.
    * 
    * @access private
    */
   private function set_old_options() {
   
-    if ( $old = get_option( 'AgrilifeOptions' ) ) {
+    if ( $old = get_option( 'AgrilifeOptions' ) )
       $this->old_options = $old;
-    } else {
-      $this->old_options = array(
-        'isResearch' => '',
-        'isExtension' => '',
-        'isCollege'   => '',
-        'isTvmdl'     => '',
-        'isFazd'      => '',
-        'useCustomHeader' => '',
-        'custom_header_text' => '',
-        'useCustomFooter' => '',
-        'extension_type'  => '',
-        'custom_logo'     => '',
-        'header_type'     => '',
-        'titleImg'        => '',
-        'hours'       => '',
-        'county-name' => '',
-        'county-name-human' => '',
-        'address-street1' => '',
-        'address-street2' => '',
-        'address-city'    => '',
-        'address-zip'     => '',
-        'map-link'        => '',
-        'map-img'         => '',
-        'address-mail-street1'  => '',
-        'address-mail-street2'  => '',
-        'address-mail-city'     => '',
-        'address-mail-zip'      => '',
-        'email_public'  => '',
-        'phone' => '',
-        'fax'   => '',
-        'feedBurner' => '',
-        'googleAnalytics' => '',
-      );
-    }
   
   } // set_old_options
 
