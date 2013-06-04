@@ -44,6 +44,11 @@ function optionsframework_options() {
     2 => 'Custom Image Header'
   );
 
+  $front_page_content_array = array(
+    'full-content' => 'Full Contnet',
+    'excerpt' => 'Excerpt',
+  );
+
   // Agency selections
   $agency_array = array(
     'research'  => 'Research',
@@ -123,6 +128,14 @@ function optionsframework_options() {
     'id'   => 'minimal-footer',
     'std'  => $migrate->get_default( 'minimal-footer' ),
     'type' => 'checkbox',
+  );
+  $options[] = array(
+    'name' => __( 'Front page content', 'options_framework_theme' ),
+    'desc' => __( 'Show full content or excerpt', 'options_framework_theme' ),
+    'id' => 'front-page-content',
+    'std' => 'excerpt',
+    'type' => 'radio',
+    'options' => $front_page_content_array,
   );
 
   // Contact Information Tab
