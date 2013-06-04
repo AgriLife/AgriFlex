@@ -70,18 +70,20 @@ function agriflex_save_postdata( $post_id ) {
 
   // verify this came from the our screen and with proper authorization,
   // because save_post can be triggered at other times
-  if ( ! wp_verify_nonce( $_POST['agriflex_noncename'],
-    plugin_basename( __FILE__ ) ) )
-      return;
+  if ( ! empty($_POST['agriflex_noncename'] ) ) {
+    if ( ! wp_verify_nonce( $_POST['agriflex_noncename'],
+      plugin_basename( __FILE__ ) ) )
+        return;
 
 
-  // Check permissions
-  if ( 'page' == $_POST['post_type'] ) {
-    if ( ! current_user_can( 'edit_page', $post_id ) )
-      return;
-  } else {
-    if ( ! current_user_can( 'edit_post', $post_id ) )
-      return;
+    // Check permissions
+    if ( 'page' == $_POST['post_type'] ) {
+      if ( ! current_user_can( 'edit_page', $post_id ) )
+        return;
+    } else {
+      if ( ! current_user_can( 'edit_post', $post_id ) )
+        return;
+    }
   }
 
   // OK, we're authenticated: we need to find and save the data
