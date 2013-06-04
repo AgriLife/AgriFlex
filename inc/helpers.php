@@ -148,3 +148,22 @@ function agriflex_get_map( $mapaddress ) {
 
 
 }
+
+/**
+ * Retrieves the user option to show excerpts or full content on
+ * a non-archive page.
+ * 
+ * @since 2.3
+ * @return string The returned content
+ */
+function agriflex_front_page_content() {
+
+  $content = of_get_option( 'front-page-content' );
+
+  if ( $content == 'excerpt' ) {
+    return the_excerpt();
+  } elseif ( $content == 'full-content' ) {
+    return the_content();
+  }
+
+}
