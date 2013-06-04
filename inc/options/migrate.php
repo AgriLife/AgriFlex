@@ -92,6 +92,39 @@ class AgriFlex_Migrate {
   
     if ( $old = get_option( 'AgrilifeOptions' ) ) {
       $this->old_options = $old;
+    } else {
+      $this->old_options = array(
+        'isResearch' => '',
+        'isExtension' => '',
+        'isCollege'   => '',
+        'isTvmdl'     => '',
+        'isFazd'      => '',
+        'useCustomHeader' => '',
+        'custom_header_text' => '',
+        'useCustomFooter' => '',
+        'extension_type'  => '',
+        'custom_logo'     => '',
+        'header_type'     => '',
+        'titleImg'        => '',
+        'hours'       => '',
+        'county-name' => '',
+        'county-name-human' => '',
+        'address-street1' => '',
+        'address-street2' => '',
+        'address-city'    => '',
+        'address-zip'     => '',
+        'map-link'        => '',
+        'map-img'         => '',
+        'address-mail-street1'  => '',
+        'address-mail-street2'  => '',
+        'address-mail-city'     => '',
+        'address-mail-zip'      => '',
+        'email_public'  => '',
+        'phone' => '',
+        'fax'   => '',
+        'feedBurner' => '',
+        'googleAnalytics' => '',
+      );
     }
   
   } // set_old_options
