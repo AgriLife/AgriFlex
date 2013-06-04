@@ -179,7 +179,7 @@ unset( $file );
 
 // Auto-include all widget files
 foreach ( glob( $include_path . "/widgets/*.php" ) as $file ) {
-  require_once( $file );
+  // require_once( $file );
 }
 unset( $file );
 
