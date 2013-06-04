@@ -177,12 +177,6 @@ foreach ( glob( $include_path . "*.php" ) as $file ) {
 }
 unset( $file );
 
-// Auto-include all widget files
-foreach ( glob( $include_path . "/widgets/*.php" ) as $file ) {
-  // require_once( $file );
-}
-unset( $file );
-
 // Auto-include all custom agency files
 foreach ( glob( $include_path . "/agency-custom/*.php" ) as $file ) {
   require_once( $file );
