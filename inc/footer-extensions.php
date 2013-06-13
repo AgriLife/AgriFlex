@@ -163,6 +163,7 @@ function agriflex_required_footer() {
   $html .= '<li><a href="http://fcs.tamu.edu/families/military_families/">Military Families</a></li>';
   $html .= '<li><a href="https://secure.ethicspoint.com/domain/en/report_custom.asp?clientid=19681">Risk, Fraud &amp; Misconduct Hotline</a></li>';
   $html .= '<li><a href="http://www.texashomelandsecurity.com/">Texas Homeland Security</a></li>';
+  $html .= '<li><a href="http://veterans.portal.texas.gov/">Veteran&apos;s Portal</a></li>';
   $html .= '<li class="last"><a href="http://agrilife.org/vc/orpi/">Open Records/Public Information</a></li>';
   $html .= '</ul>';
   $html .= '</div><!-- .texas-a-m -->';
