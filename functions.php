@@ -115,7 +115,6 @@ add_action( 'wp_enqueue_scripts', 'agriflex_load_ie_styles' );
 function agriflex_github_updater() {
 
     define('WP_GITHUB_FORCE_UPDATE', true );
-  require( 'inc/updater/updater.php' );
   if ( is_admin() ) {
     $config = array(
       'slug' => basename( MY_THEME_FOLDER ),

@@ -104,7 +104,7 @@ function agriflex_agency() {
   }
   
   // If there's only one active agency, return true
-  if ( $val[1] == 1 ) {
+  if ( ! empty( $val[1] ) && $val[1] == 1 ) {
     $only = TRUE;
   } else {
     $only = FALSE;
