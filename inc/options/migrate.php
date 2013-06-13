@@ -110,7 +110,11 @@ class AgriFlex_Migrate {
    */
   function __construct() {
 
-    add_action( 'after_theme_switch', array( $this, 'set_old_options' ) );
+    $updated = get_option( 'agriflex_2_update', FALSE );
+
+    if ( ! $updated || (defined('WP_DEBUG') && WP_DEBUG ) {
+      add_action( 'after_setup_theme', array( $this, 'set_old_options' ) );
+    }
 
   } // __construct
 
@@ -124,6 +128,8 @@ class AgriFlex_Migrate {
   
     if ( $old = get_option( 'AgrilifeOptions' ) )
       $this->old_options = $old;
+
+    update_option( 'agriflex_2_update', TRUE );
   
   } // set_old_options
 
