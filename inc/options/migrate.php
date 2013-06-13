@@ -113,7 +113,7 @@ class AgriFlex_Migrate {
     $updated = get_option( 'agriflex_2_update', FALSE );
 
     if ( ! $updated || (defined('WP_DEBUG') && WP_DEBUG ) ) {
-      add_action( 'after_setup_theme', array( $this, 'set_old_options' ) );
+      $this->set_old_options();
       update_option( 'agriflex_2_update', TRUE );
     }
 
@@ -127,7 +127,8 @@ class AgriFlex_Migrate {
    */
   private function set_old_options() {
   
-    if ( $old = get_option( 'AgrilifeOptions' ) )
+    $old = get_option( 'AgrilifeOptions' );
+    if ( ! empty( $old ) )
       $this->old_options = $old;
 
   
