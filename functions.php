@@ -112,30 +112,6 @@ function agriflex_load_ie_styles() {
 } // agriflex_load_styles
 add_action( 'wp_enqueue_scripts', 'agriflex_load_ie_styles' );
 
-function agriflex_github_updater() {
-
-    define('WP_GITHUB_FORCE_UPDATE', true );
-  if ( is_admin() ) {
-    $config = array(
-      'slug' => basename( MY_THEME_FOLDER ),
-      'proper_folder_name' => 'AgriFlex',
-      'api_url' => 'https://api.github.com/repos/AgriLife/AgriFlex',
-      'raw_url' => 'https://raw.github.com/AgriLife/AgriFlex/master/style.css',
-      'github_url' => 'https://github.com/AgriLife/AgriFlex',
-      'zip_url' => 'https://github.com/AgriLife/AgriFlex/zipball/master',
-      'sslverify' => true,
-      'requires' => '3.0',
-      'tested' => '3.5',
-      'readme' => 'README.md',
-    );
-
-    $updater = new WP_Github_Updater( $config );
-    // var_dump($updater);
-  }
-
-}
-add_action( 'after_setup_theme', 'agriflex_github_updater' );
-
 /**
  * Use the Feedburner link if it exists
  *
