@@ -159,8 +159,10 @@ class AgriFlex_Migrate {
   
     $old_key = $this->get_old_key( $option );
 
-    if ( $old_key ) {
+    if ( $old_key && array_key_exists( $old_key, $this->old_options ) ) {
       $value = $this->old_options[$old_key];
+    } else {
+      return;
     }
 
     if ( in_array( $old_key, $this->checkbox ) ) {
