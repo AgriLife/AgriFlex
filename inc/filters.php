@@ -287,8 +287,7 @@ function agriflex_custom_search_form() {
 
   $onblur = " onblur=\"if (this.value == '') {this.value = '$search_text';}\"";
 
-  $form = '<form method="get" class="searchform" action"' .
-    get_option( 'home' ) . '/" >';
+  $form = '<form method="get" class="searchform" action="' . get_home_url() . '/" >';
   $form .= '<input type="text" value="' . $search_text . '" name="s" class="s"' .
     $onfocus . $onblur . ' />';
   $form .= '<input type="submit" class="searchsubmit" value="' .

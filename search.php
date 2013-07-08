@@ -12,19 +12,20 @@
 <div id="wrap">
   <div id="content" role="main">
 
-    <?php if ( have_posts() ) : ?>
 
-      <h1 class="page-title">
-        <?php printf( __( 'Search Results for: %s', 'agriflex' ),
-        '<span>' . get_search_query() . '</span>' ); ?>
-      </h1>
+    <h1 class="page-title">
+      <?php printf( __( 'Search Results for: %s', 'agriflex' ),
+      '<span>' . get_search_query() . '</span>' ); ?>
+    </h1>
+      
+    <?php if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
 
       <!-- Run the loop for the search to output the results.
       If you want to overload this in a child theme then include a file
       called loop-search.php and that will be used instead. -->
       <?php get_template_part( 'content', 'search' ); ?>
 
-    <?php else : ?>
+    <?php endwhile; else : ?>
 
       <?php get_template_part( 'no-results', 'index' ); ?>
 
