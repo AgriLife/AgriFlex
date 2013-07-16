@@ -177,10 +177,13 @@ add_action( 'agriflex_before_header', 'agriflex_tfs_logo', 50 );
 function agriflex_custom_logo() {
 
   $logo = of_get_option( 'custom-agency-logo' );
+  $url = of_get_option( 'custom-agency-link' );
 
   if ( $logo ) {
-    $html = '<li class="custom-logo">';
+    $html = '<li class="top-agency custom-logo">';
+    $html .= '<a href="' . $url . '">';
     $html .= '<img src="' . $logo . '" />';
+    $html .= '</a>';
     $html .= '</li>';
 
     echo $html;
