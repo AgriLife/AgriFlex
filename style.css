@@ -284,8 +284,7 @@ audio {
 
 a {
 	color:#111;
-	text-decoration: none;
-	border-bottom: 1px dotted #111;
+	text-decoration: underline;
 	-webkit-transition: .3s color ease, .3s border ease;
 	-moz-transition: .3s color ease, .3s border ease;	 
 }
@@ -293,8 +292,7 @@ a {
 a:active,
 a:hover {
 	color: #332c2c;
-	text-decoration: none;
-	border-bottom: 1px solid #332c2c;	
+	text-decoration: underline;	
 }
 
 body.collegeonly a {
@@ -1813,6 +1811,10 @@ body.home.blog .hentry {
 	clear: both;
 }
 
+#aside a {
+	text-decoration: none;
+}
+
 #aside img.left {
 	float: left;
 }
@@ -2793,7 +2795,8 @@ img#wpstats {
 
 #footer .wrap ul li a {
 	display: block;
-	padding: .5em 0;	
+	padding: .5em 0;
+	text-decoration: none;	
 }
 
 /* =Print Style
@@ -3148,6 +3151,7 @@ img#wpstats {
 		display: block;
 		position: relative;
 		background: transparent;
+		text-decoration: none;
 	}
 	#access .sf-menu li:hover,
 	#access .sf-menu li.sfHover {
@@ -3639,6 +3643,9 @@ img#wpstats {
 	}
 
 /* --- County Sites --- */
+	#site-title a {
+		text-decoration: none;
+	}
 
 	body.extensioncounty #site-title,
 	body.extensioncountytce #site-title	 {
@@ -3976,7 +3983,7 @@ jQuery Tabs
 .ui-tabs .ui-tabs-nav li { font-family: "ff-dagny-web-pro-1","ff-dagny-web-pro-2", 'Lucida Grande','Lucida Sans Unicode', sans-serif; list-style: none; float: left; position: relative; top: 1px; margin: 0 .17em 1px 0; border-bottom: 0 !important; padding: 0; white-space: nowrap; }
 .ui-tabs .ui-tabs-nav li a { position: relative; z-index: 1; float: left; padding: .5em 1em; text-decoration: none; background: #e9e7db; border: none; border-top-right-radius: 5px; }
 .ui-tabs .ui-tabs-nav li a:hover { 	background: #e3e1d5; border: none;}
-.ui-tabs .ui-tabs-nav li.ui-state-active a { position: relative; z-index: 9999;	background: #e3e1d5; 	border: 1px solid #ceccb6; border-bottom: none;}
+.ui-tabs .ui-tabs-nav li.ui-state-active a { position: relative; z-index: 9999;	background: #e3e1d5; 	border: 1px solid #ceccb6; border-bottom: none; text-decoration: none;}
 .ui-tabs .ui-tabs-nav li.ui-tabs-selected { margin-bottom: 0; padding-bottom: 1px; }
 .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a { cursor: text; }
 .ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
