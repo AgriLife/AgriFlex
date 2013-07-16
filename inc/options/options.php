@@ -338,6 +338,13 @@ function optionsframework_options() {
     'type' => 'upload',
   );
 
+  $options[] = array(
+    'name' => __( 'Additional Agency Logo Link', 'options_framework_theme' ),
+    'desc' => __( 'Where should the additional agency logo link to?', 'options_framework_theme' ),
+    'id'   => 'custom-agency-link',
+    'type' => 'text',
+  );
+
   // Get options added by other developers and add to the $options array
   $added = '';
   $added = apply_filters( 'agriflex_add_options', $added );
