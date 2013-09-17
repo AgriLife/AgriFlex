@@ -151,7 +151,7 @@ function agriflex_tfs_logo() {
 
   $agencies = of_get_option( 'agency-top' );
 
-  if ( $agencies['fazd'] ) {
+  if ( $agencies['tfs'] ) {
     $html = '<li class="top-agency tfs-item">';
     $html .= '<a href="http://txforestservice.tamu.edu/">';
     $html .= '<span class="top-level-hide">';

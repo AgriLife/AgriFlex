@@ -56,6 +56,7 @@ function optionsframework_options() {
     'college'   => 'College',
     'tvmdl'     => 'TVMDL',
     'fazd'      => 'FAZD',
+    'tfs'       => 'TFS',
   );
 
   // Agency default selections
@@ -65,6 +66,7 @@ function optionsframework_options() {
     'college'   => $migrate->get_default( 'college' ),
     'tvmdl'     => $migrate->get_default( 'tvmdl' ),
     'fazd'       => $migrate->get_default( 'fazd' ),
+    'tfs'       => 0,
   );
 
   // Extension types
