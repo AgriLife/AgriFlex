@@ -285,6 +285,16 @@ function optionsframework_options() {
     'type' => 'text'
   );
 
+  if ( current_user_can( 'manage_network' ) ) {
+    $options[] = array(
+      'name' => __( 'Google Analytics (admin only)', 'options_framework_theme' ),
+      'desc' => __( 'Ex. UA-XXXXX-2', 'options_framework_theme' ),
+      'id'   => 'g-analytics-admin',
+      'std'  => $migrate->get_default( 'g-analytics' ),
+      'type' => 'text'
+    );
+  }
+
   $options[] = array(
     'name' => __( 'FeedBurner Feed Address', 'options_framework_theme' ),
     'desc' => __( 'Ex. http://feeds.feedburner.com/AgriLife', 'options_framework_theme' ),

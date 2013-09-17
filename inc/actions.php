@@ -48,6 +48,45 @@ function agriflex_analytics_code() {
 } // agriflex_analytics_code    
 add_action('wp_head','agriflex_analytics_code',0);
 
+function agriflex_analytics_admin_code() {
+
+    $options = of_get_option();
+    $a = agriflex_agency();
+    $code = $options['g-analytics-admin'];
+
+  if ( ! empty( $code ) && $code != $options['g-analytics'] ):
+    if( !is_admin() ) : ?>
+      <script type="text/javascript">//<![CDATA[
+      // Google Analytics asynchronous
+      var _gaq = _gaq || [];
+      <?php if( $a['ext-type'] == 'county' ||
+                $a['ext-type'] == 'tce' ) : ?>
+        _gaq.push(['_setAccount','UA-7414081-1']);      //county-co
+        _gaq.push(['_trackPageview'],['_trackPageLoadTime']);
+      <?php endif; ?>
+
+      <?php 
+        echo "_gaq.push(['_setAccount','" . $options['g-analytics-admin'] . "']); //local \n";
+        echo "_gaq.push(['_trackPageview'],['_trackPageLoadTime']);\n";
+      ?>
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+      //]] >
+      </script>
+    <?php
+    endif;
+  endif;
+
+} // agriflex_analytics_admin_code
+add_action('wp_head','agriflex_analytics_admin_code',0);
+
 /**
  * Adds the Typekit goodies to the document head
  *
