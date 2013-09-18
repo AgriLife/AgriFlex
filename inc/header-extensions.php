@@ -73,6 +73,18 @@ function agriflex_return_map() {
 add_action( 'agriflex_head', 'agriflex_return_map', 10 );
 
 /**
+ * Load the favicon
+ *
+ * @since AgriFlex 2.3
+ */
+function agriflex_favicon() {
+
+  echo '<link rel="shortcut icon" href="http://agrilifecdn.tamu.edu/wp-content/themes/agrilife-2.0/favicon.ico" type="image/ico" />';
+
+}
+add_action( 'agriflex_head', 'agriflex_favicon', 5 );
+
+/**
  * We add some JavaScript to pages with the comment form
  * to support sites with threaded comments (when in use).
  * 

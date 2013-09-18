@@ -40,8 +40,6 @@
 
   <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>?v=100" />
 
-  <link rel="shortcut icon" href="http://agrilifecdn.tamu.edu/wp-content/themes/agrilife-2.0/favicon.ico" type="image/ico" />
-
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
   <!-- Action hook to include some head stuff -->
