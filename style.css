@@ -593,6 +593,9 @@ body.collegeonly #drop-section-nav #drop-nav ul li a.college-explore-link:hover 
 	height: 46px;
 	margin-top: 2px;
 }	
+.custom-logo #drop-section-nav #drop-nav ul li.custom-logo a {
+	text-indent: 0;
+}
 .extensionmn #drop-section-nav #drop-nav ul .txmn-item a {
   width: 50px;
 }
@@ -3310,7 +3313,6 @@ img#wpstats {
 		position: relative;
 		z-index: 2;
 		display: block;
-		text-indent: -999em;
 		background-repeat: no-repeat;
 		background-position: left top;	
 		width: 180px;
@@ -3320,6 +3322,10 @@ img#wpstats {
 		-webkit-transition: opacity .3s ease;
 		-moz-transition: opacity .3s ease;		
 	}	
+
+	#drop-section-nav #drop-nav ul li .top-level-hide {
+		text-indent: -999em;
+	}
 	
 	body.research.extension #drop-section-nav #drop-nav ul li a {
 		background: none;	

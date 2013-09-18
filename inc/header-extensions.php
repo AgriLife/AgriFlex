@@ -194,6 +194,7 @@ function agriflex_custom_logo() {
   if ( $logo ) {
     $html = '<li class="top-agency custom-logo">';
     $html .= '<a href="' . $url . '">';
+    $html .= '<span class="top-level-hide"></span>';
     $html .= '<img src="' . $logo . '" />';
     $html .= '</a>';
     $html .= '</li>';
