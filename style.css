@@ -1835,12 +1835,12 @@ body.home.blog .hentry {
 	line-height: 1.6em;
 }
 
-#aside h4 {
+.widget-area h4 {
 	font-size: 1.1em;
 	margin-bottom: .6em;
 }
 
-#aside h4 a {
+.widget-area h4 a {
 	border: none;
 	color: #444;
 }
@@ -2143,14 +2143,23 @@ div.event dl dd.title-loc p,
 	margin-bottom: 0.5em;
 }
 
-#aside div.event dl dt.date strong,
+.tribe-events-list-widget h4 {
+	margin-bottom: 2px;
+	font-size: 1.2em;
+}
+
+.tribe-events-list-widget h4:hover {
+	text-decoration: underline;
+}
+
+/*#aside div.event dl dt.date strong,
 #aside span.word2 {
 	font-weight: bold;
 	display: block;
 	font-size: 2em;
 	margin-top: -.1em;
 }
-
+*/
 #aside span.word3 {
 	display: none;
 }
