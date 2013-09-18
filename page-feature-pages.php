@@ -34,7 +34,16 @@
 
     <div id="home-middle">
       <div class="home-middle-features">
-      <?php $my_query = new WP_Query('meta_key=feature-homepage&meta_value=1&showposts=3&post_type=page'); ?>
+      <?php
+      $args = array(
+        'post_type' => array( 'post', 'page' ),
+        'showposts' => 3,
+        'meta_key' => 'feature-homepage',
+        'meta_value' => 1
+      );
+
+      $my_query = new WP_Query( $args );
+      ?>
 
       <?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
         <div class="featured-wrap" id="featured-wrapper-<?php echo $count;?>">
