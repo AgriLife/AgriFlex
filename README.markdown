@@ -4,9 +4,18 @@ Custom theme created for the Texas A&M AgriLife network.
 
 __Author__: Texas A&M AgriLife Communications
 
-__Version__: 2.2.7
+__Version__: 2.3
 
 ## Change Log
+
+### 2.3
+
+- Fixed custom agency image not displaying
+- Fixed Home: Featured Pages template
+- Added a network admin-only UA code for Google Analytics
+- Placed favicon call in action hook
+- Added CSS for The Events Calendar
+- Added TFS logo back into list of agency options
 
 ### 2.2.7
 

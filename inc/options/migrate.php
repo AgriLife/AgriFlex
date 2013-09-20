@@ -24,7 +24,38 @@ class AgriFlex_Migrate {
    *
    * @var array
    */
-  private $old_options = array();
+  private $old_options = array(
+    'isResearch' => '',
+    'isExtension' => '',
+    'isCollege'   => '',
+    'isTvmdl'     => '',
+    'isFazd'      => '',
+    'useCustomHeader' => '',
+    'custom_header_text' => '',
+    'useCustomFooter' => '',
+    'extension_type'  => '',
+    'custom_logo'     => '',
+    'header_type'     => '',
+    'titleImg'        => '',
+    'hours'       => '',
+    'county-name' => '',
+    'county-name-human' => '',
+    'address-street1' => '',
+    'address-street2' => '',
+    'address-city'    => '',
+    'address-zip'     => '',
+    'map-link'        => '',
+    'map-img'         => '',
+    'address-mail-street1'  => '',
+    'address-mail-street2'  => '',
+    'address-mail-city'     => '',
+    'address-mail-zip'      => '',
+    'email_public'  => '',
+    'phone' => '',
+    'fax'   => '',
+    'feedBurner' => '',
+    'googleAnalytics' => '',
+    );
 
   /**
    * Array to translate old option keys to new keys
@@ -79,20 +110,27 @@ class AgriFlex_Migrate {
    */
   function __construct() {
 
-    $this->set_old_options();
+    $updated = get_option( 'agriflex_2_update', FALSE );
+
+    if ( ! $updated || (defined('WP_DEBUG') && WP_DEBUG ) ) {
+      $this->set_old_options();
+      update_option( 'agriflex_2_update', TRUE );
+    }
 
   } // __construct
 
   /**
-   * Retrives the old AgriFlex 1.0 options
+   * Retrives the old AgriFlex 1.0 options or set the old options to
+   * empty strings.
    * 
    * @access private
    */
   private function set_old_options() {
   
-    if ( $old = get_option( 'AgrilifeOptions' ) ) {
+    $old = get_option( 'AgrilifeOptions' );
+    if ( ! empty( $old ) )
       $this->old_options = $old;
-    }
+
   
   } // set_old_options
 
@@ -122,8 +160,10 @@ class AgriFlex_Migrate {
   
     $old_key = $this->get_old_key( $option );
 
-    if ( $old_key ) {
+    if ( $old_key && array_key_exists( $old_key, $this->old_options ) ) {
       $value = $this->old_options[$old_key];
+    } else {
+      return;
     }
 
     if ( in_array( $old_key, $this->checkbox ) ) {

@@ -53,10 +53,6 @@ function agriflex_setup() {
     'primary' => __( 'Primary Navigation', 'agriflex' ),
   ) );
   
-	// register Category_Widget widget
-  add_action( 'widgets_init',
-    create_function( '', 'register_widget( "category_widget" );' ) );
-    
 } // agriflex_setup
 add_action( 'after_setup_theme', 'agriflex_setup' );
 
@@ -177,12 +173,6 @@ require_once( $include_path . 'options/options-framework.php');
 
 // Auto-include extensions
 foreach ( glob( $include_path . "*.php" ) as $file ) {
-  require_once( $file );
-}
-unset( $file );
-
-// Auto-include all widget files
-foreach ( glob( $include_path . "/widgets/*.php" ) as $file ) {
   require_once( $file );
 }
 unset( $file );

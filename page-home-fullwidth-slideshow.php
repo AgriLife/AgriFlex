@@ -60,7 +60,7 @@ $count = 0;	?>
         <?php endif; ?>				
 
         <div class="entry-content">
-          <?php the_content(); ?>
+          <?php agriflex_front_page_content(); ?>
           <?php wp_link_pages(
             array( 'before' => '<div class="page-link">' . __( 'Pages:',
             'county_ext' ), 'after' => '</div>' ) ); ?>

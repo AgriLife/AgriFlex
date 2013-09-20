@@ -33,7 +33,7 @@
   <?php else : ?>
     <div class="entry-content">
       <?php agriflex_post_thumbnail(); ?>
-      <?php the_excerpt(); ?>
+      <?php agriflex_front_page_content(); ?>
     </div><!-- .entry-content -->
   <?php endif; ?>
 

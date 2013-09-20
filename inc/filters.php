@@ -73,6 +73,13 @@ function agriflex_class_names($classes) {
     $classes[] .= 'min-footer';
   }
 
+  // Custom logo
+  $custom_logo = of_get_option('custom-agency-logo');
+
+  if ( $custom_logo ) {
+    $classes[] .= 'custom-logo';
+  }
+
   return $classes;
 
 } // agriflex_class_names

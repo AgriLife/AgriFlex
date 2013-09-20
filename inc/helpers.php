@@ -104,7 +104,7 @@ function agriflex_agency() {
   }
   
   // If there's only one active agency, return true
-  if ( $val[1] == 1 ) {
+  if ( ! empty( $val[1] ) && $val[1] == 1 ) {
     $only = TRUE;
   } else {
     $only = FALSE;
@@ -146,5 +146,24 @@ function agriflex_get_map( $mapaddress ) {
     return $map_image_trans;
   }
 
+
+}
+
+/**
+ * Retrieves the user option to show excerpts or full content on
+ * a non-archive page.
+ * 
+ * @since 2.3
+ * @return string The returned content
+ */
+function agriflex_front_page_content() {
+
+  $content = of_get_option( 'front-page-content' );
+
+  if ( $content == 'excerpt' ) {
+    return the_excerpt();
+  } elseif ( $content == 'full-content' ) {
+    return the_content();
+  }
 
 }

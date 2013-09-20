@@ -44,6 +44,11 @@ function optionsframework_options() {
     2 => 'Custom Image Header'
   );
 
+  $front_page_content_array = array(
+    'full-content' => 'Full Contnet',
+    'excerpt' => 'Excerpt',
+  );
+
   // Agency selections
   $agency_array = array(
     'research'  => 'Research',
@@ -51,6 +56,7 @@ function optionsframework_options() {
     'college'   => 'College',
     'tvmdl'     => 'TVMDL',
     'fazd'      => 'FAZD',
+    'tfs'       => 'TFS',
   );
 
   // Agency default selections
@@ -60,6 +66,7 @@ function optionsframework_options() {
     'college'   => $migrate->get_default( 'college' ),
     'tvmdl'     => $migrate->get_default( 'tvmdl' ),
     'fazd'       => $migrate->get_default( 'fazd' ),
+    'tfs'       => 0,
   );
 
   // Extension types
@@ -123,6 +130,14 @@ function optionsframework_options() {
     'id'   => 'minimal-footer',
     'std'  => $migrate->get_default( 'minimal-footer' ),
     'type' => 'checkbox',
+  );
+  $options[] = array(
+    'name' => __( 'Front page content', 'options_framework_theme' ),
+    'desc' => __( 'Show full content or excerpt', 'options_framework_theme' ),
+    'id' => 'front-page-content',
+    'std' => 'excerpt',
+    'type' => 'radio',
+    'options' => $front_page_content_array,
   );
 
   // Contact Information Tab
@@ -269,6 +284,16 @@ function optionsframework_options() {
     'std'  => $migrate->get_default( 'g-analytics' ),
     'type' => 'text'
   );
+
+  if ( current_user_can( 'manage_network' ) ) {
+    $options[] = array(
+      'name' => __( 'Google Analytics (admin only)', 'options_framework_theme' ),
+      'desc' => __( 'Ex. UA-XXXXX-2', 'options_framework_theme' ),
+      'id'   => 'g-analytics-admin',
+      'std'  => $migrate->get_default( 'g-analytics' ),
+      'type' => 'text'
+    );
+  }
 
   $options[] = array(
     'name' => __( 'FeedBurner Feed Address', 'options_framework_theme' ),
