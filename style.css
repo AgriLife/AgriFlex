@@ -1565,7 +1565,7 @@ body.home #home-middle .home-middle-features h3 {
 	
 body.home  #home-middle .home-middle-features h3 a,
 #content h2.entry-title a {
-	border-bottom: 1px dotted #b19e56;	
+	text-decoration: none;
 }
 
 body.home  #home-middle a.rsswidget {
