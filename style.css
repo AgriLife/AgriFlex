@@ -2526,6 +2526,15 @@ img {
 	border: none;
 }
 
+.read-more {
+	display: block;
+	float: right;
+}
+
+.read-more a {
+	text-decoration: none;
+}
+
 .feature-img-excerpt:hover {
 	opacity: .9;
 	border: none;
