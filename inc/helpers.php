@@ -158,12 +158,16 @@ function agriflex_get_map( $mapaddress ) {
  */
 function agriflex_front_page_content() {
 
+  global $post;
+
   $content = of_get_option( 'front-page-content' );
 
   if ( $content == 'excerpt' ) {
     return the_excerpt();
   } elseif ( $content == 'full-content' ) {
     return the_content();
+  } else {
+    return the_excerpt();
   }
 
 }
