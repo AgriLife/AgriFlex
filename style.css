@@ -4843,3 +4843,10 @@ a.rss:hover {
 	background-position: -215px bottom;
 }
 
+.tribe-events-adv-list-widget ol {
+	margin: 1em 5%;
+	padding: 0;
+}
+.tribe-events-adv-list-widget h4 {
+	margin-bottom: 2px;
+}
