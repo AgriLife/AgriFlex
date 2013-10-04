@@ -22,7 +22,7 @@
         <?php endif; ?>				
 
         <div class="entry-content">
-          <?php agriflex_front_page_content(); ?>
+          <?php the_content(); ?>
           <?php wp_link_pages(
             array( 'before' => '<div class="page-link">' . __( 'Pages:',
             'county_ext' ), 'after' => '</div>' ) ); ?>
@@ -55,7 +55,7 @@
             <?php the_excerpt();?>
           </div><!-- end .featured-wrap -->
 
-        <?php endwhile;  wp_reset_query; ?>	
+        <?php endwhile;  wp_reset_query(); ?>	
               
       </div><!-- end .home-features -->		
 

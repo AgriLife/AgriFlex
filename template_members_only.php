@@ -25,7 +25,7 @@
 
     <?php endwhile; endif; ?>     
            
-  <?php elseif : ?>
+  <?php else : ?>
 
     <div class="post">
       <div class="entry">

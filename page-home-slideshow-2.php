@@ -38,7 +38,7 @@
                   </a>
                 </p><!-- end .flex-caption -->
               </li><!-- end .feature-item -->						
-            <?php endwhile;  wp_reset_query; ?>
+            <?php endwhile;  wp_reset_query(); ?>
 
           </ul>
         </div><!-- .flexslider -->
@@ -56,7 +56,7 @@
       <?php endif; ?>				
 
       <div class="entry-content">
-        <?php agriflex_front_page_content(); ?>
+        <?php the_content(); ?>
         <?php wp_link_pages(
           array( 'before' => '<div class="page-link">' . __( 'Pages:',
           'county_ext' ), 'after' => '</div>' ) ); ?>

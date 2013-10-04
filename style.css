@@ -1,8 +1,8 @@
 /*
-    Theme Name: AgriFlex
+    Theme Name: AgriFlex2
     Description: Custom theme created for Texas A&M AgriLife network.
     Author: AgriLife Communications
-    Version: 2.3
+    Version: 2.3.1
 */
 
 
@@ -1565,7 +1565,7 @@ body.home #home-middle .home-middle-features h3 {
 	
 body.home  #home-middle .home-middle-features h3 a,
 #content h2.entry-title a {
-	border-bottom: 1px dotted #b19e56;	
+	text-decoration: none;
 }
 
 body.home  #home-middle a.rsswidget {
@@ -2524,6 +2524,15 @@ img {
 	margin-top: 5px;
 	margin-bottom: 5px;
 	border: none;
+}
+
+.read-more {
+	display: block;
+	float: right;
+}
+
+.read-more a {
+	text-decoration: none;
 }
 
 .feature-img-excerpt:hover {
@@ -4834,3 +4843,10 @@ a.rss:hover {
 	background-position: -215px bottom;
 }
 
+.tribe-events-adv-list-widget ol {
+	margin: 1em 5%;
+	padding: 0;
+}
+.tribe-events-adv-list-widget h4 {
+	margin-bottom: 2px;
+}
