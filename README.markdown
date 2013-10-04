@@ -4,9 +4,18 @@ Custom theme created for the Texas A&M AgriLife network.
 
 __Author__: Texas A&M AgriLife Communications
 
-__Version__: 2.3
+__Version__: 2.3.1
 
 ## Change Log
+
+### 2.3.1
+
+- Fixed compatibility mode issue with menus
+- Removed double underlines on home default blog list
+- 'Read more' button visual fix
+- Homepage Templates Loop Failure fixed
+- Added basic 'The Event Calendar' Styles for widgets
+- Added default for agriflex_front_page_content
 
 ### 2.3
 
