@@ -441,7 +441,7 @@ jQuery(document).ready(function($) {
   }
 
   $('#section-agency-top input').change(function() {
-    if( $('#agriflex2-agency-top-extension').is(':checked') && others.filter(':not(:checked)').length == 5) {
+    if( $('#agriflex2-agency-top-extension').is(':checked') && others.filter(':checked').length == 0) {
       $('#section-ext-type').show();
     } else {
       $('#section-ext-type').hide();
