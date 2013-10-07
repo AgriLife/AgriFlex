@@ -390,13 +390,13 @@ jQuery(document).ready(function($) {
   });
 
   // Hides the custom site logo field if option 0 is checked on load
-  if( $('#agriflex-site-title-0').is(':checked') ) {
+  if( $('#agriflex2-site-title-0').is(':checked') ) {
     $('#section-custom-site-logo').hide();
   }
 
   // Shows the custom site logo field if options 1 or 2 are checked
   $('#section-site-title').change( function() {
-    if ( $('#agriflex-site-title-1').attr('checked') || $('#agriflex-site-title-2').attr('checked') ) {
+    if ( $('#agriflex2-site-title-1').attr('checked') || $('#agriflex2-site-title-2').attr('checked') ) {
       $('#section-custom-site-logo').show('fast');
     } else {
       $('#section-custom-site-logo').hide('fast');
@@ -435,14 +435,13 @@ jQuery(document).ready(function($) {
   });
 
   // Hides ext-type if multiple agencies are checked
-  others = $('#section-agency-top input').not('#agriflex-agency-top-extension');
-  if( others.is(':checked')) {
+  others = $('#section-agency-top input').not('#agriflex2-agency-top-extension');
+  if( $('#agriflex2-agency-top-extension').is(':not(:checked)')) {
     $('#section-ext-type').hide();
   }
 
   $('#section-agency-top input').change(function() {
-    console.log(others.filter(':not(:checked)').length);
-    if( $('#agriflex-agency-top-extension').is(':checked') && others.filter(':not(:checked)').length == 4) {
+    if( $('#agriflex2-agency-top-extension').is(':checked') && others.filter(':not(:checked)').length == 5) {
       $('#section-ext-type').show();
     } else {
       $('#section-ext-type').hide();
@@ -451,14 +450,14 @@ jQuery(document).ready(function($) {
   });
 
   // Shows county selection if County or TCE extension types are selected
-  if($('#agriflex-ext-type-county').is(':checked') || $('#agriflex-ext-type-tce').is(':checked')) {
+  if($('#agriflex2-ext-type-county').is(':checked') || $('#agriflex2-ext-type-tce').is(':checked')) {
     $('#section-county-name').show();
   } else {
     $('#section-county-name').hide();
   }
 
   $('#section-ext-type').change(function() {
-    if($('#agriflex-ext-type-county').is(':checked') || $('#agriflex-ext-type-tce').is(':checked')) {
+    if($('#agriflex2-ext-type-county').is(':checked') || $('#agriflex2-ext-type-tce').is(':checked')) {
       $('#section-county-name').show();
     } else {
       $('#section-county-name').hide();
