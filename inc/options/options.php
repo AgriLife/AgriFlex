@@ -436,7 +436,7 @@ jQuery(document).ready(function($) {
 
   // Hides ext-type if multiple agencies are checked
   others = $('#section-agency-top input').not('#agriflex2-agency-top-extension');
-  if( $('#agriflex2-agency-top-extension').is(':not(:checked)')) {
+  if( $('#agriflex2-agency-top-extension').is(':not(:checked)') || others.filter(':checked').length > 0) {
     $('#section-ext-type').hide();
   }
 
