@@ -4,9 +4,22 @@ Custom theme created for the Texas A&M AgriLife network.
 
 __Author__: Texas A&M AgriLife Communications
 
-__Version__: 2.3.1
+__Version__: 2.3.3
 
 ## Change Log
+
+### 2.3.3
+
+- Updated PV logo for TCE theme option
+- Enabled TCE logo when option is selected
+- Saving county info footer as transient to decrease API load
+
+### 2.3.2
+
+- Fixed JS in theme options
+- Simplified filter to check for multiple agencies in theme options
+- Fixed extension options showing after save when multiple agencies selected
+- Fixed some Gravity Forms layout issues
 
 ### 2.3.1
 
