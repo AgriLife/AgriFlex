@@ -4403,29 +4403,6 @@ img.ui-datepicker-trigger {position:relative; top:3px; left:4px}
 .gform_wrapper .top_label .ginput_complex + .gfield_description {padding-bottom:0!important}
 .gform_wrapper .top_label .gfield_description.validation_message, .gfield_description.validation_message {padding:10px 0 10px 0}
 
-/* Twentyten theme specific styles updated 08.23.2010 -----------------------------------------------------*/
-/* pretty specific inheritance but if your theme is structured just like the 2010 theme it may affect yours as well */
-
-#wrapper.hfeed #main #container #content .entry-content .gform_wrapper .ginput_complex input, #wrapper.hfeed #main #container #content .entry-content .gform_wrapper .ginput_complex select, .entry-content .gform_wrapper input, #wrapper.hfeed #main #container #content .entry-content .gform_wrapper select {margin:0!important}
-#wrapper.hfeed #main #container #content .entry-content .gform_wrapper .ginput_complex select, #wrapper.hfeed #main #container #content .entry-content .gform_wrapper select {font-size:16px; padding:1px 2px!important; background-color: #F9F9F9; border:1px solid #CCC; color:#444}
-#wrapper.hfeed #main #container #content .entry-content .gform_wrapper .gfield_checkbox li input[type=checkbox], #wrapper.hfeed #main #container #content .entry-content .gform_wrapper .gfield_checkbox li input {margin-top:2px!important}
-#wrapper.hfeed #main #container #content .entry-content .gform_wrapper .gfield_radio li input[type=radio], #wrapper.hfeed #main #container #content .entry-content .gform_wrapper .gfield_radio li input {margin-top:1px!important}
-#wrapper.hfeed #main #container #content .entry-content .gf_2col ul.gfield_checkbox li, #wrapper.hfeed #main #container #content .entry-content .gf_2col ul.gfield_radio li {min-height:1.5em}
-#wrapper.hfeed #main #container #content .entry-content .gf_3col ul.gfield_checkbox li, #wrapper.hfeed #main #container #content .entry-content .gf_3col ul.gfield_radio li {min-height:1.5em}
-#wrapper.hfeed #main #container #content .entry-content .gf_4col ul.gfield_checkbox li, #wrapper.hfeed #main #container #content .entry-content .gf_4col ul.gfield_radio li {min-height:1.5em}
-#wrapper.hfeed #main #container #content .entry-content .gform_wrapper .gfield_checkbox li label, #wrapper.hfeed #main #container #content .entry-content .gform_wrapper .gfield_radio li label {*display:inline-block!important; *margin: 2px 0 0 6px}/* for IE7 */
-
-/* Thesis theme specific styles updated 08.23.2010 -----------------------------------------------------*/
-/* pretty specific inheritance but if your theme is structured identical to the Thesis theme it will affect yours as well */
-
-body.custom #container #page #content_box .post_box .format_text ul.gfield_radio li input, body.custom #container #page #content_box .post_box .format_text ul.gfield_checkbox li input {width:auto!important; border:none!important; border-color:none!important; background-color:none!important; background:none!important}
-body.custom #container #page #content_box .post_box .format_text .gform_footer input[type=image] {border:none!important; border-color:none!important; background-color:none!important}
-body.custom #container #page #content_box .post_box .format_text .gform_footer input.button {border-color:#CCC #999 #999 #CCC; border-right:3px double #999; border-style:double; border-width:3px; color:#111111; background-color:#E3E3E3; cursor:pointer; font-weight:bold; overflow:visible; width:auto !important; font-family: Georgia, "Times New Roman", Times, serif; font-size:1.143em; padding:0.313em 0.25em}
-body.custom #container #page #content_box .post_box .format_text .left_label ul.gfield_checkbox, body.custom #container #page #content_box .post_box .format_text .left_label ul.gfield_radio, body.custom #container #page #content_box .post_box .format_text .right_label ul.gfield_checkbox, body.custom #container #page #content_box .post_box .format_text .right_label ul.gfield_radio {margin-top:-.2em!important}
-body.custom #container #page #content_box .post_box .format_text input, body.custom #container #page #content_box .post_box .format_text select {font-size:1em; padding:0.214em}
-body.custom #container #page #content_box .post_box .format_text select {background-color:#eee; border-color:#AAA #DDD #DDD #AAA; border-style:solid; border-width:1px; color:#444; font-size:1em}
-body.custom #container #page #content_box .post_box .format_text .gform_wrapper .gfield_checkbox li input[type=checkbox], body.custom #container #page #content_box .post_box .format_text .gform_wrapper .gfield_radio li input[type=radio], body.custom #container #page #content_box .post_box .format_text .gform_wrapper .gfield_checkbox li input {float:left; margin-top:4px}
-body.custom #container #page #content_box .post_box .format_text .gform_wrapper .gfield_checkbox li label, body.custom #container #page #content_box .post_box .format_text .gform_wrapper .gfield_radio li label {display:inline-block\9; margin: 2px 0 0 6px\9}/* another hack for IE */
 
 /* HTML field default margins -----------------------------------------------------*/
 
