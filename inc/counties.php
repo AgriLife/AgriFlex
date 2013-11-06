@@ -812,74 +812,83 @@ function get_IT_code( $federalID ) {
  * @return string $return The HTML for the footer panel
  */
 function county_footer_contact() {
-	$options = of_get_option();
-	
-	$countycode = (int) $options['county-name'];
 
-  $countycode = get_IT_code( $countycode );             
-	           
-	//Get a handle to the webservice
-	$wsdl = new soapclient( 'https://agrilifepeople.tamu.edu/agrilifepeopleAPI/v3.cfc?wsdl' );
-	$hash = md5( AGRILIFE_API_KEY . 'getunits', true);
-	$base64 = base64_encode( $hash );	
-	if( is_object( $wsdl ) ){
-    $result = $wsdl->getUnits( 3, $base64, $countycode ,'', '', '', '', '' );
-    
-    // Check for errors
-    (int) $err = $result['ResultCode'];
+	if ( false === ( $value = get_transient( 'agriflex_county_footer' ) ) ) {
 
-    if ( $err != 200 ) {
-    // Display the error
-    $return = '<h2>Error</h2><pre>' . $result['ResultMessages'] . '</pre>';
+		$options = of_get_option();
+		
+		$countycode = (int) $options['county-name'];
 
-    } else {
+	  $countycode = get_IT_code( $countycode );             
+		           
+		//Get a handle to the webservice
+		$wsdl = new soapclient( 'https://agrilifepeople.tamu.edu/agrilifepeopleAPI/v3.cfc?wsdl' );
+		$hash = md5( AGRILIFE_API_KEY . 'getunits', true);
+		$base64 = base64_encode( $hash );	
+		if( is_object( $wsdl ) ){
+	    $result = $wsdl->getUnits( 3, $base64, $countycode ,'', '', '', '', '' );
+	    
+	    // Check for errors
+	    (int) $err = $result['ResultCode'];
 
-      $payload = $result['ResultQuery']->enc_value->data;
+	    if ( $err != 200 ) {
+	    // Display the error
+	    $return = '<h2>Error</h2><pre>' . $result['ResultMessages'] . '</pre>';
 
-      foreach ( $payload as $item ) {
+	    } else {
 
-        $mapaddress = $item[14] . ' ' . $item[17] . ', ' . $item[18] . ' '. $item[19];
+	      $payload = $result['ResultQuery']->enc_value->data;
 
-        $map_link = ( 'http://maps.google.com/?q=' .
-          urlencode( $mapaddress ) .
-          '&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office&amp;sensor=falsehad' );
-        
-        $return = '<img src="' . get_stylesheet_directory_uri() . '/img/contact-img.png?v=100" alt="Texas A&amp;M System image" />';
-        $return .= '<ul>';
+	      foreach ( $payload as $item ) {
 
-        if ( is_array( $options ) ) {
-          if( $item[14]<>'' ) {
-            if( strlen( $item[19] )>5 ) {
-              $zip = str_split( $item[19], 5 );
-              $zip = $zip[0] . '-' . $zip[1];
-            } else {
-              $zip = $item[19];
-            }
+	        $mapaddress = $item[14] . ' ' . $item[17] . ', ' . $item[18] . ' '. $item[19];
 
-            $return .= '<a href="' . $map_link . '">';
-            $return .= '<li>';
-            $return .= $item[2] . '<br />';
-            $return .= $item[14];
-            $return .= '<br />' . $item[17] . ', ' . $item[18] . ' ' . $zip . '</li>';
-            $return .= '</a>';
-          }
-          if( $options['hours']<>'' ) {
-            $return .= '<li>' . $options['hours'] . '</li>';
-          }
-          if( $item[13]<>'' )
-            $return .= '<li><a href="' . obfuscate( 'mailto:' ) . obfuscate( $item[13] ) . '">' . obfuscate( $item[13] ) . '</a></li>';
-          if( $item[11]<>'' )
-            $return .= '<li>Phone: ' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[11] ) . '</li>';
-          if( $item[12]<>'' )
-            $return .= '<li>Fax: ' . preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[12]) . '</li>';	 						
-        } 
+	        $map_link = ( 'http://maps.google.com/?q=' .
+	          urlencode( $mapaddress ) .
+	          '&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office&amp;sensor=falsehad' );
+	        
+	        $return = '<img src="' . get_stylesheet_directory_uri() . '/img/contact-img.png?v=100" alt="Texas A&amp;M System image" />';
+	        $return .= '<ul>';
 
-        $return .= '</ul>';
+	        if ( is_array( $options ) ) {
+	          if( $item[14]<>'' ) {
+	            if( strlen( $item[19] )>5 ) {
+	              $zip = str_split( $item[19], 5 );
+	              $zip = $zip[0] . '-' . $zip[1];
+	            } else {
+	              $zip = $item[19];
+	            }
 
-        return $return; 
-      }
-    }
-  }
+	            $return .= '<a href="' . $map_link . '">';
+	            $return .= '<li>';
+	            $return .= $item[2] . '<br />';
+	            $return .= $item[14];
+	            $return .= '<br />' . $item[17] . ', ' . $item[18] . ' ' . $zip . '</li>';
+	            $return .= '</a>';
+	          }
+	          if( $options['hours']<>'' ) {
+	            $return .= '<li>' . $options['hours'] . '</li>';
+	          }
+	          if( $item[13]<>'' )
+	            $return .= '<li><a href="' . obfuscate( 'mailto:' ) . obfuscate( $item[13] ) . '">' . obfuscate( $item[13] ) . '</a></li>';
+	          if( $item[11]<>'' )
+	            $return .= '<li>Phone: ' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[11] ) . '</li>';
+	          if( $item[12]<>'' )
+	            $return .= '<li>Fax: ' . preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[12]) . '</li>';	 						
+	        } 
+
+	        $return .= '</ul>';
+
+				  set_transient( 'agriflex_county_footer', $return, WEEK_IN_SECONDS );
+
+	        return $return; 
+	      }
+	    }
+	  }
+
+	} else {
+		return get_transient( 'agriflex_county_footer' );
+	}
 		
 }
 

@@ -19,6 +19,9 @@ if ( in_array( 'extension', $a['agencies'] ) ) {
   if ( $a['ext-type'] == 'county' || $a['ext-type'] == 'tce' ) {
     add_filter( 'agriflex_site_title', 'agriflex_county_title', 10, 2 );
   }
+  if ( $a['ext-type'] == 'tce' ) {
+    add_action( 'agriflex_before_header', 'agriflex_tce_logo', 21 );
+  }
   if ( $a['ext-type'] == 'mg' )
     add_filter( 'agriflex_site_title', 'agriflex_mg_title', 10, 2 );
   if ( $a['ext-type'] == 'mn' )
@@ -45,6 +48,26 @@ function agriflex_ext_logo() {
   echo $html;
 
 } // agriflex_ext_logo
+
+/**
+ * Displays the TCE logo when selected
+ * @since AgriFlex 2.3.3
+ * @return void
+ */
+function agriflex_tce_logo() {
+
+  $html = '<li class="top-agency tce">';
+  $html .= '<a href="http://pvcep.pvamu.edu/">';
+  $html .= '<span class="top-level-hide">';
+  $html .= 'Cooperative Extension Program';
+  $html .= '</span>';
+  $html .= '<img src="' . get_stylesheet_directory_uri() . '/img/CEP-Logo-white.png" alt="Cooperative Extension Program" />';
+  $html .= '</a>';
+  $html .= '</li>';
+
+  echo $html;
+
+}
 
 /**
  * Displays the county/TCE site title
