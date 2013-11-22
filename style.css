@@ -2,7 +2,7 @@
     Theme Name: AgriFlex2
     Description: Custom theme created for Texas A&M AgriLife network.
     Author: AgriLife Communications
-    Version: 2.3.3
+    Version: 2.3.5
 */
 
 
@@ -1771,6 +1771,19 @@ body.home.blog .hentry {
 /* Job Postings, Tests and Staff pages (Custom Post Types)
 -------------------------------------------------------------- */
 
+/* Job Postings, Tests and Staff pages (Custom Post Types)
+-------------------------------------------------------------- */
+.job-search-form,
+.staff-search-form,
+.test-search-form {
+	margin-bottom: 20px;
+	padding: 10px;
+	background: #edece4;
+	border-top: 1px solid #d5d1bf;
+	border-bottom: 1px solid #d5d1bf;
+	position: relative;
+}
+
 .test-search-form {
 	overflow: hidden;
 }
@@ -1803,6 +1816,172 @@ body.home.blog .hentry {
 	padding-top: 8px;
 }
 
+.job-search-form .searchform,
+.staff-search-form .searchform,
+.test-search-form .searchform {
+	top: 8px;
+}
+
+.job-search-form label h4,
+.staff-search-form label h4,
+.test-search-form label h4 {
+	margin-bottom: 5px;
+}
+
+.job-listing-ul,
+.staff-listing-ul {
+	border-top: double #d5d1bf;	
+}
+
+.job-listing-ul,
+.job-listing-item,
+.staff-listing-ul,
+.staff-listing-item,
+.test-listing-ul,
+.test-listing-item {
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.job-listing-item,
+.staff-listing-item,
+.test-listing-link {
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+	overflow: hidden;
+	display: block;
+	background: #EAE6D2;
+	background: rgba(217, 208, 173, .30);
+	border-bottom: 1px solid #fafaf6;
+}
+
+.test-listing-item {
+	list-style-type: none;	
+}
+
+.job-listing-item:nth-child(even),
+.staff-listing-item:nth-child(even),
+.test-listing-item:nth-child(even)  {
+	background: #EAE6D2;
+	background: rgba(217, 208, 173, .10);
+}
+
+.staff-container,
+a.job-listing-link,
+body.extensiononly a.job-listing-link,
+body.researchonly a.job-listing-link,
+body.collegeonly a.job-listing-link,
+body.tvmdlonly a.test-listing-link {
+	overflow: hidden;
+	display: block;	
+	text-decoration: none;
+	padding: 10px;
+	border-bottom: 1px solid #d5d1c3;		
+}
+
+.staff-container img {
+	float: right;
+	margin-right: 0;
+}
+
+.staff-listing-item:hover,
+a.job-listing-link:hover,
+a.staff-listing-link:hover,
+a.test-listing-link:hover {
+	background: #f1efce;
+	border-bottom: 1px solid #9f9490;		
+}
+
+.job-title,
+.staff-title,
+.test-title {
+	font: 90% "minion-pro-1","minion-pro-2", 'Cambria', 'Georgia', 'Times New Roman', serif;
+	font-size: 22px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.test-title {
+	margin-bottom: 0;
+}
+
+#content .test-listing-dt {
+	float: left;
+	width: 55%;	
+	margin-bottom: 0;	
+}
+
+#content .test-listing-dd {
+	float: right;
+	width: 40%;	
+	margin-bottom: 0;
+}
+
+.test-listing-dd ul {
+	margin: 5px 0;	
+}
+
+
+.job-agency,
+.job-posted-date,
+.job-number,
+body.home #content h3.job-agency,
+body.home #content h4.job-posted-date,
+body.home #content h4.job-number {
+	font-family: ff-dagny-web-pro-1, ff-dagny-web-pro-2, 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	color: #433C3A;
+	float: left;
+	line-height: 1.2em;
+	width: 65%;
+}
+
+.staff-phone,
+.staff-email,
+.staff-position {
+	font-size: 14px;
+	color: #433C3A;	
+}
+
+.staff-position {
+	font-weight: bold;	
+}
+
+.staff-head {
+	width: 45%;
+	float: left;
+}
+
+.staff-contact-details {
+	font-size: 14px;
+	color: #433C3A;
+	float: right;
+	width: 30%;
+	padding-left: 20px;	
+}
+
+.staff-contact-details p{
+	margin: 7px 0;
+}
+
+#content p.job-location {
+	font-size: 12px;
+	color: #9f9490;
+	width: 30%;
+	margin: 0 0 0 65%;
+	padding-left: 20px;
+	background: transparent url('images/map-marker.png') no-repeat left top;
+}
+#content .stafftable ul {
+	margin: 0;
+	list-style: none;
+}
+#content .stafftable ul ul {
+	margin: 0 0 0 2em;
+	list-style: circle;
+}
 .county-staff-list .staff-contact-details {
 	width: 45%;
 }

@@ -35,7 +35,14 @@
     <div id="home-middle">
       <div class="home-middle-features">
 
-        <?php $my_query = new WP_Query('meta_key=feature-homepage&meta_value=1&showposts=3&post_type=any');
+        <?php 
+        $my_query = new WP_Query(
+                          array(
+                            'meta_key'  => 'feature-homepage',
+                            'meta_value'=> '1',
+                            'showposts' => '3',
+                            'post_type' => array( 'post', 'page' )
+                          ));
         $count = 0;
         while ($my_query->have_posts()) : $my_query->the_post();
         $do_not_duplicate[] = $post->ID; $count++;
