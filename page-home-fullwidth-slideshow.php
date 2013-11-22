@@ -9,8 +9,16 @@
 
 <?php get_header(); ?>
 
-<?php $my_query = new WP_Query('meta_key=feature-homepage&meta_value=1&showposts=5&post_type=any');
-$count = 0;	?>
+<?php 
+  $my_query = new WP_Query(
+                    array(
+                      'meta_key'  => 'feature-homepage',
+                      'meta_value'=> '1',
+                      'showposts' => '5',
+                      'post_type' => array( 'post', 'page' )
+                    ));
+  $count = 0;
+  ?>
 
 <?php if ( $my_query->have_posts() ) : ?>
 

@@ -4,9 +4,13 @@ Custom theme created for the Texas A&M AgriLife network.
 
 __Author__: Texas A&M AgriLife Communications
 
-__Version__: 2.3.3
+__Version__: 2.3.4
 
 ## Change Log
+
+### 2.3.4
+
+- Fix slideshow conflict with The Events Calendar
 
 ### 2.3.3
 
