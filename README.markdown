@@ -8,6 +8,11 @@ __Version__: 2.3.4
 
 ## Change Log
 
+### 2.3.5
+
+- Added space before 'County' in site header
+- Combined Dallam & Hartley counties
+
 ### 2.3.4
 
 - Fix slideshow conflict with The Events Calendar
