@@ -83,7 +83,7 @@ function agriflex_county_title( $link, $args ) {
     $link = '<a href="' . $args['url'] . '" ';
     $link .= 'title="' . $args['name'] . '">';
     $link .= '<span>Extension Education</span>';
-    $link .= '<em>in ' . of_get_option( 'county-name-human' ) . 'County</em>';
+    $link .= '<em>in ' . of_get_option( 'county-name-human' ) . ' County</em>';
     $link .= '</a>';
 
     return $link;
