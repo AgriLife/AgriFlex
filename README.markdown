@@ -4,9 +4,13 @@ Custom theme created for the Texas A&M AgriLife network.
 
 __Author__: Texas A&M AgriLife Communications
 
-__Version__: 2.3.4
+__Version__: 2.3.6
 
 ## Change Log
+
+### 2.3.6
+
+- Added push capabilities to agrlife, txmg & txmn installs
 
 ### 2.3.5
 
