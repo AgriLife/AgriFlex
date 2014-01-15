@@ -49,7 +49,7 @@ function agriflex_res_logo() {
 function research_about( $about ) {
 
   $html = '<h4>About</h4>';
-  $html .= '<a href="http://www.youtube.com/watch?v=UnLkKMJasXk"><img src="' . get_template_directory_uri() . '/img/research-video-pic.jpg?v=100" alt="link to Texas A&amp;M Research about video" /></a>';
+  $html .= '<a href="http://youtu.be/zVNZ5Bw3H-U"><img src="' . get_template_directory_uri() . '/img/research-video-pic.jpg" alt="link to Texas A&amp;M Research about video" /></a>';
   $html .= '<p><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M AgriLife Research</a> is the state&apos;s premier research agency in agriculture, natural resources, and the life sciences. Our research spans numerous scientific disciplines and is international in scope.</p>';
   $html .= '<ul>';
   $html .= '<li><a href="http://agriliferesearch.tamu.edu/research-units/">Research Units</a></li>';
