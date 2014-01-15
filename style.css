@@ -3521,6 +3521,7 @@ img#wpstats {
 	}	
 
 	#drop-section-nav #drop-nav ul li .top-level-hide {
+		display: block;
 		text-indent: -999em;
 	}
 	

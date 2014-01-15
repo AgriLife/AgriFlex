@@ -35,7 +35,6 @@ function agriflex_college_logo() {
   $html .= '<span class="top-level-hide">';
   $html .= 'Texas A&amp;M College of Agriculture and Life Sciences';
   $html .= '</span>';
-  $html .= '<img src="' . get_template_directory_uri() . '/img/college-branding.png" alt="Texas A&amp;M College Logo" />';
   $html .= '</a>';
   $html .= '</li>';
 

@@ -41,7 +41,6 @@ function agriflex_ext_logo() {
   $html .= '<span class="top-level-hide">';
   $html .= 'Texas A&amp;M AgriLife Extension Service';
   $html .= '</span>';
-  $html .= '<img src="' . get_stylesheet_directory_uri() . '/img/extension-branding.png" alt="Texas A&amp;M Extension Logo" />';
   $html .= '</a>';
   $html .= '</li>';
 
