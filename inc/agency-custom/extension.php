@@ -161,7 +161,7 @@ function extension_about( $about ) {
 
 	$html = '<h4>About</h4>';
 	$html .= '<a href="http://www.youtube.com/watch?v=q_UsLHl_YDQ"><img src="' . get_template_directory_uri() . '/img/about_video.jpg?v=100" alt="link to Extension about video" /></a>';
-	$html .= '<p>A unique education agency, the Texas A&amp;M AgriLife Extension Service teaches Texans wherever they live, extending research-based knowledge to benefit their families and communities.</p>	';
+	$html .= '<p>A unique education agency, the Texas A&amp;M AgriLife Extension Service teaches Texans wherever they live, extending research-based knowledge to benefit their families and communities.</p>';
 
 	return $html;
 
@@ -184,11 +184,11 @@ function extension_links( $links ) {
 	$html .= '<ul>';
 	$html .= '<li><a href="http://county-tx.tamu.edu/">County Extension Offices</a></li>';
 	$html .= '<li><a href="http://agrilife.tamu.edu/locations-window/#centers">Research and Extension Centers</a></li>';
-	$html .= '      <li><a href="https://agrilifepeople.tamu.edu/">Contact Directory</a></li>';
-	$html .= '<li><a href="http://agrilife.org/today/contact-us/">Media Contacts</a></li>					';
-	$html .= '<li><a href="http://texas4-h.tamu.edu/">Texas 4-H and Youth Dev.</a></li>					';
+	$html .= '<li><a href="https://agrilifepeople.tamu.edu/">Contact Directory</a></li>';
+	$html .= '<li><a href="http://agrilife.org/today/contact-us/">Media Contacts</a></li>';
+	$html .= '<li><a href="http://texas4-h.tamu.edu/">Texas 4-H and Youth Dev.</a></li>';
 	$html .= '<li><a href="http://agrilifeextension.tamu.edu/about/strategyimpact/index.php">Strategic Plan and Impacts</a></li>';
-	$html .= '<li class="last"><a href="https://greatjobs.tamu.edu">Employment Opportunities</a></li>										';
+	$html .= '<li class="last"><a href="https://greatjobs.tamu.edu">Employment Opportunities</a></li>';
 	$html .= '</ul>';
 
 	return $html;
@@ -207,8 +207,9 @@ function hhhh_about( $about ) {
 	$html .= '<li><a href="http://texas4-h.tamu.edu/districts">District Websites</a></li>';
 	$html .= '<li><a href="http://texas4-h.tamu.edu/projects">Projects &amp; Programs</a></li>';
 	$html .= '<li><a href="http://texas4-h.tamu.edu/roundup">Roundup</a></li>';
-	$html .= '<li class="last"><a href="http://texas4-h.tamu.edu/contact">Contact Us</a></li>										';
+	$html .= '<li class="last"><a href="http://texas4-h.tamu.edu/contact">Contact Us</a></li>';
 	$html .= '</ul>';
 
 	return $html;
+
 }
