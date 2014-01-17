@@ -60,7 +60,7 @@ function agriflex_after_header() {
 
 /**
  * Show location map if available
- * 
+ *
  * @since AgriFlex 2.0
  */
 function agriflex_return_map() {
@@ -87,7 +87,7 @@ add_action( 'agriflex_head', 'agriflex_favicon', 5 );
 /**
  * We add some JavaScript to pages with the comment form
  * to support sites with threaded comments (when in use).
- * 
+ *
  * @since AgriFlex 2.0
  */
 function agriflex_threaded_comments() {
@@ -169,7 +169,7 @@ function agriflex_tfs_logo() {
     $html .= '<span class="top-level-hide">';
     $html .= 'Texas A&amp;M Forest Service';
     $html .= '</span>';
-    $html .= '<img src="' . get_template_directory_uri() . '/img/forest-branding.png" alt="Texas A&amp;M Forest Service Logo" />';
+//    $html .= '<img src="' . get_template_directory_uri() . '/img/forest-branding.png" alt="Texas A&amp;M Forest Service Logo" />';
     $html .= '</a>';
     $html .= '</li>';
 
@@ -288,7 +288,7 @@ function agriflex_small_logo( $link, $args ) {
     $link .= 'title="' . $args['name'] . '">';
     $link .= $display;
     $link .= '</a>';
-  
+
     return $link;
   }
 
@@ -319,7 +319,7 @@ function agriflex_big_logo( $link, $args ) {
     $link .= 'title="' . $args['name'] . '">';
     $link .= $display;
     $link .= '</a>';
-  
+
     return $link;
   }
 

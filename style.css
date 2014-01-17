@@ -488,22 +488,6 @@ body.extension.research #drop-section-nav #drop-nav ul:hover {
 	-webkit-transition: opacity .3s ease;
 	-moz-transition: opacity .3s ease;
 }
-body.research.extension #drop-section-nav #drop-nav ul li {
-	width: 20%;
-	margin-top: -9px;
-	margin-bottom: -8px;
-	-webkit-transition: margin .3s ease;
-	-moz-transition: margin .3s ease;
-}
-body.research.extension #drop-section-nav #drop-nav ul li:hover {
-}
-body.research.extension #drop-section-nav #drop-nav ul li a {
-	padding: 0;
-	margin-right: 0;
-}
-body.research.extension #drop-section-nav #drop-nav ul li a img {
-
-}
 
 #drop-section-nav #drop-nav ul li a[href*='ask'] {
 	position: relative;
@@ -532,27 +516,11 @@ body.research.extension #drop-section-nav #drop-nav ul li a img {
 
 #drop-section-nav #drop-nav ul li a[href*='aglifesciences'] {
 	display: block;
-	background: url('img/college-logo.png?v=100') no-repeat left top;
+	background: url('img/college-logo.png') no-repeat left top;
 	margin-top: 5px;
 	height: 38px;
 	width: 180px;
 	text-indent: -999em;
-}
-body.research.extension #drop-section-nav #drop-nav ul li a[href*='aglifesciences'] {
-	background: none;
-}
-
-
-#drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
-
-}
-
-#drop-section-nav #drop-nav ul li a[href*='research'] {
-
-}
-
-#drop-section-nav #drop-nav ul li a[href*='txforestservice'] {
-
 }
 
 #drop-section-nav #drop-nav ul li.align-right {
@@ -560,7 +528,7 @@ body.research.extension #drop-section-nav #drop-nav ul li a[href*='aglifescience
 }
 
 body.collegeonly #drop-section-nav #drop-nav ul li a.college-explore-link {
-	background: rgba(0,0,0,.1) url('img/explore-button.png?v=100') no-repeat 90% -34px;
+	background: rgba(0,0,0,.1) url('img/explore-button.png') no-repeat 90% -34px;
 	display: block;
 	text-indent: 0;
 	border-radius: 3px;
@@ -604,32 +572,32 @@ body.collegeonly #drop-section-nav #drop-nav ul li a.college-explore-link:hover 
 }
 
 .extensiononly #drop-section-nav #drop-nav ul li a[href*='extension'] {
-	background-image: url('img/ext-system-logo.png?v=100');
+	background-image: url('img/ext-system-logo.png');
 }
 .extensionmn #drop-section-nav #drop-nav ul li a[href*='tpwd'] {
-  background-image: url('img/tpwd.png?v=100');
+  background-image: url('img/tpwd.png');
 }
 
 .extensioncountytce #drop-section-nav #drop-nav ul li a[href*='pvcep'] {
-	background-image: url('img/CEP-Logo-white.png?v=100');
+	background-image: url('img/CEP-Logo-white.png');
 	width: 204px;
 	margin-top: 0px;
 }
 
 .collegeonly #drop-section-nav #drop-nav ul li a[href*='aglifesciences'] {
-	background-image: url('img/college-logo.png?v=100');
+	background-image: url('img/college-logo.png');
 	margin-top: 8px;
 	height: 39px;
 }
 
 .tvmdlonly #drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
-	background-image: url('img/tvmdl-logo.png?v=100');
+	background-image: url('img/tvmdl-logo.png');
 	width: 90px;
 	margin-bottom: -4px;
 }
 
 .researchonly #drop-section-nav #drop-nav ul li a[href*='research'] {
-	background-image: url('img/research-logo.png?v=100');
+	background-image: url('img/research-logo.png');
 }
 
 .tvmdlonly #drop-section-nav #drop-nav ul li a.client-login {
@@ -796,7 +764,7 @@ body.collegeonly #drop-section-nav #drop-nav ul li a.college-explore-link:hover 
 	text-transform: uppercase;
 	padding: 7px 0 7px 38px;
 	color: #815a08;
-	background: #d0c69b url(img/top-level-arrow.png?v=100) no-repeat left -31px;
+	background: #d0c69b url(img/top-level-arrow.png) no-repeat left -31px;
 	border-bottom: 1px solid #c6c097;
 	-webkit-transition: border .3s ease-in;
 }
@@ -987,7 +955,7 @@ body.collegeonly #drop-section-nav #drop-nav ul li.tx-uni-item a {
 	height: 32px;
 	width: 194px;
 	display: block;
-	background: url('img/college-logo.png?v=100') no-repeat left center;
+	background: url('img/college-logo.png') no-repeat left center;
 }
 
 body.collegeonly #drop-section .flow .contents #ext-intro {
@@ -1017,7 +985,7 @@ body.collegeonly #drop-section .flow .contents #top-level-nav .top-level-nav {
 }
 
 body.collegeonly #access li a[title='home'] {
-	background-image: url('img/home-college.png?v=100');
+	background-image: url('img/home-college.png');
 }
 
 #college-top-level-section, .ask, .explore  {
@@ -1157,7 +1125,7 @@ div.menu li {
 #access ul.menu li a[title='home'] {
 	display: block;
 	text-indent: -999em;
-	background: url('img/home-gold.png?v=100') no-repeat 50% 12px;
+	background: url('img/home-gold.png') no-repeat 50% 12px;
 	width: 20px;
 }
 
@@ -1204,7 +1172,7 @@ body.touch #access .menu-header li ul.sub-menu {
 .s {
 	width: 100%;
 	padding: 8px 5px 8px 30px;
-	background: #fff url('img/search.png?v=100') no-repeat left 45%;
+	background: #fff url('img/search.png') no-repeat left 45%;
 	border-radius: 10px;
 	color: #999;
 	border: 1px solid #ccc;
@@ -1294,7 +1262,7 @@ body.home #content {
 
 #home-top #slideshow-nav a.slideNext,
 #home-top #slideshow-nav a.slidePrev {
-	background-image: url(img/arrows.png?v=100);
+	background-image: url(img/arrows.png);
 	background-repeat: no-repeat;
 	top: 0;
 	height: 31px;
@@ -1336,7 +1304,7 @@ body.home #content {
 }
 
 #home-top #slidePager a {
-	background-image: url(img/dots.png?v=100);
+	background-image: url(img/dots.png);
 	background-repeat: no-repeat;
 	background-position: center -33px;
 	text-indent: -9999px;
@@ -2055,7 +2023,7 @@ body.home #content h4.job-number {
 #aside #sidebar-navigation-widgets h3 a {
 	display: block;
 	margin: 0;
-	background: url('img/navigation-arrow.png?v=100') no-repeat -1px 6px;
+	background: url('img/navigation-arrow.png') no-repeat -1px 6px;
 	background-color: #edece4;
 	padding: 10px 10px 10px 27px;
 	border-bottom: 1px solid #E0DCBC;
@@ -2130,7 +2098,7 @@ body.home #content h4.job-number {
 
 #aside ul.books li dd.price {
 	position: absolute;
-	background: url('img/price-circle.png?v=100') no-repeat 40% 50%;
+	background: url('img/price-circle.png') no-repeat 40% 50%;
 	z-index: 6;
 	top: -15px;
 	left: 30%;
@@ -3157,7 +3125,7 @@ img#wpstats {
 		-webkit-box-shadow: 0 -2px 6px rgba(16,16,16,.075);
 		-moz-box-shadow: -4px -2px 6px rgba(16,16,16,.075);
 		box-shadow: 0 -2px 6px rgba(16,16,16,.075);
-		background: #fff url(img/gradient.png?v=100) repeat-x left -100px;
+		background: #fff url(img/gradient.png) repeat-x left -100px;
 	}
 
 	/*----- Job Postings single page ------ */
@@ -3180,7 +3148,7 @@ img#wpstats {
 		width: 100%;
 	}
 	#footer {
-		background: #fff url(img/gradient.png?v=100) repeat-x left top;
+		background: #fff url(img/gradient.png) repeat-x left top;
 	}
 
 	#footer .wrap h4 {
@@ -3442,13 +3410,13 @@ img#wpstats {
 	/*** arrows **/
 	#access .sf-menu li a.sf-with-ul {
 		min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
-		background: url(img/down-arrow.png?v=100) no-repeat right 55%;
+		background: url(img/down-arrow.png) no-repeat right 55%;
 		padding-right: 28px;
 	}
 
 	#access .sf-menu li li a.sf-with-ul {
 		min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
-		background: url(img/right-arrow.png?v=100) no-repeat left 58%;
+		background: url(img/right-arrow.png) no-repeat left 58%;
 	}
 
 
@@ -3525,18 +3493,6 @@ img#wpstats {
 		text-indent: -999em;
 	}
 
-	body.research.extension #drop-section-nav #drop-nav ul li a {
-		background: none;
-		opacity: 1;
-		-webkit-transition: opacity .3s ease;
-		-moz-transition: opacity .3s ease;
-		text-indent: 0;
-	}
-
-	body.research.extension #drop-section-nav #drop-nav ul li a span.top-level-hide {
-		display: none;
-	}
-
 	#drop-section-nav #drop-nav ul li a:hover,
 	body.tvmdlonly #drop-section-nav #drop-nav ul li a,
 	body.researchonly #drop-section-nav #drop-nav ul li a,
@@ -3546,70 +3502,32 @@ img#wpstats {
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='extension'] {
-		background-image: url('img/ext-system-logo.png?v=100');
+		background-image: url('img/ext-system-logo.png');
+		background-position-x: 16px;
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='aglifesciences'] {
-		background-image: url('img/college-logo.png?v=100');
-		margin-top: 6px;
-		height: 36px;
-		opacity: .4;
+		background-image: url('img/college-logo.png');
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
-		background-image: url('img/tvmdl-logo.png?v=100');
-		width: 90px;
+		background-image: url('img/tvmdl-logo.png');
+		background-position-x: 50px;
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='research'] {
-		background-image: url('img/research-logo.png?v=100');
+		background-image: url('img/research-logo.png');
+		background-position-x: 16px;
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='txforestservice'] {
-		background-image: url('img/tfs-logo.png?v=100');
-		width: 109px;
+		background-image: url('img/tfs-logo.png');
+		background-position-x: 40px;
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='texas-sea'] {
-		background-image: url('img/seagrant.png?v=100');
-    width: 91px;
-	}
-
-	body.research.extension #drop-section-nav #drop-nav ul li a[href*='extension'] {
-		background-image: none;
-		margin-top: 0;
-		height: auto;
-		opacity: 1;
-	}
-
-	body.research.extension #drop-section-nav #drop-nav ul li a[href*='aglifesciences'] {
-		background-image: none;
-		margin-top: 0;
-		height: auto;
-		opacity: 1;
-	}
-
-	body.research.extension #drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
-		background-image: none;
-		margin-top: 0;
-		height: auto;
-		opacity: 1;
-		width: 175px;
-	}
-
-	body.research.extension #drop-section-nav #drop-nav ul li a[href*='research'] {
-		background-image: none;
-		margin-top: 0;
-		height: auto;
-		opacity: 1;
-	}
-
-	body.research.extension #drop-section-nav #drop-nav ul li a[href*='txforestservice'] {
-		background-image: none;
-		margin-top: 0;
-		height: auto;
-		opacity: 1;
-		width: 175px;
+		background-image: url('img/seagrant.png');
+		/*width: 91px;*/
 	}
 
 	#drop-section-nav #drop-nav ul li.explore a {
@@ -3626,7 +3544,7 @@ img#wpstats {
 	}
 	#college-top-level-section  {
 		display: block;
-		background: #5b0125 url('img/drop-background.png?v=100');
+		background: #5b0125 url('img/drop-background.png');
 		color: #fff;
 		margin: 0 auto;
 	}
@@ -3864,7 +3782,7 @@ img#wpstats {
 	}
 	body.extensioncounty #site-title a,
 	body.extensioncountytce #site-title a	 {
-		background: url('img/tx.png?v=100') no-repeat left 7px;
+		background: url('img/tx.png') no-repeat left 7px;
 		font-size: 32px;
 		padding: 5px 0 60px 100px;
 	}
@@ -3917,7 +3835,7 @@ img#wpstats {
 		float: right;
 		-webkit-transition: .5s width ease;
 		-moz-transition: .5s width ease;
-		background: #fff url('img/search.png?v=100') no-repeat left 45%;
+		background: #fff url('img/search.png') no-repeat left 45%;
 		-webkit-border-top-right-radius: 0;
 		-moz-border-radius-topright: 0;
 		border-top-right-radius:0;
@@ -4771,7 +4689,7 @@ a.gigpress-links-toggle {
     text-indent: -9999px;
     width: 11px;
     height: 11px;
-    background: transparent url(/img/calendar-toggle.png?v=100) no-repeat left top;
+    background: transparent url(/img/calendar-toggle.png) no-repeat left top;
     cursor: pointer;
 }
 
@@ -4794,7 +4712,7 @@ div.gigpress-calendar-links {
     top: -1.2em;
     width: 15em;
     padding-left: 7px;
-    background: transparent url('/img/calendar-links-bg.png?v=100') no-repeat left center;
+    background: transparent url('/img/calendar-links-bg.png') no-repeat left center;
 }
 
 .gigpress-calendar-links-inner {
@@ -4824,7 +4742,7 @@ p.gigpress-subscribe a {
 }
 
 a.gigpress-rss, a.gigpress-rss:hover {
-    background: transparent url(/img/feed-icon-12x12.png?v=100) no-repeat left center;
+    background: transparent url(/img/feed-icon-12x12.png) no-repeat left center;
 }
 
 a.gigpress-ical, a.gigpress-ical:hover {
@@ -4920,7 +4838,7 @@ p.flex-caption a { font-size: 18px;color: #ddd; border: none;}
 p.flex-caption a:hover {color: #fff; border: none;}
 /* Direction Nav */
 #content ul.flex-direction-nav { list-style: none; }
-.flex-direction-nav li a { border: none; width: 36px; height: 36px; margin: -18px 0 0; display: block; background: url(img/arrows-white.png?v=100) no-repeat 0 0; position: absolute; top: 50%; cursor: pointer; text-indent: -9999px; } /* set negative margin-top equal to half the height on the directional-nav for perfect vertical centering */
+.flex-direction-nav li a { border: none; width: 36px; height: 36px; margin: -18px 0 0; display: block; background: url(img/arrows-white.png) no-repeat 0 0; position: absolute; top: 50%; cursor: pointer; text-indent: -9999px; } /* set negative margin-top equal to half the height on the directional-nav for perfect vertical centering */
 .flex-direction-nav li a.next {background-position: -40px 0; right: -12px;}
 .flex-direction-nav li a.prev {background-position: 0 0; left: -12px;}
 .flex-direction-nav li a.next:hover {background-position: -40px -43px;}
@@ -4933,7 +4851,7 @@ p.flex-caption a:hover {color: #fff; border: none;}
 .flex-control-nav {width: 100%; position: absolute; bottom: -30px; text-align: center;}
 .flex-control-nav li {margin: 0 0 0 5px; display: inline-block; zoom: 1; *display: inline;}
 .flex-control-nav li:first-child {margin: 0;}
-.flex-control-nav li a { border: none; width: 13px; height: 13px; display: block; background: url(images/bg_control_nav.png?v=100) no-repeat 0 0; cursor: pointer; text-indent: -9999px;}
+.flex-control-nav li a { border: none; width: 13px; height: 13px; display: block; background: url(images/bg_control_nav.png) no-repeat 0 0; cursor: pointer; text-indent: -9999px;}
 .flex-control-nav li a:hover {background-position: 0 -13px;}
 .flex-control-nav li a.active {background-position: 0 -26px; cursor: default;}
 
@@ -4959,7 +4877,7 @@ p.flex-caption a:hover {color: #fff; border: none;}
   border-bottom: none;
   background-repeat: no-repeat;
   background-position: left top;
-  background-image: url('img/social-icons.png?v=100');
+  background-image: url('img/social-icons.png');
   margin: auto;
 }
 
