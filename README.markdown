@@ -4,9 +4,15 @@ Custom theme created for the Texas A&M AgriLife network.
 
 __Author__: Texas A&M AgriLife Communications
 
-__Version__: 2.3.6
+__Version__: 2.3.7
 
 ## Change Log
+
+### 2.3.7
+
+- Fix logo rendering in the header
+- Got 4H footer working again
+- Added label to search field for accessibility
 
 ### 2.3.6
 
@@ -113,7 +119,7 @@ __Version__: 2.3.6
 - Moved Jobs custom post type to plugin
 - Removed TVMDL Tests custom post type
 - County staff listing now used PHP-native SOAP
-- Makes proper use of [post formats][2] 
+- Makes proper use of [post formats][2]
 - Gave included widgets a good scrubbing
 - Advanced cruft removal
 
