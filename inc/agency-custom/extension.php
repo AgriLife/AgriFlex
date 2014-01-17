@@ -66,7 +66,6 @@ function agriflex_tce_logo() {
 	$html .= '<span class="top-level-hide">';
 	$html .= 'Cooperative Extension Program';
 	$html .= '</span>';
-	$html .= '<img src="' . get_stylesheet_directory_uri() . '/img/CEP-Logo-white.png" alt="Cooperative Extension Program" />';
 	$html .= '</a>';
 	$html .= '</li>';
 
