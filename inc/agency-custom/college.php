@@ -35,7 +35,6 @@ function agriflex_college_logo() {
   $html .= '<span class="top-level-hide">';
   $html .= 'Texas A&amp;M College of Agriculture and Life Sciences';
   $html .= '</span>';
-  $html .= '<img src="' . get_template_directory_uri() . '/img/college-branding.png" alt="Texas A&amp;M College Logo" />';
   $html .= '</a>';
   $html .= '</li>';
 
@@ -73,7 +72,7 @@ function college_about( $about ) {
 function college_links( $links ) {
 
   $html = '<h4>Departments</h4>';
-  $html .= '<a href="http://aglifesciences.tamu.edu/"><img src="' . get_template_directory_uri() . '/img/Agriculture_HQ.jpg?v=100" alt="Texas A and M Ag Life Sciences" /></a>	';
+  $html .= '<a href="http://aglifesciences.tamu.edu/"><img src="' . get_template_directory_uri() . '/img/Agriculture_HQ.jpg?v=100" alt="Texas A and M Ag Life Sciences" /></a>';
   $html .= '<ul>';
   $html .= '<li><a href="http://agecon.tamu.edu/">Agricultural Economics</a></li>';
   $html .= '<li><a href="http://alec.tamu.edu/">Agricultural Leadership, Education, and Communications</a></li>';

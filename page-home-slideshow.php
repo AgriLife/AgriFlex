@@ -11,48 +11,7 @@
 <div id="wrap">
   <div id="content" role="main">	
 
-    <?php 
-    $my_query = new WP_Query(
-                      array(
-                        'meta_key'  => 'feature-homepage',
-                        'meta_value'=> '1',
-                        'showposts' => '5',
-                        'post_type' => array( 'post', 'page' )
-                      ));
-    $count = 0;
-    ?>
-
-    <?php if ( $my_query->have_posts() ) : ?>
-
-      <div class="flex-container">
-        <div class="flexslider">
-          <ul class="slides">
-
-            <?php while ($my_query->have_posts()) : $my_query->the_post();
-            global $post;
-            $count++;
-            $feature_title = get_post_meta($post->ID,'feature-title',true);?>
-              <li class="feature-item-<?php echo $count;?> flex-slider-item">			
-                <a href="<?php the_permalink();?>">
-                  <?php the_post_thumbnail('featured-2');?>
-                </a>
-                <p class="flex-caption">
-                  <a href="<?php the_permalink();?>">
-                    <?php if($feature_title !== '') :
-                    echo $feature_title; 
-                    else :
-                      echo get_the_title(); 
-                    endif; ?>
-                  </a>
-                </p><!-- end .flex-caption -->
-              </li><!-- end .feature-item -->						
-            <?php endwhile;  wp_reset_query(); ?>
-
-          </ul>
-        </div><!-- .flexslider -->
-      </div><!-- .flex-container -->
-
-    <?php endif;?>	
+    <?php agriflex_home_slider(); ?>
 
     <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 

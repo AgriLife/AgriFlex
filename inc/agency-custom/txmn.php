@@ -44,11 +44,11 @@ function txmn_about( $about ) {
 
   $html = '<h4>About Us</h4>';
   $html .= '<a href="http://www.txmn.org/"><img src="' . get_template_directory_uri() . '/img/about_txmn.jpg?v=100" alt="link to txmn.org" /></a>';
-  $html .= '<p><a href="http://txmn.org/">Texas Master Naturalists</a> enjoy digging in the dirt and slogging through the mud while giving back to the community.</p>	';
+  $html .= '<p><a href="http://txmn.org/">Texas Master Naturalists</a> enjoy digging in the dirt and slogging through the mud while giving back to the community.</p>';
   $html .= '<ul>';
   $html .= '<li><a href="http://txmn.org/whats-a-master-naturalist/">What&apos;s a Master Naturalist?</a></li>';
-  $html .= '<li><a href="http://txmn.org/chapters/">Chapters</a></li>					';
-  $html .= '<li class="last"><a href="http://txmn.org/contact-us/">Contact Us</a></li>										';
+  $html .= '<li><a href="http://txmn.org/chapters/">Chapters</a></li>';
+  $html .= '<li class="last"><a href="http://txmn.org/contact-us/">Contact Us</a></li>';
   $html .= '</ul>	';
 
   return $html;
@@ -66,15 +66,15 @@ function txmn_about( $about ) {
 function txmn_links( $links ) {
 
   $html = '<h4>Popular Links</h4>';
-  $html .= '<a href="http://agrilifeextension.tamu.edu/"><img src="' . get_template_directory_uri() . '/img/agrilife_ext_logo.png?v=100" alt="Texas AgriLife Extension" /></a>	';
+  $html .= '<a href="http://agrilifeextension.tamu.edu/"><img src="' . get_template_directory_uri() . '/img/agrilife_ext_logo.png?v=100" alt="Texas AgriLife Extension" /></a>';
   $html .= '<ul>';
   $html .= '<li><a href="http://county-tx.tamu.edu/">County Extension Offices</a></li>';
   $html .= '<li><a href="http://agrilife.tamu.edu/locations-window/#centers">Research and Extension Centers</a></li>';
   $html .= '<li><a href="http://agdirectory.tamu.edu/">Contact Directory</a></li>';
-  $html .= '<li><a href="http://agrilife.org/today/contact-us/">Media Contacts</a></li>					';
-  $html .= '<li><a href="http://texas4-h.tamu.edu/">Texas 4-H and Youth Dev.</a></li>					';
+  $html .= '<li><a href="http://agrilife.org/today/contact-us/">Media Contacts</a></li>';
+  $html .= '<li><a href="http://texas4-h.tamu.edu/">Texas 4-H and Youth Dev.</a></li>';
   $html .= '<li><a href="http://agrilifeextension.tamu.edu/about/strategyimpact/index.php">Strategic Plans, Impacts and Roadmaps</a></li>';
-  $html .= '<li class="last"><a href="http://agrilifeextension.tamu.edu/careers/index.php">Employment Opportunities</a></li>										';
+  $html .= '<li class="last"><a href="http://agrilifeextension.tamu.edu/careers/index.php">Employment Opportunities</a></li>';
   $html .= '</ul>	';
 
   return $html;

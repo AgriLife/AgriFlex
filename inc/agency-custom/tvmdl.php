@@ -34,7 +34,6 @@ function agriflex_tvmdl_logo() {
   $html .= '<span class="top-level-hide">';
   $html .= 'Texas A&amp;M Veterinary Medical Diagnostics Laboratory';
   $html .= '</span>';
-  $html .= '<img src="' . get_template_directory_uri() . '/img/tvmdl-branding.png" alt="Texas A&amp;M Research Logo" />';
   $html .= '</a>';
   $html .= '</li>';
 
@@ -63,7 +62,7 @@ function tvmdl_about( $about ) {
 
   $html = '<h4>About</h4>';
   $html .= '<a href="http://www.youtube.com/watch?v=7Cdai78sCPw"><img src="' . get_template_directory_uri() . '/img/about_video_tvmdl.jpg?v=100" alt="link to TVMDL about video" /></a>';
-  $html .= '<p>The Texas A&amp;M Veterinary Medical Diagnostic Laboratory protects animal and human health through diagnostics. TVMDL has provided excellence in veterinary diagnostic services since 1967. TVMDL services veterinarians and citizens throughout Texas, the United States, and beyond.</p>	';
+  $html .= '<p>The Texas A&amp;M Veterinary Medical Diagnostic Laboratory protects animal and human health through diagnostics. TVMDL has provided excellence in veterinary diagnostic services since 1967. TVMDL services veterinarians and citizens throughout Texas, the United States, and beyond.</p>';
 
   return $html;
 
@@ -81,7 +80,7 @@ function tvmdl_about( $about ) {
 function tvmdl_links( $links ) {
 
   $html = '<h4>Testing Sections</h4>';
-  $html .= '<a href="http://agrilifeextension.tamu.edu/"><img src="' . get_template_directory_uri() . '/img/agrilife_tvmdl_logo.png?v=100" alt="TVMDL" /></a>	';
+  $html .= '<a href="http://agrilifeextension.tamu.edu/"><img src="' . get_template_directory_uri() . '/img/agrilife_tvmdl_logo.png?v=100" alt="TVMDL" /></a>';
   $html .= '<ul>';
   $html .= '<li><a href="http://tvmdl.tamu.edu/testing.php?dept=B">Bacteriology</a></li>';
   $html .= '<li><a href="http://tvmdl.tamu.edu/testing.php?dept=C">Clinical Pathology</a></li>';

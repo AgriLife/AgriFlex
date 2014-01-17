@@ -171,3 +171,23 @@ function agriflex_front_page_content() {
   }
 
 }
+
+/**
+ * Displays a Soliloquy slider if selected
+ *
+ * @since 2.3.6
+ * @return void
+ */
+function agriflex_home_slider() {
+
+    if ( function_exists( 'soliloquy_slider' ) ) {
+      $slider = get_field('college-home-slider');
+      $slider = soliloquy_slider( $slider->ID );
+    } else {
+      $slider = '';
+    }
+    printf( '<div class="home-slider">%s</div>',
+      $slider
+    );
+
+}

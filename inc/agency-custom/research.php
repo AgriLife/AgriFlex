@@ -30,7 +30,7 @@ function agriflex_res_logo() {
   $html .= '<span class="top-level-hide">';
   $html .= 'Texas A&amp;M AgriLife Research';
   $html .= '</span>';
-  $html .= '<img src="' . get_template_directory_uri() . '/img/research-branding.png" alt="Texas A&amp;M Research Logo" />';
+//  $html .= '<img src="' . get_template_directory_uri() . '/img/research-branding.png" alt="Texas A&amp;M Research Logo" />';
   $html .= '</a>';
   $html .= '</li>';
 

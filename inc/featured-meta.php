@@ -98,3 +98,67 @@ function agriflex_save_postdata( $post_id ) {
     ( $featured == 'on' ? 1 : 0 ) );
 } // agriflex_save_postdata
 add_action( 'save_post', 'agriflex_save_postdata' );
+
+/**
+ * Create the slider field on appropriate page templates
+ */
+if(function_exists("register_field_group"))
+{
+  register_field_group(array (
+    'id' => 'acf_slider',
+    'title' => 'Slider',
+    'fields' => array (
+      array (
+        'key' => 'field_528f9c5161764',
+        'label' => __('Slider'),
+        'name' => 'college-home-slider',
+        'type' => 'post_object',
+        'post_type' => array (
+          0 => 'soliloquy',
+        ),
+        'taxonomy' => array (
+          0 => 'all',
+        ),
+        'allow_null' => 0,
+        'multiple' => 0,
+      ),
+    ),
+    'location' => array (
+      array (
+        array (
+          'param' => 'page_template',
+          'operator' => '==',
+          'value' => 'page-home-fullwidth-slideshow.php',
+          'order_no' => 0,
+          'group_no' => 0,
+        ),
+      ),
+      array (
+        array (
+          'param' => 'page_template',
+          'operator' => '==',
+          'value' => 'page-home-slideshow-2.php',
+          'order_no' => 0,
+          'group_no' => 1,
+        ),
+      ),
+      array (
+        array (
+          'param' => 'page_template',
+          'operator' => '==',
+          'value' => 'page-home-slideshow.php',
+          'order_no' => 0,
+          'group_no' => 2,
+        ),
+      ),
+    ),
+    'options' => array (
+      'position' => 'acf_after_title',
+      'layout' => 'no_box',
+      'hide_on_screen' => array (
+      ),
+    ),
+    'menu_order' => 0,
+  ));
+}
+
