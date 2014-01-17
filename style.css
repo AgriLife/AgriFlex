@@ -488,22 +488,6 @@ body.extension.research #drop-section-nav #drop-nav ul:hover {
 	-webkit-transition: opacity .3s ease;
 	-moz-transition: opacity .3s ease;
 }
-body.research.extension #drop-section-nav #drop-nav ul li {
-	width: 20%;
-	margin-top: -9px;
-	margin-bottom: -8px;
-	-webkit-transition: margin .3s ease;
-	-moz-transition: margin .3s ease;
-}
-body.research.extension #drop-section-nav #drop-nav ul li:hover {
-}
-body.research.extension #drop-section-nav #drop-nav ul li a {
-	padding: 0;
-	margin-right: 0;
-}
-body.research.extension #drop-section-nav #drop-nav ul li a img {
-
-}
 
 #drop-section-nav #drop-nav ul li a[href*='ask'] {
 	position: relative;
@@ -537,22 +521,6 @@ body.research.extension #drop-section-nav #drop-nav ul li a img {
 	height: 38px;
 	width: 180px;
 	text-indent: -999em;
-}
-body.research.extension #drop-section-nav #drop-nav ul li a[href*='aglifesciences'] {
-	background: none;
-}
-
-
-#drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
-
-}
-
-#drop-section-nav #drop-nav ul li a[href*='research'] {
-
-}
-
-#drop-section-nav #drop-nav ul li a[href*='txforestservice'] {
-
 }
 
 #drop-section-nav #drop-nav ul li.align-right {
@@ -3525,18 +3493,6 @@ img#wpstats {
 		text-indent: -999em;
 	}
 
-	body.research.extension #drop-section-nav #drop-nav ul li a {
-		background: none;
-		opacity: 1;
-		-webkit-transition: opacity .3s ease;
-		-moz-transition: opacity .3s ease;
-		text-indent: 0;
-	}
-
-	body.research.extension #drop-section-nav #drop-nav ul li a span.top-level-hide {
-		display: none;
-	}
-
 	#drop-section-nav #drop-nav ul li a:hover,
 	body.tvmdlonly #drop-section-nav #drop-nav ul li a,
 	body.researchonly #drop-section-nav #drop-nav ul li a,
@@ -3551,14 +3507,10 @@ img#wpstats {
 
 	#drop-section-nav #drop-nav ul li a[href*='aglifesciences'] {
 		background-image: url('img/college-logo.png?v=100');
-		margin-top: 6px;
-		height: 36px;
-		opacity: .4;
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
 		background-image: url('img/tvmdl-logo.png?v=100');
-		width: 90px;
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='research'] {
@@ -3567,49 +3519,12 @@ img#wpstats {
 
 	#drop-section-nav #drop-nav ul li a[href*='txforestservice'] {
 		background-image: url('img/tfs-logo.png?v=100');
-		width: 109px;
+		/*width: 109px;*/
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='texas-sea'] {
 		background-image: url('img/seagrant.png?v=100');
-    width: 91px;
-	}
-
-	body.research.extension #drop-section-nav #drop-nav ul li a[href*='extension'] {
-		background-image: none;
-		margin-top: 0;
-		height: auto;
-		opacity: 1;
-	}
-
-	body.research.extension #drop-section-nav #drop-nav ul li a[href*='aglifesciences'] {
-		background-image: none;
-		margin-top: 0;
-		height: auto;
-		opacity: 1;
-	}
-
-	body.research.extension #drop-section-nav #drop-nav ul li a[href*='tvmdl'] {
-		background-image: none;
-		margin-top: 0;
-		height: auto;
-		opacity: 1;
-		width: 175px;
-	}
-
-	body.research.extension #drop-section-nav #drop-nav ul li a[href*='research'] {
-		background-image: none;
-		margin-top: 0;
-		height: auto;
-		opacity: 1;
-	}
-
-	body.research.extension #drop-section-nav #drop-nav ul li a[href*='txforestservice'] {
-		background-image: none;
-		margin-top: 0;
-		height: auto;
-		opacity: 1;
-		width: 175px;
+		/*width: 91px;*/
 	}
 
 	#drop-section-nav #drop-nav ul li.explore a {
