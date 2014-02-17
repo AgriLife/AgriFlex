@@ -81,7 +81,7 @@ function optionsframework_options() {
   );
 
   // Associative array of county IDs and names
-  $county_array = agriflex_county_listing(); 
+  $county_array = agriflex_county_listing();
 
 	$options = array();
 
@@ -293,6 +293,15 @@ function optionsframework_options() {
       'std'  => $migrate->get_default( 'g-analytics' ),
       'type' => 'text'
     );
+  } else {
+	  $options[] = array(
+		  'name' => __( 'Google Analytics (admin only)', 'options_framework_theme' ),
+		  'desc' => __( 'Ex. UA-XXXXX-2', 'options_framework_theme' ),
+		  'id'   => 'g-analytics-admin',
+		  'std'  => $migrate->get_default( 'g-analytics' ),
+		  'type' => 'text',
+		  'class' => 'hidden',
+	  );
   }
 
   $options[] = array(
