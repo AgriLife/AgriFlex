@@ -1,3 +1,6 @@
 {
-	"servers" : [ "agrilife", "coals", "counties", "txmg", "txmn" ]
+	"servers" : [ "agrilife", "coals", "counties", "txmg", "txmn" ],
+	"composer" : false,
+	"bower" : false,
+	"grunt" : false
 }
