@@ -48,7 +48,7 @@ function agriflex_after_footer() {
 /**
  * Determines which agency the site belongs to and builds
  * the required footer.
- * 
+ *
  * @since AgriFlex 2.0
  */
 function agriflex_show_footer() {
@@ -198,8 +198,7 @@ function agriflex_contact_footer() {
     $mapaddress .= $options['p-street-2'] . ' ';
     $mapaddress .= $options['p-city'] . ', TX ';
     $mapaddress .= $options['p-zip'];
-    // Checks to see if there's a map image override
-    $map_image = agriflex_get_map( $mapaddress );
+
     // Checks to see if there's a map link override
     $map_link = ( $options['map-link'] == '' ? 'http://maps.google.com/?q=' . urlencode( $mapaddress ) . '&amp;markers=size:mid%7Ccolor:blue%7Clabel:Office&amp;sensor=false' : $options['map-link'] );
 
