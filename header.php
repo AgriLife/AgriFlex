@@ -7,7 +7,7 @@
  * @package AgriFlex
  * @since AgriFlex 1.0
  */
- 
+
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>
@@ -68,5 +68,6 @@
   <!-- Action hook for placing content below the site header -->
   <?php agriflex_after_header(); ?>
 
-  <div id="content-wrap" role="document">		
-          <div class="wrap">	
+  <div id="content-wrap" role="document">
+          <div class="wrap">
+			  <?php agriflex_content_wrap(); ?>

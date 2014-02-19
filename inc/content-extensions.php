@@ -5,7 +5,11 @@
  * @package AgriFlex
  */
 
+function agriflex_content_wrap() {
 
+	do_action( 'agriflex_content_wrap' );
+
+}
 /**
  * Register action hook: agriflex_before_loop
  *
