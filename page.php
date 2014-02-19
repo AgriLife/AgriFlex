@@ -17,9 +17,6 @@
 <div id="wrap">
   <div id="content" role="main">
 
-    <?php if ( function_exists('yoast_breadcrumb') ) {
-      yoast_breadcrumb('<div id="breadcrumbs">','</div>');
-    } ?>
 
     <!-- Action hook to insert content before the loop starts -->
     <?php agriflex_before_loop(); ?>
@@ -29,9 +26,9 @@
     <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
       <?php if ( is_front_page() ) { ?>
       <h2 class="entry-title"><?php the_title(); ?></h2>
-      <?php } else { ?>	
+      <?php } else { ?>
       <h1 class="entry-title"><?php the_title(); ?></h1>
-      <?php } ?>				
+      <?php } ?>
 
       <div class="entry-content">
 
