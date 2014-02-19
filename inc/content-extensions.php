@@ -5,7 +5,11 @@
  * @package AgriFlex
  */
 
+function agriflex_content_wrap() {
 
+	do_action( 'agriflex_content_wrap' );
+
+}
 /**
  * Register action hook: agriflex_before_loop
  *
@@ -33,3 +37,12 @@ function agriflex_after_loop() {
   do_action( 'agriflex_after_loop' );
 
 } // agriflex_after_loop
+
+add_action( 'agriflex_before_loop', 'agriflex_do_breadcrumbs' );
+function agriflex_do_breadcrumbs() {
+
+	if ( function_exists('yoast_breadcrumb') ) {
+		yoast_breadcrumb('<div id="breadcrumbs">','</div>');
+	}
+
+}
