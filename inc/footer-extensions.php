@@ -291,7 +291,7 @@ function agriflex_remove_footer_actions() {
   $min = of_get_option( 'minimal-footer' );
   $a = agriflex_agency();
 
-  if ( $min || in_array('fazd', $a['agencies'] ) ) {
+  if ( $min ) {
     remove_action( 'agriflex_footer', 'agriflex_show_footer' );
     add_action( 'agriflex_footer', 'agriflex_minimal_footer' );
   }

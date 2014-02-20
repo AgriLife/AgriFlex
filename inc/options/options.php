@@ -55,7 +55,6 @@ function optionsframework_options() {
     'extension' => 'Extension',
     'college'   => 'College',
     'tvmdl'     => 'TVMDL',
-    'fazd'      => 'FAZD',
     'tfs'       => 'TFS',
   );
 
@@ -65,7 +64,6 @@ function optionsframework_options() {
     'extension' => $migrate->get_default( 'extension' ),
     'college'   => $migrate->get_default( 'college' ),
     'tvmdl'     => $migrate->get_default( 'tvmdl' ),
-    'fazd'       => $migrate->get_default( 'fazd' ),
     'tfs'       => 0,
   );
 

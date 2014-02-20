@@ -109,7 +109,7 @@ function agriflex_remove_header_actions() {
   $min = of_get_option( 'minimal-header' );
   $a = agriflex_agency();
 
-  if ( $min || in_array( 'fazd', $a['agencies'] ) ) {
+  if ( $min ) {
     remove_all_actions( 'agriflex_before_header' );
     add_action( 'agriflex_before_header', 'agriflex_agency_nav_begin', 1 );
     add_action( 'agriflex_before_header', 'agriflex_minimal_header', 10 );
