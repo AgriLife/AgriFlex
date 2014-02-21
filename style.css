@@ -4794,6 +4794,24 @@ abbr {
 }
 
 
+
+/*===========================
+The Events Calendar
+---------------------------------------------------------------------------*/
+
+.tribe-events-adv-list-widget ol li.hentry {
+    padding: 0;
+    margin-bottom: 1.5em;
+}
+body.extensiononly a.tribe-events-ical {
+    color: white;
+}
+body.extensiononly a.tribe-events-ical:hover {
+    background-color: #002838;
+}
+
+
+
 /*
  * jQuery FlexSlider v1.6
  * http://flex.madebymufffin.com
