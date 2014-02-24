@@ -184,7 +184,7 @@ function agriflex_home_slider() {
 				$slider .= '</a>';
 
 				$slider .= '<p class="flex-caption">';
-				$slider .= '<a href="<?php the_permalink(); ?>">';
+				$slider .= '<a href="' . get_permalink( $post->ID ) . '">';
 				if ( $feature_title !== '' ) :
 					$slider .= $feature_title;
 				else :
