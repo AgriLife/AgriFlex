@@ -17,6 +17,8 @@
 		<div id="wrap" class="one-column">
 			<div id="content" role="main">
 
+				<?php agriflex_before_loop(); ?>
+
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
 				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
