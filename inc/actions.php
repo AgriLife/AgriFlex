@@ -109,7 +109,7 @@ function typekit_js() {
   }
 
   if( !is_admin() ) : ?>
-    <script type="text/javascript" src="http://use.typekit.com/<?php echo $key ?>.js"></script>
+    <script type="text/javascript" src="//use.typekit.com/<?php echo $key ?>.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <style type="text/css">
       .wf-loading #site-title,

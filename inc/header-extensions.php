@@ -79,7 +79,7 @@ add_action( 'agriflex_head', 'agriflex_return_map', 10 );
  */
 function agriflex_favicon() {
 
-  echo '<link rel="shortcut icon" href="http://agrilifecdn.tamu.edu/wp-content/themes/agrilife-2.0/favicon.ico" type="image/ico" />';
+  echo '<link rel="shortcut icon" href="//agrilifecdn.tamu.edu/wp-content/themes/agrilife-2.0/favicon.ico" type="image/ico" />';
 
 }
 add_action( 'agriflex_head', 'agriflex_favicon', 5 );
