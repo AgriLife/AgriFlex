@@ -4943,3 +4943,9 @@ a.rss:hover {
 .tribe-events-adv-list-widget h4 {
 	margin-bottom: 2px;
 }
+
+/* Github Gists
+******************************/
+.gist-data .line-data {
+	background: #000;
+}
