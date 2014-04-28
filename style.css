@@ -4842,27 +4842,11 @@ body.page-template-page-home-slideshow-2-php .flex-container {max-width: 585px; 
  */
 .no-js .slides > li:first-child {display: block;}
 
-
-/* FlexSlider
+/* Soliloquy
 *********************************/
-.flexslider {background: transparent; position: relative;}
-.flexslider .slides > li {position: relative;}
-/* Suggested container for "Slide" animation setups. Can replace this with your own, if you wish */
-.flex-container {zoom: 1; position: relative; padding: 6px; background: #F0EEE3; background: rgba(255, 255, 255, .55);  margin-bottom: 50px; box-shadow: 0 0 5px rgba(10,10,10,.3); border-radius: 3px; border: #e3e1d5;}
-li.flex-slider-item { list-style-type: none; }
-/* Caption style */
-p.flex-caption {width: 96%; padding: 3% 2%; margin: 0; position: absolute; left: 0; bottom: 0; background: #000; background: rgba(0,0,0,.4); color: #fff; text-shadow: 0 -1px 0 rgba(0,0,0,.5); font-size: 14px; line-height: 18px;}
-p.flex-caption a { font-size: 18px;color: #ddd; border: none;}
-p.flex-caption a:hover {color: #fff; border: none;}
-/* Direction Nav */
-#content ul.flex-direction-nav { list-style: none; }
-.flex-direction-nav li a { border: none; width: 36px; height: 36px; margin: -18px 0 0; display: block; background: url(img/arrows-white.png) no-repeat 0 0; position: absolute; top: 50%; cursor: pointer; text-indent: -9999px; } /* set negative margin-top equal to half the height on the directional-nav for perfect vertical centering */
-.flex-direction-nav li a.next {background-position: -40px 0; right: -12px;}
-.flex-direction-nav li a.prev {background-position: 0 0; left: -12px;}
-.flex-direction-nav li a.next:hover {background-position: -40px -43px;}
-.flex-direction-nav li a.prev:hover {background-position: 0 -43px;}
-.flex-direction-nav li a.next:active {background-position: -40px -42px;}
-.flex-direction-nav li a.prev:active {background-position: 0 -42px;}
+.home .soliloquy-container {
+	margin-bottom: 1em;
+}
 
 /* Control Nav */
 #content ol.flex-control-nav { list-style: none; }
