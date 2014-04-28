@@ -6,6 +6,12 @@ __Author__: Texas A&M AgriLife Communications
 
 __Version__: 2.3.7
 
+## Theme Requirements
+
+* [Advanced Custom Fields]: http://www.advancedcustomfields.com
+* [Soliloquy]: http://soliloquywp.com
+
+
 ## Change Log
 
 ### 2.3.7
