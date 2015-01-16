@@ -1358,11 +1358,6 @@ body.home #content {
 	clear: left;
 	}
 
-body.home #content p:first-child {
-	font-size: 20px;
-	line-height: 28px;
-	}
-
 #home-middle h2, body.home .page .entry-title {
 	margin: 0 0 5px 0;
 	text-decoration: none;
