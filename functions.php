@@ -72,13 +72,6 @@ function load_js() {
     // deregister l10n js              
     wp_deregister_script( 'l10n' );    
 
-    // register jquery CDN                   
-    wp_deregister_script('jquery');
-    wp_register_script('jquery',
-      ("//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"),
-      false);         
-    wp_enqueue_script('jquery');
-
     // enqueue the custom jquery js
     wp_enqueue_script('modernizr',
       get_template_directory_uri() . '/js/modernizr-2.6.min.js',
