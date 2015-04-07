@@ -3516,8 +3516,10 @@ img#wpstats {
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='txforestservice'] {
-		background-image: url('img/tfs-logo.png');
+		background-image: url('img/tfs-logo2.png');
 		background-position-x: 40px;
+        background-position-y: -3px;
+        background-size: contain;
 	}
 
 	#drop-section-nav #drop-nav ul li a[href*='texas-sea'] {
