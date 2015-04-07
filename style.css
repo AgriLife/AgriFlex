@@ -583,6 +583,12 @@ body.collegeonly #drop-section-nav #drop-nav ul li a.college-explore-link:hover 
 	width: 204px;
 	margin-top: 0px;
 }
+.extension.extensionsg #drop-section-nav #drop-nav ul li a[href*='texas-sea'] {
+    background-image: url('img/seagrant.png');
+    background-size: contain;
+    text-indent: -9999px;
+    background-position-x: 53px;
+}
 
 .collegeonly #drop-section-nav #drop-nav ul li a[href*='aglifesciences'] {
 	background-image: url('img/college-logo.png');
@@ -3520,11 +3526,6 @@ img#wpstats {
 		background-position-x: 40px;
         background-position-y: -3px;
         background-size: contain;
-	}
-
-	#drop-section-nav #drop-nav ul li a[href*='texas-sea'] {
-		background-image: url('img/seagrant.png');
-		/*width: 91px;*/
 	}
 
 	#drop-section-nav #drop-nav ul li.explore a {

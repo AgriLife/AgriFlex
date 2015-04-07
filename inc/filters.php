@@ -51,7 +51,7 @@ function agriflex_class_names( $classes ) {
 		$classes[] .= 'tvmdlonly';
 	}
 
-	if ( in_array( 'extension', $a['agencies'] ) && $a['single'] ) {
+	if ( in_array( 'extension', $a['agencies'] ) && $a['single'] && ( $a['ext-type'] <> 'sg' ) ) {
 		$classes[] .= 'extensiononly';
 	}
 
