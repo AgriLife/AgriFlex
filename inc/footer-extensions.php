@@ -82,8 +82,8 @@ function agriflex_about_footer() {
   $about .= '<a href="http://www.youtube.com/watch?v=df_SGBF4LK4"><img src="' . get_template_directory_uri() . '/img/about_video_multi.jpg?v=100" alt="link to AgriLife Solutions Video" /></a>';
   $about .= '<p>Solutions for a Changing World</p>';
   $about .= '<ul>';
-  $about .= '<li><a href="http://agrilife.tamu.edu/vc/">Office of the Vice Chancellor</a></li>';
-  $about .= '<li><a href="http://agrilife.tamu.edu/about/index.php">Services</a></li>';
+  $about .= '<li><a href="http://agrilife.org/about/vice-chancellor/">Office of the Vice Chancellor</a></li>';
+  $about .= '<li><a href="http://agrilife.org/about/">Services</a></li>';
   $about .= '<li><a href="http://aglscomplex.tamu.edu/">Agriculture &amp; Life Sciences Complex</a></li>';
   $about .= '<li><a href="http://agrilife.org/agrilifecenter/">AgriLife Center</a></li>';
   $about .= '<li><a href="http://agrilifepeople.tamu.edu/">Employee Directory</a></li>';
@@ -153,18 +153,19 @@ function agriflex_required_footer() {
   $html .= apply_filters( 'required_links_logo', $link_logo );
 
   $html .= '<ul>';
-  $html .= '<li><a href="http://agrilife.org/vc/compact/">Compact with Texans</a></li>';
-  $html .= '<li><a href="http://agrilife.org/vc/privacy/">Privacy and Security</a></li>';
+  $html .= '<li><a href="http://agrilife.org/required-links/compact/">Compact with Texans</a></li>';
+  $html .= '<li><a href="http://agrilife.org/required-links/privacy/">Privacy and Security</a></li>';
   $html .= '<li><a href="http://itaccessibility.tamu.edu/">Accessibility Policy</a></li>';
-  $html .= '<li><a href="http://www.dir.texas.gov/pubs/retired/Pages/srrpub11-agencylink.aspx">State Link Policy</a></li>';
+  $html .= '<li><a href="http://publishingext.dir.texas.gov/portal/internal/resources/DocumentLibrary/State%20Website%20Linking%20and%20Privacy%20Policy.pdf">State Link Policy</a></li>';
   $html .= '<li><a href="http://www.tsl.state.tx.us/trail">Statewide Search</a></li>';
-  $html .= '<li><a href="http://aghr.tamu.edu/education-civil-rights.htm">Equal Opportunity for Educational Programs Statement</a></li>';
+  $html .= '<li><a href="http://agrilifeas.tamu.edu/hr/diversity/equal-opportunity-educational-programs/">Equal Opportunity for Educational Programs Statement</a></li>';
   $html .= '<li><a href="http://www.tamus.edu/veterans/">Veterans Benefits</a></li>';
   $html .= '<li><a href="http://fcs.tamu.edu/families/military_families/">Military Families</a></li>';
-  $html .= '<li><a href="https://secure.ethicspoint.com/domain/en/report_custom.asp?clientid=19681">Risk, Fraud &amp; Misconduct Hotline</a></li>';
+  $html .= '<li><a href="https://secure.ethicspoint.com/domain/media/en/gui/19681/">Risk, Fraud &amp; Misconduct Hotline</a></li>';
   $html .= '<li><a href="http://www.texashomelandsecurity.com/">Texas Homeland Security</a></li>';
   $html .= '<li><a href="http://veterans.portal.texas.gov/">Veteran&apos;s Portal</a></li>';
-  $html .= '<li class="last"><a href="http://agrilife.org/vc/orpi/">Open Records/Public Information</a></li>';
+  $html .= '<li><a href="http://www.tamus.edu/finance/treasury-services/legislative-reports-and-investment-disclosures/">Financial Disclosures</a></li>'; // Just for main agency sites
+  $html .= '<li class="last"><a href="http://agrilife.org/required-links/orpi/">Open Records/Public Information</a></li>';
   $html .= '</ul>';
   $html .= '</div><!-- .texas-a-m -->';
   $html .= '</div><!-- #texas-a-m -->';
@@ -308,22 +309,24 @@ add_action( 'init', 'agriflex_remove_footer_actions', 10 );
  */
 function agriflex_minimal_footer() {
 
-  $html = '<div class="fazd-footer">';
-  $html .= '<ul>';
-  $html .= '<li><a href="http://agrilife.org/vc/compact/">Compact with Texans</a></li>';
-  $html .= '<li><a href="http://agrilife.org/vc/privacy/">Privacy and Security</a></li>';
-  $html .= '<li><a href="http://itaccessibility.tamu.edu/">Accessibility Policy</a></li>';
-  $html .= '<li><a href="http://www.dir.texas.gov/pubs/srrpubs/pages/srrpub11-agencylink.aspx">State Link Policy</a></li>					';
-  $html .= '<li><a href="http://www.tsl.state.tx.us/trail">Statewide Search</a></li>					';
-  $html .= '<li><a href="http://aghr.tamu.edu/education-civil-rights.htm">Equal Opportunity for Educational Programs Statement</a></li>';
-  $html .= '<li><a href="http://www.tamus.edu/veterans/">Veterans Benefits</a></li>		';
-  $html .= '<li><a href="http://fcs.tamu.edu/families/military_families/">Military Families</a></li>';
-  $html .= '<li><a href="https://secure.ethicspoint.com/domain/en/report_custom.asp?clientid=19681">Risk, Fraud &amp; Misconduct Hotline</a></li>';
-  $html .= '<li><a href="http://www.texashomelandsecurity.com/">Texas Homeland Security</a></li>';
-  $html .= '<li class="last"><a href="http://agrilife.org/vc/orpi/">Open Records/Public Information</a></li>';
-  $html .= '</ul>		';
-  $html .= '</div><!-- .fazd-footer -->';
+    $html = '<div class="fazd-footer">';
+    $html .= '<ul>';
+    $html .= '<li><a href="http://agrilife.org/required-links/compact/">Compact with Texans</a></li>';
+    $html .= '<li><a href="http://agrilife.org/required-links/privacy/">Privacy and Security</a></li>';
+    $html .= '<li><a href="http://itaccessibility.tamu.edu/">Accessibility Policy</a></li>';
+    $html .= '<li><a href="http://publishingext.dir.texas.gov/portal/internal/resources/DocumentLibrary/State%20Website%20Linking%20and%20Privacy%20Policy.pdf">State Link Policy</a></li>';
+    $html .= '<li><a href="http://www.tsl.state.tx.us/trail">Statewide Search</a></li>';
+    $html .= '<li><a href="http://agrilifeas.tamu.edu/hr/diversity/equal-opportunity-educational-programs/">Equal Opportunity for Educational Programs Statement</a></li>';
+    $html .= '<li><a href="http://www.tamus.edu/veterans/">Veterans Benefits</a></li>';
+    $html .= '<li><a href="http://fcs.tamu.edu/families/military_families/">Military Families</a></li>';
+    $html .= '<li><a href="https://secure.ethicspoint.com/domain/media/en/gui/19681/">Risk, Fraud &amp; Misconduct Hotline</a></li>';
+    $html .= '<li><a href="http://www.texashomelandsecurity.com/">Texas Homeland Security</a></li>';
+    $html .= '<li><a href="http://veterans.portal.texas.gov/">Veteran&apos;s Portal</a></li>';
+    $html .= '<li><a href="http://www.tamus.edu/finance/treasury-services/legislative-reports-and-investment-disclosures/">Financial Disclosures</a></li>'; // Just for main agency sites
+    $html .= '<li class="last"><a href="http://agrilife.org/required-links/orpi/">Open Records/Public Information</a></li>';
+    $html .= '</ul>';
+    $html .= '</div><!-- .fazd-footer -->';
 
-  echo $html;
+    echo $html;
 
 } // agriflex_minimal_footer
