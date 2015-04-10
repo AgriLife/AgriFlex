@@ -1668,11 +1668,6 @@ body.home #breadcrumbs {
 	display: none;
 }
 
-.hentry {
-	margin-bottom: 3em;
-	padding-bottom: 3em;
-}
-
 body.home .hentry {
 	margin-bottom: 0;
 	padding-bottom: 0;
