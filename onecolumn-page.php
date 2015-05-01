@@ -30,6 +30,9 @@
 					</div><!-- .entry-content -->
         </div><!-- #post-<?php the_ID(); ?> -->
 
+        <!-- Action hook to insert content after the loop ends -->
+        <?php agriflex_after_loop(); ?>
+
 				<?php comments_template( '', true ); ?>
 
 <?php endwhile; ?>
