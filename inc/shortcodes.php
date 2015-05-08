@@ -244,14 +244,20 @@ function myLoop( $atts, $content = null ) {
 
 	<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
 
-	 <div class="featured-wrap" id="featured-wrapper-<?php echo $count;?>">
-			<h3 class="entry-title"><a href="<?php the_permalink();?>"><?php echo get_the_title(); ?></a></h3>
+	 <div class="featured-wrap" id="featured-wrapper-<?php echo $count;?>"><?php $isCollegeTheme = wp_get_theme()->get('Name') == 'College of Ag 2013';
+      if($isCollegeTheme){
+       printf( __( '<div class="entry-meta"><time class="entry-date" datetime="%1$s"><div class="college-day">%2$s</div><div class="college-month">%3$s</div></time></div><div class="entry-content">', 'agriflex' ),
+            esc_attr( get_the_date( 'c' ) ),
+            esc_html( get_the_date( 'j' ) ),
+            esc_html( get_the_date( 'M' ) )
+       );
+      } ?>
+      <h3 class="entry-title"><a href="<?php the_permalink();?>"><?php echo get_the_title(); ?></a></h3>
       <p>
-        <a class="feature-img-date" href="<?php the_permalink();?>">
-          <?php if ( get_post_type() == 'post' ) : ?>
+        <a class="feature-img-date feature-img-excerpt" href="<?php the_permalink();?>">
+          <?php if(!$isCollegeTheme && get_post_type() == 'post' ) : ?>
             <span class="date"><?php echo get_the_date( 'm/d' ); ?></span>
           <?php endif;
-
           if ( has_post_thumbnail() ) {
             the_post_thumbnail( 'featured-mediabox' ); 
           } else{
@@ -262,7 +268,9 @@ function myLoop( $atts, $content = null ) {
           ?>
       </a>
     </p>
-		<?php the_excerpt();?>
+    <?php the_excerpt();
+      if($isCollegeTheme) echo '</div>';
+    ?>
   </div><!-- end .featured-wrap -->
   <?php endwhile;  wp_reset_query; ?>	
 
