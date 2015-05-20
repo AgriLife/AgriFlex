@@ -101,9 +101,11 @@ function agriflex_agency() {
 	$active = array();
 
 	// Add the active agency slugs to the $active array
-	foreach ( $agencies as $k => $v ) {
-		if ( $v == 1 ) {
-			array_push( $active, $k );
+	if(is_array(of_get_option( 'agency-top' ))){
+		foreach ( $agencies as $k => $v ) {
+			if ( $v == 1 ) {
+				array_push( $active, $k );
+			}
 		}
 	}
 
