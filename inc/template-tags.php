@@ -40,6 +40,7 @@ function agriflex_content_nav( $nav_id ) {
     $nav_class = 'navigation post-navigation';
   ?>
   <nav role="navigation" id="<?php echo $nav_id; ?>" class="<?php echo $nav_class; ?>">
+    
     <h1 class="assistive-text screen-reader-text"><?php _e ( 'Post navigation', 'agriflex' ); ?></h1>
     <?php if ( is_single() ) : // navigation links for single posts ?>
 
@@ -53,7 +54,7 @@ function agriflex_content_nav( $nav_id ) {
         _x( '&rarr;', 'Newer posts', 'agriflex' ) . 
         '</span>' ); ?>
 
-    <?php elseif ( $wp_query->max_num_pages > 1 && ( is_archive() || is_search() ) ) : ?>
+    <?php elseif ( $wp_query->max_num_pages > 1 && ( is_main_query() || is_archive() || is_search() ) ) : ?>
 
       <?php if ( get_next_posts_link() ) : ?>
         <div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', '_s' ) ); ?></div>
