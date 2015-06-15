@@ -1076,7 +1076,8 @@ body.collegeonly #site-title a {
 	padding-right: 5%;
 }
 
-.js #branding .searchform {
+.js #branding .searchform,
+.js #access {
 	display: none;
 }
 
@@ -3191,7 +3192,8 @@ img#wpstats {
 
 @media all and (min-width: 840px) {
 
-	.js #branding .searchform {
+	.js #branding .searchform,
+	.js #access {
 		display: block;
 	}
 
