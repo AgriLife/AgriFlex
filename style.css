@@ -1325,7 +1325,7 @@ body.home #content {
 	background-position: center top;
 }
 
-.entry-title, body.home h3.widget-title a.rsswidget, body.home #content h3, body.home #content h4, #home-middle .home-middle-features h3 a {
+.entry-title, .display-posts-listing .display-posts-title, .display-posts-listing a.title, body.home h3.widget-title a.rsswidget, body.home #content h3, body.home #content h4, #home-middle .home-middle-features h3 a {
 	color: #a0915d;
 	font-family: ff-dagny-web-pro-1, ff-dagny-web-pro-2, 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
 	font-weight: 600;
@@ -1335,11 +1335,13 @@ body.home #content {
 }
 
 #home-middle .home-middle-features h3 a,
-#content h2.entry-title a {
+#content h2.entry-title a,
+#content .display-posts-listing a.title {
 	color: #ad995a;
 }
 
 body.collegeonly .entry-title,
+body.collegeonly .display-posts-listing a.title,
 body.collegeonly.home h3.widget-title a.rsswidget {
 	color: #a0915d;
 }
@@ -1364,7 +1366,7 @@ body.home #content {
 	clear: left;
 	}
 
-#home-middle h2, body.home .page .entry-title {
+#home-middle h2, body.home .page .entry-title, body.home .page .display-posts-listing a.title {
 	margin: 0 0 5px 0;
 	text-decoration: none;
 	}
@@ -1533,7 +1535,8 @@ body.home #home-middle .home-middle-features h3 {
 }
 
 body.home  #home-middle .home-middle-features h3 a,
-#content h2.entry-title a {
+#content h2.entry-title a,
+#content .display-posts-listing a.title {
 	text-decoration: none;
 }
 
@@ -1553,7 +1556,8 @@ body.home  #home-middle .rss-date {
 }
 
 .featured-wrap h3 a:hover,
-#content h2.entry-title a:hover {
+#content h2.entry-title a:hover,
+#content .display-posts-listing a.title:hover {
 	color: #a2904b;
 	border-bottom: 1px solid #a2904b;
 }
@@ -2486,7 +2490,8 @@ body.home.college #home-middle .agrilifetoday ul li span.rss-date {
 /* Events page
 -------------------------------------------------------------- */
 
-body.page h1.entry-title {
+body.page h1.entry-title,
+.display-posts-listing .display-posts-title {
 	margin-bottom: .8em;
 }
 
@@ -2995,7 +3000,8 @@ img#wpstats {
 	.entry-content {
 		font-size: 14pt;
 	}
-	.entry-title {
+	.entry-title,
+	.display-posts-listing a.title {
 		font-size: 21pt;
 	}
 	#access,
@@ -4947,4 +4953,69 @@ a.rss:hover {
 ******************************/
 .gist-data .line-data {
 	background: #000;
+}
+
+/* Display Post Lists Plugin
+******************************/
+ol.display-posts-listing,
+ul.display-posts-listing {
+	margin-left: 2.5em;
+}
+.display-posts-listing .display-posts-title {
+	font-size: 2em;
+}
+.display-posts-listing .listing-item {
+	clear: both;
+}
+ol.display-posts-listing .listing-item,
+ul.display-posts-listing .listing-item {
+	font-size: 20px;
+	padding-left: 16px;
+}
+.display-posts-listing .listing-item > * {
+	font-size: 16px;
+}
+.display-posts-listing .listing-item .image {
+	float: left;
+}
+.display-posts-listing .listing-item .image img {
+	margin: 5px 15px 5px 0;
+}
+.display-posts-listing .listing-item .date,
+.display-posts-listing .listing-item .author {
+	font-size: 16px;
+	font-style: italic;
+	font-weight: 600;
+	margin-top: 15px;
+	display: inline-block;
+}
+.display-posts-listing .listing-item .title,
+.display-posts-listing .listing-item .excerpt {
+	display: block;
+}
+.display-posts-listing .listing-item .title:after {
+	content: "\a";
+	white-space: pre;
+}
+.display-posts-listing .listing-item .title {
+	font-size: 1.75em; /*28px*/
+	display: inline;
+}
+ol.display-posts-listing .listing-item .title,
+ul.display-posts-listing .listing-item .title {
+	font-size: 1.4em; /*28px*/
+}
+.display-posts-listing .listing-item .excerpt-dash {
+	display: none;
+}
+.display-posts-listing .listing-item .excerpt {
+	font-size: 17px;
+	line-height: 1.5em;
+	margin-top: 25px;
+}
+.display-posts-listing .listing-item .excerpt .read-more a {
+	color: #00709E;
+}
+.display-posts-listing .listing-item .excerpt .read-more a:hover {
+	color: #002838;
 }
