@@ -812,17 +812,28 @@ function get_IT_code( $federalID ) {
  * @return string $return The HTML for the footer panel
  */
 function county_footer_contact() {
-
+  delete_transient( 'agriflex_county_footer' );
 	if ( false === ( $value = get_transient( 'agriflex_county_footer' ) ) ) {
 
 		$options = of_get_option();
 		
 		$countycode = (int) $options['county-name'];
 
-	  $countycode = get_IT_code( $countycode );             
+	  $countycode = get_IT_code( $countycode );
 		           
 		//Get a handle to the webservice
-		$wsdl = new soapclient( 'https://agrilifepeople.tamu.edu/agrilifepeopleAPI/v3.cfc?wsdl' );
+		$wsdl = new soapclient( 'https://agrilifepeople-api.tamu.edu/api/v4.cfc?wsdl', array(
+      'trace' => 1, 
+      'exception' => 0,
+      'encoding' => 'UTF-8',
+      'stream_context' => stream_context_create(array(
+        'ssl' => array(
+          'verify_peer' => false,
+          'verify_peer_name' => false,
+          'allow_self_signed' => false,
+        )
+      ))
+    ));
 		$hash = md5( AGRILIFE_API_KEY . 'getunits', true);
 		$base64 = base64_encode( $hash );	
 		if( is_object( $wsdl ) ){
@@ -904,7 +915,18 @@ function county_office_info() {
   $countycode = get_IT_code( $countycode );             
 	           
 	//Get a handle to the webservice
-	$wsdl = new soapclient( 'https://agrilifepeople.tamu.edu/agrilifepeopleAPI/v3.cfc?wsdl' );
+	$wsdl = new soapclient( "https://agrilifepeople-api.tamu.edu/api/v4.cfc?wsdl", array(
+    'trace' => 1, 
+    'exception' => 0,
+    'encoding' => 'UTF-8',
+    'stream_context' => stream_context_create(array(
+      'ssl' => array(
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => false,
+      )
+    ))
+  ));
 	
 	$hash = md5( AGRILIFE_API_KEY . 'getunits', true );
 	
@@ -1039,7 +1061,18 @@ function show_county_directory() {
   $countycode = get_IT_code( $countycode );             
 	           
 	//Get a handle to the webservice
-	$wsdl = new soapclient( 'https://agrilifepeople.tamu.edu/agrilifepeopleAPI/v3.cfc?wsdl' );
+	$wsdl = new soapclient( 'https://agrilifepeople-api.tamu.edu/api/v4.cfc?wsdl', array(
+    'trace' => 1, 
+    'exception' => 0,
+    'encoding' => 'UTF-8',
+    'stream_context' => stream_context_create(array(
+      'ssl' => array(
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => false,
+      )
+    ))
+  ));
   $hash = md5( AGRILIFE_API_KEY . 'getpersonnel', true );
 	$base64 = base64_encode( $hash );	
 
