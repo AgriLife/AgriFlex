@@ -183,18 +183,13 @@ add_action( 'footer_col_3', 'agriflex_required_footer', 10, 1 );
  */
 function agriflex_contact_footer() {
 
-  $options = of_get_option();
-  $a = agriflex_agency();
+    $options = of_get_option();
+    $a = agriflex_agency();
 
-  $html = '<div id="contact">';
-  $html .= '<div class="contact">';
-  $html .= '<h4>Contact</h4>';
+    $html = '<div id="contact">';
+    $html .= '<div class="contact">';
+    $html .= '<h4>Contact</h4>';
 
-  // Condition: Is county or TCE and a single agency
-  if ( ( $a['ext-type'] == 'county' || $a['ext-type'] == 'tce') &&
-    $a['single'] ) {
-    $html .= county_footer_contact();
-  } else {
     $mapaddress = $options['p-street-1'] . ' ';
     $mapaddress .= $options['p-street-2'] . ' ';
     $mapaddress .= $options['p-city'] . ', TX ';
@@ -250,12 +245,12 @@ function agriflex_contact_footer() {
 
     $html .= '</ul>';
 
-  }
 
-  $html .= '</div><!-- .contact -->';
-  $html .= '</div><!-- #contact -->';
 
-  echo $html;
+    $html .= '</div><!-- .contact -->';
+    $html .= '</div><!-- #contact -->';
+
+    echo $html;
 
 } // agriflex_contact_footer
 add_action( 'footer_col_4', 'agriflex_contact_footer', 10, 1 );
