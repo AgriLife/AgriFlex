@@ -812,7 +812,7 @@ function get_IT_code( $federalID ) {
  * @return string $return The HTML for the footer panel
  */
 function county_footer_contact() {
-  delete_transient( 'agriflex_county_footer' );
+  //delete_transient( 'agriflex_county_footer' );
 	if ( false === ( $value = get_transient( 'agriflex_county_footer' ) ) ) {
 
 		$options = of_get_option();
@@ -1058,81 +1058,116 @@ function show_county_directory() {
 	
 	$countycode = (int) $options['county-name'];
 
-  $countycode = get_IT_code( $countycode );             
-	           
-	//Get a handle to the webservice
-	$wsdl = new soapclient( 'https://agrilifepeople-api.tamu.edu/api/v4.cfc?wsdl', array(
-    'trace' => 1, 
-    'exception' => 0,
-    'encoding' => 'UTF-8',
-    'stream_context' => stream_context_create(array(
-      'ssl' => array(
-        'verify_peer' => false,
-        'verify_peer_name' => false,
-        'allow_self_signed' => false,
-      )
-    ))
-  ));
-  $hash = md5( AGRILIFE_API_KEY . 'getpersonnel', true );
-	$base64 = base64_encode( $hash );	
+    $countycode = get_IT_code( $countycode );
+    
+    $applicationID = 3;
+	$applicationKey = AGRILIFE_API_KEY;
+	$method = 'getPersonnel';
+	$location = "https://agrilifepeople-api.tamu.edu/api/v4.cfc?wsdl";
+	
+	$client = new SoapClient($location, array(
+			'trace' => 1, 
+			'exception' => 0,
+			'encoding' => 'UTF-8',
+			'ssl' => array(
+				'verify_peer' => false,
+				'allow_self_signed' => true,
+				'cafile' => null
+				)
+		));
+		
+		$arguments = array(
+			'SiteID' => $applicationID,
+			'ValidationKey' => base64_encode(md5($applicationID.$applicationKey.$method,true)),
+			'PersonnelIDs' => null,
+			'UnitIDs' => $countycode,
+			'PositionRoleIDs' => null,
+			'Specializations' => null,
+			'IncludeAffiliates' => null,
+			'ActiveOnly' => 1,
+			'PublicOnly' => 1,			
+		);
+		
+		try{
+			$results = $client->__call($method,$arguments);
 
-  if( is_object( $wsdl ) ){
+			if ($results['ResultCode'] == 200){
+				$dataObj = $results['ResultQuery']->enc_value;
+				//print_r($dataObj);
+				$aResults = associateAPI($dataObj);
+				
+				//print_r(showContacts($aResults));
+				
+        // Format returned code.
+        // $aResults = ;
 
-    $result = $wsdl->getPersonnel( 3, $base64, '', '', $countycode, '', true, true);
-
-    (int) $err = $result['ResultCode'];
-
-    if ( $err != 200 ) {
-      // Display the error
-      $return = '<h2>Error</h2><pre>' . $result['ResultMessages'] . '</pre>';
-    } else {
-      $job = array();
-      $item	= array();
-      $role	= array();
-      $i=0;
-      $j=0;
-
-      // Display the result					    
-      echo '<ul class="staff-listing-ul county-staff-list">';
-      $payload = $result['ResultQuery']->enc_value->data;
-      foreach ( $payload as $item ) {
-        echo '<li class="staff-listing-item">';
-        echo '<div class="role staff-container">';
-        echo '<hgroup class="staff-head">';
-        echo '<h2 class="staff-title" title="' . $item[5] . ' ' . $item[4] . '">' . $item[5] . " " . $item[4] . "</h2>";
-
-        // Pull All Job Titles, but
-        // Only pulling one (the last) phone/fax info for county offices
-        // since all office info is same for county employees
-        $job = $item[18]->data[0];
-        echo '<h3 class="staff-position">';
-        echo $job[2] . '</h3>';
-
-        foreach ( $job[25]->data as $role ) {
-          echo '<h4 class="staff-position">&bull; ' . $role[1] . '</h4>';
-        }	                    	
-        echo "</hgroup>";
-
-        echo '<div class="staff-contact-details">';
-        if( $job[7] <> '' )
-          echo '<p class="staff-phone tel">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $job[7] ) . '</p>';
-
-        if( $job[8] <> '' )
-          echo '<p class="staff-phone fax">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $job[8] ) . ' (fax)</p>';
-
-        if( $item[7] <> '' )
-          echo ' <p class="staff-email email"><a href="' . obfuscate( 'mailto:' ) . obfuscate( $item[7] ) . '">' . obfuscate( $item[7] ) . '</a></p>';
-
-        echo "</div>";
-        echo '</div>';
-        echo '</li>';
-        $i++;
-
-      }
-      echo '</ul>';
-
-    }
-
+				return $aResults;
+			}
+			else
+				return $results['ResultMessages'];
+				
+			
+		}
+		catch (\Exception $e) {			
+			return $e->getMessage();
+		}
+    
+		
    }
+   
+ 
+function associateAPI($apiResults) {
+	
+		if (is_object($apiResults)){
+			$aColumnList = $apiResults->columnList;
+			$aData = $apiResults->data;
+				
+		} else if (is_array($apiResults)) {
+			$aColumnList = $apiResults['columnList'];
+			$aData = $apiResults['data'];
+				
+		} else {
+			return false;
+		}
+	
+		$aReturn = array();
+		$currentRow = 0;
+		echo '<ul class="staff-listing-ul county-staff-list">';
 
-}
+		foreach ($aData as &$row){
+			$aRow = array();
+			echo '<li class="staff-listing-item">';
+			echo '<div class="role staff-container">';
+			echo '<hgroup class="staff-head">';
+			echo '<h2 class="staff-title" title="' . $row[5] . ' ' . $row[4] . '">' . $row[5] . " " . $row[4] . "</h2>";  
+				
+			$jobsObj = $row[21];
+
+      echo '<h3 class="staff-position">' . $jobsObj->data[0][4] . '</h3>';
+      
+			foreach ($jobsObj->data[0][22]->data as $key => $value){
+        echo '<h4 class="staff-position">• ' . $value[1] . '</h4>';
+      }
+			echo "</hgroup>";
+
+			echo '<div class="staff-contact-details">';
+			
+			if( $jobsObj->data[0][5] <> '' )
+			  echo '<p class="staff-phone tel">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $jobsObj->data[0][5] ) . '</p>';
+      if( $jobsObj->data[0][6] <> '' )
+        echo '<p class="staff-phone fax">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $jobsObj->data[0][6] ) . ' (fax)</p>';
+			if( $row[6] <> '' )
+			  echo ' <p class="staff-email email"><a href="' . obfuscate( 'mailto:' ) . obfuscate( $row[6] ) . '">' . obfuscate( $row[6] ) . '</a></p>';
+			echo "</div>";
+			
+			echo '</div>';
+			echo '</li>';
+	
+			$aReturn[$currentRow] = $aRow;
+			$currentRow++;
+		}
+		
+		echo '</ul>';
+	
+		return $aReturn;
+	}
