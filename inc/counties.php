@@ -962,84 +962,112 @@ function county_office_info() {
  */
 function show_county_directory() {
     $options = of_get_option();
-
     $countycode = (int) $options['county-name'];
-
     $countycode = get_IT_code( $countycode );
+    
+    $applicationID = 3;
+    $applicationKey = AGRILIFE_API_KEY;
+    $method = 'getPersonnel';
+    $location = "https://agrilifepeople-api.tamu.edu/api/v4.cfc?wsdl";
 
-    //Get a handle to the webservice
-    $wsdl = new soapclient( 'https://agrilifepeople-api.tamu.edu/api/v4.cfc?wsdl', array(
-        'trace' => 1,
+    $client = new SoapClient( $location, array(
+        'trace' => 1, 
         'exception' => 0,
         'encoding' => 'UTF-8',
-        'stream_context' => stream_context_create(array(
-            'ssl' => array(
-                'verify_peer' => false,
-                'verify_peer_name' => false,
-                'allow_self_signed' => false,
-            )
-        ))
-    ));
-    $hash = md5( '3' . AGRILIFE_API_KEY . 'getPersonnel', true );
-    $base64 = base64_encode( $hash );
+        'ssl' => array(
+            'verify_peer' => false,
+            'allow_self_signed' => true,
+            'cafile' => null
+        )
+    ) );
 
-    if( is_object( $wsdl ) ){
+    $arguments = array(
+        'SiteID' => $applicationID,
+        'ValidationKey' => base64_encode( md5( $applicationID.$applicationKey.$method,true ) ),
+        'PersonnelIDs' => null,
+        'UnitIDs' => $countycode,
+        'PositionRoleIDs' => null,
+        'Specializations' => null,
+        'IncludeAffiliates' => null,
+        'ActiveOnly' => 1,
+        'PublicOnly' => 1,          
+    );
 
-        $result = $wsdl->getPersonnel( 3, $base64, '', '', $countycode, '', true, true);
+    try {
+        $results = $client->__call($method,$arguments);
 
-        (int) $err = $result['ResultCode'];
+        if ($results['ResultCode'] == 200){
+            $dataObj = $results['ResultQuery']->enc_value;
+            $aResults = associateAPI($dataObj);
 
-        if ( $err != 200 ) {
-            // Display the error
-            $return = '<h2>Error</h2><pre>' . $result['ResultMessages'] . '</pre>';
+            // Format returned code.
+            return $aResults;
         } else {
-            $job = array();
-            $item	= array();
-            $role	= array();
-            $i=0;
-            $j=0;
-
-            // Display the result
-            echo '<ul class="staff-listing-ul county-staff-list">';
-            $payload = $result['ResultQuery']->enc_value->data;
-            foreach ( $payload as $item ) {
-                echo '<li class="staff-listing-item">';
-                echo '<div class="role staff-container">';
-                echo '<hgroup class="staff-head">';
-                echo '<h2 class="staff-title" title="' . $item[5] . ' ' . $item[4] . '">' . $item[5] . " " . $item[4] . "</h2>";
-
-                // Pull All Job Titles, but
-                // Only pulling one (the last) phone/fax info for county offices
-                // since all office info is same for county employees
-                $job = $item[21]->data[0];
-                echo '<h3 class="staff-position">';
-                echo $job[4] . '</h3>';
-
-                foreach ( $job[22]->data as $role ) {
-                    echo '<h4 class="staff-position">&bull; ' . $role[1] . '</h4>';
-                }
-                echo "</hgroup>";
-
-                echo '<div class="staff-contact-details">';
-                if( $job[5] <> '' )
-                    echo '<p class="staff-phone tel">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $job[5] ) . '</p>';
-
-                if( $job[6] <> '' )
-                    echo '<p class="staff-phone fax">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $job[6] ) . ' (fax)</p>';
-
-                if( $item[6] <> '' )
-                    echo ' <p class="staff-email email"><a href="' . obfuscate( 'mailto:' ) . obfuscate( $item[6] ) . '">' . obfuscate( $item[6] ) . '</a></p>';
-
-                echo "</div>";
-                echo '</div>';
-                echo '</li>';
-                $i++;
-
-            }
-            echo '</ul>';
-
+            return $results['ResultMessages'];
         }
-
+    } catch (\Exception $e) {
+        return $e->getMessage();
     }
 
+}
+
+
+function associateAPI($apiResults) {
+
+    if (is_object($apiResults)){
+        $aColumnList = $apiResults->columnList;
+        $aData = $apiResults->data;
+    } else if (is_array($apiResults)) {
+        $aColumnList = $apiResults['columnList'];
+        $aData = $apiResults['data'];
+    } else {
+        return false;
+    }
+
+    $aReturn = array();
+    $currentRow = 0;
+    echo '<ul class="staff-listing-ul county-staff-list">';
+
+    function compare_lastname($a, $b){
+        return strnatcmp($a[4], $b[4]);
+    }
+    usort($aData, 'compare_lastname');
+
+    foreach ($aData as &$row){
+        $aRow = array();
+        echo '<li class="staff-listing-item">';
+        echo '<div class="role staff-container">';
+        echo '<hgroup class="staff-head">';
+        echo '<h2 class="staff-title" title="' . $row[5] . ' ' . $row[4] . '">' . $row[5] . " " . $row[4] . "</h2>";  
+
+        $jobsObj = $row[21];
+
+        echo '<h3 class="staff-position">' . $jobsObj->data[0][4] . '</h3>';
+
+        foreach ($jobsObj->data[0][22]->data as $key => $value){
+            echo '<h4 class="staff-position">• ' . $value[1] . '</h4>';
+        }
+
+        echo "</hgroup>";
+
+        echo '<div class="staff-contact-details">';
+
+        if( $jobsObj->data[0][5] <> '' )
+            echo '<p class="staff-phone tel">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $jobsObj->data[0][5] ) . '</p>';
+        if( $jobsObj->data[0][6] <> '' )
+            echo '<p class="staff-phone fax">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $jobsObj->data[0][6] ) . ' (fax)</p>';
+        if( $row[6] <> '' )
+            echo ' <p class="staff-email email"><a href="' . obfuscate( 'mailto:' ) . obfuscate( $row[6] ) . '">' . obfuscate( $row[6] ) . '</a></p>';
+        echo "</div>";
+
+        echo '</div>';
+        echo '</li>';
+
+        $aReturn[$currentRow] = $aRow;
+        $currentRow++;
+    }
+
+    echo '</ul>';
+
+    return $aReturn;
 }
