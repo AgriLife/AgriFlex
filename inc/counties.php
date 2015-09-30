@@ -834,7 +834,7 @@ function county_footer_contact() {
                 )
             ))
         ));
-        $hash = md5( AGRILIFE_API_KEY . 'getunits', true);
+        $hash = md5( '3' . AGRILIFE_API_KEY . 'getUnits', true);
         $base64 = base64_encode( $hash );
         if( is_object( $wsdl ) ){
             $result = $wsdl->getUnits( 3, $base64, $countycode ,'', '', '', '', '' );
@@ -928,7 +928,7 @@ function county_office_info() {
         ))
     ));
 
-    $hash = md5( AGRILIFE_API_KEY . 'getunits', true );
+    $hash = md5( '3' . AGRILIFE_API_KEY . 'getUnits', true );
 
     $base64 = base64_encode( $hash );
 
@@ -994,55 +994,59 @@ function county_office_info() {
             $payload = $result['ResultQuery']->enc_value->data;
 
             foreach ( $payload as $item ) {
-                if( strlen( $item[19] )>5 ) {
-                    $zip = str_split( $item[19], 5 );
-                    $zip = $zip[0] . '-' . $zip[1];
+                if( strlen( $item[16] )>5 ) {
+                    $zip = str_split( $item[16], 5 );
+                    if(strpos($zip[1], '-') === false && $zip[1]<>''){
+                        $zip = $zip[0] . '-' . $zip[1];
+                    } else {
+                        $zip = $zip[0] . $zip[1];
+                    }
                 } else {
-                    $zip = $item[19];
+                    $zip = $item[16];
                 }
 
                 /* Show county contact info */
                 echo '<div class="vcard">';
-                echo '<p><a class="url fn org" href="' . $item[10] . '">' . $item[2] . '</a></p>';
+                echo '<p><a class="url fn org" href="' . $item[8] . '">' . $item[2] . '</a></p>';
 
-                if( $item[11]<>'' ) {
+                if( $item[9]<>'' ) {
                     echo '<p class="tel">';
                     echo '<span class="type">Office</span>: ';
-                    echo '<span class="value">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[11] ) . '</span>';
+                    echo '<span class="value">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[9] ) . '</span>';
                     echo '</p>';
                 }
-                if($item[12]<>'') {
+                if($item[10]<>'') {
                     echo '<p class="tel">';
                     echo '<span class="type">Fax</span>: ';
-                    echo '<span class="value">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[12] ) . '</span>';
+                    echo '<span class="value">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item[10] ) . '</span>';
                     echo '</p>';
                 }
 
                 echo "<div class=\"adr\">";
-                echo "<p class=\"street-address\">" . $item[14] . '<br />';
-                if($item[15]<>'')
-                    echo '<span class="extended-address">' . $item[15] . '</span><br />';
-                echo '<span class="locality">' . $item[17] . '</span>, ';
-                echo '<span class="region">' . $item[18] . '</span> ';
+                echo "<p class=\"street-address\">" . $item[12] . '<br />';
+                if($item[13]<>'')
+                    echo '<span class="extended-address">' . $item[13] . '</span><br />';
+                echo '<span class="locality">' . $item[14] . '</span>, ';
+                echo '<span class="region">' . $item[15] . '</span> ';
                 echo '<span class="postal-code">' . $zip . '</span>';
                 echo '<br /><span class="country-name"> U.S.A.</span></p>';
                 echo '</div>';
 
-                if( $item[20] <> '' ) {
-                    $mzip = str_split( $item[25], 5);
+                if( $item[17] <> '' ) {
+                    $mzip = str_split( $item[22], 5);
                     $mzip = $mzip[0] . '-' . $mzip[1];
                     echo "<div class=\"mailing adr\">";
-                    echo "<p class=\"mailing-address\">" . $item[20] . '<br />';
-                    if( $item[20] <> '' )
-                        echo '<span class="mailing-extended-address">' . $item[21] . '</span><br />';
-                    echo '<span class="mailing-locality">' . $item[23] . '</span>, ';
-                    echo '<span class="mailing-region">' . $item[24] . '</span> ';
+                    echo "<p class=\"mailing-address\">" . $item[17] . '<br />';
+                    if( $item[17] <> '' )
+                        echo '<span class="mailing-extended-address">' . $item[18] . '</span><br />';
+                    echo '<span class="mailing-locality">' . $item[20] . '</span>, ';
+                    echo '<span class="mailing-region">' . $item[21] . '</span> ';
                     echo '<span class="mailing-postal-code">' . $mzip . '</span>';
                     echo '<br /><span class="mailing-country-name"> U.S.A.</span></p>';
                     echo '</div>';
                 }
 
-                echo '<p><span class="email">' . obfuscate( $item[13] ) . '</span></p>';
+                echo '<p><span class="email">' . obfuscate( $item[11] ) . '</span></p>';
                 echo '</div> <!-- .vcard -->';
             }
         }
@@ -1073,7 +1077,7 @@ function show_county_directory() {
             )
         ))
     ));
-    $hash = md5( AGRILIFE_API_KEY . 'getpersonnel', true );
+    $hash = md5( '3' . AGRILIFE_API_KEY . 'getPersonnel', true );
     $base64 = base64_encode( $hash );
 
     if( is_object( $wsdl ) ){
@@ -1104,24 +1108,24 @@ function show_county_directory() {
                 // Pull All Job Titles, but
                 // Only pulling one (the last) phone/fax info for county offices
                 // since all office info is same for county employees
-                $job = $item[18]->data[0];
+                $job = $item[21]->data[0];
                 echo '<h3 class="staff-position">';
-                echo $job[2] . '</h3>';
+                echo $job[4] . '</h3>';
 
-                foreach ( $job[25]->data as $role ) {
+                foreach ( $job[22]->data as $role ) {
                     echo '<h4 class="staff-position">&bull; ' . $role[1] . '</h4>';
                 }
                 echo "</hgroup>";
 
                 echo '<div class="staff-contact-details">';
-                if( $job[7] <> '' )
-                    echo '<p class="staff-phone tel">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $job[7] ) . '</p>';
+                if( $job[5] <> '' )
+                    echo '<p class="staff-phone tel">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $job[5] ) . '</p>';
 
-                if( $job[8] <> '' )
-                    echo '<p class="staff-phone fax">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $job[8] ) . ' (fax)</p>';
+                if( $job[6] <> '' )
+                    echo '<p class="staff-phone fax">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $job[6] ) . ' (fax)</p>';
 
-                if( $item[7] <> '' )
-                    echo ' <p class="staff-email email"><a href="' . obfuscate( 'mailto:' ) . obfuscate( $item[7] ) . '">' . obfuscate( $item[7] ) . '</a></p>';
+                if( $item[6] <> '' )
+                    echo ' <p class="staff-email email"><a href="' . obfuscate( 'mailto:' ) . obfuscate( $item[6] ) . '">' . obfuscate( $item[6] ) . '</a></p>';
 
                 echo "</div>";
                 echo '</div>';
