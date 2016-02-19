@@ -835,6 +835,7 @@ function make_people_api_call( $method, $data ){
                 'limited_roles' => null,
                 'include_directory_profile' => 0,
                 'include_specializations' => 1,
+                'include_affiliated' => 0,
             ), $data );
             break;
 
@@ -987,6 +988,7 @@ function show_county_directory() {
         'person_active_status' => '1',
         'restrict_to_public_only' => 1,
         'limited_units' => $countycode,
+        'include_affiliated' => 1,
         'validation_key' => base64_encode( md5( $applicationID . AGRILIFE_API_KEY, true ) ),
     );
     $transientname = 'county_staff';
@@ -1038,8 +1040,10 @@ function associateAPI($aData) {
 
         echo '<h3 class="staff-position">' . $jobsObj[0]['position_title'] . '</h3>';
 
-        foreach ($jobsObj[0]['positions_roles'] as $key => $value){
-            echo '<h4 class="staff-position">• ' . $value['position_role_name'] . '</h4>';
+        if($jobsObj[0]['positions_roles']){
+            foreach ($jobsObj[0]['positions_roles'] as $key => $value){
+                echo '<h4 class="staff-position">• ' . $value['position_role_name'] . '</h4>';
+            }
         }
 
         echo "</hgroup>";
