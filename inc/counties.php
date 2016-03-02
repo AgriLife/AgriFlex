@@ -898,6 +898,7 @@ function county_office_info() {
     );
 
     $transientname = 'county_office';
+    
     $transient = get_transient( $transientname );
 
     if(!$transient){
@@ -992,7 +993,7 @@ function show_county_directory() {
         'validation_key' => base64_encode( md5( $applicationID . AGRILIFE_API_KEY, true ) ),
     );
     $transientname = 'county_staff';
-    
+
     $transient = get_transient( $transientname );
 
     try {
@@ -1034,7 +1035,7 @@ function associateAPI($aData) {
         echo '<li class="staff-listing-item">';
         echo '<div class="role staff-container">';
         echo '<hgroup class="staff-head">';
-        echo '<h2 class="staff-title" title="' . $row['first_name'] . ' ' . $row['last_name'] . '">' . $row['first_name'] . " " . $row['last_name'] . "</h2>";  
+        echo '<h2 class="staff-title" title="' . $row['preferred_name'] . ' ' . $row['last_name'] . '">' . $row['preferred_name'] . " " . $row['last_name'] . "</h2>";  
 
         $jobsObj = $row['positions'];
 
