@@ -159,7 +159,7 @@ function agriflex_mn_title( $link, $args ) {
 function extension_about( $about ) {
 
 	$html = '<h4>About</h4>';
-	$html .= '<a href="http://www.youtube.com/watch?v=q_UsLHl_YDQ"><img src="' . get_template_directory_uri() . '/img/about_video.jpg?v=100" alt="link to Extension about video" /></a>';
+	$html .= '<a href="https://www.youtube.com/watch?v=ur_MnrrbU0E"><img src="' . get_template_directory_uri() . '/img/about_video.jpg?v=100" alt="link to Extension about video" /></a>';
 	$html .= '<p>A unique education agency, the Texas A&amp;M AgriLife Extension Service teaches Texans wherever they live, extending research-based knowledge to benefit their families and communities.</p>';
 
 	return $html;
