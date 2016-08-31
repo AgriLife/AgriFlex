@@ -19,6 +19,9 @@
     $a = agriflex_agency();
 
     if ( ($a['ext-type'] == 'county' || $a['ext-type'] == 'tce' ) && $a['single'] ) :
+      ?>
+      <h1 class="entry-title"><?php the_title(); ?></h1>
+      <?php
       require_once (MY_THEME_FOLDER . '/inc/counties.php');
       // For County Extension Offices
       // This pulls from a managed staff database web service
@@ -26,8 +29,7 @@
       county_office_info(); ?>
 
 
-      <div id="post-<?php the_ID(); ?>">
-      <h1 class="entry-title"><?php the_title(); ?></h1>                   
+      <div id="post-<?php the_ID(); ?>">             
       <div class="entry-content">
       <?php the_content(); ?>
       </div><!-- .entry-content -->

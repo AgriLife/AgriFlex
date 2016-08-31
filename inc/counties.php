@@ -925,32 +925,40 @@ function county_office_info() {
 
             /* Show county contact info */
             echo '<div class="vcard">';
-            echo '<p><a class="url fn org" href="' . $item['website'] . '">' . $item['unit_name'] . '</a></p>';
+            echo '<div class="clear"><h3><a class="url fn org" href="' . $item['website'] . '">' . $item['unit_name'] . '</a></h3></div>';
+
+            echo '<div class="one-of-2">';
 
             if( $item['phone_number']<>'' ) {
-                echo '<p class="tel">';
+                echo '<div class="tel">';
                 echo '<span class="type">Office</span>: ';
                 echo '<span class="value">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item['phone_number'] ) . '</span>';
-                echo '</p>';
+                echo '</div>';
             }
             if($item['fax_number']<>'') {
-                echo '<p class="tel">';
+                echo '<div class="tel">';
                 echo '<span class="type">Fax</span>: ';
                 echo '<span class="value">' . preg_replace( "/^(\d{3})(\d{3})(\d{4})$/", "($1) $2-$3", $item['fax_number'] ) . '</span>';
-                echo '</p>';
+                echo '</div>';
             }
 
-            echo "<div class=\"adr\">";
-            echo "<p class=\"street-address\">" . $item['physical_address_1'] . '<br />';
+            echo '<br /><div class="email">';
+            echo '<span><a href="mailto:' . obfuscate( $item['email_address'] ) . '">' . obfuscate( $item['email_address'] ) . '</a></span>';
+            echo '</div><br />';
+
+            echo '</div>';
+
+            echo "<div class=\"adr two-of-2\">";
+            echo "<div class=\"street-address\">" . $item['physical_address_1'] . '<br />';
             if($item['physical_address_2']<>'')
                 echo '<span class="extended-address">' . $item['physical_address_2'] . '</span><br />';
             echo '<span class="locality">' . $item['physical_address_city'] . '</span>, ';
             echo '<span class="region">' . $item['physical_address_state'] . '</span> ';
             echo '<span class="postal-code">' . $zip . '</span>';
-            echo '<br /><span class="country-name"> U.S.A.</span></p>';
+            echo '<br /><span class="country-name"> U.S.A.</span></div>';
             echo '</div>';
 
-            if( $item[17] <> '' ) {
+            if( !empty($item['mailing_address_1']) ) {
                 $mzip = str_split( $item['mailing_address_postal_code'], 5);
                 $mzip = $mzip[0] . '-' . $mzip[1];
                 echo "<div class=\"mailing adr\">";
@@ -964,8 +972,8 @@ function county_office_info() {
                 echo '</div>';
             }
 
-            echo '<p><span class="email">' . obfuscate( $item['email_address'] ) . '</span></p>';
             echo '</div> <!-- .vcard -->';
+            echo '<div class="clear"></div>';
         }
     } else {
         $return = '<h2>Error</h2><pre>' . $err . '</pre>';
