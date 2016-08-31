@@ -948,7 +948,8 @@ function county_office_info() {
 
             echo '</div>';
 
-            echo "<div class=\"adr two-of-2\">";
+            echo '<div class="two-of-2">';
+            echo "<div class=\"adr\">";
             echo "<div class=\"street-address\">" . $item['physical_address_1'] . '<br />';
             if($item['physical_address_2']<>'')
                 echo '<span class="extended-address">' . $item['physical_address_2'] . '</span><br />';
@@ -960,17 +961,22 @@ function county_office_info() {
 
             if( !empty($item['mailing_address_1']) ) {
                 $mzip = str_split( $item['mailing_address_postal_code'], 5);
-                $mzip = $mzip[0] . '-' . $mzip[1];
+                $mzip = empty($mzip[1]) ? $mzip[0] : $mzip[0] . '-' . $mzip[1];
+                echo '<br />';
                 echo "<div class=\"mailing adr\">";
-                echo "<p class=\"mailing-address\">" . $item['mailing_address_1'] . '<br />';
+                echo "<div class=\"mailing-address\">";
+                echo '<span class="type">Mail</span>: <br />';
+                echo $item['mailing_address_1'] . '<br />';
                 if( $item['mailing_address_2'] <> '' )
                     echo '<span class="mailing-extended-address">' . $item['mailing_address_2'] . '</span><br />';
                 echo '<span class="mailing-locality">' . $item['mailing_address_city'] . '</span>, ';
                 echo '<span class="mailing-region">' . $item['mailing_address_state'] . '</span> ';
                 echo '<span class="mailing-postal-code">' . $mzip . '</span>';
-                echo '<br /><span class="mailing-country-name"> U.S.A.</span></p>';
+                echo '<br /><span class="mailing-country-name"> U.S.A.</span></div>';
                 echo '</div>';
             }
+
+            echo '</div>';
 
             echo '</div> <!-- .vcard -->';
             echo '<div class="clear"></div>';
