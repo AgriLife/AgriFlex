@@ -93,6 +93,21 @@ function load_js() {
     );
     wp_enqueue_script( 'fitvids' );
 
+    // enqueue typekit
+    $a = agriflex_agency();
+    switch ( $a['ext-type'] ) {
+      case 'mg' :
+        $key = 'vaf4fhz';
+        break;
+      case 'mn' :
+        $key = 'nqb0igu';
+        break;
+      default :
+        $key = 'thu0wyf';
+    }
+    wp_register_script( 'typekit', '//use.typekit.com/' . $key . '.js' );
+    wp_enqueue_script( 'typekit' );
+
   }             
 
 } // load_js

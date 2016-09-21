@@ -95,21 +95,7 @@ add_action('wp_head','agriflex_analytics_admin_code',0);
  */
 function typekit_js() {
 
-  $a = agriflex_agency();
-
-  switch ( $a['ext-type'] ) {
-    case 'mg' :
-      $key = 'vaf4fhz';
-      break;
-    case 'mn' :
-      $key = 'nqb0igu';
-      break;
-    default :
-      $key = 'thu0wyf';
-  }
-
   if( !is_admin() ) : ?>
-    <script type="text/javascript" src="//use.typekit.com/<?php echo $key ?>.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <style type="text/css">
       .wf-loading #site-title,
