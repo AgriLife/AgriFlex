@@ -79,7 +79,7 @@ add_action( 'agriflex_head', 'agriflex_return_map', 10 );
  */
 function agriflex_favicon() {
 
-  echo '<link rel="shortcut icon" href="' . get_stylesheet_directory_uri() . '/img/favicon.ico" type="image/ico" />';
+  echo '<link rel="shortcut icon" href="' . AF2_THEME_DIRURL . '/img/favicon.ico" type="image/ico" />';
 
 }
 add_action( 'agriflex_head', 'agriflex_favicon', 5 );
