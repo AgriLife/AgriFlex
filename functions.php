@@ -8,7 +8,6 @@
 define('MY_WORDPRESS_FOLDER',$_SERVER['DOCUMENT_ROOT']);
 define('MY_THEME_FOLDER',str_replace("\\",'/',dirname(__FILE__)));
 define('MY_THEME_PATH','/' . substr(MY_THEME_FOLDER,stripos(MY_THEME_FOLDER,'wp-content')));
-define( 'AF2_THEME_DIRURL', get_stylesheet_directory_uri() );
     
 /**
  * Set the content width based on the theme's design and stylesheet.
