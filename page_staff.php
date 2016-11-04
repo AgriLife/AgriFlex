@@ -65,7 +65,17 @@
 
         // The Loop
         while ($my_query->have_posts()) : $my_query->the_post();	
-          $my_meta = get_post_meta($post->ID,'_my_meta',TRUE);
+          $my_meta = get_post_meta($post->ID,'_my_meta');
+          if(empty($my_meta)){
+            $meta = get_post_meta( $post->ID );
+            $my_meta = array(
+              'firstname' => $meta['als_first-name'][0],
+              'lastname' => $meta['als_last-name'][0],
+              'position' => !empty($meta['als_position']) ? $meta['als_position'][0] : '',
+              'phone' => !empty($meta['als_phone']) ? $meta['als_phone'][0] : '',
+              'email' => !empty($meta['als_email']) ? $meta['als_email'][0] : ''
+            );
+          }
           ?>
 
           <li class="staff-listing-item">
@@ -79,11 +89,23 @@
               ?></a>
               <hgroup class="staff-head">
                 <h2 class="staff-title" title="<?php the_title(); ?>"><a href="<?php the_permalink(); ?>"><?php echo $my_meta['firstname'].' '.$my_meta['lastname']; ?></a></h2>
-                <h3 class="staff-position"><?php echo $my_meta['position']; ?></h3>
+                <?php
+                if (!empty($my_meta['position'])){
+                  ?><h3 class="staff-position"><?php echo $my_meta['position']; ?></h3><?php
+                }
+                ?>
               </hgroup>                                  
               <div class="staff-contact-details">
-                <p class="staff-phone tel"><?php echo $my_meta['phone']; ?></p>
-                <p class="staff-email email"><a href="mailto:<?php echo $my_meta['email']; ?>"><?php echo $my_meta['email']; ?></a></p>
+                <?php
+                if (!empty($my_meta['phone'])){
+                  ?><p class="staff-phone tel"><?php echo $my_meta['phone']; ?></p><?php
+                }
+                ?>
+                <?php
+                if (!empty($my_meta['email'])){
+                  ?><p class="staff-email email"><a href="mailto:<?php echo $my_meta['email']; ?>"><?php echo $my_meta['email']; ?></a></p><?php
+                }
+                ?>
               </div><!-- .staff-contact-details -->
             </div><!-- .role .staff-container -->
           </li>
