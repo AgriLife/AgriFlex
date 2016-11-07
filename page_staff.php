@@ -52,7 +52,7 @@
         </form>
       </div><!-- staff-search-form -->
 
-      <ul class="staff-listing-ul">
+      <ul class="people-listing-ul">
         <?php 
         $args = array(
         'post_type' => 'staff',
@@ -76,34 +76,36 @@
               'email' => !empty($meta['als_email']) ? $meta['als_email'][0] : ''
             );
           }
-          ?>
-
-          <li class="staff-listing-item">
-            <div class="role staff-container">
-              <a href="<?php the_permalink(); ?>" rel="bookmark">
-              <?php if ( has_post_thumbnail() ) {
-              the_post_thumbnail('staff_archive');
-              } else  {
-              echo '<img src="' . get_stylesheet_directory_uri() .'/images/AgriLife-default-staff-image.png?v=100" alt="AgriLife Logo" title="AgriLife" />';
-              }
-              ?></a>
-              <hgroup class="staff-head">
-                <h2 class="staff-title" title="<?php the_title(); ?>"><a href="<?php the_permalink(); ?>"><?php echo $my_meta['firstname'].' '.$my_meta['lastname']; ?></a></h2>
+          ?><li class="people-listing-item">
+            <div class="role people-container">
+              <div class="people-image">
+                <a href="<?php the_permalink(); ?>" rel="bookmark">
+                <?php if ( has_post_thumbnail() ) {
+                the_post_thumbnail('staff_archive');
+                } else  {
+                echo '<img src="' . get_stylesheet_directory_uri() .'/img/AgriLife-default-staff-image.png?v=100" alt="AgriLife Logo" title="AgriLife" />';
+                }
+                ?></a>
+              </div>
+              <div class="people-head">
+                <h3 class="people-name" title="<?php the_title(); ?>">
+                  <a href="<?php the_permalink(); ?>"><?php echo $my_meta['firstname'].' '.$my_meta['lastname']; ?></a>
+                </h3>
                 <?php
                 if (!empty($my_meta['position'])){
-                  ?><h3 class="staff-position"><?php echo $my_meta['position']; ?></h3><?php
+                  ?><h4 class="people-title"><?php echo $my_meta['position']; ?></h4><?php
                 }
                 ?>
-              </hgroup>                                  
-              <div class="staff-contact-details">
+              </div>
+              <div class="people-contact-details">
                 <?php
                 if (!empty($my_meta['phone'])){
-                  ?><p class="staff-phone tel"><?php echo $my_meta['phone']; ?></p><?php
+                  ?><p class="people-phone tel"><?php echo $my_meta['phone']; ?></p><?php
                 }
                 ?>
                 <?php
                 if (!empty($my_meta['email'])){
-                  ?><p class="staff-email email"><a href="mailto:<?php echo $my_meta['email']; ?>"><?php echo $my_meta['email']; ?></a></p><?php
+                  ?><p class="people-email email"><a href="mailto:<?php echo $my_meta['email']; ?>"><?php echo $my_meta['email']; ?></a></p><?php
                 }
                 ?>
               </div><!-- .staff-contact-details -->
