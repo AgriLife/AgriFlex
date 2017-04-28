@@ -4487,6 +4487,7 @@ table.ui-datepicker .ui-datepicker-title-row td {padding:.2em 0; text-align:cent
 table.ui-datepicker .ui-datepicker-title-row td a {color:#222; padding:.3em 0}
 .ui-datepicker-cover {display:none; display/**/:block; position:absolute; z-index:-1; filter:mask(); top:-4px; left:-4px; width:193px; height:200px}
 img.ui-datepicker-trigger {position:relative; top:3px; left:4px}
+.ui-datepicker-month {left:4em}
 
 /* tame those pesky hidden fields --------------------------------------------------------------------*/
 
