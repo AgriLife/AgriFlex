@@ -52,10 +52,10 @@ function research_about( $about ) {
   $html .= '<a href="http://youtu.be/zVNZ5Bw3H-U"><img src="' . get_template_directory_uri() . '/img/research-video-pic.jpg" alt="link to Texas A&amp;M Research about video" /></a>';
   $html .= '<p><a href="http://agriliferesearch.tamu.edu/">Texas A&amp;M AgriLife Research</a> is the state&apos;s premier research agency in agriculture, natural resources, and the life sciences. Our research spans numerous scientific disciplines and is international in scope.</p>';
   $html .= '<ul>';
-  $html .= '<li><a href="http://agriliferesearch.tamu.edu/research-units/">Research Units</a></li>';
+  $html .= '<li><a href="http://agriliferesearch.tamu.edu/research-centers/">Research Centers</a></li>';
   $html .= '<li><a href="http://agriliferesearch.tamu.edu/about/">About</a></li>';
-  $html .= '<li><a href="http://agriliferesearch.tamu.edu/resources/">Resources</a></li>';
-  $html .= '<li><a href="http://agriliferesearch.tamu.edu/careers/">Careers</a></li>																						 									';
+  $html .= '<li><a href="http://agriliferesearch.tamu.edu/resources-downloads/">Resources</a></li>';
+  $html .= '<li><a href="https://greatjobs.tamu.edu/">Careers</a></li>																						 									';
   $html .= '</ul>';
 
   return $html;
@@ -76,11 +76,16 @@ function research_links( $links ) {
   $html = '<h4>Research Topics</h4>';
   $html .= '<a href="http://agriliferesearch.tamu.edu/"><img src="' . get_template_directory_uri(). '/img/agrilife-research-footer-logo.png?v=100" alt="Texas A and M AgriLife Research Logo" /></a>	';
   $html .= '<ul>';
-  $html .= '<li><a href="http://agriliferesearch.tamu.edu/topics/animals/">Animals</a></li>';
-  $html .= '<li><a href="http://agriliferesearch.tamu.edu/topics/crops-plants/">Crops &amp; Plants</a></li>';
-  $html .= '<li><a href="http://agriliferesearch.tamu.edu/topics/natural-resources/">Environment &amp; Natural Resources</a></li>';
-  $html .= '<li><a href="http://agriliferesearch.tamu.edu/topics/health-and-food/">Health &amp; Food Science</a></li>';
-  $html .= '<li><a href="http://agriliferesearch.tamu.edu/topics/policy-and-economics/">Policy &amp; Economics</a></li>';
+  $html .= '<li><a href="http://agriliferesearch.tamu.edu/topic/water/">Water</a></li>';
+  $html .= '<li><a href="http://agriliferesearch.tamu.edu/topic/disease-prevention/">Disease prevention</a></li>';
+  $html .= '<li><a href="http://agriliferesearch.tamu.edu/topic/land-use/">Land use</a></li>';
+  $html .= '<li><a href="http://agriliferesearch.tamu.edu/topic/bioenergy/">Bioenergy</a></li>';
+  $html .= '<li><a href="http://agriliferesearch.tamu.edu/topic/sustainability/">Sustainability</a></li>';
+  $html .= '<li><a href="http://agriliferesearch.tamu.edu/topic/food-nutrition/">Food &amp; Nutrition</a></li>';
+  $html .= '<li><a href="http://agriliferesearch.tamu.edu/topic/insect-vectored-diseases/">Insect-vectored diseases</a></li>';
+  $html .= '<li><a href="http://agriliferesearch.tamu.edu/topic/new-crops/">New crops</a></li>';
+  $html .= '<li><a href="http://agriliferesearch.tamu.edu/topic/pests-invasive-plants/">Pests &amp; invasive plants</a></li>';
+  $html .= '<li><a href="http://agriliferesearch.tamu.edu/topic/livestock-plant-genetics/">Livestock &amp; plant genetics</a></li>';
   $html .= '</ul>';
 
   return $html;
