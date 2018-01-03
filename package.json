@@ -1,0 +1,23 @@
+{
+  "name": "agriflex2",
+  "version": "1.0.1",
+  "description": "Custom theme created for the Texas A&M AgriLife network.",
+  "main": "functions.php",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AgriLife/AgriFlex.git"
+  },
+  "engines": {
+    "node": "4.0.0"
+  },
+  "dependencies": {
+    "grunt": "~0.4.2"
+  },
+  "author": "Texas A&M AgriLife Communications",
+  "license": "GPL-2.0+",
+  "bugs": {
+    "url": "https://github.com/AgriLife/AgriFlex/issues"
+  },
+  "homepage": "https://github.com/AgriLife/AgriFlex#readme"
+}

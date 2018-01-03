@@ -1,0 +1,8 @@
+wp-config.php
+/*.*
+/wp-admin
+/wp-includes
+/wp-content/*.*
+/wp-content/plugins
+/wp-content/themes/*
+!/wp-content/themes/AgriFlex2

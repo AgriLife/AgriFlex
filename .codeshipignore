@@ -50,3 +50,6 @@ Thumbs.db
 LICENSE
 LICENSE-MIT
 .editorconfig
+package.json
+known-issues.json
+vipscan.json
