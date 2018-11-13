@@ -839,7 +839,7 @@ function make_people_api_call( $method, $data ){
             ), $data );
             break;
 
-        default: 
+        default:
             exit("$function is not defined in the switch statement");
     }
 
@@ -860,6 +860,7 @@ function make_people_api_call( $method, $data ){
 
         echo "<pre>Error occurred during curl exec.<br/>Additional info:<br/>";
         echo "Curl Response:<br/>";
+        unset($curl_response['url']);
         print_r($curl_response);
         echo "Info:<br/>";
         print_r($info);
@@ -898,7 +899,7 @@ function county_office_info() {
     );
 
     $transientname = 'county_office';
-    
+
     $transient = get_transient( $transientname );
 
     if(!$transient){
@@ -1049,7 +1050,7 @@ function associateAPI($aData) {
         echo '<li class="staff-listing-item">';
         echo '<div class="role staff-container">';
         echo '<hgroup class="staff-head">';
-        echo '<h2 class="staff-title" title="' . $row['preferred_name'] . ' ' . $row['last_name'] . '">' . $row['preferred_name'] . " " . $row['last_name'] . "</h2>";  
+        echo '<h2 class="staff-title" title="' . $row['preferred_name'] . ' ' . $row['last_name'] . '">' . $row['preferred_name'] . " " . $row['last_name'] . "</h2>";
 
         $jobsObj = $row['positions'];
 
