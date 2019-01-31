@@ -93,10 +93,10 @@ function obfuscate( $email ) {
  */
 function agriflex_agency() {
 
-    $agencies = array();
+	$agencies = array();
 	$agencies = of_get_option( 'agency-top' );
 	$ext_type = of_get_option( 'ext-type' );
-	$val      = array_count_values( $agencies );
+	$val      = is_array( $agencies ) ? array_count_values( $agencies ) : array();
 
 	$active = array();
 
