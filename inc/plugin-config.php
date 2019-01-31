@@ -38,6 +38,10 @@ add_action('wp_print_styles', 'remove_gravityforms_style');
 
 /* BEGIN Tiny MCE */
 /* Allow iframe content to 'stick' when toggling visual editor */
-add_filter('tiny_mce_before_init', create_function( '$a',
-'$a["extended_valid_elements"] = "iframe[id|class|title|style|align|frameborder|height|longdesc|marginheight|marginwidth|name|scrolling|src|width]"; return $a;') );
+add_filter('tiny_mce_before_init', 'af2_tiny_mce_atts');
+function af2_tiny_mce_atts( $a ){
+	$a["extended_valid_elements"] = "iframe[id|class|title|style|align|frameborder|height|longdesc|marginheight|marginwidth|name|scrolling|src|width]";
+
+	return $a;
+}
 /* END Tiny MCE */
