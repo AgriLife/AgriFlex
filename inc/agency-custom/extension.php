@@ -187,7 +187,7 @@ function extension_links( $links ) {
 	$html .= '<li><a href="http://today.agrilife.org/team/">Media Contacts</a></li>';
 	$html .= '<li><a href="http://texas4-h.tamu.edu/">Texas 4-H and Youth Dev.</a></li>';
 	$html .= '<li><a href="http://agrilife.org/agrilife-agencies/extension-home/">Strategic Plan and Impacts</a></li>';
-	$html .= '<li class="last"><a href="https://greatjobs.tamu.edu">Employment Opportunities</a></li>';
+	$html .= '<li class="last"><a href="https://agrilifeas.tamu.edu/hr/careers-employment/">Employment Opportunities</a></li>';
 	$html .= '</ul>';
 
 	return $html;

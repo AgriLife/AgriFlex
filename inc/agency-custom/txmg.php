@@ -56,7 +56,7 @@ function txmg_links( $links ) {
   $html .= '<li><a href="http://today.agrilife.org/team/">Media Contacts</a></li>';
   $html .= '<li><a href="http://texas4-h.tamu.edu/">Texas 4-H and Youth Dev.</a></li>';
   $html .= '<li><a href="http://agrilifeextension.tamu.edu/about/strategyimpact/index.php">Strategic Plans, Impacts and Roadmaps</a></li>';
-  $html .= '<li class="last"><a href="http://agrilifeextension.tamu.edu/careers/index.php">Employment Opportunities</a></li>';
+  $html .= '<li class="last"><a href="https://agrilifeas.tamu.edu/hr/careers-employment/">Employment Opportunities</a></li>';
   $html .= '</ul>';
 
   return $html;

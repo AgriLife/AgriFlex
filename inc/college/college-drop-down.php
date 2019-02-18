@@ -31,7 +31,7 @@
                 <li><a href="http://aglifesciences.tamu.edu/about-the-college/college-fact-sheet/">College Fact Sheet</a></li>
                 <li><a href="http://aglifesciences.tamu.edu/contact/">Contacts</a></li>					
                 <li><a href="http://aglifesciences.tamu.edu/news-and-events/">News &amp; Events</a></li>
-                <li><a href="http://aglifesciences.tamu.edu/careers/">Employment</a></li>
+                <li><a href="https://agrilifeas.tamu.edu/hr/careers-employment/">Employment</a></li>
               </ul>
             </li>
 
