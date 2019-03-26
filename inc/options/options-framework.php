@@ -28,7 +28,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 add_action('init', 'optionsframework_rolescheck' );
 
 function optionsframework_rolescheck () {
-	if ( current_user_can( 'edit_theme_options' ) ) {
+	if ( current_user_can( 'manage_sites' ) || ( ! is_multisite() && is_admin() ) ) {
 		// If the user can edit theme options, let the fun begin!
 		add_action( 'admin_menu', 'optionsframework_add_page');
 		add_action( 'admin_init', 'optionsframework_init' );
