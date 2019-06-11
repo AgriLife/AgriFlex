@@ -94,14 +94,14 @@ function obfuscate( $email ) {
 function agriflex_agency() {
 
 	$agencies = array();
-	$agencies = of_get_option( 'agency-top' );
-	$ext_type = of_get_option( 'ext-type' );
+	$agencies = defined( 'AGDATA_AGENCY' ) ? constant( 'AGDATA_AGENCY' ) : of_get_option( 'agency-top' );
+	$ext_type = defined( 'AGDATA_EXTTYPE' ) ? constant( 'AGDATA_EXTTYPE' ) : of_get_option( 'ext-type' );
 	$val      = is_array( $agencies ) ? array_count_values( $agencies ) : array();
 
 	$active = array();
 
 	// Add the active agency slugs to the $active array
-	if(is_array(of_get_option( 'agency-top' ))){
+	if ( is_array( $agencies ) ) {
 		foreach ( $agencies as $k => $v ) {
 			if ( $v == 1 ) {
 				array_push( $active, $k );

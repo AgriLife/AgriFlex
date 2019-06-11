@@ -161,7 +161,8 @@ add_action( 'agriflex_before_header', 'agriflex_agency_nav_begin', 1 );
  */
 function agriflex_tfs_logo() {
 
-  $agencies = of_get_option( 'agency-top' );
+  require_once 'helpers.php';
+  $agencies = agriflex_agency()['agencies'];
 
   if ( $agencies['tfs'] ) {
     $html = '<li class="top-agency tfs-item">';
