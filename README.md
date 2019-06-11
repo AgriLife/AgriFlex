@@ -11,6 +11,12 @@ __Version__: 2.3.7
 * [Advanced Custom Fields]: http://www.advancedcustomfields.com
 * [Soliloquy]: http://soliloquywp.com
 
+## Developer Notes
+Define AGDATA_AGENCY and AGDATA_EXTTYPE in wp-config.php to declare an install's agency types. Example:
+
+define( 'AGDATA_AGENCY', array('extension' => 1) );
+define( 'AGDATA_EXTTYPE', 'mn' );
+
 
 ## Change Log
 
