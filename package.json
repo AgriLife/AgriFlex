@@ -1,6 +1,6 @@
 {
   "name": "agriflex2",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Custom theme created for the Texas A&M AgriLife network.",
   "main": "functions.php",
   "scripts": {},

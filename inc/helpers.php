@@ -94,8 +94,10 @@ function obfuscate( $email ) {
 function agriflex_agency() {
 
 	$agencies = array();
-	$agencies = defined( 'AGDATA_AGENCY' ) ? constant( 'AGDATA_AGENCY' ) : of_get_option( 'agency-top' );
-	$ext_type = defined( 'AGDATA_EXTTYPE' ) ? constant( 'AGDATA_EXTTYPE' ) : of_get_option( 'ext-type' );
+	$agency_option = of_get_option( 'agency-top' );
+	$ext_option = of_get_option( 'ext-type' );
+	$agencies = is_array( $agency_option ) ? $agency_option : constant( 'AGDATA_AGENCY' );
+	$ext_type = is_string( $ext_option ) ? $ext_option : constant( 'AGDATA_EXTTYPE' );
 	$val      = is_array( $agencies ) ? array_count_values( $agencies ) : array();
 
 	$active = array();
