@@ -366,17 +366,17 @@ jQuery(document).ready(function($) {
         300  // the speed of the animation
     );
     
-    jQuery('.ext-link').live('click',function(){
+    jQuery('.ext-link').on('click', null, function(){
         jQuery('html, body').animate({scrollTop:0}, 'fast');
         dropSection.toggleReveal();
         return false;
     });
-    jQuery('.drop-section button[type="reset"]').live('click',function(){
+    jQuery('.drop-section').on('click', 'button[type="reset"]', function(){
         dropSection.toggleReveal();
         return false;
     });
 
-    jQuery('.drop-section form').live('submit',function(){
+    jQuery('.drop-section').on('submit', 'form', function(){
         var values = $(this).serialize();
         jQuery.post('',values,function(markup) {
             jQuery('#drop-section .contents').html(markup);
