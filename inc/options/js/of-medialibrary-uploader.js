@@ -17,16 +17,25 @@
 /*-----------------------------------------------------------------------------------*/
   
     removeFile: function () {
-     
-     $('.mlu_remove').live('click', function(event) { 
-        $(this).hide();
-        $(this).parents().parents().children('.upload').attr('value', '');
-        $(this).parents('.screenshot').slideUp();
-        $(this).parents('.screenshot').siblings('.of-background-properties').hide(); //remove background properties
-        return false;
-      });
-      
-      // Hide the delete button on the first row 
+     if ( typeof $('.mlu_remove').on !== 'undefined' ) {
+       $('.mlu_remove').on('click', function(event) {
+          $(this).hide();
+          $(this).parents().parents().children('.upload').attr('value', '');
+          $(this).parents('.screenshot').slideUp();
+          $(this).parents('.screenshot').siblings('.of-background-properties').hide(); //remove background properties
+          return false;
+        });
+     } else {
+       $('.mlu_remove').live('click', function(event) {
+          $(this).hide();
+          $(this).parents().parents().children('.upload').attr('value', '');
+          $(this).parents('.screenshot').slideUp();
+          $(this).parents('.screenshot').siblings('.of-background-properties').hide(); //remove background properties
+          return false;
+        });
+     }
+
+      // Hide the delete button on the first row
       $('a.delete-inline', "#option-1").hide();
       
     }, // End removeFile
@@ -68,23 +77,42 @@
 		formID,
 		btnContent = true,
 		tbframe_interval;
-		// On Click
-		$('input.upload_button').live("click", function () {
-        formfield = $(this).prev('input').attr('id');
-        formID = $(this).attr('rel');
-		
-		//Change "insert into post" to "Use this Button"
-		tbframe_interval = setInterval(function() {jQuery('#TB_iframeContent').contents().find('.savesend .button').val('Use This Image');}, 2000);
-        
-        // Display a custom title for each Thickbox popup.
-        var woo_title = '';
-        
-		if ( $(this).parents('.section').find('.heading') ) { woo_title = $(this).parents('.section').find('.heading').text(); } // End IF Statement
-        
-		tb_show( woo_title, 'media-upload.php?post_id='+formID+'&TB_iframe=1' );
-		return false;
-	});
-            
+  // On Click
+  if ( typeof $('input.upload_button').on !== 'undefined' ) {
+		$('input.upload_button').on("click", function () {
+      formfield = $(this).prev('input').attr('id');
+      formID = $(this).attr('rel');
+
+  		//Change "insert into post" to "Use this Button"
+  		tbframe_interval = setInterval(function() {jQuery('#TB_iframeContent').contents().find('.savesend .button').val('Use This Image');}, 2000);
+
+      // Display a custom title for each Thickbox popup.
+      var woo_title = '';
+
+  		if ( $(this).parents('.section').find('.heading') ) { woo_title = $(this).parents('.section').find('.heading').text(); } // End IF Statement
+
+  		tb_show( woo_title, 'media-upload.php?post_id='+formID+'&TB_iframe=1' );
+  		return false;
+  	});
+  } else {
+    $('input.upload_button').live("click", function () {
+      formfield = $(this).prev('input').attr('id');
+      formID = $(this).attr('rel');
+
+      //Change "insert into post" to "Use this Button"
+      tbframe_interval = setInterval(function() {jQuery('#TB_iframeContent').contents().find('.savesend .button').val('Use This Image');}, 2000);
+
+      // Display a custom title for each Thickbox popup.
+      var woo_title = '';
+
+      if ( $(this).parents('.section').find('.heading') ) { woo_title = $(this).parents('.section').find('.heading').text(); } // End IF Statement
+
+      tb_show( woo_title, 'media-upload.php?post_id='+formID+'&TB_iframe=1' );
+      return false;
+    });
+
+  }
+
 	window.original_send_to_editor = window.send_to_editor;
 	window.send_to_editor = function(html) {
         
