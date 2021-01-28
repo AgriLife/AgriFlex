@@ -149,6 +149,45 @@
 })(jQuery);
 
 /*!
+ * jQuery browser method.
+ */
+jQuery.uaMatch = function( ua ) {
+    ua = ua.toLowerCase();
+
+    var match = /(chrome)[ \/]([\w.]+)/.exec( ua ) ||
+        /(webkit)[ \/]([\w.]+)/.exec( ua ) ||
+        /(opera)(?:.*version|)[ \/]([\w.]+)/.exec( ua ) ||
+        /(msie)[\s?]([\w.]+)/.exec( ua ) ||
+        /(trident)(?:.*? rv:([\w.]+)|)/.exec( ua ) ||
+        ua.indexOf("compatible") < 0 && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec( ua ) ||
+        [];
+
+    return {
+        browser: match[ 1 ] || "",
+        version: match[ 2 ] || "0"
+    };
+};
+
+jq9_matched = jQuery.uaMatch( navigator.userAgent );
+//IE 11+ fix (Trident)
+jq9_matched.browser = jq9_matched.browser == 'trident' ? 'msie' : jq9_matched.browser;
+jq9_browser = {};
+
+if ( jq9_matched.browser ) {
+    jq9_browser[ jq9_matched.browser ] = true;
+    jq9_browser.version = jq9_matched.version;
+}
+
+// Chrome is Webkit, but Webkit is also Safari.
+if ( jq9_browser.chrome ) {
+    jq9_browser.webkit = true;
+} else if ( jq9_browser.webkit ) {
+    jq9_browser.safari = true;
+}
+
+jQuery.browser = jq9_browser;
+
+/*!
  * jQuery UI 1.8.9
  *
  * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
@@ -366,17 +405,17 @@ jQuery(document).ready(function($) {
         300  // the speed of the animation
     );
     
-    jQuery('.ext-link').live('click',function(){
+    jQuery('.ext-link').on('click', null, function(){
         jQuery('html, body').animate({scrollTop:0}, 'fast');
         dropSection.toggleReveal();
         return false;
     });
-    jQuery('.drop-section button[type="reset"]').live('click',function(){
+    jQuery('.drop-section').on('click', 'button[type="reset"]', function(){
         dropSection.toggleReveal();
         return false;
     });
 
-    jQuery('.drop-section form').live('submit',function(){
+    jQuery('.drop-section').on('submit', 'form', function(){
         var values = $(this).serialize();
         jQuery.post('',values,function(markup) {
             jQuery('#drop-section .contents').html(markup);

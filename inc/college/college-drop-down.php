@@ -19,7 +19,7 @@
                 <li><a href="http://aglifesciences.tamu.edu/about/administration/">Administration</a></li>
                 <li><a href="http://aglifesciences.tamu.edu/about/accomplishments/accomplishments-awards/">Achievements</a></li>
                 <li><a href="http://aglifesciences.tamu.edu/about-the-college/strategic-plan-2010-2015/">Strategic Planning</a></li>
-                <li><a href="http://agrilife.org/college100">College Centennial</a></li>					
+                <li><a href="http://agrilife.tamu.edu/college100">College Centennial</a></li>
               </ul>
             </li>
 

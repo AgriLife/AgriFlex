@@ -1,6 +1,6 @@
 			<div class="gform_wrapper">
 				<p class="ask-text">Ask us a Question</p>
-	            <form id='gform_1' action="http://agrilife.org" method="post" enctype='multipart/form-data' accept-charset="utf-8">
+	            <form id='gform_1' action="http://agrilife.tamu.edu" method="post" enctype='multipart/form-data' accept-charset="utf-8">
 	                <fieldset class="first">
 	                    <div class="container">
 	                        <input type="text" name="name" id="name" placeholder="Your Name" value="">
