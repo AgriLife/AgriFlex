@@ -1001,7 +1001,7 @@ function show_county_directory() {
     $method = 'people';
     $data = array(
         'site_id' => $applicationID,
-        'person_active_status' => '1',
+        'person_active_status' => '2,3',
         'restrict_to_public_only' => 1,
         'limited_units' => $countycode,
         'include_affiliated' => 1,
