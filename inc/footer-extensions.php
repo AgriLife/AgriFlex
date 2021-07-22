@@ -240,7 +240,7 @@ function agriflex_contact_footer() {
     }
 
     if ( ! empty( $options['fax'] ) ) {
-      $html .= '<li>' . $options['fax']. '</li>';
+      $html .= '<li>Fax: ' . $options['fax']. '</li>';
     }
 
     $html .= '</ul>';
