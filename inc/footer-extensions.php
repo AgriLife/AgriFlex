@@ -265,7 +265,7 @@ function agriflex_bookstore_footer() {
   $html = '<div id="agrilife-bookstore">';
   $html .= '<div class="agrilife-bookstore">';
   $html .= '<h4>AgriLife Bookstore</h4>';
-  $html .= '<a href="https://www.agrilifebookstore.org/">';
+  $html .= '<a href="https://agrilifelearn.tamu.edu/">';
   $html .= '<img src="' . get_template_directory_uri() . '/img/bookstore-books.png?v=100" alt="AgriLife Bookstore image" />';
   $html .= '</a>';
   $html .= '<p>AgriLife Extension&apos;s online Bookstore offers educational information and resources related to our many areas of expertise and programming; from agriculture, horticulture, and natural resources to nutrition, wellness for families and youth, and much more.</p>';
