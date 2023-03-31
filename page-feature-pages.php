@@ -57,7 +57,7 @@
           </p>
           <?php the_excerpt();?>
         </div><!-- end .featured-wrap -->
-      <?php endwhile;  wp_reset_query; ?>	
+      <?php endwhile;  wp_reset_query(); ?>	
         
       </div><!-- end .home-features -->		
 
