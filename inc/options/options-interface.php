@@ -380,7 +380,7 @@ function optionsframework_fields() {
 				$output .= '<h4 class="heading">' . esc_html( $value['name'] ) . '</h4>' . "\n";
 			}
 			if ( $value['desc'] ) {
-				$output .= apply_filters('of_sanitize_info', $value['desc'] ) . "\n";
+				$output .= isset($value['desc']) ? '<span class="of-metabox-desc">' . $value['desc'] . '</span>' : '';
 			}
 			$output .= '</div>' . "\n";
 			break;
