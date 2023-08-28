@@ -181,8 +181,8 @@ function extension_links( $links ) {
 	$html = '<h4>Popular Links</h4>';
 	$html .= '<a href="http://agrilifeextension.tamu.edu/"><img src="' . get_template_directory_uri() . '/img/agrilife_ext_logo.png?v=100" alt="Texas A&amp;M AgriLife Extension" /></a>	';
 	$html .= '<ul>';
-	$html .= '<li><a href="http://county-tx.tamu.edu/">County Extension Offices</a></li>';
-	$html .= '<li><a href="http://agrilife.tamu.edu/locations-window/#centers">Research and Extension Centers</a></li>';
+	$html .= '<li><a href="https://counties.agrilife.org/">County Extension Offices</a></li>';
+	$html .= '<li><a href="https://agriliferesearch.tamu.edu/research-capabilities/research-centers/">Research and Extension Centers</a></li>';
 	$html .= '<li><a href="https://agrilifepeople.tamu.edu/">Contact Directory</a></li>';
 	$html .= '<li><a href="http://agrilifetoday.tamu.edu/team/">Media Contacts</a></li>';
 	$html .= '<li><a href="http://texas4-h.tamu.edu/">Texas 4-H and Youth Dev.</a></li>';
