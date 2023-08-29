@@ -3,50 +3,36 @@ name: Automatic Release
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   release:
     runs-on: ubuntu-latest
 
     steps:
-    # Checkout the code
     - name: Checkout code
       uses: actions/checkout@v2
 
-    # Setup Node.js environment
-    - name: Setup Node.js
+    - name: Setup Node.js (v16)
       uses: actions/setup-node@v2
       with:
-        node-version: '14'
+        node-version: '16'
 
-    # Bump version number and create a tag
     - name: Bump version and push tag
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         npm version patch -m "Bump version to %s [skip ci]"
-        
-    # Update README.md
-    - name: Update README.md
-      run: |
-        echo "Latest Version: $(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]')" >> README.md
-        git add README.md
-        git commit -m "Update README.md with latest version [skip ci]"
+        git push --follow-tags
 
-    # Push changes and tags
-    - name: Push changes
-      run: |
-        git push
-        git push --tags
-
-    # Create GitHub release
     - name: Create GitHub Release
+      id: create_release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+        tag_name: ${{ github.ref_name }}
+        release_name: Release ${{ github.ref_name }}
         draft: false
         prerelease: false
+
