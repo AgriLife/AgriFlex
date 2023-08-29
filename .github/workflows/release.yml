@@ -26,7 +26,19 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         npm version patch -m "Bump version to %s [skip ci]"
-        git push --follow-tags
+        
+    # Update README.md
+    - name: Update README.md
+      run: |
+        echo "Latest Version: $(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]')" >> README.md
+        git add README.md
+        git commit -m "Update README.md with latest version [skip ci]"
+
+    # Push changes and tags
+    - name: Push changes
+      run: |
+        git push
+        git push --tags
 
     # Create GitHub release
     - name: Create GitHub Release
