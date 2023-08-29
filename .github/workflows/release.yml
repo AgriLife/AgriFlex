@@ -20,14 +20,18 @@ jobs:
 
     - name: Bump version and push tag
       run: |
-       git config --local user.email "action@github.com"
-       git config --local user.name "GitHub Action"
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
     
-       # Pull latest changes from remote
-       git pull origin main --rebase
+        # Fetch the latest changes from the remote repository
+        git fetch origin main
     
-       npm version patch -m "Bump version to %s [skip ci]"
-       git push --follow-tags
+        # Rebase your changes on top of the latest in main
+        git rebase origin/main
+    
+        npm version patch -m "Bump version to %s [skip ci]"
+        git push --follow-tags
+
 
     - name: Create GitHub Release
       id: create_release
