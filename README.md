@@ -137,4 +137,4 @@ __Version__: 2.3.7
 [1]:https://github.com/devinsays/options-framework-theme
 [2]:http://codex.wordpress.org/Post_Formats
 [3]:https://github.com/AgriLife/AgriFlex/wiki
-[4]:https://github.com/AgriLife/AgriLife-Social-Media
+[4]:https://github.com/AgriLife/AgriLife-Social-MediaLatest Version: 1.0.13
