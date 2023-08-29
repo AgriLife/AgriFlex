@@ -18,11 +18,24 @@ jobs:
       with:
         node-version: '16'
 
-    - name: Bump version and push tag
+    - name: Bump version and update README.md
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        npm version patch -m "Bump version to %s [skip ci]"
+        
+        # Bump the package version
+        NEW_VERSION=$(npm version patch -m "Bump version to %s [skip ci]")
+        
+        # Extract the commit message of the latest commit
+        COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
+        
+        # Update README.md with the new version and commit message
+        echo "Latest Version: $NEW_VERSION" >> README.md
+        echo "Latest Commit: $COMMIT_MESSAGE" >> README.md
+        
+        # Commit and push the changes
+        git add README.md
+        git commit -m "Update README.md with latest version and commit message [skip ci]"
         git push --follow-tags
 
     - name: Create GitHub Release
