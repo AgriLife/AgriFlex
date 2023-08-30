@@ -26,6 +26,9 @@ jobs:
         # Bump the package version
         NEW_VERSION=$(npm version patch -m "Bump version to %s [skip ci]")
         
+        # Make the new version available to subsequent steps
+        echo "NEW_VERSION=${NEW_VERSION}" >> $GITHUB_ENV
+        
         # Extract the commit message of the latest commit
         COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
         
