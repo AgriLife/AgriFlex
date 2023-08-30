@@ -4,7 +4,7 @@ Custom theme created for the Texas A&M AgriLife network.
 
 __Author__: Texas A&M AgriLife Communications
 
-__Version__: 2.3.7
+__Version__: v2.3.11
 
 ## Theme Requirements
 
@@ -13,6 +13,10 @@ __Version__: 2.3.7
 
 
 ## Change Log
+### v2.3.11
+
+- Bump version to 2.3.11 [skip ci]
+
 
 ### 2.3.7
 
