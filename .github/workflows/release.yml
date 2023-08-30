@@ -29,12 +29,12 @@ jobs:
         # Extract the commit message of the latest commit
         COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
         
-        # Update Change Log in README.md with the new version and commit message
-        echo -e "### $NEW_VERSION\n\n- $COMMIT_MESSAGE\n\n$(cat README.md)" > README.md
+        # Update the Version field in README.md
+        sed -i "s/__Version__:.*/__Version__: $NEW_VERSION/" README.md
 
-        # Update the Version in README.md
-        sed -i "s/Version: [0-9]\+\.[0-9]\+\.[0-9]\+/Version: $NEW_VERSION/" README.md
-
+        # Add new change log entry to README.md
+        awk -v version="$NEW_VERSION" -v message="$COMMIT_MESSAGE" '/## Change Log/{print; print "### " version "\n\n- " message "\n"; next}1' README.md > README.tmp && mv README.tmp README.md
+        
         # Commit and push the changes
         git add README.md
         git commit -m "Update README.md with latest version and change log [skip ci]"
