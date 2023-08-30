@@ -1,13 +1,12 @@
-name: Automatic Release
+name: Automatic README and Version Update
 
 on:
   push:
     branches:
       - main
-      - master
 
 jobs:
-  release:
+  update-readme:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,30 +26,17 @@ jobs:
         # Bump the package version
         NEW_VERSION=$(npm version patch -m "Bump version to %s [skip ci]")
         
-        # Make the new version available to subsequent steps
-        echo "NEW_VERSION=${NEW_VERSION}" >> $GITHUB_ENV
-        
         # Extract the commit message of the latest commit
         COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
         
-        # Update README.md with the new version and commit message
-        echo "Latest Version: $NEW_VERSION" >> README.md
-        echo "Latest Commit: $COMMIT_MESSAGE" >> README.md
-        
-        # Commit and push the changes
-        git add README.md package.json package-lock.json
-        git commit -m "Bump version to $NEW_VERSION and update README.md [skip ci]"
-        git push --follow-tags
+        # Update Change Log in README.md with the new version and commit message
+        echo -e "### $NEW_VERSION\n\n- $COMMIT_MESSAGE\n\n$(cat README.md)" > README.md
 
-    - name: Create GitHub Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ env.NEW_VERSION }}
-        release_name: Release ${{ env.NEW_VERSION }}
-        draft: false
-        prerelease: false
-      continue-on-error: true  # continue the workflow even if this step fails
+        # Update the Version in README.md
+        sed -i "s/Version: [0-9]\+\.[0-9]\+\.[0-9]\+/Version: $NEW_VERSION/" README.md
+
+        # Commit and push the changes
+        git add README.md
+        git commit -m "Update README.md with latest version and change log [skip ci]"
+        git push
 
