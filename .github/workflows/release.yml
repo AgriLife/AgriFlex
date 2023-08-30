@@ -3,7 +3,7 @@ name: Automatic README and Version Update
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   update-readme:
