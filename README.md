@@ -138,3 +138,5 @@ __Version__: 2.3.7
 [2]:http://codex.wordpress.org/Post_Formats
 [3]:https://github.com/AgriLife/AgriFlex/wiki
 [4]:https://github.com/AgriLife/AgriLife-Social-MediaLatest Version: 1.0.13
+Latest Version: v2.3.10
+Latest Commit: Bump version to 2.3.10 [skip ci]
