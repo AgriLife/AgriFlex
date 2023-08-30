@@ -34,8 +34,8 @@ jobs:
         echo "Latest Commit: $COMMIT_MESSAGE" >> README.md
         
         # Commit and push the changes
-        git add README.md
-        git commit -m "Update README.md with latest version and commit message [skip ci]"
+        git add README.md package.json package-lock.json
+        git commit -m "Bump version to $NEW_VERSION and update README.md [skip ci]"
         git push --follow-tags
 
     - name: Create GitHub Release
@@ -44,7 +44,9 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ github.ref_name }}
-        release_name: Release ${{ github.ref_name }}
+        tag_name: ${{ env.NEW_VERSION }}
+        release_name: Release ${{ env.NEW_VERSION }}
         draft: false
         prerelease: false
+      continue-on-error: true  # continue the workflow even if this step fails
+
